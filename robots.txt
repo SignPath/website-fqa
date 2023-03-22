@@ -3,4 +3,4 @@ Disallow: /contact-done
 Disallow: /sign-up-successful
 Disallow: /newsletter-subscribed
 
-Sitemap: https://staging.about.signpath.io/sitemap.xml
+Sitemap: https://about.fqa.test.signpath.io/sitemap.xml
