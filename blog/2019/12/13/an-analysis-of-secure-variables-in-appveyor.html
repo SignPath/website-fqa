@@ -1,0 +1,308 @@
+<!-- last_modified_at:  --><!DOCTYPE html>
+<html lang="en" data-appurl='https://fqa.test.signpath.io'>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="canonical" href='https://signpath.github.io/website-staging//blog/2019/12/13/an-analysis-of-secure-variables-in-appveyor.html' />
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+  <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
+  <title>A White Hat Story: Analysis of Secure Variables in AppVeyor | SignPath</title>
+  <meta property="og:title" content="A White Hat Story: Analysis of Secure Variables in AppVeyor | SignPath" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:description" content="SignPath.io - Automated, repeatable and secure code signing processes
+  in the cloud and on-premises" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//blog/2019/12/13/an-analysis-of-secure-variables-in-appveyor.html" />
+  <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
+  <meta name="description" content="SignPath.io - Automated, repeatable and secure code signing processes
+  in the cloud and on-premises"/>
+  <!-- End Jekyll SEO tag -->
+  <link rel='stylesheet' href='/assets/css/hint.min.css'>
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2022-01-10">
+  <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
+  <script src='/assets/index.js'></script>
+  <script src='/assets/js/main-bundle.js'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.png" sizes="192x192">
+  <link rel="apple-touch-icon-precomposed" href="/assets/favicon.png">
+  <meta name="msapplication-TileImage" content="/assets/favicon.png">
+</head>
+<body>
+  <header>
+    <div>
+      <a href='/'><img src='/assets/logo.svg' width="181" height="36" alt='SignPath'></a>
+      <nav>
+        <ul><li>
+              <a href='/product'> Product </a>
+              <ul><li> <a href='/product/features'> Features </a> </li><li> <a href='/product/editions'> Editions </a> </li><li class='separator' /><li> <a href='/product/devops'> For DevOps teams </a> </li><li> <a href='/product/infosec'> For InfoSec teams </a> </li><li> <a href='/product/open-source'> For Open Source projects </a> </li><li class='separator' /><li> <a href='/product/pkic-best-practices'> PKI Consortium best practices </a> </li></ul>
+            </li><li>
+              <a href='/code-signing'> Code Signing </a>
+              <ul><li> <a href='/code-signing/introduction'> Introduction </a> </li><li> <a href='/code-signing/theory'> Theory </a> </li><li> <a href='/code-signing/windows-platform'> Windows Platform </a> </li><li> <a href='/code-signing/test-certificates'> Managing Test Certificates </a> </li><li> <a href='/code-signing/private-keys'> Storage of Private Keys </a> </li><li> <a href='/code-signing/media-coverage'> Media Coverage </a> </li></ul>
+            </li><li>
+              <a href='/documentation'> Documentation </a>
+              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/docker-signing'> Signing Docker images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li></ul>
+            </li><li>
+              <a href='/about-us'> About us </a>
+              <ul><li> <a href='/company'> Company </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
+            </li><li class='login'><a class='btn btn-flat' href='https://fqa.test.signpath.io/Web/Home/Login'>Login</a>
+          <li class='login'><a href='https://fqa.test.signpath.io/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
+          </li>
+        </ul>
+        <a id='main-menu-toggle' href='#' onclick='document.querySelector("header > div > nav > ul").classList.toggle("open")'>
+          <div></div>
+          <div></div>
+          <div></div>
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main>
+
+<section class="bg-image font-white top-section" style='background-image:url(/assets/posts/2019-12-13-bg.jpg);'>
+	<div>
+		<h1>A White Hat Story: Analysis of Secure Variables in AppVeyor</h1>
+		<div class='info'>
+                  <span>
+<svg class="icon blog" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 5 C 12.144531 5 9 8.144531 9 12 C 9 14.410156 10.230469 16.550781 12.09375 17.8125 C 8.527344 19.34375 6 22.882813 6 27 L 8 27 C 8 22.570313 11.570313 19 16 19 C 20.429688 19 24 22.570313 24 27 L 26 27 C 26 22.882813 23.472656 19.34375 19.90625 17.8125 C 21.769531 16.550781 23 14.410156 23 12 C 23 8.144531 19.855469 5 16 5 Z M 16 7 C 18.773438 7 21 9.226563 21 12 C 21 14.773438 18.773438 17 16 17 C 13.226563 17 11 14.773438 11 12 C 11 9.226563 13.226563 7 16 7 Z"/></svg>
+
+                    Daniel Ostovary</span>
+			<span>
+                    <svg class="icon blog" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 9 4 L 9 5 L 5 5 L 5 27 L 27 27 L 27 5 L 23 5 L 23 4 L 21 4 L 21 5 L 11 5 L 11 4 Z M 7 7 L 9 7 L 9 8 L 11 8 L 11 7 L 21 7 L 21 8 L 23 8 L 23 7 L 25 7 L 25 9 L 7 9 Z M 7 11 L 25 11 L 25 25 L 7 25 Z M 13 13 L 13 15 L 15 15 L 15 13 Z M 17 13 L 17 15 L 19 15 L 19 13 Z M 21 13 L 21 15 L 23 15 L 23 13 Z M 9 17 L 9 19 L 11 19 L 11 17 Z M 13 17 L 13 19 L 15 19 L 15 17 Z M 17 17 L 17 19 L 19 19 L 19 17 Z M 21 17 L 21 19 L 23 19 L 23 17 Z M 9 21 L 9 23 L 11 23 L 11 21 Z M 13 21 L 13 23 L 15 23 L 15 21 Z M 17 21 L 17 23 L 19 23 L 19 21 Z"/></svg>
+                     December 13, 2019</span>
+		</div>
+	</div>
+</section>
+<section class="default-section post-section">
+	<div>
+		<article>
+			<p>SignPath integrates with other systems, so we have to understand how they work and what the security attributes of certain features are. Any over-reliance on implicit or explicit security guarantees might effect the entire code signing process.</p>
+
+<p>For this reason, we routinely analyze not only our own software and services, but also certain features of third party systems.</p>
+
+<p>In our analysis of AppVeyor, we looked at the encryption of secrets, such as SignPath API tokens. Note that what we have discovered is not an exploitable security issue, but we thought the entire analysis still makes a good read for people interested in application security.</p>
+
+<p>SignPath integrates with AppVeyor builds to verify the origin of build artifacts before they are signed. We recently investigated AppVeyor’s “secure variables” (aka “Encrypt YAML”) <a href="https://www.appveyor.com/docs/build-configuration#secure-variables">feature</a>. We discovered a few interesting things, which we describe in this blog post.</p>
+
+<h1 id="appveyors-secure-variables">AppVeyors Secure Variables</h1>
+<p>AppVeyor is a build software that is available on-premises or in the cloud. AppVeyor can be connected to a (public) source code repository, such as your GitHub repository, and be configured to automatically build a new version of the software whenever code in the repository is changed. The AppVeyor build configuration file (appveyor.yml) can also be checked in to a source code repository to make use of its collaboration and versioning features.</p>
+
+<p>However, certain information in this appeyor.yml file might be sensitive (e.g. access credentials to other systems or services required during the build) and should not be visible to all developers (or to everyone in case of open source projects). The AppVeyor secure variables feature allows you to encrypt sensitive data before putting it into the appveyor.yml file. So only AppVeyor can decrypt this data to obtain the original value and use it during the build process. These encrypted values can e.g. be used in the appveyor.yml in configurations for environment variables or within webhooks.</p>
+
+<p>The first thing to be aware of is that secure variables are only protected from users without write access to the appveyor.yml. <strong>Users with write access to this file can obtain the decrypted value</strong>. A user with write access can do this by e.g. just printing the secure variable to the build log (the secure variable is automatically decrypted by AppVeyor).</p>
+
+<h2 id="secure-variable-encryption">Secure Variable Encryption</h2>
+<p>We analysed properties of the encryption of secure variables.</p>
+
+<p>We found out that <strong>the used cipher is a block cipher and has 128 bit (16 bytes) block size</strong>. The cipher type and the block size can be discovered by increasing the length of the plaintext. If the ciphertext length increases equally to the the plaintext length, the used cipher is a stream cipher. If the ciphertext length increases in blocks, then it is a block cipher. In the case of a block cipher, one can easily find out the block length by observing the increase in length of the ciphertext.</p>
+
+<p>Furthermore, we found out that the used cipher mode is <strong>CBC</strong>. For that we performed the following test.</p>
+
+<p>Our test used the following text (unencrypted) as secure variable:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bearer SecretToken123456789012345678901234567890
+</code></pre></div></div>
+
+<p>The hexadecimal representation of this string is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>42 65 61 72 65 72 20 53 65 63 72 65 74 54 6F 6B
+65 6E 31 32 33 34 35 36 37 38 39 30 31 32 33 34
+35 36 37 38 39 30 31 32 33 34 35 36 37 38 39 30
+</code></pre></div></div>
+
+<p>When using the Encrypt YAML feature for this text, AppVeyor returns the following Base64-encoded encrypted string:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FVwaQuowgIbDmPo987vdYrmGEHeelN7l6ni8MTzouU3jtrE8/9w6tYSuq84DHJbXhMQKpxqfZOTRIH0g/flKjg==
+</code></pre></div></div>
+
+<p>After Base64 decoding, the hex representation is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>15 5C 1A 42 EA 30 80 86 C3 98 FA 3D F3 BB DD 62
+B9 86 10 77 9E 94 DE E5 EA 78 BC 31 3C E8 B9 4D
+E3 B6 B1 3C FF DC 3A B5 84 AE AB CE 03 1C 96 D7
+84 C4 0A A7 1A 9F 64 E4 D1 20 7D 20 FD F9 4A 8E
+</code></pre></div></div>
+
+<p>Here we can already see that our encrypted ciphertext has 16 bytes more than the plaintext. This is probably due to padding and allows us infer that the block size of the ciphertext is 16 bytes.</p>
+
+<p>To find out more about block size and the mode of operation, we modified the following bytes of the ciphertext:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>15 5C 1A 42 EA 30 80 86 C3 98 FA 3D F3 BB DD 62
+B9 86 <strong>11</strong> 77 9E 94 DE E5 EA 78 BC 31 3C E8 B9 4D
+E3 B6 B1 3C FF DC 3A B5 84 AE AB CE 03 1C 96 D7
+84 C4 0A A7 1A 9F 64 E4 D1 20 7D 20 FD F9 4A 8E
+</code></pre></div></div>
+
+<p>This ciphertext decrypted to the following text:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bearer SecretTokL        Q4▒u5i?y▒▒'15668901234567890
+</code></pre></div></div>
+
+<p>The hexadecimal representation of this string is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>42 65 61 72 65 72 20 53 65 63 72 65 74 54 6F 6B
+<strong>4C 09 51 34 FD 75 35 16 69 3F 79 FD FD 27 31 1C</strong>
+35 <strong>36</strong> 36 38 39 30 31 32 33 34 35 36 37 38 39 30
+</code></pre></div></div>
+
+<p>We can see that a change of the third byte in the second ciphertext block changed the whole second plaintext block and the third byte of the next plaintext block. This perfectly matches the behavior of the cipher mode CBC (as displayed in the following figure).</p>
+
+<p><img src="/assets/posts/2019-12-13-cbc.png" alt="CBC" /></p>
+
+<p>Generally, in CBC a change in a byte of a ciphertext block at index X directly affects all bytes of the same ciphertext block and the byte at index X of the next ciphertext block. The observed behavior further confirms that the encryption algorithm is a block cipher with 16 bytes length.</p>
+
+<p>Our test didn’t lead to an error, but decrypted normally. From that we can infer that <strong>the ciphertext is not integrity protected</strong>.</p>
+
+<p>In many cases missing integrity protection has security implications. In combination with the CBC cipher mode, this can result in so called “Padding Oracle” attacks. These attacks exploit</p>
+
+<ul>
+  <li>the lack of integrity protection and</li>
+  <li>some properties of CBC mode and PKCS#7 padding</li>
+</ul>
+
+<p>and allow attackers to fully or partially decrypt ciphertext! This means, AppVeyor is potentially vulnerable to Padding Oracle attacks. Notably, as laid out at the beginning of the post, anyone with write access to the appveyor.yml can decrypt values by design. Thus, a Padding Oracle would have no security implications in AppVeyor anyways.</p>
+
+<p>For more curious readers, we briefly describe our analysis of a potential Padding Oracle in AppVeyor.</p>
+
+<h2 id="padding-oracle-in-appveyor">Padding Oracle in AppVeyor</h2>
+<p>For a Padding Oracle to exist, it must be possible to distinguish the following cases (e.g. by different error message, by timing, or other means) when decrypting ciphertext:</p>
+
+<ul>
+  <li>A given ciphertext decrypts to a valid plaintext.</li>
+  <li>A given ciphertext decrypts to a malformed plaintext (e.g. with non-ASCII characters) and has valid padding.</li>
+  <li>A given ciphertext decrypts has invalid padding.</li>
+</ul>
+
+<p>This information, combined with the knowledge of the functionality of CBC and PKCS#7 and some basic logic, is enough for an attacker to decrypt most of a given ciphertext. To confirm the existence or non-existence of a potential Padding Oracle in AppVeyor, we performed the following tests.</p>
+
+<p>We used a secure variable (encrypted Bearer <code class="language-plaintext highlighter-rouge">SecretToken123456789012345678901234567890</code> to let AppVeyor authenticate against our web server.  On the web server we received:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST / HTTP/1.1
+Authorization: Bearer SecretToken123456789012345678901234567890
+Content-Type: application/json; charset=utf-8
+Host: 54.69.243.156:8000
+Content-Length: 8858
+Connection: Keep-Alive
+</code></pre></div></div>
+
+<p>This matches the behavior of <strong>case 1.a</strong>.</p>
+
+<p>We then modified the third byte of the second ciphertext block and again let AppVeyor against our web server. This time we received:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST / HTTP/1.1
+Authorization: Bearer SecretTokL        Q4▒u5i?y▒▒'15668901234567890
+Content-Type: application/json; charset=utf-8
+Host: 54.69.243.156:8000
+Content-Length: 8860
+Connection: Keep-Alive
+</code></pre></div></div>
+
+<p>This matches the behavior of <strong>case 1.b</strong>.</p>
+
+<p>Lastly, we crafted ciphertext that causes bad padding. For that we changed the last byte of the third ciphertext block. Due to CBC mode, this change should not only scramble the third block, but also change the last byte of the fourth block, which is our padding. Since padding needs to have a specific structure in PKCS#7, this change should cause incorrect padding. We used the following ciphertext:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>15 5C 1A 42 EA 30 80 86 C3 98 FA 3D F3 BB DD 62
+B9 86 10 77 9E 94 DE E5 EA 78 BC 31 3C E8 B9 4D
+E3 B6 B1 3C FF DC 3A B5 84 AE AB CE 03 1C 96 <strong>00</strong>
+84 C4 0A A7 1A 9F 64 E4 D1 20 7D 20 FD F9 4A 8E
+</code></pre></div></div>
+<p>With this ciphertext we let AppVeyor authenticate against our web server one last time. The result was:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST / HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Host: 54.69.243.156:8000
+Content-Length: 8840
+Connection: Keep-Alive
+</code></pre></div></div>
+
+<p>This matches the behavior of <strong>case 1.c</strong>.</p>
+
+<p>Can this be a problem? Yes it can be! This behavior exactly matches the definition of a Padding Oracle. An attacker could now continue this attack as described in <a href="https://robertheaton.com/2013/07/29/padding-oracle-attack/">this blog post</a> and could obtain most or all of the plaintext from the ciphertext. Particularly, if an attacker knows the initialization vector, he/she can obtain all of the plaintext. If an attacker doesn’t know the initialization vector, he/she could obtain the plaintext for the whole ciphertext except the first ciphertext block. However, in many cases the first ciphertext block can be guessed or obtained from the system.</p>
+
+<p>Conclusively, in this article we showed:</p>
+
+<ol>
+  <li>The functionality of AppVeyor’s secure variables.</li>
+  <li>The encryption used for AppVeyor’s secure variables.</li>
+  <li>How a small mistake in encryption could, in principle, lead to Padding Oracle attacks that allow the decryption of most or all of the ciphertext.</li>
+</ol>
+
+<p>This post was written together with Marc Nimmerichter from <a href="https://www.impidio.com/">Impidio</a>. All findings were responsibly disclosed to AppVeyor and only published when we agreed that they contain no exploitable information.</p>
+
+		</article>
+	</div>
+</section>
+<!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
+	<div>
+		<h2>Sign up for news and special offers</h2>
+		<form class="ml-block-form" action="https://app.mailerlite.com/webforms/submit/d7c3i1" data-code="d7c3i1" method="post">
+			<input type="text" class="form-control" data-inputmask="" name="fields[name]" value="" placeholder="Name">
+			<input type="email" class="form-control" data-inputmask="" name="fields[email]" value="" placeholder="Email">
+			<input type="hidden" name="ml-submit" value="1">
+			<button type="submit" class="btn btn-secondary newsletter">Subscribe</button>
+		</form>
+	</div>
+</section>
+</main>
+  <footer>
+  	<div>
+	  	<div>
+	  		<img src='/assets/logo.svg' width="334" height="67" alt='SignPath'/>
+	  		<svg viewBox="0 0 244 18">
+			  <text x="0" y="15">CODE SIGNING SIMPLE &amp; SECURE</text>
+			</svg>
+	  		<div>
+				<a target="_blank" href="https://twitter.com/SignPathIO/" rel="noopener noreferrer"><svg class="icon footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 28 8.558594 C 27.117188 8.949219 26.167969 9.214844 25.171875 9.332031 C 26.1875 8.722656 26.96875 7.757813 27.335938 6.609375 C 26.386719 7.171875 25.332031 7.582031 24.210938 7.804688 C 23.3125 6.847656 22.03125 6.246094 20.617188 6.246094 C 17.898438 6.246094 15.691406 8.453125 15.691406 11.171875 C 15.691406 11.558594 15.734375 11.933594 15.820313 12.292969 C 11.726563 12.089844 8.097656 10.128906 5.671875 7.148438 C 5.246094 7.875 5.003906 8.722656 5.003906 9.625 C 5.003906 11.332031 5.871094 12.839844 7.195313 13.722656 C 6.386719 13.695313 5.628906 13.476563 4.964844 13.105469 C 4.964844 13.128906 4.964844 13.148438 4.964844 13.167969 C 4.964844 15.554688 6.660156 17.546875 8.914063 17.996094 C 8.5 18.109375 8.066406 18.171875 7.617188 18.171875 C 7.300781 18.171875 6.988281 18.140625 6.691406 18.082031 C 7.316406 20.039063 9.136719 21.460938 11.289063 21.503906 C 9.605469 22.824219 7.480469 23.609375 5.175781 23.609375 C 4.777344 23.609375 4.386719 23.585938 4 23.539063 C 6.179688 24.9375 8.765625 25.753906 11.546875 25.753906 C 20.605469 25.753906 25.558594 18.25 25.558594 11.742188 C 25.558594 11.53125 25.550781 11.316406 25.542969 11.105469 C 26.503906 10.410156 27.339844 9.542969 28 8.558594 Z"/></svg>
+</a>
+				&nbsp;&nbsp;
+				<a target="_blank" href="mailto:info@signpath.io" rel="noopener noreferrer"><svg class="icon footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 3 8 L 3 26 L 29 26 L 29 8 Z M 7.3125 10 L 24.6875 10 L 16 15.78125 Z M 5 10.875 L 15.4375 17.84375 L 16 18.1875 L 16.5625 17.84375 L 27 10.875 L 27 24 L 5 24 Z"/></svg>
+</div>
+	  	</div>
+	  	<div>
+	  		<a href='/privacy-policy'>Privacy Policy</a>
+	  		<a href='/terms-of-service'>Terms of Service</a>
+	  		<a href='/status'>Status</a>
+	  	</div>
+	</div>
+  </footer>
+        <div id='cookie-info'>
+            <h3>Cookie settings</h3>
+            <div class="container">
+                <span>We use cookies to enhance your browsing experience.</span>
+                <p class="mobile show-more active"><a>Show more information</a></p>
+                <p class="mobile show-less"><a>Show less information</a></p>
+                <span class="information">By clicking the “Accept” button below, you agree that non-essential cookies on our website may be used by us and by third parties, some of them located in the USA. Learn more about our cookies in our <a
+                            href='/privacy-policy'>Privacy
+					Policy</a>
+                </span>
+				<div class="actions">
+					<button class='btn btn-primary' id='acknowledge-cookies-btn'>Accept</button>
+					<button class="btn btn-grey" id='refuse-cookies-btn'>Refuse</button>
+				</div>
+            </div>
+			<script>
+				const queryString = window.location.search;
+				const urlParams = new URLSearchParams(queryString);
+				const adgroupid = urlParams.get('adgroupid') ? urlParams.get('adgroupid') : document.cookie.match('(^|;)\\s*' + 'adgroupid' + '\\s*=\\s*([^;]+)')?.pop() || ''
+
+				if (adgroupid) {
+					const els_trial = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Subscription/StartFreeTrial' + "']")
+					const els_login = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Home/Login' + "']");
+
+					for (let child of els_trial) {
+						if (child.tagName === 'A') {
+							child.href = child.href + '?websiteCorrelationId=' + adgroupid
+						}
+					}
+
+					for (let child of els_login) {
+						if (child.tagName === 'A') {
+							child.href = child.href + '?websiteCorrelationId=' + adgroupid
+						}
+					}
+				}
+			</script>
+		</div>
+	</footer>
+</body>
+</html>
+

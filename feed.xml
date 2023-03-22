@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://about.fqa.test.signpath.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://about.fqa.test.signpath.io/" rel="alternate" type="text/html" /><updated>2023-03-22T11:02:56+00:00</updated><id>https://about.fqa.test.signpath.io/feed.xml</id><title type="html">SignPath - Code Signing simple and secure</title><entry><title type="html">Cybernews interview with our CEO: supply chains and code signing</title><link href="https://about.fqa.test.signpath.io/blog/2022/02/21/cybernews-interview.html" rel="alternate" type="text/html" title="Cybernews interview with our CEO: supply chains and code signing" /><published>2022-02-21T16:00:00+00:00</published><updated>2022-02-21T16:00:00+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2022/02/21/cybernews-interview</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2022/02/21/cybernews-interview.html">&lt;p&gt;Read the original interview at &lt;a href=&quot;https://cybernews.com/security/stefan-wenig-signpath-you-can-spend-millions-of-dollars-for-it-security-and-still-become-a-victim-of-an-attack-on-a-supplier/&quot;&gt;Cybernews&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;If there’s anything that companies shouldn’t put aside, it’s cybersecurity because threats are lurking around every corner of the cyber world.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Businesses of any size can unexpectedly fall victim to various dangers, including ransomware attacks, data breaches, or identity theft. It can lead to demanding a financial ransom, loss of sensitive data, or damaged brand reputation.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;And while it’s only a matter of time when a company will encounter cybercriminals, there are various tools, such as secure code signing services, that can be used to prevent attacks.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;For this reason, &lt;a href=&quot;https://cybernews.com/&quot;&gt;Cybernews&lt;/a&gt; invited Stefan Wenig, the CEO of SignPath – a company that specializes in safe code signing. Wenig shared his views about cybersecurity and the importance of code signing.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How did SignPath originate? What has your journey been like so far?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Back when I was in charge of software development at &lt;a href=&quot;https://www.rubicon.eu/&quot;&gt;RUBICON&lt;/a&gt;, we had to sign some client-side add-ons for our enterprise Web applications. We purchased a certificate, which came on a USB token. That requires a lot of driver and configuration fumbling and is impossible to integrate with build automation. You end up with a tedious, insecure, manual process.&lt;/p&gt;
+
+&lt;p&gt;By then, code signing incidents had started making serious news. Initially, this was about key theft, but more recent cases pointed towards a different problem – how do you make sure that you only sign software releases that were built in a secure way, from a properly reviewed source, according to all your policies?&lt;/p&gt;
+
+&lt;p&gt;Later, some government and enterprise customers started asking for signatures on server applications too, so integration and automation became a key concern. Some customers prescribed secure code signing practices, so now it had to be automatic and secure, across a wide range of products and projects.&lt;/p&gt;
+
+&lt;p&gt;We didn’t find a good solution on the market, so we experimented with a signing service that offloads code signing to a secure, isolated service. That turned out to be harder than we thought, so we knew early on that if we were going to do this, we’d build it as a product.&lt;/p&gt;
+
+&lt;p&gt;Fast forward 5 years, SignPath is now an independent company, providing this solution as a Cloud service and on-premises to SMBs and large enterprises.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Can you tell us a little bit about what you do? Why is code signing needed?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Code signing is the process of putting a digital signature on a program before it is distributed, installed, and executed. Like a digital signature on a document, it guarantees authenticity and integrity. Authenticity means that files have been signed by the software’s publisher. Integrity means that the program’s files have not been modified since.&lt;/p&gt;
+
+&lt;p&gt;Most current platforms automatically verify signatures when programs and apps are downloaded and installed. They all bring their specific formats and procedures: Microsoft, Java, Google, and Apple all use certificate-based formats. This allows customers to verify the legal name and country of the publisher. Linux and Docker do it a bit differently.&lt;/p&gt;
+
+&lt;p&gt;Code signing can ensure that only trusted programs are installed and run on any computer or smartphone. So, at least in theory, if a program is properly signed by a trusted publisher, you should be able to trust it. But there are pitfalls.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How do cybercriminals take advantage of software that isn’t code signed? What is the worst that can happen?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Whether it’s viruses, Trojan horses, or targeted attacks where hackers directly attack an organizations’ systems: cybercriminals try to get your computer to run their own programs. Consumers face ransomware, theft of identity or financial data, or permanent takeovers of their computers into botnets. Corporations, government agencies, and other organizations also find that these programs are used to open backdoors for further attacks and to infect other computers in the network.&lt;/p&gt;
+
+&lt;p&gt;A widely known defense against malicious code is anti-malware programs. They detect and prevent some breaches, but this is an arms race: malware changes all the time to stay undetected. And it’s virtually impossible for anti-malware tools to detect a targeted attack.&lt;/p&gt;
+
+&lt;p&gt;That’s why modern operating systems go out of their way to prevent untrusted programs from running at all. Code signing is the primary mechanism to ensure and verify this trust.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do you think the recent global events altered the way people perceive cybersecurity?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Absolutely, in two ways. First, there was the &lt;a href=&quot;https://cybernews.com/editorial/us-secret-service-vet-solarwinds-was-cybersecurity-s-9-11/&quot;&gt;Sunburst&lt;/a&gt; incident. In 2020, Russian hackers had infiltrated the software company SolarWinds and inserted a backdoor into their software. The software is used by tens of thousands of organizations, so they all had these backdoors opened. The incident went undetected for many months before security specialist FireEye found it.&lt;/p&gt;
+
+&lt;p&gt;Sunburst also demonstrated that code signing is not enough. The modified software was properly signed, and not for lack of a safe signing infrastructure. The incident happened somewhere else in the build pipeline, but there was no connection between build policies and signing. In fact, signing only made it worse – it conveyed that it should be trusted when it was already weaponized.&lt;/p&gt;
+
+&lt;p&gt;Similar incidents have happened before and since, but Sunburst made the big news. Finally, everybody realized how susceptible even the most security-savvy organizations are to supply-chain attacks. In other words, you can spend tens or hundreds of millions of dollars for IT security and still become a victim of an attack on a supplier, or on your own software development teams.&lt;/p&gt;
+
+&lt;p&gt;And of course, more recent events put us all in a dangerous place. Everyone is very aware that current conflicts are fought not only on real battlefields, but economics and the Internet are weaponized, too. This is not just about losing credit card data anymore.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;In your opinion, which industries are especially vulnerable to attacks carried out by injecting malicious code?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The most advanced attacks these days come from nation-state actors. So obviously, government agencies and their contractors are high on the list. When it comes to attacking nations, critical industries include defense, aerospace, finance, health care, and energy, especially nuclear.&lt;/p&gt;
+
+&lt;p&gt;But nation-states participate in economically motivated attacks, too. And of course, classic cybercrime is still a thing. No industry is spared when it comes to stealing customer data or blackmail.&lt;/p&gt;
+
+&lt;p&gt;Modern supply-chain attacks specifically expose the tech industry. If the first move is at a software company, attackers can potentially get at their customers. And since today all technology comes with software, this threat extends to the entire tech industry.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Why do you think code signing is often overlooked? Are there any other security details that you believe are often pushed to the background?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;When you ship software to consumers, code signing is often required, so that’s an obvious starting point for many organizations. However, software running on servers usually doesn’t require code signing. So naturally, enterprise software and Web applications are often used without code signing.&lt;/p&gt;
+
+&lt;p&gt;Sometimes software is signed, but the signatures are not routinely and automatically verified as part of the deployment procedures. Reasons for this include awareness, budgets, and prioritizing, but many IT administrators will also tell you that they don’t do it because too many programs or components are not signed, and they don’t see the point of only partial verification.&lt;/p&gt;
+
+&lt;p&gt;Obviously, both problems expose the servers and networks to significant risk. Installing software of unverified origin naturally means that attackers can attack the process at any point of their choosing.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What are the best practices companies should follow when developing and launching software?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s start with the obvious – all software should be signed before it leaves the publisher’s environment. This allows customers (or operations teams) to verify its origin and integrity.&lt;/p&gt;
+
+&lt;p&gt;The next item on everyone’s checklist is to secure this process. Like almost everything in cryptography, code signing relies on the secrecy of private keys. If they get stolen, somebody else will be able to sign their own programs (or modified versions of your software) in your name. We already see secure key management for code signing as an emerging product category.&lt;/p&gt;
+
+&lt;p&gt;But signing your software is only half the story. Our industry is increasingly aware of the need to design, code, and test software for security. But less thought is given to the fact that these processes are under attack. New versions of software are being built all the time, and every time you build a program, there’s that risk of somebody messing with the process.&lt;/p&gt;
+
+&lt;p&gt;You want to make sure that only software versions that are built in a secure way get signed. And that’s really the hard part of code signing. How do you make sure that the process didn’t get compromised before you do the final signature?&lt;/p&gt;
+
+&lt;p&gt;You also want to have some control over releases, such as creating release candidates and delaying the decision to sign and release. That might include automatic testing gateways or manual approvals. However, automatic verifications still have to happen immediately.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What cyber threats do you find the most concerning nowadays? What can average individuals do to protect themselves?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;On an enterprise level, supply chain attacks are changing what we have learned about security. When you cannot trust your suppliers, how are you going to defend your own organization? It’s no longer enough to have systems and processes in place that protect your own infrastructure, you also need to worry about who you’re buying from.&lt;/p&gt;
+
+&lt;p&gt;Is the software actually from the right source and free from modifications? It’s easy to check a signature. But you also start to worry about which publishers (or which certificates) to trust. Controlling the supply chains of software products is not an easy task. We see formal processes around that, with enterprises starting to track their supply chains, define technical and legal requirements and align incident processes. But software is made of software, so each supplier has their own supply chain, and that’s a difficult thing to track with lists and contracts.&lt;/p&gt;
+
+&lt;p&gt;We need to get to the point where an automatic signature verification can convey security properties, such as the policies that were used when making and signing the software.&lt;/p&gt;
+
+&lt;p&gt;For individuals, the best advice we can give is what you’re hearing everywhere: don’t mess with security defaults, don’t trust anything on the Internet, and take warnings seriously.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What does the future hold for SignPath?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We’re always improving our core product. With a new release every other week, expect us to keep adding new platforms and formats, integrations, policies, and other features.&lt;/p&gt;
+
+&lt;p&gt;We’ll also extend our &lt;a href=&quot;https://signpath.org/&quot;&gt;SignPath Foundation&lt;/a&gt; initiative. Through the Foundation, we’re offering free code signing to Open Source projects. We provide certificates for each project, but they are issued in our name, and the Foundation is in control of the signing policies. We’re using the same functionality that enterprises would deploy to stay in control of certificates and policies across their individual teams.&lt;/p&gt;
+
+&lt;p&gt;This allows users to easily trust the downloadable program packages just as much as they trust the source code hosted on GitHub. Open Source signing is currently a limited offering, and we plan to automate the onboarding process and open it up.&lt;/p&gt;
+
+&lt;p&gt;Another focus area will be software supply chains. Standards around software bills of material and provenance documentation are currently evolving, and we’re going to see them adopted in a way that allows interoperability across the supply chain.&lt;/p&gt;
+
+&lt;p&gt;Producing and signing these documents will be a priority for SignPath. Eventually, we’ll also want to verify this data for incoming components and allow our customers to build signing policies based on it. This will be a major milestone in our mission to provide verifiable trust in the software supply chain.&lt;/p&gt;</content><author><name>Stefan Wenig</name></author><category term="blog" /><summary type="html">Read the original interview at Cybernews.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about.fqa.test.signpath.io/2022-03-21_01-bg" /><media:content medium="image" url="https://about.fqa.test.signpath.io/2022-03-21_01-bg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">DP API Encryption Ineffective in Windows Containers</title><link href="https://about.fqa.test.signpath.io/blog/2021/03/23/dp-api-encryption-ineffective-in-windows-containers.html" rel="alternate" type="text/html" title="DP API Encryption Ineffective in Windows Containers" /><published>2021-03-23T08:00:01+00:00</published><updated>2021-03-23T08:00:01+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2021/03/23/dp-api-encryption-ineffective-in-windows-containers</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2021/03/23/dp-api-encryption-ineffective-in-windows-containers.html">&lt;p&gt;We recently discovered a vulnerability in the key management of Windows containers. Windows containers used publicly available cryptographic keys when encrypting with the Windows Data Protection API (DP API). Furthermore, keys used in different containers by different organizations were the same. This vulnerability allowed attackers to decrypt any data that was encrypted with DP API keys in Windows containers. The vulnerability was confirmed by Microsoft and assigned &lt;a href=&quot;https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-1645&quot;&gt;CVE-2021-1645&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In this blog post we describe CVE-2021-1645. This vulnerability was discovered in close cooperation with Marc Nimmerrichter from &lt;a href=&quot;https://certitude.consulting/en&quot;&gt;Certitude Consulting GmbH&lt;/a&gt;. To understand the vulnerability, one has to have a basic understanding of DP API.&lt;/p&gt;
+
+&lt;h2 id=&quot;dp-api&quot;&gt;DP API&lt;/h2&gt;
+
+&lt;p&gt;The DP API allows applications to encrypt arbitrary data. An application does not have to manage keys. Instead, any data can be passed to the API, which then returns an encrypted blob. Similarly, an application can pass a previously encrypted blob to retrieve the plain text. The key used for these encryption operations is either tied to the user context or is unique to a machine (please refer to &lt;a href=&quot;#1&quot;&gt;[1]&lt;/a&gt; or &lt;a href=&quot;#2&quot;&gt;[2]&lt;/a&gt; for more details).&lt;/p&gt;
+
+&lt;h2 id=&quot;cve-2021-1645-and-its-impact&quot;&gt;CVE-2021-1645 and its Impact&lt;/h2&gt;
+
+&lt;p&gt;CVE-2021-1645 applies to both, user and machine key DP API encryption within Windows Docker containers. In our explanation and PoC we will use machine key encryption, but the same issue exists if data is encrypted with the user key.&lt;/p&gt;
+
+&lt;p&gt;Normally, a machine key is tied to a (virtual-)machine. Therefore, if an application on machine A encrypted data, it would not be possible to decrypt the data on machine B. When designing the Windows containers feature Microsoft did not sufficiently consider this security behavior. Upon researching DP API in containers we discovered that DP API machine keys were identical for all Windows containers with the same base image. This was due to the fact that DP API machine keys of containers came from the base image. As the base images are public, the DP API machine keys were public too! Therefore, any DP API encryption using the machine key in any Windows containers was worthless.&lt;/p&gt;
+
+&lt;p&gt;Organizations that used DP API keys in Windows Docker containers to store encrypted data in a potentially insecure location, should consider this data to be compromised.&lt;/p&gt;
+
+&lt;h2 id=&quot;proof-of-concept&quot;&gt;Proof of Concept&lt;/h2&gt;
+
+&lt;p&gt;In the following of this section we demonstrate that any data encrypted by the DP API machine key of a container application can be decrypted in any other container with the same base image. The following test setup utilizes two virtual machines (VM1, VM2) generated from the Azure VM template “Windows Server 2019 Datacenter with Containers- Gen2”. Microsoft already patched the base images in their Dockerhub repository. To reproduce this scenario, old image versions are required.&lt;/p&gt;
+
+&lt;p&gt;First, start a docker container called &lt;em&gt;Alice&lt;/em&gt; on &lt;em&gt;VM1&lt;/em&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Alice&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mcr.microsoft.com/dotnet/framework/runtime:4.8-windowsservercore-ltsc2019&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cmd.exe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then, encrypt a file in the &lt;em&gt;Alice&lt;/em&gt; container using the powershell script vault.ps1 &lt;a href=&quot;#3&quot;&gt;[3]&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;C:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;powershell.exe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-File&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;vault.ps1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-StoreSecret&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;This is my secret text&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;secret.txt&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;secret.txt&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AQAAANCMnd8BFdERjHoAwE/Cl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sBAAAAm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;1a2TNbiEahEIB4y/C3vQAAAAACAAAAAAAQZgAAAAEAACAAAAAdbJ9ZanY929j39ZLgabsaE5hRS4TLkCaaaRqb&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n3ZXAAAAAAOgAAAAAIAACAAAAC7fHbsKHCTaMhsWIVMYwUZezbLozItcqExHdg9EJcfDiAAAABFv2EHA5TTqb8I9I&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;BZrfQS5ViD93KZlL4FoYIBldGY0AA&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AABdx7adlANRnw1shJTOtE6cYTAeqmb1yTe9adcSY1nBvtqlqSWQ/zwGaqfIfumuUm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ySwZXH/Su5GovJ8aUP9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Start a docker container &lt;em&gt;Bob&lt;/em&gt; on &lt;em&gt;VM2&lt;/em&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Bob&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mcr.microsoft.com/dotnet/framework/runtime:4.8-windowsservercore-ltsc2019&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cmd.exe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The following command shows that the file can be decrypted in the &lt;em&gt;Bob&lt;/em&gt; container:&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;C:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;powershell.exe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-File&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;vault.ps1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;secret.txt&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;This&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;secret&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;security-patch&quot;&gt;Security Patch&lt;/h2&gt;
+
+&lt;p&gt;Microsoft fixed CVE-2021-1645 with the Microsoft Patch Tuesday of January 2021. Affected users should apply both, OS updates and base-image updates, to address this issue.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, the patch comes with a caveat: The vulnerability appears to be due to a design problem. It could not be fixed in a straightforward way. After the patch Windows containers generate DP API keys when the container is first started. This means that all containers use different keys. There is currently no way to share keys between containers or transfer a key from one container to another. This is impractical as containers are often relatively short-lived. Moreover, when a container is scaled up, new containers will not be able to work with previously encrypted blobs.&lt;/p&gt;
+
+&lt;p&gt;As a result, the DP API is currently of limited use in containers.&lt;/p&gt;
+
+&lt;div class=&quot;sources&quot;&gt;
+  &lt;h1 id=&quot;sources&quot;&gt;Sources&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;[&lt;span id=&quot;1&quot;&gt;1&lt;/span&gt;] &lt;a href=&quot;https://www.passcape.com/index.php?id=28&amp;amp;section=docsys&amp;amp;cmd=details&quot;&gt;https://www.passcape.com/index.php?id=28&amp;amp;section=docsys&amp;amp;cmd=details&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;2&quot;&gt;2&lt;/span&gt;] &lt;a href=&quot;https://docs.microsoft.com/en-us/previous-versions/ms995355(v=msdn.10)?redirectedfrom=MSDN&quot;&gt;https://docs.microsoft.com/en-us/previous-versions/ms995355(v=msdn.10)?redirectedfrom=MSDN&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;3&quot;&gt;3&lt;/span&gt;] &lt;a href=&quot;https://blag.nullteilerfrei.de/2018/01/05/powershell-dpapi-script/&quot;&gt;https://blag.nullteilerfrei.de/2018/01/05/powershell-dpapi-script/&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;appendix&quot;&gt;Appendix&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vault.ps1&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Script from &lt;a href=&quot;#3&quot;&gt;[3]&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;Param&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$StoreSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Parameter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Mandatory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Position&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Reflection.Assembly&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LoadWithPartialName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;System.Security&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;System.Security.Cryptography.DataProtectionScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CurrentUser&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$StoreSecret&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-eq&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Get-Content&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ciphertext&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;System.Convert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FromBase64String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$plaintext&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;System.Security.Cryptography.ProtectedData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Unprotect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ciphertext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;$null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;System.Text.UTF8Encoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UTF8.GetString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$plaintext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$plaintext&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;System.Text.UTF8Encoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UTF8.GetBytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$StoreSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ciphertext&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;System.Security.Cryptography.ProtectedData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Protect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$plaintext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;$null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;System.Convert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ToBase64String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ciphertext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Marc Nimmerrichter</name></author><category term="blog" /><summary type="html">We recently discovered a vulnerability in the key management of Windows containers. Windows containers used publicly available cryptographic keys when encrypting with the Windows Data Protection API (DP API). Furthermore, keys used in different containers by different organizations were the same. This vulnerability allowed attackers to decrypt any data that was encrypted with DP API keys in Windows containers. The vulnerability was confirmed by Microsoft and assigned CVE-2021-1645.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about.fqa.test.signpath.io/2021-03-23_02-bg" /><media:content medium="image" url="https://about.fqa.test.signpath.io/2021-03-23_02-bg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Experiences with Security Report Handling: The Good and the Bad</title><link href="https://about.fqa.test.signpath.io/blog/2021/03/23/experiences-with-security-report-handling.html" rel="alternate" type="text/html" title="Experiences with Security Report Handling: The Good and the Bad" /><published>2021-03-23T08:00:00+00:00</published><updated>2021-03-23T08:00:00+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2021/03/23/experiences-with-security-report-handling</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2021/03/23/experiences-with-security-report-handling.html">&lt;p&gt;When reporting the vulnerability/security issue described in &lt;a href=&quot;https://about.signpath.io/blog/2020/08/26/on-the-importance-of-trust-validation.html&quot;&gt;On the Importance of Trust Validation: Microsoft’s Dangerous Mistake&lt;/a&gt; and &lt;a href=&quot;https://about.signpath.io/blog/2020/08/26/unfulfilled-expectations.html&quot;&gt;Unfulfilled Exceptations: Revoked Certificates in JAR Signing&lt;/a&gt; we noticed big differences in security report handling between the contacted vendors. In this blog post we are talking about our experiences with these security reports. The blog post is written in cooperation with Marc Nimmerichter from &lt;a href=&quot;https://certitude.consulting/en&quot;&gt;Certitude&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;reporting-the-vsix-installer-vulnerability&quot;&gt;Reporting the VSIX Installer Vulnerability&lt;/h2&gt;
+
+&lt;p&gt;We reported the vulnerability to Microsoft shortly after its discovery. Microsoft is not only the developer of the VSIX installer, but also the responsible CVE Numbering Authority (CNA) for Microsoft products &lt;a href=&quot;#1&quot;&gt;[1]&lt;/a&gt;, i.e. Microsoft is responsible for issuing CVEs for the VSIX installer. Microsoft has confirmed the vulnerability and has rated its severity as &lt;strong&gt;moderate&lt;/strong&gt;. Microsoft provided the following explanation for the severity of the vulnerability:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Revocation checking does not completely mitigate a stolen private key scenario anyway.&lt;/li&gt;
+  &lt;li&gt;No popular publisher of VSIX packages has had their private key stolen.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Microsoft stated this vulnerability &lt;strong&gt;does not warrant the issuing of a CVE&lt;/strong&gt; because it only has &lt;strong&gt;moderate severity&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;While we agree with the first argument, the second remains a mystery:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It’s unclear to us how Microsoft would know about all stolen private keys, as it is not obligatory to report stolen keys to Microsoft&lt;/li&gt;
+  &lt;li&gt;There are no specific code-signing certificates for VSIX, so this vulnerability could not be exploited with private keys that were stolen any software publisher, not only “popular package publishers” (see &lt;a href=&quot;https://about.signpath.io/blog/2020/08/26/on-the-importance-of-trust-validation.html&quot;&gt;On the Importance of Trust Validation: Microsoft’s Dangerous Mistake&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Furthermore, there is no reason to assume that CVEs should only be issued for vulnerabilities rated higher than moderate. If that were the case, users would be restricted in their ability to protect themselves from moderate vulnerabilities. It should be noted that CVEs are frequently issued for vulnerabilities with moderate severity (e.g. &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2019-1020019&quot;&gt;CVE-2019-1020019&lt;/a&gt;, &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2020-12880&quot;&gt;CVE-2020-128809&lt;/a&gt;, or &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2020-10643&quot;&gt;CVE-2020-10643&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, Microsoft’s decision on issuing a CVE was not up for discussion, so we contacted MITRE to obtain a CVE. MITRE is a root CNA and is responsible for all CVEs that are not covered by other CNAs &lt;a href=&quot;#1&quot;&gt;[1]&lt;/a&gt;. After a short exchange of emails, MITRE stopped responding to us, even after another follow up on our behalf. Almost a year later, in late April 2020, we unexpectedly received a message by MITRE, asking us if we would still like to have a CVE number assigned. Despite confirming that we suggest to assign a CVE, MITRE has not assigned this vulnerability a CVE number yet.&lt;/p&gt;
+
+&lt;h3 id=&quot;intransparent-fix&quot;&gt;Intransparent Fix&lt;/h3&gt;
+
+&lt;p&gt;Microsoft has informed us that they were planning to fix this vulnerability with Visual Studio 16.3, which was released in Fall 2019. The release notes of Visual Studio 16.3. did not mention the vulnerability in any way &lt;a href=&quot;#2&quot;&gt;[2]&lt;/a&gt;. However, in May 2020 we could confirm that the vulnerability is fixed at least in versions &amp;gt;=16.5.2047.&lt;/p&gt;
+
+&lt;h3 id=&quot;timeline&quot;&gt;Timeline&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;15/06/2019: Initial discovery of the vulnerability and subsequent confirmation
+08/07/2019: Reporting the vulnerability to Microsoft
+21/07/2019: Microsoft confirms the vulnerability 
+08/08/2019: Microsoft plans to address the vulnerability in Visual Studio 16.3
+14/08/2019: Trying to obtain a CVE from MITRE since Microsoft is very reluctant to issue a CVE
+20/08/2019: Microsoft refuses to issue a CVE
+20/08/2019: No more responses from MITRE until 28/04/2020
+23/09/2019: Release of Visual Studio 16.3 (supposedly fixed version)
+28/04/2020: MITRE asks if we still want a CVE
+11/05/2020: Confirming to MITRE that we still want a CVE
+11/05/2020 - 23/03/2021: After further requests to MITRE no CVE was assigned
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;reporting-the-jarsigner-security-issue&quot;&gt;Reporting the JarSigner Security Issue&lt;/h2&gt;
+
+&lt;p&gt;Shortly after discovery of the missing revocation check in the JarSigner, we informed Oracle about it. Oracle quickly agreed that this could be an issue and informed us that they will address it by providing an option for CRL checks in the JarSigner. As the security issue is conceptional and not technically a vulnerability, we did not try to obtain a CVE for it.&lt;/p&gt;
+
+&lt;h3 id=&quot;timeline-1&quot;&gt;Timeline&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;24/03/2020: Initial discovery of the security issue and subsequent confirmation
+26/03/2020: Reporting the security issue to Oracle
+20/04/2020: Oracle confirms the security issue and plans to address it in JDK15
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;security-report-handling-microsoft-vs-oracle&quot;&gt;Security Report Handling: Microsoft vs. Oracle&lt;/h2&gt;
+
+&lt;p&gt;The security report handling between Microsoft and Oracle could hardly be more different.&lt;/p&gt;
+
+&lt;p&gt;While discussing the vulnerability with Microsoft, they tried to disregard the vulnerability - seemingly without fully understanding it at first. After a more thorough explanation, Microsoft agreed to issue a fix for this vulnerability, but, in our opinion, downplayed the severity of the vulnerability with at least partially invalid arguments (see above). Based on this arguments, they argued moderate severity and that no CVE was warranted. The unwillingness to asign a CVE and the absence of a mention of this vulnerability in the Visual Studio 16.3 release notes casts some doubts on their priorities: would they rather keep a vulnerability under cover, and produce a silent fix after a long delay, or would they keep their users informed to help them be secure? The former approach is commonly considered bad practice.&lt;/p&gt;
+
+&lt;p&gt;In contrast to Microsoft’s security report handling, Oracle has acknowledged the security issue, without trying to avoid to take action or unreasonably downplaying it, and is transparently fixing it through a public ticket system. Although we wished Oracle had made automatic CRL checks a default in the JarSigner, in our opinion, Oracle handled this security report very well overall.&lt;/p&gt;
+
+&lt;div class=&quot;sources&quot;&gt;
+  &lt;h1 id=&quot;sources&quot;&gt;Sources&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;[&lt;span id=&quot;1&quot;&gt;1&lt;/span&gt;] &lt;a href=&quot;https://cve.mitre.org/cve/request_id.html&quot;&gt;https://cve.mitre.org/cve/request_id.html&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;2&quot;&gt;2&lt;/span&gt;] &lt;a href=&quot;https://docs.microsoft.com/en-us/visualstudio/releases/2019/release-notes-v16.3&quot;&gt;https://docs.microsoft.com/en-us/visualstudio/releases/2019/release-notes-v16.3&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</content><author><name>Daniel Ostovary</name></author><category term="blog" /><summary type="html">When reporting the vulnerability/security issue described in On the Importance of Trust Validation: Microsoft’s Dangerous Mistake and Unfulfilled Exceptations: Revoked Certificates in JAR Signing we noticed big differences in security report handling between the contacted vendors. In this blog post we are talking about our experiences with these security reports. The blog post is written in cooperation with Marc Nimmerichter from Certitude.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about.fqa.test.signpath.io/2021-03-23_01-bg" /><media:content medium="image" url="https://about.fqa.test.signpath.io/2021-03-23_01-bg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Evaluating the Sunburst Hack: Causes and Future Prevention</title><link href="https://about.fqa.test.signpath.io/blog/2020/12/21/evaluating-sunburst.html" rel="alternate" type="text/html" title="Evaluating the Sunburst Hack: Causes and Future Prevention" /><published>2020-12-21T08:00:00+00:00</published><updated>2020-12-21T08:00:00+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2020/12/21/evaluating-sunburst</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2020/12/21/evaluating-sunburst.html">&lt;p&gt;Sunburst/Solorigate is already the most discussed hacker attack in living memory, maybe back to when Iran’s nuclear program was pushed back years by Stuxnet. But what do we really know?&lt;/p&gt;
+
+&lt;p&gt;Several U.S. agencies were infiltrated using versions of SolarWind’s Orion software that carried a backdoor payload. Given the scope of this software, it’s not surprising that a successful attack on Orion would also pave the way for hacking customers. So rather than examining the exact nature of these backdoors and how they were exploited, let’s look at how the software was hacked in the first place.&lt;/p&gt;
+
+&lt;p&gt;Tomislav Peričin of ReversingLabs did an &lt;a href=&quot;https://blog.reversinglabs.com/blog/sunburst-the-next-level-of-stealth&quot;&gt;exhaustive analysis&lt;/a&gt; of this hack. By decompiling several versions of Orion, he showed how the hackers inched their way from a careful proof of concept to a full-blown backdoor through incremental source code modifications.&lt;/p&gt;
+
+&lt;h2 id=&quot;two-possible-attack-vectors&quot;&gt;Two possible attack vectors&lt;/h2&gt;
+
+&lt;p&gt;What’s not so clear though is whether these changes were committed to the source code repository, where every developer could see them, or injected on the build system.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; This article is based on the research by ReverseLabs. SolarWinds has published a &lt;a href=&quot;https://sec.report/Document/0001628280-20-017451/&quot;&gt;statement&lt;/a&gt; that says that the code “was introduced as a result of a compromise of the Orion software build system and &lt;strong&gt;was not present in the source code repository&lt;/strong&gt; of the Orion products.”&lt;/p&gt;
+
+  &lt;p&gt;So it wasn’t attack vector 1. But considering the careful way the code was inserted incrementally, it’s still a vector every development organization has to watch out for.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Looking forward, this does not really matter. Both ways are possible attack vectors, so we must consider them all.&lt;/p&gt;
+
+&lt;h2 id=&quot;attack-vector-1-modifying-the-source-code-in-the-repository&quot;&gt;Attack vector 1: modifying the source code in the repository&lt;/h2&gt;
+
+&lt;p&gt;Now here’s a no-brainer: If an attacker manages to modify the source code without getting caught, the modifications will eventually turn up at customer sites.&lt;/p&gt;
+
+&lt;p&gt;So what can be done to avoid this?&lt;/p&gt;
+
+&lt;p&gt;In short: create and enforce a task-based review policy.&lt;/p&gt;
+
+&lt;p&gt;The code modifications were carefully placed where they would not cause suspicion. For instance, the code responsible for starting the backdoor thread was placed where legitimate background processing was done too. The string obfuscation should alarm careful readers, but that was done in another module, where nobody would have much business anyway.&lt;/p&gt;
+
+&lt;p&gt;Those were clever measures for sure, but they would not go undetected in a task-based review. Assume that the team has the following security measures:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Policy&lt;/th&gt;
+      &lt;th&gt;Implementation&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;All source code commits must reference issues&lt;/strong&gt; for developer tasks, such as issues or stories&lt;/td&gt;
+      &lt;td&gt;This can be implemented in most version control systems. E.g. Git provides &lt;a href=&quot;https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy&quot;&gt;server-side&lt;/a&gt; &lt;a href=&quot;https://stackoverflow.com/questions/14151775/how-do-i-set-a-pattern-for-git-commit-messages&quot;&gt;hooks&lt;/a&gt;. On top of this, some Git servers provide configurations such as &lt;a href=&quot;https://docs.gitlab.com/ee/push_rules/push_rules.html#commit-messages-with-a-specific-reference&quot;&gt;regex rules&lt;/a&gt; for commit messages.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;The source code system is configured to &lt;strong&gt;accept merges on release-branches only after successful code reviews&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Again, you can use basic hooks, or features such as &lt;a href=&quot;https://docs.github.com/en/github/administering-a-repository/managing-a-branch-protection-rule&quot;&gt;branch&lt;/a&gt; &lt;a href=&quot;https://docs.gitlab.com/ee/user/project/protected_branches.html&quot;&gt;protection&lt;/a&gt;. Or use &lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_tools_for_code_review&quot;&gt;dedicated review software&lt;/a&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;The code signing process only signs builds from release branches&lt;/td&gt;
+      &lt;td&gt;If you do code signing from your CI system, make sure it is only configured for reviewed branches. &lt;strong&gt;SignPath can verify the source of a build and enforce your branch policies directly&lt;/strong&gt;, so they cannot be sidestepped by careless misconfigurations or hackers with CI access.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;It’s easy to see how these hacks could avoid accidental detection. But to work around a carefully implemented review policy, the hackers would have to hack the issue tracking system too (quite possible), create plausible tasks for creating a new background process thread (hm, what for?) and string obfuscation - now that should trigger some alarms!&lt;/p&gt;
+
+&lt;p&gt;Also, make sure that your review guidelines contain clear rules for triggering security reviews. A very fine example can be found &lt;a href=&quot;https://docs.gitlab.com/ee/development/code_review.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thorough source code reviews require some effort. But you don’t do it just for security, you do it for quality. Like most reasonable quality measures, they will pay off with reduced cost for support, troubleshooting and bug fixing. In 2020, there’s hardly any excuse left for not doing them, so why not go all the way and enforce them?&lt;/p&gt;
+
+&lt;h2 id=&quot;attack-vector-2-modifying-the-source-code-at-build-time&quot;&gt;Attack vector 2: modifying the source code at build time&lt;/h2&gt;
+
+&lt;p&gt;Now making sure that your source code repository contains only what it should is an obvious step. But what if the hackers didn’t commit these changes after all? &lt;strong&gt;What if the build infrastructure was compromised&lt;/strong&gt; to simply &lt;strong&gt;replace a few files&lt;/strong&gt; before compiling the software? &lt;strong&gt;What if it applied post-compilation transformations&lt;/strong&gt; to include the payload?&lt;/p&gt;
+
+&lt;p&gt;These are routine activities for hackers, the tools are all there too. So if they can get into the build process, or modify the code before signing and releasing, that’s rather easy to achieve.&lt;/p&gt;
+
+&lt;p&gt;This attack vector is much harder to close. It requires a &lt;strong&gt;detailed analysis&lt;/strong&gt; of the entire &lt;strong&gt;build infrastructure&lt;/strong&gt; &lt;em&gt;and&lt;/em&gt; &lt;strong&gt;every single project’s build and code signing process&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Having done this for some years for a living, we can now safely say one thing: &lt;strong&gt;this is hard.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Analyzing entire build pipelines for possible attacks from within the network is rarely done, and it’s a daunting task. There is little know-how around, and still too little vendor support: CI systems are built for speed, scalability and flexibility first.&lt;/p&gt;
+
+&lt;p&gt;And there’s a reason for this too: CI systems are used for so many things today, some of them rather resource-intensive too. Think about executing Web test suites, for instance. Or DAST tests. They require a lot of analysis and troubleshooting, so there’s a big incentive for handing out access permissions for components of the CI system too.&lt;/p&gt;
+
+&lt;p&gt;To be sure, it’s easy to come to the conclusion that a process is safe. There is this token or password that you need for code signing, and we’re only using it in this specific way, right? Probably not: relying on a single secret and it’s proper handling will almost always leave some room for attacks. But who has the time and budget to do a full security audit for every project?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;At SignPath, this was our mission from the start:&lt;/strong&gt; Storing keys on HSMs is not the solution for all code signing risks. Neither is a code signing gateway that simply provides HSM access using some finer-grained access control and auditing.&lt;/p&gt;
+
+&lt;p&gt;Our customers need a simple way to make sure that &lt;strong&gt;every signed and published release&lt;/strong&gt; of their software&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;can be &lt;strong&gt;traced back to a specific source code version&lt;/strong&gt;, without room for manipulation&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;meets all policy requirements&lt;/strong&gt;, including reviews and testing&lt;/li&gt;
+  &lt;li&gt;was built on &lt;strong&gt;secure infrastructure&lt;/strong&gt;, without direct or indirect developer access&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To find out more about code signing with SignPath, please &lt;a href=&quot;mailto:sales@signpath.io&quot;&gt;contact us&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;updates&quot;&gt;Updates&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;2020-12-21 8:00 UTC: Added SolarWind’s statement that the modified code was &lt;em&gt;not&lt;/em&gt; in their repository.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Stefan Wenig</name></author><category term="blog" /><summary type="html">Sunburst/Solorigate is already the most discussed hacker attack in living memory, maybe back to when Iran’s nuclear program was pushed back years by Stuxnet. But what do we really know?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about.fqa.test.signpath.io/2020-12-21-bg" /><media:content medium="image" url="https://about.fqa.test.signpath.io/2020-12-21-bg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">On the Importance of Trust Validation: Microsoft’s Dangerous Mistake</title><link href="https://about.fqa.test.signpath.io/blog/2020/08/26/on-the-importance-of-trust-validation.html" rel="alternate" type="text/html" title="On the Importance of Trust Validation: Microsoft’s Dangerous Mistake" /><published>2020-08-26T00:00:00+00:00</published><updated>2020-08-26T00:00:00+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2020/08/26/on-the-importance-of-trust-validation</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2020/08/26/on-the-importance-of-trust-validation.html">&lt;p&gt;Last year we discovered a vulnerability in the Visual Studio Extension (VSIX) installer, which comes with Microsoft Visual Studio. When verifying the signature of a VSIX package, the VSIX installer failed to check the trust of the timestamp under certain circumstances. This vulnerability allowed an attacker to apply a non-trustworthy timestamp without users being warned about it.&lt;/p&gt;
+
+&lt;p&gt;In this blog post we are talking about this vulnerability and its impact. The blog post is written in cooperation with Marc Nimmerichter from &lt;a href=&quot;https://www.impidio.com/blog/on-the-importance-of-trust-validation-microsofts-dangerous-mistake&quot;&gt;Impidio&lt;/a&gt;. The here-discussed vulnerability has been reported to Microsoft shortly after its discovery. We will talk about our experiences with reporting this vulnerability in a later blog post. To understand the vulnerability, one has to understand timestamping in code signing first.&lt;/p&gt;
+
+&lt;h1 id=&quot;timestamping&quot;&gt;Timestamping&lt;/h1&gt;
+&lt;p&gt;Unlike signatures of TLS certificates, signatures of code-signing certificates may be verified a long time after their application (e.g. a software publisher may apply a signature on an .EXE file in 2018; a user may use this .EXE in 2024). Code-signing certificates have a relatively low validity period of 1-3 years &lt;a href=&quot;#1&quot;&gt;[1]&lt;/a&gt;. As a result, upon execution of a program, a user may be presented with a certificate expiration warning because the code-signing certificate is no longer valid at the time the signed program is executed &lt;a href=&quot;#2&quot;&gt;[2]&lt;/a&gt;. Simply giving a code-signing certificate a long validity is considered bad practice. Instead, in code-signing, so-called timestamps are frequently used &lt;a href=&quot;#1&quot;&gt;[1]&lt;/a&gt;. These timestamps are provided by trustworthy Timestamping Authorities (TSAs) and cryptographically guarantee that certain data existed at a certain time &lt;a href=&quot;#2&quot;&gt;[2]&lt;/a&gt;. This means, when applying a timestamp to a signature, it is cryptograhically guaranteed by the issuing TSA that the signature was applied at the time of the timestamp &lt;a href=&quot;#2&quot;&gt;[2]&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;With such a timestamp applied to a signature, &lt;strong&gt;the validity period of a code signature is extended&lt;/strong&gt; to the validity period of the TSA’s certificate &lt;a href=&quot;#4&quot;&gt;[4]&lt;/a&gt;. The validity period of a TSA’s certificate is usually relatively long (typically 10-15 years; e.g. see &lt;a href=&quot;#5&quot;&gt;[5-7]&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Timestamping can also be used to &lt;strong&gt;keep signatures of a revoked code-signing certificate valid if and only if (iff) the revocation date is after the timestamp date&lt;/strong&gt;, as suggested by RFC 3161 &lt;a href=&quot;#8&quot;&gt;[8]&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It is important to check the correctness and trustworthiness of a timestamp &lt;a href=&quot;#3&quot;&gt;[3]&lt;/a&gt;. Otherwise it may be possible to maliciously alter the validity of a code signature.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-vulnerability&quot;&gt;The Vulnerability&lt;/h1&gt;
+&lt;p&gt;In the case of the VSIX installer, an attacker was able to apply a valid code signature to a file using an expired code-signing certificate and a self-created non-trustworthy TSA. For that, the attacker had to apply a code signature using the expired code-signing ceritificate, backdating the signature to a time when the code-signing certificate was valid, and apply a specially crafted timestamp. This timestamp would have to:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;contain the certificate chain of the self-created non-trustworthy TSA&lt;/li&gt;
+  &lt;li&gt;be dated before the expiration of the code-signing certificate&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Before the vulnerability was fixed, the VSIX installer accepted such a combination of a signature and timestamp, i.e. it did not report a non-trustworthy signature/timestamp. This behavior shows that the VSIX installer did not correctly check the trustworthiness of a TSA.&lt;/p&gt;
+
+&lt;h1 id=&quot;impact&quot;&gt;Impact&lt;/h1&gt;
+&lt;p&gt;We discovered three potential attack scenarios for this vulnerability. One of which is infeasible due to the way the VSIX installer supports timestamping.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Scenario 1 (‘reviving’ expired code-signing certificates):&lt;/strong&gt; The vulnerability allows an attacker to craft malicious VSIX packages with ‘revived’ expired code-signing certificates, i.e. &lt;strong&gt;use expired code-signing certificates to sign VSIX packages&lt;/strong&gt;. This is problematic because owners of certificates may not protect expired certificates anymore or may not revoke expired code-signing certificates in case of theft because these certificates should be unusable anyway. Attackers can abuse such certificate ‘revival’ to sign malicious code, which would be accepted by the VSIX installer without any warning and subsequently executed by unsuspecting end users. Essentially, in this scenario an attacker would maliciously &lt;strong&gt;extend the validity period of a code-signing certificate&lt;/strong&gt;. There are no specific code-signing certificates for VSIX packages. So any code-signing certificate can be used to sign VSIX packages and subsequently any expired code-signing certificate could be used for this attack.&lt;/p&gt;
+
+&lt;p&gt;Imagine the following example: On February 20th 2020 an attacker steals a code-signing certificate that expired on January 10th from a software publisher. The software publisher has not detected the theft or has detected the theft but decided to not revoke the certificate, because the theft was after the expiration of the certificate. The attacker now wants to ‘revive’ the certificate. For that, the attacker dates back the system time to January 9th 2020 and signs the VISX package with the expired certificate. Then the attacker timestamps the signature for January 9th 2020 with their self-created TSA, using a timestamp that contains the timestamping certificate. After that, the attacker distributes the VISX package to end users (e.g. by publishing it on a website, by performing Man-in-the-Middle (MitM) attacks on a file download, or by putting it in a shared directory). When an end user executes the VSIX package, the signature and timestamp are shown as valid and the VSIX package is subsequently installed without any warning.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Scenario 2 (applying short-lived timestamps):&lt;/strong&gt; The vulnerability further allows an attacker that can intercept and modify HTTP requests/responses (i.e. the attacker is MiTM) &lt;strong&gt;to respond to a software publisher’s legitimate timestamping request with a timestamp with a very short lifespan&lt;/strong&gt;, without the software publisher being warned. As soon as the software publisher’s code-signing certificate expires, the signature would become invalid unexpectedly. This could heavily diminish the usage of the victim’s VSIX package, depending on the number of new installations. Timestamp requests are often sent via HTTP (see &lt;a href=&quot;#9&quot;&gt;[9]&lt;/a&gt;), so Man-in-the-Middle attacks are not unlikely.&lt;/p&gt;
+
+&lt;p&gt;Imagine the following example: An attacker is MiTM in the communication between a software publisher and their TSA. The attacker has set up their own non-trustworthy TSA. Today is July 15th 2020. The code-signing certificate of the software publisher expires on July 20th 2020. The certificate of the TSA that the software developers trusts (i.e. the timestamping certificate) expires on January 1st 2030. To extend the validity period of a signature, the software publisher timestamps their signature with the TSA they trust. The attacker intercepts this call and responds with a timestamp that contains the timestamping certificate of their own non-trustworthy TSA. After signing and timestamping their VSIX package, the software publisher tests if the signing/timestamping worked properly by installing the VSIX package with the VSIX installer. The VSIX installer will show a valid signature and timestamp without any indication of the validity period of the signature or the timestamp. Consecutively, the software publisher starts publishing their software as usual on July 18th 2020. In the first days several hundred users download the VSIX package. On July 21st 2020, first users report that the signature on the VSIX package is invalid because the underlying certificate is expired. Now the software publisher has to quickly publish the VSIX package with a new code-signing certificate.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Scenario 3 (dodged a bullet - ‘reviving’ revoked code-signing certificates):&lt;/strong&gt; Our tests have shown that the VSIX installer only checks if a code-signing certificate was revoked, but not if it was timestamped before the revocation date. This means, the VSIX installer rejects all revoked certificates regardless of the timestamp (i.e. it does &lt;strong&gt;NOT keep signatures of revoked code-signing certificates valid iff the revocation date is after the timestamp date&lt;/strong&gt;). As a result of the VSIX installer’s behavior, this vulnerability did not allow to ‘revive’ revoked code-signing certificates. If the VSIX installer allowed revoked code-signing certificates to stay valid iff the revocation date is after the timestamp date, an attacker could have &lt;strong&gt;‘revived’ revoked code-signing certificates&lt;/strong&gt; (i.e. make revoked code-signing certificates valid again). This would have worked similar to the example of scenario 1. Instead of backdating the signature and timestamp to a date when the certificate was expired, an attacker would have backdated the signature and timestamp to a date when the certificate was not revoked. Needless to say that the possibility of ‘reviving’ revoked code-signing certificates would have constituted a critical vulnerability. Essentially, Microsoft unintentionally dodged a huge bullet by NOT &lt;strong&gt;keeping signatures of revoked code-signing certificates valid iff the revocation date is after the timestamp date&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;security-patch&quot;&gt;Security Patch&lt;/h1&gt;
+&lt;p&gt;Microsoft has informed us that they were planning to fix the vulnerability with Visual Studio 16.3, which was released in Fall 2019. Old versions of Visual Studio will not be patched, and thus will remain vulnerable indefinitely. Unfortunately, the release notes of Visual Studio 16.3. did not mention the here-described vulnerability in any way &lt;a href=&quot;#10&quot;&gt;[10]&lt;/a&gt;. However, in May 2020 we could confirm that the vulnerability is fixed at least in versions &amp;gt;=16.5.2047.&lt;/p&gt;
+
+&lt;div class=&quot;sources&quot;&gt;
+  &lt;h1 id=&quot;sources&quot;&gt;Sources&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;[&lt;span id=&quot;1&quot;&gt;1&lt;/span&gt;] &lt;a href=&quot;https://knowledge.digicert.com/generalinformation/INFO1119.html&quot;&gt;https://knowledge.digicert.com/generalinformation/INFO1119.html&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;2&quot;&gt;2&lt;/span&gt;] &lt;a href=&quot;https://casecurity.org/wp-content/uploads/2013/10/CASC-Code-Signing.pdf&quot;&gt;https://casecurity.org/wp-content/uploads/2013/10/CASC-Code-Signing.pdf&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;3&quot;&gt;3&lt;/span&gt;] &lt;a href=&quot;https://csrc.nist.gov/CSRC/media/Publications/white-paper/2018/01/26/security-considerations-for-code-signing/final/documents/security-considerations-for-code-signing.pdf&quot;&gt;https://csrc.nist.gov/CSRC/media/Publications/white-paper/2018/01/26/security-considerations-for-code-signing/final/documents/security-considerations-for-code-signing.pdf&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;4&quot;&gt;4&lt;/span&gt;] &lt;a href=&quot;https://www.xolphin.com/support/signatures/Frequently_asked_questions/Timestamping&quot;&gt;https://www.xolphin.com/support/signatures/Frequently_asked_questions/Timestamping&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;5&quot;&gt;5&lt;/span&gt;] &lt;a href=&quot;https://support.sectigo.com/ES_KnowledgeDetailPageFaq?Id=kA01N000000btid&quot;&gt;https://support.sectigo.com/ES_KnowledgeDetailPageFaq?Id=kA01N000000btid&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;6&quot;&gt;6&lt;/span&gt;] &lt;a href=&quot;https://www.sede.fnmt.gob.es/documents/10445900/10577712/dpstq_english.pdf&quot;&gt;https://www.sede.fnmt.gob.es/documents/10445900/10577712/dpstq_english.pdf&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;7&quot;&gt;7&lt;/span&gt;] &lt;a href=&quot;https://www.digicert-grid.com/DigiCert_CP_v403.pdf&quot;&gt;https://www.digicert-grid.com/DigiCert_CP_v403.pdf&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;8&quot;&gt;8&lt;/span&gt;] &lt;a href=&quot;https://www.ietf.org/rfc/rfc3161.txt&quot;&gt;https://www.ietf.org/rfc/rfc3161.txt&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;9&quot;&gt;9&lt;/span&gt;] &lt;a href=&quot;https://gist.github.com/Manouchehri/fd754e402d98430243455713efada710&quot;&gt;https://gist.github.com/Manouchehri/fd754e402d98430243455713efada710&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;10&quot;&gt;10&lt;/span&gt;] &lt;a href=&quot;https://docs.microsoft.com/en-us/visualstudio/releases/2019/release-notes-v16.3&quot;&gt;https://docs.microsoft.com/en-us/visualstudio/releases/2019/release-notes-v16.3&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</content><author><name>Daniel Ostovary</name></author><category term="blog" /><summary type="html">Last year we discovered a vulnerability in the Visual Studio Extension (VSIX) installer, which comes with Microsoft Visual Studio. When verifying the signature of a VSIX package, the VSIX installer failed to check the trust of the timestamp under certain circumstances. This vulnerability allowed an attacker to apply a non-trustworthy timestamp without users being warned about it.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about.fqa.test.signpath.io/2020-08-26-bg" /><media:content medium="image" url="https://about.fqa.test.signpath.io/2020-08-26-bg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Unfulfilled Expectations: Revoked Certificates in JAR Signing</title><link href="https://about.fqa.test.signpath.io/blog/2020/08/26/unfulfilled-expectations.html" rel="alternate" type="text/html" title="Unfulfilled Expectations: Revoked Certificates in JAR Signing" /><published>2020-08-26T00:00:00+00:00</published><updated>2020-08-26T00:00:00+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2020/08/26/unfulfilled-expectations</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2020/08/26/unfulfilled-expectations.html">&lt;p&gt;In April 2020 we became aware of a conceptual security issue in the Java JarSigner. The JarSigner does not check certificate revocations, which breaks JAR signing to some extent.&lt;/p&gt;
+
+&lt;p&gt;In this blog post we are going to talk about this issue. The blog post is written in cooperation with Marc Nimmerichter from &lt;a href=&quot;https://www.impidio.com/blog/unfulfilled-expectations-revoked-certificates-in-jar-signing&quot;&gt;Impidio&lt;/a&gt;. We have reported this issue to Oracle shortly after its discovery. We will talk about our experiences with reporting this issue in a future blog post. To understand this issue, one has to understand Certificate Revocation Lists (CRLs) first.&lt;/p&gt;
+
+&lt;h1 id=&quot;certificate-revocation-lists&quot;&gt;Certificate Revocation Lists&lt;/h1&gt;
+&lt;p&gt;If the owner of a certificate wishes to revoke their certificate (i.e. invalidate it, for example, because of compromise), they can request the issuing Certificate Authority (CA) to put the certificate on a CRL (e.g. see &lt;a href=&quot;#5&quot;&gt;[5]&lt;/a&gt;). The CRL distribution point is indicated in the CA’s certificate &lt;a href=&quot;#5&quot;&gt;[5]&lt;/a&gt;. Often, a verifier of a signature checks the certificate’s CRL to see if it is revoked &lt;a href=&quot;#6&quot;&gt;[6]&lt;/a&gt; (e.g. the Windows signature verification of an executable).&lt;/p&gt;
+
+&lt;h1 id=&quot;the-security-issue&quot;&gt;The Security Issue&lt;/h1&gt;
+&lt;p&gt;We found evidence that there was some CRL check for JAR signatures in the past (e.g. for Java Applets in JDK 7; see &lt;a href=&quot;#3&quot;&gt;[1-3]&lt;/a&gt;). However, a source code analysis of the JarSigner of the JDK 12 and a review of its official documentation &lt;a href=&quot;#4&quot;&gt;[4]&lt;/a&gt; show that CRLs are not automatically checked, neither by the JarSigner nor anywhere else in the JDK. Instead, as Oracle told us, developers are expected to call the PKIXRevocationChecker explicitly to check for revocations.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-impact&quot;&gt;The Impact&lt;/h1&gt;
+&lt;p&gt;Since the JarSigner does not check CRLs, any stolen and revoked code-signing certificate can be used to sign JARs without the JarSigner warning users of a revoked certificate. That is unless users explicitely check revocation with the PKIXRevocationChecker. As verifiers of a signature often check the CRL of the certificate, users of the JarSigner almost certainly expect the JarSigner to do so too. These users rely on CRLs for security, but the JarSigner does not actually provide this level of security.&lt;/p&gt;
+
+&lt;h1 id=&quot;addressing-the-security-issue&quot;&gt;Addressing the Security Issue&lt;/h1&gt;
+&lt;p&gt;Shortly after discussing the issue with Oracle, they created a ticket to address this issue (&lt;a href=&quot;https://bugs.openjdk.java.net/browse/JDK-8242060&quot;&gt;JDK-8242060&lt;/a&gt;). This ticket is expected to be resolved with JDK 15, which is planned to be released on September 15, 2020 &lt;a href=&quot;#6&quot;&gt;[6]&lt;/a&gt;. Users of the JarSigner should note that this issue will not be addressed in older versions of the JDK (i.e.  JDKs before JDK 15).&lt;/p&gt;
+
+&lt;div class=&quot;sources&quot;&gt;
+  &lt;h1 id=&quot;sources&quot;&gt;Sources&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;[&lt;span id=&quot;1&quot;&gt;1&lt;/span&gt;] &lt;a href=&quot;https://docs.oracle.com/javase/7/docs/technotes/tools/windows/jarsigner.html&quot;&gt;https://docs.oracle.com/javase/7/docs/technotes/tools/windows/jarsigner.html&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;2&quot;&gt;2&lt;/span&gt;] &lt;a href=&quot;https://blogs.oracle.com/java-platform-group/signing-code-for-the-long-haul&quot;&gt;https://blogs.oracle.com/java-platform-group/signing-code-for-the-long-haul&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;3&quot;&gt;3&lt;/span&gt;] &lt;a href=&quot;https://java.com/en/download/help/revocation_options.xml&quot;&gt;https://java.com/en/download/help/revocation_options.xml&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;4&quot;&gt;4&lt;/span&gt;] &lt;a href=&quot;https://docs.oracle.com/en/java/javase/12/&quot;&gt;https://docs.oracle.com/en/java/javase/12/&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;5&quot;&gt;5&lt;/span&gt;] &lt;a href=&quot;https://www.csoonline.com/article/2607448/revoke-certificates-when-you-need-to----the-right-way.html&quot;&gt;https://www.csoonline.com/article/2607448/revoke-certificates-when-you-need-to—-the-right-way.html&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[&lt;span id=&quot;6&quot;&gt;6&lt;/span&gt;] &lt;a href=&quot;https://openjdk.java.net/projects/jdk/15/&quot;&gt;https://openjdk.java.net/projects/jdk/15/&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</content><author><name>Daniel Ostovary</name></author><category term="blog" /><summary type="html">In April 2020 we became aware of a conceptual security issue in the Java JarSigner. The JarSigner does not check certificate revocations, which breaks JAR signing to some extent.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about.fqa.test.signpath.io/2020-08-26-02-bg" /><media:content medium="image" url="https://about.fqa.test.signpath.io/2020-08-26-02-bg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">A White Hat Story: Analysis of Secure Variables in AppVeyor</title><link href="https://about.fqa.test.signpath.io/blog/2019/12/13/an-analysis-of-secure-variables-in-appveyor.html" rel="alternate" type="text/html" title="A White Hat Story: Analysis of Secure Variables in AppVeyor" /><published>2019-12-13T09:38:20+00:00</published><updated>2019-12-13T09:38:20+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2019/12/13/an-analysis-of-secure-variables-in-appveyor</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2019/12/13/an-analysis-of-secure-variables-in-appveyor.html">&lt;p&gt;SignPath integrates with other systems, so we have to understand how they work and what the security attributes of certain features are. Any over-reliance on implicit or explicit security guarantees might effect the entire code signing process.&lt;/p&gt;
+
+&lt;p&gt;For this reason, we routinely analyze not only our own software and services, but also certain features of third party systems.&lt;/p&gt;
+
+&lt;p&gt;In our analysis of AppVeyor, we looked at the encryption of secrets, such as SignPath API tokens. Note that what we have discovered is not an exploitable security issue, but we thought the entire analysis still makes a good read for people interested in application security.&lt;/p&gt;
+
+&lt;p&gt;SignPath integrates with AppVeyor builds to verify the origin of build artifacts before they are signed. We recently investigated AppVeyor’s “secure variables” (aka “Encrypt YAML”) &lt;a href=&quot;https://www.appveyor.com/docs/build-configuration#secure-variables&quot;&gt;feature&lt;/a&gt;. We discovered a few interesting things, which we describe in this blog post.&lt;/p&gt;
+
+&lt;h1 id=&quot;appveyors-secure-variables&quot;&gt;AppVeyors Secure Variables&lt;/h1&gt;
+&lt;p&gt;AppVeyor is a build software that is available on-premises or in the cloud. AppVeyor can be connected to a (public) source code repository, such as your GitHub repository, and be configured to automatically build a new version of the software whenever code in the repository is changed. The AppVeyor build configuration file (appveyor.yml) can also be checked in to a source code repository to make use of its collaboration and versioning features.&lt;/p&gt;
+
+&lt;p&gt;However, certain information in this appeyor.yml file might be sensitive (e.g. access credentials to other systems or services required during the build) and should not be visible to all developers (or to everyone in case of open source projects). The AppVeyor secure variables feature allows you to encrypt sensitive data before putting it into the appveyor.yml file. So only AppVeyor can decrypt this data to obtain the original value and use it during the build process. These encrypted values can e.g. be used in the appveyor.yml in configurations for environment variables or within webhooks.&lt;/p&gt;
+
+&lt;p&gt;The first thing to be aware of is that secure variables are only protected from users without write access to the appveyor.yml. &lt;strong&gt;Users with write access to this file can obtain the decrypted value&lt;/strong&gt;. A user with write access can do this by e.g. just printing the secure variable to the build log (the secure variable is automatically decrypted by AppVeyor).&lt;/p&gt;
+
+&lt;h2 id=&quot;secure-variable-encryption&quot;&gt;Secure Variable Encryption&lt;/h2&gt;
+&lt;p&gt;We analysed properties of the encryption of secure variables.&lt;/p&gt;
+
+&lt;p&gt;We found out that &lt;strong&gt;the used cipher is a block cipher and has 128 bit (16 bytes) block size&lt;/strong&gt;. The cipher type and the block size can be discovered by increasing the length of the plaintext. If the ciphertext length increases equally to the the plaintext length, the used cipher is a stream cipher. If the ciphertext length increases in blocks, then it is a block cipher. In the case of a block cipher, one can easily find out the block length by observing the increase in length of the ciphertext.&lt;/p&gt;
+
+&lt;p&gt;Furthermore, we found out that the used cipher mode is &lt;strong&gt;CBC&lt;/strong&gt;. For that we performed the following test.&lt;/p&gt;
+
+&lt;p&gt;Our test used the following text (unencrypted) as secure variable:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Bearer SecretToken123456789012345678901234567890
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The hexadecimal representation of this string is:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;42 65 61 72 65 72 20 53 65 63 72 65 74 54 6F 6B
+65 6E 31 32 33 34 35 36 37 38 39 30 31 32 33 34
+35 36 37 38 39 30 31 32 33 34 35 36 37 38 39 30
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When using the Encrypt YAML feature for this text, AppVeyor returns the following Base64-encoded encrypted string:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FVwaQuowgIbDmPo987vdYrmGEHeelN7l6ni8MTzouU3jtrE8/9w6tYSuq84DHJbXhMQKpxqfZOTRIH0g/flKjg==
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After Base64 decoding, the hex representation is:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;15 5C 1A 42 EA 30 80 86 C3 98 FA 3D F3 BB DD 62
+B9 86 10 77 9E 94 DE E5 EA 78 BC 31 3C E8 B9 4D
+E3 B6 B1 3C FF DC 3A B5 84 AE AB CE 03 1C 96 D7
+84 C4 0A A7 1A 9F 64 E4 D1 20 7D 20 FD F9 4A 8E
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here we can already see that our encrypted ciphertext has 16 bytes more than the plaintext. This is probably due to padding and allows us infer that the block size of the ciphertext is 16 bytes.&lt;/p&gt;
+
+&lt;p&gt;To find out more about block size and the mode of operation, we modified the following bytes of the ciphertext:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;15 5C 1A 42 EA 30 80 86 C3 98 FA 3D F3 BB DD 62
+B9 86 &lt;strong&gt;11&lt;/strong&gt; 77 9E 94 DE E5 EA 78 BC 31 3C E8 B9 4D
+E3 B6 B1 3C FF DC 3A B5 84 AE AB CE 03 1C 96 D7
+84 C4 0A A7 1A 9F 64 E4 D1 20 7D 20 FD F9 4A 8E
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This ciphertext decrypted to the following text:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Bearer SecretTokL        Q4▒u5i?y▒▒'15668901234567890
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The hexadecimal representation of this string is:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;42 65 61 72 65 72 20 53 65 63 72 65 74 54 6F 6B
+&lt;strong&gt;4C 09 51 34 FD 75 35 16 69 3F 79 FD FD 27 31 1C&lt;/strong&gt;
+35 &lt;strong&gt;36&lt;/strong&gt; 36 38 39 30 31 32 33 34 35 36 37 38 39 30
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We can see that a change of the third byte in the second ciphertext block changed the whole second plaintext block and the third byte of the next plaintext block. This perfectly matches the behavior of the cipher mode CBC (as displayed in the following figure).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/posts/2019-12-13-cbc.png&quot; alt=&quot;CBC&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Generally, in CBC a change in a byte of a ciphertext block at index X directly affects all bytes of the same ciphertext block and the byte at index X of the next ciphertext block. The observed behavior further confirms that the encryption algorithm is a block cipher with 16 bytes length.&lt;/p&gt;
+
+&lt;p&gt;Our test didn’t lead to an error, but decrypted normally. From that we can infer that &lt;strong&gt;the ciphertext is not integrity protected&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;In many cases missing integrity protection has security implications. In combination with the CBC cipher mode, this can result in so called “Padding Oracle” attacks. These attacks exploit&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;the lack of integrity protection and&lt;/li&gt;
+  &lt;li&gt;some properties of CBC mode and PKCS#7 padding&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;and allow attackers to fully or partially decrypt ciphertext! This means, AppVeyor is potentially vulnerable to Padding Oracle attacks. Notably, as laid out at the beginning of the post, anyone with write access to the appveyor.yml can decrypt values by design. Thus, a Padding Oracle would have no security implications in AppVeyor anyways.&lt;/p&gt;
+
+&lt;p&gt;For more curious readers, we briefly describe our analysis of a potential Padding Oracle in AppVeyor.&lt;/p&gt;
+
+&lt;h2 id=&quot;padding-oracle-in-appveyor&quot;&gt;Padding Oracle in AppVeyor&lt;/h2&gt;
+&lt;p&gt;For a Padding Oracle to exist, it must be possible to distinguish the following cases (e.g. by different error message, by timing, or other means) when decrypting ciphertext:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A given ciphertext decrypts to a valid plaintext.&lt;/li&gt;
+  &lt;li&gt;A given ciphertext decrypts to a malformed plaintext (e.g. with non-ASCII characters) and has valid padding.&lt;/li&gt;
+  &lt;li&gt;A given ciphertext decrypts has invalid padding.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This information, combined with the knowledge of the functionality of CBC and PKCS#7 and some basic logic, is enough for an attacker to decrypt most of a given ciphertext. To confirm the existence or non-existence of a potential Padding Oracle in AppVeyor, we performed the following tests.&lt;/p&gt;
+
+&lt;p&gt;We used a secure variable (encrypted Bearer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SecretToken123456789012345678901234567890&lt;/code&gt; to let AppVeyor authenticate against our web server.  On the web server we received:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST / HTTP/1.1
+Authorization: Bearer SecretToken123456789012345678901234567890
+Content-Type: application/json; charset=utf-8
+Host: 54.69.243.156:8000
+Content-Length: 8858
+Connection: Keep-Alive
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This matches the behavior of &lt;strong&gt;case 1.a&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;We then modified the third byte of the second ciphertext block and again let AppVeyor against our web server. This time we received:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST / HTTP/1.1
+Authorization: Bearer SecretTokL        Q4▒u5i?y▒▒'15668901234567890
+Content-Type: application/json; charset=utf-8
+Host: 54.69.243.156:8000
+Content-Length: 8860
+Connection: Keep-Alive
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This matches the behavior of &lt;strong&gt;case 1.b&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Lastly, we crafted ciphertext that causes bad padding. For that we changed the last byte of the third ciphertext block. Due to CBC mode, this change should not only scramble the third block, but also change the last byte of the fourth block, which is our padding. Since padding needs to have a specific structure in PKCS#7, this change should cause incorrect padding. We used the following ciphertext:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;15 5C 1A 42 EA 30 80 86 C3 98 FA 3D F3 BB DD 62
+B9 86 10 77 9E 94 DE E5 EA 78 BC 31 3C E8 B9 4D
+E3 B6 B1 3C FF DC 3A B5 84 AE AB CE 03 1C 96 &lt;strong&gt;00&lt;/strong&gt;
+84 C4 0A A7 1A 9F 64 E4 D1 20 7D 20 FD F9 4A 8E
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;With this ciphertext we let AppVeyor authenticate against our web server one last time. The result was:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST / HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Host: 54.69.243.156:8000
+Content-Length: 8840
+Connection: Keep-Alive
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This matches the behavior of &lt;strong&gt;case 1.c&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Can this be a problem? Yes it can be! This behavior exactly matches the definition of a Padding Oracle. An attacker could now continue this attack as described in &lt;a href=&quot;https://robertheaton.com/2013/07/29/padding-oracle-attack/&quot;&gt;this blog post&lt;/a&gt; and could obtain most or all of the plaintext from the ciphertext. Particularly, if an attacker knows the initialization vector, he/she can obtain all of the plaintext. If an attacker doesn’t know the initialization vector, he/she could obtain the plaintext for the whole ciphertext except the first ciphertext block. However, in many cases the first ciphertext block can be guessed or obtained from the system.&lt;/p&gt;
+
+&lt;p&gt;Conclusively, in this article we showed:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The functionality of AppVeyor’s secure variables.&lt;/li&gt;
+  &lt;li&gt;The encryption used for AppVeyor’s secure variables.&lt;/li&gt;
+  &lt;li&gt;How a small mistake in encryption could, in principle, lead to Padding Oracle attacks that allow the decryption of most or all of the ciphertext.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This post was written together with Marc Nimmerichter from &lt;a href=&quot;https://www.impidio.com/&quot;&gt;Impidio&lt;/a&gt;. All findings were responsibly disclosed to AppVeyor and only published when we agreed that they contain no exploitable information.&lt;/p&gt;</content><author><name>Daniel Ostovary</name></author><category term="blog" /><summary type="html">SignPath integrates with other systems, so we have to understand how they work and what the security attributes of certain features are. Any over-reliance on implicit or explicit security guarantees might effect the entire code signing process.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about.fqa.test.signpath.io/2019-12-13-bg" /><media:content medium="image" url="https://about.fqa.test.signpath.io/2019-12-13-bg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
