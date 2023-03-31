@@ -71,8 +71,9 @@
 			</aside><article><ul class="article-toc mobile-only">
   <li><a href="#the-threat-of-office-macros">The Threat of Office Macros</a></li>
   <li><a href="#implement-macro-signing-to-create-secure-end-user-policies">Implement Macro Signing to Create Secure End User Policies</a></li>
-  <li><a href="#inadequacy-of-other-approaches">Inadequacy of Other Approaches</a></li>
+  <li><a href="#inadequacy-of-existing-approaches">Inadequacy of Existing Approaches</a></li>
   <li><a href="#end-to-end-security-for-office-macros">End-to-End Security for Office Macros</a></li>
+  <li><a href="#certificate-scopes-global-vs-departmental-execution-permissions">Certificate scopes: global vs. departmental execution permissions</a></li>
 </ul>
 <h2 id="the-threat-of-office-macros">The Threat of Office Macros</h2>
 
@@ -93,51 +94,9 @@
 
 <p><img src="/assets/img/product/office-macros/office-supported-apps.png" alt="Supported applications: Excel, PowerPoint, Project, Publisher, Visio, Word" /></p>
 
-<div class="panel tip">
-  <div class="panel-header">Global certificate vs. assigning certificates to teams</div>
-
-  <p>For instance, you can easily configure that some or all users of your organization may use macros signed using your <strong>global macro signing certificate</strong>.</p>
-
-  <p>Or you might have a more complex certificate policy that assigns <strong>specific macro signing certificates</strong> to departments:</p>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Department</th>
-        <th>Trusted certificates</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Finance</td>
-        <td>Global, Finance</td>
-      </tr>
-      <tr>
-        <td>Legal</td>
-        <td>Legal</td>
-      </tr>
-      <tr>
-        <td>Engineering</td>
-        <td>Global, Engineering, some subcontractors</td>
-      </tr>
-      <tr>
-        <td>Restricted users</td>
-        <td>none</td>
-      </tr>
-      <tr>
-        <td>Everyone else</td>
-        <td>Global</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p>Your business partners will be informed that macros have been signed by your organizations. They can then decide to trust these macros on a per-user basis or through the same policy framework.</p>
-
-</div>
-
 <p><strong>Using SignPath, you can keep your signing keys safe and easily create well-defined signing processes for each of these certificates.</strong></p>
 
-<h2 id="inadequacy-of-other-approaches">Inadequacy of Other Approaches</h2>
+<h2 id="inadequacy-of-existing-approaches">Inadequacy of Existing Approaches</h2>
 
 <p>This table shows how readily available policies provide <strong>inadequate security</strong> and/or <strong>impact the business</strong> to an unacceptable degree:</p>
 
@@ -171,7 +130,7 @@
       <td>🟡</td>
       <td>🟠</td>
       <td>🟢</td>
-      <td>Adequate private key security requires dedicated hardware, plus you need a reliable and auditable process</td>
+      <td>Digital signing in Office is a manual activity and requires private key access for macro authors from their development PCs</td>
     </tr>
     <tr>
       <td>Disable macro execution except for users who require them</td>
@@ -222,6 +181,51 @@
 </ul>
 
 <p><img src="/assets/img/product/office-macros/macro-signing-process.png" alt="Macro signing process" /></p>
+
+<h2 id="certificate-scopes-global-vs-departmental-execution-permissions">Certificate scopes: global vs. departmental execution permissions</h2>
+
+<p>Once you have set up a signing policy for your organization, you can disable execution of unsigned macros via Microsoft Office group policies.</p>
+
+<h3 id="fine-tune-signing-and-execution-permissions">Fine-tune signing and execution permissions</h3>
+
+<p>Some organizations need more fine-grained control over macro execution. In this case you can assign <strong>specific macro signing certificates</strong> to departments.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Department</th>
+      <th>Trusted certificates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Finance</td>
+      <td>Global, Finance</td>
+    </tr>
+    <tr>
+      <td>Legal</td>
+      <td>Legal</td>
+    </tr>
+    <tr>
+      <td>Engineering</td>
+      <td>Global, Engineering, some subcontractors</td>
+    </tr>
+    <tr>
+      <td>Restricted users</td>
+      <td>none</td>
+    </tr>
+    <tr>
+      <td>Everyone else</td>
+      <td>Global</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Adjust your signing policies accordingly, e.g. provide signing permissions for the <em>Finance</em> certificate only to macro authors supposed to create Office macros for the finance departement.</p>
+
+<h3 id="business-partners-and-customers">Business partners and customers</h3>
+
+<p>For documents that are used outside of your organization, you can use your EV code signing certificate. External users, such as business partners or customers, will be informed that macros have been signed by your organizations. They can then decide to trust these macros on a per-user basis or through their own policy framework.</p>
 
 		</article>
 	</div>
