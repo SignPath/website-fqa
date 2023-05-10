@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/powershell/Get-SignedArtifact' />
+  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/powershell/Get-CertificateByMicrosoftTemplateId' />
   <!-- Begin Jekyll SEO tag v2.6.1 -->
   <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
-  <title>PowerShell - Get-SignedArtifact | SignPath</title>
-  <meta property="og:title" content="PowerShell - Get-SignedArtifact | SignPath" />
+  <title>PowerShell - Get-CertificateByMicrosoftTemplateId | SignPath</title>
+  <meta property="og:title" content="PowerShell - Get-CertificateByMicrosoftTemplateId | SignPath" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:description" content="Get-SignedArtifact" />
-  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/powershell/Get-SignedArtifact" />
+  <meta property="og:description" content="Get-CertificateByMicrosoftTemplateId" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/powershell/Get-CertificateByMicrosoftTemplateId" />
   <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
-  <meta name="description" content="Get-SignedArtifact"/>
+  <meta name="description" content="Get-CertificateByMicrosoftTemplateId"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
   <link rel="stylesheet" href="/assets/css/index.css?cache=2022-01-10">
@@ -56,146 +56,77 @@
   </header>
   <main><section class="bg-blue font-white top-section">
 	<div>
-		<h1><span class='no-break'>PowerShell &nbsp;❯&nbsp; </span> Get-SignedArtifact</h1>
+		<h1><span class='no-break'>PowerShell &nbsp;❯&nbsp; </span> Get-CertificateByMicrosoftTemplateId</h1>
 	</div>
 </section>
 <section class="resources-section">
 	<div><aside>
 				<ul><li class=''>
 							<a href='/documentation/powershell/#'>Overview</a></li><li class=''>
-							<a href='/documentation/powershell/Submit-SigningRequest#'>Submit-SigningRequest</a></li><li class='active'>
-							<a href='/documentation/powershell/Get-SignedArtifact#'>Get-SignedArtifact</a><div class="no-mobile" ><ul>
+							<a href='/documentation/powershell/Submit-SigningRequest#'>Submit-SigningRequest</a></li><li class=''>
+							<a href='/documentation/powershell/Get-SignedArtifact#'>Get-SignedArtifact</a></li><li class='active'>
+							<a href='/documentation/powershell/Get-CertificateByMicrosoftTemplateId#'>Get-CertificateByMicrosoftTemplateId</a><div class="no-mobile" ><ul>
   <li><a href="#syntax">Syntax</a></li>
   <li><a href="#description">Description</a></li>
   <li><a href="#parameters">Parameters</a></li>
   <li><a href="#examples">Examples</a></li>
 </ul>
-</div></li><li class=''>
-							<a href='/documentation/powershell/Get-CertificateByMicrosoftTemplateId#'>Get-CertificateByMicrosoftTemplateId</a></li></ul>
+</div></li></ul>
 			</aside><article>
-<p>Downloads a signed artifact based on a signing request ID.</p>
+<p>Gets a certificate from a Microsoft AD CS template ID.</p>
 
 <h2 id="syntax">Syntax</h2>
 
 <div class="pssyntax">
 
-  <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-SignedArtifact</span><span class="w"> 
-    </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w"> </span><span class="nt">-CIUserToken</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">String</span><span class="err">&gt;</span><span class="w"> </span><span class="p">[</span><span class="nt">-ClientCertificate</span><span class="w"> </span><span class="err">&lt;</span><span class="n">X509Certificate2</span><span class="err">&gt;</span><span class="p">]</span><span class="w">
-    </span><span class="p">[</span><span class="nt">-ApiUrl</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> 
-    </span><span class="nt">-SigningRequestId</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w"> 
-    </span><span class="nt">-OutputArtifactPath</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w">
-    </span><span class="p">[</span><span class="nt">-Force</span><span class="p">]</span><span class="w">
-    </span><span class="p">[</span><span class="nt">-WaitForCompletionTimeoutInSeconds</span><span class="w"> </span><span class="err">&lt;</span><span class="n">Int32</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> 
-    </span><span class="p">[</span><span class="nt">-ServiceUnavailableTimeoutInSeconds</span><span class="w"> </span><span class="err">&lt;</span><span class="n">Int32</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-UploadAndDownloadRequestTimeoutInSeconds</span><span class="w"> </span><span class="err">&lt;</span><span class="n">Int32</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> 
+  <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-CertificateByMicrosoftTemplateId</span><span class="w">
+    </span><span class="nt">-Store</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">System.Security.Cryptography.X509Certificates.StoreLocation</span><span class="err">&gt;</span><span class="w">
+    </span><span class="nt">-TemplateId</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w">
 </span></code></pre></div>  </div>
 </div>
 
 <h2 id="description">Description</h2>
 
-<p>The <code class="language-plaintext highlighter-rouge">Get-SignedArtifact</code> cmdlet waits for the specified signing request to finish and downloads the resulting artifact.</p>
+<p>Use this cmdlet to get an X.509 certificate object enrolled using Active Directory Certificate Services (AD CS) from its template ID.</p>
 
-<p>This cmdlet throws an exception if the signing request does not successfully complete in time.</p>
+<p>This can be used to authenticate group memberships via mTLS client certificates:</p>
+
+<ul>
+  <li>Create a client certificate template in AD CS and assign it to a user or computer group</li>
+  <li>Use this cmdlet to select the correct certificate for mTLS authentication</li>
+  <li>Provide the certificate to SignPath cmdlets using the <code class="language-plaintext highlighter-rouge">-ClientCertificate</code> parameter</li>
+</ul>
 
 <h2 id="parameters">Parameters</h2>
 
-<table class="break-column-1">
+<table>
   <thead>
     <tr>
       <th>Parameter</th>
       <th>Type</th>
       <th>Description</th>
-      <th>Default value</th>
-      <th>Editions</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">-OrganizationId</code></td>
-      <td><code class="language-plaintext highlighter-rouge">String</code></td>
-      <td>ID of your SignPath organization</td>
-      <td> </td>
-      <td> </td>
+      <td><code class="language-plaintext highlighter-rouge">-Store</code></td>
+      <td>StoreLocation</td>
+      <td>Certificate store that will be searched for the certificate</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">-CIUserToken</code></td>
-      <td><code class="language-plaintext highlighter-rouge">String</code></td>
-      <td>API token you receive when adding a new CI user</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">-ClientCertificate</code></td>
-      <td><code class="language-plaintext highlighter-rouge">X509Certificate2</code></td>
-      <td>Client certificate used for a secure Web API request. Not supported by SignPath.io directly, use for proxies.</td>
-      <td> </td>
-      <td>Enterprise</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">-ApiUrl</code></td>
-      <td><code class="language-plaintext highlighter-rouge">String</code></td>
-      <td>URL to the SignPath REST API</td>
-      <td><code class="language-plaintext highlighter-rouge">https://app.signpath.io/api/</code></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">-SigningRequestId</code></td>
-      <td><code class="language-plaintext highlighter-rouge">String</code></td>
-      <td>ID of the siging request</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">-OutputArtifactPath</code></td>
-      <td><code class="language-plaintext highlighter-rouge">String</code></td>
-      <td>Specifies the target path for the downloaded signed artifact</td>
-      <td><code class="language-plaintext highlighter-rouge">InputArtifactPath</code> with an added <code class="language-plaintext highlighter-rouge">.signed</code> extension</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">-Force</code></td>
-      <td>Switch</td>
-      <td>Allows the cmdlet to overwrite the file at OutputArtifactPath</td>
-      <td><code class="language-plaintext highlighter-rouge">false</code></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">-WaitForCompletionTimeoutInSeconds</code></td>
-      <td><code class="language-plaintext highlighter-rouge">Int32</code></td>
-      <td>Maximum time in seconds that the cmdlet will wait for the signing request to complete (upload and download have no specific timeouts)</td>
-      <td>600 seconds</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">-ServiceUnavailableTimeoutInSeconds</code></td>
-      <td><code class="language-plaintext highlighter-rouge">Int32</code></td>
-      <td>Total time in seconds that the cmdlet will wait for a single service call to succeed (across several retries)</td>
-      <td>600 seconds</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">-UploadAndDownloadRequestTimeoutInSeconds</code></td>
-      <td><code class="language-plaintext highlighter-rouge">Int32</code></td>
-      <td>HTTP timeout used for upload and download HTTP requests</td>
-      <td>300 seconds</td>
-      <td> </td>
+      <td><code class="language-plaintext highlighter-rouge">-TemplateId</code></td>
+      <td>String</td>
+      <td>The Microsoft AD CS template ID to find the certificate in OID format (dotted number sequence, e.g. “1.2.3.4”)</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="examples">Examples</h2>
 
-<h3 id="example-1-download-an-artifact-from-a-previously-submitted-signing-request">Example 1: Download an artifact from a previously submitted signing request</h3>
+<h3 id="example-1-submit-a-signing-request-using-a-template-based-machine-client-certificate">Example 1: Submit a signing request using a template-based machine client certificate</h3>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$signingRequestID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Submit-SigningRequest</span><span class="w"> </span><span class="se">`
-</span><span class="w">    </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> </span><span class="se">`-</span><span class="nx">CIUserToken</span><span class="w"> </span><span class="nv">$CI_USER_TOKEN</span><span class="w"> </span><span class="se">`
-</span><span class="w">    </span><span class="nt">-ProjectSlug</span><span class="w"> </span><span class="nv">$PROJECT</span><span class="w"> </span><span class="nt">-SigningPolicySlug</span><span class="w"> </span><span class="nv">$SIGNING_POLICY</span><span class="w"> </span><span class="se">`
-</span><span class="w">    </span><span class="nt">-ArtifactConfigurationSlug</span><span class="w"> </span><span class="nv">$ARTIFACT_CONFIGURATION</span><span class="w"> </span><span class="se">`
-</span><span class="w">    </span><span class="nt">-InputArtifactPath</span><span class="w"> </span><span class="nv">$PATH_TO_INPUT_ARTIFACT</span><span class="w">
-
-</span><span class="n">Get-SignedArtifact</span><span class="w"> </span><span class="se">`
-</span><span class="w">    </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> </span><span class="nt">-CIUserToken</span><span class="w"> </span><span class="nv">$CI_USER_TOKEN</span><span class="w"> </span><span class="se">`
-</span><span class="w">    </span><span class="nt">-SigningRequestId</span><span class="w"> </span><span class="nv">$signingRequestID</span><span class="w"> </span><span class="se">`
-</span><span class="w">    </span><span class="nt">-OutputArtifactPath</span><span class="w"> </span><span class="nv">$PATH_TO_OUTPUT_ARTIFACT</span><span class="w">
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$clientcert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Get-CertificateByMicrosoftTemplateId</span><span class="w"> </span><span class="nt">-Store</span><span class="w"> </span><span class="nx">LocalMachine</span><span class="w"> </span><span class="nt">-TemplateId</span><span class="w"> </span><span class="s2">"1.2.3.4"</span><span class="w">
+</span><span class="n">Submit-SigningRequest</span><span class="w"> </span><span class="cm">&lt;# ... #&gt;</span><span class="w"> </span><span class="nt">-ClientCertificate</span><span class="w"> </span><span class="nv">$clientcert</span><span class="w">
 </span></code></pre></div></div>
 
 		</article>
