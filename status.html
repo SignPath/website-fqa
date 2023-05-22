@@ -74,7 +74,18 @@ All systems are operational
 		<h3>Planned maintenance</h3><div>No maintenance planned.</div><ul></ul>
 
 		<h3>Past incidents and maintenance</h3>
-		<ul><li class="critical">
+		<ul><li class="warning">
+					<h3>May 05, 2023</h3>
+					<label>May 05, 2023 13:00 - May 06, 2003 09:22 UTC</label>
+					<h4>Performance degradation</h4>
+					<div>
+						Performance issues due to a regression caused by a dependency. We noticed performance degradation in queue processing during the following periods: <br />
+(1) May 5 13:00 - 15:36 UTC: 18 min. processing time in the top 95 percentile, some API calls returned HTTP 502 as a side effect<br />
+(2) May 5 17:12 - 18:25 UTC: same processing time, no API errors<br />
+(3) May 6 08:45 - 09:22 UTC: 15 min. processing time in the top 95 percentile, no API errors<br />
+As an initial reaction to (1) and (2), we allocated additional computing resources. Once the root cause was identified, we reverted the system to an old version of the component that caused the issue and deployed it as a hotfix.<br />
+</div>
+				</li><li class="critical">
 					<h3>Mar. 12, 2023</h3>
 					<label>Mar 12, 2023 10:00 - 12:00 UTC</label>
 					<h4>Planned maintenance: HSM network reconfiguration</h4>
@@ -171,20 +182,20 @@ All systems are operational
 					<div>
 						Due to a reconfiguration of our internet provider, the processing of HSM-based signing requests and creating/deleting certificates may be temporarily unavailable.</div>
 				</li><li class="warning">
-					<h3>May. 23, 2020</h3>
-					<label>May. 23, 2020 20:30 - May. 24, 2020 11:00 UTC</label>
+					<h3>May 23, 2020</h3>
+					<label>May 23, 2020 20:30 - May 24, 2020 11:00 UTC</label>
 					<h4>Planned maintenance</h4>
 					<div>
 						Due to an upgrade in our networking infrastructure, problems performing operations involving the Hardware Security Module (HSM), such as signing operations or creating new certificates might occur.</div>
 				</li><li class="critical">
-					<h3>May. 14, 2020</h3>
-					<label>May. 14, 2020 7:30 - 12:45 UTC</label>
+					<h3>May 14, 2020</h3>
+					<label>May 14, 2020 7:30 - 12:45 UTC</label>
 					<h4>Infrastructure problems during deployment</h4>
 					<div>
 						During the deployment of a new version of SignPath, infrastructure problems arose. The release was rolled back, but some downtime could not be avoided. One of the servers did not start correctly in the process, causing the API to be unavailable for certain customers.</div>
 				</li><li class="warning">
-					<h3>May. 9, 2020</h3>
-					<label>May. 9, 2020 21:30 - May. 10, 2020 5:00 UTC</label>
+					<h3>May 9, 2020</h3>
+					<label>May 9, 2020 21:30 - May 10, 2020 5:00 UTC</label>
 					<h4>Planned maintenance</h4>
 					<div>
 						Due to an upgrade in our networking infrastructure, problems performing operations involving the Hardware Security Module (HSM), such as signing operations or creating new certificates might occur.</div>
