@@ -295,19 +295,19 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">RepositoryMetadata.SourceControlManagementType</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RepositoryData.SourceControlManagementType</code></td>
       <td>Type of source control management (SCM) or version control system (VCS), e.g. <code class="language-plaintext highlighter-rouge">git</code></td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">RepositoryMetadata.RepositoryUrl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RepositoryData.RepositoryUrl</code></td>
       <td>URL of the source code repository, must match project settings for origin verification</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">RepositoryMetadata.BranchName</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RepositoryData.BranchName</code></td>
       <td>Branch name for the build, must match signing policy settings for origin verification</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">RepositoryMetadata.CommitId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RepositoryData.CommitId</code></td>
       <td>Commit ID for the build</td>
     </tr>
     <tr>
@@ -538,7 +538,7 @@
         </span><span class="nx">productVersion</span><span class="o">=</span><span class="s2">"1.2.0"</span><span class="w"> 
         </span><span class="p">}</span><span class="w"> </span><span class="se">`
 </span><span class="w">    </span><span class="nt">-Origin</span><span class="w"> </span><span class="p">@{</span><span class="w">
-        </span><span class="nx">RepositoryMetadata</span><span class="o">=</span><span class="p">@{</span><span class="w">
+        </span><span class="nx">RepositoryData</span><span class="o">=</span><span class="p">@{</span><span class="w">
             </span><span class="nx">SourceControlManagementType</span><span class="o">=</span><span class="s2">"svn"</span><span class="p">;</span><span class="w">
             </span><span class="nx">RepositoryUrl</span><span class="o">=</span><span class="s2">"https://github.com/org/project"</span><span class="p">;</span><span class="w">
             </span><span class="nx">BranchName</span><span class="o">=</span><span class="s2">"release/v2.1"</span><span class="p">;</span><span class="w">
