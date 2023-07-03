@@ -80,7 +80,7 @@
   <li><a href="#signing-methods">Signing methods</a></li>
   <li><a href="#using-wildcards">Using wildcards</a></li>
   <li><a href="#file-and-directory-sets">File and directory sets</a></li>
-  <li><a href="#file-attribute-restrictions">File attribute restrictions</a></li>
+  <li><a href="#file-metadata-restrictions">File metadata restrictions</a></li>
   <li><a href="#user-defined-parameters">User-defined parameters</a></li>
   <li><a href="#examples">Examples</a></li>
 </ul>
@@ -124,6 +124,7 @@
       <li><a href="#office-macro-sign">&lt;office-macro-sign&gt;</a></li>
       <li><a href="#opc-sign">&lt;opc-sign&gt;</a></li>
       <li><a href="#jar-sign">&lt;jar-sign&gt;</a></li>
+      <li><a href="#xml-sign">&lt;xml-sign&gt;</a></li>
     </ul>
   </li>
   <li><a href="#using-wildcards">Using wildcards</a>
@@ -136,9 +137,10 @@
       <li><a href="#file-set-example">File set example</a></li>
     </ul>
   </li>
-  <li><a href="#file-attribute-restrictions">File attribute restrictions</a>
+  <li><a href="#file-metadata-restrictions">File metadata restrictions</a>
     <ul>
-      <li><a href="#file-attribute-restriction-example">File attribute restriction example</a></li>
+      <li><a href="#example-pe-file-metadata-restriction">Example: PE file metadata restriction</a></li>
+      <li><a href="#example-xml-file-schema-restriction-for-cyclonedx-sbom">Example: XML file schema restriction for CycloneDX SBOM</a></li>
     </ul>
   </li>
   <li><a href="#user-defined-parameters">User-defined parameters</a></li>
@@ -338,6 +340,13 @@
     <td>.xls, .xlt, .doc, .dot, .pot, .ppa, .pps, .ppt, .mpp, .mpt, .pub, .vsd, .vst, ... </td>
     <td>Sign VBA macros in binary Microsoft Office files and templates: Project, Publisher, and legacy Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)</td>
   </tr> 
+   <tr>
+    <td><code>&lt;xml-file&gt;</code></td>
+    <td>No</td>
+    <td><code><a href="#xml-sign">&lt;xml-sign&gt;</a></code></td>
+    <td>.xml</td>
+    <td>Use this directive to sign XML files using <a href="https://www.w3.org/TR/xmldsig-core1/">XMLDSIG</a> (available for Enterprise subscriptions)</td>
+  </tr> 
   <tr>
     <td><code><a href="#directory-element">&lt;directory&gt;</a></code></td>
     <td>Yes</td>
@@ -425,6 +434,12 @@
 </ul>
 
 <p>Using <code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code> is equivalent to using Microsoft’s <code class="language-plaintext highlighter-rouge">SignTool.exe</code>.</p>
+
+<p>See also:</p>
+
+<ul>
+  <li>Use <a href="#file-metadata-restrictions">metadata restrictions</a> for <code class="language-plaintext highlighter-rouge">&lt;pe-file&gt;</code> to restrict product name and version.</li>
+</ul>
 
 <h3 id="clickonce-sign">&lt;clickonce-sign&gt;</h3>
 
@@ -544,6 +559,36 @@
 
 <p>Add the <code class="language-plaintext highlighter-rouge">-verbose</code> option to see the certificate.</p>
 
+<h3 id="xml-sign">&lt;xml-sign&gt;</h3>
+
+<p class="badge icon-signpath">Available for Enterprise subscriptions</p>
+
+<p>Sign XML files with <a href="https://www.w3.org/TR/xmldsig-core1/">XMLDSIG</a>.</p>
+
+<p><strong>Supported options:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">key-info-x509-data</code></td>
+      <td>Yes</td>
+      <td><code class="language-plaintext highlighter-rouge">none</code>: Do not include any X.509 data in the signature<br /> <code class="language-plaintext highlighter-rouge">leaf</code> (Default): Include only the leaf certificate in the signature<br /> <code class="language-plaintext highlighter-rouge">whole-chain</code>: Include the whole certificate chain in the signature<br /> <code class="language-plaintext highlighter-rouge">exclude-root</code>: Include the whole certificate chain in the signature, but exclude the root certificate<br /> <strong>Note</strong>: <code class="language-plaintext highlighter-rouge">whole-chain</code> and <code class="language-plaintext highlighter-rouge">exclude-root</code> only work with public CA trusted certificates</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>See also:</p>
+<ul>
+  <li>Use <a href="#file-metadata-restrictions">metadata restrictions</a> for <code class="language-plaintext highlighter-rouge">&lt;xml-file&gt;</code> to restrict root element and namespace.</li>
+</ul>
+
 <h2 id="using-wildcards">Using wildcards</h2>
 
 <p>Every path attribute can contain the following wildcard patterns:</p>
@@ -615,25 +660,7 @@
 
 <h2 id="file-and-directory-sets">File and directory sets</h2>
 
-<p>If multiple files or directories should be handled in the same way, you can enumerate them using one of the following file or directory set elements:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">&lt;directory-set&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;pe-file-set&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;powershell-file-set&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;windows-script-file-set&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;msi-file-set&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;cab-file-set&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;catalog-file-set&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;appx-file-set&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;msix-file-set&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;opc-file-set&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;nupkg-file-set&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;jar-file-set&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;zip-file-set&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;office-oxml-file-set&gt;</code></li>
-  <li><code class="language-plaintext highlighter-rouge">&lt;office-binary-file-set&gt;</code></li>
-</ul>
+<p>If multiple files or directories should be handled in the same way, you can enumerate them using one of the following file or directory set elements: <code class="language-plaintext highlighter-rouge">&lt;directory-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;pe-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;powershell-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;windows-script-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;msi-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;cab-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;catalog-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;appx-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;msix-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;opc-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;nupkg-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;jar-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;zip-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;office-oxml-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;office-binary-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;xml-file-set&gt;</code></p>
 
 <p>Each set element contains:</p>
 
@@ -684,11 +711,32 @@
 
       </td> </tr> </tbody> </table>
 
-<h2 id="file-attribute-restrictions">File attribute restrictions</h2>
+<h2 id="file-metadata-restrictions">File metadata restrictions</h2>
 
-<p>For Microsoft Portable Executable (PE) files, the existence of their Product Name / Product Version header attributes can be enforced by setting the <code>productName</code> and <code>productVersion</code> attributes on the <code>&lt;pe-file&gt;</code>, <code>&lt;pe-file-set&gt;</code> and including <code>&lt;include&gt;</code> elements. The value of the <code>&lt;include&gt;</code> overrides any value set on the <code>&lt;pe-file-set&gt;</code> element.</p>
+<p>Some element types support restricting certain metadata values.</p>
 
-<h3 id="file-attribute-restriction-example">File attribute restriction example</h3>
+<p>The restrictions can be applied to file elements, <a href="#file-and-directory-sets">file set elements</a>, or <code class="language-plaintext highlighter-rouge">&lt;include&gt;</code> elements. Attributes on <code class="language-plaintext highlighter-rouge">&lt;include&gt;</code> elements override those on file set elements.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>File element</th>
+      <th>Supported restriction attributes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;pe-file&gt;</code></td>
+      <td>PE file headers: <code class="language-plaintext highlighter-rouge">productName</code>, <code class="language-plaintext highlighter-rouge">productVersion</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;xml-file&gt;</code></td>
+      <td>Root element name and namespace: <code class="language-plaintext highlighter-rouge">root-element-name</code>, <code class="language-plaintext highlighter-rouge">root-element-namespace</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-pe-file-metadata-restriction">Example: PE file metadata restriction</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;msi-file&gt;</span>
@@ -706,6 +754,16 @@
 <span class="nt">&lt;/artifact-configuration&gt;</span>
 </code></pre></div></div>
 
+<h3 id="example-xml-file-schema-restriction-for-cyclonedx-sbom">Example: XML file schema restriction for CycloneDX SBOM</h3>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- with this restriction, only CylconeDX 1.4 SBOM files can be signed with this artifact configuration --&gt;</span>
+  <span class="nt">&lt;xml-file</span> <span class="na">root-element-namespace=</span><span class="s">"http://cyclonedx.org/schema/bom/1.4"</span> <span class="na">root-element-name=</span><span class="s">"bom"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;xml-sign/&gt;</span>
+  <span class="nt">&lt;/xml-file&gt;</span>
+<span class="nt">&lt;/artifact-configuration&gt;</span>
+</code></pre></div></div>
+
 <h2 id="user-defined-parameters">User-defined parameters</h2>
 
 <p class="badge icon-signpath">Available for Enterprise subscriptions</p>
@@ -714,13 +772,13 @@
 
 <p>Parameter values can be set when submitting a signing request via the user interface or API (see <a href="/documentation/build-system-integration#submit-a-signing-request">documentation</a>). Actual values are displayed on the signing request details page.</p>
 
-<p>Parameters are defined in an optional <code>parameters</code> block at the beginning of the artifact configuration and can be referenced using the <code>${parameterName}</code> syntax in any XML attribute.</p>
+<p>Parameters are defined in an optional <code class="language-plaintext highlighter-rouge">parameters</code> block at the beginning of the artifact configuration and can be referenced using the <code class="language-plaintext highlighter-rouge">${parameterName}</code> syntax in any XML attribute.</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;parameters&gt;</span>
-    <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">"productVersion"</span> <span class="na">default-value=</span><span class="s">"1.0.0"</span> <span class="na">required=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">"version"</span> <span class="na">default-value=</span><span class="s">"1.0.0"</span> <span class="na">required=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
   <span class="nt">&lt;/parameters&gt;</span>
-  <span class="nt">&lt;pe-file</span> <span class="na">path=</span><span class="s">"my-installer-${productVersion}.exe"</span> <span class="na">productVersion=</span><span class="s">"${productVersion}"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;pe-file</span> <span class="na">path=</span><span class="s">"my-installer-${version}.exe"</span> <span class="na">productName=</span><span class="s">"myproduct"</span> <span class="na">productVersion=</span><span class="s">"${version}"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/artifact-configuration&gt;</span>
 </code></pre></div></div>
 
@@ -840,6 +898,8 @@
       <p><img src="/assets/img/resources/documentation_artifact-configuration_similar-resolved.png" alt="graphical resolved artifacts" /></p>
 
     </td></tr></table>
+
+<p><strong>Footnotes:</strong></p>
 
 <div class="footnotes" role="doc-endnotes">
   <ol>

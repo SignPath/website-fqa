@@ -83,6 +83,7 @@
     <ul>
       <li><a href="#file-signing">File-based signing</a></li>
       <li><a href="#office-macros">Microsoft Office macros</a></li>
+      <li><a href="#xml-signing">XML Signing</a></li>
       <li><a href="#container-signing">Docker/container signing</a></li>
       <li><a href="#hash-signing">Hash-based signing</a></li>
     </ul>
@@ -244,6 +245,14 @@
 
 <p><strong>Available for</strong> <em>Enterprise</em> subscriptions.</p>
 
+<h3 id="xml-signing">XML Signing</h3>
+
+<p>SignPath supports signing XML files using <a href="https://www.w3.org/TR/xmldsig-core1/">XMLDSIG</a>.</p>
+
+<p>See <a href="/documentation/artifact-configuration#xml-sign">artifact configuration</a> for details.</p>
+
+<p><strong>Available for</strong> <em>Enterprise, Open Source</em> subscriptions.</p>
+
 <h3 id="container-signing">Docker/container signing</h3>
 
 <p>SignPath supports signing Docker container images and tags using Docker Content Trust (DCT). See <a href="/documentation/docker-signing">Docker signing</a> for details.</p>
@@ -321,7 +330,7 @@
 
 <h3 id="metadata-constraints">Metadata constraints</h3>
 
-<p>Some <a href="/documentation/artifact-configuration#file-attribute-restrictions">file attributes</a> can be restricted.</p>
+<p>You can restrict some <a href="/documentation/artifact-configuration#file-attribute-restrictions">file attributes</a> in the artifact configuration.</p>
 
 <p>This is useful if you want to</p>
 
