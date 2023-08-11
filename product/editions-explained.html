@@ -196,7 +196,7 @@
   </tbody>
 </table>
 
-<p>So for instance, a <em>Basic</em> subscription with 3 <em>projects</em> allows you to complete</p>
+<p><strong>Example:</strong> a <em>Basic</em> subscription with 3 <em>projects</em> allows you to complete</p>
 
 <ul>
   <li>150 release-signing requests per year (50 × 3)</li>
@@ -219,7 +219,21 @@
   <li>Consider using <a href="#deep-signing">deep signing</a> if you produce packages in supported formats such as MSI installers</li>
 </ul>
 
-<p><strong>Fair use quota:</strong> You may sign up to 100 files per <em>available</em> signing request (i.e. the sum of release- and test-signing requests ). In the example above, that would be (150 + 750) × 100 = 90,000 files per year.</p>
+<h4 id="individual-signatures">Individual signatures</h4>
+
+<p>Each signed file inside a signing request counts towards the individual signatures quota.</p>
+
+<ul>
+  <li><strong>Example:</strong> an MSI file containing 1 EXE and 2 DLL files would result in 4 individual signatures.</li>
+</ul>
+
+<p>You may sign <strong>up to 100 files per <em>available</em> signing request</strong> (i.e. the sum of release- and test-signing requests).</p>
+
+<ul>
+  <li><strong>Example:</strong> 900 signing requests are available in the previous example (150 + 750). That would result in 900 × 100 = 90,000 individual signatures per year.</li>
+</ul>
+
+<p>You can adjust the <a href="/documentation/artifact-configuration">artifact configuration</a> to specify which files should be signed.</p>
 
 <h3 id="ci-pipelines">CI pipelines</h3>
 
