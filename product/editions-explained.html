@@ -280,30 +280,36 @@
 <table>
   <thead>
     <tr>
-      <th>Interface</th>
-      <th>Technology</th>
+      <th>Provider</th>
+      <th>Technology/Interface</th>
       <th>Supported Platforms</th>
       <th>Signing Tools</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>KSP</strong> (Key Storage Provider)</td>
-      <td>CNG (Cryptography Next Generation)</td>
+      <td>Key Storage Provider (KSP)</td>
+      <td>Cryptography Next Generation (CNG)</td>
       <td>Windows</td>
       <td><code class="language-plaintext highlighter-rouge">SignTool.exe</code>, <code class="language-plaintext highlighter-rouge">Mage.exe</code>, <code class="language-plaintext highlighter-rouge">nuget sign</code>, …</td>
     </tr>
     <tr>
-      <td><strong>CSP</strong> (Cryptographic Storage Provider)</td>
-      <td>CAPI (Cryptographic API)</td>
+      <td>Cryptographic Storage Provider (CSP)</td>
+      <td>Cryptographic API (CAPI)</td>
       <td>Windows</td>
       <td>Same as KSP, legacy tools</td>
     </tr>
     <tr>
-      <td><strong>Cryptoki</strong> library</td>
+      <td>Cryptoki library</td>
       <td>PKCS#11</td>
       <td>Windows, Linux</td>
       <td><code class="language-plaintext highlighter-rouge">jarsigner</code>, OpenSSL, GPG, RPM, DEB, Maven …</td>
+    </tr>
+    <tr>
+      <td>Apple CryptoTokenKit</td>
+      <td>Code signigng for macOS, iOS, watchOS, tvOS</td>
+      <td>macOS</td>
+      <td>Xcode, <code class="language-plaintext highlighter-rouge">xcodebuild</code>, <code class="language-plaintext highlighter-rouge">codesign</code></td>
     </tr>
   </tbody>
 </table>
@@ -344,7 +350,7 @@
 
 <h3 id="metadata-constraints">Metadata constraints</h3>
 
-<p>You can restrict some <a href="/documentation/artifact-configuration#file-attribute-restrictions">file attributes</a> in the artifact configuration.</p>
+<p>You can restrict some <a href="/documentation/artifact-configuration#metadata-restrictions">file attributes</a> in the artifact configuration.</p>
 
 <p>This is useful if you want to</p>
 
