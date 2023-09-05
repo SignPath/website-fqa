@@ -34,7 +34,7 @@
       <nav>
         <ul><li>
               <a href='/product'> Product </a>
-              <ul><li> <a href='/product/features'> Features </a> </li><li> <a href='/product/editions'> Editions </a> </li><li class='separator' /><li> <a href='/product/devops'> For DevOps teams </a> </li><li> <a href='/product/infosec'> For InfoSec teams </a> </li><li> <a href='/product/open-source'> For Open Source projects </a> </li><li class='separator' /><li> <a href='/product/office-macros'> Office macro signing </a> </li><li> <a href='/product/pkic-best-practices'> PKI Consortium best practices </a> </li><li class='separator' /><li> <a href='/product/changelog'> Product updates </a> </li></ul>
+              <ul><li> <a href='/product/features'> Features </a> </li><li> <a href='/product/editions'> Editions </a> </li><li class='separator' /><li> <a href='/product/devops'> For DevOps teams </a> </li><li> <a href='/product/infosec'> For InfoSec teams </a> </li><li> <a href='/product/open-source'> For Open Source projects </a> </li><li class='separator' /><li> <a href='/product/office-macros'> Office macro signing </a> </li><li> <a href='/product/pkic-best-practices'> PKI Consortium best practices </a> </li></ul>
             </li><li>
               <a href='/code-signing'> Code Signing </a>
               <ul><li> <a href='/code-signing/introduction'> Introduction </a> </li><li> <a href='/code-signing/theory'> Theory </a> </li><li> <a href='/code-signing/windows-platform'> Windows Platform </a> </li><li> <a href='/code-signing/test-certificates'> Managing Test Certificates </a> </li><li> <a href='/code-signing/private-keys'> Storage of Private Keys </a> </li><li> <a href='/code-signing/media-coverage'> Media Coverage </a> </li></ul>
@@ -140,7 +140,7 @@
   <li><a href="#metadata-restrictions">File metadata restrictions</a>
     <ul>
       <li><a href="#example-pe-file-metadata-restriction">Example: PE file metadata restriction</a></li>
-      <li><a href="#example-xml-file-schema-restriction-for-cyclonedx-sbom">Example: XML file schema restriction for CycloneDX SBOM</a></li>
+      <li><a href="#sbom-sample">Example: XML file schema restriction for CycloneDX SBOM</a></li>
     </ul>
   </li>
   <li><a href="#user-defined-parameters">User-defined parameters</a></li>
@@ -565,6 +565,57 @@
 
 <p>Sign XML files with <a href="https://www.w3.org/TR/xmldsig-core1/">XMLDSIG</a>.</p>
 
+<p>This will create an <em>enveloped signature</em> for the entire document.</p>
+
+<p>The result is a <code class="language-plaintext highlighter-rouge">Signature</code> element added to the root element (after all existing children) with the following properties:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+      <th>XPath</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Canonicalization</td>
+      <td>Exclusive XML Canonicalization: <code class="language-plaintext highlighter-rouge">http://www.w3.org/2001/10/xml-exc-c14n#</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/*/Signature/SignedInfo/CanonicalizationMethod/@Algorithm</code></td>
+    </tr>
+    <tr>
+      <td>Method</td>
+      <td><em>Depends on signing key format</em></td>
+      <td><code class="language-plaintext highlighter-rouge">/*/Signature/SignedInfo/SignatureMethod/@Algorithm</code></td>
+    </tr>
+    <tr>
+      <td>ReferenceUri</td>
+      <td>Whole document: <code class="language-plaintext highlighter-rouge">""</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/*/Signature/SignedInfo/Reference/@URI</code></td>
+    </tr>
+    <tr>
+      <td>Transformation</td>
+      <td>Enveloped signature: <code class="language-plaintext highlighter-rouge">http://www.w3.org/2000/09/xmldsig#enveloped-signature"</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/*/Signature/SignedInfo/Reference/Transforms/Transform/@Algorithm</code></td>
+    </tr>
+    <tr>
+      <td>Transformation</td>
+      <td>Exclusive XML Canonicalization: <code class="language-plaintext highlighter-rouge">http://www.w3.org/2001/10/xml-exc-c14n#</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/*/Signature/SignedInfo/Reference/Transforms/Transform/@Algorithm</code></td>
+    </tr>
+    <tr>
+      <td>Digest method</td>
+      <td>SHA-256: <code class="language-plaintext highlighter-rouge">http://www.w3.org/2001/04/xmlenc#sha256</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/*/Signature/SignedInfo/Reference/DigestMethod/@Algorithm</code></td>
+    </tr>
+    <tr>
+      <td>X.509 Certificate</td>
+      <td><em>See <code class="language-plaintext highlighter-rouge">key-info-x509-data</code> option</em></td>
+      <td><code class="language-plaintext highlighter-rouge">/*/Signature/KeyInfo/X509Data</code></td>
+    </tr>
+  </tbody>
+</table>
+
 <p><strong>Supported options:</strong></p>
 
 <table>
@@ -605,37 +656,37 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">*</code></td>
-      <td>Matches any number of any character (including none, excluding the directory separator)</td>
+      <td>Matches any number of any character (including none, excluding the directory separator).</td>
       <td><code class="language-plaintext highlighter-rouge">m*y</code></td>
       <td><code class="language-plaintext highlighter-rouge">my</code>, <code class="language-plaintext highlighter-rouge">mary</code>, <code class="language-plaintext highlighter-rouge">my first pony</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">?</code></td>
-      <td>Matches  any single character</td>
-      <td><code class="language-plaintext highlighter-rouge">th?s</code>: <code class="language-plaintext highlighter-rouge">this</code>, <code class="language-plaintext highlighter-rouge">th$s</code>, but not <code class="language-plaintext highlighter-rouge">ths</code></td>
-      <td> </td>
+      <td>Matches  any single character.</td>
+      <td><code class="language-plaintext highlighter-rouge">th?s</code></td>
+      <td><code class="language-plaintext highlighter-rouge">this</code>, <code class="language-plaintext highlighter-rouge">th$s</code>, but not <code class="language-plaintext highlighter-rouge">ths</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">[abc]</code></td>
-      <td>Matches one character given in the bracket</td>
+      <td>Matches one character given in the bracket.</td>
       <td><code class="language-plaintext highlighter-rouge">[fb]oo</code></td>
       <td><code class="language-plaintext highlighter-rouge">foo</code> and <code class="language-plaintext highlighter-rouge">boo</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">[a-z]</code></td>
-      <td>Matches one character from the range given in the bracket</td>
+      <td>Matches one character from the range given in the bracket.</td>
       <td><code class="language-plaintext highlighter-rouge">[0-9]</code></td>
       <td>all digits</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">[!abc]</code></td>
-      <td>Matches one character that is not given in the bracket</td>
+      <td>Matches one character that is not given in the bracket.</td>
       <td><code class="language-plaintext highlighter-rouge">[!f]oo</code></td>
       <td><code class="language-plaintext highlighter-rouge">boo</code> and <code class="language-plaintext highlighter-rouge">$oo</code>, but not <code class="language-plaintext highlighter-rouge">foo</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">[!a-z]</code></td>
-      <td>Matches one character that is not from the range given in the bracket</td>
+      <td>Matches one character that is not from the range given in the bracket.</td>
       <td><code class="language-plaintext highlighter-rouge">[!0-9]</code></td>
       <td>every character that is not a digit</td>
     </tr>
@@ -754,7 +805,7 @@
 <span class="nt">&lt;/artifact-configuration&gt;</span>
 </code></pre></div></div>
 
-<h3 id="example-xml-file-schema-restriction-for-cyclonedx-sbom">Example: XML file schema restriction for CycloneDX SBOM</h3>
+<h3 id="sbom-sample">Example: XML file schema restriction for CycloneDX SBOM</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- with this restriction, only CylconeDX 1.4 SBOM files can be signed with this artifact configuration --&gt;</span>
