@@ -453,7 +453,7 @@
   <li>Add a signing policy to the project
     <ul>
       <li>choose the certificate you created in step 1</li>
-      <li>add at least one CI user as a submitter</li>
+      <li>add at least one (CI) user as a submitter</li>
     </ul>
   </li>
 </ul>
@@ -499,7 +499,7 @@
 <p>For convenience, the <code class="language-plaintext highlighter-rouge">SignPathDocker</code> module provides a single command to sign a Docker image:</p>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Invoke-DockerSigning</span><span class="w"> </span><span class="nt">-Repository</span><span class="w"> </span><span class="nv">$FQN</span><span class="w"> </span><span class="nt">-Tags</span><span class="w"> </span><span class="nv">$TAGS</span><span class="w"> </span><span class="se">`
-</span><span class="w">  </span><span class="nt">-CIUserToken</span><span class="w"> </span><span class="nv">$CI_USER_TOKEN</span><span class="w"> </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="nt">-ApiToken</span><span class="w"> </span><span class="nv">$API_TOKEN</span><span class="w"> </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> </span><span class="se">`
 </span><span class="w">  </span><span class="nt">-ProjectSlug</span><span class="w"> </span><span class="nv">$PROJECT_SLUG</span><span class="w"> </span><span class="nt">-SigningPolicySlug</span><span class="w"> </span><span class="nv">$SIGNING_POLICY_SLUG</span><span class="w"> </span><span class="se">`
 </span><span class="w">  </span><span class="p">[</span><span class="nt">-ArtifactConfigurationSlug</span><span class="w"> </span><span class="nv">$ARTIFACT_CONFIGURATION_SLUG</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-Description</span><span class="w"> </span><span class="nv">$DESCRIPTION</span><span class="p">]</span><span class="w"> </span><span class="se">`
 </span><span class="w">  </span><span class="p">[</span><span class="nt">-NotaryUrl</span><span class="w"> </span><span class="nv">$NOTARY_URL</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-NotaryUsername</span><span class="w"> </span><span class="nv">$NOTARY_USERNAME</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-NotaryPassword</span><span class="w"> </span><span class="nv">$NOTARY_PASSWORD</span><span class="p">]</span><span class="w"> </span><span class="se">`
@@ -523,11 +523,11 @@
 
 </span><span class="c"># Submit a new signing request to SignPath.</span><span class="w">
 </span><span class="nv">$signingRequestId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Submit-SigningRequest</span><span class="w"> </span><span class="nt">-InputArtifactPath</span><span class="w"> </span><span class="nv">$ZIP_FILE</span><span class="w"> </span><span class="se">`
-</span><span class="w">  </span><span class="nt">-CIUserToken</span><span class="w"> </span><span class="nv">$CI_USER_TOKEN</span><span class="w"> </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="nt">-ApiToken</span><span class="w"> </span><span class="nv">$API_TOKEN</span><span class="w"> </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> </span><span class="se">`
 </span><span class="w">  </span><span class="nt">-ProjectSlug</span><span class="w"> </span><span class="nv">$PROJECT_SLUG</span><span class="w"> </span><span class="nt">-SigningPolicySlug</span><span class="w"> </span><span class="nv">$SIGNING_POLICY_SLUG</span><span class="w"> 
 
 </span><span class="c"># Get the signed artifact</span><span class="w">
-</span><span class="n">Get-SignedArtifact</span><span class="w"> </span><span class="nv">$signingRequestId</span><span class="w"> </span><span class="nt">-CIUserToken</span><span class="w"> </span><span class="nv">$CI_USER_TOKEN</span><span class="w"> </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> 
+</span><span class="n">Get-SignedArtifact</span><span class="w"> </span><span class="nv">$signingRequestId</span><span class="w"> </span><span class="nt">-ApiToken</span><span class="w"> </span><span class="nv">$API_TOKEN</span><span class="w"> </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> 
 
 </span><span class="c"># Upload the signed metadata to the Notary server</span><span class="w">
 </span><span class="n">Push-SignedDockerSigningData</span><span class="w"> </span><span class="nt">-Repository</span><span class="w"> </span><span class="nv">$FQN</span><span class="w"> </span><span class="nt">-InputArtifactPath</span><span class="w"> </span><span class="nv">$ZIP_FILE</span><span class="w"> </span><span class="se">`
@@ -556,7 +556,7 @@
         <td>A comma-separated list of Docker tags that you want to sign (e.g. <code class="language-plaintext highlighter-rouge">v1,1.2.17</code>)</td>
       </tr>
       <tr>
-        <td><code class="language-plaintext highlighter-rouge">CIUserToken</code></td>
+        <td><code class="language-plaintext highlighter-rouge">ApiToken</code></td>
         <td>The API token of the CI user (see <a href="./build-system-integration#authorization">build system integration</a>)</td>
       </tr>
       <tr>

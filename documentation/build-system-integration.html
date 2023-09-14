@@ -114,7 +114,7 @@
 
 <h2 id="authorization">Authorization</h2>
 
-<p>Before accessing the API, you have to create a CI User in the User section of the SignPath application.</p>
+<p>In order to access the API, we recommend to create a dedicated CI User per project in the User section of the SignPath application.</p>
 
 <p>The API token is displayed when a new CI user is created. (If you lose the API key, you will need to generate a new one.)</p>
 
@@ -202,7 +202,7 @@
 
 <p><strong>Example:</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$CI_USER_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$API_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
      <span class="nt">-F</span> <span class="s2">"ProjectSlug=</span><span class="nv">$PROJECT</span><span class="s2">"</span> <span class="se">\</span>
      <span class="nt">-F</span> <span class="s2">"SigningPolicySlug=test-signing"</span> <span class="se">\</span>
      <span class="nt">-F</span> <span class="s2">"ArtifactConfigurationSlug=v2.4"</span> <span class="se">\</span>
@@ -248,7 +248,7 @@
 
 <p><strong>Example:</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$CI_USER_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$API_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
      https://app.signpath.io/API/v1/<span class="nv">$ORGANIZATION_ID</span>/SigningRequests/<span class="nv">$SIGNING_REQUEST_ID</span>
 </code></pre></div></div>
 
@@ -327,7 +327,7 @@
 
 <p><strong>Example:</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$CI_USER_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$API_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
      <span class="nt">-o</span> <span class="nv">$LOCAL_PATH_TO_DOWNLOADED_ARTIFACT</span> <span class="se">\</span>
      https://app.signpath.io/API/v1/<span class="nv">$ORGANIZATION_ID</span>/SigningRequests/<span class="nv">$SIGNING_REQUEST_ID</span>/SignedArtifact
 </code></pre></div></div>
@@ -375,7 +375,7 @@
 
 <p><strong>Example:</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$CI_USER_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$API_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
      <span class="nt">-F</span> <span class="s2">"OriginalSigningRequestId=</span><span class="nv">$ORIGINAL_SIGNING_REQUEST_ID</span><span class="s2">"</span> <span class="se">\</span>
      <span class="nt">-F</span> <span class="s2">"SigningPolicySlug=release-signing"</span> <span class="se">\</span>
      <span class="nt">-F</span> <span class="s2">"Description=</span><span class="nv">$DESCRIPTION</span><span class="s2">"</span> <span class="se">\</span>
