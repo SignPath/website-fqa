@@ -584,8 +584,8 @@
       <td><code class="language-plaintext highlighter-rouge">/*/Signature/SignedInfo/CanonicalizationMethod/@Algorithm</code></td>
     </tr>
     <tr>
-      <td>Method</td>
-      <td><em>Depends on signing key format</em></td>
+      <td>Signature Method</td>
+      <td>RSA SHA-256: <code class="language-plaintext highlighter-rouge">http://www.w3.org/2001/04/xmldsig-more#rsa-sha256</code></td>
       <td><code class="language-plaintext highlighter-rouge">/*/Signature/SignedInfo/SignatureMethod/@Algorithm</code></td>
     </tr>
     <tr>
@@ -778,7 +778,7 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">&lt;pe-file&gt;</code></td>
-      <td>PE file headers: <code class="language-plaintext highlighter-rouge">product-name</code>, <code class="language-plaintext highlighter-rouge">product-version</code></td>
+      <td>PE file headers: <code class="language-plaintext highlighter-rouge">productName</code>, <code class="language-plaintext highlighter-rouge">productVersion</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">&lt;xml-file&gt;</code></td>
@@ -792,10 +792,10 @@
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;msi-file&gt;</span>
     <span class="c">&lt;!-- requires all pe-files to have the respective attributes set --&gt;</span>
-    <span class="nt">&lt;pe-file-set</span> <span class="na">product-name=</span><span class="s">"YourProductName"</span> <span class="na">product-version=</span><span class="s">"1.0.0.0"</span><span class="nt">&gt;</span> 
+    <span class="nt">&lt;pe-file-set</span> <span class="na">productName=</span><span class="s">"YourProductName"</span> <span class="na">productVersion=</span><span class="s">"1.0.0.0"</span><span class="nt">&gt;</span> 
       <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"main.exe"</span> <span class="nt">/&gt;</span>
       <span class="c">&lt;!-- overrides the value of the parent pe-file-set --&gt;</span>
-      <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"resources*.resource.dll"</span> <span class="na">max-matches=</span><span class="s">"unbounded"</span> <span class="na">product-version=</span><span class="s">"1.0.1.0"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"resources*.resource.dll"</span> <span class="na">max-matches=</span><span class="s">"unbounded"</span> <span class="na">productVersion=</span><span class="s">"1.0.1.0"</span> <span class="nt">/&gt;</span>
       <span class="nt">&lt;for-each&gt;</span>
         <span class="nt">&lt;authenticode-sign</span> <span class="nt">/&gt;</span>
       <span class="nt">&lt;/for-each&gt;</span>
@@ -829,7 +829,7 @@
   <span class="nt">&lt;parameters&gt;</span>
     <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">"version"</span> <span class="na">default-value=</span><span class="s">"1.0.0"</span> <span class="na">required=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
   <span class="nt">&lt;/parameters&gt;</span>
-  <span class="nt">&lt;pe-file</span> <span class="na">path=</span><span class="s">"my-installer-${version}.exe"</span> <span class="na">product-name=</span><span class="s">"myproduct"</span> <span class="na">product-version=</span><span class="s">"${version}"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;pe-file</span> <span class="na">path=</span><span class="s">"my-installer-${version}.exe"</span> <span class="na">productName=</span><span class="s">"myproduct"</span> <span class="na">productVersion=</span><span class="s">"${version}"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/artifact-configuration&gt;</span>
 </code></pre></div></div>
 
