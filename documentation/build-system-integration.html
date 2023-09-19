@@ -32,13 +32,13 @@
       <nav>
         <ul><li>
               <a href='/product'> Product </a>
-              <ul><li> <a href='/product/features'> Features </a> </li><li> <a href='/product/editions'> Editions </a> </li><li class='separator' /><li> <a href='/product/devops'> For DevOps teams </a> </li><li> <a href='/product/infosec'> For InfoSec teams </a> </li><li> <a href='/product/open-source'> For Open Source projects </a> </li><li class='separator' /><li> <a href='/product/office-macros'> Office macro signing </a> </li><li> <a href='/product/pkic-best-practices'> PKI Consortium best practices </a> </li><li class='separator' /><li> <a href='/product/changelog'> Product updates </a> </li></ul>
+              <ul><li> <a href='/product/features'> Features </a> </li><li> <a href='/product/editions'> Editions </a> </li><li class='separator' /><li> <a href='/product/devops'> For DevOps teams </a> </li><li> <a href='/product/infosec'> For InfoSec teams </a> </li><li> <a href='/product/open-source'> For Open Source projects </a> </li><li class='separator' /><li> <a href='/product/office-macros'> Office macro signing </a> </li><li> <a href='/product/pkic-best-practices'> PKI Consortium best practices </a> </li></ul>
             </li><li>
               <a href='/code-signing'> Code Signing </a>
               <ul><li> <a href='/code-signing/introduction'> Introduction </a> </li><li> <a href='/code-signing/theory'> Theory </a> </li><li> <a href='/code-signing/windows-platform'> Windows Platform </a> </li><li> <a href='/code-signing/test-certificates'> Managing Test Certificates </a> </li><li> <a href='/code-signing/private-keys'> Storage of Private Keys </a> </li><li> <a href='/code-signing/media-coverage'> Media Coverage </a> </li></ul>
             </li><li>
               <a href='/documentation'> Documentation </a>
-              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/docker-signing'> Signing Docker images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li></ul>
+              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/docker-signing'> Signing Docker images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
             </li><li>
               <a href='/about-us'> About us </a>
               <ul><li> <a href='/company'> Company </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
@@ -71,7 +71,7 @@
 							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class='active'>
 							<a href='/documentation/build-system-integration#'>Build System Integration</a><div class="no-mobile" ><ul>
   <li><a href="#abstract">Abstract</a></li>
-  <li><a href="#authorization">Authorization</a></li>
+  <li><a href="#authentication">Authentication</a></li>
   <li><a href="#powershell">PowerShell</a></li>
   <li><a href="#http-rest-api">HTTP REST API</a></li>
   <li><a href="#ci-integrations-with-origin-verification">CI integrations with origin verification</a></li>
@@ -81,10 +81,11 @@
 </div></li><li class=''>
 							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class=''>
 							<a href='/documentation/origin-verification#'>Origin Verification</a></li><li class='separator' /><li class=''>
-							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li></ul>
+							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class='separator' /><li class=''>
+							<a href='/documentation/changelog#'>Product updates</a></li></ul>
 			</aside><article><ul class="article-toc">
   <li><a href="#abstract">Abstract</a></li>
-  <li><a href="#authorization">Authorization</a></li>
+  <li><a href="#authentication">Authentication</a></li>
   <li><a href="#powershell">PowerShell</a></li>
   <li><a href="#http-rest-api">HTTP REST API</a>
     <ul>
@@ -112,13 +113,16 @@
   <p>All necessary IDs can be found on the signing policy details page, including a code snippet that calls the PowerShell module.</p>
 </div>
 
-<h2 id="authorization">Authorization</h2>
+<h2 id="authentication">Authentication</h2>
 
-<p>Before accessing the API, you have to create a CI User in the User section of the SignPath application.</p>
+<p>You need an API token to access the API, whether directly or through any connector.</p>
 
-<p>The API token is displayed when a new CI user is created. (If you lose the API key, you will need to generate a new one.)</p>
+<p>The following options are available:</p>
 
-<p>Make sure to keep the access token in a secure location. Most Continuous Integration (CI) systems provide a mechanism to store secrets, which is usually the best place to keep API tokens. If you use several distinct systems for API access, we recommend that you create individual CI User accounts in SignPath.</p>
+<ul>
+  <li>Use a dedicated <a href="/documentation/users#ci">CI user</a>.</li>
+  <li><a href="/documentation/users#interactive-api-token">Add an API token</a> to your own user account for personal API access.</li>
+</ul>
 
 <h2 id="powershell">PowerShell</h2>
 
@@ -202,7 +206,7 @@
 
 <p><strong>Example:</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$CI_USER_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$API_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
      <span class="nt">-F</span> <span class="s2">"ProjectSlug=</span><span class="nv">$PROJECT</span><span class="s2">"</span> <span class="se">\</span>
      <span class="nt">-F</span> <span class="s2">"SigningPolicySlug=test-signing"</span> <span class="se">\</span>
      <span class="nt">-F</span> <span class="s2">"ArtifactConfigurationSlug=v2.4"</span> <span class="se">\</span>
@@ -248,7 +252,7 @@
 
 <p><strong>Example:</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$CI_USER_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$API_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
      https://app.signpath.io/API/v1/<span class="nv">$ORGANIZATION_ID</span>/SigningRequests/<span class="nv">$SIGNING_REQUEST_ID</span>
 </code></pre></div></div>
 
@@ -327,7 +331,7 @@
 
 <p><strong>Example:</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$CI_USER_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$API_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
      <span class="nt">-o</span> <span class="nv">$LOCAL_PATH_TO_DOWNLOADED_ARTIFACT</span> <span class="se">\</span>
      https://app.signpath.io/API/v1/<span class="nv">$ORGANIZATION_ID</span>/SigningRequests/<span class="nv">$SIGNING_REQUEST_ID</span>/SignedArtifact
 </code></pre></div></div>
@@ -375,7 +379,7 @@
 
 <p><strong>Example:</strong></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$CI_USER_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$API_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
      <span class="nt">-F</span> <span class="s2">"OriginalSigningRequestId=</span><span class="nv">$ORIGINAL_SIGNING_REQUEST_ID</span><span class="s2">"</span> <span class="se">\</span>
      <span class="nt">-F</span> <span class="s2">"SigningPolicySlug=release-signing"</span> <span class="se">\</span>
      <span class="nt">-F</span> <span class="s2">"Description=</span><span class="nv">$DESCRIPTION</span><span class="s2">"</span> <span class="se">\</span>

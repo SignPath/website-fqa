@@ -32,13 +32,13 @@
       <nav>
         <ul><li>
               <a href='/product'> Product </a>
-              <ul><li> <a href='/product/features'> Features </a> </li><li> <a href='/product/editions'> Editions </a> </li><li class='separator' /><li> <a href='/product/devops'> For DevOps teams </a> </li><li> <a href='/product/infosec'> For InfoSec teams </a> </li><li> <a href='/product/open-source'> For Open Source projects </a> </li><li class='separator' /><li> <a href='/product/office-macros'> Office macro signing </a> </li><li> <a href='/product/pkic-best-practices'> PKI Consortium best practices </a> </li><li class='separator' /><li> <a href='/product/changelog'> Product updates </a> </li></ul>
+              <ul><li> <a href='/product/features'> Features </a> </li><li> <a href='/product/editions'> Editions </a> </li><li class='separator' /><li> <a href='/product/devops'> For DevOps teams </a> </li><li> <a href='/product/infosec'> For InfoSec teams </a> </li><li> <a href='/product/open-source'> For Open Source projects </a> </li><li class='separator' /><li> <a href='/product/office-macros'> Office macro signing </a> </li><li> <a href='/product/pkic-best-practices'> PKI Consortium best practices </a> </li></ul>
             </li><li>
               <a href='/code-signing'> Code Signing </a>
               <ul><li> <a href='/code-signing/introduction'> Introduction </a> </li><li> <a href='/code-signing/theory'> Theory </a> </li><li> <a href='/code-signing/windows-platform'> Windows Platform </a> </li><li> <a href='/code-signing/test-certificates'> Managing Test Certificates </a> </li><li> <a href='/code-signing/private-keys'> Storage of Private Keys </a> </li><li> <a href='/code-signing/media-coverage'> Media Coverage </a> </li></ul>
             </li><li>
               <a href='/documentation'> Documentation </a>
-              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/docker-signing'> Signing Docker images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li></ul>
+              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/docker-signing'> Signing Docker images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
             </li><li>
               <a href='/about-us'> About us </a>
               <ul><li> <a href='/company'> Company </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
@@ -123,7 +123,7 @@
         <code data-tabcontent='powershell' class='active'>
           <span><span class='command'>Submit-SigningRequest</span> `</span>
           <span>    <span class='parameter'>-OrganizationId</span> <span class='variable'>$SIGNPATH_ORGANIZATION_ID</span> `</span>
-          <span>    <span class='parameter'>-CIUserToken</span> <span class='variable'>$SIGNPATH_CI_USER_TOKEN</span> `</span>
+          <span>    <span class='parameter'>-ApiToken</span> <span class='variable'>$SIGNPATH_API_TOKEN</span> `</span>
           <span>    <span class='parameter'>-ProjectSlug</span> my_software `</span>
           <span>    <span class='parameter'>-SigningPolicySlug</span> release-signing `</span>
           <span>    <span class='parameter'>-InputArtifactPath</span> my-release.msi `</span>
@@ -132,14 +132,14 @@
         </code>
         <code data-tabcontent='curl'>
           <span><span class="variable">result</span>=$(<span class='command'>curl</span> <span class='string'>"https://app.signpath.io/api/v1/</span><span class='variable'>${SIGNPATH_ORGANIZATION_ID}</span><span class='string'>/SigningRequests"</span> \</span>
-          <span>  <span class='parameter'>-H</span> <span class='string'>"Authorization: Bearer </span><span class='variable'>${SIGNPATH_CI_USER_TOKEN}</span><span class='string'>"</span> \</span>
+          <span>  <span class='parameter'>-H</span> <span class='string'>"Authorization: Bearer </span><span class='variable'>${SIGNPATH_API_TOKEN}</span><span class='string'>"</span> \</span>
           <span>  <span class='parameter'>-F</span> <span class='string'>"ProjectSlug=</span>my_software<span class='string'>"</span> \</span>
           <span>  <span class='parameter'>-F</span> <span class='string'>"SigningPolicySlug=</span>release-signing<span class='string'>"</span> \</span>
           <span>  <span class='parameter'>-F</span> <span class='string'>"Artifact=</span>@./my-release.msi<span class='string'>"</span> \</span>
           <span>  <span class='parameter'>--retry</span> 20 <span class='parameter'>--retry-delay</span> 30 <span class='parameter'>--silent --verbose</span>)</span>
           <span><span class='variable'>url</span>=$( echo <span class='string'>"<span class='variable'>$result</span>"</span> | grep -i <span class='string'>'^&lt; Location: '</span> | grep -io <span class='string'>'https://.*'</span> | tr -d <span class='string'>'\r'</span> )</span>
           <span><span class='command'>curl</span> <span class='string'>"<span class='variable'>$url</span>/SignedArtifact"</span> <span class='parameter'>--output</span> <span class='string'>"my-release-signed.msi"</span> <span class='parameter'>--silent </span> \</span>
-          <span>  <span class='parameter'>-H</span> <span class='string'>"Authorization: Bearer </span><span class='variable'>${SIGNPATH_CI_USER_TOKEN}</span><span class='string'>"</span> </span>
+          <span>  <span class='parameter'>-H</span> <span class='string'>"Authorization: Bearer </span><span class='variable'>${SIGNPATH_API_TOKEN}</span><span class='string'>"</span> </span>
         </code>
         <code data-tabcontent='jenkins'>
           <span><span class='command'>submitSigningRequest</span>( </span>
@@ -163,7 +163,7 @@
           <span>- task: <span class='command'>SignPathSubmitSigningRequest@2</span> </span>
           <span>  <span class='parameter'>inputs</span>:</span>
           <span>    <span class='parameter'>organizationId</span>: <span class='string'>'</span><span class='variable'>$(SIGNPATH_ORGANIZATION_ID)</span><span class='string'>'</span></span>
-          <span>    <span class='parameter'>ciUserToken</span>: <span class='string'>'</span><span class='variable'>$(SIGNPATH_CI_USER_TOKEN)</span><span class='string'>'</span></span>
+          <span>    <span class='parameter'>ciUserToken</span>: <span class='string'>'</span><span class='variable'>$(SIGNPATH_API_TOKEN)</span><span class='string'>'</span></span>
           <span>    <span class='parameter'>projectSlug</span>: <span class='string'>'my_software'</span></span>
           <span>    <span class='parameter'>signingPolicySlug</span>: <span class='string'>'release-siging'</span></span>
           <span>    <span class='parameter'>inputArtifactPath</span>: <span class='string'>'my-release.msi'</span></span>

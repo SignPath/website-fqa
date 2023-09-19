@@ -32,13 +32,13 @@
       <nav>
         <ul><li>
               <a href='/product'> Product </a>
-              <ul><li> <a href='/product/features'> Features </a> </li><li> <a href='/product/editions'> Editions </a> </li><li class='separator' /><li> <a href='/product/devops'> For DevOps teams </a> </li><li> <a href='/product/infosec'> For InfoSec teams </a> </li><li> <a href='/product/open-source'> For Open Source projects </a> </li><li class='separator' /><li> <a href='/product/office-macros'> Office macro signing </a> </li><li> <a href='/product/pkic-best-practices'> PKI Consortium best practices </a> </li><li class='separator' /><li> <a href='/product/changelog'> Product updates </a> </li></ul>
+              <ul><li> <a href='/product/features'> Features </a> </li><li> <a href='/product/editions'> Editions </a> </li><li class='separator' /><li> <a href='/product/devops'> For DevOps teams </a> </li><li> <a href='/product/infosec'> For InfoSec teams </a> </li><li> <a href='/product/open-source'> For Open Source projects </a> </li><li class='separator' /><li> <a href='/product/office-macros'> Office macro signing </a> </li><li> <a href='/product/pkic-best-practices'> PKI Consortium best practices </a> </li></ul>
             </li><li>
               <a href='/code-signing'> Code Signing </a>
               <ul><li> <a href='/code-signing/introduction'> Introduction </a> </li><li> <a href='/code-signing/theory'> Theory </a> </li><li> <a href='/code-signing/windows-platform'> Windows Platform </a> </li><li> <a href='/code-signing/test-certificates'> Managing Test Certificates </a> </li><li> <a href='/code-signing/private-keys'> Storage of Private Keys </a> </li><li> <a href='/code-signing/media-coverage'> Media Coverage </a> </li></ul>
             </li><li>
               <a href='/documentation'> Documentation </a>
-              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/docker-signing'> Signing Docker images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li></ul>
+              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/docker-signing'> Signing Docker images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
             </li><li>
               <a href='/about-us'> About us </a>
               <ul><li> <a href='/company'> Company </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
@@ -82,7 +82,8 @@
 							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=''>
 							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class=''>
 							<a href='/documentation/origin-verification#'>Origin Verification</a></li><li class='separator' /><li class=''>
-							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li></ul>
+							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class='separator' /><li class=''>
+							<a href='/documentation/changelog#'>Product updates</a></li></ul>
 			</aside><article><ul class="article-toc mobile-only">
   <li><a href="#overview">Overview</a></li>
   <li><a href="#interactive">Interactive users</a></li>
@@ -154,6 +155,12 @@
   <p>All social accounts and username/password accounts using the same email address are considered the same account.</p>
 </div>
 
+<div class="panel info">
+  <div class="panel-header">Alternatives to invitations</div>
+
+  <p>If you use single sign-on, users can be added directly via the SignPath API (prerelease) or via SCIM directory synchronization (beta). (Enterprise subscriptions only.)</p>
+</div>
+
 <h3 id="invitations">Invitations</h3>
 
 <p>In order to add a user to a SignPath organization, an invitation email is sent to the user.</p>
@@ -170,9 +177,71 @@
   <li>Users must sign in to accept an invitation. If they are already signed in, they have the option to sign out and use another account to login first. Accepting the invitation will link the organization’s user to the active user account.</li>
 </ul>
 
+<h3 id="interactive-api-token">API tokens</h3>
+
+<p>Users can add API tokens to their own user account:</p>
+
+<ul>
+  <li>Click your user name (upper right corner) and choose <em>My profile</em></li>
+  <li>Click <em>Generate token</em> in the <em>API Token</em> section</li>
+</ul>
+
+<div class="panel warning">
+  <div class="panel-header">Remember your token</div>
+
+  <p>API tokens are only displayed when generated. Store them in a safe location. If an API token is lost, you need to regenerate it, potentially invalidating existing configurations using the previous token.</p>
+
+  <p>We recommend using a password safe for personal API tokens.</p>
+</div>
+
 <h2 id="ci">CI users</h2>
 
-<p>CI user accounts are used to integrate SignPath into your build automation. They use API tokens instead of usernames and passwords. We recommend that you store these API tokens in your CI system’s build settings as secret values.</p>
+<p>CI user accounts are primarily used to integrate SignPath into your build automation.</p>
+
+<p>They can also be used for other automation tasks. You may need to consider adding <a href="#roles">roles</a> to CI users for those.</p>
+
+<p>CI users can only authenticate with an API token.</p>
+
+<div class="panel warning">
+  <div class="panel-header">Remember your token</div>
+
+  <p>API tokens are only displayed when generated. Store them in a safe location. If an API token is lost, you need to regenerate it, potentially invalidating existing configurations using the previous token.</p>
+
+  <p>We recommend that you store API tokens used for CI integration in your CI system’s build settings as secret values.</p>
+</div>
+
+<div class="panel tip">
+  <div class="panel-header">Account unification</div>
+
+  <p>We recommend using a dedicated CI user per project, but you may opt to share CI users for all projects in a team.</p>
+
+  <p>If you don’t use <a href="/documentation/origin-verification">origin verification</a>, you should create a CI user per signing policy and strongly restrict access to the user’s API token through your CI systems <em>secrets</em> configuration.</p>
+
+  <p>Example: Assume <em>Team 1</em> has two projects <em>A</em> and <em>B</em>, each with <em>test-signing</em> and <em>release-signing</em> signing policies. Consider creating CI users as follows:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Using origin verification</th>
+        <th>CI user per project</th>
+        <th>CI user per team</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Yes</strong></td>
+        <td><code class="language-plaintext highlighter-rouge">PrjA</code>, <code class="language-plaintext highlighter-rouge">PrjB</code></td>
+        <td><code class="language-plaintext highlighter-rouge">Team1</code></td>
+      </tr>
+      <tr>
+        <td><strong>No</strong></td>
+        <td><code class="language-plaintext highlighter-rouge">PrjA-test</code>, <code class="language-plaintext highlighter-rouge">PrjA-release</code>, <code class="language-plaintext highlighter-rouge">PrjB-test</code>, <code class="language-plaintext highlighter-rouge">PrjB-release</code></td>
+        <td><code class="language-plaintext highlighter-rouge">Team1-test</code>, <code class="language-plaintext highlighter-rouge">Team1-release</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
 
 <h2 id="support">Support users</h2>
 
