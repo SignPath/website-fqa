@@ -264,30 +264,30 @@
   <thead>
     <tr>
       <th>Role</th>
-      <th>Global Permissions</th>
+      <th>Global permissions</th>
       <th>Consider assigning to</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>Global Administrator</strong></td>
-      <td>Control the SignPath organization, including certificate management, user management, and projects and policies</td>
-      <td>Operations</td>
+      <td>Control the entire SignPath organization</td>
+      <td>Subscription owner</td>
     </tr>
     <tr>
       <td><strong>Certificate Administrator</strong></td>
       <td>Certificate management</td>
-      <td>InfoSec, PKI</td>
+      <td>PKI team</td>
     </tr>
     <tr>
       <td><strong>User Administrator</strong></td>
       <td>User management</td>
-      <td>User management staff</td>
+      <td>User management</td>
     </tr>
     <tr>
       <td><strong>Project Administrator</strong></td>
       <td>Project and policy configuration</td>
-      <td>Development leads</td>
+      <td>Dev/DevOps policy owners</td>
     </tr>
     <tr>
       <td><strong>Global Reader</strong></td>
@@ -296,11 +296,29 @@
     </tr>
     <tr>
       <td><strong>Regular User</strong></td>
-      <td>No specific permissions</td>
-      <td>Team administrators and members</td>
+      <td>No global permissions</td>
+      <td>Team members and administrators</td>
     </tr>
   </tbody>
 </table>
+
+<p><strong>Global Administrators</strong> have the following permissions:</p>
+
+<ul>
+  <li>Combined permissions of the limited administrator roles (certificate, user and project)</li>
+  <li>Trusted build system management</li>
+  <li>Docker repository management</li>
+  <li>Delete the SignPath organization</li>
+</ul>
+
+<div class="panel tip">
+  <div class="panel-header">Role distribution hints</div>
+
+  <ul>
+    <li><strong>User administration</strong> may be performed in your organization’s directory and syncronized to SignPath. SignPath Enterprise Edition provider a SCIM connector for Azure Active Directory (beta, contact <a href="mailto:support@signpath.io">support</a>).</li>
+    <li><strong>Project administration</strong> may be performed by a dedicated team. Creating projects and policies, and assigning certificates based on these policies, should be performed based on your organization’s policies and approval processes. Day to day configuration changes may be delegated via each project’s <em>configurators</em> role.</li>
+  </ul>
+</div>
 
 <h2 id="permissions">Permissions</h2>
 

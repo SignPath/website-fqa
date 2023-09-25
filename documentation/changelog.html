@@ -122,7 +122,13 @@ Component
 						<ul>
 							
 								<li>
-									<p>Added 3 new user roles: <em>User Administrator</em>, <em>Project Administrator</em> and _Certificate Administrator. For more details, see the <a href="/documentation/users#roles">user roles documentation</a>.</p>
+									<p>Added limited administrator roles: <em>User Administrator</em>, <em>Project Administrator</em> and _Certificate Administrator. For more details, see the <a href="/documentation/users#roles">user roles documentation</a>.</p>
+
+									
+								</li>
+							
+								<li>
+									<p><a href="/documentation/artifact-configuration/#zip-file-element">Select multiple files</a> is now generally available.</p>
 
 									
 								</li>
@@ -140,7 +146,7 @@ Component
 						<ul>
 							
 								<li>
-									<p>Added support for deep signing of MSIX files</p>
+									<p>Added support for deep signing of APPX and MSIX files.</p>
 
 									
 								</li>
@@ -267,31 +273,13 @@ Component
 								</li>
 							
 								<li>
-									<p>The zip archive created when uploading multiple files for signing is now named <code class="language-plaintext highlighter-rouge">bundle.zip</code>. See <a href="/documentation/artifact-configuration/#zip-file-element"><code class="language-plaintext highlighter-rouge">ui-multifile-upload</code></a></p>
+									<p>The zip archive created when uploading multiple files for signing is now named <code class="language-plaintext highlighter-rouge">bundle.zip</code>. See <a href="/documentation/artifact-configuration/#zip-file-element"><code class="language-plaintext highlighter-rouge">ui-multifile-upload</code></a>.</p>
 
 									
 								</li>
 							
 								<li>
 									<p>Renamed “Initial Login Email Address” of interactive users to “Account email address” in the user interface and <code class="language-plaintext highlighter-rouge">InteractiveUser</code> pre-release APIs.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-				
-			
-				
-					<h3>
-						 Bug Fixes:
-						
-					</h3>
-					
-						<ul>
-							
-								<li>
-									<p>Fixed a bug that caused files to be submitted separately instead of being part of the <code class="language-plaintext highlighter-rouge">bundle.zip</code> when uploading multiple files for signing.</p>
 
 									
 								</li>
@@ -527,7 +515,7 @@ Component
 						<ul>
 							
 								<li>
-									<p>Added possibility to upload multiple files in signing request web client UI.</p>
+									<p>Added <a href="/documentation/artifact-configuration/#zip-file-element"><code class="language-plaintext highlighter-rouge">ui-multifile-upload</code></a> feature to upload multiple files in signing request web client UI (preview).</p>
 
 									
 								</li>
