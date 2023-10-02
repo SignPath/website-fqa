@@ -101,7 +101,7 @@ Component
 
 
 
-<article class="release component-application component-powershell_module" id="2023-10-02">
+<article class="release component-application component-self_hosted_installations component-powershell_module" id="2023-10-02">
 	<h1>&nbsp;<span>October 02, 2023</span></h1>
 	
 		
@@ -177,6 +177,34 @@ Component
 			
 			</div>
 		
+			<div class="component-self_hosted_installations">
+			<h2>
+				 Self-hosted Installations 1.149.2
+					
+			</h2>
+			
+				
+			
+				
+					<h3>
+						 Breaking Changes / Manual migration steps:
+							
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>Configuration setting <code class="language-plaintext highlighter-rouge">appSettings.shared.signingOptions.timestampingServerUrl</code> has been renamed to <code class="language-plaintext highlighter-rouge">...timestampingServerUrlTemplate</code> in <code class="language-plaintext highlighter-rouge">signpath-application</code> values.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+			</div>
+		
 			<div class="component-powershell_module">
 			<h2>
 				 SignPath PowerShell Module 4.3.2
@@ -216,7 +244,7 @@ Component
 
 
 
-<article class="release component-application component-powershell_module component-crypto_providers" id="2023-09-13">
+<article class="release component-application component-self_hosted_installations component-powershell_module component-crypto_providers" id="2023-09-13">
 	<h1>&nbsp;<span>September 13, 2023</span></h1>
 	
 		
@@ -274,6 +302,88 @@ Component
 							
 								<li>
 									<p>Renamed “Initial Login Email Address” of interactive users to “Account email address” in the user interface and <code class="language-plaintext highlighter-rouge">InteractiveUser</code> pre-release APIs.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+			</div>
+		
+			<div class="component-self_hosted_installations">
+			<h2>
+				 Self-hosted Installations 1.148.2
+					
+			</h2>
+			
+				
+			
+				
+					<h3>
+						 New Features:
+							
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>Added support for “nginx.org” Ingress Controller distribution (see <code class="language-plaintext highlighter-rouge">ingressAnnotations.nginx.ingressControllerDistribution</code> configuration value).</p>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+				
+					<h3>
+						 Improvements:
+							
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>Improved memory consumption of the Signing Processor Service pod (see <code class="language-plaintext highlighter-rouge">signingProcessorService.dotNetGCHeapHardLimit</code> configuration value).</p>
+
+									
+								</li>
+							
+								<li>
+									<p>Updated the default Ingress controller annotations to support 4 GB file uploads.</p>
+
+									
+								</li>
+							
+								<li>
+									<p>Removed unnecessary values in <code class="language-plaintext highlighter-rouge">signpath-application-ingress</code>.</p>
+
+									
+								</li>
+							
+								<li>
+									<p>Reduced logging noise in <code class="language-plaintext highlighter-rouge">webclient</code> and <code class="language-plaintext highlighter-rouge">api</code> containers.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+				
+					<h3>
+						 Bug Fixes:
+						
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>Fixed disk space leak which affected <code class="language-plaintext highlighter-rouge">signpath-application</code> containers with large logging volume.</p>
 
 									
 								</li>
