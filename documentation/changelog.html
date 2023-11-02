@@ -140,13 +140,13 @@ Component
 						<ul>
 							
 								<li>
-									<p>Improved error messages for APPX and MSIX files where the publisher name does not match the one from the certificate.</p>
+									<p>Improved error messages for AppX and MSIX files when the publisher name does not match the certificate Common Name (CN).</p>
 
 									
 								</li>
 							
 								<li>
-									<p>Timestamping now uses multiple timestamping servers for failover.</p>
+									<p>Timestamping now falls back to alternative timestamping servers when primary server is unavailable.</p>
 
 									
 										<span class="enterprise-only">(SaaS only)</span>
@@ -154,13 +154,13 @@ Component
 								</li>
 							
 								<li>
-									<p>Allowed project administrators to configure Docker repositories.</p>
+									<p>Project administrators can now configure Docker repositories.</p>
 
 									
 								</li>
 							
 								<li>
-									<p>The date and time when an <code class="language-plaintext highlighter-rouge">ApiToken</code> was generated is now visible in the UI.</p>
+									<p>User page shows date and time when an API token was generated.</p>
 
 									
 								</li>
@@ -212,7 +212,7 @@ Component
 						<ul>
 							
 								<li>
-									<p>Dropped the JCE key “retargeting” when creating certificates on nShield HSMs (was required for Jar signing in the past).</p>
+									<p>Dropped the JCE key “retargeting” when creating certificates on nShield HSMs (previously required for Jar signing).</p>
 
 									
 								</li>
