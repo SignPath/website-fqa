@@ -101,6 +101,165 @@ Component
 
 
 
+<article class="release component-application component-self_hosted_installations" id="2023-11-23">
+	<h1>&nbsp;<span>November 23, 2023</span></h1>
+	
+		
+			<div class="component-application">
+			<h2>
+				 SignPath Application 1.152.0
+					
+			</h2>
+			
+				
+			
+				
+					<h3>
+						 New Features:
+							
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>Restricted signing request access for regular users (preview). Available on request.</p>
+
+									
+								</li>
+							
+								<li>
+									<p>Added support for HTTP content compression when submitting signing requests with an artifact retrieval link.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+				
+					<h3>
+						 Improvements:
+							
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>Improved reliability of HSM key store.</p>
+
+									
+										<span class="enterprise-only">(SaaS only)</span>
+									
+								</li>
+							
+								<li>
+									<p>Improved performance of ClickOnce signing operations.</p>
+
+									
+								</li>
+							
+								<li>
+									<p>Improved error messages for Office files with no included macros.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+				
+					<h3>
+						 Bug Fixes:
+						
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>Fixed PFX import into the HSM key store.</p>
+
+									
+										<span class="enterprise-only">(SaaS only)</span>
+									
+								</li>
+							
+								<li>
+									<p>Fixed a bug that prevented signing with the Crypto Providers for interactive users.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+			</div>
+		
+			<div class="component-self_hosted_installations">
+			<h2>
+				 Self-hosted Installations 1.152.0
+					
+			</h2>
+			
+				
+			
+				
+					<h3>
+						 Breaking Changes / Manual migration steps:
+							
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>Changed the recommended Kubernetes version to 1.26 and the <code class="language-plaintext highlighter-rouge">signpathio/kubectl</code> image tag to <code class="language-plaintext highlighter-rouge">1.26</code>.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+				
+					<h3>
+						 Improvements:
+							
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>Added <code class="language-plaintext highlighter-rouge">additionalApplicationInsightsOptions</code> section to <code class="language-plaintext highlighter-rouge">signpath-application</code> values which allows to configure Application Insights sampling options.</p>
+
+									
+								</li>
+							
+								<li>
+									<p>Added a Helm chart check which fails the installation in case the pod disruption budget’s <code class="language-plaintext highlighter-rouge">minAvailable</code> count is larger or equal to <code class="language-plaintext highlighter-rouge">replicaCount</code>.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+			</div>
+		
+	
+</article>
+
+
+
+
+
+
+
+
+
 <article class="release component-crypto_providers" id="2023-11-16">
 	<h1>&nbsp;<span>November 16, 2023</span></h1>
 	
@@ -6872,7 +7031,7 @@ Component
 	  	<div>
 	  		<a href='/privacy-policy'>Privacy Policy</a>
 	  		<a href='/terms-of-service'>Terms of Service</a>
-	  		<a href='/status'><span style="color: yellow;"><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
+	  		<a href='/status'><span style="color: lightgreen;"><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </span>Status
 			</a>
 	  	</div>
