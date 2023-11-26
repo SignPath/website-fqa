@@ -132,7 +132,7 @@
   </tbody>
 </table>
 
-<p>See the <a href="/documentation/users#roles">user documentation</a> for the permissions assigned to each role.</p>
+<p><em>Note: For more information about the permissions assigned to each role, see the <a href="/documentation/users#roles">user documentation</a>.</em></p>
 
 <p><img src="/assets/img/resources/documentation_scim-02b-create-app-roles.png" alt="Microsoft Entra ID - create app roles" class="margin-left" /></p>
 
@@ -148,7 +148,7 @@
 
 <ul>
   <li>Use <em>Automatic</em> for the <em>Provisioning mode</em>.</li>
-  <li>Enter <code class="language-plaintext highlighter-rouge">https://scim.connectors.signpath.io/scim/&lt;your-organization-id&gt;/dry-run</code> as a <em>Tenant URL</em>.</li>
+  <li>Enter <code class="language-plaintext highlighter-rouge">https://scim.connectors.</code><wbr /><code class="language-plaintext highlighter-rouge">signpath.io/scim/&lt;your-organization-id&gt;/dry-run</code> as a <em>Tenant URL</em>.</li>
   <li>Use the SignPath CI User <em>API token</em> from step 3 as the <em>Secret Token</em>.</li>
 </ul>
 
@@ -157,7 +157,7 @@
 <div class="panel tip">
   <div class="panel-header">Dry-Run mode</div>
 
-  <p>By specifying the <code class="language-plaintext highlighter-rouge">/dry-run</code> postfix in the <em>Tentant URL</em>, you tell the SignPath connector to only simulate the updates/changes, but not perform any write operations. We recommend testing the setup with this configuration and to remove the <code class="language-plaintext highlighter-rouge">/dry-run</code> URL segment when ready (see step 7).</p>
+  <p>By specifying the <code class="language-plaintext highlighter-rouge">/dry-run</code> postfix in the <em>Tentant URL</em>, you tell the SignPath connector to only simulate the updates/changes, but not perform any write operations. We recommend testing the setup with this configuration and to remove the <code class="language-plaintext highlighter-rouge">/dry-run</code> URL segment when done (see step 7).</p>
 
 </div>
 
@@ -184,13 +184,13 @@
 <div class="panel tip">
   <div class="panel-header">Mapping expression</div>
 
-  <p>To find out what <code class="language-plaintext highlighter-rouge">&lt;your-sso-identifier&gt;:</code> is, open an exising user on SignPath. In the <em>Identity</em> field, everything before the first <code class="language-plaintext highlighter-rouge">:</code> is your sso identifier.</p>
+  <p>To find out the value for <code class="language-plaintext highlighter-rouge">&lt;your-sso-identifier&gt;:</code>, open an exising user on SignPath. In the <em>Identity</em> field, everything before the first <code class="language-plaintext highlighter-rouge">:</code> is your SSO identifier.</p>
 
   <p><img src="/assets/img/resources/documentation_scim-05e-sso-identifier-on-signpath.png" alt="SignPath - look up SSO identifier" /></p>
 
-  <p>In order for SignPath to be able to map your Microsoft Entra ID users correctly, the second part of the <em>SignPath Identity</em> (after the <code class="language-plaintext highlighter-rouge">:</code>) should map to the respective field of the Microsoft Entra ID user. If you’re mapping your Microsoft Entra ID users directly, you can use <code class="language-plaintext highlighter-rouge">[objectId]</code>. If you’re forwarding your <code class="language-plaintext highlighter-rouge">sid</code> from your Active Directory, use <code class="language-plaintext highlighter-rouge">[onPremisesSecurityIdentifier]</code>.</p>
+  <p>In order for SignPath to be able to map your Microsoft Entra ID users correctly, the second part of the <em>SignPath Identity</em> (after the <code class="language-plaintext highlighter-rouge">:</code>) should map to the respective field of the Microsoft Entra ID user. If you are mapping your Microsoft Entra ID users directly, you can use <code class="language-plaintext highlighter-rouge">[objectId]</code>. If you are forwarding your <code class="language-plaintext highlighter-rouge">sid</code> from your Active Directory, use <code class="language-plaintext highlighter-rouge">[onPremisesSecurityIdentifier]</code>.</p>
 
-  <p>See the <a href="https://learn.microsoft.com/en-us/entra/identity/app-provisioning/functions-for-customizing-application-data">Microsoft reference for writing expressions for attribute mappings</a> for details on how the expression systems works in Azure.</p>
+  <p><em>For details on how the expression system works in Azure, see the <a href="https://learn.microsoft.com/en-us/entra/identity/app-provisioning/functions-for-customizing-application-data">Microsoft reference for writing expressions for attribute mappings</a>.</em></p>
 
 </div>
 
@@ -206,7 +206,7 @@
 
 <p><img src="/assets/img/resources/documentation_scim-06b-test-provisioning.png" alt="Microsoft Entra ID - test provisioning" class="margin-left" /></p>
 
-<p>When the provisioning succeeded, click on “View details” in the section <em>3. Match user between source and target system</em>. The synchronization should have found an existing user on SignPath that matches. If it attempts to create a new user, there is an error in the configuration.</p>
+<p>When the provisioning succeeded, click on “View details” in section <em>3. Match user between source and target system</em>. The synchronization should have found an existing user on SignPath that matches. If it attempts to create a new user, there is an error in the configuration.</p>
 
 <p><img src="/assets/img/resources/documentation_scim-06c-validate-provisioning.png" alt="Microsoft Entra ID - validate provisioning" class="margin-left" /></p>
 
