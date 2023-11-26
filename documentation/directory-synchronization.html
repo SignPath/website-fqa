@@ -232,6 +232,7 @@ In the default mapping configuration, Entra ID users are mapped to SignPath user
   <ul>
     <li>Groups are mapped using their <code class="language-plaintext highlighter-rouge">displayName</code> attribute. If a group does not exist in SignPath yet, it will be created.</li>
     <li>Groups in SignPath do not have a “role” and are usually used for assigning <em>Project</em> or <em>Signing policy</em> specific permissions to a group of users (such as <em>Approver</em> or <em>Submitter</em> permissions). When synchronizing such groups, you can define <em>RegularUser</em> as a role.</li>
+    <li>Currently, only one level of group membership is supported. Users are only synchronized if they are direct members of the synchronized group.</li>
   </ul>
 
 </div>
