@@ -110,13 +110,9 @@
 
 <h3 id="user-accounts-and-signpath-organizations">User accounts and SignPath organizations</h3>
 
-<p>Note that user accounts are not the same as users in an organization.</p>
+<p>To get access to an existing SignPath organizations, users must be <a href="#invitations">invited</a> or <a href="#directory-sync">synchronized</a>.</p>
 
-<ul>
-  <li>Use the <a href="https://login.signpath.io/">login page</a> to create a user account or sign in.</li>
-  <li>Users must be invited to SignPath organizations in order to use them.</li>
-  <li>A user account may be used for one or more SignPath organizations.</li>
-</ul>
+<p>Only <a href="https://login.signpath.io/">sign up</a> for a new user account if you want to evaluate SignPath using a free trial subscrition.</p>
 
 <table>
   <thead>
@@ -149,21 +145,17 @@
   </tbody>
 </table>
 
+<p>A user account may be used for one or more SignPath organizations.</p>
+
 <div class="panel info">
   <div class="panel-header">Account unification</div>
 
   <p>All social accounts and username/password accounts using the same email address are considered the same account.</p>
 </div>
 
-<div class="panel info">
-  <div class="panel-header">Alternatives to invitations</div>
-
-  <p>If you use single sign-on, users can be added directly via the SignPath API (prerelease) or via <a href="/documentation/directory-synchronization">SCIM directory synchronization</a>. (Enterprise subscriptions only.)</p>
-</div>
-
 <h3 id="invitations">Invitations</h3>
 
-<p>In order to add a user to a SignPath organization, an invitation email is sent to the user.</p>
+<p>Whan a user is added to a SignPath organization manually, an invitation email is sent to the user.</p>
 
 <ul>
   <li>On the <em>Users and Groups</em> page, click <em>Invite user</em>.</li>
@@ -176,6 +168,14 @@
   <li>Users must use the invitation within 14 days. After that, a new invitation must be sent for security reasons (click <em>Reinvite</em> on the user’s page).</li>
   <li>Users must sign in to accept an invitation. If they are already signed in, they have the option to sign out and use another account to login first. Accepting the invitation will link the organization’s user to the active user account.</li>
 </ul>
+
+<h3 id="directory-sync">Directory synchronization</h3>
+
+<p class="badge icon-signpath">Available for Enterprise subscriptions</p>
+
+<p>SignPath provides synchronization with Microsoft Entra ID/Azure Active Directory via SCIM. This allows you to perform user management in your organization’s directory and use existing users and groups.</p>
+
+<p>See <a href="/documentation/directory-synchronization">directory synchronization</a>.</p>
 
 <h3 id="interactive-api-token">API tokens</h3>
 
@@ -314,7 +314,7 @@
   <div class="panel-header">Role distribution hints</div>
 
   <ul>
-    <li><strong>User administration</strong> may be performed in your organization’s directory and syncronized to SignPath. SignPath Enterprise Edition provider a SCIM connector for Azure Active Directory (beta, contact <a href="mailto:support@signpath.io">support</a>).</li>
+    <li><strong>User administration</strong> may be performed in your organization’s directory and synchronized to SignPath.</li>
     <li><strong>Project administration</strong> may be performed by a dedicated team. Creating projects and policies, and assigning certificates based on these policies, should be performed based on your organization’s policies and approval processes. Day to day configuration changes may be delegated via each project’s <em>configurators</em> role.</li>
   </ul>
 </div>

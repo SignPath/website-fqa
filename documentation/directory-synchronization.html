@@ -75,9 +75,9 @@
 							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class='separator' /><li class=''>
 							<a href='/documentation/changelog#'>Product updates</a></li></ul>
 			</aside><article><ul class="article-toc mobile-only">
-  <li><a href="#directory-synchronization-with-microsoft-entra-id">Directory synchronization with Microsoft Entra ID</a></li>
+  <li><a href="#directory-synchronization-with-microsoft-entra-idazure-active-directory">Directory synchronization with Microsoft Entra ID/Azure Active Directory</a></li>
 </ul>
-<h2 id="directory-synchronization-with-microsoft-entra-id">Directory synchronization with Microsoft Entra ID</h2>
+<h2 id="directory-synchronization-with-microsoft-entra-idazure-active-directory">Directory synchronization with Microsoft Entra ID/Azure Active Directory</h2>
 
 <p>Directory synchronization is supported via the SCIM protocol. This page describes the configuration for Microsoft Entra ID (previously Azure Active Directory).</p>
 
@@ -232,7 +232,6 @@ In the default mapping configuration, Entra ID users are mapped to SignPath user
   <ul>
     <li>Groups are mapped using their <code class="language-plaintext highlighter-rouge">displayName</code> attribute. If a group does not exist in SignPath yet, it will be created.</li>
     <li>Groups in SignPath do not have a “role” and are usually used for assigning <em>Project</em> or <em>Signing policy</em> specific permissions to a group of users (such as <em>Approver</em> or <em>Submitter</em> permissions). When synchronizing such groups, you can define <em>RegularUser</em> as a role.</li>
-    <li>Currently, only one level of group membership is supported. Users are only synchronized if they are direct members of the synchronized group.</li>
   </ul>
 
 </div>
