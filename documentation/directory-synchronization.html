@@ -219,20 +219,29 @@
 <div class="panel tip">
   <div class="panel-header">Notes on the synchronization</div>
 
-  <p><strong>User mapping:</strong>
-In the default mapping configuration, Entra ID users are mapped to SignPath users by comparing the following attribute values:</p>
+  <p><strong>User synchronization:</strong></p>
+
+  <p>In the default mapping configuration, Entra ID users are initially mapped to SignPath users by comparing the following attribute values:</p>
   <ul>
     <li>First, the <code class="language-plaintext highlighter-rouge">externalId</code> attribute configured in step 5</li>
     <li>Second, the <code class="language-plaintext highlighter-rouge">displayName</code> attribute</li>
   </ul>
 
-  <p>If Entra ID users are in multiple groups with different role mappings, they will end up with the least permissive of the assigned roles. (e.g. if a user is both in a group with a <em>CertificateAdministrator</em> role and in another group with a <em>GlobalAdministrator</em> role assigned, they will end up with a <em>GlobalAdministrator</em> role in SignPath.)</p>
+  <p>Every user must be assigned at most one role other than <em>Regular User</em>, otherwise the synchronization will fail.</p>
 
-  <p><strong>Group mapping:</strong></p>
+  <p><strong>Group synchronization:</strong></p>
+
   <ul>
-    <li>Groups are mapped using their <code class="language-plaintext highlighter-rouge">displayName</code> attribute. If a group does not exist in SignPath yet, it will be created.</li>
-    <li>Groups in SignPath do not have a “role” and are usually used for assigning <em>Project</em> or <em>Signing policy</em> specific permissions to a group of users (such as <em>Approver</em> or <em>Submitter</em> permissions). When synchronizing such groups, you can define <em>RegularUser</em> as a role.</li>
+    <li>Groups are initially mapped using their <code class="language-plaintext highlighter-rouge">displayName</code> attribute. If a group does not exist in SignPath yet, it will be created.</li>
+    <li>We suggest creating two “types” of groups:
+      <ul>
+        <li><em>Role groups</em> like “PKI Team” or “Auditors” where users are mapped to a specific role, e.g. <em>Certificate Administrator</em> or <em>Global Reader</em>.</li>
+        <li><em>Project specific groups</em> that can be assigned within SignPath, such as “Project 1 Submitters” or “Project 2 Configurators”. You can assign these groups the role <em>Regular User</em>.</li>
+      </ul>
+    </li>
   </ul>
+
+  <p>After the first mapping is done, Azure will match users and groups using their unique IDs.</p>
 
 </div>
 
