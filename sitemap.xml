@@ -42,11 +42,15 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/users</loc>
-    <lastmod>2023-11-02T15:09:37</lastmod>
+    <lastmod>2023-11-28T09:44:12</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/changelog</loc>
     <lastmod>2023-09-19T18:23:27</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/directory-synchronization</loc>
+    <lastmod>2023-11-27T19:20:01</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/managing-certificates</loc>
