@@ -233,6 +233,7 @@
 
   <ul>
     <li>Groups are initially mapped using their <code class="language-plaintext highlighter-rouge">displayName</code> attribute. If a group does not exist in SignPath yet, it will be created.</li>
+    <li>Only one level of group membership is supported. Users are only synchronized if they are direct members of the synchronized group.</li>
     <li>We suggest creating two “types” of groups:
       <ul>
         <li><em>Role groups</em> like “PKI Team” or “Auditors” where users are mapped to a specific role, e.g. <em>Certificate Administrator</em> or <em>Global Reader</em>.</li>
