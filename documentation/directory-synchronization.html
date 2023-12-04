@@ -212,7 +212,9 @@
 
 <h4 id="7-remove-the-dry-run-postfix-assign-users-and-groups-and-start-provisioning">7. Remove the <code class="language-plaintext highlighter-rouge">/dry-run</code> postfix, assign users and groups and start provisioning</h4>
 
-<p>After you successfully tested the configuration, you can remove the <code class="language-plaintext highlighter-rouge">/dry-run</code> postfix of the <em>Tenant URL</em> that was entered in step 4. Afterwards, you can start the provisioning on overview page of the provisioning settings The assigned Entra ID users and groups will then be synchronized to your SignPath organization.</p>
+<p>After you successfully tested the configuration, you can remove the <code class="language-plaintext highlighter-rouge">/dry-run</code> postfix of the <em>Tenant URL</em> that was entered in step 4. Afterwards, you can start the provisioning on the <em>Overview</em> page of the provisioning settings The assigned Entra ID users and groups will then be synchronized to your SignPath organization.</p>
+
+<p><img src="/assets/img/resources/documentation_scim-07a-start-provisioning.png" alt="Microsoft Entra ID - validate provisioning" class="margin-left" /></p>
 
 <p>You can now assign all users and groups that you want to synchronize.</p>
 
@@ -229,11 +231,13 @@
 
   <p>Every user must be assigned at most one role other than <em>Regular User</em>, otherwise the synchronization will fail.</p>
 
+  <p>When an Entra ID user is removed from all groups that are synchronized, the SignPath user will be deactivated.</p>
+
   <p><strong>Group synchronization:</strong></p>
 
   <ul>
     <li>Groups are initially mapped using their <code class="language-plaintext highlighter-rouge">displayName</code> attribute. If a group does not exist in SignPath yet, it will be created.</li>
-    <li>Only one level of group membership is supported. Users are only synchronized if they are direct members of the synchronized group.</li>
+    <li>Nested groups are not supported by Microsoft by Microsoft Entra. However, if a user is both in a first- and second-level group, their group assignment (but not role assignment) is correctly resolved. See the <a href="https://learn.microsoft.com/en-us/entra/identity/app-provisioning/how-provisioning-works#scoping">official Microsoft documentation on scoping</a>.</li>
     <li>We suggest creating two “types” of groups:
       <ul>
         <li><em>Role groups</em> like “PKI Team” or “Auditors” where users are mapped to a specific role, e.g. <em>Certificate Administrator</em> or <em>Global Reader</em>.</li>
@@ -243,6 +247,15 @@
   </ul>
 
   <p>After the first mapping is done, Azure will match users and groups using their unique IDs.</p>
+
+</div>
+
+<div class="panel tip">
+  <div class="panel-header">Troubleshooting</div>
+
+  <p>All synchronization attempts can be viewed in the <em>Enterprise Application</em> under <em>Provisioning logs</em>.</p>
+
+  <p>Please note that some items may take a couple of hours to be synchronized.</p>
 
 </div>
 
