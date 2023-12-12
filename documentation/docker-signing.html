@@ -217,14 +217,14 @@
 <h4 id="1-prepare-the-metadata-for-signing">1. Prepare the metadata for signing</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Extract the repository digest identifier for the given FQN</span>
-<span class="nb">export </span><span class="nv">IMAGE_DIGEST</span><span class="o">=</span><span class="sb">`</span>docker inspect <span class="nt">--format</span><span class="o">=</span><span class="s1">'{{index .RepoDigests 0}}'</span> <span class="nv">$FQN</span><span class="sb">`</span>
+<span class="nb">export </span><span class="nv">IMAGE_DIGEST</span><span class="o">=</span><span class="sb">`</span>docker inspect <span class="nt">--format</span><span class="o">=</span><span class="s1">'{{index .RepoDigests 0}}'</span> <span class="s2">"</span><span class="nv">$FQN</span><span class="s2">:</span><span class="nv">$TAG</span><span class="s2">"</span><span class="sb">`</span>
 <span class="c"># Generate a metadata file to be signed</span>
 cosign generate <span class="nv">$IMAGE_DIGEST</span> <span class="o">&gt;</span> payload.json
 <span class="c"># Package the metadata file for SignPath</span>
 zip payload.json.zip payload.json
 </code></pre></div></div>
 
-<p>Note: <code class="language-plaintext highlighter-rouge">$FQN</code> contains the fully qualified name, see <a href="#fqn">FQN</a></p>
+<p>Note: <code class="language-plaintext highlighter-rouge">$FQN</code> contains the fully qualified name of the repository, see <a href="#fqn">FQN</a> and <code class="language-plaintext highlighter-rouge">$TAG</code> is the specific tag (e.g. <code class="language-plaintext highlighter-rouge">latest</code>).</p>
 
 <h4 id="2-create-a-signature-for-the-metadata">2. Create a signature for the metadata</h4>
 
