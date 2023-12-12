@@ -126,6 +126,7 @@
       <li><a href="#opc-sign">&lt;opc-sign&gt;</a></li>
       <li><a href="#jar-sign">&lt;jar-sign&gt;</a></li>
       <li><a href="#xml-sign">&lt;xml-sign&gt;</a></li>
+      <li><a href="#detached-raw-signatures-using-create-raw-signature">Detached raw signatures using &lt;create-raw-signature&gt;</a></li>
     </ul>
   </li>
   <li><a href="#using-wildcards">Using wildcards</a>
@@ -348,6 +349,13 @@
     <td><code><a href="#clickonce-sign">&lt;clickonce-sign&gt;</a></code></td>
     <td></td>
     <td>Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;file&gt;</code></td>
+    <td>No</td>
+    <td><code><a href="#detached-raw-signatures-using-create-raw-signature">&lt;create-raw-signature&gt;</a></code></td>
+    <td></td>
+    <td>Arbitrary files. This directive will create a <a href="#detached-raw-signatures-using-create-raw-signature">detached raw signature</a> file (available for Enterprise subscriptions)</td>
   </tr>
 </tbody>
 </table>
@@ -665,6 +673,44 @@
   <li>Use <a href="#file-metadata-restrictions">metadata restrictions</a> for <code class="language-plaintext highlighter-rouge">&lt;xml-file&gt;</code> to restrict root element and namespace.</li>
 </ul>
 
+<h3 id="detached-raw-signatures-using-create-raw-signature">Detached raw signatures using &lt;create-raw-signature&gt;</h3>
+
+<p class="badge icon-signpath">Available for Enterprise subscriptions</p>
+
+<p>Detached raw signatures can be used for arbitrary binary or text files. The <code class="language-plaintext highlighter-rouge">create-raw-signature</code> directive supports the following parameters:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">hash-algorithm</code></td>
+      <td>The hash algorithm used to calculate the signature. Supported options are <code class="language-plaintext highlighter-rouge">sha256</code>, <code class="language-plaintext highlighter-rouge">sha384</code> and <code class="language-plaintext highlighter-rouge">sha512</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">rsa-padding</code></td>
+      <td>Required for signing with certificates based on RSA keys. Forbidden for other key algorithms. Supported options are <code class="language-plaintext highlighter-rouge">pkcs1</code> and <code class="language-plaintext highlighter-rouge">pss</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">file-name</code></td>
+      <td>Name of the output file for the detached signature.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note: Due to the detached signature being placed in a separate file, <code class="language-plaintext highlighter-rouge">&lt;file&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;file-set&gt;</code> elements are only allowed inside a <a href="#zip-file-element"><code class="language-plaintext highlighter-rouge">&lt;zip-file&gt;</code>&lt;/code&gt;</a>.</strong></p>
+
+<h4 id="verification-1">Verification</h4>
+
+<p>There are multiple tools and solutions that support handling of raw signature blocks. One popular option is <code class="language-plaintext highlighter-rouge">openssl dgst</code>. As the command does not support X.509 certificates, the public key has to be extracted before the signature can be verified using the following call:</p>
+
+<pre><code class="language-cmd">openssl dgst -verify pubkey.pem -signature file.sig file
+</code></pre>
+
 <h2 id="using-wildcards">Using wildcards</h2>
 
 <p>Every path attribute can contain the following wildcard patterns:</p>
@@ -736,7 +782,7 @@
 
 <h2 id="file-and-directory-sets">File and directory sets</h2>
 
-<p>If multiple files or directories should be handled in the same way, you can enumerate them using one of the following file or directory set elements: <code class="language-plaintext highlighter-rouge">&lt;directory-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;pe-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;powershell-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;windows-script-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;msi-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;cab-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;catalog-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;appx-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;msix-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;opc-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;nupkg-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;jar-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;zip-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;office-oxml-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;office-binary-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;xml-file-set&gt;</code></p>
+<p>If multiple files or directories should be handled in the same way, you can enumerate them using one of the following file or directory set elements: <code class="language-plaintext highlighter-rouge">&lt;directory-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;pe-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;powershell-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;windows-script-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;msi-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;cab-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;catalog-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;appx-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;msix-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;opc-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;nupkg-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;jar-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;zip-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;office-oxml-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;office-binary-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;xml-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;file-set&gt;</code></p>
 
 <p>Each set element contains:</p>
 

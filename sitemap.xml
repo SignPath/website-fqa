@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://about.fqa.test.signpath.io/privacy-policy</loc>
-    <lastmod>2023-08-23T10:13:56</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/company</loc>
-    <lastmod>2022-01-24T15:42:32</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/contact</loc>
+    <loc>https://about.fqa.test.signpath.io/newsletter</loc>
     <lastmod>2022-01-04T15:18:57</lastmod>
   </url>
   <url>
@@ -17,11 +9,27 @@
     <lastmod>2023-04-28T11:07:44</lastmod>
   </url>
   <url>
-    <loc>https://about.fqa.test.signpath.io/newsletter</loc>
+    <loc>https://about.fqa.test.signpath.io/contact</loc>
     <lastmod>2022-01-04T15:18:57</lastmod>
   </url>
   <url>
+    <loc>https://about.fqa.test.signpath.io/company</loc>
+    <lastmod>2022-01-24T15:42:32</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/privacy-policy</loc>
+    <lastmod>2023-08-23T10:13:56</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/product/editions-explained</loc>
+    <lastmod>2023-09-07T10:48:00</lastmod>
+  </url>
+  <url>
     <loc>https://about.fqa.test.signpath.io/product/pkic-best-practices</loc>
+    <lastmod>2023-09-02T19:30:23</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/product/office-macros</loc>
     <lastmod>2023-09-02T19:30:23</lastmod>
   </url>
   <url>
@@ -29,63 +37,11 @@
     <lastmod>2023-09-02T19:30:23</lastmod>
   </url>
   <url>
-    <loc>https://about.fqa.test.signpath.io/product/editions-explained</loc>
-    <lastmod>2023-09-07T10:48:00</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/product/office-macros</loc>
+    <loc>https://about.fqa.test.signpath.io/code-signing/theory</loc>
     <lastmod>2023-09-02T19:30:23</lastmod>
   </url>
   <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/signing-code</loc>
-    <lastmod>2023-09-02T19:30:23</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/users</loc>
-    <lastmod>2023-11-28T09:44:12</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/changelog</loc>
-    <lastmod>2023-09-19T18:23:27</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/directory-synchronization</loc>
-    <lastmod>2023-12-04T16:08:23</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/managing-certificates</loc>
-    <lastmod>2023-09-02T19:30:23</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/faq</loc>
-    <lastmod>2023-09-02T19:30:23</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/docker-signing</loc>
-    <lastmod>2023-09-19T17:01:55</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/build-system-integration</loc>
-    <lastmod>2023-09-19T17:49:04</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/artifact-configuration</loc>
-    <lastmod>2023-09-25T12:21:05</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/origin-verification</loc>
-    <lastmod>2023-09-21T13:44:54</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems</loc>
-    <lastmod>2023-09-02T19:30:23</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/projects</loc>
-    <lastmod>2023-09-02T19:30:23</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/getting-started</loc>
+    <loc>https://about.fqa.test.signpath.io/code-signing/test-certificates</loc>
     <lastmod>2023-09-02T19:30:23</lastmod>
   </url>
   <url>
@@ -105,36 +61,72 @@
     <lastmod>2023-09-02T19:30:23</lastmod>
   </url>
   <url>
-    <loc>https://about.fqa.test.signpath.io/code-signing/theory</loc>
+    <loc>https://about.fqa.test.signpath.io/documentation/managing-certificates</loc>
     <lastmod>2023-09-02T19:30:23</lastmod>
   </url>
   <url>
-    <loc>https://about.fqa.test.signpath.io/code-signing/test-certificates</loc>
+    <loc>https://about.fqa.test.signpath.io/documentation/build-system-integration</loc>
+    <lastmod>2023-09-19T17:49:04</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/docker-signing</loc>
+    <lastmod>2023-12-12T10:56:24</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/faq</loc>
     <lastmod>2023-09-02T19:30:23</lastmod>
   </url>
   <url>
-    <loc>https://about.fqa.test.signpath.io/status</loc>
-    <lastmod>2023-08-07T19:06:34</lastmod>
+    <loc>https://about.fqa.test.signpath.io/documentation/artifact-configuration</loc>
+    <lastmod>2023-12-12T10:56:24</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/signing-code</loc>
+    <lastmod>2023-09-02T19:30:23</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/getting-started</loc>
+    <lastmod>2023-09-02T19:30:23</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/changelog</loc>
+    <lastmod>2023-09-19T18:23:27</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/users</loc>
+    <lastmod>2023-11-28T09:44:12</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/projects</loc>
+    <lastmod>2023-09-02T19:30:23</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/origin-verification</loc>
+    <lastmod>2023-09-21T13:44:54</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/directory-synchronization</loc>
+    <lastmod>2023-12-04T16:08:23</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems</loc>
+    <lastmod>2023-09-02T19:30:23</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/</loc>
     <lastmod>2023-11-21T10:03:28</lastmod>
   </url>
   <url>
-    <loc>https://about.fqa.test.signpath.io/blog</loc>
-    <lastmod>2023-03-03T21:37:00</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/product/open-source</loc>
-    <lastmod>2022-05-29T15:25:07</lastmod>
+    <loc>https://about.fqa.test.signpath.io/status</loc>
+    <lastmod>2023-08-07T19:06:34</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/product/devops</loc>
     <lastmod>2023-09-07T10:48:00</lastmod>
   </url>
   <url>
-    <loc>https://about.fqa.test.signpath.io/product/pricing</loc>
-    <lastmod>2023-08-11T13:22:25</lastmod>
+    <loc>https://about.fqa.test.signpath.io/product/open-source</loc>
+    <lastmod>2022-05-29T15:25:07</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/product/features</loc>
@@ -149,23 +141,15 @@
     <lastmod>2023-02-06T11:34:47</lastmod>
   </url>
   <url>
-    <loc>https://about.fqa.test.signpath.io/blog/2019/12/13/an-analysis-of-secure-variables-in-appveyor</loc>
-    <lastmod>2022-01-10T17:03:34</lastmod>
+    <loc>https://about.fqa.test.signpath.io/product/pricing</loc>
+    <lastmod>2023-08-11T13:22:25</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/blog</loc>
+    <lastmod>2023-03-03T21:37:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog/2020/08/26/on-the-importance-of-trust-validation</loc>
-    <lastmod>2022-01-10T17:03:34</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/blog/2021/03/23/dp-api-encryption-ineffective-in-windows-containers</loc>
-    <lastmod>2022-01-10T17:03:34</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/blog/2020/12/21/evaluating-sunburst</loc>
-    <lastmod>2022-01-10T17:03:34</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/blog/2020/08/26/unfulfilled-expectations</loc>
     <lastmod>2022-01-10T17:03:34</lastmod>
   </url>
   <url>
@@ -173,7 +157,23 @@
     <lastmod>2022-03-21T18:02:49</lastmod>
   </url>
   <url>
+    <loc>https://about.fqa.test.signpath.io/blog/2020/08/26/unfulfilled-expectations</loc>
+    <lastmod>2022-01-10T17:03:34</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/blog/2021/03/23/dp-api-encryption-ineffective-in-windows-containers</loc>
+    <lastmod>2022-01-10T17:03:34</lastmod>
+  </url>
+  <url>
     <loc>https://about.fqa.test.signpath.io/blog/2021/03/23/experiences-with-security-report-handling</loc>
+    <lastmod>2022-01-10T17:03:34</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/blog/2019/12/13/an-analysis-of-secure-variables-in-appveyor</loc>
+    <lastmod>2022-01-10T17:03:34</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/blog/2020/12/21/evaluating-sunburst</loc>
     <lastmod>2022-01-10T17:03:34</lastmod>
   </url>
 </urlset>
