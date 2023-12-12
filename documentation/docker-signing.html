@@ -91,8 +91,8 @@
       <li><a href="#prerequisites">Prerequisites</a></li>
       <li><a href="#signing">Signing</a>
         <ul>
-          <li><a href="#1-create-an-unsigned-payloadjson-file">1. Create an unsigned <code class="language-plaintext highlighter-rouge">payload.json</code> file</a></li>
-          <li><a href="#2-create-a-detached-signature-for-the-payloadjson-file">2. Create a detached signature for the <code class="language-plaintext highlighter-rouge">payload.json</code> file</a></li>
+          <li><a href="#1-prepare-the-metadata-for-signing">1. Prepare the metadata for signing</a></li>
+          <li><a href="#2-create-a-signature-for-the-metadata">2. Create a signature for the metadata</a></li>
           <li><a href="#3-attach-the-signature-to-the-image">3. Attach the signature to the image</a></li>
         </ul>
       </li>
@@ -149,13 +149,21 @@
 
 <h3 id="why-use-signpath-for-container-signing">Why use SignPath for container signing?</h3>
 
-<p>SignPath provides the following advantages when signing for Docker Content Trust (DCT):</p>
+<p>SignPath provides the following advantages:</p>
 
 <ul>
   <li>You can use the full power of SignPath <strong>signing policies</strong>, including permission, approval, and origin verification</li>
   <li>You can use all <strong>CI integration</strong> features of SignPath</li>
   <li>Configuration and policy management is <strong>aligned with other signing methods</strong>, such as Authenticode or Java signing</li>
-  <li>SignPath maintains a <strong>full audit log</strong> of all signing activities</li>
+  <li>SignPath maintains a <strong>full audit log</strong> of all signing activities including metadata such as the registry URL and signed image tag</li>
+  <li>You can <strong>sign multiple images in a single signing request</strong>, making audits/reviews of multi-image releases a lot easier</li>
+</ul>
+
+<p>For <em>cosign</em>, there are additional specific advantages:</p>
+
+<ul>
+  <li>You can <strong>authenticate automated build systems instead of individual developers</strong> and leverage origin verification for CI systems that do not support cosign workload identities (currently only Github and Gitlab in their SaaS offerings)</li>
+  <li>You can use your own key material and <strong>keep your signature data private</strong> without having to operate an own Fulcio certificate authority system</li>
 </ul>
 
 <p>For <em>Notary v1 / Docker Content Trust (DCT)</em>, there are additional specific advantages:</p>
@@ -166,18 +174,11 @@
   <li>SignPath controls <strong>signing on a semantic level</strong>, where DCT would just verify signatures on manifest files (i.e. with SignPath, a signing request that claims to add a signature to a specific image and/or label can be trusted to do just that and nothing else)</li>
 </ul>
 
-<p>For <em>cosign</em>, there are additional specific advantages:</p>
-
-<ul>
-  <li>You can <strong>authenticate automated build systems instead of individual developers</strong> and leverage origin verification for CI systems that do not support cosign workload identities (currently only Github and Gitlab in their SaaS offerings)</li>
-  <li>You can use your own key material and <strong>keep your signature data private</strong> without having to operate an own instance of Fulcio</li>
-</ul>
-
 <h2 id="cosign">Using cosign</h2>
 
 <h3 id="overview-1">Overview</h3>
 
-<p><em>cosign</em> belongs to the <a href="https://www.sigstore.dev/">sigstore</a> project. It is primarily targeted at the open source community, allowing individual developers and Github Actions builds to authenticate using OpenIdConnect and receive short-lived signing keys from a Fulcio certificate authority (CA). All signatures are recorded in a public transparency log (called rekor). Due to the keys not being persistent anywhere, <em>cosign</em> refers to this method as “keyless signing”.</p>
+<p><em>cosign</em> belongs to the <a href="https://www.sigstore.dev/">sigstore</a> project. It is primarily targeted at the open source community, allowing individual developers and Github Actions builds to authenticate using OpenIdConnect and receive short-lived signing keys from a Fulcio certificate authority (CA). All signatures are recorded in a public transparency log (called Rekor). Due to the keys not being persistent anywhere, <em>cosign</em> refers to this method as “keyless signing”.</p>
 
 <p>This approach is not practical for all organizations which</p>
 <ul>
@@ -190,7 +191,7 @@
 <div class="panel info">
   <div class="panel-header">X.509 certificate chains in cosign</div>
 
-  <p><em>cosign</em> builds upon X.509 certificate chains, but requires specific additional attributes to be set in each certificate. The project is actively working on supporting custom certificates from traditional PKIs.</p>
+  <p><em>cosign</em> builds upon X.509 certificate chains, but requires specific additional attributes to be set in each certificate. The sigstore project is actively working on supporting custom certificates from traditional PKIs.</p>
 
 </div>
 
@@ -213,32 +214,32 @@
 
 <p>Signing container images with cosign using SignPath consists of 3 steps:</p>
 
-<h4 id="1-create-an-unsigned-payloadjson-file">1. Create an unsigned <code class="language-plaintext highlighter-rouge">payload.json</code> file</h4>
+<h4 id="1-prepare-the-metadata-for-signing">1. Prepare the metadata for signing</h4>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">IMAGE_DIGEST</span><span class="o">=</span><span class="sb">`</span>docker inspect <span class="nt">--format</span><span class="o">=</span><span class="s1">'{{index .RepoDigests 0}}'</span> <span class="nv">$FQN</span><span class="sb">`</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Extract the repository digest identifier for the given FQN</span>
+<span class="nb">export </span><span class="nv">IMAGE_DIGEST</span><span class="o">=</span><span class="sb">`</span>docker inspect <span class="nt">--format</span><span class="o">=</span><span class="s1">'{{index .RepoDigests 0}}'</span> <span class="nv">$FQN</span><span class="sb">`</span>
+<span class="c"># Generate a metadata file to be signed</span>
 cosign generate <span class="nv">$IMAGE_DIGEST</span> <span class="o">&gt;</span> payload.json
+<span class="c"># Package the metadata file for SignPath</span>
+zip payload.json.zip payload.json
 </code></pre></div></div>
 
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">$FQN</code> contains the fully qualified name, see <a href="#fqn">FQN</a></li>
-  <li>The first part extracts the repository digest identifier for the given FQN</li>
-  <li>The second part tells cosign to generate a metadata file that can be signed</li>
-</ul>
+<p>Note: <code class="language-plaintext highlighter-rouge">$FQN</code> contains the fully qualified name, see <a href="#fqn">FQN</a></p>
 
-<h4 id="2-create-a-detached-signature-for-the-payloadjson-file">2. Create a detached signature for the <code class="language-plaintext highlighter-rouge">payload.json</code> file</h4>
+<h4 id="2-create-a-signature-for-the-metadata">2. Create a signature for the metadata</h4>
 
-<p>You can create a detached <code class="language-plaintext highlighter-rouge">payload.json.sig</code> signature using any of SignPath’s <a href="#/documentation/build-system-integrations">build system integrations</a> or via the user interface. Please note that you need to create a zip file containing the <code class="language-plaintext highlighter-rouge">payload.json</code> file before uploading it.</p>
+<p>Upload the <code class="language-plaintext highlighter-rouge">payload.json.zip</code> file to SignPath for signing. Use the artifact configuration “Detached raw signatures” for a single container image or extend it according to your needs. See <a href="/documentation/artifact-configuration#detached-raw-signatures'">detached raw signatures</a> for more details. The following step expects the signed artifact to be stored as <code class="language-plaintext highlighter-rouge">payload.json.signed.zip</code>.</p>
 
 <h4 id="3-attach-the-signature-to-the-image">3. Attach the signature to the image</h4>
 
-<p>cosign expects the signature to be base64 encoded before it can be attached:</p>
+<p>Finally, the following snippet will unzip the signed artifact, encode the signature in base64 for <em>cosign</em> and upload the signature to the repository:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>payload.json.sig | <span class="nb">base64</span> <span class="o">&gt;</span> payload.json.base64.sig
-</code></pre></div></div>
-
-<p>Then, the following command will upload the signature to the repository:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cosign attach signature <span class="nt">--payload</span> payload.json <span class="nt">--signature</span> payload.json.base64.sig <span class="nv">$IMAGE_DIGEST</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Extract the detached signature</span>
+unzip <span class="nt">-n</span> payload.json.signed.zip
+<span class="c"># Encode the signature using base64 for cosign</span>
+<span class="nb">cat </span>payload.json.sig | <span class="nb">base64</span> <span class="o">&gt;</span> payload.json.base64.sig
+<span class="c"># Upload the signature to the registry</span>
+cosign attach signature <span class="nt">--payload</span> payload.json <span class="nt">--signature</span> payload.json.base64.sig <span class="nv">$IMAGE_DIGEST</span>
 </code></pre></div></div>
 
 <h2 id="notary-v1">Using Notary v1 (Docker Content Trust)</h2>

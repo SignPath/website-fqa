@@ -708,8 +708,8 @@
 
 <p>There are multiple tools and solutions that support handling of raw signature blocks. One popular option is <code class="language-plaintext highlighter-rouge">openssl dgst</code>. As the command does not support X.509 certificates, the public key has to be extracted before the signature can be verified using the following call:</p>
 
-<pre><code class="language-cmd">openssl dgst -verify pubkey.pem -signature file.sig file
-</code></pre>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl dgst <span class="nt">-verify</span> pubkey.pem <span class="nt">-signature</span> file.sig file
+</code></pre></div></div>
 
 <h2 id="using-wildcards">Using wildcards</h2>
 
