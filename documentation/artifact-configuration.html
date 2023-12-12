@@ -126,7 +126,7 @@
       <li><a href="#opc-sign">&lt;opc-sign&gt;</a></li>
       <li><a href="#jar-sign">&lt;jar-sign&gt;</a></li>
       <li><a href="#xml-sign">&lt;xml-sign&gt;</a></li>
-      <li><a href="#detached-raw-signatures-using-create-raw-signature">Detached raw signatures using &lt;create-raw-signature&gt;</a></li>
+      <li><a href="#detached-raw-signatures">Detached raw signatures using &lt;create-raw-signature&gt;</a></li>
     </ul>
   </li>
   <li><a href="#using-wildcards">Using wildcards</a>
@@ -353,9 +353,9 @@
   <tr>
     <td><code>&lt;file&gt;</code></td>
     <td>No</td>
-    <td><code><a href="#detached-raw-signatures-using-create-raw-signature">&lt;create-raw-signature&gt;</a></code></td>
+    <td><code><a href="#detached-raw-signatures">&lt;create-raw-signature&gt;</a></code></td>
     <td></td>
-    <td>Arbitrary files. This directive will create a <a href="#detached-raw-signatures-using-create-raw-signature">detached raw signature</a> file (available for Enterprise subscriptions)</td>
+    <td>Arbitrary files. This directive will create a <a href="#detached-raw-signatures">detached raw signature</a> file (available for Enterprise subscriptions)</td>
   </tr>
 </tbody>
 </table>
@@ -673,11 +673,11 @@
   <li>Use <a href="#file-metadata-restrictions">metadata restrictions</a> for <code class="language-plaintext highlighter-rouge">&lt;xml-file&gt;</code> to restrict root element and namespace.</li>
 </ul>
 
-<h3 id="detached-raw-signatures-using-create-raw-signature">Detached raw signatures using &lt;create-raw-signature&gt;</h3>
+<h3 id="detached-raw-signatures">Detached raw signatures using &lt;create-raw-signature&gt;</h3>
 
 <p class="badge icon-signpath">Available for Enterprise subscriptions</p>
 
-<p>Detached raw signatures can be used for arbitrary binary or text files. The <code class="language-plaintext highlighter-rouge">create-raw-signature</code> directive supports the following parameters:</p>
+<p>Detached raw signatures can be used for arbitrary binary or text files or <a href="/documentation/docker-signing#cosign">signing Docker images using cosign</a>. The <code class="language-plaintext highlighter-rouge">create-raw-signature</code> directive supports the following parameters:</p>
 
 <table>
   <thead>
@@ -702,7 +702,7 @@
   </tbody>
 </table>
 
-<p><strong>Note: Due to the detached signature being placed in a separate file, <code class="language-plaintext highlighter-rouge">&lt;file&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;file-set&gt;</code> elements are only allowed inside a <a href="#zip-file-element"><code class="language-plaintext highlighter-rouge">&lt;zip-file&gt;</code>&lt;/code&gt;</a>.</strong></p>
+<p><strong>Note: Due to the detached signature being placed in a separate file, <code class="language-plaintext highlighter-rouge">&lt;file&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;file-set&gt;</code> elements are only allowed inside a <a href="#zip-file-element"><code class="language-plaintext highlighter-rouge">&lt;zip-file&gt;</code></a>.</strong></p>
 
 <h4 id="verification-1">Verification</h4>
 
