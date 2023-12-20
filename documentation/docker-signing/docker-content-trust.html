@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/docker-signing' />
+  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/docker-signing/docker-content-trust' />
   <!-- Begin Jekyll SEO tag v2.6.1 -->
   <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
-  <title>Documentation - Signing Docker images | SignPath</title>
-  <meta property="og:title" content="Documentation - Signing Docker images | SignPath" />
+  <title>Documentation - Signing Docker images with Docker Content Trust | SignPath</title>
+  <meta property="og:title" content="Documentation - Signing Docker images with Docker Content Trust | SignPath" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:description" content="Documentation for signing Docker containers with SignPath" />
-  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/docker-signing" />
+  <meta property="og:description" content="Documentation for signing Docker images with SignPath using Docker Content Trust" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/docker-signing/docker-content-trust" />
   <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
-  <meta name="description" content="Documentation for signing Docker containers with SignPath"/>
+  <meta name="description" content="Documentation for signing Docker images with SignPath using Docker Content Trust"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
   <link rel="stylesheet" href="/assets/css/index.css?cache=2023-11-17">
@@ -56,195 +56,14 @@
   </header>
   <main><section class="bg-blue font-white top-section">
 	<div>
-		<h1><span class='no-break'>Documentation &nbsp;❯&nbsp; </span> Signing Docker images</h1>
+		<h1><span class='no-break'>Documentation &nbsp;❯&nbsp; </span> Signing Docker images with Docker Content Trust</h1>
 	</div>
 </section>
 <section class="resources-section">
-	<div><aside>
-				<ul><li class=''>
-							<a href='/documentation/getting-started#'>Getting Started</a></li><li class=''>
-							<a href='/documentation/managing-certificates#'>Managing Certificates</a></li><li class=''>
-							<a href='/documentation/users#'>Managing Users</a></li><li class=''>
-							<a href='/documentation/projects#'>Setting up Projects</a></li><li class=''>
-							<a href='/documentation/signing-code#'>Signing Code</a></li><li class='active'>
-							<a href='/documentation/docker-signing#'>Signing Docker images</a><div class="no-mobile" ><ul>
-  <li><a href="#overview">Overview</a></li>
-  <li><a href="#cosign">Using cosign</a></li>
-  <li><a href="#notary-v1">Using Notary v1 (Docker Content Trust)</a></li>
-</ul>
-</div></li><li class='separator' /><li class=''>
-							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=''>
-							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=''>
-							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class=''>
-							<a href='/documentation/origin-verification#'>Origin Verification</a></li><li class='separator' /><li class=''>
-							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class='separator' /><li class=''>
-							<a href='/documentation/changelog#'>Product updates</a></li></ul>
-			</aside><article><ul class="article-toc">
-  <li><a href="#overview">Overview</a>
-    <ul>
-      <li><a href="#why-use-signpath-for-container-signing">Why use SignPath for container signing?</a></li>
-    </ul>
-  </li>
-  <li><a href="#cosign">Using cosign</a>
-    <ul>
-      <li><a href="#overview-1">Overview</a></li>
-      <li><a href="#prerequisites">Prerequisites</a></li>
-      <li><a href="#signing">Signing</a>
-        <ul>
-          <li><a href="#1-prepare-the-metadata-for-signing">1. Prepare the metadata for signing</a></li>
-          <li><a href="#2-create-a-signature-for-the-metadata">2. Create a signature for the metadata</a></li>
-          <li><a href="#3-attach-the-signature-to-the-image">3. Attach the signature to the image</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><a href="#notary-v1">Using Notary v1 (Docker Content Trust)</a>
-    <ul>
-      <li><a href="#overview-2">Overview</a>
-        <ul>
-          <li><a href="#setup-overview">Setup overview</a></li>
-          <li><a href="#signing-overview">Signing overview</a></li>
-          <li><a href="#security-considerations">Security considerations</a></li>
-        </ul>
-      </li>
-      <li><a href="#setup-phase">Setup phase</a>
-        <ul>
-          <li><a href="#prerequisites-1">Prerequisites</a></li>
-          <li><a href="#steps">Steps</a>
-            <ul>
-              <li><a href="#1-create-a-new-self-signed-x509-certificate-in-signpath">1. Create a new self-signed X.509 certificate in SignPath</a></li>
-              <li><a href="#2-get-or-create-the-root-and-target-keys">2. Get or create the root and target keys</a></li>
-              <li><a href="#3-add-the-delegation-certificate-to-your-repositorys-delegation-keys">3. Add the delegation certificate to your repository’s delegation keys</a></li>
-              <li><a href="#4-set-up-a-docker-repository-and-project-in-signpath">4. Set up a Docker repository and project in SignPath</a></li>
-              <li><a href="#5-when-everything-works-delete-the-target-key">5. When everything works, delete the target key</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><a href="#signing-phase">Signing phase</a>
-        <ul>
-          <li><a href="#prerequisites-2">Prerequisites</a></li>
-          <li><a href="#execution">Execution</a>
-            <ul>
-              <li><a href="#single-step-signing">Single-step signing</a></li>
-              <li><a href="#perform-each-step-separately">Perform each step separately</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-<p class="badge icon-signpath">Available for Enterprise and Open Source subscriptions</p>
+	<div><article>
+<h2 id="signing-docker-images-with-docker-content-trust-notary-v1">Signing Docker Images with Docker Content Trust (Notary v1)</h2>
 
-<h2 id="overview">Overview</h2>
-
-<p>There are currently 3 competing technologies for signing Docker images:</p>
-
-<ul>
-  <li><em><a href="https://docs.sigstore.dev/signing/quickstart/">sigstore’s cosign</a></em>: A Linux foundation project, primarily developed for the open source community. See <a href="#cosign">below</a> on how to use it with SignPath.</li>
-  <li><em><a href="https://github.com/theupdateframework/notary">Notary v1 (Docker Content Trust)</a></em>: Part of the standard docker CLI. See <a href="#notary-v1">below</a> on how to use it with SignPath.</li>
-  <li><em><a href="https://notaryproject.dev/">Notation</a></em>: Previously known as Notary v2 it is the successor of Notary v1 (Docker Conten Trust). Not yet supported by SignPath.</li>
-</ul>
-
-<h3 id="why-use-signpath-for-container-signing">Why use SignPath for container signing?</h3>
-
-<p>SignPath provides the following advantages:</p>
-
-<ul>
-  <li>You can use the full power of SignPath <strong>signing policies</strong>, including permission, approval, and origin verification</li>
-  <li>You can use all <strong>CI integration</strong> features of SignPath</li>
-  <li>Configuration and policy management is <strong>aligned with other signing methods</strong>, such as Authenticode or Java signing</li>
-  <li>SignPath maintains a <strong>full audit log</strong> of all signing activities including metadata such as the registry URL and signed image tag</li>
-  <li>You can <strong>sign multiple images in a single signing request</strong>, making audits/reviews of multi-image releases a lot easier</li>
-</ul>
-
-<p>For <em>cosign</em>, there are additional specific advantages:</p>
-
-<ul>
-  <li>You can <strong>authenticate automated build systems instead of individual developers</strong> and leverage origin verification for CI systems that do not support cosign workload identities (currently only Github and Gitlab in their SaaS offerings)</li>
-  <li>You can use your own key material and <strong>keep your signature data private</strong> without having to operate an own Fulcio certificate authority system</li>
-</ul>
-
-<p>For <em>Notary v1 / Docker Content Trust (DCT)</em>, there are additional specific advantages:</p>
-
-<ul>
-  <li><strong>You don’t need to keep the target key</strong> (a powerful key without hardware protection option that you would otherwise need for every new developer)</li>
-  <li><strong>Developers don’t need to keep their own delegation keys</strong></li>
-  <li>SignPath controls <strong>signing on a semantic level</strong>, where DCT would just verify signatures on manifest files (i.e. with SignPath, a signing request that claims to add a signature to a specific image and/or label can be trusted to do just that and nothing else)</li>
-</ul>
-
-<h2 id="cosign">Using cosign</h2>
-
-<h3 id="overview-1">Overview</h3>
-
-<p><em>cosign</em> belongs to the <a href="https://www.sigstore.dev/">sigstore</a> project. It is primarily targeted at the open source community, allowing individual developers and Github Actions builds to authenticate using OpenIdConnect and receive short-lived signing keys from a Fulcio certificate authority (CA). All signatures are recorded in a public transparency log (called Rekor). Due to the keys not being persistent anywhere, <em>cosign</em> refers to this method as “keyless signing”.</p>
-
-<p>This approach is not practical for all organizations which</p>
-<ul>
-  <li>use an automated build system that does not support cosign (currently only Github Actions SaaS and Gitlab SaaS) or</li>
-  <li>don’t want their signatures to be logged in the public Rekor log and don’t want to operate their own Fulcio CA</li>
-</ul>
-
-<p>For these organizations, signing with <em>cosign</em> is only possible using public/private key pairs.</p>
-
-<div class="panel info">
-  <div class="panel-header">X.509 certificate chains in cosign</div>
-
-  <p><em>cosign</em> builds upon X.509 certificate chains, but requires specific additional attributes to be set in each certificate. The sigstore project is actively working on supporting custom certificates from traditional PKIs.</p>
-
-</div>
-
-<h3 id="prerequisites">Prerequisites</h3>
-
-<p>Required components on the client:</p>
-<ul>
-  <li>cosign in version 2.0.0 or higher</li>
-</ul>
-
-<p>In your SignPath organization, you need the following entities:</p>
-<ul>
-  <li>a project with an artifact configuration of type <em>Detached raw signatures</em></li>
-  <li>a certificate (only the public/private key pair will be used)</li>
-</ul>
-
-<p>The Docker container image needs to be pushed to an OCI-compliant container registry.</p>
-
-<h3 id="signing">Signing</h3>
-
-<p>Signing container images with cosign using SignPath consists of 3 steps:</p>
-
-<h4 id="1-prepare-the-metadata-for-signing">1. Prepare the metadata for signing</h4>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Extract the repository digest identifier for the given FQN</span>
-<span class="nb">export </span><span class="nv">IMAGE_DIGEST</span><span class="o">=</span><span class="sb">`</span>docker inspect <span class="nt">--format</span><span class="o">=</span><span class="s1">'{{index .RepoDigests 0}}'</span> <span class="s2">"</span><span class="nv">$FQN</span><span class="s2">:</span><span class="nv">$TAG</span><span class="s2">"</span><span class="sb">`</span>
-<span class="c"># Generate a metadata file to be signed</span>
-cosign generate <span class="nv">$IMAGE_DIGEST</span> <span class="o">&gt;</span> payload.json
-<span class="c"># Package the metadata file for SignPath</span>
-zip payload.json.zip payload.json
-</code></pre></div></div>
-
-<p>Note: <code class="language-plaintext highlighter-rouge">$FQN</code> contains the fully qualified name of the repository, see <a href="#fqn">FQN</a> and <code class="language-plaintext highlighter-rouge">$TAG</code> is the specific tag (e.g. <code class="language-plaintext highlighter-rouge">latest</code>).</p>
-
-<h4 id="2-create-a-signature-for-the-metadata">2. Create a signature for the metadata</h4>
-
-<p>Upload the <code class="language-plaintext highlighter-rouge">payload.json.zip</code> file to SignPath for signing. Use the artifact configuration “Detached raw signatures” for a single container image or extend it according to your needs. See <a href="/documentation/artifact-configuration#detached-raw-signatures'">detached raw signatures</a> for more details. The following step expects the signed artifact to be stored as <code class="language-plaintext highlighter-rouge">payload.json.signed.zip</code>.</p>
-
-<h4 id="3-attach-the-signature-to-the-image">3. Attach the signature to the image</h4>
-
-<p>Finally, the following snippet will unzip the signed artifact, encode the signature in base64 for <em>cosign</em> and upload the signature to the repository:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Extract the detached signature</span>
-unzip <span class="nt">-n</span> payload.json.signed.zip
-<span class="c"># Encode the signature using base64 for cosign</span>
-<span class="nb">cat </span>payload.json.sig | <span class="nb">base64</span> <span class="o">&gt;</span> payload.json.base64.sig
-<span class="c"># Upload the signature to the registry</span>
-cosign attach signature <span class="nt">--payload</span> payload.json <span class="nt">--signature</span> payload.json.base64.sig <span class="nv">$IMAGE_DIGEST</span>
-</code></pre></div></div>
-
-<h2 id="notary-v1">Using Notary v1 (Docker Content Trust)</h2>
-
-<h3 id="overview-2">Overview</h3>
+<h3 id="overview">Overview</h3>
 
 <p>DCT is based on Notary, which uses a system of keys:</p>
 
@@ -439,7 +258,7 @@ cosign attach signature <span class="nt">--payload</span> payload.json <span cla
 
 <h3 id="setup-phase">Setup phase</h3>
 
-<h4 id="prerequisites-1">Prerequisites</h4>
+<h4 id="prerequisites">Prerequisites</h4>
 
 <p>Required components:</p>
 <ul>
@@ -585,7 +404,7 @@ cosign attach signature <span class="nt">--payload</span> payload.json <span cla
 
 <h3 id="signing-phase">Signing phase</h3>
 
-<h4 id="prerequisites-2">Prerequisites</h4>
+<h4 id="prerequisites-1">Prerequisites</h4>
 
 <p>Required components:</p>
 
