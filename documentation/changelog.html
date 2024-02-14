@@ -115,18 +115,6 @@ Component
 			
 				
 					<h3>
-						 New Features:
-							
-					</h3>
-					
-						<ul>
-							
-						</ul>
-					
-				
-			
-				
-					<h3>
 						 Improvements:
 							
 					</h3>
@@ -198,7 +186,10 @@ Component
 						<ul>
 							
 								<li>
-									<p>Renamed the <code class="language-plaintext highlighter-rouge">hangfiredashboard</code> Application K8s Deployment to <code class="language-plaintext highlighter-rouge">operatorclient</code>: * Renamed <code class="language-plaintext highlighter-rouge">signpathio/hangfire-dashboard</code> Docker image to <code class="language-plaintext highlighter-rouge">signpathio/operator-client</code> (you may need to update your image mirroring). * Replaced the <code class="language-plaintext highlighter-rouge">appSettings/appSecrets.hangfireDashboard</code> values section with <code class="language-plaintext highlighter-rouge">appSettings/appSecrets.operatorClient</code>. * Replaced <code class="language-plaintext highlighter-rouge">chartSettings.hangfireDashboard</code> section with <code class="language-plaintext highlighter-rouge">chartSettings.operatorClient</code>. * Changed <code class="language-plaintext highlighter-rouge">operatorClient</code> authentication settings from basic auth to API token-based (see <code class="language-plaintext highlighter-rouge">operatorClientOptions.operatorUsers</code> section).</p>
+									<p>Renamed the <code class="language-plaintext highlighter-rouge">hangfiredashboard</code> Application K8s Deployment to <code class="language-plaintext highlighter-rouge">operatorclient</code>:</p>
+<ul>
+  <li>Renamed <code class="language-plaintext highlighter-rouge">signpathio/hangfire-dashboard</code> Docker image to <code class="language-plaintext highlighter-rouge">signpathio/operator-client</code> (you may need to update your Docker image mirroring). * Replaced the <code class="language-plaintext highlighter-rouge">appSettings/appSecrets.hangfireDashboard</code> values section with <code class="language-plaintext highlighter-rouge">appSettings/appSecrets.operatorClient</code>. * Replaced <code class="language-plaintext highlighter-rouge">chartSettings.hangfireDashboard</code> section with <code class="language-plaintext highlighter-rouge">chartSettings.operatorClient</code>. * Changed <code class="language-plaintext highlighter-rouge">operatorClient</code> authentication settings from basic auth to API token-based (see <code class="language-plaintext highlighter-rouge">operatorClientOptions.operatorUsers</code> section).</li>
+</ul>
 
 									
 								</li>
