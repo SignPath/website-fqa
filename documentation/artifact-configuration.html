@@ -40,7 +40,7 @@
               <ul><li> <a href='/code-signing/introduction'> Introduction </a> </li><li> <a href='/code-signing/theory'> Theory </a> </li><li> <a href='/code-signing/windows-platform'> Windows Platform </a> </li><li> <a href='/code-signing/test-certificates'> Managing Test Certificates </a> </li><li> <a href='/code-signing/private-keys'> Storage of Private Keys </a> </li><li> <a href='/code-signing/media-coverage'> Media Coverage </a> </li></ul>
             </li><li>
               <a href='/documentation'> Documentation </a>
-              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/docker-signing'> Signing Docker images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
+              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/signing-containers'> Signing Container Images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
             </li><li>
               <a href='/about-us'> About us </a>
               <ul><li> <a href='/company'> Company </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
@@ -69,7 +69,7 @@
 							<a href='/documentation/users#'>Managing Users</a></li><li class=''>
 							<a href='/documentation/projects#'>Setting up Projects</a></li><li class=''>
 							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=''>
-							<a href='/documentation/docker-signing#'>Signing Docker images</a></li><li class='separator' /><li class='active'>
+							<a href='/documentation/signing-containers#'>Signing Container Images</a></li><li class='separator' /><li class='active'>
 							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a><div class="no-mobile" ><ul>
   <li><a href="#abstract">Abstract</a></li>
   <li><a href="#creating-and-editing-artifact-configurations">Creating and editing artifact configurations</a></li>
@@ -126,6 +126,7 @@
       <li><a href="#opc-sign">&lt;opc-sign&gt;</a></li>
       <li><a href="#jar-sign">&lt;jar-sign&gt;</a></li>
       <li><a href="#xml-sign">&lt;xml-sign&gt;</a></li>
+      <li><a href="#detached-raw-signatures">Detached raw signatures using &lt;create-raw-signature&gt;</a></li>
     </ul>
   </li>
   <li><a href="#using-wildcards">Using wildcards</a>
@@ -215,143 +216,280 @@
 <h2 id="file-elements">File elements</h2>
 
 <h3 id="file-element-types-and-signing-directives">File element types and signing directives</h3>
+<table>
+    <thead>
+        <tr><th style="width: 9em;">
 
-<table id="signing-file-elements">
-<thead>
-  <tr>
-    <th style="width: 9em;">Element</th>
-    <th><a href="#containers">Container format</a></th>
-    <th style="width: 10em;">Signing directive</th>
-    <th>Extensions</th>
-    <th>Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><code>&lt;pe-file&gt;</code></td>
-    <td>No</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.exe, .dll, .acm, .ax, .cpl, .drv, .efi, .mui, .ocx, .scr, .sys, .tsp</td>
-    <td>Portable Executable (PE) files: EXE, DLL, and other executable files</td>
-  </tr>
-  <tr>
-    <td><code>&lt;powershell-file&gt;</code></td>
-    <td>No</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.ps1, .psm1, psd1, .psdc1, .ps1xml</td>
-    <td>PowerShell scripts and modules</td>
-  </tr>
-  <tr>
-    <td><code>&lt;windows-script-file&gt;</code></td>
-    <td>No</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.wsf, ,vbs, .js</td>
-    <td>
+Element 
+</th><th>
+
+<a href="#containers">Container format</a> 
+</th><th style="width: 10em;">
+
+Signing directive 
+</th><th>
+
+Extensions 
+</th><th>
+
+Description 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;pe-file&gt;</code></p>
+      </td><td>
+
+        <p>No</p>
+      </td><td>
+
+        <p><a href="#authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code></a></p>
+      </td><td>
+
+        <p>.exe, .dll, .acm, .ax, .cpl, .drv, .efi, .mui, .ocx, .scr, .sys, .tsp</p>
+      </td><td>
+
+        <p>Portable Executable (PE) files: EXE, DLL, and other executable files</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;powershell-file&gt;</code></p>
+      </td><td>
+
+        <p>No</p>
+      </td><td>
+
+        <p><a href="#authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code></a></p>
+      </td><td>
+
+        <p>.ps1, .psm1, psd1, .psdc1, .ps1xml</p>
+      </td><td>
+
+        <p>PowerShell scripts and modules</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;windows-script-file&gt;</code></p>
+      </td><td>
+
+        <p>No</p>
+      </td><td>
+
+        <p><a href="#authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code></a></p>
+      </td><td>
+
+        <p>.wsf, ,vbs, .js</p>
+      </td><td>
+
         <p>Windows scripts for Windows Scripting Host, typically VBScript and JScript<sup id="fnref:jscript" role="doc-noteref"><a href="#fn:jscript" class="footnote" rel="footnote">1</a></sup>. (Not available for Starter subscriptions.)</p>
+      </td></tr><tr><td>
 
-      </td>
-  </tr>
-  <tr>
-    <td><code>&lt;msi-file&gt;</code></td>
-    <td>Yes</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.msi, .msm, .msp</td>
-    <td>Microsoft installer files</td>
-  </tr>
-  <tr>
-    <td><code>&lt;cab-file&gt;</code></td>
-    <td>Yes</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.cab</td>
-    <td>Windows cabinet files</td>
-  </tr>
-  <tr>
-    <td><code>&lt;catalog-file&gt;</code></td>
-    <td>No</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.cat</td>
-    <td>Windows catalog files</td>
-  </tr>
-  <tr>
-    <td><code>&lt;appx-file&gt;</code></td>
-    <td>Yes</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.appx, .appxbundle</td>
-    <td>
-      App packages for Microsoft Store/Universal Windows Platform<br />
-      <span style="font-family: 'Line Awesome Free'; font-weight: 800;">&#61530;</span> 
-      The Common Name of the code signing certificate must match the PublisherDisplayName in the AppxManifest.xml file.
-  </td>
-  </tr>
-  <tr>
-    <td><code>&lt;msix-file&gt;</code></td>
-    <td>Yes</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.msix, .msixbundle</td>
-    <td>
-      MSIX installer app packages for Microsoft Windows
-  </td>
-  </tr>
-  <tr>
-    <td><code>&lt;opc-file&gt;</code></td>
-    <td>Yes</td>
-    <td><code><a href="#opc-sign">&lt;opc-sign&gt;</a></code></td>
-    <td>.vsix, .xps, hlkx, ...</td>
-    <td>Open Packaging Conventions (OPC) files including Visual Studio Extensions (VSIX) and Hardware Lab Kit driver signing packages. (Driver signing not available for Starter subscriptions.) File size limit: 40 MB.</td>
-  </tr>
-  <tr>
-    <td><code>&lt;nupkg-file&gt;</code></td>
-    <td>Yes</td>
-    <td><code><a href="#nuget-sign">&lt;nuget-sign&gt;</a></code></td>
-    <td>.nupkg</td>
-    <td>NuGet packages</td>
-  <tr>
-    <td><code>&lt;jar-file&gt;</code></td>
-    <td>Yes</td>
-    <td><code><a href="#jar-sign">&lt;jar-sign&gt;</a></code></td>
-    <td>.jar, .war, .ear, .apk, .aab</td>
-    <td>Java archives and Android apps. (Not available for Starter subscriptions.)</td>
-  </tr>
-  </tr>
-    <tr>
-    <td><code><a href="#zip-file-element">&lt;zip-file&gt;</a></code></td>
-    <td>Yes</td>
-    <td><code><a href="#jar-sign">&lt;jar-sign&gt;</a></code></td>
-    <td>.zip</td>
-    <td>Use ZIP archives to sign multiple files at once. (ZIP archives can also be signed and verified using the <a href="#jar-sign">JAR format</a>.    
-</td>
-  </tr>
-  <tr>
-    <td><code>&lt;office-oxml-file&gt;</code></td>
-    <td>No</td>
-    <td><code><a href="#office-macro-sign">&lt;office-macro-sign&gt;</a></code></td>
-    <td>.xlsm, .xltm, .docm, .dotm, .pptm, .potm, .vsdm, vstm, ... </td>
-    <td>Sign VBA macros in Microsoft Office Open XML files and templates: Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)</td>
-  </tr>  
-  <tr>
-    <td><code>&lt;office-binary-file&gt;</code></td>
-    <td>No</td>
-    <td><code><a href="#office-macro-sign">&lt;office-macro-sign&gt;</a></code></td>
-    <td>.xls, .xlt, .doc, .dot, .pot, .ppa, .pps, .ppt, .mpp, .mpt, .pub, .vsd, .vst, ... </td>
-    <td>Sign VBA macros in binary Microsoft Office files and templates: Project, Publisher, and legacy Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)</td>
-  </tr> 
-   <tr>
-    <td><code>&lt;xml-file&gt;</code></td>
-    <td>No</td>
-    <td><code><a href="#xml-sign">&lt;xml-sign&gt;</a></code></td>
-    <td>.xml</td>
-    <td>Use this directive to sign XML files using <a href="https://www.w3.org/TR/xmldsig-core1/">XMLDSIG</a> (available for Enterprise subscriptions). File size limit: 2 MB.</td>
-  </tr> 
-  <tr>
-    <td><code><a href="#directory-element">&lt;directory&gt;</a></code></td>
-    <td>Yes</td>
-    <td><code><a href="#clickonce-sign">&lt;clickonce-sign&gt;</a></code></td>
-    <td></td>
-    <td>Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files.</td>
-  </tr>
-</tbody>
+        <p><code class="language-plaintext highlighter-rouge">&lt;msi-file&gt;</code></p>
+      </td><td>
+
+        <p>Yes</p>
+      </td><td>
+
+        <p><a href="#authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code></a></p>
+      </td><td>
+
+        <p>.msi, .msm, .msp</p>
+      </td><td>
+
+        <p>Microsoft installer files</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;cab-file&gt;</code></p>
+      </td><td>
+
+        <p>Yes</p>
+      </td><td>
+
+        <p><a href="#authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code></a></p>
+      </td><td>
+
+        <p>.cab</p>
+      </td><td>
+
+        <p>Windows cabinet files</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;catalog-file&gt;</code></p>
+      </td><td>
+
+        <p>No</p>
+      </td><td>
+
+        <p><a href="#authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code></a></p>
+      </td><td>
+
+        <p>.cat</p>
+      </td><td>
+
+        <p>Windows catalog files</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;appx-file&gt;</code></p>
+      </td><td>
+
+        <p>Yes</p>
+      </td><td>
+
+        <p><a href="#authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code></a></p>
+      </td><td>
+
+        <p>.appx, .appxbundle</p>
+      </td><td>
+
+        <p>App packages for Microsoft Store/Universal Windows Platform<br /> <span style="font-family: 'Line Awesome Free'; font-weight: 800;"></span>  The Common Name of the code signing certificate must match the <code class="language-plaintext highlighter-rouge">PublisherDisplayName</code> in the <code class="language-plaintext highlighter-rouge">AppxManifest.xml</code> file.</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;msix-file&gt;</code></p>
+      </td><td>
+
+        <p>Yes</p>
+      </td><td>
+
+        <p><a href="#authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code></a></p>
+      </td><td>
+
+        <p>.msix, .msixbundle</p>
+      </td><td>
+
+        <p>MSIX installer app packages for Microsoft Windows</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;opc-file&gt;</code></p>
+      </td><td>
+
+        <p>Yes</p>
+      </td><td>
+
+        <p><a href="#opc-sign"><code class="language-plaintext highlighter-rouge">&lt;opc-sign&gt;</code></a></p>
+      </td><td>
+
+        <p>.vsix, .xps, hlkx, …</p>
+      </td><td>
+
+        <p>Open Packaging Conventions (OPC) files including Visual Studio Extensions (VSIX) and Hardware Lab Kit driver signing packages.  (Driver signing not available for Starter subscriptions.)</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;nupkg-file&gt;</code></p>
+      </td><td>
+
+        <p>Yes</p>
+      </td><td>
+
+        <p><a href="#nuget-sign"><code class="language-plaintext highlighter-rouge">&lt;nuget-sign&gt;</code></a></p>
+      </td><td>
+
+        <p>.nupkg</p>
+      </td><td>
+
+        <p>NuGet packages</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;jar-file&gt;</code></p>
+      </td><td>
+
+        <p>Yes</p>
+      </td><td>
+
+        <p><a href="#jar-sign"><code class="language-plaintext highlighter-rouge">&lt;jar-sign&gt;</code></a></p>
+      </td><td>
+
+        <p>.jar, .war, .ear, .apk, .aab</p>
+      </td><td>
+
+        <p>Java archives and Android apps. (Not available for Starter subscriptions.)</p>
+      </td></tr><tr><td>
+
+        <p><a href="#zip-file-element"><code class="language-plaintext highlighter-rouge">&lt;zip-file&gt;</code></a></p>
+      </td><td>
+
+        <p>Yes</p>
+      </td><td>
+
+        <p><a href="#jar-sign"><code class="language-plaintext highlighter-rouge">&lt;jar-sign&gt;</code></a></p>
+      </td><td>
+
+        <p>.zip</p>
+      </td><td>
+
+        <p>Use ZIP archives to sign multiple files at once. (ZIP archives can also be signed and verified using the <a href="#jar-sign">JAR format</a></p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;office-oxml-file&gt;</code></p>
+      </td><td>
+
+        <p>No</p>
+      </td><td>
+
+        <p><a href="#office-macro-sign"><code class="language-plaintext highlighter-rouge">&lt;office-macro-sign&gt;</code></a></p>
+      </td><td>
+
+        <p>.xlsm, .xltm, .docm, .dotm, .pptm, .potm, .vsdm, vstm, …</p>
+      </td><td>
+
+        <p>Sign VBA macros in Microsoft Office Open XML files and templates: Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;office-binary-file&gt;</code></p>
+      </td><td>
+
+        <p>No</p>
+      </td><td>
+
+        <p><a href="#office-macro-sign"><code class="language-plaintext highlighter-rouge">&lt;office-macro-sign&gt;</code></a></p>
+      </td><td>
+
+        <p>.xls, .xlt, .doc, .dot, .pot, .ppa, .pps, .ppt, .mpp, .mpt, .pub, .vsd, .vst, …</p>
+      </td><td>
+
+        <p>Sign VBA macros in binary Microsoft Office files and templates: Project, Publisher, and legacy Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;xml-file&gt;</code></p>
+      </td><td>
+
+        <p>No</p>
+      </td><td>
+
+        <p><a href="#xml-sign"><code class="language-plaintext highlighter-rouge">&lt;xml-sign&gt;</code></a></p>
+      </td><td>
+
+        <p>.xml</p>
+      </td><td>
+
+        <p>Use this directive to sign XML files using <a href="https://www.w3.org/TR/xmldsig-core1/">XMLDSIG</a> (available for Enterprise subscriptions)</p>
+      </td></tr><tr><td>
+
+        <p><a href="#directory-element"><code class="language-plaintext highlighter-rouge">&lt;directory&gt;</code></a></p>
+      </td><td>
+
+        <p>Yes</p>
+      </td><td>
+
+        <p><a href="#clickonce-sign"><code class="language-plaintext highlighter-rouge">&lt;clickonce-sign&gt;</code></a></p>
+      </td><td>
+
+      </td><td>
+
+        <p>Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files.</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;file&gt;</code></p>
+      </td><td>
+
+        <p>No</p>
+      </td><td>
+
+        <p><a href="#detached-raw-signatures"><code class="language-plaintext highlighter-rouge">&lt;create-raw-signature&gt;</code></a></p>
+      </td><td>
+
+      </td><td>
+
+        <p>Arbitrary files. This directive will create a <a href="#detached-raw-signatures">detached raw signature</a> file (available for Enterprise subscriptions)</p>
+      </td></tr></tbody>
 </table>
-
 <h3 id="file-element-examples">File element examples</h3>
 
 <h4 id="signing-an-msi-package">Signing an MSI package</h4>
@@ -410,15 +548,17 @@
 <p><code class="language-plaintext highlighter-rouge">&lt;directory&gt;</code> elements are also used for <a href="#clickonce-sign">ClickOnce signing</a>.</p>
 
 <h3 id="directory-example">&lt;directory&gt; example</h3>
-
 <table>
-  <thead>
-    <th>The following fragment</th>
-    <th>is equivalent to</th>
-  </thead>
-  <tbody> 
-    <tr> 
-      <td>
+    <thead>
+        <tr><th>
+
+The following fragment 
+</th><th>
+
+is equivalent to 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
 
         <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;zip-file&gt;</span> 
   <span class="nt">&lt;pe-file</span> <span class="na">path=</span><span class="s">"bin/program.exe"</span><span class="nt">&gt;</span>
@@ -427,7 +567,7 @@
 <span class="nt">&lt;/zip-file&gt;</span>
 </code></pre></div>        </div>
 
-      </td> <td>
+      </td><td>
 
         <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;zip-file&gt;</span>
   <span class="nt">&lt;directory</span> <span class="na">path=</span><span class="s">"bin"</span><span class="nt">&gt;</span>
@@ -438,8 +578,8 @@
 <span class="nt">&lt;/zip-file&gt;</span>
 </code></pre></div>        </div>
 
-      </td> </tr> </tbody> </table>
-
+      </td></tr></tbody>
+</table>
 <h2 id="signing-methods">Signing methods</h2>
 
 <!-- markdownlint-disable MD026 no trailing punctuation -->
@@ -665,6 +805,44 @@
   <li>Use <a href="#file-metadata-restrictions">metadata restrictions</a> for <code class="language-plaintext highlighter-rouge">&lt;xml-file&gt;</code> to restrict root element and namespace.</li>
 </ul>
 
+<h3 id="detached-raw-signatures">Detached raw signatures using &lt;create-raw-signature&gt;</h3>
+
+<p class="badge icon-signpath">Available for Enterprise subscriptions</p>
+
+<p>Detached raw signatures can be used for arbitrary binary or text files or <a href="/documentation/signing-containers/cosign">signing Container Images using cosign</a>. The <code class="language-plaintext highlighter-rouge">create-raw-signature</code> directive supports the following parameters:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">hash-algorithm</code></td>
+      <td>The hash algorithm used to calculate the signature. Supported options are <code class="language-plaintext highlighter-rouge">sha256</code>, <code class="language-plaintext highlighter-rouge">sha384</code> and <code class="language-plaintext highlighter-rouge">sha512</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">rsa-padding</code></td>
+      <td>Required for signing with certificates based on RSA keys. Forbidden for other key algorithms. Supported options are <code class="language-plaintext highlighter-rouge">pkcs1</code> and <code class="language-plaintext highlighter-rouge">pss</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">file-name</code></td>
+      <td>Name of the output file for the detached signature.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note: Due to the detached signature being placed in a separate file, <code class="language-plaintext highlighter-rouge">&lt;file&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;file-set&gt;</code> elements are only allowed inside a <a href="#zip-file-element"><code class="language-plaintext highlighter-rouge">&lt;zip-file&gt;</code></a>.</strong></p>
+
+<h4 id="verification-1">Verification</h4>
+
+<p>There are multiple tools and solutions that support handling of raw signature blocks. One popular option is <code class="language-plaintext highlighter-rouge">openssl dgst</code>. As the command does not support X.509 certificates, the public key has to be extracted before the signature can be verified using the following call:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl dgst <span class="nt">-verify</span> pubkey.pem <span class="nt">-signature</span> file.sig file
+</code></pre></div></div>
+
 <h2 id="using-wildcards">Using wildcards</h2>
 
 <p>Every path attribute can contain the following wildcard patterns:</p>
@@ -736,7 +914,7 @@
 
 <h2 id="file-and-directory-sets">File and directory sets</h2>
 
-<p>If multiple files or directories should be handled in the same way, you can enumerate them using one of the following file or directory set elements: <code class="language-plaintext highlighter-rouge">&lt;directory-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;pe-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;powershell-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;windows-script-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;msi-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;cab-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;catalog-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;appx-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;msix-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;opc-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;nupkg-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;jar-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;zip-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;office-oxml-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;office-binary-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;xml-file-set&gt;</code></p>
+<p>If multiple files or directories should be handled in the same way, you can enumerate them using one of the following file or directory set elements: <code class="language-plaintext highlighter-rouge">&lt;directory-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;pe-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;powershell-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;windows-script-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;msi-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;cab-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;catalog-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;appx-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;msix-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;opc-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;nupkg-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;jar-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;zip-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;office-oxml-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;office-binary-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;xml-file-set&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;file-set&gt;</code></p>
 
 <p>Each set element contains:</p>
 
@@ -755,15 +933,17 @@
 <p>Sets are especially useful if your artifacts contain repeating nested structures.</p>
 
 <h3 id="file-set-example">File set example</h3>
-
 <table>
-  <thead>
-    <th>The following fragment</th>
-    <th>is equivalent to</th>
-  </thead>
-  <tbody> 
-    <tr> 
-      <td>
+    <thead>
+        <tr><th>
+
+The following fragment 
+</th><th>
+
+is equivalent to 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
 
         <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;pe-file</span> <span class="na">path=</span><span class="s">"first.dll"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;authenticode-sign/&gt;</span>
@@ -774,7 +954,7 @@
 <span class="nt">&lt;/pe-file&gt;</span>
 </code></pre></div>        </div>
 
-      </td> <td>
+      </td><td>
 
         <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;pe-file-set&gt;</span>
   <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"first.dll"</span> <span class="nt">/&gt;</span>
@@ -785,8 +965,8 @@
 <span class="nt">&lt;/pe-file-set&gt;</span>
 </code></pre></div>        </div>
 
-      </td> </tr> </tbody> </table>
-
+      </td></tr></tbody>
+</table>
 <h2 id="metadata-restrictions">File metadata restrictions</h2>
 
 <p>Some element types support restricting certain metadata values.</p>
@@ -918,11 +1098,19 @@
 <h3 id="signing-similar-directories-within-an-msi-file">Signing similar directories within an MSI file</h3>
 
 <p>This artifact configuration describes an MSI installer package containing several components. The components have a similar structure and are therefore defined as a <code class="language-plaintext highlighter-rouge">&lt;directory-set&gt;</code>. Each component contains a <code class="language-plaintext highlighter-rouge">main.exe</code> and zero or more resource DLLs.</p>
+<table class="noheader noborder">
+    <thead>
+        <tr><th>
 
-<table class="noborder">
-<tr><td>
+ 
+</th><th>
 
-      <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
+ 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;msi-file&gt;</span>
     <span class="nt">&lt;directory-set&gt;</span>
       <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"component1"</span> <span class="nt">/&gt;</span>
@@ -932,7 +1120,7 @@
         <span class="nt">&lt;pe-file-set&gt;</span>
           <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"main.exe"</span> <span class="nt">/&gt;</span>
           <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"resources/*.resource.dll"</span> 
-                   <span class="na">min-matches=</span><span class="s">"0"</span> <span class="na">max-matches=</span><span class="s">"unbounded"</span> <span class="nt">/&gt;</span>
+                  <span class="na">min-matches=</span><span class="s">"0"</span> <span class="na">max-matches=</span><span class="s">"unbounded"</span> <span class="nt">/&gt;</span>
           <span class="nt">&lt;for-each&gt;</span>
             <span class="nt">&lt;authenticode-sign/&gt;</span>
           <span class="nt">&lt;/for-each&gt;</span>
@@ -942,20 +1130,28 @@
     <span class="nt">&lt;authenticode-sign/&gt;</span>
   <span class="nt">&lt;/msi-file&gt;</span>
 <span class="nt">&lt;/artifact-configuration&gt;</span>
-</code></pre></div>      </div>
+</code></pre></div>        </div>
 
-    </td><td>
+      </td><td>
 
-      <p><img src="/assets/img/resources/documentation_artifact-configuration_similar-definition.png" alt="graphical artifact configuration" /></p>
-
-    </td></tr></table>
+        <p><img src="/assets/img/resources/documentation_artifact-configuration_similar-definition.png" alt="graphical artifact configuration" /></p>
+      </td></tr></tbody>
+</table>
 
 <p>Example of a directory structure that would match this configuration:</p>
+<table class="noheader noborder">
+    <thead>
+        <tr><th>
 
-<table class="noborder">
-<tr><td>
+ 
+</th><th>
 
-      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>• myapp.msi 
+ 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>• myapp.msi 
   • component1/
     • main.exe
     • resources/de.resource.dll
@@ -966,14 +1162,15 @@
   • component3/
     • main.exe
     • resources/en.resource.dll
-</code></pre></div>      </div>
+</code></pre></div>        </div>
 
-      <p>(All <code class="language-plaintext highlighter-rouge">msi</code>, <code class="language-plaintext highlighter-rouge">exe</code> and <code class="language-plaintext highlighter-rouge">dll</code> files are signed with Authenticode.)</p>
-    </td><td>
+        <p>(All <code class="language-plaintext highlighter-rouge">msi</code>, <code class="language-plaintext highlighter-rouge">exe</code> and <code class="language-plaintext highlighter-rouge">dll</code> files are signed with Authenticode.)</p>
 
-      <p><img src="/assets/img/resources/documentation_artifact-configuration_similar-resolved.png" alt="graphical resolved artifacts" /></p>
+      </td><td>
 
-    </td></tr></table>
+        <p><img src="/assets/img/resources/documentation_artifact-configuration_similar-resolved.png" alt="graphical resolved artifacts" /></p>
+      </td></tr></tbody>
+</table>
 
 <p><strong>Footnotes:</strong></p>
 

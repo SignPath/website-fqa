@@ -5,18 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="canonical" href='https://signpath.github.io/website-staging//contact-done' />
+  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/signing-containers/cosign' />
   <!-- Begin Jekyll SEO tag v2.6.1 -->
   <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
-  <title>Thank you - SignPath.io | SignPath</title>
-  <meta property="og:title" content="Thank you - SignPath.io | SignPath" />
+  <title>Container Signing - Sigstore Cosign | SignPath</title>
+  <meta property="og:title" content="Container Signing - Sigstore Cosign | SignPath" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:description" content="SignPath.io - Automated, repeatable and secure code signing processes
-  in the cloud and on-premises" />
-  <meta property="og:url" content="https://signpath.github.io/website-staging//contact-done" />
+  <meta property="og:description" content="Documentation for signing Docker images with SignPath using cosign" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/signing-containers/cosign" />
   <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
-  <meta name="description" content="SignPath.io - Automated, repeatable and secure code signing processes
-  in the cloud and on-premises"/>
+  <meta name="description" content="Documentation for signing Docker images with SignPath using cosign"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
   <link rel="stylesheet" href="/assets/css/index.css?cache=2023-11-17">
@@ -56,28 +54,103 @@
       </nav>
     </div>
   </header>
-  <main>
-
-<section class="bg-blue font-white top-section">
+  <main><section class="bg-blue font-white top-section">
 	<div>
-		<h1>Your message has been sent</h1>
+		<h1><span class='no-break'>Container Signing &nbsp;❯&nbsp; </span> Sigstore Cosign</h1>
 	</div>
 </section>
-<section class="default-section bg-grey thank-you">
-	<div>
-		<article>
-			<h2>Thank you for contacting us - we will get back to you shortly</h2>
+<section class="resources-section">
+	<div><aside>
+				<ul><li class=''>
+							<a href='/documentation/signing-containers/#'>Signing Container Images</a></li><li class='active'>
+							<a href='/documentation/signing-containers/cosign#'>Sigstore Cosign</a><div class="no-mobile" ><ul>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#prerequisites">Prerequisites</a></li>
+  <li><a href="#signing">Signing</a></li>
+</ul>
+</div></li><li class=''>
+							<a href='/documentation/signing-containers/docker-content-trust#'>Docker Content Trust (DCT)</a></li></ul>
+			</aside><article>
+<h2 id="overview">Overview</h2>
 
-<div>
-	<a href='/product' class='btn btn-primary'>Discover more</a>
-	<a href='https://fqa.test.signpath.io/Web/Subscription/StartFreeTrial' class='btn btn-flat'>Free Trial</a>
+<p><em>Cosign</em> is part of the <a href="https://www.sigstore.dev/">Sigstore</a> project. It is primarily targeted at the open source community, allowing individual developers and Github Actions builds to authenticate using OpenIdConnect and receive short-lived signing keys from a Fulcio certificate authority (CA). All signatures are recorded in a public transparency log (called Rekor). Due to the keys not being persistent anywhere, <em>cosign</em> refers to this method as “keyless signing”.</p>
+
+<p>This approach is not practical for all organizations which</p>
+<ul>
+  <li>use an automated build system that does not support cosign (currently only Github Actions SaaS and Gitlab SaaS) or</li>
+  <li>don’t want their signatures to be logged in the public Rekor log and don’t want to operate their own Fulcio CA</li>
+</ul>
+
+<p>For these organizations, signing with <em>cosign</em> is only possible using public/private key pairs.</p>
+
+<div class="panel info">
+  <div class="panel-header">X.509 certificate chains in cosign</div>
+
+  <p><em>cosign</em> builds upon X.509 certificate chains, but requires specific additional attributes to be set in each certificate. The sigstore project is actively working on supporting custom certificates from traditional PKIs.</p>
+
 </div>
 
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>Required components on the client:</p>
+<ul>
+  <li>cosign in version 2.0.0 or higher</li>
+</ul>
+
+<p>In your SignPath organization, you need the following entities:</p>
+<ul>
+  <li>a project with an artifact configuration of type <em>Detached raw signatures</em></li>
+  <li>a certificate (only the public/private key pair will be used)</li>
+</ul>
+
+<p>The Docker container image needs to be pushed to an OCI-compliant container registry.</p>
+
+<h2 id="signing">Signing</h2>
+
+<p>Signing container images with cosign using SignPath consists of 3 steps:</p>
+
+<h3 id="1-prepare-the-metadata-for-signing">1. Prepare the metadata for signing</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Extract the repository digest identifier for the given FQN</span>
+<span class="nb">export </span><span class="nv">IMAGE_DIGEST</span><span class="o">=</span><span class="sb">`</span>docker inspect <span class="nt">--format</span><span class="o">=</span><span class="s1">'{{index .RepoDigests 0}}'</span> <span class="s2">"</span><span class="nv">$FQN</span><span class="s2">:</span><span class="nv">$TAG</span><span class="s2">"</span><span class="sb">`</span>
+<span class="c"># Generate a metadata file to be signed</span>
+cosign generate <span class="nv">$IMAGE_DIGEST</span> <span class="o">&gt;</span> payload.json
+<span class="c"># Package the metadata file for SignPath</span>
+zip payload.json.zip payload.json
+</code></pre></div></div>
+
+<div class="panel info">
+  <div class="panel-header">FQN and TAG</div>
+
+  <p><a name="fqn"></a> 
+<strong>Fully qualified name (FQN)</strong></p>
+
+  <p>For images hosted on Docker Hub, the FQN is <code class="language-plaintext highlighter-rouge">docker.io/&lt;namespace&gt;/&lt;repository&gt;</code>, e.g. <code class="language-plaintext highlighter-rouge">docker.io/jetbrains/teamcity-server</code>.</p>
+
+  <p>If you are using your own registry, specify the value you would use for Docker CLI commands, but without tag or digest values. E.g. when using <code class="language-plaintext highlighter-rouge">docker pull myreg.jfrog.io/myrepo/myimage:latest</code>, the FQN would be <code class="language-plaintext highlighter-rouge">myreg.jfrog.io/myrepo/myimage</code>.</p>
+
+  <p><code class="language-plaintext highlighter-rouge">$TAG</code> refers the specific image tag (e.g. <code class="language-plaintext highlighter-rouge">latest</code>)</p>
+</div>
+
+<h3 id="2-create-a-signature-for-the-metadata">2. Create a signature for the metadata</h3>
+
+<p>Upload the <code class="language-plaintext highlighter-rouge">payload.json.zip</code> file to SignPath for signing. Use the artifact configuration “Detached raw signatures” for a single container image or extend it according to your needs. See <a href="/documentation/artifact-configuration#detached-raw-signatures'">detached raw signatures</a> for more details. The following step expects the signed artifact to be stored as <code class="language-plaintext highlighter-rouge">payload.json.signed.zip</code>.</p>
+
+<h3 id="3-attach-the-signature-to-the-image">3. Attach the signature to the image</h3>
+
+<p>Finally, the following snippet will unzip the signed artifact, encode the signature in base64 for <em>cosign</em> and upload the signature to the repository:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Extract the detached signature</span>
+unzip <span class="nt">-n</span> payload.json.signed.zip
+<span class="c"># Encode the signature using base64 for cosign</span>
+<span class="nb">cat </span>payload.json.sig | <span class="nb">base64</span> <span class="o">&gt;</span> payload.json.base64.sig
+<span class="c"># Upload the signature to the registry</span>
+cosign attach signature <span class="nt">--payload</span> payload.json <span class="nt">--signature</span> payload.json.base64.sig <span class="nv">$IMAGE_DIGEST</span>
+</code></pre></div></div>
 
 		</article>
 	</div>
-</section>
-<!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
+</section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>
 		<h2>Sign up for news and special offers</h2>
 		<form class="ml-block-form" action="https://app.mailerlite.com/webforms/submit/d7c3i1" data-code="d7c3i1" method="post">

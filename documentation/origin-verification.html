@@ -38,7 +38,7 @@
               <ul><li> <a href='/code-signing/introduction'> Introduction </a> </li><li> <a href='/code-signing/theory'> Theory </a> </li><li> <a href='/code-signing/windows-platform'> Windows Platform </a> </li><li> <a href='/code-signing/test-certificates'> Managing Test Certificates </a> </li><li> <a href='/code-signing/private-keys'> Storage of Private Keys </a> </li><li> <a href='/code-signing/media-coverage'> Media Coverage </a> </li></ul>
             </li><li>
               <a href='/documentation'> Documentation </a>
-              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/docker-signing'> Signing Docker images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
+              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/signing-containers'> Signing Container Images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
             </li><li>
               <a href='/about-us'> About us </a>
               <ul><li> <a href='/company'> Company </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
@@ -67,7 +67,7 @@
 							<a href='/documentation/users#'>Managing Users</a></li><li class=''>
 							<a href='/documentation/projects#'>Setting up Projects</a></li><li class=''>
 							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=''>
-							<a href='/documentation/docker-signing#'>Signing Docker images</a></li><li class='separator' /><li class=''>
+							<a href='/documentation/signing-containers#'>Signing Container Images</a></li><li class='separator' /><li class=''>
 							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=''>
 							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=''>
 							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class='active'>
@@ -202,19 +202,23 @@
 <h3 id="setup">Setup</h3>
 <p>This figure shows the secrets that must be shared between AppVeyor.com and SignPath.io:
 <img src="/assets/img/resources/documentation_build-integration_appveyor.png" alt="AppVeyor Setup flow" /></p>
+<table>
+    <thead>
+        <tr><th style="width: 20%">
 
-<table style="table-layout: auto;">
-<thead>
-  <tr>
-    <th style="width: 20%;">Action</th>
-    <th style="width: 60%;">Steps</th>
-    <th style="width: 20%;">Remarks</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Add an AppVeyor integration to a SignPath project</td>
-    <td>
+Action 
+</th><th style="width: 60%">
+
+Steps 
+</th><th style="width: 20%">
+
+Remarks 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <p>Add an AppVeyor integration to a SignPath project</p>
+      </td><td>
 
         <ol>
           <li>On <a href="https://ci.appveyor.com">ci.appveyor.com</a>
@@ -237,11 +241,13 @@
           </li>
         </ol>
 
-      </td>
-    <td>SignPath.io must authenticate against Appveyor to retrieve the build artifacts</td>
-  </tr> <tr>
-    <td>Encrypt the SignPath API token in AppVeyor</td>
-    <td>
+      </td><td>
+
+        <p>SignPath.io must authenticate against Appveyor to retrieve the build artifacts</p>
+      </td></tr><tr><td>
+
+        <p>Encrypt the SignPath API token in AppVeyor</p>
+      </td><td>
 
         <ol>
           <li>On <a href="https://app.signpath.io">SignPath.io</a>
@@ -259,11 +265,13 @@
           </li>
         </ol>
 
-      </td>
-    <td>AppVeyor lets you encrypt secret values. You can then safely use the encrypted string in your appveyor.yaml file</td>
-  </tr> <tr>
-    <td>Add a deploy Webhook</td>
-    <td colspan="2">
+      </td><td>
+
+        <p>AppVeyor lets you encrypt secret values. You can then safely use the encrypted string in your appveyor.yaml file</p>
+      </td></tr><tr><td>
+
+        <p>Add a deploy Webhook</p>
+      </td><td colspan="2">
 
         <p>Append this to your appveyor.yaml file:</p>
 
@@ -271,7 +279,7 @@
 <span class="pi">-</span> <span class="na">provider</span><span class="pi">:</span> <span class="s">Webhook</span>
   <span class="na">url</span><span class="pi">:</span> <span class="s">https://app.signpath.io/API/v1/&lt;ORGANIZATION_ID&gt;/Integrations/AppVeyor?ProjectSlug=&lt;PROJECT_SLUG&gt;&amp;SigningPolicySlug=&lt;SIGNING_POLICY_SLUG&gt;&amp;ArtifactConfigurationSlug=&lt;ARTIFACT_CONFIGURATION_SLUG&gt;</span>
   <span class="na">authorization</span><span class="pi">:</span>
-     <span class="na">secure</span><span class="pi">:</span> <span class="s">&lt;ENCRYPTED_SIGNPATH_API_TOKEN&gt;</span>
+    <span class="na">secure</span><span class="pi">:</span> <span class="s">&lt;ENCRYPTED_SIGNPATH_API_TOKEN&gt;</span>
 </code></pre></div>        </div>
 
         <table>
@@ -305,8 +313,10 @@
           </tbody>
         </table>
 
-      </td> </tr> </tbody> </table>
+      </td><td>
 
+      </td></tr></tbody>
+</table>
 <h3 id="attached-build-documentation">Attached build documentation</h3>
 
 <p>SignPath adds the following information to packages:</p>

@@ -1,0 +1,619 @@
+<!-- last_modified_at:  --><!DOCTYPE html>
+<html lang="en" data-appurl='https://fqa.test.signpath.io'>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/signing-containers/docker-content-trust' />
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+  <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
+  <title>Container Signing - Docker Content Trust (DCT) | SignPath</title>
+  <meta property="og:title" content="Container Signing - Docker Content Trust (DCT) | SignPath" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:description" content="Documentation for signing Docker images with SignPath using Docker Content Trust (Notary v1)" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/signing-containers/docker-content-trust" />
+  <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
+  <meta name="description" content="Documentation for signing Docker images with SignPath using Docker Content Trust (Notary v1)"/>
+  <!-- End Jekyll SEO tag -->
+  <link rel='stylesheet' href='/assets/css/hint.min.css'>
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2023-11-17">
+  <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
+  <script src='/assets/index.js?cache=2023-11-17'></script>
+  <script src='/assets/js/main-bundle.js?cache=2023-11-17'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.png" sizes="192x192">
+  <link rel="apple-touch-icon-precomposed" href="/assets/favicon.png">
+  <meta name="msapplication-TileImage" content="/assets/favicon.png">
+</head>
+<body>
+  <header>
+    <div>
+      <a href='/'><img src='/assets/signpath-logo-white.svg' width="181" height="36" alt='SignPath'></a>
+      <nav>
+        <ul><li>
+              <a href='/product'> Product </a>
+              <ul><li> <a href='/product/features'> Features </a> </li><li> <a href='/product/editions'> Editions </a> </li><li class='separator' /><li> <a href='/product/devops'> For DevOps teams </a> </li><li> <a href='/product/infosec'> For InfoSec teams </a> </li><li> <a href='/product/open-source'> For Open Source projects </a> </li><li class='separator' /><li> <a href='/product/office-macros'> Office macro signing </a> </li><li> <a href='/product/pkic-best-practices'> PKI Consortium best practices </a> </li></ul>
+            </li><li>
+              <a href='/code-signing'> Code Signing </a>
+              <ul><li> <a href='/code-signing/introduction'> Introduction </a> </li><li> <a href='/code-signing/theory'> Theory </a> </li><li> <a href='/code-signing/windows-platform'> Windows Platform </a> </li><li> <a href='/code-signing/test-certificates'> Managing Test Certificates </a> </li><li> <a href='/code-signing/private-keys'> Storage of Private Keys </a> </li><li> <a href='/code-signing/media-coverage'> Media Coverage </a> </li></ul>
+            </li><li>
+              <a href='/documentation'> Documentation </a>
+              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/signing-containers'> Signing Container Images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
+            </li><li>
+              <a href='/about-us'> About us </a>
+              <ul><li> <a href='/company'> Company </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
+            </li><li class='login'><a class='btn btn-flat' href='https://fqa.test.signpath.io/Web/Home/Login'>Login</a>
+          <li class='login'><a href='https://fqa.test.signpath.io/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
+          </li>
+        </ul>
+        <a id='main-menu-toggle' href='#' onclick='document.querySelector("header > div > nav > ul").classList.toggle("open")'>
+          <div></div>
+          <div></div>
+          <div></div>
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main><section class="bg-blue font-white top-section">
+	<div>
+		<h1><span class='no-break'>Container Signing &nbsp;❯&nbsp; </span> Docker Content Trust (DCT)</h1>
+	</div>
+</section>
+<section class="resources-section">
+	<div><aside>
+				<ul><li class=''>
+							<a href='/documentation/signing-containers/#'>Signing Container Images</a></li><li class=''>
+							<a href='/documentation/signing-containers/cosign#'>Sigstore Cosign</a></li><li class='active'>
+							<a href='/documentation/signing-containers/docker-content-trust#'>Docker Content Trust (DCT)</a><div class="no-mobile" ><ul>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#security-considerations">Security considerations</a></li>
+  <li><a href="#setup-phase">Setup phase</a></li>
+  <li><a href="#signing-phase">Signing phase</a></li>
+</ul>
+</div></li></ul>
+			</aside><article>
+<h2 id="overview">Overview</h2>
+
+<p>Docker Content Trust (DCT) is based on Notary v1, which uses a system of keys:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key type</th>
+      <th>Handled by</th>
+      <th>Used to</th>
+      <th>Usage frequency</th>
+      <th>Recommendation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Root</strong></td>
+      <td>Repository admin</td>
+      <td>issue all other keys (except delegation keys)</td>
+      <td>Initialization + each key rotation</td>
+      <td>Use a Yubikey USB token</td>
+    </tr>
+    <tr>
+      <td><strong>Target</strong></td>
+      <td>Repository admin</td>
+      <td>issue delegation keys</td>
+      <td>Initialization + each key rotation</td>
+      <td>Delete after initialization/key rotation</td>
+    </tr>
+    <tr>
+      <td><strong>Delegation</strong></td>
+      <td><strong>SignPath</strong></td>
+      <td>individual images and labels</td>
+      <td>Each image build</td>
+      <td>Use one delegation key for all developers</td>
+    </tr>
+    <tr>
+      <td><strong>Snapshot</strong></td>
+      <td>Notary signer</td>
+      <td>sign matching collections to prove consistency</td>
+      <td>Each image build</td>
+      <td>(Registry/Notary take care of this)</td>
+    </tr>
+    <tr>
+      <td><strong>Timestamp</strong></td>
+      <td>Notary signer</td>
+      <td>sign current collections to prove “freshness”</td>
+      <td>Constantly</td>
+      <td>(Registry/Notary take care of this)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="setup-overview">Setup overview</h3>
+
+<p>The process to set up SignPath for DCT is as follows:</p>
+
+<ul>
+  <li>Create a single delegation key in SignPath using the HSM store (e.g. one per Registry)</li>
+  <li>For each repository
+    <ol>
+      <li>execute <code class="language-plaintext highlighter-rouge">Initialize-DockerSigning</code>, which
+        <ul>
+          <li>creates a root key for your repository (preferably using a Yubikey token)</li>
+          <li>creates a target key</li>
+          <li>adds the delegation key to the target key</li>
+          <li>registers the root key with Notary (results in new snapshot and timestamp keys created on Notary signer)</li>
+        </ul>
+      </li>
+      <li>delete the target key’s private key (recommended; no need to add more delegates later, but you can always perform a <a href="https://github.com/notaryproject/notary/blob/master/docs/best_practices.md#key-rotations">key rotation</a>)</li>
+      <li>lock the token with the root key in a safe (you will not need it again unless you need to do a key rotation)</li>
+      <li>set up repository, project and signing policy in SignPath</li>
+    </ol>
+  </li>
+</ul>
+
+<p>Step-by-step instructions are available in the <a href="#setup-phase">setup phase</a> section.</p>
+
+<p>As a result of this procedure, all remaining keys will be on secure systems:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key type</th>
+      <th>Physical protection</th>
+      <th>Access control</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Root</strong></td>
+      <td>Yubikey</td>
+      <td>Locked in safe + PIN</td>
+    </tr>
+    <tr>
+      <td><strong>Target</strong></td>
+      <td>(deleted)</td>
+      <td>n/a</td>
+    </tr>
+    <tr>
+      <td><strong>Delegation</strong></td>
+      <td>SignPath HSM</td>
+      <td>SignPath policies</td>
+    </tr>
+    <tr>
+      <td><strong>Snapshot</strong></td>
+      <td>(depends on Notary setup)</td>
+      <td>Notary/Registry credentials</td>
+    </tr>
+    <tr>
+      <td><strong>Timestamp</strong></td>
+      <td>(depends on Notary setup)</td>
+      <td>Notary/Registry credentials</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="signing-overview">Signing overview</h3>
+
+<p>Execute <code class="language-plaintext highlighter-rouge">Invoke-DockerSigning</code> in your CI system, or call each step individually. See <a href="#signing-phase">signing phase</a> for step-by-step instructions.</p>
+
+<h2 id="security-considerations">Security considerations</h2>
+
+<p>The following table lists</p>
+
+<ul>
+  <li>the potential security impact in case a key is compromised (i.e. an adversary managed to retrieve or use the private key)</li>
+  <li>the recovery procedure in case a key is compromised or simply lost</li>
+</ul>
+
+<p>(Some of the impact scenarios also require access to Notary/Registry credentials. See <a href="https://github.com/notaryproject/notary/blob/master/docs/service_architecture.md#threat-model">Notary threat model</a> for a full breakdown.)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key type</th>
+      <th>Security impact</th>
+      <th>Recovery procedure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Root</strong></td>
+      <td>illegitimate images signed, illegitimate keys issued</td>
+      <td>Manual recovery for repository and all clients</td>
+    </tr>
+    <tr>
+      <td><strong>Target</strong></td>
+      <td>illegitimate images signed, illegitimate delegate keys issued</td>
+      <td>Key rotation</td>
+    </tr>
+    <tr>
+      <td><strong>Delegate</strong></td>
+      <td>illegitimate images signed</td>
+      <td>Key rotation</td>
+    </tr>
+    <tr>
+      <td><strong>Snapshot</strong></td>
+      <td>mix-and-match attack</td>
+      <td>Key rotation</td>
+    </tr>
+    <tr>
+      <td><strong>Timestamp</strong></td>
+      <td>legitimate images wrongly declared current (freeze attack)</td>
+      <td>Key rotation</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="panel info">
+  <div class="panel-header">The misleading security assumption of Notary and Docker Content Trust (DCT)</div>
+
+  <p><strong>TL;DR: a single compromised delegation key will compromise all image repositories that trust this delegation.</strong></p>
+
+  <p><strong>Update</strong>: The Notary documentation is no longer hosted on docker.com. The implicit promise that Notary’s threat model also works for Docker Content Trust is no longer made. This section will soon be updated to reflect the new structure of Docker’s documentation. The Notary documentation is currently not published but available at <a href="https://github.com/theupdateframework/notary/tree/master/docs">GitHub</a>.</p>
+
+  <p>Docker Content Trust (DCT) builds on the Notary signing system. While Notary was basically built for DCT, this does not necessarily mean that the two systems are well aligned.</p>
+
+  <p>Notary has a well-defined <a href="https://github.com/notaryproject/notary/blob/master/docs/service_architecture.md#threat-model">threat model</a> which states the following about compromised delegation keys:</p>
+
+  <blockquote>
+    <p>An attacker can add malicious content, remove legitimate content from a collection, and mix up the targets in a collection, but only within the particular delegation roles that the key can sign for. <strong>Depending on the restrictions on that role, they may be restricted</strong> in what type of content they can modify. <em>[Our emphasis]</em></p>
+  </blockquote>
+
+  <p><strong>This is the most important part of the threat model,</strong> since it involves the least protected keys. However, DCT uses Notary in a way that provides no such restriction. While DCT does provide the usual per-delegation signature manifests, its primary source of trust is <strong>a shared signature manifest</strong> called <code class="language-plaintext highlighter-rouge">releases.json</code> that includes all signatures from all delegates.</p>
+
+  <p>When verifying signatures, Docker only looks at this shared manifest, and thereby invalidates the separation of delegates provided by Notary. This essentially means that everybody who holds any delegation key can add signatures for images and labels, and change existing signature entries from other delegates.</p>
+
+  <p>Note that developers usually own a single delegation key that is trusted by many repositories. Issuing seperate delegation keys for each repository is not a good solution, it just puts an additional burden on developers to keep their keys secure, thus increasing the risks. Also, DCT does not support hardware tokens for delegation keys.</p>
+
+  <p>(Disclaimer: all compromise scenarios for delegation keys assume access to the developer’s Notary credentials, which are usually the same as their Docker registry credentials.)</p>
+</div>
+
+<h2 id="setup-phase">Setup phase</h2>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<p>Required components:</p>
+<ul>
+  <li>PowerShell 6 or higher</li>
+  <li><a href="https://powershellgallery.com/packages/SignPathDocker/">SignPathDocker</a> PowerShell module</li>
+  <li><a href="https://github.com/theupdateframework/notary/releases">Notary client</a> version 0.6.1 or greater (installed with Docker Desktop until v3.3.3)</li>
+</ul>
+
+<p>Optional components:</p>
+<ul>
+  <li>Attached <a href="https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#use-a-ubikey">Yubikey</a> USB token (strongly recommended)</li>
+</ul>
+
+<h3 id="steps">Steps</h3>
+
+<h4 id="1-create-a-new-self-signed-x509-certificate-in-signpath">1. Create a new self-signed X.509 certificate in SignPath</h4>
+
+<p>This certificate will be added as a <strong>delegation key</strong> to your Docker repository in a later step.</p>
+
+<p>You only need one delegation key, it can be shared between repositories.</p>
+
+<h4 id="2-get-or-create-the-root-and-target-keys">2. Get or create the root and target keys</h4>
+
+<p>In order for SignPath to ensure that only valid tags can be signed, you need to upload the repository’s root key (only the public key) to SignPath. Use the <a href="https://powershellgallery.com/packages/SignPathDocker/">SignPathDocker</a> PowerShell module.</p>
+
+<div class="panel info">
+  <div class="panel-header">PowerShell parameters and FQN</div>
+
+  <p><code class="language-plaintext highlighter-rouge">Get-RootCertificate</code>, <code class="language-plaintext highlighter-rouge">Initialize-DockerSigning</code>, and <code class="language-plaintext highlighter-rouge">Add-DelegationCertificate</code> accept the following parameters:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Repository</code></td>
+        <td>The FQN provided when creating the Docker repository in SignPath</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">NotaryUsername</code> and <code class="language-plaintext highlighter-rouge">NotaryPassword</code></td>
+        <td>The credentials of your Notary server. In most cases, these are the same as the credentials for your Docker registry.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">NotaryUrl</code></td>
+        <td>Optional parameter to specify the URL of your internal notary server. Defaults to <code class="language-plaintext highlighter-rouge">https://notary.docker.io</code> which is the Notary server used by Docker Hub.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><a name="fqn"></a> 
+<strong>Fully qualified name (FQN)</strong></p>
+
+  <p>For images hosted on Docker Hub, the FQN is <code class="language-plaintext highlighter-rouge">docker.io/&lt;namespace&gt;/&lt;repository&gt;</code>, e.g. <code class="language-plaintext highlighter-rouge">docker.io/jetbrains/teamcity-server</code>.</p>
+
+  <p>If you are using your own registry, specify the value you would use for Docker CLI commands, but without tag or digest values. E.g. when using <code class="language-plaintext highlighter-rouge">docker pull myreg.jfrog.io/myrepo/myimage:latest</code>, the FQN would be <code class="language-plaintext highlighter-rouge">myreg.jfrog.io/myrepo/myimage</code>.</p>
+
+</div>
+
+<p>Choose one of the following scenarios:</p>
+
+<h5 id="scenario-1-you-are-currently-not-signing-your-docker-images">Scenario 1: You are currently not signing your Docker images</h5>
+
+<p>Call the following command:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Initialize-DockerSigning</span><span class="w"> </span><span class="nt">-Repository</span><span class="w"> </span><span class="nv">$FQN</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="nt">-NotaryUsername</span><span class="w"> </span><span class="nv">$NOTARY_USERNAME</span><span class="w"> </span><span class="nt">-NotaryPassword</span><span class="w"> </span><span class="nv">$NOTARY_PASSWORD</span><span class="w"> </span><span class="p">[</span><span class="nt">-NotaryUrl</span><span class="w"> </span><span class="nv">$NOTARY_URL</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Executing this command will</p>
+
+<ul>
+  <li>create all necessary keys, prompting for passphrases during execution
+    <ul>
+      <li>root key (file or, preferably, Yubikey token)</li>
+      <li>target key (file)</li>
+      <li>snapshot key (temporary)</li>
+    </ul>
+  </li>
+  <li>rotate the snapshot key (new key issued and maintained by Notary signer)</li>
+  <li>publish the <em>trust data</em> to the Notary server</li>
+  <li>extract the public part of the root key as a certificate file</li>
+</ul>
+
+<p>The command prints the path of the certificate you need to upload in step 4.</p>
+
+<h5 id="scenario-2-you-are-already-signing-your-docker-images">Scenario 2: You are already signing your Docker images</h5>
+
+<p>If you already have an existing set of keys that you want to keep, you only need to export the public part of the root key for uploading to SignPath.</p>
+
+<p>You can export the public key by calling the following command on the machine where the <em>root</em> and <em>targets</em> keys are stored:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-RootCertificate</span><span class="w"> </span><span class="nt">-Repository</span><span class="w"> </span><span class="nv">$FQN</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="nt">-NotaryUsername</span><span class="w"> </span><span class="nv">$NOTARY_USERNAME</span><span class="w"> </span><span class="nt">-NotaryPassword</span><span class="w"> </span><span class="nv">$NOTARY_PASSWORD</span><span class="w"> </span><span class="p">[</span><span class="nt">-NotaryUrl</span><span class="w"> </span><span class="nv">$NOTARY_URL</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The command prints the path of the certificate you need to upload in step 4.</p>
+
+<p>We recommend that you remove existing delegation keys as soon as you have verified that your SignPath setup works. Use the <code class="language-plaintext highlighter-rouge">notary delegation remove</code> <a href="https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#work-with-delegation-roles">command</a> or perform a <a href="https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#rotate-keys">key rotation</a>.</p>
+
+<h4 id="3-add-the-delegation-certificate-to-your-repositorys-delegation-keys">3. Add the delegation certificate to your repository’s delegation keys</h4>
+
+<p>Download the delegation key certificate file from step 1. Add it using the following command:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Add-DelegationCertificate</span><span class="w"> </span><span class="nt">-Repository</span><span class="w"> </span><span class="nv">$FQN</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="p">[</span><span class="nt">-NotaryUrl</span><span class="w"> </span><span class="nv">$NOTARY_URL</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-NotaryUsername</span><span class="w"> </span><span class="nv">$NOTARY_USERNAME</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-NotaryPassword</span><span class="w"> </span><span class="nv">$NOTARY_PASSWORD</span><span class="p">]</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="nt">-DelegationCertificatePath</span><span class="w"> </span><span class="nx">certificate.cer</span><span class="w"> 
+</span></code></pre></div></div>
+
+<p>This adds a delegation (default name <code class="language-plaintext highlighter-rouge">signpath</code>) with the key from the specified certificate and publishes the changes to the Notary server. You will be prompted for the password of your <em>targets key</em>.</p>
+
+<h4 id="4-set-up-a-docker-repository-and-project-in-signpath">4. Set up a Docker repository and project in SignPath</h4>
+
+<ul>
+  <li>Add a new Docker repository in SignPath
+    <ul>
+      <li>specify its fully qualified name (<a href="#fqn">FQN</a>)</li>
+      <li>upload the root certificate file from step 2</li>
+    </ul>
+  </li>
+  <li>Create a project with an artifact configuration of type <em>Docker signing data</em> for this repository</li>
+  <li>Add a signing policy to the project and choose the certificate you created in step 1</li>
+</ul>
+
+<h4 id="5-when-everything-works-delete-the-target-key">5. When everything works, delete the target key</h4>
+
+<p>Delete the file <code class="language-plaintext highlighter-rouge">~/.docker/trust/private/$id*.key</code> where <code class="language-plaintext highlighter-rouge">$id</code> is the 7 digit key of the target key you created in step 2. See the <a href="https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#files-and-state-on-disk">Notary documenation</a>.</p>
+
+<p>We recommend to perform a test signing before deleting the target key.</p>
+
+<div class="panel info">
+  <div class="panel-header">Delete the target key: reason and consequences</div>
+
+  <p>DCT and Notary provide no method to protect the target key beyond a simple passphrase. Yubikey tokens can only be used for the root key. However, since SignPath uses only a single delegation key for all developers and CI systems, there is usually no need to for the target key after the setup phase. We therefore recommend that you delete the key file right after sucessfull initialization.</p>
+
+  <p>If you run into unexpected problems later that require a target key, you can always create a new one by performing a <a href="https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#rotate-keys">key rotation</a>. Don’t forget to add existing delegation keys you want to keep after a key rotation.</p>
+
+  <p>The default <a href="https://github.com/theupdateframework/notary/blob/master/docs/best_practices.md">expiration time</a> for both target and delegation keys is 3 years. After this time, you need to perform a key rotation in any case.</p>
+</div>
+
+<h2 id="signing-phase">Signing phase</h2>
+
+<h3 id="prerequisites-1">Prerequisites</h3>
+
+<p>Required components:</p>
+
+<ul>
+  <li>PowerShell 6 or higher</li>
+  <li><a href="https://powershellgallery.com/packages/SignPathDocker/">SignPathDocker</a> PowerShell module</li>
+  <li>Docker CLI</li>
+</ul>
+
+<p>The unsigned image must be</p>
+<ul>
+  <li>available on the local computer (preferably right after building it)</li>
+  <li><em>and</em> pushed to the registry (unsigned)</li>
+</ul>
+
+<h3 id="execution">Execution</h3>
+
+<h4 id="single-step-signing">Single-step signing</h4>
+
+<p>For convenience, the <code class="language-plaintext highlighter-rouge">SignPathDocker</code> module provides a single command to sign a Docker image:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Invoke-DockerSigning</span><span class="w"> </span><span class="nt">-Repository</span><span class="w"> </span><span class="nv">$FQN</span><span class="w"> </span><span class="nt">-Tags</span><span class="w"> </span><span class="nv">$TAGS</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="nt">-ApiToken</span><span class="w"> </span><span class="nv">$API_TOKEN</span><span class="w"> </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="nt">-ProjectSlug</span><span class="w"> </span><span class="nv">$PROJECT_SLUG</span><span class="w"> </span><span class="nt">-SigningPolicySlug</span><span class="w"> </span><span class="nv">$SIGNING_POLICY_SLUG</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="p">[</span><span class="nt">-ArtifactConfigurationSlug</span><span class="w"> </span><span class="nv">$ARTIFACT_CONFIGURATION_SLUG</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-Description</span><span class="w"> </span><span class="nv">$DESCRIPTION</span><span class="p">]</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="p">[</span><span class="nt">-NotaryUrl</span><span class="w"> </span><span class="nv">$NOTARY_URL</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-NotaryUsername</span><span class="w"> </span><span class="nv">$NOTARY_USERNAME</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-NotaryPassword</span><span class="w"> </span><span class="nv">$NOTARY_PASSWORD</span><span class="p">]</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="p">[</span><span class="nt">-RegistryUrl</span><span class="w"> </span><span class="nv">$REGISTRY_URL</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-RegistryUsername</span><span class="w"> </span><span class="nv">$REGISTRY_USERNAME</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-RegistryPassword</span><span class="w"> </span><span class="nv">$REGISTRY_PASSWORD</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="perform-each-step-separately">Perform each step separately</h4>
+
+<p>Alternatively, you perform each step separately. Reasons to do this include</p>
+
+<ul>
+  <li>create multiple signatures with a single signing request</li>
+  <li>perform asynchronous signing, e.g. to accommodate for a manual approval step</li>
+</ul>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create a Docker signing data file containing all metadata required for signing</span><span class="w">
+</span><span class="n">New-DockerSigningData</span><span class="w"> </span><span class="nt">-Repository</span><span class="w"> </span><span class="nv">$FQN</span><span class="w"> </span><span class="nt">-Tags</span><span class="w"> </span><span class="nv">$TAGS</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="p">[</span><span class="nt">-RegistryUrl</span><span class="w"> </span><span class="nv">$REGISTRY_URL</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-RegistryUsername</span><span class="w"> </span><span class="nv">$REGISTRY_USERNAME</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-RegistryPassword</span><span class="w"> </span><span class="nv">$REGISTRY_PASSWORD</span><span class="p">]</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="p">[</span><span class="nt">-NotaryUrl</span><span class="w"> </span><span class="nv">$NOTARY_URL</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-NotaryUsername</span><span class="w"> </span><span class="nv">$NOTARY_USERNAME</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-NotaryPassword</span><span class="w"> </span><span class="nv">$NOTARY_PASSWORD</span><span class="p">]</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="nt">-OutputArtifactPath</span><span class="w"> </span><span class="nv">$ZIP_FILE</span><span class="w">
+
+</span><span class="c"># Submit a new signing request to SignPath.</span><span class="w">
+</span><span class="nv">$signingRequestId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Submit-SigningRequest</span><span class="w"> </span><span class="nt">-InputArtifactPath</span><span class="w"> </span><span class="nv">$ZIP_FILE</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="nt">-ApiToken</span><span class="w"> </span><span class="nv">$API_TOKEN</span><span class="w"> </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="nt">-ProjectSlug</span><span class="w"> </span><span class="nv">$PROJECT_SLUG</span><span class="w"> </span><span class="nt">-SigningPolicySlug</span><span class="w"> </span><span class="nv">$SIGNING_POLICY_SLUG</span><span class="w"> 
+
+</span><span class="c"># Get the signed artifact</span><span class="w">
+</span><span class="n">Get-SignedArtifact</span><span class="w"> </span><span class="nv">$signingRequestId</span><span class="w"> </span><span class="nt">-ApiToken</span><span class="w"> </span><span class="nv">$API_TOKEN</span><span class="w"> </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> 
+
+</span><span class="c"># Upload the signed metadata to the Notary server</span><span class="w">
+</span><span class="n">Push-SignedDockerSigningData</span><span class="w"> </span><span class="nt">-Repository</span><span class="w"> </span><span class="nv">$FQN</span><span class="w"> </span><span class="nt">-InputArtifactPath</span><span class="w"> </span><span class="nv">$ZIP_FILE</span><span class="w"> </span><span class="se">`
+</span><span class="w">  </span><span class="p">[</span><span class="nt">-NotaryUrl</span><span class="w"> </span><span class="nv">$NOTARY_URL</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-NotaryUsername</span><span class="w"> </span><span class="nv">$NOTARY_USERNAME</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-NotaryPassword</span><span class="w"> </span><span class="nv">$NOTARY_PASSWORD</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="panel info">
+  <div class="panel-header">PowerShell parameters</div>
+
+  <p><code class="language-plaintext highlighter-rouge">Invoke-DockerSigning</code>, <code class="language-plaintext highlighter-rouge">New-DockerSigningData</code>, <code class="language-plaintext highlighter-rouge">Submit-SigningRequest</code>, and <code class="language-plaintext highlighter-rouge">Push-SignedDockerSigningData</code> accept all or some of the following parameters:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Repository</code></td>
+        <td>The FQN provided when creating the Docker repository in SignPath</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Tags</code></td>
+        <td>A comma-separated list of Docker tags that you want to sign (e.g. <code class="language-plaintext highlighter-rouge">v1,1.2.17</code>)</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">ApiToken</code></td>
+        <td>The API token of the CI user (see <a href="./build-system-integration#authentication">build system integration</a>)</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">OrganizationId</code></td>
+        <td>ID of your SignPath organization</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">ProjectSlug</code>, <code class="language-plaintext highlighter-rouge">SigningPolicySlug</code> and <code class="language-plaintext highlighter-rouge">ArtifactConfigurationSlug</code></td>
+        <td>The respective project, signing policy and artifact configuration for your signing request</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Description</code></td>
+        <td>Optional description for your signing request (e.g. version number)</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">NotaryUsername</code> and <code class="language-plaintext highlighter-rouge">NotaryPassword</code></td>
+        <td>The credentials of your Notary server. In most cases, these are the same as the credentials for your Docker registry. If specified, overrides values in the <code class="language-plaintext highlighter-rouge">NOTARY_AUTH</code> environment variable. <code class="language-plaintext highlighter-rouge">NotaryPassword</code> is a PowerShell SecureString.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">RegistryUsername</code> and <code class="language-plaintext highlighter-rouge">RegistryPassword</code></td>
+        <td>The credentials of your Docker registry. If specified, overrides values in the <code class="language-plaintext highlighter-rouge">REGISTRY_AUTH</code> environment variable. <code class="language-plaintext highlighter-rouge">RegistryPassword</code> is a PowerShell SecureString.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">RegistryUrl</code> and <code class="language-plaintext highlighter-rouge">NotaryUrl</code></td>
+        <td>Optional parameter to specify the URLs of your internal registry and notary server. Defaults to <code class="language-plaintext highlighter-rouge">docker.io</code> (Docker Hub) and <code class="language-plaintext highlighter-rouge">notary.docker.io</code> (Notary of Docker Hub)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Passing SecureString parameters</strong></p>
+
+  <p>Use the following syntax to create <code class="language-plaintext highlighter-rouge">SecureString</code> objects for the <code class="language-plaintext highlighter-rouge">-NotaryPassword</code> and <code class="language-plaintext highlighter-rouge">-RegistryPassword</code> parameters:</p>
+
+  <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$SECURE_PASSWORD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ConvertTo-SecureString</span><span class="w"> </span><span class="nv">$PLAINTEXT_PASSWORD</span><span class="w"> </span><span class="nt">-AsPlainText</span><span class="w"> 
+</span></code></pre></div>  </div>
+
+  <p><strong>Using environment variables for authentication</strong></p>
+
+  <p>If you would rather provide credentials via environment variables, username and password have to be concatenated with a colon <code class="language-plaintext highlighter-rouge">:</code>, encoded in base64 and stored in  the <code class="language-plaintext highlighter-rouge">REGISTRY_AUTH</code> or <code class="language-plaintext highlighter-rouge">NOTARY_AUTH</code> environment variable respectively. See the <a href="https://github.com/notaryproject/notary/blob/master/docs/reference/client-config.md#environment-variables-optional">Notary documentation</a>.</p>
+
+  <p><strong>WaitForCompletion option</strong></p>
+
+  <p>Instead of calling <code class="language-plaintext highlighter-rouge">Get-SignedArtifact</code> separately, you may call <code class="language-plaintext highlighter-rouge">Submit-SigningRequest</code> with the  <code class="language-plaintext highlighter-rouge">-WaitForCompletion</code> parameter. The <code class="language-plaintext highlighter-rouge">Submit-SigningRequest</code> command is described in  <a href="./build-system-integration#powershell">build system integration</a>.</p>
+</div>
+
+		</article>
+	</div>
+</section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
+	<div>
+		<h2>Sign up for news and special offers</h2>
+		<form class="ml-block-form" action="https://app.mailerlite.com/webforms/submit/d7c3i1" data-code="d7c3i1" method="post">
+			<input type="text" class="form-control" data-inputmask="" name="fields[name]" value="" placeholder="Name">
+			<input type="email" class="form-control" data-inputmask="" name="fields[email]" value="" placeholder="Email">
+			<input type="hidden" name="ml-submit" value="1">
+			<button type="submit" class="btn btn-secondary newsletter">Subscribe</button>
+		</form>
+	</div>
+</section>
+</main>
+  <footer>
+  	<div>
+	  	<div>
+	  		<img src='/assets/signpath-logo-white.svg' width="334" height="67" alt='SignPath'/>
+	  		<svg viewBox="0 0 244 18">
+			  <text x="0" y="15">CODE SIGNING SIMPLE &amp; SECURE</text>
+			</svg>
+	  		<div>
+				<a target="_blank" href="https://www.linkedin.com/company/33243108" rel="noopener noreferrer">
+<svg class="icon footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor"  d="M 8.6425781 4 C 7.1835781 4 6 5.181625 6 6.640625 C 6 8.099625 7.182625 9.3085938 8.640625 9.3085938 C 10.098625 9.3085938 11.283203 8.099625 11.283203 6.640625 C 11.283203 5.182625 10.101578 4 8.6425781 4 z M 21.535156 11 C 19.316156 11 18.0465 12.160453 17.4375 13.314453 L 17.373047 13.314453 L 17.373047 11.310547 L 13 11.310547 L 13 26 L 17.556641 26 L 17.556641 18.728516 C 17.556641 16.812516 17.701266 14.960938 20.072266 14.960938 C 22.409266 14.960937 22.443359 17.145609 22.443359 18.849609 L 22.443359 26 L 26.994141 26 L 27 26 L 27 17.931641 C 27 13.983641 26.151156 11 21.535156 11 z M 6.3632812 11.310547 L 6.3632812 26 L 10.923828 26 L 10.923828 11.310547 L 6.3632812 11.310547 z"/></svg></a>
+				&nbsp;&nbsp;
+				<a target="_blank" href="mailto:info@signpath.io" rel="noopener noreferrer"><svg class="icon footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 3 8 L 3 26 L 29 26 L 29 8 Z M 7.3125 10 L 24.6875 10 L 16 15.78125 Z M 5 10.875 L 15.4375 17.84375 L 16 18.1875 L 16.5625 17.84375 L 27 10.875 L 27 24 L 5 24 Z"/></svg>
+</div>
+	  	</div>
+	  	<div>
+	  		<a href='/privacy-policy'>Privacy Policy</a>
+	  		<a href='/terms-of-service'>Terms of Service</a>
+	  		<a href='/status'><span style="color: lightgreen;"><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</span>Status
+			</a>
+	  	</div>
+	</div>
+  </footer>
+        <div id='cookie-info'>
+            <h3>Cookie settings</h3>
+            <div class="container">
+                <span>We use cookies to enhance your browsing experience.</span>
+                <p class="mobile show-more active"><a>Show more information</a></p>
+                <p class="mobile show-less"><a>Show less information</a></p>
+                <span class="information">By clicking the “Accept” button below, you agree that non-essential cookies on our website may be used by us and by third parties, some of them located in the USA. Learn more about our cookies in our <a
+                            href='/privacy-policy'>Privacy
+					Policy</a>
+                </span>
+				<div class="actions">
+					<button class='btn btn-primary' id='acknowledge-cookies-btn'>Accept</button>
+					<button class="btn btn-grey" id='refuse-cookies-btn'>Refuse</button>
+				</div>
+            </div>
+			<script>
+				const queryString = window.location.search;
+				const urlParams = new URLSearchParams(queryString);
+				const adgroupid = urlParams.get('adgroupid') ? urlParams.get('adgroupid') : document.cookie.match('(^|;)\\s*' + 'adgroupid' + '\\s*=\\s*([^;]+)')?.pop() || ''
+
+				if (adgroupid) {
+					const els_trial = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Subscription/StartFreeTrial' + "']")
+					const els_login = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Home/Login' + "']");
+
+					for (let child of els_trial) {
+						if (child.tagName === 'A') {
+							child.href = child.href + '?websiteCorrelationId=' + adgroupid
+						}
+					}
+
+					for (let child of els_login) {
+						if (child.tagName === 'A') {
+							child.href = child.href + '?websiteCorrelationId=' + adgroupid
+						}
+					}
+				}
+			</script>
+		</div>
+	</footer>
+</body>
+</html>
