@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://about.fqa.test.signpath.io/team</loc>
+    <lastmod>2024-02-29T18:49:59+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://about.fqa.test.signpath.io/newsletter</loc>
     <lastmod>2022-01-04T15:18:57+00:00</lastmod>
   </url>
@@ -35,10 +39,6 @@
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/faq</loc>
     <lastmod>2024-02-13T17:12:24+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/crypto-providers</loc>
-    <lastmod>2024-02-28T17:04:22+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems</loc>
@@ -114,7 +114,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/status</loc>
-    <lastmod>2024-02-03T15:41:08+00:00</lastmod>
+    <lastmod>2024-02-24T21:58:26+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/</loc>
@@ -146,38 +146,34 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog</loc>
-    <lastmod>2023-03-03T21:37:00+00:00</lastmod>
+    <lastmod>2024-02-22T17:20:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog/2022/02/21/cybernews-interview</loc>
-    <lastmod>2022-03-21T18:02:49+00:00</lastmod>
+    <lastmod>2024-02-22T17:20:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog/2020/12/21/evaluating-sunburst</loc>
-    <lastmod>2022-01-10T17:03:34+00:00</lastmod>
+    <lastmod>2024-02-22T17:20:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog/2021/03/23/dp-api-encryption-ineffective-in-windows-containers</loc>
-    <lastmod>2022-01-10T17:03:34+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/blog/2024/02/19/new-year-new-faces</loc>
-    <lastmod>2024-02-19T13:46:36+00:00</lastmod>
+    <lastmod>2024-02-22T17:20:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog/2021/03/23/experiences-with-security-report-handling</loc>
-    <lastmod>2022-01-10T17:03:34+00:00</lastmod>
+    <lastmod>2024-02-22T17:20:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog/2019/12/13/an-analysis-of-secure-variables-in-appveyor</loc>
-    <lastmod>2022-01-10T17:03:34+00:00</lastmod>
+    <lastmod>2024-02-22T17:20:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog/2020/08/26/unfulfilled-expectations</loc>
-    <lastmod>2022-01-10T17:03:34+00:00</lastmod>
+    <lastmod>2024-02-22T17:20:11+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog/2020/08/26/on-the-importance-of-trust-validation</loc>
-    <lastmod>2022-01-10T17:03:34+00:00</lastmod>
+    <lastmod>2024-02-22T17:20:11+00:00</lastmod>
   </url>
 </urlset>
