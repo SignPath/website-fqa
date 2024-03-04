@@ -1,0 +1,234 @@
+<!-- last_modified_at:  --><!DOCTYPE html>
+<html lang="en" data-appurl='https://fqa.test.signpath.io'>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/crypto-providers/gpg' />
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+  <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
+  <title>Crypto Providers - GPG | SignPath</title>
+  <meta property="og:title" content="Crypto Providers - GPG | SignPath" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:description" content="Creating GPG signatures with SignPath" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/crypto-providers/gpg" />
+  <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
+  <meta name="description" content="Creating GPG signatures with SignPath"/>
+  <!-- End Jekyll SEO tag -->
+  <link rel='stylesheet' href='/assets/css/hint.min.css'>
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2023-11-17">
+  <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
+  <script src='/assets/index.js?cache=2023-11-17'></script>
+  <script src='/assets/js/main-bundle.js?cache=2023-11-17'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.png" sizes="192x192">
+  <link rel="apple-touch-icon-precomposed" href="/assets/favicon.png">
+  <meta name="msapplication-TileImage" content="/assets/favicon.png">
+</head>
+<body>
+  <header>
+    <div>
+      <a href='/'><img src='/assets/signpath-logo-white.svg' width="181" height="36" alt='SignPath'></a>
+      <nav>
+        <ul><li>
+              <a href='/product'> Product </a>
+              <ul><li> <a href='/product/features'> Features </a> </li><li> <a href='/product/editions'> Editions </a> </li><li class='separator' /><li> <a href='/product/devops'> For DevOps teams </a> </li><li> <a href='/product/infosec'> For InfoSec teams </a> </li><li> <a href='/product/open-source'> For Open Source projects </a> </li><li class='separator' /><li> <a href='/product/office-macros'> Office macro signing </a> </li><li> <a href='/product/pkic-best-practices'> PKI Consortium best practices </a> </li></ul>
+            </li><li>
+              <a href='/code-signing'> Code Signing </a>
+              <ul><li> <a href='/code-signing/introduction'> Introduction </a> </li><li> <a href='/code-signing/theory'> Theory </a> </li><li> <a href='/code-signing/windows-platform'> Windows Platform </a> </li><li> <a href='/code-signing/test-certificates'> Managing Test Certificates </a> </li><li> <a href='/code-signing/private-keys'> Storage of Private Keys </a> </li><li> <a href='/code-signing/media-coverage'> Media Coverage </a> </li></ul>
+            </li><li>
+              <a href='/documentation'> Documentation </a>
+              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/signing-containers'> Signing Container Images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li> <a href='/documentation/crypto-providers'> Crypto Providers </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
+            </li><li>
+              <a href='/about-us'> About us </a>
+              <ul><li> <a href='/company'> Company </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
+            </li><li class='login'><a class='btn btn-flat' href='https://fqa.test.signpath.io/Web/Home/Login'>Login</a>
+          <li class='login'><a href='https://fqa.test.signpath.io/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
+          </li>
+        </ul>
+        <a id='main-menu-toggle' href='#' onclick='document.querySelector("header > div > nav > ul").classList.toggle("open")'>
+          <div></div>
+          <div></div>
+          <div></div>
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main><section class="bg-blue font-white top-section">
+	<div>
+		<h1><span class='no-break'>Crypto Providers &nbsp;❯&nbsp; </span> GPG</h1>
+	</div>
+</section>
+<section class="resources-section">
+	<div><aside>
+				<ul><li class=''>
+							<a href='/documentation/crypto-providers/#'>Crypto Providers</a></li><li class=''>
+							<a href='/documentation/crypto-providers/windows#'>Windows CSP and KSP</a></li><li class=''>
+							<a href='/documentation/crypto-providers/cryptoki#'>Cryptoki/PKCS#11</a></li><li class='active'>
+							<a href='/documentation/crypto-providers/gpg#'>GPG</a><div class="no-mobile" ><ul>
+  <li><a href="#general-instructions">General Instructions</a></li>
+  <li><a href="#gpg-file-signing">GPG File Signing</a></li>
+  <li><a href="#rpm-signing-linux">RPM Signing (Linux)</a></li>
+  <li><a href="#deb-signing-via-dpkg-sig-linux">DEB Signing via dpkg-sig (Linux)</a></li>
+  <li><a href="#maven-artifact-signing-linux">Maven Artifact Signing (Linux)</a></li>
+</ul>
+</div></li><li class=''>
+							<a href='/documentation/crypto-providers/rest-api#'>REST API</a></li></ul>
+			</aside><article><ul class="article-toc">
+  <li><a href="#general-instructions">General Instructions</a>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#setup">Setup</a></li>
+    </ul>
+  </li>
+  <li><a href="#gpg-file-signing">GPG File Signing</a></li>
+  <li><a href="#rpm-signing-linux">RPM Signing (Linux)</a></li>
+  <li><a href="#deb-signing-via-dpkg-sig-linux">DEB Signing via dpkg-sig (Linux)</a></li>
+  <li><a href="#maven-artifact-signing-linux">Maven Artifact Signing (Linux)</a></li>
+</ul>
+<h2 id="general-instructions">General Instructions</h2>
+
+<p>This section provides information to use SignPath with any tool that uses GPG for signing.</p>
+
+<h3 id="overview">Overview</h3>
+
+<p>GnuPG does not directly support PKCS #11/Cryptoki but offers a <a href="https://wiki.gnupg.org/SmartCard">“Smart Card” interface</a>, normally used to access smart card or USB token based HSMs.</p>
+
+<p>Here the <a href="https://github.com/alonbl/gnupg-pkcs11-scd/">gnupg-pkcs11-scd</a> project comes into play, which uses the GnuPG smart card interface to adapt to a PKCS #11 Crypto Provider. This tool runs as a GnuPG smart card daemon which we use to connect GnuPG to the SignPath PKCS #11/Cryptoki Crypto Provider as shown in the following figure.</p>
+
+<p><img src="/assets/img/resources/documentation_crypto_providers-GpgSigningFlow.svg" alt="Figure: GPG signing flow" /></p>
+
+<h3 id="setup">Setup</h3>
+
+<h4 id="configure-gnupg">Configuring GnuPG</h4>
+
+<p>Both GnuPG (<code class="language-plaintext highlighter-rouge">gpg-agent.conf</code>) and gnupg-pkcs11-scd (<code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd.conf</code>) need to be set up to use the <a href="/documentation/crypto-providers/cryptoki">SignPath Cryptoki Crypto Provider</a>. See also the general <a href="/documentation/crypto-providers#crypto-provider-configuration">Crypto Provider configuration</a> for more details.</p>
+
+<p>For details how these files need to be configured and about the necessary dependencies, see <code class="language-plaintext highlighter-rouge">samples/Scenarios/Gpg</code> in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</p>
+
+<h4 id="gpg-key-generation">GPG Key Generation</h4>
+
+<p>GPG has an own key format and therefore SignPath’s X.509 certificates cannot be directly used. Instead you have to generate a GPG key which <em>references</em> a SignPath certificate. This means creating a new GPG key which includes the RSA public key of a SignPath certificate and “links” the RSA private key (which resides in SignPath’s HSMs). This is possible via a <a href="https://github.com/gpg/gnupg/blob/STABLE-BRANCH-2-2/agent/keyformat.txt#shadowed-private-key-format">“shadowed private key”</a> stored within <code class="language-plaintext highlighter-rouge">$GNUPGHOME/private-keys-v1.d/&lt;KeyGrip&gt;.key</code> which basically references a SignPath project and signing policy slug within.</p>
+
+<p>Although the RSA key is used from the SignPath certificate, GPG keys hold their own metadata like name, email and expiration date which need to be specified during the GPG key generation. As defaults we use <code class="language-plaintext highlighter-rouge">"SignPath &lt;ProjectSlug&gt; / &lt;SigningPolicySlug&gt;</code> for the full name,  <code class="language-plaintext highlighter-rouge">"&lt;SigningPolicySlug&gt;@&lt;ProjectSlug&gt;</code> as email and 1 year expiration.</p>
+
+<p>As the SignPath X.509 certificate’s issuer and validity time range is not used, you can use a separate self-signed certificate in SignPath with an arbitrary validity time range. Alternatively, you could also use your existing (public-trusted) code signing certificates.</p>
+
+<p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain scripts to generate a GPG key via <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario GenerateGpgKey</code>. See <code class="language-plaintext highlighter-rouge">GenerateGpgKey.ps1</code> for details how the different commands are parametrized. In the same script the GPG key metadata defaults can be overridden.</p>
+
+<p>The outcome of <code class="language-plaintext highlighter-rouge">GenerateGpgKey</code> is a GPG key, which is exported to <code class="language-plaintext highlighter-rouge">samples/Scenarios/Gpg/Keys</code> including the public key and a corresponding revocation certificate in the <code class="language-plaintext highlighter-rouge">openpgp-revocs.d</code> subdirectory.
+The public key (<code class="language-plaintext highlighter-rouge">&lt;Email&gt;.public.pgp</code> file) needs to be transported to the system which should later perform the GPG signing operations.
+Note that the shadowed private key file does not need to be transported as it can be restored by running the <code class="language-plaintext highlighter-rouge">SCD LEARN</code> command via <code class="language-plaintext highlighter-rouge">gpg-connect-agent</code> (see <code class="language-plaintext highlighter-rouge">FetchGpgKeyInfos</code> function in the Linux container samples).</p>
+
+<p>During the GPG key generation two SignPath hash signing operations happen: One to self-sign the key and one to sign the revocation certificate.</p>
+
+<h4 id="preparation">Preparation</h4>
+
+<ol>
+  <li>After configuring GnuPG, copy the generated public GPG key (<code class="language-plaintext highlighter-rouge">&lt;Email&gt;.public.pgp</code>) to the target system.</li>
+  <li>To restore the shadowed keys, <code class="language-plaintext highlighter-rouge">SCD LEARN</code> needs to be executed. For details, see the <code class="language-plaintext highlighter-rouge">UseSignPathCryptokiGpgConfiguration</code> function in the GPG scenario of the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</li>
+  <li>The GPG key needs to be imported. See the <code class="language-plaintext highlighter-rouge">ImportGpgKeys</code> function in the GPG scenario of the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</li>
+</ol>
+
+<h2 id="gpg-file-signing">GPG File Signing</h2>
+
+<p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain a full example to sign and verify a file with a detached signature (including the mentioned preparation steps) in <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario GpgSignFile</code>. The used GPG key is referenced via its email address.</p>
+
+<p>During <code class="language-plaintext highlighter-rouge">gpg --sign</code>, SignPath is called to perform a hash based signing operation with the <em>Project</em> / <em>Signing Policy</em> referenced in the shadowed private key. Note that the <em>OrganizationId</em> and the <em>ApiToken</em> still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
+
+<h2 id="rpm-signing-linux">RPM Signing (Linux)</h2>
+
+<p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain a full example to sign and verify a RPM file in <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario SignRpm</code>. The used GPG key is referenced via its email address. See <code class="language-plaintext highlighter-rouge">SignRpm.ps1</code> for details.</p>
+
+<p>During <code class="language-plaintext highlighter-rouge">rpm --addsign</code>, SignPath is called to perform a hash based signing operation with the <em>Project</em> / <em>Signing Policy</em> referenced in the shadowed private key. Note that the <em>OrganizationId</em> and the <em>ApiToken</em> still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
+
+<h2 id="deb-signing-via-dpkg-sig-linux">DEB Signing via dpkg-sig (Linux)</h2>
+
+<p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain a full example to sign and verify a DEB file using <em><a href="https://manpages.debian.org/bullseye/dpkg-sig/dpkg-sig.1.en.html">dpkg-sig</a></em> in <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario SignDeb</code>. The used GPG key is referenced via its email address. Note the passed default “sign role” value of <code class="language-plaintext highlighter-rouge">"builder"</code>.</p>
+
+<p>During <code class="language-plaintext highlighter-rouge">dpkg-sig --sign</code>, SignPath is called to perform a hash based signing operation with the project / signing policy referenced in the shadowed private key. Note that OrganizationId and the ApiToken still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
+
+<h2 id="maven-artifact-signing-linux">Maven Artifact Signing (Linux)</h2>
+
+<p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain a full example to build, sign and verify Maven artifacts using the <em><a href="https://maven.apache.org/plugins/maven-gpg-plugin/">Apache maven-gpg-plugin</a></em> in <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario SignMaven</code>. The used GPG key is referenced via its email address.</p>
+
+<p>During <code class="language-plaintext highlighter-rouge">mvn install</code>, SignPath is called to perform a hash based signing operations with the <em>Project</em> / <em>Signing Policy</em> referenced in the shadowed private key. Note that the <em>OrganizationId</em> and the <em>ApiToken</em> still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
+
+		</article>
+	</div>
+</section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
+	<div>
+		<h2>Sign up for news and special offers</h2>
+		<form class="ml-block-form" action="https://app.mailerlite.com/webforms/submit/d7c3i1" data-code="d7c3i1" method="post">
+			<input type="text" class="form-control" data-inputmask="" name="fields[name]" value="" placeholder="Name">
+			<input type="email" class="form-control" data-inputmask="" name="fields[email]" value="" placeholder="Email">
+			<input type="hidden" name="ml-submit" value="1">
+			<button type="submit" class="btn btn-secondary newsletter">Subscribe</button>
+		</form>
+	</div>
+</section>
+</main>
+  <footer>
+  	<div>
+	  	<div>
+	  		<img src='/assets/signpath-logo-white.svg' width="334" height="67" alt='SignPath'/>
+	  		<svg viewBox="0 0 244 18">
+			  <text x="0" y="15">CODE SIGNING SIMPLE &amp; SECURE</text>
+			</svg>
+	  		<div>
+				<a target="_blank" href="https://www.linkedin.com/company/33243108" rel="noopener noreferrer">
+<svg class="icon footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor"  d="M 8.6425781 4 C 7.1835781 4 6 5.181625 6 6.640625 C 6 8.099625 7.182625 9.3085938 8.640625 9.3085938 C 10.098625 9.3085938 11.283203 8.099625 11.283203 6.640625 C 11.283203 5.182625 10.101578 4 8.6425781 4 z M 21.535156 11 C 19.316156 11 18.0465 12.160453 17.4375 13.314453 L 17.373047 13.314453 L 17.373047 11.310547 L 13 11.310547 L 13 26 L 17.556641 26 L 17.556641 18.728516 C 17.556641 16.812516 17.701266 14.960938 20.072266 14.960938 C 22.409266 14.960937 22.443359 17.145609 22.443359 18.849609 L 22.443359 26 L 26.994141 26 L 27 26 L 27 17.931641 C 27 13.983641 26.151156 11 21.535156 11 z M 6.3632812 11.310547 L 6.3632812 26 L 10.923828 26 L 10.923828 11.310547 L 6.3632812 11.310547 z"/></svg></a>
+				&nbsp;&nbsp;
+				<a target="_blank" href="mailto:info@signpath.io" rel="noopener noreferrer"><svg class="icon footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 3 8 L 3 26 L 29 26 L 29 8 Z M 7.3125 10 L 24.6875 10 L 16 15.78125 Z M 5 10.875 L 15.4375 17.84375 L 16 18.1875 L 16.5625 17.84375 L 27 10.875 L 27 24 L 5 24 Z"/></svg>
+</div>
+	  	</div>
+	  	<div>
+	  		<a href='/privacy-policy'>Privacy Policy</a>
+	  		<a href='/terms-of-service'>Terms of Service</a>
+	  		<a href='/status'><span style="color: lightgreen;"><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</span>Status
+			</a>
+	  	</div>
+	</div>
+  </footer>
+        <div id='cookie-info'>
+            <h3>Cookie settings</h3>
+            <div class="container">
+                <span>We use cookies to enhance your browsing experience.</span>
+                <p class="mobile show-more active"><a>Show more information</a></p>
+                <p class="mobile show-less"><a>Show less information</a></p>
+                <span class="information">By clicking the “Accept” button below, you agree that non-essential cookies on our website may be used by us and by third parties, some of them located in the USA. Learn more about our cookies in our <a
+                            href='/privacy-policy'>Privacy
+					Policy</a>
+                </span>
+				<div class="actions">
+					<button class='btn btn-primary' id='acknowledge-cookies-btn'>Accept</button>
+					<button class="btn btn-grey" id='refuse-cookies-btn'>Refuse</button>
+				</div>
+            </div>
+			<script>
+				const queryString = window.location.search;
+				const urlParams = new URLSearchParams(queryString);
+				const adgroupid = urlParams.get('adgroupid') ? urlParams.get('adgroupid') : document.cookie.match('(^|;)\\s*' + 'adgroupid' + '\\s*=\\s*([^;]+)')?.pop() || ''
+
+				if (adgroupid) {
+					const els_trial = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Subscription/StartFreeTrial' + "']")
+					const els_login = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Home/Login' + "']");
+
+					for (let child of els_trial) {
+						if (child.tagName === 'A') {
+							child.href = child.href + '?websiteCorrelationId=' + adgroupid
+						}
+					}
+
+					for (let child of els_login) {
+						if (child.tagName === 'A') {
+							child.href = child.href + '?websiteCorrelationId=' + adgroupid
+						}
+					}
+				}
+			</script>
+		</div>
+	</footer>
+</body>
+</html>

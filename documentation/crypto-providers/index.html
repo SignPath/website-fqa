@@ -1,0 +1,606 @@
+<!-- last_modified_at:  --><!DOCTYPE html>
+<html lang="en" data-appurl='https://fqa.test.signpath.io'>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/crypto-providers/' />
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+  <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
+  <title>Documentation - Crypto Providers | SignPath</title>
+  <meta property="og:title" content="Documentation - Crypto Providers | SignPath" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:description" content="SignPath Crypto Providers (CSP, KSP, Cryptoki)" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/crypto-providers/" />
+  <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
+  <meta name="description" content="SignPath Crypto Providers (CSP, KSP, Cryptoki)"/>
+  <!-- End Jekyll SEO tag -->
+  <link rel='stylesheet' href='/assets/css/hint.min.css'>
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2023-11-17">
+  <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
+  <script src='/assets/index.js?cache=2023-11-17'></script>
+  <script src='/assets/js/main-bundle.js?cache=2023-11-17'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.png" sizes="192x192">
+  <link rel="apple-touch-icon-precomposed" href="/assets/favicon.png">
+  <meta name="msapplication-TileImage" content="/assets/favicon.png">
+</head>
+<body>
+  <header>
+    <div>
+      <a href='/'><img src='/assets/signpath-logo-white.svg' width="181" height="36" alt='SignPath'></a>
+      <nav>
+        <ul><li>
+              <a href='/product'> Product </a>
+              <ul><li> <a href='/product/features'> Features </a> </li><li> <a href='/product/editions'> Editions </a> </li><li class='separator' /><li> <a href='/product/devops'> For DevOps teams </a> </li><li> <a href='/product/infosec'> For InfoSec teams </a> </li><li> <a href='/product/open-source'> For Open Source projects </a> </li><li class='separator' /><li> <a href='/product/office-macros'> Office macro signing </a> </li><li> <a href='/product/pkic-best-practices'> PKI Consortium best practices </a> </li></ul>
+            </li><li>
+              <a href='/code-signing'> Code Signing </a>
+              <ul><li> <a href='/code-signing/introduction'> Introduction </a> </li><li> <a href='/code-signing/theory'> Theory </a> </li><li> <a href='/code-signing/windows-platform'> Windows Platform </a> </li><li> <a href='/code-signing/test-certificates'> Managing Test Certificates </a> </li><li> <a href='/code-signing/private-keys'> Storage of Private Keys </a> </li><li> <a href='/code-signing/media-coverage'> Media Coverage </a> </li></ul>
+            </li><li>
+              <a href='/documentation'> Documentation </a>
+              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/signing-containers'> Signing Container Images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li> <a href='/documentation/crypto-providers'> Crypto Providers </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
+            </li><li>
+              <a href='/about-us'> About us </a>
+              <ul><li> <a href='/company'> Company </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
+            </li><li class='login'><a class='btn btn-flat' href='https://fqa.test.signpath.io/Web/Home/Login'>Login</a>
+          <li class='login'><a href='https://fqa.test.signpath.io/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
+          </li>
+        </ul>
+        <a id='main-menu-toggle' href='#' onclick='document.querySelector("header > div > nav > ul").classList.toggle("open")'>
+          <div></div>
+          <div></div>
+          <div></div>
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main><section class="bg-blue font-white top-section">
+	<div>
+		<h1><span class='no-break'>Documentation &nbsp;❯&nbsp; </span> Crypto Providers</h1>
+	</div>
+</section>
+<section class="resources-section">
+	<div><aside>
+				<ul><li class='active'>
+							<a href='/documentation/crypto-providers/#'>Crypto Providers</a><div class="no-mobile" ><ul>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#installation-and-usage">Installation and usage</a></li>
+  <li><a href="#crypto-provider-configuration">Crypto Provider configuration</a></li>
+</ul>
+</div></li><li class=''>
+							<a href='/documentation/crypto-providers/windows#'>Windows CSP and KSP</a></li><li class=''>
+							<a href='/documentation/crypto-providers/cryptoki#'>Cryptoki/PKCS#11</a></li><li class=''>
+							<a href='/documentation/crypto-providers/gpg#'>GPG</a></li><li class=''>
+							<a href='/documentation/crypto-providers/rest-api#'>REST API</a></li></ul>
+			</aside><article><ul class="article-toc">
+  <li><a href="#overview">Overview</a>
+    <ul>
+      <li><a href="#crypto-providers">Crypto Providers</a></li>
+      <li><a href="#flow">Signing flow</a></li>
+      <li><a href="#linux-docker-samples">Linux Docker container samples</a></li>
+      <li><a href="#timestamps">Timestamps</a></li>
+    </ul>
+  </li>
+  <li><a href="#installation-and-usage">Installation and usage</a></li>
+  <li><a href="#crypto-provider-configuration">Crypto Provider configuration</a>
+    <ul>
+      <li><a href="#crypto-provider-config-values">Setting configuration values</a></li>
+      <li><a href="#api-token-options">Options for providing the API token</a></li>
+      <li><a href="#http-proxy-config">HTTP Proxy configuration</a></li>
+      <li><a href="#signpath-project-configuration">SignPath Project configuration</a></li>
+    </ul>
+  </li>
+</ul>
+<p class="badge icon-signpath">Available for Enterprise subscriptions</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>The SignPath Crypto Providers allow signing tools such as <a href="/documentation/crypto-providers/windows#signtool">SignTool.exe</a>, <a href="/documentation/crypto-providers/cryptoki#openssl">OpenSSL</a> or <a href="/documentation/crypto-providers/cryptoki#jarsigner">jarsigner</a> to sign files locally using keys or certificates stored and managed by SignPath.</p>
+
+<p>Crypto Providers are generally used to provide a device-independent API for using secure key storage devices such as USB key tokens or Hardware Security Modules (HSMs). You may think of them as device drivers for crypto hardware. Most software tools used for code signing support one Crypto Provider technology, such as Microsoft KSP/CSP or PKCS #11 Cryptoki.</p>
+
+<p>The SignPath Crypto Providers do not access the crypto hardware directly. Instead, they implement these interfaces to provide access to SignPath <em>Projects</em> and <em>Signing Policies</em>. During the entire operation, the private key will remain on the HSM.</p>
+
+<div class="panel info">
+  <div class="panel-header">Version info</div>
+
+  <p>This documentation contains information about the latest version of the CryptoProviders. See the <a href="/documentation/changelog?component=crypto_providers">changelog</a> for updates.</p>
+</div>
+
+<h3 id="crypto-providers">Crypto Providers</h3>
+
+<p>The following Crypto Providers are available for SignPath:</p>
+<table>
+    <thead>
+        <tr><th>
+
+Crypto Provider 
+</th><th>
+
+Technology 
+</th><th>
+
+Supported platforms 
+</th><th>
+
+Description 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <p><strong>Cryptoki</strong> (Cryptographic Token Interface)</p>
+
+      </td><td>
+
+        <p><a href="https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html">PKCS#11</a> version 2.40</p>
+
+      </td><td>
+
+        <p>Windows, Linux</p>
+      </td><td>
+
+      </td></tr><tr><td>
+
+        <p><strong>KSP</strong> (Key Storage Provider)</p>
+
+      </td><td>
+
+        <p><a href="https://docs.microsoft.com/en-us/windows/win32/seccng/key-storage-and-retrieval">CNG</a> (Cryptographic API: Next Generation)</p>
+
+      </td><td>
+
+        <p>Windows</p>
+      </td><td>
+
+      </td></tr><tr><td>
+
+        <p><strong>CSP</strong> (Cryptographic Service Provider)</p>
+
+      </td><td>
+
+        <p><a href="https://docs.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers">CAPI</a> (CryptoAPI)</p>
+
+      </td><td>
+
+        <p>Windows</p>
+      </td><td>
+
+        <p>This API is deprecated, most tools now use KSP/CNG</p>
+      </td></tr></tbody>
+</table>
+<h3 id="flow">Signing flow</h3>
+
+<p>This diagram describes how the various components work together to create a signature.</p>
+
+<p><img src="/assets/img/resources/documentation_crypto_providers-CryptoProvidersSigningFlow.svg" alt="Figure: Signing flow overview" /></p>
+
+<p>With small platform-specific variations, the general flow of a signing operations is as follows:</p>
+
+<ol>
+  <li>The <strong>user</strong> invokes the <strong>signing tool</strong>.
+    <ul>
+      <li>The command line usually specifies a key reference. In SignPath this is the <em>Project</em> and <em>Signing Policy</em>.</li>
+      <li>The credentials are passed using the command line or environment variables.</li>
+    </ul>
+  </li>
+  <li>The <strong>signing tool</strong> reads the file and calculates a <strong>hash digest</strong>.
+    <ul>
+      <li>Depending on the tool, this might be the hash digest of the entire file, or just a of a specific part of the file.</li>
+      <li>For Authenticode, this step is performed by a Windows API using a format-specific SIP (Subject Interface Package).</li>
+    </ul>
+  </li>
+  <li>The <strong>signing tool</strong> calls a <strong>System API</strong> (Windows) or an <strong>engine</strong> (PKCS#11) to get a signature block.</li>
+  <li>This API or engine calls the <strong>SignPath Crypto Provider</strong>.</li>
+  <li>The SignPath Crypto Provider calls the <strong>SignPath REST API</strong> over HTTPS/REST.</li>
+  <li><strong>SignPath</strong>
+    <ul>
+      <li><strong>verifies</strong> the user’s <strong>credentials and permissions</strong> for the specified <em>Project</em> and <em>Signing Policy</em>,</li>
+      <li><strong>selects the key pair or certificate</strong> for this operation,</li>
+      <li><strong>uses the HSM to sign</strong> the digest using the specified algorithm,</li>
+      <li><em>and</em> writes the entire operation to the audit log.</li>
+    </ul>
+  </li>
+  <li>The resulting <strong>signature block is returned</strong> up the entire call chain.</li>
+  <li>The <strong>signing tool writes the signature</strong>
+    <ul>
+      <li>by inserting it into the signed file,</li>
+      <li>by wrapping the file into a signed envelope,</li>
+      <li><em>or</em> by creating a <em>detached signature</em> file that must be shipped along the original file.
+Again, for Authenticode this is actually performed by the SIP.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>As always, the private key does not leave the boundaries of the HSM.</p>
+
+<h3 id="linux-docker-samples">Linux Docker container samples</h3>
+
+<p>For the supported Linux distributions we provide Docker container based example scripts to demonstrate the different signing tool scenarios, their configuration and the required dependencies.</p>
+
+<p>See the <code class="language-plaintext highlighter-rouge">samples</code> directory in the Linux Crypto Provider package. It contains a <code class="language-plaintext highlighter-rouge">README.md</code> file with further information.</p>
+
+<p>All of the provided scripts can also be executed outside of a Docker container. However, we recommend to perform the signing operations in a container to keep the dependencies in one manageable place, especially for GPG based signing tools.</p>
+
+<h3 id="timestamps">Timestamps</h3>
+
+<p>When using SignTool.exe (or any other signing tool) directly, you are responsible for correct time stamping. Here are a few hints:</p>
+
+<ul>
+  <li>You may use the timestamp authority (TSA) provided by the certificate authority that issued your code signing certificate or any other CA that provides a free public TSA.</li>
+  <li>TSAs may impose quota limits, and free TSAs usually don’t provide any SLA level.</li>
+  <li>TSAs may ignore the parameters you provide, e.g. the hashing algorithm. This may result in invalid timestamps. Depending on the platform, that might only lead to problems after the certificate becomes invalid.</li>
+  <li>TSAs may use certificates with a short lifetime. Some platforms, such as Authenticode, accept expired TSA certificates. For other platforms, your signatures might become invalid after the TSA certificate has expired. A good TSA certificate should have a remaining lifetime of about 10 years or more.</li>
+</ul>
+
+<p>Always check your signatures and timestamps to ensure that they will be valid after your certificate expires or gets revoked. Otherwise, your signatures may become invalid. Another problem is that revocation for compromised certificates becomes a much harder decision if you cannot rely on timestamps.</p>
+
+<p>If you use the file-based signing method of SignPath, timestamps will be managed automatically.</p>
+
+<h2 id="installation-and-usage">Installation and usage</h2>
+
+<p>Depending on the signing tool you’re using, the corresponding Crypto Provider needs to be installed (on all build nodes). See the respective pages:</p>
+
+<ul>
+  <li><a href="/documentation/crypto-providers/windows">SignPath KSP and CSP</a> for <em>SignTool.exe</em> and most native Windows tools</li>
+  <li><a href="/documentation/crypto-providers/cryptoki">SignPath Cryptoki</a> for <em>OpenSSL</em>, <em>jarsigner</em>, and many other Open Source tools</li>
+  <li><a href="/documentation/crypto-providers/gpg">GPG-based tools</a>, such as <em>gpg</em>, <em>rpm</em>, or <em>dkpg-sig</em> use the <a href="/documentation/crypto-providers/cryptoki">SignPath Cryptoki Crypto Provider</a> but require additional configuration steps</li>
+  <li>Instead of using a CryptoProvider, it is also possible to <a href="/documentation/crypto-providers/rest-api">sign hashes directly using the REST API</a></li>
+</ul>
+
+<h2 id="crypto-provider-configuration">Crypto Provider configuration</h2>
+
+<h3 id="crypto-provider-config-values">Setting configuration values</h3>
+
+<p>This section describes how to specify configuration settings for all Crypto Providers.</p>
+
+<p>You can either use a JSON configuration file and specify the JSON file path via the <code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code> environment variable, or use individual configuration environment variables per setting.
+Note that environment variables take precedence over the corresponding JSON settings.</p>
+<table>
+    <thead>
+        <tr><th>
+
+Setting (in JSON file) 
+</th><th>
+
+Environment variable 
+</th><th>
+
+Default Value 
+</th><th>
+
+Description 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">OrganizationId</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_ORGANIZATION_</code>​<code class="language-plaintext highlighter-rouge">ID</code></p>
+      </td><td>
+
+        <p>(mandatory)</p>
+      </td><td>
+
+        <p>The id of the organization to use</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">ApiToken</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_API_TOKEN</code></p>
+      </td><td>
+
+        <p>(mandatory)</p>
+      </td><td>
+
+        <p>The API token for a CI or Interactive User (can be created in the “Users and Groups” UI). See below for options.</p>
+
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">TlsClientCertificate</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_TLS_</code>​<code class="language-plaintext highlighter-rouge">CLIENT_CERTIFICATE</code></p>
+      </td><td>
+
+        <p>(-)</p>
+      </td><td>
+
+        <p>Reference to a TLS/SSL client authentication certificate in the format <code class="language-plaintext highlighter-rouge">thumbprint:</code>​<code class="language-plaintext highlighter-rouge">$HexThumbprint</code> (optional, Windows only)</p>
+
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">ApiUrl</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_API_URL</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">https://</code>​<code class="language-plaintext highlighter-rouge">app.signpath.io/</code>​<code class="language-plaintext highlighter-rouge">Api</code></p>
+      </td><td>
+
+        <p>The SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations.</p>
+
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">HttpProxy</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">http_proxy</code></p>
+      </td><td>
+
+        <p>(-)</p>
+      </td><td>
+
+        <p>The address of an <a href="#http-proxy-config">HTTP (web) proxy</a> (optional).</p>
+
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">Timeouts.HttpRequest</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_TIMEOUTS_</code>​<code class="language-plaintext highlighter-rouge">HTTP_REQUEST</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">30</code></p>
+      </td><td>
+
+        <p>The timeout for the HTTP calls in seconds per attempt.</p>
+
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">Timeouts.FirstRetryDelay</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_TIMEOUTS_</code>​<code class="language-plaintext highlighter-rouge">FIRST_RETRY_DELAY</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">1.16</code></p>
+      </td><td rowspan="2">
+
+        <p>The initial delay in seconds and maximum number of retries in case of failed API HTTP requests like timeouts or 503 (Service Unavailable) errors. The delay between the retries increases exponentially and sums up to a total delay time of 10 mins for the default values of 10 retries with 1.16 seconds initial delay.</p>
+
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">Timeouts.RetryCount</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_TIMEOUTS_</code>​<code class="language-plaintext highlighter-rouge">RETRY_COUNT</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">10</code></p>
+      </td><td>
+
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">Log.Console.Level</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_CONSOLE_</code>​<code class="language-plaintext highlighter-rouge">LEVEL</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">none</code></p>
+      </td><td>
+
+        <p>The log level used for console logging.</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">Log.File.Level</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_FILE_LEVEL</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">warning</code></p>
+      </td><td>
+
+        <p>The log level used for file logging.</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">Log.File.Directory</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_FILE_</code>​<code class="language-plaintext highlighter-rouge">DIRECTORY</code></p>
+      </td><td>
+
+        <p>(-)</p>
+      </td><td>
+
+        <p>The path to the folder where log files should be stored. Logging to files is disabled if no value is provided.</p>
+
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">Cryptoki.</code>​<code class="language-plaintext highlighter-rouge">DoNotFailOn</code>​<code class="language-plaintext highlighter-rouge">ReadWriteSessions</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_CRYPTOKI_</code>​<code class="language-plaintext highlighter-rouge">DO_NOT_FAIL_ON_</code>​<code class="language-plaintext highlighter-rouge">READ_WRITE_SESSIONS</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">false</code></p>
+      </td><td>
+
+        <p>Enables compatibility with Cryptoki / PKCS #11 clients which open sessions with read/write option (e.g. pkcs11-tool in version lower than 0.23)</p>
+
+      </td></tr></tbody>
+</table>
+<p>Supported log levels: <code class="language-plaintext highlighter-rouge">none</code>, <code class="language-plaintext highlighter-rouge">fatal</code>, <code class="language-plaintext highlighter-rouge">error</code>, <code class="language-plaintext highlighter-rouge">warning</code>, <code class="language-plaintext highlighter-rouge">info</code>, <code class="language-plaintext highlighter-rouge">debug</code>, <code class="language-plaintext highlighter-rouge">verbose</code>.</p>
+
+<p>Sample configuration file:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"ApiUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.signpath.io/Api"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"OrganizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;OrganizationId&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ApiToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ApiToken&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Log"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Console"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"warning"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"File"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"info"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Directory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:</span><span class="se">\\</span><span class="s2">SignPath</span><span class="se">\\</span><span class="s2">Logs"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="api-token-options">Options for providing the API token</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">ApiToken</code> value can contain the API token in one of the following variants:</p>
+<table>
+    <thead>
+        <tr><th>
+
+Value 
+</th><th>
+
+Example 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <p>Unencrpyted token</p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">AIk/65sl23lA1nVV/</code>​<code class="language-plaintext highlighter-rouge">pgSqk96SvHFs</code>​<code class="language-plaintext highlighter-rouge">Sw3xitmp5Qhr+F/</code></p>
+      </td></tr><tr><td>
+
+        <p>DPAPI-encrypted token (Windows only)</p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">encrypted:</code>​<code class="language-plaintext highlighter-rouge">AQAAANCMnd8BFdERjHoAwE/</code>​<code class="language-plaintext highlighter-rouge">Cl+sBAAA...</code></p>
+      </td></tr><tr><td>
+
+        <p>Registry path to DPAPI-encrypted token (Windows only)</p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">registry:</code>​<code class="language-plaintext highlighter-rouge">HKEY_CURRENT_USER\</code>​<code class="language-plaintext highlighter-rouge">SOFTWARE\SignPath\</code>​<code class="language-plaintext highlighter-rouge">MyEncryptedApiToken</code></p>
+      </td></tr></tbody>
+</table>
+<p>In order to encrypt the token, you can use the following PowerShell snippet:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ApiToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+
+</span><span class="c"># Encrypt ApiToken with DPAPI and encode it in Base64 format</span><span class="w">
+</span><span class="n">Add-Type</span><span class="w"> </span><span class="nt">-AssemblyName</span><span class="w"> </span><span class="nx">System.Security</span><span class="w">
+</span><span class="nv">$ApiTokenBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">System.Text.Encoding</span><span class="p">]::</span><span class="n">UTF8.GetBytes</span><span class="p">(</span><span class="nv">$ApiToken</span><span class="p">)</span><span class="w">
+</span><span class="nv">$EncryptedApiToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">Security.Cryptography.ProtectedData</span><span class="p">]::</span><span class="n">Protect</span><span class="p">(</span><span class="nv">$ApiTokenBytes</span><span class="p">,</span><span class="w"> </span><span class="bp">$null</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">System.Security.Cryptography.DataProtectionScope</span><span class="p">]::</span><span class="n">CurrentUser</span><span class="p">)</span><span class="w">
+
+</span><span class="nv">$EncryptedBase64EncodedApiToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">System.Convert</span><span class="p">]::</span><span class="n">ToBase64String</span><span class="p">(</span><span class="nv">$EncryptedApiToken</span><span class="p">)</span><span class="w">
+
+</span></code></pre></div></div>
+
+<p>To store the encrypted token in the Windows registry, you can use the following snippet:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ApiTokenRegistryValueName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"MyEncryptedApiToken"</span><span class="w">
+
+</span><span class="c"># Write encrypted &amp; encoded ApiToken to registry</span><span class="w">
+</span><span class="n">New-Item</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="s2">"HKCU:\SOFTWARE\"</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="nx">SignPath</span><span class="w">
+</span><span class="n">New-ItemProperty</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="s2">"HKCU:\SOFTWARE\SignPath"</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="s2">"</span><span class="nv">$ApiTokenRegistryValueName</span><span class="s2">"</span><span class="w"> </span><span class="nt">-Value</span><span class="w"> </span><span class="s2">"</span><span class="nv">$EncryptedBase64EncodedApiToken</span><span class="s2">"</span><span class="w"> </span><span class="nt">-PropertyType</span><span class="w"> </span><span class="s2">"String"</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="http-proxy-config">HTTP Proxy configuration</h3>
+
+<p>Optionally an HTTP web proxy can be used for the outgoing API requests.</p>
+
+<p>On Windows by default the WinINet (“Internet Options”) proxy settings are respected.</p>
+
+<p>Alternatively, a proxy server can be specified in the <a href="#crypto-provider-config-values">configuration</a> (Windows and Linux) using the following value formats:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">$ProxyHost:$ProxyPort</code></li>
+  <li><code class="language-plaintext highlighter-rouge">http://$ProxyHost:$ProxyPort</code></li>
+</ul>
+
+<p>In case this configuration value is set, it overrides the system’s proxy settings on Windows.</p>
+
+<h3 id="signpath-project-configuration">SignPath Project configuration</h3>
+
+<p>In order to perform hash-based signing with the Crypto Providers, perform the following steps in the SignPath UI:</p>
+
+<ol>
+  <li>Create a new <em>Project</em> with an <em>Artifact Configuration</em> of type <em>Hash signing data</em> and remember the <em>Project slug</em>.
+<!-- TODO must be default artifact configuration? --></li>
+  <li>Create an dedicated CI User (recommended) or generate an API Token for your own Interactive User and remember the API token.</li>
+  <li>Create a <em>Signing Policy</em> for the <em>Project</em> and add a <em>the CI or Interactive User</em> as a <em>Submitter</em>. Remember <em>Signing Policy slug</em>.</li>
+</ol>
+
+
+		</article>
+	</div>
+</section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
+	<div>
+		<h2>Sign up for news and special offers</h2>
+		<form class="ml-block-form" action="https://app.mailerlite.com/webforms/submit/d7c3i1" data-code="d7c3i1" method="post">
+			<input type="text" class="form-control" data-inputmask="" name="fields[name]" value="" placeholder="Name">
+			<input type="email" class="form-control" data-inputmask="" name="fields[email]" value="" placeholder="Email">
+			<input type="hidden" name="ml-submit" value="1">
+			<button type="submit" class="btn btn-secondary newsletter">Subscribe</button>
+		</form>
+	</div>
+</section>
+</main>
+  <footer>
+  	<div>
+	  	<div>
+	  		<img src='/assets/signpath-logo-white.svg' width="334" height="67" alt='SignPath'/>
+	  		<svg viewBox="0 0 244 18">
+			  <text x="0" y="15">CODE SIGNING SIMPLE &amp; SECURE</text>
+			</svg>
+	  		<div>
+				<a target="_blank" href="https://www.linkedin.com/company/33243108" rel="noopener noreferrer">
+<svg class="icon footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor"  d="M 8.6425781 4 C 7.1835781 4 6 5.181625 6 6.640625 C 6 8.099625 7.182625 9.3085938 8.640625 9.3085938 C 10.098625 9.3085938 11.283203 8.099625 11.283203 6.640625 C 11.283203 5.182625 10.101578 4 8.6425781 4 z M 21.535156 11 C 19.316156 11 18.0465 12.160453 17.4375 13.314453 L 17.373047 13.314453 L 17.373047 11.310547 L 13 11.310547 L 13 26 L 17.556641 26 L 17.556641 18.728516 C 17.556641 16.812516 17.701266 14.960938 20.072266 14.960938 C 22.409266 14.960937 22.443359 17.145609 22.443359 18.849609 L 22.443359 26 L 26.994141 26 L 27 26 L 27 17.931641 C 27 13.983641 26.151156 11 21.535156 11 z M 6.3632812 11.310547 L 6.3632812 26 L 10.923828 26 L 10.923828 11.310547 L 6.3632812 11.310547 z"/></svg></a>
+				&nbsp;&nbsp;
+				<a target="_blank" href="mailto:info@signpath.io" rel="noopener noreferrer"><svg class="icon footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 3 8 L 3 26 L 29 26 L 29 8 Z M 7.3125 10 L 24.6875 10 L 16 15.78125 Z M 5 10.875 L 15.4375 17.84375 L 16 18.1875 L 16.5625 17.84375 L 27 10.875 L 27 24 L 5 24 Z"/></svg>
+</div>
+	  	</div>
+	  	<div>
+	  		<a href='/privacy-policy'>Privacy Policy</a>
+	  		<a href='/terms-of-service'>Terms of Service</a>
+	  		<a href='/status'><span style="color: lightgreen;"><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</span>Status
+			</a>
+	  	</div>
+	</div>
+  </footer>
+        <div id='cookie-info'>
+            <h3>Cookie settings</h3>
+            <div class="container">
+                <span>We use cookies to enhance your browsing experience.</span>
+                <p class="mobile show-more active"><a>Show more information</a></p>
+                <p class="mobile show-less"><a>Show less information</a></p>
+                <span class="information">By clicking the “Accept” button below, you agree that non-essential cookies on our website may be used by us and by third parties, some of them located in the USA. Learn more about our cookies in our <a
+                            href='/privacy-policy'>Privacy
+					Policy</a>
+                </span>
+				<div class="actions">
+					<button class='btn btn-primary' id='acknowledge-cookies-btn'>Accept</button>
+					<button class="btn btn-grey" id='refuse-cookies-btn'>Refuse</button>
+				</div>
+            </div>
+			<script>
+				const queryString = window.location.search;
+				const urlParams = new URLSearchParams(queryString);
+				const adgroupid = urlParams.get('adgroupid') ? urlParams.get('adgroupid') : document.cookie.match('(^|;)\\s*' + 'adgroupid' + '\\s*=\\s*([^;]+)')?.pop() || ''
+
+				if (adgroupid) {
+					const els_trial = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Subscription/StartFreeTrial' + "']")
+					const els_login = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Home/Login' + "']");
+
+					for (let child of els_trial) {
+						if (child.tagName === 'A') {
+							child.href = child.href + '?websiteCorrelationId=' + adgroupid
+						}
+					}
+
+					for (let child of els_login) {
+						if (child.tagName === 'A') {
+							child.href = child.href + '?websiteCorrelationId=' + adgroupid
+						}
+					}
+				}
+			</script>
+		</div>
+	</footer>
+</body>
+</html>
