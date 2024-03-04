@@ -65,7 +65,7 @@
 							<a href='/documentation/crypto-providers/#'>Crypto Providers</a><div class="no-mobile" ><ul>
   <li><a href="#overview">Overview</a></li>
   <li><a href="#installation-and-usage">Installation and usage</a></li>
-  <li><a href="#crypto-provider-configuration">Crypto Provider configuration</a></li>
+  <li><a href="#crypto-provider-configuration">Configuration</a></li>
 </ul>
 </div></li><li class=''>
 							<a href='/documentation/crypto-providers/windows#'>Windows CSP and KSP</a></li><li class=''>
@@ -82,12 +82,12 @@
     </ul>
   </li>
   <li><a href="#installation-and-usage">Installation and usage</a></li>
-  <li><a href="#crypto-provider-configuration">Crypto Provider configuration</a>
+  <li><a href="#crypto-provider-configuration">Configuration</a>
     <ul>
-      <li><a href="#crypto-provider-config-values">Setting configuration values</a></li>
-      <li><a href="#api-token-options">Options for providing the API token</a></li>
-      <li><a href="#http-proxy-config">HTTP Proxy configuration</a></li>
-      <li><a href="#signpath-project-configuration">SignPath Project configuration</a></li>
+      <li><a href="#crypto-provider-config-values">Values</a></li>
+      <li><a href="#api-token-options">API token options</a></li>
+      <li><a href="#http-proxy-config">HTTP Proxy</a></li>
+      <li><a href="#signpath-project-configuration">SignPath Project</a></li>
     </ul>
   </li>
 </ul>
@@ -247,14 +247,14 @@ Again, for Authenticode this is actually performed by the SIP.</li>
   <li>Instead of using a CryptoProvider, it is also possible to <a href="/documentation/crypto-providers/rest-api">sign hashes directly using the REST API</a></li>
 </ul>
 
-<h2 id="crypto-provider-configuration">Crypto Provider configuration</h2>
+<h2 id="crypto-provider-configuration">Configuration</h2>
 
-<h3 id="crypto-provider-config-values">Setting configuration values</h3>
+<h3 id="crypto-provider-config-values">Values</h3>
 
-<p>This section describes how to specify configuration settings for all Crypto Providers.</p>
+<p>This section describes how to specify configuration values for all Crypto Providers.</p>
 
 <p>You can either use a JSON configuration file and specify the JSON file path via the <code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code> environment variable, or use individual configuration environment variables per setting.
-Note that environment variables take precedence over the corresponding JSON settings.</p>
+Note that environment variables take precedence over the corresponding JSON values.</p>
 <table>
     <thead>
         <tr><th>
@@ -444,7 +444,7 @@ Description
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="api-token-options">Options for providing the API token</h3>
+<h3 id="api-token-options">API token options</h3>
 
 <p>The <code class="language-plaintext highlighter-rouge">ApiToken</code> value can contain the API token in one of the following variants:</p>
 <table>
@@ -499,7 +499,7 @@ Example
 </span><span class="n">New-ItemProperty</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="s2">"HKCU:\SOFTWARE\SignPath"</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="s2">"</span><span class="nv">$ApiTokenRegistryValueName</span><span class="s2">"</span><span class="w"> </span><span class="nt">-Value</span><span class="w"> </span><span class="s2">"</span><span class="nv">$EncryptedBase64EncodedApiToken</span><span class="s2">"</span><span class="w"> </span><span class="nt">-PropertyType</span><span class="w"> </span><span class="s2">"String"</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="http-proxy-config">HTTP Proxy configuration</h3>
+<h3 id="http-proxy-config">HTTP Proxy</h3>
 
 <p>Optionally an HTTP web proxy can be used for the outgoing API requests.</p>
 
@@ -514,7 +514,7 @@ Example
 
 <p>In case this configuration value is set, it overrides the system’s proxy settings on Windows.</p>
 
-<h3 id="signpath-project-configuration">SignPath Project configuration</h3>
+<h3 id="signpath-project-configuration">SignPath Project</h3>
 
 <p>In order to perform hash-based signing with the Crypto Providers, perform the following steps in the SignPath UI:</p>
 

@@ -80,7 +80,7 @@
       <li><a href="#supported-linux-distributions">Supported Linux distributions</a></li>
       <li><a href="#installation">Installation</a></li>
       <li><a href="#cryptoki-parameters">Parameters</a></li>
-      <li><a href="#error-return-values-for-cryptokipkcs-11-functions">Error return values for Cryptoki/PKCS #11 functions</a></li>
+      <li><a href="#error-handling">Error handling</a></li>
       <li><a href="#integration-with-signing-tools">Integration with signing tools</a></li>
     </ul>
   </li>
@@ -225,9 +225,9 @@ Description
 
 <p>How these parameters can be specified depends on the tool being used. Since not all tools support Cryptoki directly, parameters are sometimes passed indirectly or using a specific syntax for an existing tool parameter (see below).</p>
 
-<h3 id="error-return-values-for-cryptokipkcs-11-functions">Error return values for Cryptoki/PKCS #11 functions</h3>
+<h3 id="error-handling">Error handling</h3>
 
-<p>The following table shows the [PKCS #11] Cryptoki function return values for the different error situations when calling the SignPath REST API.</p>
+<p>The following table shows the <a href="https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html">PKCS #11</a> Cryptoki function return values for the different error situations when calling the SignPath REST API.</p>
 <table>
     <thead>
         <tr><th>
