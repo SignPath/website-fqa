@@ -118,7 +118,6 @@
   <li><a href="#cryptoki-signing-tools">Signing tools based on Cryptoki/PKCS #11 (Windows and Linux)</a>
     <ul>
       <li><a href="#general-instructions-1">General instructions</a></li>
-      <li><a href="#error-return-values-for-cryptokipkcs-11-functions">Error return values for Cryptoki/PKCS #11 functions</a></li>
       <li><a href="#openssl">OpenSSL</a></li>
       <li><a href="#prerequisites">Prerequisites</a></li>
       <li><a href="#osslsigncode">osslsigncode</a></li>
@@ -137,6 +136,8 @@
   </li>
   <li><a href="#retrieve-signing-policy-details">Retrieve Signing Policy details</a></li>
 </ul>
+<p class="badge icon-signpath">Available for Enterprise subscriptions</p>
+
 <h2 id="overview">Overview</h2>
 
 <p>The SignPath Crypto Providers allow signing tools such as <em>SignTool.exe</em>, <em>OpenSSL</em> or <em>jarsigner</em> to sign files locally using keys or certificates stored and managed by SignPath.</p>
@@ -153,7 +154,7 @@
 
 <h3 id="crypto-providers">Crypto Providers</h3>
 
-<p>The following Crypto Providers are provided by SignPath:</p>
+<p>The following Crypto Providers are available for SignPath:</p>
 <table>
     <thead>
         <tr><th>
@@ -273,15 +274,15 @@ The issue expresses in <em>“http_exception occurred (error code= generic:16829
 
 <h3 id="linux-docker-samples">Linux Docker container samples</h3>
 
-<p>For the supported Linux distributions we provide Docker container based example scripts to demonstrate the different signing tool scenarios, their configuration and their required dependencies.</p>
+<p>For the supported Linux distributions we provide Docker container based example scripts to demonstrate the different signing tool scenarios, their configuration and the required dependencies.</p>
 
-<p>See the <code class="language-plaintext highlighter-rouge">samples</code> directory in the Linux Crypto Provider package. Also check out <code class="language-plaintext highlighter-rouge">samples/README.md</code>.</p>
+<p>See the <code class="language-plaintext highlighter-rouge">samples</code> directory in the Linux Crypto Provider package. It contains a <code class="language-plaintext highlighter-rouge">README.md</code> file with further information.</p>
 
-<p>While all the contained scripts could also run outside of a Docker container, especially for GPG based signing tools we recommend to perform the signing operations in a container to contain the signing and all used dependencies.</p>
+<p>All of the provided scripts can also be executed outside of a Docker container. However, we recommend to perform the signing operations in a container to keep the dependencies in one manageable place, especially for GPG based signing tools.</p>
 
 <h2 id="installation">Installation</h2>
 
-<p>Depending on signing tool you’re using, the corresponding Crypto Provider needs to be installed (on all build nodes).</p>
+<p>Depending on the signing tool you’re using, the corresponding Crypto Provider needs to be installed (on all build nodes).</p>
 
 <ul>
   <li><strong>SignPath KSP or CSP</strong> for <a href="#signtool">SignTool.exe</a> and most native Windows tools</li>
@@ -303,7 +304,7 @@ The issue expresses in <em>“http_exception occurred (error code= generic:16829
 </span></code></pre></div>    </div>
   </li>
   <li>
-    <p>Continue with <a href="#crypto-provider-configuration">configuration</a>.</p>
+    <p>Continue with the <a href="#crypto-provider-configuration">configuration</a>.</p>
   </li>
 </ol>
 
@@ -312,7 +313,7 @@ The issue expresses in <em>“http_exception occurred (error code= generic:16829
 <div class="panel info">
   <div class="panel-header">Verification</div>
 
-  <p>To verify successful registration of the CSP and KSP, you can use the following command.</p>
+  <p>To verify the successful registration of the CSP and KSP, you can use the following command:</p>
 
   <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">certutil</span><span class="w"> </span><span class="nt">-csplist</span><span class="w">
 </span></code></pre></div>  </div>
@@ -326,14 +327,14 @@ The issue expresses in <em>“http_exception occurred (error code= generic:16829
 
 </div>
 
-<p>In case you only want to install the KSP (note that CSPs <a href="https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers">are deprecated by Microsoft</a> and therefore most tools only require a KSP), use the following command.</p>
+<p>CSPs <a href="https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers">are deprecated by Microsoft</a> and therefore most tools only require a KSP. In case you only want to install the KSP, use the following command:</p>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">powershell</span><span class="w"> </span><span class="nt">-ExecutionPolicy</span><span class="w"> </span><span class="nx">RemoteSigned</span><span class="w"> </span><span class="o">.</span><span class="nx">\InstallCspKsp.ps1</span><span class="w"> </span><span class="nt">-InstallParts</span><span class="w"> </span><span class="nx">KSP</span><span class="w">
 </span></code></pre></div></div>
 
 <h3 id="update-to-a-new-version">Update to a new version</h3>
 
-<p>To update to a new version, simply install the new version as described in the previous section. This overwrites the existing installation.</p>
+<p>Installing a new version will overwrite the existing installation.</p>
 
 <h3 id="uninstallation">Uninstallation</h3>
 
@@ -410,7 +411,7 @@ Description
         <p>(-)</p>
       </td><td>
 
-        <p>TLS/SSL client certificate authentication in the format <code class="language-plaintext highlighter-rouge">thumbprint:</code>​<code class="language-plaintext highlighter-rouge">$HexThumbprint</code> (optional, Windows only)</p>
+        <p>Reference to a TLS/SSL client authentication certificate in the format <code class="language-plaintext highlighter-rouge">thumbprint:</code>​<code class="language-plaintext highlighter-rouge">$HexThumbprint</code> (optional, Windows only)</p>
 
       </td></tr><tr><td>
 
@@ -423,7 +424,7 @@ Description
         <p><code class="language-plaintext highlighter-rouge">https://</code>​<code class="language-plaintext highlighter-rouge">app.signpath.io/</code>​<code class="language-plaintext highlighter-rouge">Api</code></p>
       </td><td>
 
-        <p>The SignPath API endpoint to use. Needs to be set if SignPath is run on-premises.</p>
+        <p>The SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations.</p>
 
       </td></tr><tr><td>
 
@@ -449,7 +450,7 @@ Description
         <p><code class="language-plaintext highlighter-rouge">30</code></p>
       </td><td>
 
-        <p>The timeout for the HTTP calls in seconds per try.</p>
+        <p>The timeout for the HTTP calls in seconds per attempt.</p>
 
       </td></tr><tr><td>
 
@@ -462,7 +463,7 @@ Description
         <p><code class="language-plaintext highlighter-rouge">1.16</code></p>
       </td><td rowspan="2">
 
-        <p>The initial delay in seconds and maximum number of retries in case of failed API HTTP requests like timeouts or 503 (Service Unavailable) errors. The delay between the retries increases exponentially and sums up to a total delay time of 10 mins for the default values of 10 retries with 1.16 sec initial delay.</p>
+        <p>The initial delay in seconds and maximum number of retries in case of failed API HTTP requests like timeouts or 503 (Service Unavailable) errors. The delay between the retries increases exponentially and sums up to a total delay time of 10 mins for the default values of 10 retries with 1.16 seconds initial delay.</p>
 
       </td></tr><tr><td>
 
@@ -510,7 +511,7 @@ Description
         <p>(-)</p>
       </td><td>
 
-        <p>The path to the folder where file logs should be stored. File logging is disabled if no value is provided.</p>
+        <p>The path to the folder where log files should be stored. Logging to files is disabled if no value is provided.</p>
 
       </td></tr><tr><td>
 
@@ -857,14 +858,14 @@ Description
         <p><code class="language-plaintext highlighter-rouge">&lt;ProjectSlug&gt;/</code>​<code class="language-plaintext highlighter-rouge">&lt;SigningPolicySlug&gt;</code></p>
       </td><td>
 
-        <p>gnPath <em>Project</em> slug and <em>Signing Policy</em> slug, separated by a forward slash (<code class="language-plaintext highlighter-rouge">/</code>)</p>
+        <p>SignPath <em>Project</em> slug and <em>Signing Policy</em> slug, separated by a forward slash (<code class="language-plaintext highlighter-rouge">/</code>)</p>
 
       </td></tr></tbody>
 </table>
 <div class="panel info">
   <div class="panel-header">Keys are not specified directly</div>
 
-  <p>The Cryptoki API expects you to identify a key, but SignPath requires you to specify <em>Project</em> and <em>Signing Policy</em>. SignPath will select the correct key or certificate based on the <em>Project</em> and <em>Signing Policy</em> you specify.</p>
+  <p>The Cryptoki API expects you to identify a key, but SignPath requires you to specify a <em>Project</em> and a <em>Signing Policy</em>. SignPath will select the correct key or certificate based on the <em>Project</em> and <em>Signing Policy</em> you specify.</p>
 
 </div>
 
@@ -879,7 +880,7 @@ Description
   <li>A tool might support different engines. If it doesn’t come with a Cryptoki engine, you need to get it from another source and install it. In this case you need to
     <ul>
       <li>specify the engine in the tool’s configuration or parameter list,</li>
-      <li><em>and</em> specify the Cryptoki library in the engine’s configuration</li>
+      <li><em>and</em> specify the SignPath Cryptoki library in the engine’s configuration</li>
     </ul>
   </li>
   <li>A tool might internally call another tool such as OpenSSL or GPG to create the signature</li>
@@ -887,7 +888,7 @@ Description
 
 <p>If your signing tool does not provide guidance for using Cryptoki libraries, you probably need a solid understanding of the specific tool chain to configure it. For better results, please also refer to <a href="#flow">signing flow</a>.</p>
 
-<h3 id="error-return-values-for-cryptokipkcs-11-functions">Error return values for Cryptoki/PKCS #11 functions</h3>
+<h4 id="error-return-values-for-cryptokipkcs-11-functions">Error return values for Cryptoki/PKCS #11 functions</h4>
 
 <p>The following table shows the <a href="https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html">PKCS #11</a> Cryptoki function return values for the different error situations when calling the SignPath REST API.</p>
 <table>
@@ -933,12 +934,12 @@ PKCS
 <div class="panel warning">
   <div class="panel-header">Important</div>
 
-  <p>Only latest OpenSSL 1.1 and 3.x versions are supported. For Linux also see the notes in <a href="#supported-linux-distributions">supported Linux distributions</a>.</p>
+  <p>Only latest OpenSSL 1.1 and 3.x versions are supported. For Linux, see also the notes in <a href="#supported-linux-distributions">supported Linux distributions</a>.</p>
 </div>
 
 <h3 id="prerequisites">Prerequisites</h3>
 
-<p><em>OpenSSL</em> cannot directly communicate with a Cryptoki library. Instead the <a href="https://github.com/OpenSC/libp11">OpenSC pkcs11 OpenSSL engine</a> can be used as adapter between OpenSSL and the SignPath Cryptoki/PKCS #11 library.</p>
+<p><em>OpenSSL</em> cannot directly communicate with a Cryptoki library. Instead, the <a href="https://github.com/OpenSC/libp11">OpenSC pkcs11 OpenSSL engine</a> can be used as adapter between OpenSSL and the SignPath Cryptoki/PKCS #11 library.</p>
 
 <p><strong>Windows:</strong> Download <code class="language-plaintext highlighter-rouge">libp11-...-windows.zip </code> from <a href="https://github.com/OpenSC/libp11/releases">OpenSC libp11 Releases</a> and copy-deploy <code class="language-plaintext highlighter-rouge">pkcs11.dll</code> (x64 version).</p>
 
@@ -1095,12 +1096,12 @@ Description
 <div class="panel info">
   <div class="panel-header">Keys are not specified directly</div>
 
-  <p>The Cryptoki API expects you to identify a key, but SignPath requires you to specify <em>Project</em> and <em>Signing Policy</em>. SignPath will select the correct key or certificate based on the <em>Project</em> and <em>Signing Policy</em> you specify.</p>
+  <p>The Cryptoki API expects you to identify a key, but SignPath requires you to specify a <em>Project</em> and a <em>Signing Policy</em>. SignPath will select the correct key or certificate based on the <em>Project</em> and <em>Signing Policy</em> you specify.</p>
 </div>
 
 <h4 id="openssl-dgst">openssl dgst</h4>
 
-<p>The <em><a href="https://www.openssl.org/docs/man1.1.1/man1/dgst.html">_dgst_</a></em> command calculates digests of files, but can also be used to create and verify signatures.</p>
+<p>The <em><a href="https://www.openssl.org/docs/man1.1.1/man1/dgst.html">dgst</a></em> command calculates digests of files, but can also be used to create and verify signatures.</p>
 
 <p>Sample: sign <code class="language-plaintext highlighter-rouge">artifact.bin</code> and write the signature to <code class="language-plaintext highlighter-rouge">artifact.sig</code>.</p>
 
@@ -1115,7 +1116,7 @@ Description
 
 <h4 id="openssl-pkeyutl">openssl pkeyutl</h4>
 
-<p>The <em><a href="https://www.openssl.org/docs/man1.1.1/man1/pkeyutl.html">_pkeyutl_</a></em> command performs low-level cryptographic operations, such as signing.</p>
+<p>The <em><a href="https://www.openssl.org/docs/man1.1.1/man1/pkeyutl.html">pkeyutl</a></em> command performs low-level cryptographic operations, such as signing.</p>
 
 <!-- todo omit?-->
 <div class="panel info">
@@ -1166,7 +1167,7 @@ Description
 <div class="panel warning">
   <div class="panel-header">Important</div>
 
-  <p>Only osslsigncode 2.x or higher is supported. Also see the notes in <a href="#supported-linux-distributions">supported Linux distributions</a> regarding supported OpenSSL versions.</p>
+  <p>Only osslsigncode 2.x or higher is supported. Also see the notes in <a href="#supported-linux-distributions">supported Linux distributions</a> regarding the supported OpenSSL versions.</p>
 </div>
 
 <h4 id="prerequisites-1">Prerequisites</h4>
@@ -1186,7 +1187,7 @@ Description
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">openssl</span><span class="w"> </span><span class="nx">x509</span><span class="w"> </span><span class="nt">-inform</span><span class="w"> </span><span class="nx">DER</span><span class="w"> </span><span class="nt">-in</span><span class="w"> </span><span class="s2">"certificate.cer"</span><span class="w"> </span><span class="nt">-outform</span><span class="w"> </span><span class="nx">PEM</span><span class="w"> </span><span class="nt">-out</span><span class="w"> </span><span class="s2">"certificate.pem"</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="signing-an-exe-file">Signing an exe file</h5>
+<h5 id="signing-an-exe-file">Signing an .exe file</h5>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">osslsigncode</span><span class="w"> </span><span class="nx">sign</span><span class="w"> </span><span class="se">`
 </span><span class="w">   </span><span class="nt">-pkcs11module</span><span class="w"> </span><span class="nv">$LibSignPathCryptokiPath</span><span class="w"> </span><span class="se">`
@@ -1287,13 +1288,13 @@ Description
         <p><code class="language-plaintext highlighter-rouge">CONFIG</code> or <code class="language-plaintext highlighter-rouge">&lt;OrganizationId&gt;:&lt;ApiToken&gt;</code></p>
       </td><td>
 
-        <p>See <a href="#cryptoki-parameters">“PIN” parameter</a></p>
+        <p>See <a href="#cryptoki-parameters">PIN parameter</a></p>
 
       </td></tr></tbody>
 </table>
 <h5 id="listing-of-the-available-pkcs-11-objects">Listing of the available PKCS #11 objects</h5>
 
-<p>The following command lists available objects, which corresponds to the list of signing policies where the user referenced by the API token is assigned as <em>Submitter</em>.</p>
+<p>The following command lists available objects, which corresponds to the list of signing policies for which the authenticated user has <em>Submitter</em> permissions.</p>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pkcs11-tool</span><span class="w"> </span><span class="nt">--module</span><span class="w"> </span><span class="nv">$LibSignPathCryptokiPath</span><span class="w"> </span><span class="nt">--pin</span><span class="w"> </span><span class="nx">CONFIG</span><span class="w"> </span><span class="nt">--list-objects</span><span class="w">
 </span></code></pre></div></div>
@@ -1505,7 +1506,7 @@ Description
 
 <h4 id="gpg-key-generation">GPG Key Generation</h4>
 
-<p>GPG has an own key format and therefore SignPath’s X.509 certificates cannot be directly used. Instead we have to generate a GPG key which <em>references</em> a SignPath certificate. This means that we create a new GPG key which includes the RSA public key of a SignPath certificate and “links” the RSA private key (which resides in SignPath’s HSMs). This is possible via a <a href="https://github.com/gpg/gnupg/blob/STABLE-BRANCH-2-2/agent/keyformat.txt#shadowed-private-key-format">“shadowed private key”</a> stored within <code class="language-plaintext highlighter-rouge">$GNUPGHOME/private-keys-v1.d/&lt;KeyGrip&gt;.key</code> which basically references a SignPath project and signing policy slug within.</p>
+<p>GPG has an own key format and therefore SignPath’s X.509 certificates cannot be directly used. Instead you have to generate a GPG key which <em>references</em> a SignPath certificate. This means creating a new GPG key which includes the RSA public key of a SignPath certificate and “links” the RSA private key (which resides in SignPath’s HSMs). This is possible via a <a href="https://github.com/gpg/gnupg/blob/STABLE-BRANCH-2-2/agent/keyformat.txt#shadowed-private-key-format">“shadowed private key”</a> stored within <code class="language-plaintext highlighter-rouge">$GNUPGHOME/private-keys-v1.d/&lt;KeyGrip&gt;.key</code> which basically references a SignPath project and signing policy slug within.</p>
 
 <p>Although the RSA key is used from the SignPath certificate, GPG keys hold their own metadata like name, email and expiration date which need to be specified during the GPG key generation. As defaults we use <code class="language-plaintext highlighter-rouge">"SignPath &lt;ProjectSlug&gt; / &lt;SigningPolicySlug&gt;</code> for the full name,  <code class="language-plaintext highlighter-rouge">"&lt;SigningPolicySlug&gt;@&lt;ProjectSlug&gt;</code> as email and 1 year expiration.</p>
 
@@ -1521,18 +1522,18 @@ Note that the shadowed private key file does not need to be transported as it ca
 
 <h4 id="gpg-file-signing">GPG File Signing</h4>
 
-<p><strong>Preparation</strong>: Before running a GPG signing operation via <code class="language-plaintext highlighter-rouge">gpg --sign ...</code> the following steps are necessary.</p>
+<p><strong>Preparation</strong>: Before running a GPG signing operation via <code class="language-plaintext highlighter-rouge">gpg --sign ...</code>, the following steps are necessary.</p>
 
 <ol>
   <li><a href="#gpg-key-generation">Generate a GPG key</a></li>
   <li>Copy the generated public GPG key (<code class="language-plaintext highlighter-rouge">&lt;Email&gt;.public.pgp</code>) to the target system</li>
-  <li><a href="#configure-gnupg">Configure GPG</a> (After the <code class="language-plaintext highlighter-rouge">SCD LEARN</code> command all keys which are available for the ApiToken are restored as shadowed private keys and therefore can be used by the corresponding GPG keys, see <code class="language-plaintext highlighter-rouge">UseSignPathCryptoki</code>​<code class="language-plaintext highlighter-rouge">GpgConfiguration</code> function in the Linux container samples)</li>
+  <li><a href="#configure-gnupg">Configure GPG</a> (After the <code class="language-plaintext highlighter-rouge">SCD LEARN</code> command, all keys which are available for the ApiToken are restored as shadowed private keys and therefore can be used by the corresponding GPG keys, see <code class="language-plaintext highlighter-rouge">UseSignPathCryptoki</code>​<code class="language-plaintext highlighter-rouge">GpgConfiguration</code> function in the Linux container samples)</li>
   <li>Import the GPG key (see <code class="language-plaintext highlighter-rouge">ImportGpgKeys</code> function in the Linux container samples)</li>
 </ol>
 
 <p>The <a href="#linux-docker-samples">Linux container samples</a> contain a full example to sign and verify a file with a detached signature (including the mentioned preparation steps) in <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario GpgSignFile</code>. The used GPG key is referenced via its email address.</p>
 
-<p>During <code class="language-plaintext highlighter-rouge">gpg --sign</code>, SignPath is called to perform a hash based signing operation with the project / signing policy referenced in the shadowed private key. Note that OrganizationId and the ApiToken still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
+<p>During <code class="language-plaintext highlighter-rouge">gpg --sign</code>, SignPath is called to perform a hash based signing operation with the <em>Project</em> / <em>Signing Policy</em> referenced in the shadowed private key. Note that the <em>OrganizationId</em> and the <em>ApiToken</em> still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
 
 <h3 id="rpm-signing-linux">RPM Signing (Linux)</h3>
 
@@ -1540,7 +1541,7 @@ Note that the shadowed private key file does not need to be transported as it ca
 
 <p>The <a href="#linux-docker-samples">Linux container samples</a> contain a full example to sign and verify a RPM file (including the mentioned preparation steps) in <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario SignRpm</code>. The used GPG key is referenced via its email address. See <code class="language-plaintext highlighter-rouge">SignRpm.ps1</code> for details.</p>
 
-<p>During <code class="language-plaintext highlighter-rouge">rpm --addsign</code>, SignPath is called to perform a hash based signing operation with the project / signing policy referenced in the shadowed private key. Note that OrganizationId and the ApiToken still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
+<p>During <code class="language-plaintext highlighter-rouge">rpm --addsign</code>, SignPath is called to perform a hash based signing operation with the <em>Project</em> / <em>Signing Policy</em> referenced in the shadowed private key. Note that the <em>OrganizationId</em> and the <em>ApiToken</em> still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
 
 <h3 id="deb-signing-via-dpkg-sig-linux">DEB Signing via dpkg-sig (Linux)</h3>
 
@@ -1552,11 +1553,11 @@ Note that the shadowed private key file does not need to be transported as it ca
 
 <h3 id="maven-artifact-signing-linux">Maven Artifact Signing (Linux)</h3>
 
-<p>Maven artifacts can be signed with the <a href="https://maven.apache.org/plugins/maven-gpg-plugin/">Apache maven-gpg-plugin</a> which uses <a href="#gpg-signing">GPG</a> commands to sign the different artifact files (.JAR files, …). Therefore the preparation steps mentioned in <a href="#gpg-file-signing">GPG File Signing</a> are necessary before signing.</p>
+<p>Maven artifacts can be signed with the <a href="https://maven.apache.org/plugins/maven-gpg-plugin/">Apache maven-gpg-plugin</a> which uses <a href="#gpg-signing">GPG</a> commands to sign the different artifact files (e.g. .JAR files). Therefore, the preparation steps mentioned in <a href="#gpg-file-signing">GPG File Signing</a> are necessary before signing.</p>
 
 <p>The <a href="#linux-docker-samples">Linux container samples</a> contain a full example to build, sign and verify Maven artifacts (including the mentioned preparation steps) in <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario SignMaven</code>. The used GPG key is referenced via its email address.</p>
 
-<p>During <code class="language-plaintext highlighter-rouge">mvn install</code>, SignPath is called to perform a hash based signing operations with the project / signing policy referenced in the shadowed private key. Note that OrganizationId and the ApiToken still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
+<p>During <code class="language-plaintext highlighter-rouge">mvn install</code>, SignPath is called to perform a hash based signing operations with the <em>Project</em> / <em>Signing Policy</em> referenced in the shadowed private key. Note that the <em>OrganizationId</em> and the <em>ApiToken</em> still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
 
 <h2 id="direct-usage-of-the-signpath-rest-api">Direct usage of the SignPath REST API</h2>
 
