@@ -17,7 +17,7 @@
   <meta name="description" content="Product Changelog for all SignPath components."/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css?cache=2023-11-17">
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-02-22">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2023-11-17'></script>
   <script src='/assets/js/main-bundle.js?cache=2023-11-17'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
@@ -38,10 +38,10 @@
               <ul><li> <a href='/code-signing/introduction'> Introduction </a> </li><li> <a href='/code-signing/theory'> Theory </a> </li><li> <a href='/code-signing/windows-platform'> Windows Platform </a> </li><li> <a href='/code-signing/test-certificates'> Managing Test Certificates </a> </li><li> <a href='/code-signing/private-keys'> Storage of Private Keys </a> </li><li> <a href='/code-signing/media-coverage'> Media Coverage </a> </li></ul>
             </li><li>
               <a href='/documentation'> Documentation </a>
-              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/signing-containers'> Signing Container Images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li> <a href='/documentation/crypto-providers'> Crypto Providers </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
+              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/signing-containers'> Signing Container Images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
             </li><li>
               <a href='/about-us'> About us </a>
-              <ul><li> <a href='/company'> Company </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
+              <ul><li> <a href='/company'> Company </a> </li><li> <a href='/team'> Team </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
             </li><li class='login'><a class='btn btn-flat' href='https://fqa.test.signpath.io/Web/Home/Login'>Login</a>
           <li class='login'><a href='https://fqa.test.signpath.io/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
           </li>
@@ -54,7 +54,8 @@
       </nav>
     </div>
   </header>
-  <main><section class="bg-blue font-white top-section">
+  <main>
+<section class="bg-blue font-white top-section">
 	<div>
 		<h1> Product Updates</h1>
 	</div>
@@ -72,8 +73,7 @@
 							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=''>
 							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class=''>
 							<a href='/documentation/origin-verification#'>Origin Verification</a></li><li class='separator' /><li class=''>
-							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class=''>
-							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class='active'>
+							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class='separator' /><li class='active'>
 							<a href='/documentation/changelog#'>Product updates</a></li></ul>
 			</aside><article>
 <section class="changelog">
@@ -93,6 +93,222 @@ Component
 
 
 
+
+
+
+
+
+
+
+
+
+<article class="release component-self_hosted_installations" id="2024-02-29">
+	<h1>&nbsp;<span>February 29, 2024</span></h1>
+	
+		
+			<div class="component-self_hosted_installations">
+			<h2>
+				 Self-hosted Installations 1.158.0
+					
+			</h2>
+			
+				
+			
+				
+					<h3>
+						 New Features:
+							
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>New “Operator REST API” (part of the Operator Client deployment) including organization list queries and organization creation APIs. Can be activated via <code class="language-plaintext highlighter-rouge">appSettings.shared.globalFeatureToggleOptions.isOperatorApiEnabled</code> configuration.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+				
+					<h3>
+						 Improvements:
+							
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>Added <code class="language-plaintext highlighter-rouge">Generate-Secret</code> tool to simplify secure encryption key, basic authentication secret and API token generation.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+			</div>
+		
+	
+</article>
+
+
+
+
+
+
+
+
+
+<article class="release component-application component-self_hosted_installations" id="2024-02-15">
+	<h1>&nbsp;<span>February 15, 2024</span></h1>
+	
+		
+			<div class="component-application">
+			<h2>
+				 SignPath Application 1.157.0
+					
+			</h2>
+			
+				
+			
+				
+					<h3>
+						 Improvements:
+							
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>For failed singing requests, the “Retry with current settings” feature was replaced with “<em>Resubmit</em> with current settings”. This feature creates a new signing request (linking back to the “original singing request”) instead of retrying the same signing request.</p>
+
+									
+								</li>
+							
+								<li>
+									<p>Stricter validation of email address input.</p>
+
+									
+								</li>
+							
+								<li>
+									<p>Introduced file size limits for XML files (2 MB) and OPC files (40 MB) to improve operational stability.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+				
+					<h3>
+						 Bug Fixes:
+						
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>Fixed path validation issue for encoded paths in OPC, MSIX and APPX files.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+			</div>
+		
+			<div class="component-self_hosted_installations">
+			<h2>
+				 Self-hosted Installations 1.157.0
+					
+			</h2>
+			
+				
+			
+				
+					<h3>
+						 Breaking Changes / Manual migration steps:
+							
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>Renamed the Hangfire dashboard application component K8s Deployment to “Operator Client”:</p>
+<ul>
+  <li>Renamed <code class="language-plaintext highlighter-rouge">signpathio/hangfire-dashboard</code> Docker image to <code class="language-plaintext highlighter-rouge">signpathio/operator-client</code> (you may need to update your Docker image mirroring)</li>
+  <li>Replaced the <code class="language-plaintext highlighter-rouge">appSettings/appSecrets.hangfireDashboard</code> values section with <code class="language-plaintext highlighter-rouge">appSettings/appSecrets.operatorClient</code></li>
+  <li>Replaced <code class="language-plaintext highlighter-rouge">chartSettings.hangfireDashboard</code> section with <code class="language-plaintext highlighter-rouge">chartSettings.operatorClient</code></li>
+  <li>Changed <code class="language-plaintext highlighter-rouge">operatorClient</code> authentication settings from basic auth to API token-based (see <code class="language-plaintext highlighter-rouge">operatorClientOptions.operatorUsers</code> section)</li>
+</ul>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+				
+					<h3>
+						 Improvements:
+							
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>Added the possibility to expose the Operator Client via the Ingress (see “Enable Operator Client Ingress” installation guide).</p>
+
+									
+								</li>
+							
+								<li>
+									<p>Application Insights: greatly reduced the amount of “pulled empty batch” events in the <code class="language-plaintext highlighter-rouge">CustomEvents</code> telemetry to reduce log volume.</p>
+
+									
+								</li>
+							
+								<li>
+									<p>Increased default <code class="language-plaintext highlighter-rouge">signingProcessorService.dotNetGCHeapHardLimit</code> from 450 to 700 MB to avoid out of memory situations for XML and OPC signing.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+				
+					<h3>
+						 Bug Fixes:
+						
+					</h3>
+					
+						<ul>
+							
+								<li>
+									<p>Fixed a migration job issue which led the old color Application Pods running in case of an Kubernetes API server outage.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+				
+			
+			</div>
+		
+	
+</article>
 
 
 
@@ -1135,7 +1351,7 @@ Component
 								</li>
 							
 								<li>
-									<p><a href="/documentation/artifact-configuration/#zip-file-element">Select multiple files</a> is now generally available.</p>
+									<p><a href="/documentation/artifact-configuration#zip-file-element">Select multiple files</a> is now generally available.</p>
 
 									
 								</li>
@@ -1357,7 +1573,7 @@ Component
 								</li>
 							
 								<li>
-									<p>The zip archive created when uploading multiple files for signing is now named <code class="language-plaintext highlighter-rouge">bundle.zip</code>. See <a href="/documentation/artifact-configuration/#zip-file-element"><code class="language-plaintext highlighter-rouge">ui-multifile-upload</code></a>.</p>
+									<p>The zip archive created when uploading multiple files for signing is now named <code class="language-plaintext highlighter-rouge">bundle.zip</code>. See <a href="/documentation/artifact-configuration#zip-file-element"><code class="language-plaintext highlighter-rouge">ui-multifile-upload</code></a>.</p>
 
 									
 								</li>
@@ -1681,7 +1897,7 @@ Component
 						<ul>
 							
 								<li>
-									<p>Added <a href="/documentation/artifact-configuration/#zip-file-element"><code class="language-plaintext highlighter-rouge">ui-multifile-upload</code></a> feature to upload multiple files in signing request web client UI (preview).</p>
+									<p>Added <a href="/documentation/artifact-configuration#zip-file-element"><code class="language-plaintext highlighter-rouge">ui-multifile-upload</code></a> feature to upload multiple files in signing request web client UI (preview).</p>
 
 									
 								</li>

@@ -17,7 +17,7 @@
   <meta name="description" content="SignPath SaaS environment operational status"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css?cache=2023-11-17">
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-02-22">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2023-11-17'></script>
   <script src='/assets/js/main-bundle.js?cache=2023-11-17'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
@@ -38,10 +38,10 @@
               <ul><li> <a href='/code-signing/introduction'> Introduction </a> </li><li> <a href='/code-signing/theory'> Theory </a> </li><li> <a href='/code-signing/windows-platform'> Windows Platform </a> </li><li> <a href='/code-signing/test-certificates'> Managing Test Certificates </a> </li><li> <a href='/code-signing/private-keys'> Storage of Private Keys </a> </li><li> <a href='/code-signing/media-coverage'> Media Coverage </a> </li></ul>
             </li><li>
               <a href='/documentation'> Documentation </a>
-              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/signing-containers'> Signing Container Images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li> <a href='/documentation/crypto-providers'> Crypto Providers </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
+              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/signing-containers'> Signing Container Images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
             </li><li>
               <a href='/about-us'> About us </a>
-              <ul><li> <a href='/company'> Company </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
+              <ul><li> <a href='/company'> Company </a> </li><li> <a href='/team'> Team </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
             </li><li class='login'><a class='btn btn-flat' href='https://fqa.test.signpath.io/Web/Home/Login'>Login</a>
           <li class='login'><a href='https://fqa.test.signpath.io/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
           </li>
@@ -55,6 +55,7 @@
     </div>
   </header>
   <main>
+
 
 <section class="bg-black font-white top-section">
 	<div>
@@ -74,7 +75,25 @@ All systems are operational
 		<h3>Planned maintenance</h3><div>No maintenance planned.</div><ul></ul>
 
 		<h3>Past incidents and maintenance</h3>
-		<ul><li class="critical">
+		<ul><li class="warning">
+					<h3>Feb. 24, 2024</h3>
+					<label>Feb. 24, 2024 05:45 - 15:30 UTC</label>
+					<h4>Infrastructure problems</h4>
+					<div>
+						One node dealing with certificates on the software key store experienced network problems for signing operations. Signing requests with HSM-based keys were not affected.</div>
+				</li><li class="warning">
+					<h3>Feb. 22, 2024</h3>
+					<label>Feb. 22, 2024, 17:40 - 17:45 UTC</label>
+					<h4>DPoD services unavailable</h4>
+					<div>
+						For customers using Thales DPoD Cloud HSM, completion of signing requests was delayed until after the outage.<a href="https://status.dpondemand.io/incidents/fgrpzmfwcc35"> (Read more)</a></div>
+				</li><li class="warning">
+					<h3>Feb. 19, 2024</h3>
+					<label>Feb. 19, 2024 15:02 - 15:48 UTC</label>
+					<h4>DPoD services unreachable</h4>
+					<div>
+						For customers using Thales DPoD Cloud HSM, completion of signing requests was delayed until after the outage. (The origin of the connectivity problems could not be established, additional network probes added.)</div>
+				</li><li class="critical">
 					<h3>Feb. 1, 2024</h3>
 					<label>Feb. 1, 2024 14:04 - 14:08 UTC</label>
 					<h4>Processing errors</h4>
@@ -102,7 +121,7 @@ All systems are operational
 </div>
 				</li><li class="warning">
 					<h3>Nov. 8, 2023</h3>
-					<label>Nov 8, 2023 15:30 - Nov 23, 2023 14:00 UTC</label>
+					<label>Nov. 8, 2023 15:30 - Nov. 23, 2023 14:00 UTC</label>
 					<h4>Problem importing PFX files into the HSM key store</h4>
 					<div>
 						Importing private keys from PFX files into the HSM key store did not work (fixed in release 1.152).<br />
@@ -121,10 +140,10 @@ Software certificates and Thales DPoD Cloud HSM certificates were not affected. 
 					<label>Aug. 7, 2023 14:00 - 16:10 UTC</label>
 					<h4>DNS error</h4>
 					<div>
-						The domain signpath.io was not resolved by our domain registrar's name servers. Problem detection was delayed as many systems including our monitoring were using cached DNS entries, and support email transmission was affected by the same problem. We are currently investigation the root cause with our registrar.</div>
+						The domain signpath.io was not resolved by our domain registrar's name servers. Problem detection was delayed as many systems including our monitoring were using cached DNS entries, and support email transmission was affected by the same problem.</div>
 				</li><li class="warning">
 					<h3>May 11, 2023</h3>
-					<label>May 11, 2023 13:00 - May 12, 2003 09:22 UTC</label>
+					<label>May 11, 2023 13:00 - May 12, 2023 09:22 UTC</label>
 					<h4>Performance degradation</h4>
 					<div>
 						Performance issues due to a regression caused by a dependency. We noticed performance degradation in queue processing during the following periods: <br />
@@ -153,7 +172,7 @@ As an initial reaction to (1) and (2), we allocated additional computing resourc
 						Due to multi-region network problems in Microsoft Azure (Tracking ID VSG1-B90), a small percentage of signing requests was failing. In most situations, this was mitigated by automated retries.<a href="https://azure.status.microsoft/en-us/status/history/"> (Read more)</a></div>
 				</li><li class="critical">
 					<h3>Dec. 12, 2022</h3>
-					<label>Dec. 12, 2022 21:20 - Dec. 13, 9:50 UTC</label>
+					<label>Dec. 12, 2022 21:20 - Dec. 13, 2022 9:50 UTC</label>
 					<h4>Infrastructure problems</h4>
 					<div>
 						One node experienced low-level infrastructure problems for signing operations. The issue could not be identified at runtime, so affected signing requests were not retried and failed immediately.</div>
@@ -177,7 +196,7 @@ As an initial reaction to (1) and (2), we allocated additional computing resourc
 						Due to problems with the timestamp authority, several signing requests had to be rescheduled and completed late.<a href="https://status.digicert.com/incidents/4rrjfq4fvb91"> (Read more)</a></div>
 				</li><li class="warning">
 					<h3>Apr. 4, 2022</h3>
-					<label>Apr. 4, 2022 19:10 - Apr. 5, 8:25 UTC</label>
+					<label>Apr. 4, 2022 19:10 - Apr. 5, 2022 8:25 UTC</label>
 					<h4>Processing delays</h4>
 					<div>
 						Due to problems with the timestamp authority, several signing requests had to be rescheduled and completed late.<a href="https://status.digicert.com/incidents/64vmbtb8m91x"> (Read more)</a></div>
@@ -201,31 +220,31 @@ As an initial reaction to (1) and (2), we allocated additional computing resourc
 						Due to network configuration changes, HSM-based signing will experience problems. All signing requests will continue processing when network connectivity is restored.</div>
 				</li><li class="warning">
 					<h3>Aug. 28, 2021</h3>
-					<label>Aug. 28, 2021 21:30 - Aug. 29, 2021, 1:30 UTC</label>
+					<label>Aug. 28, 2021 21:30 - Aug. 29, 2021 1:30 UTC</label>
 					<h4>Planned maintenance</h4>
 					<div>
 						Due to network configuration changes, HSM-based signing will experience intermittent problems. All signing requests will continue processing when network connectivity is restored.</div>
 				</li><li class="warning">
 					<h3>Jan. 4, 2021</h3>
-					<label>Jan. 4, 2021, 12:00 - 13:00 UTC</label>
+					<label>Jan. 4, 2021 12:00 - 13:00 UTC</label>
 					<h4>Planned maintenance to change authentication provider</h4>
 					<div>
 						We are changing our authentication provider to Okta. This is the first of two migration steps.</div>
 				</li><li class="warning">
 					<h3>Nov. 18, 2020</h3>
-					<label>Nov. 18, 2020, 6:00 - 8:00 UTC</label>
+					<label>Nov. 18, 2020 6:00 - 8:00 UTC</label>
 					<h4>Payment provider: Planned maintenance</h4>
 					<div>
 						Our payment provider will do some maintenance, resulting in possible intermittent availability impact to platform services summing 1 hour. Service to existing customers of SignPath.io will not be affected.</div>
 				</li><li class="warning">
 					<h3>Nov. 4, 2020</h3>
-					<label>Nov. 4, 2020, 23:00 - Nov. 5, 2020, 5:00 UTC</label>
+					<label>Nov. 4, 2020 23:00 - Nov. 5, 2020 5:00 UTC</label>
 					<h4>Planned maintenance</h4>
 					<div>
 						Due to a reconfiguration of our internet provider, the processing of HSM-based signing requests and creating/deleting certificates may be temporarily unavailable.</div>
 				</li><li class="warning">
 					<h3>Jun. 4, 2020</h3>
-					<label>Jun. 4, 2020, 21:30 - Jun. 5, 2020, 4:00 UTC</label>
+					<label>Jun. 4, 2020 21:30 - Jun. 5, 2020 4:00 UTC</label>
 					<h4>Planned maintenance</h4>
 					<div>
 						Due to a reconfiguration of our internet provider, the processing of HSM-based signing requests and creating/deleting certificates may be temporarily unavailable.</div>
