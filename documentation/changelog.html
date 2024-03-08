@@ -129,7 +129,13 @@ Component
 								</li>
 							
 								<li>
-									<p>Split the REST API functionality to modify group memberships into separate routes providing options to either submit a  list of group members (<code class="language-plaintext highlighter-rouge">/ChangeMembers</code>) or to send incremental changes (<code class="language-plaintext highlighter-rouge">/ModifyMembers</code>).  See the <a href="https://app.signpath.io/Api/swagger">API definition</a> for more details.</p>
+									<p>Provided dedicated REST APIs for modifying group memberships:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/ChangeMembers</code> sets a new list of members</li>
+  <li><code class="language-plaintext highlighter-rouge">/ModifyMembers</code> allows to add/remove members</li>
+</ul>
+
+<p>See the <a href="https://app.signpath.io/Api/swagger">API definition</a> for more details.</p>
 
 									
 								</li>
@@ -175,7 +181,7 @@ Component
 								</li>
 							
 								<li>
-									<p>Added another safeguard mechanism that prevents the inactive color from processing signing requests.</p>
+									<p>Added an additional safeguard mechanism that prevents the inactive color deployment from processing signing requests.</p>
 
 									
 								</li>
@@ -455,7 +461,7 @@ Component
 						<ul>
 							
 								<li>
-									<p>Fixed a migration job issue which led the old color Application Pods running in case of an Kubernetes API server outage.</p>
+									<p>Fixed a migration job issue which left the old color Application Pods running in case of an Kubernetes API server outage.</p>
 
 									
 								</li>
