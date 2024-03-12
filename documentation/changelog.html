@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="/assets/css/index.css?cache=2024-02-22">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2024-03-07'></script>
-  <script src='/assets/js/main-bundle.js?cache=2023-11-17'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
+  <script src='/assets/js/main-bundle.js?cache=2024-03-07'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
   <link rel="icon" href="/assets/favicon.png" sizes="192x192">
   <link rel="apple-touch-icon-precomposed" href="/assets/favicon.png">
   <meta name="msapplication-TileImage" content="/assets/favicon.png">
@@ -93,171 +93,6 @@ Component
 
 
 
-
-
-
-
-
-
-
-
-
-<article class="release component-application component-self_hosted_installations component-crypto_providers" id="2024-03-14">
-	<h1>&nbsp;<span>March 14, 2024</span></h1>
-	
-		
-			<div class="component-application">
-			<h2>
-				 SignPath Application 1.159.0
-					
-			</h2>
-			
-				
-			
-				
-					<h3>
-						 Improvements:
-							
-					</h3>
-					
-						<ul>
-							
-								<li>
-									<p>Added a new API route <code class="language-plaintext highlighter-rouge">GET /v1-pre/&lt;org-id&gt;/SiginingRequests</code> that allows listing Signing Requests.  See the <a href="https://app.signpath.io/Api/swagger">API definition</a> for more details.</p>
-
-									
-								</li>
-							
-								<li>
-									<p>Provided dedicated REST APIs for modifying group memberships:</p>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">/ChangeMembers</code> sets a new list of members</li>
-  <li><code class="language-plaintext highlighter-rouge">/ModifyMembers</code> allows to add/remove members</li>
-</ul>
-
-<p>See the <a href="https://app.signpath.io/Api/swagger">API definition</a> for more details.</p>
-
-									
-								</li>
-							
-								<li>
-									<p>Improved the reliability of processing signing requests in case of temporary network errors.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-				
-			
-			</div>
-		
-			<div class="component-self_hosted_installations">
-			<h2>
-				 Self-hosted Installations 1.159.0
-					
-			</h2>
-			
-				
-			
-				
-					<h3>
-						 Improvements:
-							
-					</h3>
-					
-						<ul>
-							
-								<li>
-									<p>Added additional custom dimensions to AppInsights events.</p>
-
-									
-								</li>
-							
-								<li>
-									<p>The AdministrationUtility tool can now also log to AppInsights.</p>
-
-									
-								</li>
-							
-								<li>
-									<p>Added an additional safeguard mechanism that prevents the inactive color deployment from processing signing requests.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-				
-			
-				
-					<h3>
-						 Bug Fixes:
-						
-					</h3>
-					
-						<ul>
-							
-								<li>
-									<p>Fixed the mechanism that restarts the SignService components when the connection to a Luna/Thales DPoD HSM becomes corrupt.</p>
-
-									
-								</li>
-							
-								<li>
-									<p>Added missing ActivityId entries to the log output to ensure a consistent logging experience.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-				
-			
-			</div>
-		
-			<div class="component-crypto_providers">
-			<h2>
-				 Crypto Providers 4.4.1
-				
-			</h2>
-			
-				
-			
-				
-					<h3>
-						 Bug Fixes:
-						
-					</h3>
-					
-						<ul>
-							
-								<li>
-									<p>Fixed a bug that prevented the underlying error messages from being shown.</p>
-
-									
-								</li>
-							
-								<li>
-									<p>Fixed a bug that prevented retries from being executed properly in certain situations.</p>
-
-									
-								</li>
-							
-								<li>
-									<p>Fixed a bug in the Linux container samples for GPG signing.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-				
-			
-			</div>
-		
-	
-</article>
 
 
 
@@ -461,7 +296,7 @@ Component
 						<ul>
 							
 								<li>
-									<p>Fixed a migration job issue which left the old color Application Pods running in case of an Kubernetes API server outage.</p>
+									<p>Fixed a migration job issue which led the old color Application Pods running in case of an Kubernetes API server outage.</p>
 
 									
 								</li>
