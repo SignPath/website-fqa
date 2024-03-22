@@ -1,0 +1,392 @@
+<!-- last_modified_at:  --><!DOCTYPE html>
+<html lang="en" data-appurl='https://fqa.test.signpath.io'>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/crypto-providers/rest-api' />
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+  <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
+  <title>Crypto Providers - REST API | SignPath</title>
+  <meta property="og:title" content="Crypto Providers - REST API | SignPath" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:description" content="Direct usage of the REST API for hash signing" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/crypto-providers/rest-api" />
+  <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
+  <meta name="description" content="Direct usage of the REST API for hash signing"/>
+  <!-- End Jekyll SEO tag -->
+  <link rel='stylesheet' href='/assets/css/hint.min.css'>
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-02-22">
+  <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
+  <script src='/assets/index.js?cache=2024-03-07'></script>
+  <script src='/assets/js/main-bundle.js?cache=2024-03-07'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.png" sizes="192x192">
+  <link rel="apple-touch-icon-precomposed" href="/assets/favicon.png">
+  <meta name="msapplication-TileImage" content="/assets/favicon.png">
+</head>
+<body>
+  <header>
+    <div>
+      <a href='/'><img src='/assets/signpath-logo-white.svg' width="181" height="36" alt='SignPath'></a>
+      <nav>
+        <ul><li>
+              <a href='/product'> Product </a>
+              <ul><li> <a href='/product/features'> Features </a> </li><li> <a href='/product/editions'> Editions </a> </li><li class='separator' /><li> <a href='/product/devops'> For DevOps teams </a> </li><li> <a href='/product/infosec'> For InfoSec teams </a> </li><li> <a href='/product/open-source'> For Open Source projects </a> </li><li class='separator' /><li> <a href='/product/office-macros'> Office macro signing </a> </li><li> <a href='/product/pkic-best-practices'> PKI Consortium best practices </a> </li></ul>
+            </li><li>
+              <a href='/code-signing'> Code Signing </a>
+              <ul><li> <a href='/code-signing/introduction'> Introduction </a> </li><li> <a href='/code-signing/theory'> Theory </a> </li><li> <a href='/code-signing/windows-platform'> Windows Platform </a> </li><li> <a href='/code-signing/test-certificates'> Managing Test Certificates </a> </li><li> <a href='/code-signing/private-keys'> Storage of Private Keys </a> </li><li> <a href='/code-signing/media-coverage'> Media Coverage </a> </li></ul>
+            </li><li>
+              <a href='/documentation'> Documentation </a>
+              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/signing-containers'> Signing Container Images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li> <a href='/documentation/crypto-providers'> Crypto Providers </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
+            </li><li>
+              <a href='/about-us'> About us </a>
+              <ul><li> <a href='/company'> Company </a> </li><li> <a href='/team'> Team </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
+            </li><li class='login'><a class='btn btn-flat' href='https://fqa.test.signpath.io/Web/Home/Login'>Login</a>
+          <li class='login'><a href='https://fqa.test.signpath.io/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
+          </li>
+        </ul>
+        <a id='main-menu-toggle' href='#' onclick='document.querySelector("header > div > nav > ul").classList.toggle("open")'>
+          <div></div>
+          <div></div>
+          <div></div>
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main>
+<section class="bg-blue font-white top-section">
+	<div>
+		<h1><span class='no-break'>Crypto Providers &nbsp;❯&nbsp; </span> REST API</h1>
+	</div>
+</section>
+<section class="resources-section">
+	<div><aside>
+				<ul><li class=''>
+							<a href='/documentation/crypto-providers/#'>Crypto Providers</a></li><li class=''>
+							<a href='/documentation/crypto-providers/windows#'>Windows CSP and KSP</a></li><li class=''>
+							<a href='/documentation/crypto-providers/cryptoki#'>Cryptoki/PKCS#11</a></li><li class=''>
+							<a href='/documentation/crypto-providers/gpg#'>GPG</a></li><li class=''>
+							<a href='/documentation/crypto-providers/macos#'>macOS CryptoTokenKit</a></li><li class='active'>
+							<a href='/documentation/crypto-providers/rest-api#'>REST API</a><div class="no-mobile" ><ul>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#signing-request">Signing Request</a></li>
+  <li><a href="#retrieve-signing-policy-details">Retrieve Signing Policy details</a></li>
+</ul>
+</div></li></ul>
+			</aside><article><ul class="article-toc">
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#signing-request">Signing Request</a>
+    <ul>
+      <li><a href="#hash-signing-payload-json">payload.json format</a></li>
+      <li><a href="#signing-request-response">Response</a></li>
+    </ul>
+  </li>
+  <li><a href="#retrieve-signing-policy-details">Retrieve Signing Policy details</a></li>
+</ul>
+<h2 id="overview">Overview</h2>
+
+<p>As an alternative to using a Crypto Provider client, signing requests to a <a href="/documentation/crypto-providers#signpath-project-configuration">“Hash signing data”</a> project can also be performed directly via SignPath’s REST API.</p>
+
+<p>All API requests require the following parameters:</p>
+<table>
+    <thead>
+        <tr><th>
+
+Parameter 
+</th><th>
+
+Type 
+</th><th>
+
+Description 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">$ApiUrl</code></p>
+      </td><td>
+
+        <p>URL segment</p>
+      </td><td>
+
+        <p>The base URL of the SignPath API, e.g. <code class="language-plaintext highlighter-rouge">https://app.signpath.io/</code>​<code class="language-plaintext highlighter-rouge">Api</code> (default)</p>
+
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">$OrganizationId</code></p>
+      </td><td>
+
+        <p>URL segment</p>
+      </td><td>
+
+        <p>The id of the organization to use.</p>
+
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">Authorization: Bearer $ApiToken</code></p>
+      </td><td>
+
+        <p>Header</p>
+      </td><td>
+
+        <p>The API token for a CI or Interactive User (can be created in the “Users and Groups” UI).</p>
+
+      </td></tr></tbody>
+</table>
+<h2 id="signing-request">Signing Request</h2>
+
+<p>The signing request (which contains the hash to sign and metadata) is an HTTP POST request to <code class="language-plaintext highlighter-rouge">$ApiUrl/v1/$OrganizationId/</code>​<code class="language-plaintext highlighter-rouge">SigningRequests</code> with the following <code class="language-plaintext highlighter-rouge">multipart/form-data</code> fields:</p>
+<table>
+    <thead>
+        <tr><th>
+
+Name 
+</th><th>
+
+Description 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">ProjectSlug</code></p>
+      </td><td>
+
+        <p>The project slug to use.</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">SigningPolicySlug</code></p>
+      </td><td>
+
+        <p>The signing policy slug to use.</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">IsFastSigningRequest</code></p>
+      </td><td>
+
+        <p>Use <code class="language-plaintext highlighter-rouge">true</code> to get the signature directly in the response. Otherwise you will get only a <code class="language-plaintext highlighter-rouge">SigningRequestId</code> in the response. See also <a href="#signing-request-response">response description</a>.</p>
+
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">Artifact</code></p>
+      </td><td>
+
+        <p>A JSON document containing the the hash to sign and metadata. See <a href="#hash-signing-payload-json">following section</a>.</p>
+
+      </td></tr></tbody>
+</table>
+<p>Example request:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$FormBoundary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">New-Guid</span><span class="w">
+
+</span><span class="nv">$Response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Invoke-WebRequest</span><span class="w"> </span><span class="nt">-Method</span><span class="w"> </span><span class="nx">Post</span><span class="w"> </span><span class="nt">-Uri</span><span class="w"> </span><span class="s2">"</span><span class="nv">$ApiUrl</span><span class="s2">/v1/</span><span class="nv">$OrganizationId</span><span class="s2">/SigningRequests"</span><span class="w"> </span><span class="se">`
+</span><span class="w">    </span><span class="nt">-ContentType</span><span class="w"> </span><span class="s2">"multipart/form-data; boundary=</span><span class="nv">$FormBoundary</span><span class="s2">"</span><span class="w"> </span><span class="se">`
+</span><span class="w">    </span><span class="nt">-Headers</span><span class="w"> </span><span class="p">@{</span><span class="w"> </span><span class="nx">Authorization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Bearer </span><span class="nv">$ApiToken</span><span class="s2">"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="nt">-Body</span><span class="w"> </span><span class="sh">@"
+--</span><span class="nv">$FormBoundary</span><span class="sh">
+Content-Disposition: form-data; name="ProjectSlug"
+
+</span><span class="nv">$ProjectSlug</span><span class="sh">
+--</span><span class="nv">$FormBoundary</span><span class="sh">
+Content-Disposition: form-data; name="SigningPolicySlug"
+
+</span><span class="nv">$SigningPolicySlug</span><span class="sh">
+--</span><span class="nv">$FormBoundary</span><span class="sh">
+Content-Disposition: form-data; name="IsFastSigningRequest"
+
+true
+--</span><span class="nv">$FormBoundary</span><span class="sh">
+Content-Disposition: form-data; name="Artifact"; filename="payload.json"
+Content-Type: application/json
+
+{
+    "SignatureAlgorithm": "RsaPkcs1",
+    "RsaHashAlgorithm": "2.16.840.1.101.3.4.2.1",
+    "Base64EncodedHash": "GJShnIW6FTrL90OsTkP8AEyJFgSyb4xp4eg+oq/HxI8=",
+
+    "Metadata":
+    {
+        "CreatingProcess": { "CommandLine": "SampleCommand -SampleArgument", "User": "SampleUser" }
+    }
+}
+--</span><span class="nv">$FormBoundary</span><span class="sh">--
+"@</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="hash-signing-payload-json">payload.json format</h3>
+<table>
+    <thead>
+        <tr><th>
+
+JSON property 
+</th><th>
+
+Description 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">SignatureAlgorithm</code></p>
+      </td><td>
+
+        <p>For RSA certificates: <code class="language-plaintext highlighter-rouge">"RsaPkcs1"</code> for the PKCS #1 v1.5 padding mode, or <code class="language-plaintext highlighter-rouge">"RsaPss"</code> for PSS padding mode. For elliptic curve certificates: <code class="language-plaintext highlighter-rouge">Ecdsa</code>.</p>
+
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">RsaHashAlgorithm</code></p>
+      </td><td>
+
+        <p>The OID for used hash algorithm with the following allowed values: <code class="language-plaintext highlighter-rouge">"1.2.840.113549.2.5"</code> (MD5), <code class="language-plaintext highlighter-rouge">"1.3.14.3.2.26"</code> (SHA1), <code class="language-plaintext highlighter-rouge">"2.16.840.1.101.3.4.2.1"</code> (SHA-256), <code class="language-plaintext highlighter-rouge">"2.16.840.1.101.3.4.2.2"</code> (SHA-384), <code class="language-plaintext highlighter-rouge">"2.16.840.1.101.3.4.2.3"</code> (SHA-512). <em>Note that this property is only used for RSA certificates.</em></p>
+
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">Base64EncodedHash</code></p>
+      </td><td>
+
+        <p>The Base64 encoded hash value to sign. I.e. the result of the used <code class="language-plaintext highlighter-rouge">RsaHashAlgorithm</code>.</p>
+
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">Metadata</code></p>
+      </td><td>
+
+        <p>Can contain arbitrary metadata JSON values. We recommend to include <code class="language-plaintext highlighter-rouge">CreatingProcess</code> metadata with <code class="language-plaintext highlighter-rouge">CommandLine</code> and <code class="language-plaintext highlighter-rouge">User</code> as shown in the example above.</p>
+
+      </td></tr></tbody>
+</table>
+<div class="panel info">
+  <div class="panel-header">Key length</div>
+
+  <p>The used key length and therefore the length of the resulting <code class="language-plaintext highlighter-rouge">Signature</code> in the response depends on the key length of the used certificate referenced in the signing policy. For ECDSA signatures also the used curve is determined by the certificate.</p>
+
+</div>
+
+<h3 id="signing-request-response">Response</h3>
+
+<p>The response contains a JSON body with the following content depending on the request’s <code class="language-plaintext highlighter-rouge">IsFastSigningRequest</code> value.</p>
+
+<ul>
+  <li>
+    <p>If <code class="language-plaintext highlighter-rouge">IsFastSigningRequest</code> was <code class="language-plaintext highlighter-rouge">true</code>: The Base64-encoded signature in the <code class="language-plaintext highlighter-rouge">Signature</code> property and the repeated incoming JSON properties.</p>
+
+    <p>Example response:</p>
+
+    <pre><code class="language-JSON"> {
+    "SignatureAlgorithm": "RsaPkcs1",
+    "RsaHashAlgorithm": "2.16.840.1.101.3.4.2.1",
+    "Base64EncodedHash": "GJShnIW6FTrL90OsTkP8AEyJFgSyb4xp4eg+oq/HxI8=",
+    "Metadata": { ... },
+    "Signature": "wGI2oiHHVSVGHR1rtjv83Pir1SEVLmnLNGuJD4..."
+ }
+</code></pre>
+  </li>
+  <li>
+    <p>If <code class="language-plaintext highlighter-rouge">IsFastSigningRequest</code> was <code class="language-plaintext highlighter-rouge">false</code>: Only a <code class="language-plaintext highlighter-rouge">SigningRequestId</code> property. The actual signing operation will be performed asynchronously and can be retrieved via following <code class="language-plaintext highlighter-rouge">GET $ApiUrl/v1/$OrganizationId/</code>​<code class="language-plaintext highlighter-rouge">SigningRequests/$SigningRequestId</code> requests to check the status and retrieve the signature value. See the <a href="/documentation/build-system-integration#get-signing-request-data">“Get signing request data” section</a> for more information.</p>
+  </li>
+</ul>
+
+<h2 id="retrieve-signing-policy-details">Retrieve Signing Policy details</h2>
+
+<p>Via <code class="language-plaintext highlighter-rouge">GET $ApiUrl/v1/$OrganizationId/</code>​<code class="language-plaintext highlighter-rouge">Cryptoki/MySigningPolicies</code> all signing policies with the user referenced by the API token assigned as <em>Submitter</em> can be queried. With optional <code class="language-plaintext highlighter-rouge">?projectSlug=$ProjectSlug&amp;</code>​<code class="language-plaintext highlighter-rouge">signingPolicySlug=$SigningPolicySlug</code> query parameters the returned signing policies can be restricted (to exactly one if the project / signing policy exists).</p>
+
+<p>The response contains signing policy details like the <code class="language-plaintext highlighter-rouge">signingPolicyId</code>, the RSA key parameters or the referenced X.509 certificate (<code class="language-plaintext highlighter-rouge">certificateBytes</code>).</p>
+
+<p>Example response:</p>
+
+<pre><code class="language-JSON">{
+    "signingPolicies": [
+        {
+            "signingPolicySlug": "test-signing",
+            "projectSlug": "hash-signing-test",
+            "keySizeInBits": 2048,
+            "rsaParameters": {
+                "publicExponent": "AQAB",
+                "modulus": "2e4JTm..."
+            },
+            "signingPolicyId": "eacd4b78-6038-4450-9eec-4acd1c7ba6f1",
+            "certificateBytes": "MIIC5zCC...",
+            "keyType": "Rsa",
+            "publicKeyBytes": "MIIBCgKC..."
+        },
+        ... in case multiple signing policies match
+    ]
+}
+</code></pre>
+
+		</article>
+	</div>
+</section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
+	<div>
+		<h2>Sign up for news and special offers</h2>
+		<form class="ml-block-form" action="https://app.mailerlite.com/webforms/submit/d7c3i1" data-code="d7c3i1" method="post">
+			<input type="text" class="form-control" data-inputmask="" name="fields[name]" value="" placeholder="Name">
+			<input type="email" class="form-control" data-inputmask="" name="fields[email]" value="" placeholder="Email">
+			<input type="hidden" name="ml-submit" value="1">
+			<button type="submit" class="btn btn-secondary newsletter">Subscribe</button>
+		</form>
+	</div>
+</section>
+</main>
+  <footer>
+  	<div>
+	  	<div>
+	  		<img src='/assets/signpath-logo-white.svg' width="334" height="67" alt='SignPath'/>
+	  		<svg viewBox="0 0 244 18">
+			  <text x="0" y="15">CODE SIGNING SIMPLE &amp; SECURE</text>
+			</svg>
+	  		<div>
+				<a target="_blank" href="https://www.linkedin.com/company/33243108" rel="noopener noreferrer">
+<svg class="icon footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor"  d="M 8.6425781 4 C 7.1835781 4 6 5.181625 6 6.640625 C 6 8.099625 7.182625 9.3085938 8.640625 9.3085938 C 10.098625 9.3085938 11.283203 8.099625 11.283203 6.640625 C 11.283203 5.182625 10.101578 4 8.6425781 4 z M 21.535156 11 C 19.316156 11 18.0465 12.160453 17.4375 13.314453 L 17.373047 13.314453 L 17.373047 11.310547 L 13 11.310547 L 13 26 L 17.556641 26 L 17.556641 18.728516 C 17.556641 16.812516 17.701266 14.960938 20.072266 14.960938 C 22.409266 14.960937 22.443359 17.145609 22.443359 18.849609 L 22.443359 26 L 26.994141 26 L 27 26 L 27 17.931641 C 27 13.983641 26.151156 11 21.535156 11 z M 6.3632812 11.310547 L 6.3632812 26 L 10.923828 26 L 10.923828 11.310547 L 6.3632812 11.310547 z"/></svg></a>
+				&nbsp;&nbsp;
+				<a target="_blank" href="mailto:info@signpath.io" rel="noopener noreferrer"><svg class="icon footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 3 8 L 3 26 L 29 26 L 29 8 Z M 7.3125 10 L 24.6875 10 L 16 15.78125 Z M 5 10.875 L 15.4375 17.84375 L 16 18.1875 L 16.5625 17.84375 L 27 10.875 L 27 24 L 5 24 Z"/></svg>
+</div>
+	  	</div>
+	  	<div>
+	  		<a href='/privacy-policy'>Privacy Policy</a>
+	  		<a href='/terms-of-service'>Terms of Service</a>
+	  		<a href='/status'><span style="color: lightgreen;"><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</span>Status
+			</a>
+	  	</div>
+	</div>
+  </footer>
+        <div id='cookie-info'>
+            <h3>Cookie settings</h3>
+            <div class="container">
+                <span>We use cookies to enhance your browsing experience.</span>
+                <p class="mobile show-more active"><a>Show more information</a></p>
+                <p class="mobile show-less"><a>Show less information</a></p>
+                <span class="information">By clicking the “Accept” button below, you agree that non-essential cookies on our website may be used by us and by third parties, some of them located in the USA. Learn more about our cookies in our <a
+                            href='/privacy-policy'>Privacy
+					Policy</a>
+                </span>
+				<div class="actions">
+					<button class='btn btn-primary' id='acknowledge-cookies-btn'>Accept</button>
+					<button class="btn btn-grey" id='refuse-cookies-btn'>Refuse</button>
+				</div>
+            </div>
+			<script>
+				const queryString = window.location.search;
+				const urlParams = new URLSearchParams(queryString);
+				const adgroupid = urlParams.get('adgroupid') ? urlParams.get('adgroupid') : document.cookie.match('(^|;)\\s*' + 'adgroupid' + '\\s*=\\s*([^;]+)')?.pop() || ''
+
+				if (adgroupid) {
+					const els_trial = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Subscription/StartFreeTrial' + "']")
+					const els_login = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Home/Login' + "']");
+
+					for (let child of els_trial) {
+						if (child.tagName === 'A') {
+							child.href = child.href + '?websiteCorrelationId=' + adgroupid
+						}
+					}
+
+					for (let child of els_login) {
+						if (child.tagName === 'A') {
+							child.href = child.href + '?websiteCorrelationId=' + adgroupid
+						}
+					}
+				}
+			</script>
+		</div>
+	</footer>
+</body>
+</html>
