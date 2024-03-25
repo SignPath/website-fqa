@@ -78,8 +78,10 @@
   <li><a href="#overview">Overview</a></li>
   <li><a href="#signing-request">Signing Request</a>
     <ul>
-      <li><a href="#hash-signing-payload-json">payload.json format</a></li>
+      <li><a href="#fast-signing">Fast signing</a></li>
+      <li><a href="#hash-signing-payload-json">Artifact format for signing hash digests</a></li>
       <li><a href="#signing-request-response">Response</a></li>
+      <li><a href="#example">Example</a></li>
     </ul>
   </li>
   <li><a href="#retrieve-signing-policy-details">Retrieve Signing Policy details</a></li>
@@ -88,209 +90,118 @@
 
 <p>As an alternative to using a Crypto Provider client, signing requests to a <a href="/documentation/crypto-providers#signpath-project-configuration">“Hash signing data”</a> project can also be performed directly via SignPath’s REST API.</p>
 
-<p>All API requests require the following parameters:</p>
-<table>
-    <thead>
-        <tr><th>
-
-Parameter 
-</th><th>
-
-Type 
-</th><th>
-
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">$ApiUrl</code></p>
-      </td><td>
-
-        <p>URL segment</p>
-      </td><td>
-
-        <p>The base URL of the SignPath API, e.g. <code class="language-plaintext highlighter-rouge">https://app.signpath.io/</code>​<code class="language-plaintext highlighter-rouge">Api</code> (default)</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">$OrganizationId</code></p>
-      </td><td>
-
-        <p>URL segment</p>
-      </td><td>
-
-        <p>The id of the organization to use.</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">Authorization: Bearer $ApiToken</code></p>
-      </td><td>
-
-        <p>Header</p>
-      </td><td>
-
-        <p>The API token for a CI or Interactive User (can be created in the “Users and Groups” UI).</p>
-
-      </td></tr></tbody>
-</table>
 <h2 id="signing-request">Signing Request</h2>
 
-<p>The signing request (which contains the hash to sign and metadata) is an HTTP POST request to <code class="language-plaintext highlighter-rouge">$ApiUrl/v1/$OrganizationId/</code>​<code class="language-plaintext highlighter-rouge">SigningRequests</code> with the following <code class="language-plaintext highlighter-rouge">multipart/form-data</code> fields:</p>
+<p>See <a href="/documentation/build-system-integration#rest-api">HTTP REST API</a> for basic instructions to submit a signing request.</p>
+
+<h3 id="fast-signing">Fast signing</h3>
+
+<p>For hash data we recommend using a <em>fast signing request</em>. These requests are performed immediately without queuing, and the API immediately returns the signed artifact.</p>
+
+<ul>
+  <li>Provide the additional field <code class="language-plaintext highlighter-rouge">IsFastSigningRequest</code> with the value <code class="language-plaintext highlighter-rouge">true</code></li>
+  <li>The API returns the JSON-formatted result (see <a href="#signing-request-response">response description</a>)</li>
+</ul>
+
+<p>(By default, the API returns a signing request ID that can be used to <a href="/documentation/build-system-integration#get-signing-request-data">get the result</a>.)</p>
+
+<h3 id="hash-signing-payload-json">Artifact format for signing hash digests</h3>
+
 <table>
-    <thead>
-        <tr><th>
-
-Name 
-</th><th>
-
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">ProjectSlug</code></p>
-      </td><td>
-
-        <p>The project slug to use.</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SigningPolicySlug</code></p>
-      </td><td>
-
-        <p>The signing policy slug to use.</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">IsFastSigningRequest</code></p>
-      </td><td>
-
-        <p>Use <code class="language-plaintext highlighter-rouge">true</code> to get the signature directly in the response. Otherwise you will get only a <code class="language-plaintext highlighter-rouge">SigningRequestId</code> in the response. See also <a href="#signing-request-response">response description</a>.</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">Artifact</code></p>
-      </td><td>
-
-        <p>A JSON document containing the the hash to sign and metadata. See <a href="#hash-signing-payload-json">following section</a>.</p>
-
-      </td></tr></tbody>
+  <thead>
+    <tr>
+      <th>JSON property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SignatureAlgorithm</code></td>
+      <td>For RSA certificates: <code class="language-plaintext highlighter-rouge">"RsaPkcs1"</code> for the PKCS #1 v1.5 padding mode, or <code class="language-plaintext highlighter-rouge">"RsaPss"</code> for PSS padding mode. For elliptic curve certificates: <code class="language-plaintext highlighter-rouge">Ecdsa</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RsaHashAlgorithm</code>”</td>
+      <td>The OID for used hash algorithm with the following allowed values: <code class="language-plaintext highlighter-rouge">"1.2.840.113549.2.5"</code> (MD5), <code class="language-plaintext highlighter-rouge">"1.3.14.3.2.26"</code> (SHA1), <code class="language-plaintext highlighter-rouge">"2.16.840.1.101.3.4.2.1"</code> (SHA-256), <code class="language-plaintext highlighter-rouge">"2.16.840.1.101.3.4.2.2"</code> (SHA-384), <code class="language-plaintext highlighter-rouge">"2.16.840.1.101.3.4.2.3"</code> (SHA-512). <em>Note that this property is only used for RSA certificates.</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Base64EncodedHash</code></td>
+      <td>The Base64 encoded hash value to sign. I.e. the result of the used <code class="language-plaintext highlighter-rouge">RsaHashAlgorithm</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Metadata</code></td>
+      <td>Can contain arbitrary metadata JSON values. We recommend to include <code class="language-plaintext highlighter-rouge">CreatingProcess</code> metadata with <code class="language-plaintext highlighter-rouge">CommandLine</code> and <code class="language-plaintext highlighter-rouge">User</code> as shown in the example above.</td>
+    </tr>
+  </tbody>
 </table>
-<p>Example request:</p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$FormBoundary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">New-Guid</span><span class="w">
+<div class="panel info">
+  <div class="panel-header">Key length</div>
 
-</span><span class="nv">$Response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Invoke-WebRequest</span><span class="w"> </span><span class="nt">-Method</span><span class="w"> </span><span class="nx">Post</span><span class="w"> </span><span class="nt">-Uri</span><span class="w"> </span><span class="s2">"</span><span class="nv">$ApiUrl</span><span class="s2">/v1/</span><span class="nv">$OrganizationId</span><span class="s2">/SigningRequests"</span><span class="w"> </span><span class="se">`
-</span><span class="w">    </span><span class="nt">-ContentType</span><span class="w"> </span><span class="s2">"multipart/form-data; boundary=</span><span class="nv">$FormBoundary</span><span class="s2">"</span><span class="w"> </span><span class="se">`
-</span><span class="w">    </span><span class="nt">-Headers</span><span class="w"> </span><span class="p">@{</span><span class="w"> </span><span class="nx">Authorization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Bearer </span><span class="nv">$ApiToken</span><span class="s2">"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="nt">-Body</span><span class="w"> </span><span class="sh">@"
---</span><span class="nv">$FormBoundary</span><span class="sh">
-Content-Disposition: form-data; name="ProjectSlug"
+  <p>SignPath crypto providers use the file name <code class="language-plaintext highlighter-rouge">payload.json</code> for hash digest artifacts.</p>
+</div>
 
-</span><span class="nv">$ProjectSlug</span><span class="sh">
---</span><span class="nv">$FormBoundary</span><span class="sh">
-Content-Disposition: form-data; name="SigningPolicySlug"
+<h3 id="signing-request-response">Response</h3>
 
-</span><span class="nv">$SigningPolicySlug</span><span class="sh">
---</span><span class="nv">$FormBoundary</span><span class="sh">
-Content-Disposition: form-data; name="IsFastSigningRequest"
+<p>The response artifact has the same format and values as the request artifact with the additional property ‘Signature’.</p>
 
-true
---</span><span class="nv">$FormBoundary</span><span class="sh">
-Content-Disposition: form-data; name="Artifact"; filename="payload.json"
-Content-Type: application/json
+<table>
+  <thead>
+    <tr>
+      <th>JSON property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Signature </code></td>
+      <td>Base64-encoded signature of ‘Base64EncodedHash’. Format and length depend on the key of the signing policy’s certificate.</td>
+    </tr>
+  </tbody>
+</table>
 
-{
+<h3 id="example">Example</h3>
+
+<p><strong>Request:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$API_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
+     <span class="nt">-F</span> <span class="s2">"ProjectSlug=</span><span class="nv">$PROJECT</span><span class="s2">"</span> <span class="se">\</span>
+     <span class="nt">-F</span> <span class="s2">"SigningPolicySlug=test-signing"</span> <span class="se">\</span>
+     <span class="nt">-F</span> <span class="s2">"IsFastSigningRequest=true"</span> <span class="se">\</span>
+     <span class="nt">-F</span> <span class="s2">"Artifact=@</span><span class="nv">$PATH_TO_ARTIFACT</span><span class="s2">"</span> 
+     https://app.signpath.io/API/v1/<span class="nv">$ORGANIZATION_ID</span>/SigningRequests
+</code></pre></div></div>
+
+<p><strong>Request artifact:</strong></p>
+
+<pre><code class="language-JSON">{
     "SignatureAlgorithm": "RsaPkcs1",
     "RsaHashAlgorithm": "2.16.840.1.101.3.4.2.1",
     "Base64EncodedHash": "GJShnIW6FTrL90OsTkP8AEyJFgSyb4xp4eg+oq/HxI8=",
-
     "Metadata":
     {
         "CreatingProcess": { "CommandLine": "SampleCommand -SampleArgument", "User": "SampleUser" }
     }
 }
---</span><span class="nv">$FormBoundary</span><span class="sh">--
-"@</span><span class="w">
-</span></code></pre></div></div>
+</code></pre>
 
-<h3 id="hash-signing-payload-json">payload.json format</h3>
-<table>
-    <thead>
-        <tr><th>
+<p><strong>Response:</strong></p>
 
-JSON property 
-</th><th>
-
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SignatureAlgorithm</code></p>
-      </td><td>
-
-        <p>For RSA certificates: <code class="language-plaintext highlighter-rouge">"RsaPkcs1"</code> for the PKCS #1 v1.5 padding mode, or <code class="language-plaintext highlighter-rouge">"RsaPss"</code> for PSS padding mode. For elliptic curve certificates: <code class="language-plaintext highlighter-rouge">Ecdsa</code>.</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">RsaHashAlgorithm</code></p>
-      </td><td>
-
-        <p>The OID for used hash algorithm with the following allowed values: <code class="language-plaintext highlighter-rouge">"1.2.840.113549.2.5"</code> (MD5), <code class="language-plaintext highlighter-rouge">"1.3.14.3.2.26"</code> (SHA1), <code class="language-plaintext highlighter-rouge">"2.16.840.1.101.3.4.2.1"</code> (SHA-256), <code class="language-plaintext highlighter-rouge">"2.16.840.1.101.3.4.2.2"</code> (SHA-384), <code class="language-plaintext highlighter-rouge">"2.16.840.1.101.3.4.2.3"</code> (SHA-512). <em>Note that this property is only used for RSA certificates.</em></p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">Base64EncodedHash</code></p>
-      </td><td>
-
-        <p>The Base64 encoded hash value to sign. I.e. the result of the used <code class="language-plaintext highlighter-rouge">RsaHashAlgorithm</code>.</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">Metadata</code></p>
-      </td><td>
-
-        <p>Can contain arbitrary metadata JSON values. We recommend to include <code class="language-plaintext highlighter-rouge">CreatingProcess</code> metadata with <code class="language-plaintext highlighter-rouge">CommandLine</code> and <code class="language-plaintext highlighter-rouge">User</code> as shown in the example above.</p>
-
-      </td></tr></tbody>
-</table>
-<div class="panel info">
-  <div class="panel-header">Key length</div>
-
-  <p>The used key length and therefore the length of the resulting <code class="language-plaintext highlighter-rouge">Signature</code> in the response depends on the key length of the used certificate referenced in the signing policy. For ECDSA signatures also the used curve is determined by the certificate.</p>
-
-</div>
-
-<h3 id="signing-request-response">Response</h3>
-
-<p>The response contains a JSON body with the following content depending on the request’s <code class="language-plaintext highlighter-rouge">IsFastSigningRequest</code> value.</p>
-
-<ul>
-  <li>
-    <p>If <code class="language-plaintext highlighter-rouge">IsFastSigningRequest</code> was <code class="language-plaintext highlighter-rouge">true</code>: The Base64-encoded signature in the <code class="language-plaintext highlighter-rouge">Signature</code> property and the repeated incoming JSON properties.</p>
-
-    <p>Example response:</p>
-
-    <pre><code class="language-JSON"> {
+<pre><code class="language-JSON">{
     "SignatureAlgorithm": "RsaPkcs1",
     "RsaHashAlgorithm": "2.16.840.1.101.3.4.2.1",
     "Base64EncodedHash": "GJShnIW6FTrL90OsTkP8AEyJFgSyb4xp4eg+oq/HxI8=",
     "Metadata": { ... },
     "Signature": "wGI2oiHHVSVGHR1rtjv83Pir1SEVLmnLNGuJD4..."
- }
+}
 </code></pre>
-  </li>
-  <li>
-    <p>If <code class="language-plaintext highlighter-rouge">IsFastSigningRequest</code> was <code class="language-plaintext highlighter-rouge">false</code>: Only a <code class="language-plaintext highlighter-rouge">SigningRequestId</code> property. The actual signing operation will be performed asynchronously and can be retrieved via following <code class="language-plaintext highlighter-rouge">GET $ApiUrl/v1/$OrganizationId/</code>​<code class="language-plaintext highlighter-rouge">SigningRequests/$SigningRequestId</code> requests to check the status and retrieve the signature value. See the <a href="/documentation/build-system-integration#get-signing-request-data">“Get signing request data” section</a> for more information.</p>
-  </li>
-</ul>
 
 <h2 id="retrieve-signing-policy-details">Retrieve Signing Policy details</h2>
 
-<p>Via <code class="language-plaintext highlighter-rouge">GET $ApiUrl/v1/$OrganizationId/</code>​<code class="language-plaintext highlighter-rouge">Cryptoki/MySigningPolicies</code> all signing policies with the user referenced by the API token assigned as <em>Submitter</em> can be queried. With optional <code class="language-plaintext highlighter-rouge">?projectSlug=$ProjectSlug&amp;</code>​<code class="language-plaintext highlighter-rouge">signingPolicySlug=$SigningPolicySlug</code> query parameters the returned signing policies can be restricted (to exactly one if the project / signing policy exists).</p>
+<p>Use <code class="language-plaintext highlighter-rouge">GET https://app.signpath.io/api/v1/$OrganizationId/Cryptoki/MySigningPolicies?</code><code class="language-plaintext highlighter-rouge">projectSlug=$Project&amp;signingPolicySlug=$SigningPolicy</code> to get information about the signing plicy, including the X.509 certificate and RSA key parameters.</p>
 
-<p>The response contains signing policy details like the <code class="language-plaintext highlighter-rouge">signingPolicyId</code>, the RSA key parameters or the referenced X.509 certificate (<code class="language-plaintext highlighter-rouge">certificateBytes</code>).</p>
+<p>(If project and signing policy are not specified, this API returns all signing policies where user identified by the API token is assigned as <em>Submitter</em>.)</p>
 
-<p>Example response:</p>
+<p><strong>Example response:</strong></p>
 
 <pre><code class="language-JSON">{
     "signingPolicies": [
@@ -306,8 +217,7 @@ Description
             "certificateBytes": "MIIC5zCC...",
             "keyType": "Rsa",
             "publicKeyBytes": "MIIBCgKC..."
-        },
-        ... in case multiple signing policies match
+        }
     ]
 }
 </code></pre>
