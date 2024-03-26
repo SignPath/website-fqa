@@ -173,27 +173,27 @@
 
 <p><strong>Request artifact:</strong></p>
 
-<pre><code class="language-JSON">{
-    "SignatureAlgorithm": "RsaPkcs1",
-    "RsaHashAlgorithm": "2.16.840.1.101.3.4.2.1",
-    "Base64EncodedHash": "GJShnIW6FTrL90OsTkP8AEyJFgSyb4xp4eg+oq/HxI8=",
-    "Metadata":
-    {
-        "CreatingProcess": { "CommandLine": "SampleCommand -SampleArgument", "User": "SampleUser" }
-    }
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"SignatureAlgorithm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RsaPkcs1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"RsaHashAlgorithm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.16.840.1.101.3.4.2.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Base64EncodedHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GJShnIW6FTrL90OsTkP8AEyJFgSyb4xp4eg+oq/HxI8="</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Metadata"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"CreatingProcess"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"CommandLine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SampleCommand -SampleArgument"</span><span class="p">,</span><span class="w"> </span><span class="nl">"User"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SampleUser"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <p><strong>Response:</strong></p>
 
-<pre><code class="language-JSON">{
-    "SignatureAlgorithm": "RsaPkcs1",
-    "RsaHashAlgorithm": "2.16.840.1.101.3.4.2.1",
-    "Base64EncodedHash": "GJShnIW6FTrL90OsTkP8AEyJFgSyb4xp4eg+oq/HxI8=",
-    "Metadata": { ... },
-    "Signature": "wGI2oiHHVSVGHR1rtjv83Pir1SEVLmnLNGuJD4..."
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"SignatureAlgorithm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RsaPkcs1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"RsaHashAlgorithm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.16.840.1.101.3.4.2.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Base64EncodedHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GJShnIW6FTrL90OsTkP8AEyJFgSyb4xp4eg+oq/HxI8="</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wGI2oiHHVSVGHR1rtjv83Pir1SEVLmnLNGuJD4..."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="retrieve-signing-policy-details">Retrieve Signing Policy details</h2>
 
@@ -203,24 +203,24 @@
 
 <p><strong>Example response:</strong></p>
 
-<pre><code class="language-JSON">{
-    "signingPolicies": [
-        {
-            "signingPolicySlug": "test-signing",
-            "projectSlug": "hash-signing-test",
-            "keySizeInBits": 2048,
-            "rsaParameters": {
-                "publicExponent": "AQAB",
-                "modulus": "2e4JTm..."
-            },
-            "signingPolicyId": "eacd4b78-6038-4450-9eec-4acd1c7ba6f1",
-            "certificateBytes": "MIIC5zCC...",
-            "keyType": "Rsa",
-            "publicKeyBytes": "MIIBCgKC..."
-        }
-    ]
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"signingPolicies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"signingPolicySlug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-signing"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"projectSlug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hash-signing-test"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"keySizeInBits"</span><span class="p">:</span><span class="w"> </span><span class="mi">2048</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"rsaParameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"publicExponent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AQAB"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"modulus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2e4JTm..."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"signingPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eacd4b78-6038-4450-9eec-4acd1c7ba6f1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"certificateBytes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIIC5zCC..."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"keyType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rsa"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"publicKeyBytes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIIBCgKC..."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 		</article>
 	</div>
