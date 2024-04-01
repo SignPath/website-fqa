@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/signing-containers/cosign' />
+  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/artifact-configuration/' />
   <!-- Begin Jekyll SEO tag v2.6.1 -->
   <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
-  <title>Container Signing - Sigstore Cosign | SignPath</title>
-  <meta property="og:title" content="Container Signing - Sigstore Cosign | SignPath" />
+  <title>Documentation - Artifact Configuration | SignPath</title>
+  <meta property="og:title" content="Documentation - Artifact Configuration | SignPath" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:description" content="Documentation for signing Docker images with SignPath using cosign" />
-  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/signing-containers/cosign" />
+  <meta property="og:description" content="Artifact configuration syntax and elements" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/artifact-configuration/" />
   <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
-  <meta name="description" content="Documentation for signing Docker images with SignPath using cosign"/>
+  <meta name="description" content="Artifact configuration syntax and elements"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
   <link rel="stylesheet" href="/assets/css/index.css?cache=2024-02-22">
@@ -57,97 +57,85 @@
   <main>
 <section class="bg-blue font-white top-section">
 	<div>
-		<h1><span class='no-break'>Container Signing &nbsp;❯&nbsp; </span> Sigstore Cosign</h1>
+		<h1><span class='no-break'>Documentation &nbsp;❯&nbsp; </span> Artifact Configuration</h1>
 	</div>
 </section>
 <section class="resources-section">
 	<div><aside>
-				<ul><li class=''>
-							<a href='/documentation/signing-containers/#'>Signing Container Images</a></li><li class='active'>
-							<a href='/documentation/signing-containers/cosign#'>Sigstore Cosign</a><div class="no-mobile" ><ul>
-  <li><a href="#overview">Overview</a></li>
-  <li><a href="#prerequisites">Prerequisites</a></li>
-  <li><a href="#signing">Signing</a></li>
+				<ul><li class='active'>
+							<a href='/documentation/artifact-configuration/#'>Artifact Configuration</a><div class="no-mobile" ><ul>
+  <li><a href="#abstract">Abstract</a></li>
+  <li><a href="#creating-and-editing-artifact-configurations">Creating and editing artifact configurations</a></li>
+  <li><a href="#signing-multiple-files">Signing multiple files</a></li>
+  <li><a href="#deep-signing-of-nested-files">Deep signing of nested files</a></li>
 </ul>
 </div></li><li class=''>
-							<a href='/documentation/signing-containers/docker-content-trust#'>Docker Content Trust (DCT)</a></li></ul>
-			</aside><article>
-<h2 id="overview">Overview</h2>
+							<a href='/documentation/artifact-configuration/syntax#'>Syntax</a></li><li class=''>
+							<a href='/documentation/artifact-configuration/reference#'>Reference</a></li><li class=''>
+							<a href='/documentation/artifact-configuration/examples#'>Examples</a></li></ul>
+			</aside><article><ul class="article-toc">
+  <li><a href="#abstract">Abstract</a></li>
+  <li><a href="#creating-and-editing-artifact-configurations">Creating and editing artifact configurations</a>
+    <ul>
+      <li><a href="#upload-an-artifact-sample">Upload an artifact sample</a></li>
+      <li><a href="#create-an-artifact-configuration">Create an artifact configuration</a></li>
+      <li><a href="#edit-an-artifact-configuration">Edit an artifact configuration</a></li>
+    </ul>
+  </li>
+  <li><a href="#signing-multiple-files">Signing multiple files</a></li>
+  <li><a href="#deep-signing-of-nested-files">Deep signing of nested files</a></li>
+</ul>
+<h2 id="abstract">Abstract</h2>
 
-<p><em>Cosign</em> is part of the <a href="https://www.sigstore.dev/">Sigstore</a> project. It is primarily targeted at the open source community, allowing individual developers and Github Actions builds to authenticate using OpenIdConnect and receive short-lived signing keys from a Fulcio certificate authority (CA). All signatures are recorded in a public transparency log (called Rekor). Due to the keys not being persistent anywhere, <em>cosign</em> refers to this method as “keyless signing”.</p>
+<p>The artifact configuration describes the structure of the artifacts you want to sign. For simple artifacts, you can use predefined configurations to get started quickly. For signing several artifacts together, and for more complex artifacts, specify the structure of your artifact and provide signing directives using XML.</p>
 
-<p>This approach is not practical for all organizations which</p>
+<p><img src="/assets/img/resources/documentation_artifact-configuration.png" alt="Artifact configuration XML" /></p>
+
+<h2 id="creating-and-editing-artifact-configurations">Creating and editing artifact configurations</h2>
+
+<h3 id="upload-an-artifact-sample">Upload an artifact sample</h3>
+
+<p>Before you start creating an artifact configuration from scratch, we recommend that you upload an artifact sample first. SignPath will then analyze your sample and look for nested artifacts that can be signed.</p>
+
+<p>For non-trivial artifacts, you may want to edit the resulting artifact configuration:</p>
+
 <ul>
-  <li>use an automated build system that does not support cosign (currently only Github Actions SaaS and Gitlab SaaS) or</li>
-  <li>don’t want their signatures to be logged in the public Rekor log and don’t want to operate their own Fulcio CA</li>
+  <li>It may contain signing instructions for files that you do not want to sign, such as third-party components.</li>
+  <li>It may contain fixed strings, such as version numbers, that you want to replace with <a href="syntax#wildcards">wildcards</a>.</li>
+  <li>It may have very similar sections that you want to unify using <a href="syntax#directory-element"><code class="language-plaintext highlighter-rouge">&lt;directory&gt;</code></a> elements and wildcards (<a href="examples#signing-similar-directories-within-an-msi-file">example</a>).</li>
 </ul>
 
-<p>For these organizations, signing with <em>cosign</em> is only possible using public/private key pairs.</p>
+<h3 id="create-an-artifact-configuration">Create an artifact configuration</h3>
 
-<div class="panel info">
-  <div class="panel-header">X.509 certificate chains in cosign</div>
+<p>When you create a new project, a default artifact configuration will be added. To create additional artifact configurations, select the project and click <strong>Add</strong> in the <strong>Artifact Configurations</strong> section. In either case, you can</p>
 
-  <p><em>cosign</em> builds upon X.509 certificate chains, but requires specific additional attributes to be set in each certificate. The sigstore project is actively working on supporting custom certificates from traditional PKIs.</p>
-
-</div>
-
-<h2 id="prerequisites">Prerequisites</h2>
-
-<p>Required components on the client:</p>
 <ul>
-  <li>cosign in version 2.0.0 or higher</li>
+  <li>select <strong>Upload an artifact sample</strong> and select an artifact file to have the artifact configuration generated</li>
+  <li>select a <strong>Ready to use artifact configuration</strong></li>
+  <li>select one of the <strong>Templates for custom artifact configurations</strong> and edit the XML content</li>
+  <li>select <strong>Custom</strong> and create an artifact configuration from scratch</li>
 </ul>
 
-<p>In your SignPath organization, you need the following entities:</p>
+<h3 id="edit-an-artifact-configuration">Edit an artifact configuration</h3>
+
+<p>To modify an existing artifact configuration, select a project, then select the artifact configuration you want to change, and then either</p>
+
 <ul>
-  <li>a project with an artifact configuration of type <em>Detached raw signatures</em></li>
-  <li>a certificate (only the public/private key pair will be used)</li>
+  <li>select <strong>Edit</strong> to select pre-defined artifact configurations or edit the XML content</li>
+  <li>select <strong>Update from an artifact sample</strong> to generate your artifact configuration from a sample file</li>
 </ul>
 
-<p>The Docker container image needs to be pushed to an OCI-compliant container registry.</p>
+<p>When you edit XML content in place, a graphical representation will be rendered immediately. If you prefer to use code completion, select <strong>Download XML schema</strong> and use a schema-aware XML editor, such as Microsoft Visual Studio.</p>
 
-<h2 id="signing">Signing</h2>
+<p>Read more about projects and artifact configurations in <a href="/documentation/projects">Setting up Projects</a>.</p>
 
-<p>Signing container images with cosign using SignPath consists of 3 steps:</p>
+<h2 id="signing-multiple-files">Signing multiple files</h2>
 
-<h3 id="1-prepare-the-metadata-for-signing">1. Prepare the metadata for signing</h3>
+<p>You can easily sign multiple files by creating a ZIP archive. Use wildcards, individual file declarations or file sets to define structure and signing directives.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Extract the repository digest identifier for the given FQN</span>
-<span class="nb">export </span><span class="nv">IMAGE_DIGEST</span><span class="o">=</span><span class="sb">`</span>docker inspect <span class="nt">--format</span><span class="o">=</span><span class="s1">'{{index .RepoDigests 0}}'</span> <span class="s2">"</span><span class="nv">$FQN</span><span class="s2">:</span><span class="nv">$TAG</span><span class="s2">"</span><span class="sb">`</span>
-<span class="c"># Generate a metadata file to be signed</span>
-cosign generate <span class="nv">$IMAGE_DIGEST</span> <span class="o">&gt;</span> payload.json
-<span class="c"># Package the metadata file for SignPath</span>
-zip payload.json.zip payload.json
-</code></pre></div></div>
+<h2 id="deep-signing-of-nested-files">Deep signing of nested files</h2>
 
-<div class="panel info">
-  <div class="panel-header">FQN and TAG</div>
-
-  <p><a name="fqn"></a> 
-<strong>Fully qualified name (FQN)</strong></p>
-
-  <p>For images hosted on Docker Hub, the FQN is <code class="language-plaintext highlighter-rouge">docker.io/&lt;namespace&gt;/&lt;repository&gt;</code>, e.g. <code class="language-plaintext highlighter-rouge">docker.io/jetbrains/teamcity-server</code>.</p>
-
-  <p>If you are using your own registry, specify the value you would use for Docker CLI commands, but without tag or digest values. E.g. when using <code class="language-plaintext highlighter-rouge">docker pull myreg.jfrog.io/myrepo/myimage:latest</code>, the FQN would be <code class="language-plaintext highlighter-rouge">myreg.jfrog.io/myrepo/myimage</code>.</p>
-
-  <p><code class="language-plaintext highlighter-rouge">$TAG</code> refers the specific image tag (e.g. <code class="language-plaintext highlighter-rouge">latest</code>)</p>
-</div>
-
-<h3 id="2-create-a-signature-for-the-metadata">2. Create a signature for the metadata</h3>
-
-<p>Upload the <code class="language-plaintext highlighter-rouge">payload.json.zip</code> file to SignPath for signing. Use the artifact configuration “Detached raw signatures” for a single container image or extend it according to your needs. See <a href="/documentation/artifact-configuration#create-raw-signature">detached raw signatures</a> for more details. The following step expects the signed artifact to be stored as <code class="language-plaintext highlighter-rouge">payload.json.signed.zip</code>.</p>
-
-<h3 id="3-attach-the-signature-to-the-image">3. Attach the signature to the image</h3>
-
-<p>Finally, the following snippet will unzip the signed artifact, encode the signature in base64 for <em>cosign</em> and upload the signature to the repository:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Extract the detached signature</span>
-unzip <span class="nt">-n</span> payload.json.signed.zip
-<span class="c"># Encode the signature using base64 for cosign</span>
-<span class="nb">cat </span>payload.json.sig | <span class="nb">base64</span> <span class="o">&gt;</span> payload.json.base64.sig
-<span class="c"># Upload the signature to the registry</span>
-cosign attach signature <span class="nt">--payload</span> payload.json <span class="nt">--signature</span> payload.json.base64.sig <span class="nv">$IMAGE_DIGEST</span>
-</code></pre></div></div>
+<p>Sometimes you need to sign both the container and its contents. For instance, an MSI installer package needs to be signed, but you also want the files it installs to be signed. SignPath can sign both the container and its contents in a single pass if you specify an appropriate artifact configuration. See <a href="examples#msi-sample">here</a> for an example.</p>
 
 		</article>
 	</div>

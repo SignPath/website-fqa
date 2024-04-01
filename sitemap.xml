@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/product/editions-explained</loc>
-    <lastmod>2024-02-15T17:43:47+00:00</lastmod>
+    <lastmod>2024-04-01T11:31:27+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/users</loc>
@@ -47,10 +47,6 @@
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/directory-synchronization</loc>
     <lastmod>2024-02-13T17:12:24+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/artifact-configuration</loc>
-    <lastmod>2024-03-04T12:42:27+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/managing-certificates</loc>

@@ -1,0 +1,327 @@
+<!-- last_modified_at:  --><!DOCTYPE html>
+<html lang="en" data-appurl='https://fqa.test.signpath.io'>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/artifact-configuration/examples' />
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+  <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
+  <title>Artifact Configuration - Examples | SignPath</title>
+  <meta property="og:title" content="Artifact Configuration - Examples | SignPath" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:description" content="Artifact Configuration Examples" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/artifact-configuration/examples" />
+  <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
+  <meta name="description" content="Artifact Configuration Examples"/>
+  <!-- End Jekyll SEO tag -->
+  <link rel='stylesheet' href='/assets/css/hint.min.css'>
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-02-22">
+  <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
+  <script src='/assets/index.js?cache=2024-03-07'></script>
+  <script src='/assets/js/main-bundle.js?cache=2024-03-07'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.png" sizes="192x192">
+  <link rel="apple-touch-icon-precomposed" href="/assets/favicon.png">
+  <meta name="msapplication-TileImage" content="/assets/favicon.png">
+</head>
+<body>
+  <header>
+    <div>
+      <a href='/'><img src='/assets/signpath-logo-white.svg' width="181" height="36" alt='SignPath'></a>
+      <nav>
+        <ul><li>
+              <a href='/product'> Product </a>
+              <ul><li> <a href='/product/features'> Features </a> </li><li> <a href='/product/editions'> Editions </a> </li><li class='separator' /><li> <a href='/product/devops'> For DevOps teams </a> </li><li> <a href='/product/infosec'> For InfoSec teams </a> </li><li> <a href='/product/open-source'> For Open Source projects </a> </li><li class='separator' /><li> <a href='/product/office-macros'> Office macro signing </a> </li><li> <a href='/product/pkic-best-practices'> PKI Consortium best practices </a> </li></ul>
+            </li><li>
+              <a href='/code-signing'> Code Signing </a>
+              <ul><li> <a href='/code-signing/introduction'> Introduction </a> </li><li> <a href='/code-signing/theory'> Theory </a> </li><li> <a href='/code-signing/windows-platform'> Windows Platform </a> </li><li> <a href='/code-signing/test-certificates'> Managing Test Certificates </a> </li><li> <a href='/code-signing/private-keys'> Storage of Private Keys </a> </li><li> <a href='/code-signing/media-coverage'> Media Coverage </a> </li></ul>
+            </li><li>
+              <a href='/documentation'> Documentation </a>
+              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/signing-containers'> Signing Container Images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li> <a href='/documentation/crypto-providers'> Crypto Providers </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
+            </li><li>
+              <a href='/about-us'> About us </a>
+              <ul><li> <a href='/company'> Company </a> </li><li> <a href='/team'> Team </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
+            </li><li class='login'><a class='btn btn-flat' href='https://fqa.test.signpath.io/Web/Home/Login'>Login</a>
+          <li class='login'><a href='https://fqa.test.signpath.io/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
+          </li>
+        </ul>
+        <a id='main-menu-toggle' href='#' onclick='document.querySelector("header > div > nav > ul").classList.toggle("open")'>
+          <div></div>
+          <div></div>
+          <div></div>
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main>
+<section class="bg-blue font-white top-section">
+	<div>
+		<h1><span class='no-break'>Artifact Configuration &nbsp;❯&nbsp; </span> Examples</h1>
+	</div>
+</section>
+<section class="resources-section">
+	<div><aside>
+				<ul><li class=''>
+							<a href='/documentation/artifact-configuration/#'>Artifact Configuration</a></li><li class=''>
+							<a href='/documentation/artifact-configuration/syntax#'>Syntax</a></li><li class=''>
+							<a href='/documentation/artifact-configuration/reference#'>Reference</a></li><li class='active'>
+							<a href='/documentation/artifact-configuration/examples#'>Examples</a><div class="no-mobile" ><ul>
+  <li><a href="#syntax">Syntax</a></li>
+  <li><a href="#predefined-configuration-for-single-portable-executable-file">Predefined configuration for single Portable Executable file</a></li>
+  <li><a href="#signing-multiple-artifacts-in-a-zip-container">Signing multiple artifacts in a ZIP container</a></li>
+  <li><a href="#msi-sample">Deep-signing an MSI installer</a></li>
+  <li><a href="#signing-similar-directories-within-an-msi-file">Signing similar directories within an MSI file</a></li>
+  <li><a href="#pe-restriction">PE file metadata restriction</a></li>
+  <li><a href="#sbom-restriction">XML file schema restriction for CycloneDX SBOM</a></li>
+</ul>
+</div></li></ul>
+			</aside><article><ul class="article-toc">
+  <li><a href="#syntax">Syntax</a></li>
+  <li><a href="#predefined-configuration-for-single-portable-executable-file">Predefined configuration for single Portable Executable file</a></li>
+  <li><a href="#signing-multiple-artifacts-in-a-zip-container">Signing multiple artifacts in a ZIP container</a></li>
+  <li><a href="#msi-sample">Deep-signing an MSI installer</a></li>
+  <li><a href="#signing-similar-directories-within-an-msi-file">Signing similar directories within an MSI file</a></li>
+  <li><a href="#pe-restriction">PE file metadata restriction</a></li>
+  <li><a href="#sbom-restriction">XML file schema restriction for CycloneDX SBOM</a></li>
+</ul>
+<h2 id="syntax">Syntax</h2>
+
+<div class="panel info">
+  <div class="panel-header"> Examples are shortened</div>
+  <p>For the sake of clarity, all examples omit the XML prolog. A complete artifact configuration looks like this:</p>
+
+  <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
+<span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- ... --&gt;</span>
+<span class="nt">&lt;/artifact-configuration&gt;</span>
+</code></pre></div>  </div>
+</div>
+
+<h2 id="predefined-configuration-for-single-portable-executable-file">Predefined configuration for single Portable Executable file</h2>
+
+<p>This configuration works for all PE files.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;pe-file&gt;</span>
+    <span class="nt">&lt;authenticode-sign/&gt;</span>
+  <span class="nt">&lt;/pe-file&gt;</span>
+<span class="nt">&lt;/artifact-configuration&gt;</span>
+</code></pre></div></div>
+
+<h2 id="signing-multiple-artifacts-in-a-zip-container">Signing multiple artifacts in a ZIP container</h2>
+
+<p>You can sign multiple unrelated artifacts by packing them into a single ZIP file.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;zip-file&gt;</span>
+    <span class="nt">&lt;pe-file</span> <span class="na">path=</span><span class="s">"app.exe"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;authenticode-sign/&gt;</span>
+    <span class="nt">&lt;/pe-file&gt;</span>
+    <span class="nt">&lt;powershell-file</span> <span class="na">path=</span><span class="s">"setup.ps1"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;authenticode-sign/&gt;</span>
+    <span class="nt">&lt;/powershell-file&gt;</span>
+  <span class="nt">&lt;/zip-file&gt;</span>
+<span class="nt">&lt;/artifact-configuration&gt;</span>
+</code></pre></div></div>
+
+<h2 id="msi-sample">Deep-signing an MSI installer</h2>
+
+<p>This will sign the PE files <code class="language-plaintext highlighter-rouge">libs/common.dll</code> and <code class="language-plaintext highlighter-rouge">main.exe</code>, then re-package their MSI container and sign it too. It also restricts the name of the MSI container file.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;msi-file</span> <span class="na">path=</span><span class="s">"MyProduct.v*.msi"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;pe-file</span> <span class="na">path=</span><span class="s">"libs/common.dll"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;authenticode-sign/&gt;</span>
+    <span class="nt">&lt;/pe-file&gt;</span>
+    <span class="nt">&lt;pe-file</span> <span class="na">path=</span><span class="s">"main.exe"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;authenticode-sign/&gt;</span>
+    <span class="nt">&lt;/pe-file&gt;</span>
+    <span class="nt">&lt;authenticode-sign/&gt;</span>
+  <span class="nt">&lt;/msi-file&gt;</span>
+<span class="nt">&lt;/artifact-configuration&gt;</span>
+</code></pre></div></div>
+
+<h2 id="signing-similar-directories-within-an-msi-file">Signing similar directories within an MSI file</h2>
+
+<p>This artifact configuration describes an MSI installer package containing several components. The components have a similar structure and are therefore defined as a <code class="language-plaintext highlighter-rouge">&lt;directory-set&gt;</code>. Each component contains a <code class="language-plaintext highlighter-rouge">main.exe</code> and zero or more resource DLLs.</p>
+<table class="noheader noborder">
+    <thead>
+        <tr><th>
+
+ 
+</th><th>
+
+ 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;msi-file&gt;</span>
+    <span class="nt">&lt;directory-set&gt;</span>
+      <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"component1"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"component2"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"component3"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;for-each&gt;</span>
+        <span class="nt">&lt;pe-file-set&gt;</span>
+          <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"main.exe"</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"resources/*.resource.dll"</span> 
+                  <span class="na">min-matches=</span><span class="s">"0"</span> <span class="na">max-matches=</span><span class="s">"unbounded"</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;for-each&gt;</span>
+            <span class="nt">&lt;authenticode-sign/&gt;</span>
+          <span class="nt">&lt;/for-each&gt;</span>
+        <span class="nt">&lt;/pe-file-set&gt;</span>
+      <span class="nt">&lt;/for-each&gt;</span>
+    <span class="nt">&lt;/directory-set&gt;</span>
+    <span class="nt">&lt;authenticode-sign/&gt;</span>
+  <span class="nt">&lt;/msi-file&gt;</span>
+<span class="nt">&lt;/artifact-configuration&gt;</span>
+</code></pre></div>        </div>
+
+      </td><td>
+
+        <p><img src="/assets/img/resources/documentation_artifact-configuration_similar-definition.png" alt="graphical artifact configuration" /></p>
+      </td></tr></tbody>
+</table>
+
+<p>Example of a directory structure that would match this configuration:</p>
+<table class="noheader noborder">
+    <thead>
+        <tr><th>
+
+ 
+</th><th>
+
+ 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>• myapp.msi 
+  • component1/
+    • main.exe
+    • resources/de.resource.dll
+    • resources/en.resource.dll
+    • resources/fr.resource.dll
+  • component2/
+    • main.exe
+  • component3/
+    • main.exe
+    • resources/en.resource.dll
+</code></pre></div>        </div>
+
+        <p>(All <code class="language-plaintext highlighter-rouge">msi</code>, <code class="language-plaintext highlighter-rouge">exe</code> and <code class="language-plaintext highlighter-rouge">dll</code> files are signed with Authenticode.)</p>
+
+      </td><td>
+
+        <p><img src="/assets/img/resources/documentation_artifact-configuration_similar-resolved.png" alt="graphical resolved artifacts" /></p>
+      </td></tr></tbody>
+</table>
+
+<h2 id="pe-restriction">PE file metadata restriction</h2>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;msi-file&gt;</span>
+    <span class="c">&lt;!-- requires all pe-files to have the respective attributes set --&gt;</span>
+    <span class="nt">&lt;pe-file-set</span> <span class="na">product-name=</span><span class="s">"YourProductName"</span> <span class="na">product-version=</span><span class="s">"1.0.0.0"</span><span class="nt">&gt;</span> 
+      <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"main.exe"</span> <span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- overrides the value of the parent pe-file-set --&gt;</span>
+      <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"resources*.resource.dll"</span> <span class="na">max-matches=</span><span class="s">"unbounded"</span> <span class="na">product-version=</span><span class="s">"1.0.1.0"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;for-each&gt;</span>
+        <span class="nt">&lt;authenticode-sign</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/for-each&gt;</span>
+    <span class="nt">&lt;/pe-file-set&gt;</span>
+    <span class="nt">&lt;authenticode-sign</span> <span class="nt">/&gt;</span> <span class="c">&lt;!-- finally sign the MSI file --&gt;</span>
+  <span class="nt">&lt;/msi-file&gt;</span>
+<span class="nt">&lt;/artifact-configuration&gt;</span>
+</code></pre></div></div>
+
+<h2 id="sbom-restriction">XML file schema restriction for CycloneDX SBOM</h2>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- with this restriction, only CylconeDX 1.4 SBOM files can be signed with this artifact configuration --&gt;</span>
+  <span class="nt">&lt;xml-file</span> <span class="na">root-element-namespace=</span><span class="s">"http://cyclonedx.org/schema/bom/1.4"</span> <span class="na">root-element-name=</span><span class="s">"bom"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;xml-sign/&gt;</span>
+  <span class="nt">&lt;/xml-file&gt;</span>
+<span class="nt">&lt;/artifact-configuration&gt;</span>
+</code></pre></div></div>
+
+		</article>
+	</div>
+</section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
+	<div>
+		<h2>Sign up for news and special offers</h2>
+		<form class="ml-block-form" action="https://app.mailerlite.com/webforms/submit/d7c3i1" data-code="d7c3i1" method="post">
+			<input type="text" class="form-control" data-inputmask="" name="fields[name]" value="" placeholder="Name">
+			<input type="email" class="form-control" data-inputmask="" name="fields[email]" value="" placeholder="Email">
+			<input type="hidden" name="ml-submit" value="1">
+			<button type="submit" class="btn btn-secondary newsletter">Subscribe</button>
+		</form>
+	</div>
+</section>
+</main>
+  <footer>
+  	<div>
+	  	<div>
+	  		<img src='/assets/signpath-logo-white.svg' width="334" height="67" alt='SignPath'/>
+	  		<svg viewBox="0 0 244 18">
+			  <text x="0" y="15">CODE SIGNING SIMPLE &amp; SECURE</text>
+			</svg>
+	  		<div>
+				<a target="_blank" href="https://www.linkedin.com/company/33243108" rel="noopener noreferrer">
+<svg class="icon footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor"  d="M 8.6425781 4 C 7.1835781 4 6 5.181625 6 6.640625 C 6 8.099625 7.182625 9.3085938 8.640625 9.3085938 C 10.098625 9.3085938 11.283203 8.099625 11.283203 6.640625 C 11.283203 5.182625 10.101578 4 8.6425781 4 z M 21.535156 11 C 19.316156 11 18.0465 12.160453 17.4375 13.314453 L 17.373047 13.314453 L 17.373047 11.310547 L 13 11.310547 L 13 26 L 17.556641 26 L 17.556641 18.728516 C 17.556641 16.812516 17.701266 14.960938 20.072266 14.960938 C 22.409266 14.960937 22.443359 17.145609 22.443359 18.849609 L 22.443359 26 L 26.994141 26 L 27 26 L 27 17.931641 C 27 13.983641 26.151156 11 21.535156 11 z M 6.3632812 11.310547 L 6.3632812 26 L 10.923828 26 L 10.923828 11.310547 L 6.3632812 11.310547 z"/></svg></a>
+				&nbsp;&nbsp;
+				<a target="_blank" href="mailto:info@signpath.io" rel="noopener noreferrer"><svg class="icon footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 3 8 L 3 26 L 29 26 L 29 8 Z M 7.3125 10 L 24.6875 10 L 16 15.78125 Z M 5 10.875 L 15.4375 17.84375 L 16 18.1875 L 16.5625 17.84375 L 27 10.875 L 27 24 L 5 24 Z"/></svg>
+</div>
+	  	</div>
+	  	<div>
+	  		<a href='/privacy-policy'>Privacy Policy</a>
+	  		<a href='/terms-of-service'>Terms of Service</a>
+	  		<a href='/status'><span style="color: lightgreen;"><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</span>Status
+			</a>
+	  	</div>
+	</div>
+  </footer>
+        <div id='cookie-info'>
+            <h3>Cookie settings</h3>
+            <div class="container">
+                <span>We use cookies to enhance your browsing experience.</span>
+                <p class="mobile show-more active"><a>Show more information</a></p>
+                <p class="mobile show-less"><a>Show less information</a></p>
+                <span class="information">By clicking the “Accept” button below, you agree that non-essential cookies on our website may be used by us and by third parties, some of them located in the USA. Learn more about our cookies in our <a
+                            href='/privacy-policy'>Privacy
+					Policy</a>
+                </span>
+				<div class="actions">
+					<button class='btn btn-primary' id='acknowledge-cookies-btn'>Accept</button>
+					<button class="btn btn-grey" id='refuse-cookies-btn'>Refuse</button>
+				</div>
+            </div>
+			<script>
+				const queryString = window.location.search;
+				const urlParams = new URLSearchParams(queryString);
+				const adgroupid = urlParams.get('adgroupid') ? urlParams.get('adgroupid') : document.cookie.match('(^|;)\\s*' + 'adgroupid' + '\\s*=\\s*([^;]+)')?.pop() || ''
+
+				if (adgroupid) {
+					const els_trial = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Subscription/StartFreeTrial' + "']")
+					const els_login = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Home/Login' + "']");
+
+					for (let child of els_trial) {
+						if (child.tagName === 'A') {
+							child.href = child.href + '?websiteCorrelationId=' + adgroupid
+						}
+					}
+
+					for (let child of els_login) {
+						if (child.tagName === 'A') {
+							child.href = child.href + '?websiteCorrelationId=' + adgroupid
+						}
+					}
+				}
+			</script>
+		</div>
+	</footer>
+</body>
+</html>
