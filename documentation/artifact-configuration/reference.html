@@ -829,7 +829,7 @@ Description
       <td><code class="language-plaintext highlighter-rouge">file-name</code></td>
       <td>Yes</td>
       <td> </td>
-      <td>Name of the output file containing the signature</td>
+      <td>Name of the output file containing the signature (you can reference the original file name via the <code class="language-plaintext highlighter-rouge">file.name</code> variable, e.g. <code class="language-plaintext highlighter-rouge">${file.name}.sig</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">hash-algorithm</code></td>
@@ -851,7 +851,7 @@ Description
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;zip-file&gt;</span>
     <span class="nt">&lt;file</span> <span class="na">path=</span><span class="s">"myfile.bin"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;create-raw-signature</span> <span class="na">file-name=</span><span class="s">"myfile.bin.sig"</span> <span class="na">hash-algorithm=</span><span class="s">"sha256"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;create-raw-signature</span> <span class="na">file-name=</span><span class="s">"${file.name}.sig"</span> <span class="na">hash-algorithm=</span><span class="s">"sha256"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/pe-file&gt;</span>
   <span class="nt">&lt;/zip-file&gt;</span>
 <span class="nt">&lt;/artifact-configuration&gt;</span>
