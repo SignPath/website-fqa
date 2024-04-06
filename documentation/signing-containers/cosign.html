@@ -11,10 +11,10 @@
   <title>Container Signing - Sigstore Cosign | SignPath</title>
   <meta property="og:title" content="Container Signing - Sigstore Cosign | SignPath" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:description" content="Documentation for signing Docker images with SignPath using cosign" />
+  <meta property="og:description" content="Documentation for signing Docker images with SignPath using Cosign" />
   <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/signing-containers/cosign" />
   <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
-  <meta name="description" content="Documentation for signing Docker images with SignPath using cosign"/>
+  <meta name="description" content="Documentation for signing Docker images with SignPath using Cosign"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
   <link rel="stylesheet" href="/assets/css/index.css?cache=2024-02-22">
@@ -65,52 +65,98 @@
 				<ul><li class=''>
 							<a href='/documentation/signing-containers/#'>Signing Container Images</a></li><li class='active'>
 							<a href='/documentation/signing-containers/cosign#'>Sigstore Cosign</a><div class="no-mobile" ><ul>
-  <li><a href="#overview">Overview</a></li>
-  <li><a href="#prerequisites">Prerequisites</a></li>
-  <li><a href="#signing">Signing</a></li>
+  <li><a href="#cosign-overview">Cosign Overview</a></li>
+  <li><a href="#advantages-of-using-signpath-for-cosign">Advantages of using SignPath for Cosign</a></li>
+  <li><a href="#how-to-use-cosign-with-signpath">How to use Cosign with SignPath</a></li>
 </ul>
 </div></li><li class=''>
 							<a href='/documentation/signing-containers/docker-content-trust#'>Docker Content Trust (DCT)</a></li></ul>
 			</aside><article>
-<h2 id="overview">Overview</h2>
+<h2 id="cosign-overview">Cosign Overview</h2>
 
-<p><em>Cosign</em> is part of the <a href="https://www.sigstore.dev/">Sigstore</a> project. It is primarily targeted at the open source community, allowing individual developers and Github Actions builds to authenticate using OpenIdConnect and receive short-lived signing keys from a Fulcio certificate authority (CA). All signatures are recorded in a public transparency log (called Rekor). Due to the keys not being persistent anywhere, <em>cosign</em> refers to this method as “keyless signing”.</p>
-
-<p>This approach is not practical for all organizations which</p>
-<ul>
-  <li>use an automated build system that does not support cosign (currently only Github Actions SaaS and Gitlab SaaS) or</li>
-  <li>don’t want their signatures to be logged in the public Rekor log and don’t want to operate their own Fulcio CA</li>
-</ul>
-
-<p>For these organizations, signing with <em>cosign</em> is only possible using public/private key pairs.</p>
+<p><em>Cosign</em> is part of the <a href="https://www.sigstore.dev/">Sigstore</a> project. It is primarily targeted at the open source community, allowing individual developers to sign container images using OpenID user accounts from GitHub, Google or Microsoft. For those developers, Sigstore eliminates the need for certificates or locally storeed private keys.</p>
 
 <div class="panel info">
-  <div class="panel-header">X.509 certificate chains in cosign</div>
+  <div class="panel-header">Sigstore architecture</div>
 
-  <p><em>cosign</em> builds upon X.509 certificate chains, but requires specific additional attributes to be set in each certificate. The sigstore project is actively working on supporting custom certificates from traditional PKIs.</p>
+  <p>Sigstore combines the <em>Cosign</em> tool, the <em>Fulcio</em> certificate authority and the <em>Rekor</em> transparency log as follows:</p>
+
+  <ol>
+    <li>Cosign creates a metadata file for signing</li>
+    <li>Fulcio authenticates the user account using OpenID Connect (OIDC)</li>
+    <li>Fulcio creates a short-lived certificate for the OIDC identity using an ephemeral key and signs the metadata digest</li>
+    <li>Rekor logs the signature in its public transparency log</li>
+    <li>Cosign uploads signature and metadata to the image’s repository</li>
+  </ol>
 
 </div>
 
-<h2 id="prerequisites">Prerequisites</h2>
+<h2 id="advantages-of-using-signpath-for-cosign">Advantages of using SignPath for Cosign</h2>
+
+<p>While this works well for individual developers, organizations often have differen requirements, including</p>
+
+<ul>
+  <li>Control issuing of certificates and key management</li>
+  <li>Using automated CI/CD build system that do not support 3rd party OICD authentication</li>
+  <li>Do not use individual OICD user accounts for signing</li>
+  <li>No public signature logging (or operating their own Fulcio CA)</li>
+</ul>
+
+<p>SignPath supports Cosign signing using an organization’s certificate and keys.</p>
+
+<p>Additionally, SignPath allows to process the entire metadata file. Metadata files contain</p>
+
+<ul>
+  <li>The container image’s identity (e.g. Docker Hub namespace/repository identifiers)</li>
+  <li>The container image’s hash digest</li>
+  <li>Optional data</li>
+</ul>
+
+<p>Submitting full metadata files instead of their hash codes has several advantages:</p>
+
+<ul>
+  <li>Full auditing of signed data</li>
+  <li>Additional verifications (e.g. image identity) can be performed before signing</li>
+  <li>Additional information (e.g. source and build metadata and attestations) can be inserted before signing</li>
+</ul>
+
+<p>SignPath will offer advanced verification and information features in the near future.</p>
+
+<div class="panel info">
+  <div class="panel-header">X.509 certificate chains in Cosign</div>
+
+  <p><em>Cosign</em> builds upon X.509 certificate chains, but requires specific additional attributes to be set in each certificate. The sigstore project is actively working on supporting custom certificates from traditional PKIs.</p>
+
+</div>
+
+<h2 id="how-to-use-cosign-with-signpath">How to use Cosign with SignPath</h2>
+
+<p>When Cosign is used directly, it creates the metadata, signs it, and upload the signature. You can use Cosign with SignPath’s <a href="/documentation/crypto-providers/cryptoki">Cryptoki provider</a>.</p>
+
+<p>When SignPath is used to sign Cosign metadata files, you need to perform each step separately:</p>
+
+<ol>
+  <li>Use <code class="language-plaintext highlighter-rouge">cosign</code> to create the metadata file</li>
+  <li>Use SignPath to create a signatore for the metadata</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">cosign</code> to upload metadata and signature to your repository</li>
+</ol>
+
+<h3 id="prerequisites">Prerequisites</h3>
 
 <p>Required components on the client:</p>
 <ul>
-  <li>cosign in version 2.0.0 or higher</li>
+  <li>Cosign in version 2.0.0 or higher</li>
 </ul>
 
 <p>In your SignPath organization, you need the following entities:</p>
 <ul>
-  <li>a project with an artifact configuration of type <em>Detached raw signatures</em></li>
-  <li>a certificate (only the public/private key pair will be used)</li>
+  <li>A project with an artifact configuration of type <em>Detached raw signatures</em></li>
+  <li>A certificate (only the public/private key pair will be used)</li>
 </ul>
 
-<p>The Docker container image needs to be pushed to an OCI-compliant container registry.</p>
+<p>The Docker container image must be pushed to an OCI-compliant container registry.</p>
 
-<h2 id="signing">Signing</h2>
-
-<p>Signing container images with cosign using SignPath consists of 3 steps:</p>
-
-<h3 id="1-prepare-the-metadata-for-signing">1. Prepare the metadata for signing</h3>
+<h3 id="step-1-create-the-metadata-file">Step 1: create the metadata file</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Extract the repository digest identifier for the given FQN</span>
 <span class="nb">export </span><span class="nv">IMAGE_DIGEST</span><span class="o">=</span><span class="sb">`</span>docker inspect <span class="nt">--format</span><span class="o">=</span><span class="s1">'{{index .RepoDigests 0}}'</span> <span class="s2">"</span><span class="nv">$FQN</span><span class="s2">:</span><span class="nv">$TAG</span><span class="s2">"</span><span class="sb">`</span>
@@ -133,11 +179,11 @@ zip payload.json.zip payload.json
   <p><code class="language-plaintext highlighter-rouge">$TAG</code> refers the specific image tag (e.g. <code class="language-plaintext highlighter-rouge">latest</code>)</p>
 </div>
 
-<h3 id="2-create-a-signature-for-the-metadata">2. Create a signature for the metadata</h3>
+<h3 id="step-2-create-a-signature-for-the-metadata">Step 2: create a signature for the metadata</h3>
 
 <p>Upload the <code class="language-plaintext highlighter-rouge">payload.json.zip</code> file to SignPath for signing. Use the artifact configuration “Detached raw signatures” for a single container image or extend it according to your needs. See <a href="/documentation/artifact-configuration/reference#create-raw-signature">detached raw signatures</a> for more details. The following step expects the signed artifact to be stored as <code class="language-plaintext highlighter-rouge">payload.json.signed.zip</code>.</p>
 
-<h3 id="3-attach-the-signature-to-the-image">3. Attach the signature to the image</h3>
+<h3 id="step-3-attach-the-signature-to-the-image">Step 3: attach the signature to the image</h3>
 
 <p>Finally, the following snippet will unzip the signed artifact, encode the signature in base64 for <em>cosign</em> and upload the signature to the repository:</p>
 

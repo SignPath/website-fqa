@@ -68,22 +68,31 @@
 							<a href='/documentation/artifact-configuration/reference#'>Reference</a></li><li class='active'>
 							<a href='/documentation/artifact-configuration/examples#'>Examples</a><div class="no-mobile" ><ul>
   <li><a href="#syntax">Syntax</a></li>
-  <li><a href="#predefined-configuration-for-single-portable-executable-file">Predefined configuration for single Portable Executable file</a></li>
-  <li><a href="#signing-multiple-artifacts-in-a-zip-container">Signing multiple artifacts in a ZIP container</a></li>
-  <li><a href="#msi-sample">Deep-signing an MSI installer</a></li>
-  <li><a href="#signing-similar-directories-within-an-msi-file">Signing similar directories within an MSI file</a></li>
-  <li><a href="#pe-restriction">PE file metadata restriction</a></li>
-  <li><a href="#sbom-restriction">XML file schema restriction for CycloneDX SBOM</a></li>
+  <li><a href="#basic-examples">Basic examples</a></li>
+  <li><a href="#signing-multiple-files">Signing multiple files</a></li>
+  <li><a href="#metadata-restrictions">Metadata restrictions</a></li>
 </ul>
 </div></li></ul>
 			</aside><article><ul class="article-toc">
   <li><a href="#syntax">Syntax</a></li>
-  <li><a href="#predefined-configuration-for-single-portable-executable-file">Predefined configuration for single Portable Executable file</a></li>
-  <li><a href="#signing-multiple-artifacts-in-a-zip-container">Signing multiple artifacts in a ZIP container</a></li>
-  <li><a href="#msi-sample">Deep-signing an MSI installer</a></li>
-  <li><a href="#signing-similar-directories-within-an-msi-file">Signing similar directories within an MSI file</a></li>
-  <li><a href="#pe-restriction">PE file metadata restriction</a></li>
-  <li><a href="#sbom-restriction">XML file schema restriction for CycloneDX SBOM</a></li>
+  <li><a href="#basic-examples">Basic examples</a>
+    <ul>
+      <li><a href="#predefined-configuration-for-single-portable-executable-file">Predefined configuration for single Portable Executable file</a></li>
+    </ul>
+  </li>
+  <li><a href="#signing-multiple-files">Signing multiple files</a>
+    <ul>
+      <li><a href="#signing-multiple-artifacts-in-a-zip-container">Signing multiple artifacts in a ZIP container</a></li>
+      <li><a href="#msi-sample">Deep-signing an MSI installer</a></li>
+      <li><a href="#signing-similar-directories-within-an-msi-file">Signing similar directories within an MSI file</a></li>
+    </ul>
+  </li>
+  <li><a href="#metadata-restrictions">Metadata restrictions</a>
+    <ul>
+      <li><a href="#pe-restriction">PE file metadata restriction</a></li>
+      <li><a href="#sbom-restriction">XML file schema restriction for CycloneDX SBOM</a></li>
+    </ul>
+  </li>
 </ul>
 <h2 id="syntax">Syntax</h2>
 
@@ -98,7 +107,9 @@
 </code></pre></div>  </div>
 </div>
 
-<h2 id="predefined-configuration-for-single-portable-executable-file">Predefined configuration for single Portable Executable file</h2>
+<h2 id="basic-examples">Basic examples</h2>
+
+<h3 id="predefined-configuration-for-single-portable-executable-file">Predefined configuration for single Portable Executable file</h3>
 
 <p>This configuration works for all PE files.</p>
 
@@ -109,7 +120,9 @@
 <span class="nt">&lt;/artifact-configuration&gt;</span>
 </code></pre></div></div>
 
-<h2 id="signing-multiple-artifacts-in-a-zip-container">Signing multiple artifacts in a ZIP container</h2>
+<h2 id="signing-multiple-files">Signing multiple files</h2>
+
+<h3 id="signing-multiple-artifacts-in-a-zip-container">Signing multiple artifacts in a ZIP container</h3>
 
 <p>You can sign multiple unrelated artifacts by packing them into a single ZIP file.</p>
 
@@ -125,7 +138,7 @@
 <span class="nt">&lt;/artifact-configuration&gt;</span>
 </code></pre></div></div>
 
-<h2 id="msi-sample">Deep-signing an MSI installer</h2>
+<h3 id="msi-sample">Deep-signing an MSI installer</h3>
 
 <p>This will sign the PE files <code class="language-plaintext highlighter-rouge">libs/common.dll</code> and <code class="language-plaintext highlighter-rouge">main.exe</code>, then re-package their MSI container and sign it too. It also restricts the name of the MSI container file.</p>
 
@@ -142,7 +155,7 @@
 <span class="nt">&lt;/artifact-configuration&gt;</span>
 </code></pre></div></div>
 
-<h2 id="signing-similar-directories-within-an-msi-file">Signing similar directories within an MSI file</h2>
+<h3 id="signing-similar-directories-within-an-msi-file">Signing similar directories within an MSI file</h3>
 
 <p>This artifact configuration describes an MSI installer package containing several components. The components have a similar structure and are therefore defined as a <code class="language-plaintext highlighter-rouge">&lt;directory-set&gt;</code>. Each component contains a <code class="language-plaintext highlighter-rouge">main.exe</code> and zero or more resource DLLs.</p>
 <table class="noheader noborder">
@@ -219,7 +232,9 @@
       </td></tr></tbody>
 </table>
 
-<h2 id="pe-restriction">PE file metadata restriction</h2>
+<h2 id="metadata-restrictions">Metadata restrictions</h2>
+
+<h3 id="pe-restriction">PE file metadata restriction</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;msi-file&gt;</span>
@@ -237,7 +252,7 @@
 <span class="nt">&lt;/artifact-configuration&gt;</span>
 </code></pre></div></div>
 
-<h2 id="sbom-restriction">XML file schema restriction for CycloneDX SBOM</h2>
+<h3 id="sbom-restriction">XML file schema restriction for CycloneDX SBOM</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- with this restriction, only CylconeDX 1.4 SBOM files can be signed with this artifact configuration --&gt;</span>
