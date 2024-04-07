@@ -168,12 +168,13 @@
 
 <p>Both types of policies may alternatively use certificates that are issued by an in-house CA.</p>
 
-<div class="panel tip">
-  <div class="panel-header">Why sign test builds?</div>
+<blockquote class="panel tip">
+  <p><strong>Why sign test builds?</strong></p>
+
   <p>It’s important that test builds are signed, so they will behave like release builds <em>on test systems</em>. Several platform mechanisms may be used or inadvertently encountered that behave differently for signed and unsigned software.</p>
 
   <p>Test-signing can also provide protection for test systems, if these systems are configured in a way that prevents installation or execution of unsigned software, or produces warnings for users.</p>
-</div>
+</blockquote>
 
 <h3 id="general-properties">General Properties</h3>
 
@@ -257,8 +258,8 @@
   </tbody>
 </table>
 
-<div class="panel tip">
-  <div class="panel-header">Create differentiated signing policies</div>
+<blockquote class="panel tip">
+  <p><strong>Create differentiated signing policies</strong></p>
 
   <p>You can create multiple signing policies with any combination of manual approval and origin verification. Use this to draw a clear line between standard and exceptional procedures.</p>
 
@@ -301,8 +302,7 @@
   <p>Approval is required if another branch is used for release signing, but origin verification is still available. Approvers might include project managers or senior team members.</p>
 
   <p>In some situations, it might even be necessary to sign any old release, e.g. via manual upload. This requires approval from two persons, maybe even from a reduced list that includes senior management.</p>
-
-</div>
+</blockquote>
 
 <h2 id="artifact-configurations">Artifact configurations</h2>
 

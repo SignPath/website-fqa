@@ -82,7 +82,7 @@
 
 <p>Use <code class="language-plaintext highlighter-rouge">-InputArtifact</code> to directly upload the artifact from the specified local file.</p>
 
-<div class="language-powershell pssyntax highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Submit-SigningRequest</span><span class="w"> 
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Submit-SigningRequest</span><span class="w"> 
     </span><span class="nt">-InputArtifactPath</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w">
         </span><span class="p">(</span><span class="nt">-ProjectSlug</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w"> </span><span class="nt">-SigningPolicySlug</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">String</span><span class="err">&gt;</span><span class="w"> </span><span class="p">[</span><span class="nt">-ArtifactConfigurationSlug</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> </span><span class="p">)</span><span class="w">
         </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="nt">-SigningPolicyId</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w"> </span><span class="p">[</span><span class="nt">-ArtifactConfigurationId</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> </span><span class="p">)</span><span class="w">
@@ -103,47 +103,48 @@
 
 <p>Use <code class="language-plaintext highlighter-rouge">-ArtifactRetrievalLink</code> to instruct SingPath to download the artifact from the specified URL.</p>
 
-<div class="language-powershell pssyntax highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Submit-SigningRequest</span><span class="w"> 
-    </span><span class="nt">-ArtifactRetrievalLink</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w"> 
-        </span><span class="nt">-ArtifactRetrievalLinkFileName</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w"> 
-        </span><span class="p">[</span><span class="nt">-ArtifactRetrievalLinkSha256Hash</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> 
-        </span><span class="p">[</span><span class="nt">-ArtifactRetrievalLinkHttpHeaders</span><span class="w"> </span><span class="err">&lt;</span><span class="n">Hashtable</span><span class="err">&gt;</span><span class="p">]</span><span class="w">
-        </span><span class="p">(</span><span class="nt">-ProjectSlug</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w"> </span><span class="nt">-SigningPolicySlug</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">String</span><span class="err">&gt;</span><span class="w"> </span><span class="p">[</span><span class="nt">-ArtifactConfigurationSlug</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> </span><span class="p">)</span><span class="w">
-        </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="nt">-SigningPolicyId</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w"> </span><span class="p">[</span><span class="nt">-ArtifactConfigurationId</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> </span><span class="p">)</span><span class="w">
-        </span><span class="p">[</span><span class="nt">-Origin</span><span class="w"> </span><span class="err">&lt;</span><span class="n">Hashtable</span><span class="err">&gt;</span><span class="p">]</span><span class="w">
-    </span><span class="p">[</span><span class="nt">-WaitForCompletion</span><span class="w"> 
-        </span><span class="nt">-OutputArtifactPath</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w">
-        </span><span class="p">[</span><span class="nt">-Force</span><span class="p">]</span><span class="w">
-        </span><span class="p">[</span><span class="nt">-WaitForCompletionTimeoutInSeconds</span><span class="w"> </span><span class="err">&lt;</span><span class="n">Int32</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> 
-    </span><span class="p">]</span><span class="w">
-    </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w"> </span><span class="nt">-ApiToken</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">String</span><span class="err">&gt;</span><span class="w"> </span><span class="p">[</span><span class="nt">-ClientCertificate</span><span class="w"> </span><span class="err">&lt;</span><span class="n">X509Certificate2</span><span class="err">&gt;</span><span class="p">]</span><span class="w">
-    </span><span class="p">[</span><span class="nt">-ApiUrl</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> 
-    </span><span class="p">[</span><span class="nt">-Description</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> 
-    </span><span class="p">[</span><span class="nt">-Parameters</span><span class="w"> </span><span class="err">&lt;</span><span class="n">Hashtable</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> 
-    </span><span class="p">[</span><span class="nt">-ServiceUnavailableTimeoutInSeconds</span><span class="w"> </span><span class="err">&lt;</span><span class="n">Int32</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-UploadAndDownloadRequestTimeoutInSeconds</span><span class="w"> </span><span class="err">&lt;</span><span class="n">Int32</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> 
-</span></code></pre></div></div>
+<p>Submit-SigningRequest 
+    -ArtifactRetrievalLink <String> 
+        -ArtifactRetrievalLinkFileName <String> 
+        [-ArtifactRetrievalLinkSha256Hash <String>] 
+        [-ArtifactRetrievalLinkHttpHeaders <Hashtable>]
+        (-ProjectSlug <String> -SigningPolicySlug <String> [-ArtifactConfigurationSlug <String>] )
+        | (-SigningPolicyId <String> [-ArtifactConfigurationId <String>] )
+        [-Origin <Hashtable>]
+    [-WaitForCompletion 
+        -OutputArtifactPath <String>
+        [-Force]
+        [-WaitForCompletionTimeoutInSeconds <Int32>] 
+    ]
+    -OrganizationId <String> -ApiToken <String> [-ClientCertificate <X509Certificate2>]
+    [-ApiUrl <String>] 
+    [-Description <String>] 
+    [-Parameters <Hashtable>] 
+    [-ServiceUnavailableTimeoutInSeconds <Int32>] [-UploadAndDownloadRequestTimeoutInSeconds <Int32>]</Int32></Int32></Hashtable></String></String></X509Certificate2></String></String></Int32></String></Hashtable></String></String></String></String></String></Hashtable></String></String></String></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+### Resubmit an existing singing request {#resubmit}
 
-<h3 id="resubmit">Resubmit an existing singing request</h3>
+Available for Enterprise subscriptions
+{: .badge.icon-signpath}
 
-<p class="badge icon-signpath">Available for Enterprise subscriptions</p>
+Use `-Resubmit` to create a new signing request based on an existing signing request, but typically using a different _signing policy_ ([read more.](#new-vs-resigning)).
 
-<p>Use <code class="language-plaintext highlighter-rouge">-Resubmit</code> to create a new signing request based on an existing signing request, but typically using a different <em>signing policy</em> (<a href="#new-vs-resigning">read more.</a>).</p>
-
-<div class="language-powershell pssyntax highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Submit-SigningRequest</span><span class="w"> 
-    </span><span class="nt">-Resubmit</span><span class="w">
-        </span><span class="nt">-OriginalSigningRequestId</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w"> 
-        </span><span class="p">(</span><span class="nt">-SigningPolicySlug</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="nt">-SigningPolicyId</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="p">)</span><span class="w">
-    </span><span class="p">[</span><span class="nt">-WaitForCompletion</span><span class="w"> 
-        </span><span class="nt">-OutputArtifactPath</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w">
-        </span><span class="p">[</span><span class="nt">-Force</span><span class="p">]</span><span class="w">
-        </span><span class="p">[</span><span class="nt">-WaitForCompletionTimeoutInSeconds</span><span class="w"> </span><span class="err">&lt;</span><span class="n">Int32</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> 
-    </span><span class="p">]</span><span class="w">
-    </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="w"> </span><span class="nt">-ApiToken</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">String</span><span class="err">&gt;</span><span class="w"> </span><span class="p">[</span><span class="nt">-ClientCertificate</span><span class="w"> </span><span class="err">&lt;</span><span class="n">X509Certificate2</span><span class="err">&gt;</span><span class="p">]</span><span class="w">
-    </span><span class="p">[</span><span class="nt">-ApiUrl</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> 
-    </span><span class="p">[</span><span class="nt">-Description</span><span class="w"> </span><span class="err">&lt;</span><span class="n">String</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> 
-    </span><span class="p">[</span><span class="nt">-Parameters</span><span class="w"> </span><span class="err">&lt;</span><span class="n">Hashtable</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> 
-    </span><span class="p">[</span><span class="nt">-ServiceUnavailableTimeoutInSeconds</span><span class="w"> </span><span class="err">&lt;</span><span class="n">Int32</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-UploadAndDownloadRequestTimeoutInSeconds</span><span class="w"> </span><span class="err">&lt;</span><span class="n">Int32</span><span class="err">&gt;</span><span class="p">]</span><span class="w"> 
-</span></code></pre></div></div>
+~~~ powershell
+Submit-SigningRequest 
+    -Resubmit
+        -OriginalSigningRequestId &lt;String&gt; 
+        (-SigningPolicySlug &lt;String&gt;) | (-SigningPolicyId &lt;String&gt;)
+    [-WaitForCompletion 
+        -OutputArtifactPath &lt;String&gt;
+        [-Force]
+        [-WaitForCompletionTimeoutInSeconds &lt;Int32&gt;] 
+    ]
+    -OrganizationId &lt;String&gt; -ApiToken &lt;String&gt; [-ClientCertificate &lt;X509Certificate2&gt;]
+    [-ApiUrl &lt;String&gt;] 
+    [-Description &lt;String&gt;] 
+    [-Parameters &lt;Hashtable&gt;] 
+    [-ServiceUnavailableTimeoutInSeconds &lt;Int32&gt;] [-UploadAndDownloadRequestTimeoutInSeconds &lt;Int32&gt;] 
+</code></pre></div></div>
 
 <h2 id="description">Description</h2>
 
@@ -166,11 +167,11 @@
 
 <h2 id="parameters">Parameters</h2>
 
-<div class="panel tip">
-  <div class="panel-header">Tip</div>
+<blockquote class="panel tip">
+  <p><strong>Tip</strong></p>
 
   <p>Signing policies in the SignPath Web application show basic <code class="language-plaintext highlighter-rouge">Submit-SigningRequest</code> calls with essential parameters.</p>
-</div>
+</blockquote>
 
 <h3 id="parameters-with--inputartifactpath-or--artifactretrievallink">Parameters with <code class="language-plaintext highlighter-rouge">-InputArtifactPath</code> or <code class="language-plaintext highlighter-rouge">-ArtifactRetrievalLink</code></h3>
 
@@ -265,14 +266,14 @@
   </tbody>
 </table>
 
-<div class="panel note">
-  <div class="panel-header">Slugs or IDs</div>
+<blockquote class="panel note">
+  <p><strong>Slugs or IDs</strong></p>
 
   <p>Use either slugs <em>or</em> IDs, don’t mix them.</p>
-</div>
+</blockquote>
 
-<div class="panel tip">
-  <div class="panel-header">Automated builds version control</div>
+<blockquote class="panel tip">
+  <p><strong>Automated builds version control</strong></p>
 
   <p>Consider using these sources if you are using automated builds:</p>
 
@@ -280,8 +281,7 @@
     <li><strong>Artifact configuration: version management</strong>. Create new versions of your artifact configuration for breaking changes and let your code determine the version to use. This ensures that signing will continue to work for older versions of your application while the artifact configuration evolves. If the script that invokes this cmdlet is under version control, it might be a better idea to have the artifact configuration slug hard coded in the script than to get it from a CI variable.</li>
     <li><strong>Signing policy: CI parameter</strong>. If you take the signing policy from a Continuous Integration/Build Automation parameter, you can use the same script and cmdlet invocation for different build configurations, such as test and release.</li>
   </ul>
-
-</div>
+</blockquote>
 
 <h4 id="-origin-values"><code class="language-plaintext highlighter-rouge">-Origin</code> values</h4>
 

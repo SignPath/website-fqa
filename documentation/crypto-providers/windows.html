@@ -104,8 +104,8 @@
 
 <p>Alternatively, you can also run <code class="language-plaintext highlighter-rouge">.\InstallCspKsp.ps1</code> within a PowerShell or PowerShell Core session.</p>
 
-<div class="panel info">
-  <div class="panel-header">Verification</div>
+<blockquote class="panel info">
+  <p><strong>Verification</strong></p>
 
   <p>To verify the successful registration of the CSP and KSP, you can use the following command:</p>
 
@@ -118,8 +118,7 @@
     <li><code class="language-plaintext highlighter-rouge">Provider Name: SignPathCSP</code></li>
     <li><code class="language-plaintext highlighter-rouge">Provider Name: SignPathKSP</code></li>
   </ul>
-
-</div>
+</blockquote>
 
 <p>CSPs <a href="https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers">are deprecated by Microsoft</a> and therefore most tools only require a KSP. In case you only want to install the KSP, use the following command:</p>
 
@@ -142,185 +141,132 @@
 <h3 id="parameters">Parameters</h3>
 
 <p>Additionally to the general <a href="/documentation/crypto-providers#crypto-provider-configuration">Crypto Provider configuration</a>, specify the following values using the parameters provided by your signing tool:</p>
+
 <table>
-    <thead>
-        <tr><th>
-
-Parameter 
-</th><th>
-
-Value 
-</th><th>
-
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p>Crypto Provider</p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SignPathKSP</code> or <code class="language-plaintext highlighter-rouge">SignPathCSP</code></p>
-      </td><td>
-
-        <p>SignPath KSP (preferred) or CSP</p>
-      </td></tr><tr><td>
-
-        <p>Key container name</p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">&lt;ProjectSlug&gt;/</code>​<code class="language-plaintext highlighter-rouge">SigningPolicySlug&gt;</code></p>
-      </td><td>
-
-        <p><em>Project</em> and <em>Signing Policy</em> slug, separated by a forward slash (<code class="language-plaintext highlighter-rouge">/</code>)</p>
-      </td></tr><tr><td>
-
-        <p>Certificate file</p>
-      </td><td>
-
-        <p>Path to the x.509 certificate file</p>
-      </td><td>
-
-        <p>Download the respective certificate file from SignPath</p>
-      </td></tr></tbody>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Crypto Provider</td>
+      <td><code class="language-plaintext highlighter-rouge">SignPathKSP</code> or <code class="language-plaintext highlighter-rouge">SignPathCSP</code></td>
+      <td>SignPath KSP (preferred) or CSP</td>
+    </tr>
+    <tr>
+      <td>Key container name</td>
+      <td><code class="language-plaintext highlighter-rouge">$ProjectSlug/$SigningPolicySlug</code></td>
+      <td><em>Project</em> and <em>Signing Policy</em> slugs, separated by a forward slash</td>
+    </tr>
+    <tr>
+      <td>Certificate file</td>
+      <td>Path to the x.509 certificate file</td>
+      <td>Download the respective certificate file from SignPath</td>
+    </tr>
+  </tbody>
 </table>
-<div class="panel info">
-  <div class="panel-header">Keys are not specified directly</div>
+
+<blockquote class="panel info">
+  <p><strong>Keys are not specified directly</strong></p>
 
   <p>The KSP and CSP interfaces expect you to identify a key, but SignPath requires you to specify <em>Project</em> and <em>Signing Policy</em>. SignPath will select the correct key or certificate based on the <em>Project</em> and <em>Signing Policy</em> you specify.</p>
-
-</div>
+</blockquote>
 
 <h3 id="error-handling">Error handling</h3>
 
 <p>The following table shows the KSP <code class="language-plaintext highlighter-rouge">HRESULT</code> result codes for the different error situations when calling the SignPath REST API.
 Note that the CSP error code has to be retrieved via <a href="https://learn.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror"><code class="language-plaintext highlighter-rouge">GetLastError()</code></a>.</p>
+
 <table>
-    <thead>
-        <tr><th style="width: 50%">
-
-Situation 
-</th><th style="width: 50%">
-
-KSP error result code resp. CSP <code class="language-plaintext highlighter-rouge">GetLastError()</code> code 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p>Transient errors like HTTP timeouts or 503 (Service Unavailable) which still occur after the last retry</p>
-
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">NTE_DEVICE_NOT_READY</code> (“The device that is required by this cryptographic provider is not ready for use.”) for errors without an HTTP status code. Otherwise, HTTP status code as an HRESULT in the <code class="language-plaintext highlighter-rouge">FACILITY_ITF</code>, e.g. <code class="language-plaintext highlighter-rouge">0x800401F7</code> for HTTP 503</p>
-
-      </td></tr><tr><td>
-
-        <p>Non-transient service errors (e.g. 500 Internal Server Error)</p>
-
-      </td><td>
-
-        <p>HTTP status code as an HRESULT in the <code class="language-plaintext highlighter-rouge">FACILITY_ITF</code>, e.g. <code class="language-plaintext highlighter-rouge">0x800401F4</code> for HTTP 500</p>
-
-      </td></tr><tr><td>
-
-        <p>User errors detected by service (4xx returned)</p>
-
-      </td><td>
-
-        <p>HTTP status code as an HRESULT in the <code class="language-plaintext highlighter-rouge">FACILITY_ITF</code>, e.g. <code class="language-plaintext highlighter-rouge">0x80040190</code> for HTTP 400</p>
-
-      </td></tr><tr><td>
-
-        <p>Other unspecified errors (fall back)</p>
-
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">NTE_FAIL</code> (“An internal error occurred.”)</p>
-
-      </td></tr></tbody>
+  <thead>
+    <tr>
+      <th>Situation</th>
+      <th>error code (KSP result code or CSP <code class="language-plaintext highlighter-rouge">GetLastError()</code> code)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Transient errors like HTTP timeouts or 503 (Service Unavailable) which still occur after the last retry</td>
+      <td><code class="language-plaintext highlighter-rouge">NTE_DEVICE_NOT_READY</code> (“The device that is required by this cryptographic provider is not ready for use.”) for errors without an HTTP status code. Otherwise, HTTP status code as an HRESULT in the <code class="language-plaintext highlighter-rouge">FACILITY_ITF</code>, e.g. <code class="language-plaintext highlighter-rouge">0x800401F7</code> for HTTP 503</td>
+    </tr>
+    <tr>
+      <td>Non-transient service errors (e.g. 500 Internal Server Error)</td>
+      <td>HTTP status code as an HRESULT in the <code class="language-plaintext highlighter-rouge">FACILITY_ITF</code>, e.g. <code class="language-plaintext highlighter-rouge">0x800401F4</code> for HTTP 500</td>
+    </tr>
+    <tr>
+      <td>User errors detected by service (4xx returned)</td>
+      <td>HTTP status code as an HRESULT in the <code class="language-plaintext highlighter-rouge">FACILITY_ITF</code>, e.g. <code class="language-plaintext highlighter-rouge">0x80040190</code> for HTTP 400</td>
+    </tr>
+    <tr>
+      <td>Other unspecified errors (fall back)</td>
+      <td><code class="language-plaintext highlighter-rouge">NTE_FAIL</code> (“An internal error occurred.”)</td>
+    </tr>
+  </tbody>
 </table>
+
 <h2 id="signtool">SignTool.exe</h2>
 
 <p><em><a href="https://docs.microsoft.com/en-us/dotnet/framework/tools/signtool-exe">SignTool.exe</a></em> is a command line tool by Microsoft. <em>SignTool.exe</em> can use both the SignPath CSP and the SignPath KSP. We recommend using the SignPath KSP whenever possible.</p>
 
-<div class="panel warning">
-  <div class="panel-header">Important</div>
+<blockquote class="panel warning">
+  <p><strong>Important</strong></p>
 
   <p>Only the 64-bit version of <em>SignTool.exe</em> is supported.</p>
-
-</div>
+</blockquote>
 
 <p><em>SignTool.exe</em> requires the following parameters:</p>
+
 <table>
-    <thead>
-        <tr><th>
-
-Parameter 
-</th><th>
-
-Value 
-</th><th>
-
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">/csp</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SignPathKSP</code> or <code class="language-plaintext highlighter-rouge">SignPathCSP</code></p>
-      </td><td>
-
-        <p>SignPath KSP (preferred) or CSP</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">/kc</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">&lt;ProjectSlug&gt;/</code>​<code class="language-plaintext highlighter-rouge">&lt;SigningPolicySlug&gt;</code></p>
-      </td><td>
-
-        <p>Key container name: <em>Project</em> and <em>Signing Policy</em> slug, separated by a forward slash (<code class="language-plaintext highlighter-rouge">/</code>)</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">/fd</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SHA256</code>, <code class="language-plaintext highlighter-rouge">SHA384</code> or <code class="language-plaintext highlighter-rouge">SHA512</code></p>
-      </td><td>
-
-        <p>Digest (hashing) algorithm</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">/f</code></p>
-      </td><td>
-
-        <p>Path to the certificate file</p>
-      </td><td>
-
-        <p>Download the respective certificate file from SignPath</p>
-      </td></tr></tbody>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/csp</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SignPathKSP</code> or <code class="language-plaintext highlighter-rouge">SignPathCSP</code></td>
+      <td>SignPath KSP (preferred) or CSP</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/kc</code></td>
+      <td><code class="language-plaintext highlighter-rouge">$ProjectSlug/$SigningPolicySlug</code></td>
+      <td>Key container name: <em>Project</em> and <em>Signing Policy</em> slug, separated by a forward slash</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/fd</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SHA256</code>, <code class="language-plaintext highlighter-rouge">SHA384</code> or <code class="language-plaintext highlighter-rouge">SHA512</code></td>
+      <td>Digest (hashing) algorithm</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/f</code></td>
+      <td>Path to the certificate file</td>
+      <td>Download the respective certificate file from SignPath</td>
+    </tr>
+  </tbody>
 </table>
-<p>Sample: sign <code class="language-plaintext highlighter-rouge">MyApp.exe</code></p>
+
+<p><strong>Sample: sign <code class="language-plaintext highlighter-rouge">MyApp.exe</code></strong></p>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">signtool.exe</span><span class="w"> </span><span class="nx">sign</span><span class="w"> </span><span class="nx">/csp</span><span class="w"> </span><span class="nx">SignPathKSP</span><span class="w"> </span><span class="nx">/kc</span><span class="w"> </span><span class="s2">"</span><span class="nv">$ProjectSlug</span><span class="s2">/</span><span class="nv">$SigningPolicySlug</span><span class="s2">"</span><span class="w"> </span><span class="nx">/fd</span><span class="w"> </span><span class="nx">SHA256</span><span class="w"> </span><span class="nx">/f</span><span class="w"> </span><span class="s2">"certificate.cer"</span><span class="w"> </span><span class="s2">"MyApp.exe"</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="panel tip">
-  <div class="panel-header">Tip: Diagnostics</div>
+<blockquote class="panel tip">
+  <p><strong>Tip: Diagnostics</strong></p>
 
   <p>Specify <code class="language-plaintext highlighter-rouge">/v</code> to enable verbose output.</p>
+</blockquote>
 
-</div>
-
-<div class="panel warning">
-  <div class="panel-header">Warning: Produce correct timestamps</div>
+<blockquote class="panel warning">
+  <p><strong>Warning: Produce correct timestamps</strong></p>
 
   <p>When using SignTool.exe (or any other signing tool) directly, you are responsible for correct time stamping. See <a href="/documentation/crypto-providers#timestamps">Timestamps</a></p>
-
-</div>
+</blockquote>
 
 
 		</article>

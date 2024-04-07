@@ -115,14 +115,15 @@
 
 <p>Certificates can be rolled out to your test computers manually or using an automated process. You should generally add self-signed test certificates to the <code class="language-plaintext highlighter-rouge">Trusted Root Certification Authorities</code> certificate store of computers you use for testing your software. If you do this, Windows will treat your test certificates as if they were issued by a trusted Root CA.</p>
 
-<div class="panel tip">
-  <div class="panel-header">Trusted publishers</div>
+<blockquote class="panel tip">
+  <p><strong>Trusted publishers</strong></p>
+
   <p>You may also add your test certificates to the <code class="language-plaintext highlighter-rouge">Trusted Publishers</code> store on internal machines. This is what happens when a user choses to always trust this publisher during installation, and therefore results in the same behavior, so don’t do this if you want to replicate the default behavior on user machines.</p>
 
   <p>Adding a certificate to this store will affect User Account Control (UAC) device driver installation prompts as well as whitelisting features such as Software Restriction Policies (SRP), AppLocker and WDAC Code Integrity Policies.</p>
 
   <p>Only add your certificates to this store for computers in your own organization, don’t use your installer to add your certificate to this store.</p>
-</div>
+</blockquote>
 
 <h3 id="manual-installation">Manual installation</h3>
 

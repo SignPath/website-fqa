@@ -104,85 +104,58 @@
 <h3 id="usage">Usage</h3>
 
 <p>The <code class="language-plaintext highlighter-rouge">SignPathCryptoTokenKit.app</code> application loads all available certificates for the given parameters and makes them avaialble in the macOS keychain through a CryptoTokenKit extension. The application supports the following parameters (all of them are optional):</p>
+
 <table>
-    <thead>
-        <tr><th>
-
-Parameter 
-</th><th>
-
-Value 
-</th><th>
-
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-config</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">/path/to/config/file.json</code></p>
-      </td><td>
-
-        <p>Path to config file.</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-s</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">$SigningPolicySlug</code></p>
-      </td><td>
-
-        <p>If not specified, the certificates from all available signing policies will be loaded.</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-p</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">$ProjectSlug</code></p>
-      </td><td>
-
-        <p>If not specified, the certificates from all available projects will be loaded.</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-u</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">$ApiUrl</code></p>
-      </td><td>
-
-        <p>The base URL of the SignPath API, e.g. <code class="language-plaintext highlighter-rouge">https://app.signpath.io/</code>​<code class="language-plaintext highlighter-rouge">Api</code></p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-o</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">$OrganizationId</code></p>
-      </td><td>
-
-        <p>The id of the organization to use.</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-t</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">$ApiToken</code></p>
-      </td><td>
-
-        <p>The API token for a CI or Interactive User (can be created in the “Users and Groups” UI).</p>
-      </td></tr></tbody>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-config</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/path/to/config/file.json</code></td>
+      <td>Path to config file</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-s</code></td>
+      <td><code class="language-plaintext highlighter-rouge">$SigningPolicySlug</code></td>
+      <td>If not specified, the certificates from all available signing policies will be loaded</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-p</code></td>
+      <td><code class="language-plaintext highlighter-rouge">$ProjectSlug</code></td>
+      <td>If not specified, the certificates from all available projects will be loaded</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-u</code></td>
+      <td><code class="language-plaintext highlighter-rouge">$ApiUrl</code></td>
+      <td>The base URL of the SignPath API, e.g. <code class="language-plaintext highlighter-rouge">https://app.signpath.io/Api</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-o</code></td>
+      <td><code class="language-plaintext highlighter-rouge">$OrganizationId</code></td>
+      <td>The id of the organization to use</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-t</code></td>
+      <td><code class="language-plaintext highlighter-rouge">$ApiToken</code></td>
+      <td>The API token for a CI or Interactive User (can be created in the “Users and Groups” UI)</td>
+    </tr>
+  </tbody>
 </table>
-<div class="panel info">
-  <div class="panel-header">Keys are not specified directly</div>
+
+<blockquote class="panel info">
+  <p><strong>Keys are not specified directly</strong></p>
 
   <p>When using a file-based <a href="/documentation/crypto-providers#crypto-provider-configuration">configuration</a>, the macOS CryptoTokenKit Crypto Provider requires the config file to be</p>
   <ul>
     <li>named <code class="language-plaintext highlighter-rouge">config.json</code> and placed in the same directory as the <code class="language-plaintext highlighter-rouge">SignPathCryptoTokenKit.app</code> application or</li>
     <li>its path to be specified via the <code class="language-plaintext highlighter-rouge">-config</code> parameter</li>
   </ul>
-
-</div>
+</blockquote>
 
 <p>Example call starting the application:</p>
 
@@ -199,7 +172,7 @@ open <span class="s2">"SignPathCryptoTokenKit.app"</span> <span class="nt">--arg
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>security list-smartcard
 </code></pre></div></div>
 
-<p>Using the <code class="language-plaintext highlighter-rouge">pluginkit</code> tool, the registration of the token driver can be verified. The command lists all registered tokens and should also list <code class="language-plaintext highlighter-rouge">io.signpath.apps.CryptoTokenKit(&lt;Version&gt;)</code>.</p>
+<p>Using the <code class="language-plaintext highlighter-rouge">pluginkit</code> tool, the registration of the token driver can be verified. The command lists all registered tokens and should also list <code class="language-plaintext highlighter-rouge">io.signpath.apps.CryptoTokenKit($Version)</code>.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pluginkit <span class="nt">-m</span> <span class="nt">-v</span> <span class="nt">-p</span> com.apple.ctk-tokens
 </code></pre></div></div>
@@ -209,42 +182,34 @@ open <span class="s2">"SignPathCryptoTokenKit.app"</span> <span class="nt">--arg
 <p><em><a href="https://developer.apple.com/library/archive/documentation/Security/Conceptual/CodeSigningGuide/Procedures/Procedures.html">codesign</a></em> is a command line tool by Apple.</p>
 
 <p><em>codesign</em> requires the following parameter to find the correct certificate:</p>
+
 <table>
-    <thead>
-        <tr><th>
-
-Parameter 
-</th><th>
-
-Value 
-</th><th>
-
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-s</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">$SigningIdentity</code></p>
-      </td><td>
-
-        <p>A descriptor of the code signing identity that is stored in the keychain by the SignPath CryptoTokenKit. Provide the common name (or a substring) of the certificate.</p>
-
-      </td></tr></tbody>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-s</code></td>
+      <td><code class="language-plaintext highlighter-rouge">$SigningIdentity</code></td>
+      <td>A descriptor of the code signing identity that is stored in the keychain by the SignPath CryptoTokenKit. Provide the common name (or a substring) of the certificate.</td>
+    </tr>
+  </tbody>
 </table>
+
 <p>Sample: sign <code class="language-plaintext highlighter-rouge">MyApp.app</code></p>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">codesign</span><span class="w"> </span><span class="nt">-s</span><span class="w"> </span><span class="nx">MyCertificateSubjectName</span><span class="w"> </span><span class="nx">MyApp.app</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="panel warning">
-  <div class="panel-header">Warning: Produce correct timestamps</div>
+<blockquote class="panel warning">
+  <p><strong>Warning: Produce correct timestamps</strong></p>
 
   <p>When using codesign (or any other signing tool) directly, you are responsible for correct time stamping. See <a href="/documentation/crypto-providers#timestamps">Timestamps</a></p>
-
-</div>
+</blockquote>
 
 
 		</article>

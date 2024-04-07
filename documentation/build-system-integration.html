@@ -110,10 +110,11 @@
 
 <p>This section describes how SignPath can be integrated into automated builds using continuous integration software. You can use the PowerShell module provided by SignPath, directly call the Web API to submit signing requests, or integrate SignPath as part of your AppVeyor build step.</p>
 
-<div class="panel info">
-  <div class="panel-header">Locating ID values</div>
+<blockquote class="panel info">
+  <p><strong>Locating ID values</strong></p>
+
   <p>All necessary IDs can be found on the signing policy details page, including a code snippet that calls the PowerShell module.</p>
-</div>
+</blockquote>
 
 <h2 id="authentication">Authentication</h2>
 
@@ -443,22 +444,22 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="panel info">
-  <div class="panel-header">Status changes triggers</div>
+<blockquote class="panel info">
+  <p><strong>Status changes triggers</strong></p>
 
   <p>Notifications are sent for the following status changes: <code class="language-plaintext highlighter-rouge">Completed</code>, <code class="language-plaintext highlighter-rouge">Failed</code>, <code class="language-plaintext highlighter-rouge">Denied</code> and <code class="language-plaintext highlighter-rouge">Canceled</code>.</p>
-
-</div>
+</blockquote>
 
 <p>A handler for this Webhook can use the Web API for further activities, such as pushing the signed artifact to a repository. Use the Web API to get signing request data including build information.</p>
 
-<div class="panel info">
-  <div class="panel-header">Webhook authentication</div>
+<blockquote class="panel info">
+  <p><strong>Webhook authentication</strong></p>
 
   <p>Webhooks will send the <code class="language-plaintext highlighter-rouge">Authentication</code> header exactly as specified. Don’t forget to add the method, for example:</p>
 
   <p><code class="language-plaintext highlighter-rouge">Bearer JEAG1OrTXZ/t4URp5URt40DLBlA3WtcJmbwfeosyBkTABr6r</code></p>
-</div>
+</blockquote>
+
 
 		</article>
 	</div>

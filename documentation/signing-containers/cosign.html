@@ -76,8 +76,8 @@
 
 <p><em>Cosign</em> is part of the <a href="https://www.sigstore.dev/">Sigstore</a> project. It is primarily targeted at the open source community, allowing individual developers to sign container images using OpenID user accounts from GitHub, Google or Microsoft. For those developers, Sigstore eliminates the need for certificates or locally storeed private keys.</p>
 
-<div class="panel info">
-  <div class="panel-header">Sigstore architecture</div>
+<blockquote class="panel info">
+  <p><strong>Sigstore architecture</strong></p>
 
   <p>Sigstore combines the <em>Cosign</em> tool, the <em>Fulcio</em> certificate authority and the <em>Rekor</em> transparency log as follows:</p>
 
@@ -88,8 +88,7 @@
     <li>Rekor logs the signature in its public transparency log</li>
     <li>Cosign uploads signature and metadata to the image’s repository</li>
   </ol>
-
-</div>
+</blockquote>
 
 <h2 id="advantages-of-using-signpath-for-cosign">Advantages of using SignPath for Cosign</h2>
 
@@ -122,12 +121,11 @@
 
 <p>SignPath will offer advanced verification and information features in the near future.</p>
 
-<div class="panel info">
-  <div class="panel-header">X.509 certificate chains in Cosign</div>
+<blockquote class="panel info">
+  <p><strong>X.509 certificate chains in Cosign</strong></p>
 
   <p><em>Cosign</em> builds upon X.509 certificate chains, but requires specific additional attributes to be set in each certificate. The sigstore project is actively working on supporting custom certificates from traditional PKIs.</p>
-
-</div>
+</blockquote>
 
 <h2 id="how-to-use-cosign-with-signpath">How to use Cosign with SignPath</h2>
 
@@ -166,18 +164,18 @@ cosign generate <span class="nv">$IMAGE_DIGEST</span> <span class="o">&gt;</span
 zip payload.json.zip payload.json
 </code></pre></div></div>
 
-<div class="panel info">
-  <div class="panel-header">FQN and TAG</div>
+<blockquote class="panel info">
+  <p><strong>FQN and TAG</strong></p>
 
   <p><a name="fqn"></a> 
 <strong>Fully qualified name (FQN)</strong></p>
 
-  <p>For images hosted on Docker Hub, the FQN is <code class="language-plaintext highlighter-rouge">docker.io/&lt;namespace&gt;/&lt;repository&gt;</code>, e.g. <code class="language-plaintext highlighter-rouge">docker.io/jetbrains/teamcity-server</code>.</p>
+  <p>For images hosted on Docker Hub, the FQN is <code class="language-plaintext highlighter-rouge">docker.io/$namespace/$repository</code>, e.g. <code class="language-plaintext highlighter-rouge">docker.io/jetbrains/teamcity-server</code>.</p>
 
-  <p>If you are using your own registry, specify the value you would use for Docker CLI commands, but without tag or digest values. E.g. when using <code class="language-plaintext highlighter-rouge">docker pull myreg.jfrog.io/myrepo/myimage:latest</code>, the FQN would be <code class="language-plaintext highlighter-rouge">myreg.jfrog.io/myrepo/myimage</code>.</p>
+  <p>If you are using your own registry, specify the value you would use for Docker CLI commands, but without tag or digest values. E.g. when using <code class="language-plaintext highlighter-rouge">docker pull myreg.jfrog.io/&gt; myrepo/myimage:latest</code>, the FQN would be <code class="language-plaintext highlighter-rouge">myreg.jfrog.io/myrepo/myimage</code>.</p>
 
   <p><code class="language-plaintext highlighter-rouge">$TAG</code> refers the specific image tag (e.g. <code class="language-plaintext highlighter-rouge">latest</code>)</p>
-</div>
+</blockquote>
 
 <h3 id="step-2-create-a-signature-for-the-metadata">Step 2: create a signature for the metadata</h3>
 

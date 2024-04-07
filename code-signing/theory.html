@@ -276,10 +276,11 @@
   <li>We recommend that you use DER-encoded formats exclusively, since they are guaranteed not to contain private keys.</li>
 </ul>
 
-<div class="panel warning">
-  <div class="panel-header">Private keys are not safe in PFX files</div>
+<blockquote class="panel warning">
+  <p><strong>Private keys are not safe in PFX files</strong></p>
+
   <p>PFX files with private keys are convenient, but are considered insecure. Read about <a href="/code-signing/private-keys">alternatives</a>.</p>
-</div>
+</blockquote>
 
 <h2 id="certificate-authorities-cas">Certificate Authorities (CAs)</h2>
 
@@ -334,10 +335,11 @@
 
 <p>In order to verify the legitimacy of a signature, a client needs to know the entire certificate chain. Therefore, certificate files usually contain not only the certificate, but also every certificate in its chain of parents.</p>
 
-<div class="panel info">
-  <div class="panel-header">Intermediate certificates</div>
+<blockquote class="panel info">
+  <p><strong>Intermediate certificates</strong></p>
+
   <p>Root certificates cannot be revoked. If there is a security problem with any of them, they must be removed from every computer. Therefore, private keys for root certificates must not be stored in systems connected to networks. Issuing an intermediate certificate is a process that is rarely performed and requires physical access to the system that stores and protects the root certificate’s private key. On the other hand, common certificates are usually issued online. This only requires access to the intermediate certificate’s private key, a far less critical resource.</p>
-</div>
+</blockquote>
 
 <h2 id="certificate-revocation">Certificate revocation</h2>
 
@@ -347,14 +349,15 @@
 
 <p>Certificate revocation is an essential part of the certificate validation process. When a client encounters an unknown certificate, it must contact the certificate authority and check whether this certificate has been revoked. If a certificate has been revoked, the client will not accept signatures from past the revocation date.</p>
 
-<div class="panel info">
-  <div class="panel-header">Revocation protocols and reliability</div>
+<blockquote class="panel info">
+  <p>** Revocation protocols and reliability**</p>
+
   <p>The certificate contains the URL for this check, and depending on the mechanisms provided, the client can either download a full Certificate Revocation List (CRL) or check validity of an individual certificate through the OCSP protocol.</p>
 
   <p>Certificate revocation for code signing is considered more reliable than revocation for HTTPS certificates. The main weakness for HTTPS certificate revocation is that an attacker who is able to mount an HTTPS attack is often already in the position to intercept network traffic to revocation servers too. This is generally not true for code distribution attacks.</p>
 
   <p>However, note that Windows uses a soft revocation check policy. If the revocation server cannot be reached, certificates are accepted by default.</p>
-</div>
+</blockquote>
 
 <h2 id="time-stamping">Time stamping</h2>
 
@@ -368,12 +371,13 @@
 
 <p>Certificate authorities that issue code signing certificates must also offer a free time stamping service. However, they usually apply quotas to individual client IP addresses and do not guarantee service availability, which sometimes leads to problems in automated code signing scenarios.</p>
 
-<div class="panel warning">
-  <div class="panel-header">Always time-stamp your signatures</div>
+<blockquote class="panel warning">
+  <p><strong>Always time-stamp your signatures</strong></p>
+
   <p>If your code is signed without a time stamp, all signatures will immediately become invalid if you have to revoke your certificate. This can cause considerable trouble, especially if you need to re-build and re-distribute older releases. Since this might even keep people from revoking compromised certificates, it is also a security risk.</p>
 
   <p>Note that the same is true for invalid time stamps as well as for weak time stamps that will eventually be rejected by client software, such as SHA-1.</p>
-</div>
+</blockquote>
 
 <h3 id="time-stamp-assertions">Time stamp assertions</h3>
 
@@ -386,10 +390,11 @@
   <li>The validity of the primary signature is not confirmed by the TSA. In fact, the TSA never receives this information.</li>
 </ul>
 
-<div class="panel info">
-  <div class="panel-header">Counter signatures and TSA certificates</div>
+<blockquote class="panel info">
+  <p><strong>Counter signatures and TSA certificates</strong></p>
+
   <p>A time stamp is a counter-signature, i.e. the primary code signing signature is itself signed by the time stamp authority (TSA). A time stamp signature uses a TSA certificate, which in turn has a certificate chain that terminates at a trusted root certificate.</p>
-</div>
+</blockquote>
 
 <h2 id="signatures">Signatures</h2>
 
@@ -465,13 +470,14 @@
 
 <p>A signature is supposed to be authoritative for entire files, but the actual signing algorithm usually only accepts a small digest for input.</p>
 
-<div class="panel info">
-  <div class="panel-header">Why do we need hash digests?</div>
+<blockquote class="panel info">
+  <p><strong>Why do we need hash digests?</strong></p>
+
   <ul>
     <li>Input: The actual signing is supposed to take place within a secure system that owns (and protects) the private key, such as a hardware security module (HSM). Also, time stamp authorities (TSAs) must be called over the internet. Submitting large files to a HSM or TSA would not be a good use of resources.</li>
     <li>Output: If the entire file is signed, the signature would be as large as the file itself. So either the file size would double, or the actual signed file would have to be reconstructed from the signature (which is essentially the encrypted input).</li>
   </ul>
-</div>
+</blockquote>
 
 <p>The first step in all signing operations is therefore the calculation of a cryptographic hash digest. A hash algorithm generates a single number, typically from a larger binary file. This number is called digest. Any modification to the original file, no matter how small, is supposed to result in a different digest.</p>
 
@@ -488,12 +494,13 @@
 
 <p>The most commonly used variant today is SHA-256, which is short for SHA-2 with a 256 bit digest.</p>
 
-<div class="panel warning">
-  <div class="panel-header">Always use SHA-2 Time Stamp Authorities</div>
+<blockquote class="panel warning">
+  <p><strong>Always use SHA-2 Time Stamp Authorities</strong></p>
+
   <p>Since time stamps are signatures too, they also need a hash algorithm. Many CAs provide SHA-1 and SHA-2, but SHA-1 is still the default in many scenarios.</p>
 
   <p>Since time stamps are valid for many years, it’s all the more important to use SHA-2 TSAs. Consult your CA’s documentation for the correct SHA-2 URLs.</p>
-</div>
+</blockquote>
 
 		</article>
 	</div>

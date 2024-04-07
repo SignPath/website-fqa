@@ -156,12 +156,11 @@
 
 <p><img src="/assets/img/resources/documentation_scim-04a-select-provisioning.png" alt="Microsoft Entra ID - select provisioning" class="margin-left" /></p>
 
-<div class="panel tip">
-  <div class="panel-header">Dry-Run mode</div>
+<blockquote class="panel tip">
+  <p><strong>Dry-Run mode</strong></p>
 
   <p>By specifying the <code class="language-plaintext highlighter-rouge">/dry-run</code> postfix in the <em>Tentant URL</em>, you tell the SignPath connector to only simulate the updates/changes, but not perform any write operations. We recommend testing the setup with this configuration and to remove the <code class="language-plaintext highlighter-rouge">/dry-run</code> URL segment when done (see step 7).</p>
-
-</div>
+</blockquote>
 
 <p>Click “Test connection” to confirm that the configuration is correct. When successful, save the provisioning settings.</p>
 
@@ -183,8 +182,8 @@
 
 <p><img src="/assets/img/resources/documentation_scim-05d-mapping-part4.png" alt="Microsoft Entra ID - mapping expression" class="margin-left" /></p>
 
-<div class="panel tip">
-  <div class="panel-header">Mapping expression</div>
+<blockquote class="panel tip">
+  <p><strong>Mapping expression</strong></p>
 
   <p>To find out the value for <code class="language-plaintext highlighter-rouge">&lt;your-sso-identifier&gt;:</code>, open an exising user on SignPath. In the <em>Identity</em> field, everything before the first <code class="language-plaintext highlighter-rouge">:</code> is your SSO identifier.</p>
 
@@ -193,8 +192,7 @@
   <p>In order for SignPath to be able to map your Microsoft Entra ID users correctly, the second part of the <em>SignPath Identity</em> (after the <code class="language-plaintext highlighter-rouge">:</code>) should map to the respective field of the Microsoft Entra ID user. If you are mapping your Microsoft Entra ID users directly, you can use <code class="language-plaintext highlighter-rouge">[objectId]</code>. If you are forwarding your <code class="language-plaintext highlighter-rouge">sid</code> from your Active Directory, use <code class="language-plaintext highlighter-rouge">[onPremisesSecurityIdentifier]</code>.</p>
 
   <p><em>For details on how the expression system works in Azure, see the <a href="https://learn.microsoft.com/en-us/entra/identity/app-provisioning/functions-for-customizing-application-data">Microsoft reference for writing expressions for attribute mappings</a>.</em></p>
-
-</div>
+</blockquote>
 
 <p>After saving the mapping, you can now test your configuration.</p>
 
@@ -220,8 +218,8 @@
 
 <p>You can now assign all users and groups that you want to synchronize.</p>
 
-<div class="panel tip">
-  <div class="panel-header">Notes on the synchronization</div>
+<blockquote class="panel tip">
+  <p><strong>Notes on the synchronization</strong></p>
 
   <p><strong>User synchronization:</strong></p>
 
@@ -249,17 +247,15 @@
   </ul>
 
   <p>After the first mapping is done, Azure will match users and groups using their unique IDs.</p>
+</blockquote>
 
-</div>
-
-<div class="panel tip">
-  <div class="panel-header">Troubleshooting</div>
+<blockquote class="panel tip">
+  <p><strong>Troubleshooting</strong></p>
 
   <p>All synchronization attempts can be viewed in the <em>Enterprise Application</em> under <em>Provisioning logs</em>.</p>
 
   <p>Please note that some items may take a couple of hours to be synchronized.</p>
-
-</div>
+</blockquote>
 
 
 		</article>

@@ -242,8 +242,8 @@
   </tbody>
 </table>
 
-<div class="panel info">
-  <div class="panel-header">The misleading security assumption of Notary and Docker Content Trust (DCT)</div>
+<blockquote class="panel info">
+  <p><strong>The misleading security assumption of Notary and Docker Content Trust (DCT)</strong></p>
 
   <p><strong>TL;DR: a single compromised delegation key will compromise all image repositories that trust this delegation.</strong></p>
 
@@ -264,7 +264,7 @@
   <p>Note that developers usually own a single delegation key that is trusted by many repositories. Issuing seperate delegation keys for each repository is not a good solution, it just puts an additional burden on developers to keep their keys secure, thus increasing the risks. Also, DCT does not support hardware tokens for delegation keys.</p>
 
   <p>(Disclaimer: all compromise scenarios for delegation keys assume access to the developer’s Notary credentials, which are usually the same as their Docker registry credentials.)</p>
-</div>
+</blockquote>
 
 <h2 id="setup-phase">Setup phase</h2>
 
@@ -294,8 +294,8 @@
 
 <p>In order for SignPath to ensure that only valid tags can be signed, you need to upload the repository’s root key (only the public key) to SignPath. Use the <a href="https://powershellgallery.com/packages/SignPathDocker/">SignPathDocker</a> PowerShell module.</p>
 
-<div class="panel info">
-  <div class="panel-header">PowerShell parameters and FQN</div>
+<blockquote class="panel info">
+  <p><strong>PowerShell parameters and FQN</strong></p>
 
   <p><code class="language-plaintext highlighter-rouge">Get-RootCertificate</code>, <code class="language-plaintext highlighter-rouge">Initialize-DockerSigning</code>, and <code class="language-plaintext highlighter-rouge">Add-DelegationCertificate</code> accept the following parameters:</p>
 
@@ -325,11 +325,10 @@
   <p><a name="fqn"></a> 
 <strong>Fully qualified name (FQN)</strong></p>
 
-  <p>For images hosted on Docker Hub, the FQN is <code class="language-plaintext highlighter-rouge">docker.io/&lt;namespace&gt;/&lt;repository&gt;</code>, e.g. <code class="language-plaintext highlighter-rouge">docker.io/jetbrains/teamcity-server</code>.</p>
+  <p>For images hosted on Docker Hub, the FQN is <code class="language-plaintext highlighter-rouge">docker.io/$namespace/$repository</code>, e.g. <code class="language-plaintext highlighter-rouge">docker.io/jetbrains/teamcity-server</code>.</p>
 
-  <p>If you are using your own registry, specify the value you would use for Docker CLI commands, but without tag or digest values. E.g. when using <code class="language-plaintext highlighter-rouge">docker pull myreg.jfrog.io/myrepo/myimage:latest</code>, the FQN would be <code class="language-plaintext highlighter-rouge">myreg.jfrog.io/myrepo/myimage</code>.</p>
-
-</div>
+  <p>If you are using your own registry, specify the value you would use for Docker CLI commands, but without tag or digest values. E.g. when using <code class="language-plaintext highlighter-rouge">docker pull myreg.jfrog.io/&gt; myrepo/myimage:latest</code>, the FQN would be <code class="language-plaintext highlighter-rouge">myreg.jfrog.io/myrepo/myimage</code>.</p>
+</blockquote>
 
 <p>Choose one of the following scenarios:</p>
 
@@ -402,15 +401,15 @@
 
 <p>We recommend to perform a test signing before deleting the target key.</p>
 
-<div class="panel info">
-  <div class="panel-header">Delete the target key: reason and consequences</div>
+<blockquote class="panel info">
+  <p><strong>Delete the target key: reason and consequences</strong></p>
 
   <p>DCT and Notary provide no method to protect the target key beyond a simple passphrase. Yubikey tokens can only be used for the root key. However, since SignPath uses only a single delegation key for all developers and CI systems, there is usually no need to for the target key after the setup phase. We therefore recommend that you delete the key file right after sucessfull initialization.</p>
 
   <p>If you run into unexpected problems later that require a target key, you can always create a new one by performing a <a href="https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#rotate-keys">key rotation</a>. Don’t forget to add existing delegation keys you want to keep after a key rotation.</p>
 
   <p>The default <a href="https://github.com/theupdateframework/notary/blob/master/docs/best_practices.md">expiration time</a> for both target and delegation keys is 3 years. After this time, you need to perform a key rotation in any case.</p>
-</div>
+</blockquote>
 
 <h2 id="signing-phase">Signing phase</h2>
 
@@ -472,8 +471,8 @@
 </span><span class="w">  </span><span class="p">[</span><span class="nt">-NotaryUrl</span><span class="w"> </span><span class="nv">$NOTARY_URL</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-NotaryUsername</span><span class="w"> </span><span class="nv">$NOTARY_USERNAME</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nt">-NotaryPassword</span><span class="w"> </span><span class="nv">$NOTARY_PASSWORD</span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="panel info">
-  <div class="panel-header">PowerShell parameters</div>
+<blockquote class="panel info">
+  <p><strong>PowerShell parameters</strong></p>
 
   <p><code class="language-plaintext highlighter-rouge">Invoke-DockerSigning</code>, <code class="language-plaintext highlighter-rouge">New-DockerSigningData</code>, <code class="language-plaintext highlighter-rouge">Submit-SigningRequest</code>, and <code class="language-plaintext highlighter-rouge">Push-SignedDockerSigningData</code> accept all or some of the following parameters:</p>
 
@@ -533,12 +532,12 @@
 
   <p><strong>Using environment variables for authentication</strong></p>
 
-  <p>If you would rather provide credentials via environment variables, username and password have to be concatenated with a colon <code class="language-plaintext highlighter-rouge">:</code>, encoded in base64 and stored in  the <code class="language-plaintext highlighter-rouge">REGISTRY_AUTH</code> or <code class="language-plaintext highlighter-rouge">NOTARY_AUTH</code> environment variable respectively. See the <a href="https://github.com/notaryproject/notary/blob/master/docs/reference/client-config.md#environment-variables-optional">Notary documentation</a>.</p>
+  <p>If you would rather provide credentials via environment variables, username and password have to be concatenated with a colon <code class="language-plaintext highlighter-rouge">:</code>, encoded in base64 and stored in  the <code class="language-plaintext highlighter-rouge">REGISTRY_AUTH</code> or <code class="language-plaintext highlighter-rouge">NOTARY_AUTH</code> environment variable. See the <a href="https://github.com/notaryproject/notary/blob/master/docs/reference/client-config.md#environment-variables-optional">Notary documentation</a>.</p>
 
   <p><strong>WaitForCompletion option</strong></p>
 
   <p>Instead of calling <code class="language-plaintext highlighter-rouge">Get-SignedArtifact</code> separately, you may call <code class="language-plaintext highlighter-rouge">Submit-SigningRequest</code> with the  <code class="language-plaintext highlighter-rouge">-WaitForCompletion</code> parameter. The <code class="language-plaintext highlighter-rouge">Submit-SigningRequest</code> command is described in  <a href="/documentation/build-system-integration#powershell">build system integration</a>.</p>
-</div>
+</blockquote>
 
 		</article>
 	</div>

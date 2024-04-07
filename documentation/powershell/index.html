@@ -83,12 +83,13 @@
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Install-Module</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="nx">SignPath</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="panel ">
-  <div class="panel-header">Specify an an acceptable version range</div>
+<blockquote class="panel tip">
+  <p><strong>Specify an an acceptable version range</strong></p>
+
   <p>The releases of the SignPath module follow <a href="https://semver.org/">semantic versioning</a> principles. In automated scenarios, we recommend to fix the major version and set the minimum minor version. This ensures that the most current backwards-compatible version is installed.</p>
 
   <p>To achieve this, specify a lower and upper bound, e.g. <code class="language-plaintext highlighter-rouge">-MinimumVersion 4.0.0 -MaximumVersion 4.999.999</code></p>
-</div>
+</blockquote>
 
 <h2 id="signpath-powershell-cmdlets">SignPath PowerShell cmdlets</h2>
 

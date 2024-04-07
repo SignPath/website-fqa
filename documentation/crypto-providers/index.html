@@ -103,86 +103,53 @@
 
 <p>The SignPath Crypto Providers do not access the crypto hardware directly. Instead, they implement these interfaces to provide access to SignPath <em>Projects</em> and <em>Signing Policies</em>. During the entire operation, the private key will remain on the HSM.</p>
 
-<div class="panel info">
-  <div class="panel-header">Version info</div>
+<blockquote class="panel info">
+  <p><strong>Version info</strong></p>
 
   <p>This documentation contains information about the latest version of the CryptoProviders. See the <a href="/documentation/changelog?component=crypto_providers">changelog</a> for updates.</p>
-</div>
+</blockquote>
 
 <h3 id="crypto-providers">Crypto Providers</h3>
 
 <p>The following Crypto Providers are available for SignPath:</p>
+
 <table>
-    <thead>
-        <tr><th>
-
-Crypto Provider 
-</th><th>
-
-Technology 
-</th><th>
-
-Supported platforms 
-</th><th>
-
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p><strong>Cryptoki</strong> (Cryptographic Token Interface)</p>
-
-      </td><td>
-
-        <p><a href="https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html">PKCS#11</a> version 2.40</p>
-
-      </td><td>
-
-        <p>Windows, Linux</p>
-      </td><td>
-
-      </td></tr><tr><td>
-
-        <p><strong>KSP</strong> (Key Storage Provider)</p>
-
-      </td><td>
-
-        <p><a href="https://docs.microsoft.com/en-us/windows/win32/seccng/key-storage-and-retrieval">CNG</a> (Cryptographic API: Next Generation)</p>
-
-      </td><td>
-
-        <p>Windows</p>
-      </td><td>
-
-      </td></tr><tr><td>
-
-        <p><strong>CSP</strong> (Cryptographic Service Provider)</p>
-
-      </td><td>
-
-        <p><a href="https://docs.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers">CAPI</a> (CryptoAPI)</p>
-
-      </td><td>
-
-        <p>Windows</p>
-      </td><td>
-
-        <p>This API is deprecated, most tools now use KSP/CNG</p>
-      </td></tr><tr><td>
-
-        <p><strong>CTK</strong> (CryptoTokenKit)</p>
-
-      </td><td>
-
-        <p><a href="https://developer.apple.com/documentation/cryptotokenkit/">CTK extension</a></p>
-
-      </td><td>
-
-        <p>macOS</p>
-      </td><td>
-
-      </td></tr></tbody>
+  <thead>
+    <tr>
+      <th>Crypto Provider</th>
+      <th>Technology</th>
+      <th>Supported platforms</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Cryptoki</strong> (Cryptographic Token Interface)</td>
+      <td><a href="https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html">PKCS #11</a> version 2.40</td>
+      <td>Windows, Linux</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>KSP</strong> (Key Storage Provider)</td>
+      <td><a href="https://docs.microsoft.com/en-us/windows/win32/seccng/key-storage-and-retrieval">CNG</a> (Cryptographic API: Next Generation)</td>
+      <td>Windows</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>CSP</strong> (Cryptographic Service Provider)</td>
+      <td><a href="https://docs.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers">CAPI</a> (CryptoAPI)</td>
+      <td>Windows</td>
+      <td>This API is deprecated, most tools now use KSP/CNG</td>
+    </tr>
+    <tr>
+      <td><strong>CTK</strong> (CryptoTokenKit)</td>
+      <td><a href="https://developer.apple.com/documentation/cryptotokenkit/">CTK extension</a></td>
+      <td>macOS</td>
+      <td> </td>
+    </tr>
+  </tbody>
 </table>
+
 <h3 id="flow">Signing flow</h3>
 
 <p>This diagram describes how the various components work together to create a signature.</p>
@@ -204,7 +171,7 @@ Description
       <li>For Authenticode, this step is performed by a Windows API using a format-specific SIP (Subject Interface Package).</li>
     </ul>
   </li>
-  <li>The <strong>signing tool</strong> calls a <strong>System API</strong> (Windows) or an <strong>engine</strong> (PKCS#11) to get a signature block.</li>
+  <li>The <strong>signing tool</strong> calls a <strong>System API</strong> (Windows) or an <strong>engine</strong> (PKCS #11) to get a signature block.</li>
   <li>This API or engine calls the <strong>SignPath Crypto Provider</strong>.</li>
   <li>The SignPath Crypto Provider calls the <strong>SignPath REST API</strong> over HTTPS/REST.</li>
   <li><strong>SignPath</strong>
@@ -269,185 +236,137 @@ Again, for Authenticode this is actually performed by the SIP.</li>
 
 <p>This section describes how to specify configuration values for all Crypto Providers.</p>
 
-<p>You can either use a JSON configuration file and specify the JSON file path via the <code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code> environment variable, or use individual configuration environment variables per setting.
-Note that environment variables take precedence over the corresponding JSON values.</p>
-<table>
-    <thead>
-        <tr><th>
+<p>You can either use a JSON configuration file and specify the JSON file path via the <code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code> environment variable, or use individual configuration environment variables per setting.</p>
 
-Setting (in JSON file) 
-</th><th>
+<p>Environment variables take precedence over the corresponding JSON values.</p>
 
-Environment variable 
-</th><th>
-
-Default Value 
-</th><th>
-
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">OrganizationId</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_ORGANIZATION_</code>​<code class="language-plaintext highlighter-rouge">ID</code></p>
-      </td><td>
-
-        <p>(mandatory)</p>
-      </td><td>
-
-        <p>The id of the organization to use</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">ApiToken</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_API_TOKEN</code></p>
-      </td><td>
-
-        <p>(mandatory)</p>
-      </td><td>
-
-        <p>The API token for a CI or Interactive User (can be created in the “Users and Groups” UI). See below for options.</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">TlsClientCertificate</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_TLS_</code>​<code class="language-plaintext highlighter-rouge">CLIENT_CERTIFICATE</code></p>
-      </td><td>
-
-        <p>(-)</p>
-      </td><td>
-
-        <p>Reference to a TLS/SSL client authentication certificate in the format <code class="language-plaintext highlighter-rouge">thumbprint:</code>​<code class="language-plaintext highlighter-rouge">$HexThumbprint</code> (optional, Windows only)</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">ApiUrl</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_API_URL</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">https://</code>​<code class="language-plaintext highlighter-rouge">app.signpath.io/</code>​<code class="language-plaintext highlighter-rouge">Api</code></p>
-      </td><td>
-
-        <p>The SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations.</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">HttpProxy</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">http_proxy</code></p>
-      </td><td>
-
-        <p>(-)</p>
-      </td><td>
-
-        <p>The address of an <a href="#http-proxy-config">HTTP (web) proxy</a> (optional, not available on macOS).</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">Timeouts.HttpRequest</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_TIMEOUTS_</code>​<code class="language-plaintext highlighter-rouge">HTTP_REQUEST</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">30</code></p>
-      </td><td>
-
-        <p>The timeout for the HTTP calls in seconds per attempt (not available on macOS).</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">Timeouts.FirstRetryDelay</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_TIMEOUTS_</code>​<code class="language-plaintext highlighter-rouge">FIRST_RETRY_DELAY</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">1.16</code></p>
-      </td><td rowspan="2">
-
-        <p>The initial delay in seconds and maximum number of retries in case of failed API HTTP requests like timeouts or 503 (Service Unavailable) errors. The delay between the retries increases exponentially and sums up to a total delay time of 10 mins for the default values of 10 retries with 1.16 seconds initial delay.  (not available on macOS)</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">Timeouts.RetryCount</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_TIMEOUTS_</code>​<code class="language-plaintext highlighter-rouge">RETRY_COUNT</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">10</code></p>
-      </td><td>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">Log.Console.Level</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_CONSOLE_</code>​<code class="language-plaintext highlighter-rouge">LEVEL</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">none</code></p>
-      </td><td>
-
-        <p>The log level used for console logging. (not available on macOS)</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">Log.File.Level</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_FILE_LEVEL</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">warning</code></p>
-      </td><td>
-
-        <p>The log level used for file logging. (not available on macOS)</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">Log.File.Directory</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_FILE_</code>​<code class="language-plaintext highlighter-rouge">DIRECTORY</code></p>
-      </td><td>
-
-        <p>(-)</p>
-      </td><td>
-
-        <p>The path to the folder where log files should be stored. Logging to files is disabled if no value is provided.</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">Cryptoki.</code>​<code class="language-plaintext highlighter-rouge">DoNotFailOn</code>​<code class="language-plaintext highlighter-rouge">ReadWriteSessions</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SIGNPATH_CRYPTOKI_</code>​<code class="language-plaintext highlighter-rouge">DO_NOT_FAIL_ON_</code>​<code class="language-plaintext highlighter-rouge">READ_WRITE_SESSIONS</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">false</code></p>
-      </td><td>
-
-        <p>Enables compatibility with Cryptoki / PKCS #11 clients which open sessions with read/write option (e.g. pkcs11-tool in version lower than 0.23)</p>
-
-      </td></tr></tbody>
+<table class="break-column-1 break-column-2">
+  <thead>
+    <tr>
+      <th>JSON setting</th>
+      <th>Environment variable</th>
+      <th>Default Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OrganizationId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_ORGANIZATION_ID</code></td>
+      <td>(mandatory)</td>
+      <td>ID of your organization</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ApiToken</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_API_TOKEN</code></td>
+      <td>(mandatory)</td>
+      <td>API token for a CI or Interactive User (see below for options)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TlsClientCertificate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_TLS_CLIENT_CERTIFICATE</code></td>
+      <td>(optional)</td>
+      <td>Reference to a TLS/SSL client authentication certificate in the format <code class="language-plaintext highlighter-rouge">thumbprint:$HexThumbprint</code> (Windows only)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ApiUrl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_API_URL</code></td>
+      <td><code class="language-plaintext highlighter-rouge">https://app.signpath.io/Api</code></td>
+      <td>SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">HttpProxy</code></td>
+      <td><code class="language-plaintext highlighter-rouge">http_proxy</code></td>
+      <td>(optional)</td>
+      <td>Address of an <a href="#http-proxy-config">HTTP (web) proxy</a> (not available on macOS)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cryptoki.DoNotFailOnReadWriteSessions</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>Enables compatibility with Cryptoki/PKCS #11 clients which open sessions with read/write option</td>
+    </tr>
+  </tbody>
 </table>
+
+<p><strong>Logging settings:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>JSON setting</th>
+      <th>Environment variable</th>
+      <th>Default Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Log.Console.Level</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_CONSOLE_LEVEL</code></td>
+      <td><code class="language-plaintext highlighter-rouge">none</code></td>
+      <td>Log level used for console logging (not available on macOS)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Log.File.Level</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_FILE_LEVEL</code></td>
+      <td><code class="language-plaintext highlighter-rouge">warning</code></td>
+      <td>Log level used for file logging (not available on macOS)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Log.File.Directory</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_FILE_DIRECTORY</code></td>
+      <td>(optional)</td>
+      <td>Path to the folder to store log files (no file logging if not provided)</td>
+    </tr>
+  </tbody>
+</table>
+
 <p>Supported log levels: <code class="language-plaintext highlighter-rouge">none</code>, <code class="language-plaintext highlighter-rouge">fatal</code>, <code class="language-plaintext highlighter-rouge">error</code>, <code class="language-plaintext highlighter-rouge">warning</code>, <code class="language-plaintext highlighter-rouge">info</code>, <code class="language-plaintext highlighter-rouge">debug</code>, <code class="language-plaintext highlighter-rouge">verbose</code>.</p>
 
-<p>Sample configuration file:</p>
+<p><strong>Timeout settings:</strong></p>
+
+<table class="break-column-2">
+  <thead>
+    <tr>
+      <th>JSON setting</th>
+      <th>Environment variable</th>
+      <th>Default Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Timeouts.HttpRequest</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_TIMEOUTS_HTTP_REQUEST</code></td>
+      <td><code class="language-plaintext highlighter-rouge">30</code></td>
+      <td>Timeout for HTTP calls in seconds per attempt (not available on macOS)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Timeouts.FirstRetryDelay</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_TIMEOUTS_FIRST_RETRY_DELAY</code></td>
+      <td><code class="language-plaintext highlighter-rouge">1.16</code></td>
+      <td>Initial delay in seconds in case of failed API HTTP requests (not available on macOS)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Timeouts.RetryCount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_TIMEOUTS_RETRY_COUNT</code></td>
+      <td><code class="language-plaintext highlighter-rouge">10</code></td>
+      <td>Maximum number of retries in case of failed API HTTP requests (not available on macOS)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>HTTP timeouts and 5xx server erros (e.g. 503 Service Unavailable errors) are treated as failed requests.</p>
+
+<p>The delay between retries increases exponentially. For the default values this sums up to a total delay time of 10 minuntes.</p>
+
+<p><strong>Sample configuration file:</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"ApiUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.signpath.io/Api"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"OrganizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;OrganizationId&gt;"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ApiToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ApiToken&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"OrganizationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$OrganizationId"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ApiToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$ApiToken"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Log"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Console"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"Level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"warning"</span><span class="w">
@@ -463,36 +382,30 @@ Description
 <h3 id="api-token-options">API token options</h3>
 
 <p>The <code class="language-plaintext highlighter-rouge">ApiToken</code> value can contain the API token in one of the following variants:</p>
-<table>
-    <thead>
-        <tr><th>
 
-Value 
-</th><th>
-
-Example 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p>Unencrpyted token</p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">AIk/65sl23lA1nVV/</code>​<code class="language-plaintext highlighter-rouge">pgSqk96SvHFs</code>​<code class="language-plaintext highlighter-rouge">Sw3xitmp5Qhr+F/</code></p>
-      </td></tr><tr><td>
-
-        <p>DPAPI-encrypted token (Windows only)</p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">encrypted:</code>​<code class="language-plaintext highlighter-rouge">AQAAANCMnd8BFdERjHoAwE/</code>​<code class="language-plaintext highlighter-rouge">Cl+sBAAA...</code></p>
-      </td></tr><tr><td>
-
-        <p>Registry path to DPAPI-encrypted token (Windows only)</p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">registry:</code>​<code class="language-plaintext highlighter-rouge">HKEY_CURRENT_USER\</code>​<code class="language-plaintext highlighter-rouge">SOFTWARE\SignPath\</code>​<code class="language-plaintext highlighter-rouge">MyEncryptedApiToken</code></p>
-      </td></tr></tbody>
+<table class="break-column-2">
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Unencrpyted token</td>
+      <td><code class="language-plaintext highlighter-rouge">AIk/65sl23lA1nVV/pgSqk96SvHFsSw3xitmp5Qhr+F/</code></td>
+    </tr>
+    <tr>
+      <td>DPAPI-encrypted token (Windows only)</td>
+      <td><code class="language-plaintext highlighter-rouge">encrypted:AQAAANCMnd8BFdERjHoAwE/Cl+sBAAA...</code></td>
+    </tr>
+    <tr>
+      <td>Registry path to DPAPI-encrypted token (Windows only)</td>
+      <td><code class="language-plaintext highlighter-rouge">registry:HKEY_CURRENT_USER\\SOFTWARE\\SignPath\\MyEncryptedApiToken</code></td>
+    </tr>
+  </tbody>
 </table>
+
 <p>In order to encrypt the token, you can use the following PowerShell snippet:</p>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ApiToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
@@ -503,7 +416,6 @@ Example
 </span><span class="nv">$EncryptedApiToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">Security.Cryptography.ProtectedData</span><span class="p">]::</span><span class="n">Protect</span><span class="p">(</span><span class="nv">$ApiTokenBytes</span><span class="p">,</span><span class="w"> </span><span class="bp">$null</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">System.Security.Cryptography.DataProtectionScope</span><span class="p">]::</span><span class="n">CurrentUser</span><span class="p">)</span><span class="w">
 
 </span><span class="nv">$EncryptedBase64EncodedApiToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">System.Convert</span><span class="p">]::</span><span class="n">ToBase64String</span><span class="p">(</span><span class="nv">$EncryptedApiToken</span><span class="p">)</span><span class="w">
-
 </span></code></pre></div></div>
 
 <p>To store the encrypted token in the Windows registry, you can use the following snippet:</p>

@@ -68,10 +68,7 @@
 							<a href='/documentation/crypto-providers/cryptoki#'>Cryptoki/PKCS#11</a></li><li class='active'>
 							<a href='/documentation/crypto-providers/gpg#'>GPG</a><div class="no-mobile" ><ul>
   <li><a href="#general-instructions">General Instructions</a></li>
-  <li><a href="#gpg-file-signing">GPG File Signing</a></li>
-  <li><a href="#rpm-signing-linux">RPM Signing (Linux)</a></li>
-  <li><a href="#deb-signing-via-dpkg-sig-linux">DEB Signing via dpkg-sig (Linux)</a></li>
-  <li><a href="#maven-artifact-signing-linux">Maven Artifact Signing (Linux)</a></li>
+  <li><a href="#signing-code-with-gpg">Signing code with GPG</a></li>
 </ul>
 </div></li><li class=''>
 							<a href='/documentation/crypto-providers/macos#'>macOS CryptoTokenKit</a></li><li class=''>
@@ -83,10 +80,14 @@
       <li><a href="#setup">Setup</a></li>
     </ul>
   </li>
-  <li><a href="#gpg-file-signing">GPG File Signing</a></li>
-  <li><a href="#rpm-signing-linux">RPM Signing (Linux)</a></li>
-  <li><a href="#deb-signing-via-dpkg-sig-linux">DEB Signing via dpkg-sig (Linux)</a></li>
-  <li><a href="#maven-artifact-signing-linux">Maven Artifact Signing (Linux)</a></li>
+  <li><a href="#signing-code-with-gpg">Signing code with GPG</a>
+    <ul>
+      <li><a href="#gpg-file-signing">GPG File Signing</a></li>
+      <li><a href="#rpm-signing-linux">RPM Signing (Linux)</a></li>
+      <li><a href="#deb-signing-via-dpkg-sig-linux">DEB Signing via dpkg-sig (Linux)</a></li>
+      <li><a href="#maven-artifact-signing-linux">Maven Artifact Signing (Linux)</a></li>
+    </ul>
+  </li>
 </ul>
 <h2 id="general-instructions">General Instructions</h2>
 
@@ -104,53 +105,98 @@
 
 <h4 id="configure-gnupg">Configuring GnuPG</h4>
 
-<p>Both GnuPG (<code class="language-plaintext highlighter-rouge">gpg-agent.conf</code>) and gnupg-pkcs11-scd (<code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd.conf</code>) need to be set up to use the <a href="/documentation/crypto-providers/cryptoki">SignPath Cryptoki Crypto Provider</a>. See also the general <a href="/documentation/crypto-providers#crypto-provider-configuration">Crypto Provider configuration</a> for more details.</p>
+<p>Configure the <a href="/documentation/crypto-providers/cryptoki">SignPath Cryptoki provider</a> for</p>
+<ul>
+  <li>GnuPG in <code class="language-plaintext highlighter-rouge">gpg-agent.conf</code></li>
+  <li>gnupg-pkcs11-scd in <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd.conf</code></li>
+</ul>
 
-<p>For details how these files need to be configured and about the necessary dependencies, see <code class="language-plaintext highlighter-rouge">samples/Scenarios/Gpg</code> in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</p>
+<p>For more details see</p>
+<ul>
+  <li><a href="/documentation/crypto-providers#crypto-provider-configuration">Crypto Provider configuration</a> documentation</li>
+  <li><code class="language-plaintext highlighter-rouge">samples/Scenarios/Gpg</code> in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> (details about configuration and necessary dependencies)</li>
+</ul>
 
 <h4 id="gpg-key-generation">GPG Key Generation</h4>
 
-<p>GPG has an own key format and therefore SignPath’s X.509 certificates cannot be directly used. Instead you have to generate a GPG key which <em>references</em> a SignPath certificate. This means creating a new GPG key which includes the RSA public key of a SignPath certificate and “links” the RSA private key (which resides in SignPath’s HSMs). This is possible via a <a href="https://github.com/gpg/gnupg/blob/STABLE-BRANCH-2-2/agent/keyformat.txt#shadowed-private-key-format">“shadowed private key”</a> stored within <code class="language-plaintext highlighter-rouge">$GNUPGHOME/private-keys-v1.d/&lt;KeyGrip&gt;.key</code> which basically references a SignPath project and signing policy slug within.</p>
+<blockquote class="panel info">
+  <p><strong>GPG terminology: public keys</strong></p>
 
-<p>Although the RSA key is used from the SignPath certificate, GPG keys hold their own metadata like name, email and expiration date which need to be specified during the GPG key generation. As defaults we use <code class="language-plaintext highlighter-rouge">"SignPath &lt;ProjectSlug&gt; / &lt;SigningPolicySlug&gt;</code> for the full name,  <code class="language-plaintext highlighter-rouge">"&lt;SigningPolicySlug&gt;@&lt;ProjectSlug&gt;</code> as email and 1 year expiration.</p>
+  <p>GPG uses the term <em>public key</em> for a specific file format that includes the actual public key key, the holder’s identity (name, email address), expiration, and other data. It is therefore more similar to a certificate than just a public key.</p>
 
-<p>As the SignPath X.509 certificate’s issuer and validity time range is not used, you can use a separate self-signed certificate in SignPath with an arbitrary validity time range. Alternatively, you could also use your existing (public-trusted) code signing certificates.</p>
+  <p>This sometimes creates confusion about whether the term public key refers to just the public part of the cryptographic key pair, or an entire GPG public key.</p>
+</blockquote>
 
-<p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain scripts to generate a GPG key via <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario GenerateGpgKey</code>. See <code class="language-plaintext highlighter-rouge">GenerateGpgKey.ps1</code> for details how the different commands are parametrized. In the same script the GPG key metadata defaults can be overridden.</p>
+<p>To use GPG with SignPath, you need to create an X.509 certificate for the cryptographic key pair, and a separate GPG public key on your computer. The GPG public key will <em>contain</em> the cryptographic public key from the certificate and <em>reference</em> the private key, which will remain with SignPath.</p>
 
-<p>The outcome of <code class="language-plaintext highlighter-rouge">GenerateGpgKey</code> is a GPG key, which is exported to <code class="language-plaintext highlighter-rouge">samples/Scenarios/Gpg/Keys</code> including the public key and a corresponding revocation certificate in the <code class="language-plaintext highlighter-rouge">openpgp-revocs.d</code> subdirectory.
-The public key (<code class="language-plaintext highlighter-rouge">&lt;Email&gt;.public.pgp</code> file) needs to be transported to the system which should later perform the GPG signing operations.
-Note that the shadowed private key file does not need to be transported as it can be restored by running the <code class="language-plaintext highlighter-rouge">SCD LEARN</code> command via <code class="language-plaintext highlighter-rouge">gpg-connect-agent</code> (see <code class="language-plaintext highlighter-rouge">FetchGpgKeyInfos</code> function in the Linux container samples).</p>
+<p>The reference is implemented as a <a href="https://github.com/gpg/gnupg/blob/STABLE-BRANCH-2-2/agent/keyformat.txt#shadowed-private-key-format">“shadowed private key”</a> and references a SignPath <em>project</em> slug and <em>signing policy</em> slug. (It is stored in <code class="language-plaintext highlighter-rouge">$GNUPGHOME/private-keys-v1.d/$KeyGrip.key</code> and can be restored from the GPG public key.)</p>
 
-<p>During the GPG key generation two SignPath hash signing operations happen: One to self-sign the key and one to sign the revocation certificate.</p>
+<blockquote class="panel tip">
+  <p><strong>Tip: Create a self-signed certificate in SignPath</strong></p>
 
-<h4 id="preparation">Preparation</h4>
+  <p>We recommend that you create a self-signed certificate in SignPath for each GPG public key. While the certificate’s metadata is not used, you might want to use similar values as for the GPG public key for clarity.</p>
+
+  <p>However, technically you can use any code signing certificate, including those issued by Certificate Authorities, with arbitrary metadata</p>
+</blockquote>
+
+<blockquote class="panel tip">
+  <p><strong>Sample code to create a GPG public key</strong></p>
+
+  <p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain scripts to generate a GPG key.</p>
+
+  <p>Usage: <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario GenerateGpgKey</code></p>
+
+  <p>The following defaults are used:</p>
+  <ul>
+    <li>full name: <code class="language-plaintext highlighter-rouge">"SignPath $ProjectSlug / $SigningPolicySlug</code></li>
+    <li>email: <code class="language-plaintext highlighter-rouge">"$SigningPolicySlug@$ProjectSlug</code></li>
+    <li>expiration: 1 year</li>
+  </ul>
+
+  <p>See <code class="language-plaintext highlighter-rouge">GenerateGpgKey.ps1</code> for details how the different commands are parameterized and to change defaults.</p>
+
+  <p>Result:</p>
+  <ul>
+    <li>A GPG key exported to <code class="language-plaintext highlighter-rouge">samples/Scenarios/Gpg/Keys</code> including the public key</li>
+    <li>A corresponding revocation certificate in the <code class="language-plaintext highlighter-rouge">openpgp-revocs.d</code> subdirectory</li>
+  </ul>
+
+  <p>GPG key generation causes two SignPath hash signing operations:</p>
+  <ul>
+    <li>self-sign the key</li>
+    <li>sign the revocation certificate</li>
+  </ul>
+</blockquote>
+
+<h4 id="prepare-for-signing">Prepare for signing</h4>
 
 <ol>
-  <li>After configuring GnuPG, copy the generated public GPG key (<code class="language-plaintext highlighter-rouge">&lt;Email&gt;.public.pgp</code>) to the target system.</li>
-  <li>To restore the shadowed keys, <code class="language-plaintext highlighter-rouge">SCD LEARN</code> needs to be executed. For details, see the <code class="language-plaintext highlighter-rouge">UseSignPathCryptokiGpgConfiguration</code> function in the GPG scenario of the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</li>
-  <li>The GPG key needs to be imported. See the <code class="language-plaintext highlighter-rouge">ImportGpgKeys</code> function in the GPG scenario of the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</li>
+  <li>Copy the generated public GPG key (<code class="language-plaintext highlighter-rouge">$Email.public.pgp</code>) to the target system.</li>
+  <li>Execute <code class="language-plaintext highlighter-rouge">SCD LEARN</code> to restore the shadowed keys. For details, see the <code class="language-plaintext highlighter-rouge">UseSignPathCryptokiGpgConfiguration</code> function in the GPG scenario of the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</li>
+  <li>Import the GPG key . See the <code class="language-plaintext highlighter-rouge">ImportGpgKeys</code> function in the GPG scenario of the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</li>
 </ol>
 
-<h2 id="gpg-file-signing">GPG File Signing</h2>
+<h2 id="signing-code-with-gpg">Signing code with GPG</h2>
+
+<h3 id="gpg-file-signing">GPG File Signing</h3>
 
 <p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain a full example to sign and verify a file with a detached signature (including the mentioned preparation steps) in <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario GpgSignFile</code>. The used GPG key is referenced via its email address.</p>
 
 <p>During <code class="language-plaintext highlighter-rouge">gpg --sign</code>, SignPath is called to perform a hash based signing operation with the <em>Project</em> / <em>Signing Policy</em> referenced in the shadowed private key. Note that the <em>OrganizationId</em> and the <em>ApiToken</em> still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
 
-<h2 id="rpm-signing-linux">RPM Signing (Linux)</h2>
+<h3 id="rpm-signing-linux">RPM Signing (Linux)</h3>
 
 <p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain a full example to sign and verify a RPM file in <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario SignRpm</code>. The used GPG key is referenced via its email address. See <code class="language-plaintext highlighter-rouge">SignRpm.ps1</code> for details.</p>
 
 <p>During <code class="language-plaintext highlighter-rouge">rpm --addsign</code>, SignPath is called to perform a hash based signing operation with the <em>Project</em> / <em>Signing Policy</em> referenced in the shadowed private key. Note that the <em>OrganizationId</em> and the <em>ApiToken</em> still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
 
-<h2 id="deb-signing-via-dpkg-sig-linux">DEB Signing via dpkg-sig (Linux)</h2>
+<h3 id="deb-signing-via-dpkg-sig-linux">DEB Signing via dpkg-sig (Linux)</h3>
 
 <p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain a full example to sign and verify a DEB file using <em><a href="https://manpages.debian.org/bullseye/dpkg-sig/dpkg-sig.1.en.html">dpkg-sig</a></em> in <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario SignDeb</code>. The used GPG key is referenced via its email address. Note the passed default “sign role” value of <code class="language-plaintext highlighter-rouge">"builder"</code>.</p>
 
 <p>During <code class="language-plaintext highlighter-rouge">dpkg-sig --sign</code>, SignPath is called to perform a hash based signing operation with the project / signing policy referenced in the shadowed private key. Note that OrganizationId and the ApiToken still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
 
-<h2 id="maven-artifact-signing-linux">Maven Artifact Signing (Linux)</h2>
+<h3 id="maven-artifact-signing-linux">Maven Artifact Signing (Linux)</h3>
 
 <p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain a full example to build, sign and verify Maven artifacts using the <em><a href="https://maven.apache.org/plugins/maven-gpg-plugin/">Apache maven-gpg-plugin</a></em> in <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario SignMaven</code>. The used GPG key is referenced via its email address.</p>
 

@@ -166,8 +166,9 @@
   <li>a Microsoft Certificate Server <em>template ID</em> (see below)</li>
 </ul>
 
-<div class="panel tip">
-  <div class="panel-header">Use Active Directory computer groups via Microsoft Certificate Server</div>
+<blockquote class="panel tip">
+  <p><strong>Use Active Directory computer groups via Microsoft Certificate Server</strong></p>
+
   <p>This is a very straightforward way to authorize specific groups of build nodes for SignPath:</p>
 
   <ul>
@@ -177,7 +178,7 @@
     <li>Register the Double Authentication Proxy as trusted build system (see <a href="#configuration">configuration</a>)</li>
     <li>Submit signing requests using mTLS, e.g. using the <a href="/documentation/powershell/Submit-SigningRequest">PowerShell cmdlet</a>. Use the template ID to select the correct certificate client certificate.</li>
   </ul>
-</div>
+</blockquote>
 
 <p>This diagram shows how machine certificates, Double Authentication Proxy and SignPath work together:</p>
 

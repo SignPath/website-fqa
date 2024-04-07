@@ -8,8 +8,8 @@
   <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/crypto-providers/cryptoki' />
   <!-- Begin Jekyll SEO tag v2.6.1 -->
   <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
-  <title>Crypto Providers - Cryptoki/PKCS#11 | SignPath</title>
-  <meta property="og:title" content="Crypto Providers - Cryptoki/PKCS#11 | SignPath" />
+  <title>Crypto Providers - Cryptoki/PKCS | SignPath</title>
+  <meta property="og:title" content="Crypto Providers - Cryptoki/PKCS | SignPath" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:description" content="SignPath Cryptoki Crypto Providers" />
   <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/crypto-providers/cryptoki" />
@@ -57,7 +57,7 @@
   <main>
 <section class="bg-blue font-white top-section">
 	<div>
-		<h1><span class='no-break'>Crypto Providers &nbsp;❯&nbsp; </span> Cryptoki/PKCS#11</h1>
+		<h1><span class='no-break'>Crypto Providers &nbsp;❯&nbsp; </span> Cryptoki/PKCS</h1>
 	</div>
 </section>
 <section class="resources-section">
@@ -116,156 +116,125 @@
 <p>This section provides information how to use the SignPath Cryptoki library with any tool that supports Cryptoki. Below this section you will find instructions for specific tools.</p>
 
 <h3 id="supported-linux-distributions">Supported Linux distributions</h3>
+
 <table>
-    <thead>
-        <tr><th>
-
-Distribution 
-</th><th>
-
-Version 
-</th><th>
-
-Comment 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p>Debian</p>
-      </td><td>
-
-        <p>11</p>
-      </td><td>
-
-      </td></tr><tr><td>
-
-        <p>Ubuntu</p>
-      </td><td>
-
-        <p>20.04</p>
-      </td><td>
-
-        <p>Except <a href="#osslsigncode">osslsigncode</a></p>
-      </td></tr><tr><td>
-
-        <p>RedHat</p>
-      </td><td>
-
-        <p>8 (latest minor)</p>
-      </td><td>
-
-      </td></tr><tr><td>
-
-        <p>RedHat</p>
-      </td><td>
-
-        <p>9 (latest minor)</p>
-      </td><td>
-
-      </td></tr></tbody>
+  <thead>
+    <tr>
+      <th>Distribution</th>
+      <th>Version</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Debian</td>
+      <td>11</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Ubuntu</td>
+      <td>20.04</td>
+      <td>Except <a href="#osslsigncode">osslsigncode</a></td>
+    </tr>
+    <tr>
+      <td>RedHat</td>
+      <td>8 (latest minor)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>RedHat</td>
+      <td>9 (latest minor)</td>
+      <td> </td>
+    </tr>
+  </tbody>
 </table>
-<div class="panel warning">
-  <div class="panel-header">OpenSSL 3.0.0 - 3.0.8 incompatibility</div>
+
+<blockquote class="panel warning">
+  <p><strong>OpenSSL 3.0.0 - 3.0.8 incompatibility</strong></p>
 
   <p>Distributions with an OpenSSL version between 3.0.0 and 3.0.8 (including) don’t support the the <a href="#openssl">OpenSSL</a> and <a href="#osslsigncode">osslsigncode</a> scenarios.
 The reason is an <a href="https://github.com/openssl/openssl/issues/20161">OpenSSL bug</a> which has been fixed in OpenSSL 3.0.9.
-The issue expresses in <em>“http_exception occurred (error code= generic:168296454): Error in SSL handshake”</em> errors.</p>
+The issue results in <em>“http_exception occurred (error code= generic:168296454): Error in SSL handshake”</em> errors.</p>
 
-  <p>The workaround is to either replace the system’s OpenSSL version with &gt;= 3.0.9 or to use an isolated OpenSSL installation.</p>
-</div>
+  <p>You need to replace the system’s OpenSSL version with &gt;= 3.0.9 or to use an isolated OpenSSL installation.</p>
+</blockquote>
 
 <h3 id="installation">Installation</h3>
 
-<p>Simply copy-deploy the <code class="language-plaintext highlighter-rouge">Windows\SignPath.Cryptoki.dll</code> (Windows) resp. <code class="language-plaintext highlighter-rouge">Linux/libSignPath.Cryptoki/&lt;OpenSslVersion&gt;/libSignPath.Cryptoki.so</code> (Linux) library file of the Crypto Providers ZIP archive. To choose the right OpenSSL version, check the output of <code class="language-plaintext highlighter-rouge">openssl version</code> on your target system.</p>
+<p>Simply copy the library file from the Crypto Providers ZIP archive to a directory in your system’s file path.</p>
 
-<p>The various signing tools require the target system’s file path of the library file in their configurations.</p>
+<ul>
+  <li>Windows: <code class="language-plaintext highlighter-rouge">Windows\SignPath.Cryptoki.dll</code></li>
+  <li>Linux: <code class="language-plaintext highlighter-rouge">Linux/libSignPath.Cryptoki/$OpenSslVersion/libSignPath.Cryptoki.so</code></li>
+</ul>
+
+<p>Check the output of <code class="language-plaintext highlighter-rouge">openssl version</code> on your target system to select the correct OpenSSL version.</p>
 
 <h3 id="cryptoki-parameters">Parameters</h3>
 
 <p>Additionally to the general <a href="/documentation/crypto-providers#crypto-provider-configuration">Crypto Provider configuration</a>, Cryptoki-enabled tools usually provide the following parameters:</p>
+
 <table>
-    <thead>
-        <tr><th>
-
-Parameter 
-</th><th>
-
-Value for the SignPath Cryptoki Library 
-</th><th>
-
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p>PIN</p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">CONFIG</code> or <code class="language-plaintext highlighter-rouge">&lt;OrganizationId&gt;:&lt;ApiToken&gt;</code></p>
-      </td><td>
-
-        <p>Either use <code class="language-plaintext highlighter-rouge">CONFIG</code> to use the values from the <a href="/documentation/crypto-providers#crypto-provider-config-values">configuration file or environment variables</a>, or directly specify a SignPath <em>Organization ID</em> and <em>API token</em> for the CI or Interactive User that was added as a submitter, separated by a colon (<code class="language-plaintext highlighter-rouge">:</code>)</p>
-
-      </td></tr><tr><td>
-
-        <p>Key ID</p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">&lt;ProjectSlug&gt;/</code>​<code class="language-plaintext highlighter-rouge">&lt;SigningPolicySlug&gt;</code></p>
-      </td><td>
-
-        <p>SignPath <em>Project</em> slug and <em>Signing Policy</em> slug, separated by a forward slash (<code class="language-plaintext highlighter-rouge">/</code>)</p>
-
-      </td></tr></tbody>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value for the SignPath Cryptoki Library</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PIN</td>
+      <td><code class="language-plaintext highlighter-rouge">$OrganizationId:$ApiToken</code> or <code class="language-plaintext highlighter-rouge">CONFIG</code></td>
+      <td>SignPath <em>Organization</em> and <em>Submitter</em> API token, separated by a colon. Specify <code class="language-plaintext highlighter-rouge">CONFIG</code> to use the values from the <a href="/documentation/crypto-providers#crypto-provider-config-values">configuration file or environment variables</a>.</td>
+    </tr>
+    <tr>
+      <td>Key ID</td>
+      <td><code class="language-plaintext highlighter-rouge">$ProjectSlug/$SigningPolicySlug</code></td>
+      <td>SignPath <em>Project</em> and <em>Signing Policy</em> slugs, separated by a forward slash</td>
+    </tr>
+  </tbody>
 </table>
-<div class="panel info">
-  <div class="panel-header">Keys are not specified directly</div>
+
+<blockquote class="panel info">
+  <p><strong>Keys are not specified directly</strong></p>
 
   <p>The Cryptoki API expects you to identify a key, but SignPath requires you to specify a <em>Project</em> and a <em>Signing Policy</em>. SignPath will select the correct key or certificate based on the <em>Project</em> and <em>Signing Policy</em> you specify.</p>
-
-</div>
+</blockquote>
 
 <p>How these parameters can be specified depends on the tool being used. Since not all tools support Cryptoki directly, parameters are sometimes passed indirectly or using a specific syntax for an existing tool parameter (see below).</p>
 
 <h3 id="error-handling">Error handling</h3>
 
 <p>The following table shows the <a href="https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html">PKCS #11</a> Cryptoki function return values for the different error situations when calling the SignPath REST API.</p>
+
 <table>
-    <thead>
-        <tr><th>
-
-Situation 
-</th><th>
-
-PKCS 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p>Transient errors like HTTP timeouts or 503</p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">CKR_FUNCTION_FAILED</code></p>
-      </td></tr><tr><td>
-
-        <p>Non-transient service errors (e.g. 500 Internal Server Error)</p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">CKR_DEVICE_ERROR</code></p>
-      </td></tr><tr><td>
-
-        <p>User errors detected by service (4xx returned)</p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">CKR_ARGUMENTS_BAD</code></p>
-      </td></tr><tr><td>
-
-        <p>Other unspecified errors (fall back)</p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">CKR_GENERAL_ERROR</code></p>
-      </td></tr></tbody>
+  <thead>
+    <tr>
+      <th>Situation</th>
+      <th>PKCS #11 error code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Transient errors like HTTP timeouts or 503</td>
+      <td><code class="language-plaintext highlighter-rouge">CKR_FUNCTION_FAILED</code></td>
+    </tr>
+    <tr>
+      <td>Non-transient service errors (e.g. 500 Internal Server Error)</td>
+      <td><code class="language-plaintext highlighter-rouge">CKR_DEVICE_ERROR</code></td>
+    </tr>
+    <tr>
+      <td>User errors detected by service (4xx returned)</td>
+      <td><code class="language-plaintext highlighter-rouge">CKR_ARGUMENTS_BAD</code></td>
+    </tr>
+    <tr>
+      <td>Other unspecified errors (fall back)</td>
+      <td><code class="language-plaintext highlighter-rouge">CKR_GENERAL_ERROR</code></td>
+    </tr>
+  </tbody>
 </table>
+
 <h3 id="integration-with-signing-tools">Integration with signing tools</h3>
 
 <p>For Cryptoki-based signing, tool setup can be complex. Unlike the KSP/CSP provider architecture of Windows, Cryptoki is not a system API. As a consequence, support for Cryptoki libraries varies significantly between tools:</p>
@@ -287,11 +256,11 @@ PKCS
 
 <p><em><a href="https://www.openssl.org/">OpenSSL</a></em> is a toolkit that provides a range of cryptographic operations, including signing.</p>
 
-<div class="panel warning">
-  <div class="panel-header">Important</div>
+<blockquote class="panel warning">
+  <p><strong>Important</strong></p>
 
   <p>Only latest OpenSSL 1.1 and 3.x versions are supported. For Linux, see also the notes in <a href="/documentation/crypto-providers#supported-linux-distributions">supported Linux distributions</a>.</p>
-</div>
+</blockquote>
 
 <h3 id="setup">Setup</h3>
 
@@ -321,47 +290,38 @@ PKCS
 <span class="py">PIN</span> <span class="p">=</span> <span class="s">CONFIG</span>
 </code></pre></div></div>
 
-<div class="panel info">
-  <div class="panel-header">Default installation paths of libp11</div>
+<blockquote class="panel info">
+  <p><strong>Default installation paths of libp11</strong></p>
 
   <p>Note that Linux distributions have different default installation paths for <code class="language-plaintext highlighter-rouge">libpkcs11.so</code>:</p>
+
   <table>
     <thead>
-        <tr><th>
-
-Distribution 
-</th><th>
-
-Default path 
-</th></tr>
+      <tr>
+        <th>Distribution</th>
+        <th>Default path</th>
+      </tr>
     </thead>
-    <tbody><tr><td>
-
-          <p>Debian/Ubuntu w/ OpenSSL 1.1</p>
-        </td><td>
-
-          <p><code class="language-plaintext highlighter-rouge">/usr/lib/x86_64-linux-gnu/engines-1.1/libpkcs11.so</code></p>
-        </td></tr><tr><td>
-
-          <p>Debian/Ubuntu w/ OpenSSL 3.x</p>
-        </td><td>
-
-          <p><code class="language-plaintext highlighter-rouge">/usr/lib/x86_64-linux-gnu/engines-3/libpkcs11.so</code></p>
-        </td></tr><tr><td>
-
-          <p>RedHat w/ OpenSSL 1.1</p>
-        </td><td>
-
-          <p><code class="language-plaintext highlighter-rouge">/usr/lib64/engines-1.1/libpkcs11.so</code></p>
-        </td></tr><tr><td>
-
-          <p>RedHat w/ OpenSSL 3.x</p>
-        </td><td>
-
-          <p><code class="language-plaintext highlighter-rouge">/usr/lib64/engines-3/libpkcs11.so</code></p>
-        </td></tr></tbody>
-</table>
-</div>
+    <tbody>
+      <tr>
+        <td>Debian/Ubuntu w/ OpenSSL 1.1</td>
+        <td><code class="language-plaintext highlighter-rouge">/usr/lib/x86_64-linux-gnu/engines-1.1/libpkcs11.so</code></td>
+      </tr>
+      <tr>
+        <td>Debian/Ubuntu w/ OpenSSL 3.x</td>
+        <td><code class="language-plaintext highlighter-rouge">/usr/lib/x86_64-linux-gnu/engines-3/libpkcs11.so</code></td>
+      </tr>
+      <tr>
+        <td>RedHat w/ OpenSSL 1.1</td>
+        <td><code class="language-plaintext highlighter-rouge">/usr/lib64/engines-1.1/libpkcs11.so</code></td>
+      </tr>
+      <tr>
+        <td>RedHat w/ OpenSSL 3.x</td>
+        <td><code class="language-plaintext highlighter-rouge">/usr/lib64/engines-3/libpkcs11.so</code></td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
 
 <p>For Windows use .dll paths respectively (note the double backslashes):</p>
 
@@ -370,85 +330,63 @@ Default path
 </code></pre></div></div>
 
 <p>Also set the following environment variable:</p>
+
 <table>
-    <thead>
-        <tr><th>
-
-Environment variable 
-</th><th>
-
-Value 
-</th><th>
-
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">OPENSSL_CONF</code></p>
-      </td><td>
-
-        <p>Path to <code class="language-plaintext highlighter-rouge">openssl-signpath.cnf</code> file</p>
-      </td><td>
-
-        <p>This variable tells OpenSSL to load the custom configuration file</p>
-      </td></tr></tbody>
+  <thead>
+    <tr>
+      <th>Environment variable</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OPENSSL_CONF</code>”</td>
+      <td>Path to <code class="language-plaintext highlighter-rouge">openssl-signpath.cnf</code> file</td>
+      <td>This variable tells OpenSSL to load the custom configuration file</td>
+    </tr>
+  </tbody>
 </table>
+
 <h3 id="invocation">Invocation</h3>
 
 <p><em>OpenSSL</em> provides a variety of commands that can be used for signing. In this section, a few of them are outlined.</p>
 
-<div class="panel tip">
-  <div class="panel-header">Tip</div>
+<blockquote class="panel tip">
+  <p><strong>Tip</strong></p>
 
   <p>For <em>Linux</em>, configuration, signing invocation and verification examples are provided in the Docker container samples via <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario OpenSSL</code>. See <a href="#linux-docker-samples">Linux container samples</a>.</p>
-
-</div>
+</blockquote>
 
 <p>Generally, all commands require the following parameters to work with the SignPath Cryptoki library:</p>
-<table>
-    <thead>
-        <tr><th>
 
-Parameter 
-</th><th>
-
-Value 
-</th><th>
-
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-keyform</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">engine</code></p>
-      </td><td>
-
-        <p>Use the specified engine to access the key.</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-engine</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">pkcs11</code></p>
-      </td><td>
-
-        <p>Use the <em>libp11</em> engine specified in the <code class="language-plaintext highlighter-rouge">openssl-signpath.cnf</code> file.</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-inkey</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">pkcs11:id=&lt;ProjectSlug&gt;/</code>​<code class="language-plaintext highlighter-rouge">&lt;SigningPolicySlug&gt;;</code>​<code class="language-plaintext highlighter-rouge">type=private</code></p>
-      </td><td>
-
-        <p>A PKCS #11 URI including <em>Project</em> and <em>Signing Policy</em> slug, see also <a href="#cryptoki-parameters">Cryptoki parameters</a>.</p>
-
-      </td></tr></tbody>
+<table class="break-column-2">
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-keyform</code></td>
+      <td><code class="language-plaintext highlighter-rouge">engine</code></td>
+      <td>Use the specified engine to access the key.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-engine</code></td>
+      <td><code class="language-plaintext highlighter-rouge">pkcs11</code></td>
+      <td>Use the <em>libp11</em> engine specified in the <code class="language-plaintext highlighter-rouge">openssl-signpath.cnf</code> file.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-inkey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">pkcs11:id=$ProjectSlug/$SigningPolicySlug;type=private</code></td>
+      <td>A PKCS #11 URI including <em>Project</em> and <em>Signing Policy</em> slug, see also <a href="#cryptoki-parameters">Cryptoki parameters</a>.</td>
+    </tr>
+  </tbody>
 </table>
+
 <h4 id="openssl-dgst">openssl dgst</h4>
 
 <p>The <em><a href="https://www.openssl.org/docs/man1.1.1/man1/dgst.html">dgst</a></em> command calculates digests of files, but can also be used to create and verify signatures.</p>
@@ -458,19 +396,19 @@ Description
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">openssl</span><span class="w"> </span><span class="nx">dgst</span><span class="w"> </span><span class="nt">-engine</span><span class="w"> </span><span class="nx">pkcs11</span><span class="w"> </span><span class="nt">-keyform</span><span class="w"> </span><span class="nx">engine</span><span class="w"> </span><span class="nt">-sign</span><span class="w"> </span><span class="s2">"pkcs11:id=</span><span class="nv">$ProjectSlug</span><span class="s2">/</span><span class="nv">$SigningPolicySlug</span><span class="s2">;type=private"</span><span class="w"> </span><span class="nt">-sha256</span><span class="w"> </span><span class="nt">-out</span><span class="w"> </span><span class="s2">"artifact.sig"</span><span class="w"> </span><span class="s2">"artifact.bin"</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="panel info">
-  <div class="panel-header">Supported digests</div>
+<blockquote class="panel info">
+  <p><strong>Supported digests</strong></p>
 
   <p>The following digests are supported: <code class="language-plaintext highlighter-rouge">sha256</code>, <code class="language-plaintext highlighter-rouge">sha384</code>, <code class="language-plaintext highlighter-rouge">sha512</code></p>
-</div>
+</blockquote>
 
 <h4 id="openssl-pkeyutl">openssl pkeyutl</h4>
 
 <p>The <em><a href="https://www.openssl.org/docs/man1.1.1/man1/pkeyutl.html">pkeyutl</a></em> command performs low-level cryptographic operations, such as signing.</p>
 
 <!-- todo omit?-->
-<div class="panel info">
-  <div class="panel-header">Note: provide binary hash digest</div>
+<blockquote class="panel info">
+  <p><strong>Note: provide binary hash digest</strong></p>
 
   <p>The command does hash the input data but will use the data directly as an input for the signature algorithm. To create the hash of a file, you can use the following snippet:</p>
 
@@ -478,7 +416,7 @@ Description
 </span><span class="nv">$ArtifactHashBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">byte</span><span class="p">[]]</span><span class="w"> </span><span class="o">-split</span><span class="w"> </span><span class="p">(</span><span class="nv">$ArtifactHash</span><span class="o">.</span><span class="nf">Hash</span><span class="w"> </span><span class="o">-replace</span><span class="w"> </span><span class="s1">'..'</span><span class="p">,</span><span class="w"> </span><span class="s1">'0x$&amp; '</span><span class="p">)</span><span class="w">
 </span><span class="p">[</span><span class="n">IO.File</span><span class="p">]::</span><span class="n">WriteAllBytes</span><span class="p">(</span><span class="s2">"artifact.hash.bin"</span><span class="p">,</span><span class="w"> </span><span class="nv">$ArtifactHashBytes</span><span class="p">)</span><span class="w">
 </span></code></pre></div>  </div>
-</div>
+</blockquote>
 
 <p>Sample: sign the hash code in <code class="language-plaintext highlighter-rouge">artifact.hash.bin</code> using PKCS1 padding, write the signature to <code class="language-plaintext highlighter-rouge">artifact.sig</code></p>
 
@@ -504,21 +442,21 @@ Description
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">openssl</span><span class="w"> </span><span class="nx">cms</span><span class="w"> </span><span class="nt">-engine</span><span class="w"> </span><span class="nx">pkcs11</span><span class="w"> </span><span class="nt">-signer</span><span class="w"> </span><span class="s2">"certificate.pem"</span><span class="w"> </span><span class="nt">-inkey</span><span class="w"> </span><span class="s2">"pkcs11:id=</span><span class="nv">$ProjectSlug</span><span class="s2">/</span><span class="nv">$SigningPolicySlug</span><span class="s2">;type=private"</span><span class="w"> </span><span class="nt">-keyform</span><span class="w"> </span><span class="nx">engine</span><span class="w"> </span><span class="nt">-sign</span><span class="w"> </span><span class="nt">-binary</span><span class="w"> </span><span class="nt">-in</span><span class="w"> </span><span class="s2">"artifact.bin"</span><span class="w"> </span><span class="nt">-noattr</span><span class="w"> </span><span class="nt">-out</span><span class="w"> </span><span class="s2">"artifact.sig"</span><span class="w"> </span><span class="nt">-outform</span><span class="w"> </span><span class="nx">PEM</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="panel warning">
-  <div class="panel-header">Important</div>
+<blockquote class="panel warning">
+  <p><strong>Important</strong></p>
 
   <p><em>OpenSSL</em> fails to verify signatures that were created using X.509 certificates with the Extended Key Usage Code Signing (1.3.6.1.5.5.7.3.3).</p>
-</div>
+</blockquote>
 
 <h2 id="osslsigncode">osslsigncode</h2>
 
 <p><em><a href="https://github.com/mtrojnar/osslsigncode">osslsigncode</a></em> is a tool that allows applying Windows Authenticode signatures on Linux systems using OpenSSL. Accordingly, it also requires an OpenSC pkcs11 OpenSSL engine installation. See the <a href="#openssl">OpenSSL</a> section for details.</p>
 
-<div class="panel warning">
-  <div class="panel-header">Important</div>
+<blockquote class="panel warning">
+  <p><strong>Important</strong></p>
 
   <p>Only osslsigncode 2.x or higher is supported. Also see the notes in <a href="/documentation/crypto-providers#supported-linux-distributions">supported Linux distributions</a> regarding the supported OpenSSL versions.</p>
-</div>
+</blockquote>
 
 <h3 id="setup-1">Setup</h3>
 
@@ -535,54 +473,39 @@ Description
 </span><span class="w">   </span><span class="nt">-certs</span><span class="w"> </span><span class="s2">"certificate.pem"</span><span class="w"> </span><span class="se">`
 </span><span class="w">   </span><span class="nt">-in</span><span class="w"> </span><span class="s2">"sample.exe"</span><span class="w"> </span><span class="nt">-out</span><span class="w"> </span><span class="s2">"sample.signed.exe"</span><span class="w">
 </span></code></pre></div></div>
+
 <table>
-    <thead>
-        <tr><th>
-
-Parameter 
-</th><th>
-
-Value 
-</th><th>
-
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">--pkcs11module</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">/path/to/</code>​<code class="language-plaintext highlighter-rouge">libSignPath.Cryptoki.so</code></p>
-      </td><td>
-
-        <p>Path to the SignPath Cryptoki library.</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">--key</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">pkcs11:id=...</code></p>
-      </td><td>
-
-        <p>A PKCS #11 URI as shown in the example above including <em>Project</em> and <em>Signing Policy</em> slug and the “pin” value, see also <a href="#cryptoki-parameters">Cryptoki parameters</a>.</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">--certs</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">certificate.pem</code></p>
-      </td><td>
-
-        <p>Certificate of the used signing policy in PEM format.</p>
-      </td></tr></tbody>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--pkcs11module</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/path/to/libSignPath.Cryptoki.so</code></td>
+      <td>Path to the SignPath Cryptoki library</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--key</code></td>
+      <td><code class="language-plaintext highlighter-rouge">pkcs11:id=...</code></td>
+      <td>A PKCS #11 URI as shown in the example above including <em>Project</em> and <em>Signing Policy</em> slugs and the “pin” value (see also <a href="#cryptoki-parameters">Cryptoki parameters</a>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--certs</code></td>
+      <td><code class="language-plaintext highlighter-rouge">certificate.pem</code></td>
+      <td>Certificate of the used signing policy in PEM format</td>
+    </tr>
+  </tbody>
 </table>
-<div class="panel tip">
-  <div class="panel-header">Tip</div>
+
+<blockquote class="panel tip">
+  <p><strong>Tip</strong></p>
 
   <p>This invocation example is also provided in the Docker container samples via <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario osslsigncode</code>. See <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</p>
-</div>
+</blockquote>
 
 <h2 id="opensc-pkcs11-tool-linux">OpenSC pkcs11-tool (Linux)</h2>
 
@@ -594,11 +517,11 @@ Description
 
 <h3 id="invocation-2">Invocation</h3>
 
-<div class="panel tip">
-  <div class="panel-header">Tip</div>
+<blockquote class="panel tip">
+  <p><strong>Tip</strong></p>
 
   <p>The following invocation examples are also provided in the Docker container samples via <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario Pkcs11Tool</code>. See <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</p>
-</div>
+</blockquote>
 
 <h4 id="common-parameters">Common parameters</h4>
 
@@ -606,37 +529,9 @@ Description
 </span></code></pre></div></div>
 <table>
     <thead>
-        <tr><th>
-
-Parameter 
-</th><th>
-
-Value 
-</th><th>
-
-Description 
-</th></tr>
+        <tr></tr>
     </thead>
-    <tbody><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">--module</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">/path/to/</code>​<code class="language-plaintext highlighter-rouge">libSignPath.Cryptoki.so</code></p>
-      </td><td>
-
-        <p>Path to the SignPath Cryptoki library.</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">--pin</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">CONFIG</code> or <code class="language-plaintext highlighter-rouge">&lt;OrganizationId&gt;:&lt;ApiToken&gt;</code></p>
-      </td><td>
-
-        <p>See <a href="#cryptoki-parameters">PIN parameter</a></p>
-
-      </td></tr></tbody>
+    <tbody></tbody>
 </table>
 <h4 id="listing-of-the-available-pkcs-11-objects">Listing of the available PKCS #11 objects</h4>
 
@@ -653,61 +548,39 @@ Description
 </span><span class="w">   </span><span class="nt">--sign</span><span class="w"> </span><span class="nt">--mechanism</span><span class="w"> </span><span class="s2">"RSA-PKCS-PSS"</span><span class="w"> </span><span class="nt">--hash-algorithm</span><span class="w"> </span><span class="s2">"SHA256"</span><span class="w"> </span><span class="nt">--label</span><span class="w"> </span><span class="s2">"</span><span class="nv">$ProjectSlug</span><span class="s2">/</span><span class="nv">$SigningPolicySlug</span><span class="s2">"</span><span class="w"> </span><span class="se">`
 </span><span class="w">   </span><span class="nt">--input-file</span><span class="w"> </span><span class="s2">"artifact.hash.bin"</span><span class="w"> </span><span class="nt">--output-file</span><span class="w"> </span><span class="s2">"artifact.sig"</span><span class="w">
 </span></code></pre></div></div>
+
 <table>
-    <thead>
-        <tr><th>
-
-Parameter 
-</th><th>
-
-Value 
-</th><th>
-
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">--mechanism</code></p>
-      </td><td>
-
-        <p>e.g. <code class="language-plaintext highlighter-rouge">RSA-PKCS-PSS</code></p>
-      </td><td>
-
-        <p>Use the <code class="language-plaintext highlighter-rouge">--list-mechanisms</code> argument to list all available mechanisms</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">--hash-algorithm</code></p>
-      </td><td>
-
-        <p>e.g. <code class="language-plaintext highlighter-rouge">SHA256</code></p>
-      </td><td>
-
-        <p>Only necessary for <code class="language-plaintext highlighter-rouge">RSA-PKCS-PSS</code> mechanism</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">--label</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">&lt;ProjectSlug&gt;/</code>​<code class="language-plaintext highlighter-rouge">&lt;SigningPolicySlug&gt;</code></p>
-      </td><td>
-
-        <p><em>Project</em> and <em>Signing Policy</em> slug, separated by a forward slash (<code class="language-plaintext highlighter-rouge">/</code>)</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">--input-file</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">/path/to/hash.bin</code></p>
-      </td><td>
-
-        <p>The file containing a hash in <em>binary</em> form</p>
-
-      </td></tr></tbody>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--mechanism</code></td>
+      <td>e.g. <code class="language-plaintext highlighter-rouge">RSA-PKCS-PSS</code></td>
+      <td>Use the <code class="language-plaintext highlighter-rouge">--list-mechanisms</code> argument to list all available mechanisms</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--hash-algorithm</code></td>
+      <td>e.g. <code class="language-plaintext highlighter-rouge">SHA256</code></td>
+      <td>Only necessary for <code class="language-plaintext highlighter-rouge">RSA-PKCS-PSS</code> mechanism</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--label</code></td>
+      <td><code class="language-plaintext highlighter-rouge">$ProjectSlug/$SigningPolicySlug</code></td>
+      <td><em>Project</em> and <em>Signing Policy</em> slugs, separated by a forward slash</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--input-file</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/path/to/hash.bin</code></td>
+      <td>File containing a hash in <em>binary</em> form</td>
+    </tr>
+  </tbody>
 </table>
+
 <h2 id="jarsigner">Java jarsigner</h2>
 
 <p>The <a href="https://docs.oracle.com/en/java/javase/17/docs/specs/man/jarsigner.html"><code class="language-plaintext highlighter-rouge">jarsigner</code></a> command signs and verifies Java archives (e.g. JAR, WAR, EAR). It is included with the Java Development Kit (JDK).</p>
@@ -718,7 +591,7 @@ Description
   <li>Configure the SunPKCS11 Provider
     <ul>
       <li>OpenJDK: the provider is configured automatically</li>
-      <li>Oracle JDK: see <a href="https://docs.oracle.com/en/java/javase/14/security/pkcs11-reference-guide1.html#GUID-C4ABFACB-B2C9-4E71-A313-79F881488BB9">Oracle PKCS#11 Reference Guide</a></li>
+      <li>Oracle JDK: see <a href="https://docs.oracle.com/en/java/javase/14/security/pkcs11-reference-guide1.html#GUID-C4ABFACB-B2C9-4E71-A313-79F881488BB9">Oracle PKCS #11 Reference Guide</a></li>
     </ul>
   </li>
   <li>Register the SignPath Cryptoki library for the SunPKCS11 Provider</li>
@@ -733,108 +606,74 @@ Description
 
 <h3 id="invocation-3">Invocation</h3>
 
-<div class="panel tip">
-  <div class="panel-header">Tip</div>
+<blockquote class="panel tip">
+  <p><strong>Tip</strong></p>
 
   <p>For <em>Linux</em>, configuration and invocation examples are provided in the Docker container samples via <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario JarSigner</code>. See <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</p>
-
-</div>
+</blockquote>
 
 <p>Synopsis for <em>jarsigner</em> when using the SignPath Cryptoki library:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jarsigner &lt;parameters&gt; &lt;jar-files&gt; &lt;keystore-alias&gt;
 </code></pre></div></div>
+
 <table>
-    <thead>
-        <tr><th>
-
-Parameter 
-</th><th>
-
-Value 
-</th><th>
-
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-storetype</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">PKCS11</code></p>
-      </td><td>
-
-        <p>Use a PKCS11 store for the signing operation</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-providerClass</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">sun.security.</code>​<code class="language-plaintext highlighter-rouge">pkcs11.SunPKCS11</code></p>
-      </td><td>
-
-        <p>Use the SunPKCS11 provider for the signing operation</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-keystore</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">NONE</code></p>
-      </td><td>
-
-        <p>Key is not loaded from a file</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-providerArg</code></p>
-      </td><td>
-
-        <p>Path to <code class="language-plaintext highlighter-rouge">pkcs11.config</code></p>
-      </td><td>
-
-        <p>The SunPKCS11 provider expects a path to the config file</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-sigalg</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SHA256withRSA</code>, <code class="language-plaintext highlighter-rouge">SHA384withRSA</code>, <code class="language-plaintext highlighter-rouge">SHA512withRSA</code>, <code class="language-plaintext highlighter-rouge">SHA256withECDSA</code>, <code class="language-plaintext highlighter-rouge">SHA384withECDSA</code>, or <code class="language-plaintext highlighter-rouge">SHA512withECDSA</code></p>
-      </td><td>
-
-        <p>Digest and signature algorithm</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">-storepass</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">CONFIG</code> or <code class="language-plaintext highlighter-rouge">&lt;OrganizationId&gt;:&lt;ApiToken&gt;</code></p>
-      </td><td>
-
-        <p>See <a href="#cryptoki-parameters">“PIN” parameter</a></p>
-
-      </td></tr><tr><td>
-
-        <p><em>keystore-alias</em></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">&lt;ProjectSlug&gt;/</code>​<code class="language-plaintext highlighter-rouge">&lt;SigningPolicySlug&gt;</code></p>
-      </td><td>
-
-        <p><em>Project</em> and <em>Signing Policy</em> slug, separated by a forward slash (<code class="language-plaintext highlighter-rouge">/</code>)</p>
-
-      </td></tr></tbody>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-storetype</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PKCS11</code></td>
+      <td>Use a PKCS11 store for the signing operation</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-providerClass</code></td>
+      <td><code class="language-plaintext highlighter-rouge">sun.security.pkcs11.SunPKCS11</code></td>
+      <td>Use the SunPKCS11 provider for the signing operation</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-keystore</code></td>
+      <td><code class="language-plaintext highlighter-rouge">NONE</code></td>
+      <td>Key is not loaded from a file</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-providerArg</code></td>
+      <td>Path to <code class="language-plaintext highlighter-rouge">pkcs11.config</code></td>
+      <td>The SunPKCS11 provider expects a path to the config file</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-sigalg</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SHA256withRSA</code>, <code class="language-plaintext highlighter-rouge">SHA384withRSA</code>, <code class="language-plaintext highlighter-rouge">SHA512withRSA</code>, <code class="language-plaintext highlighter-rouge">SHA256withECDSA</code>, <code class="language-plaintext highlighter-rouge">SHA384withECDSA</code>, or <code class="language-plaintext highlighter-rouge">SHA512withECDSA</code></td>
+      <td>Digest and signature algorithm</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-storepass</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CONFIG</code> or <code class="language-plaintext highlighter-rouge">$OrganizationId:$ApiToken</code></td>
+      <td>See <a href="#cryptoki-parameters">“PIN” parameter</a></td>
+    </tr>
+    <tr>
+      <td><em>keystore-alias</em></td>
+      <td><code class="language-plaintext highlighter-rouge">$ProjectSlug/$SigningPolicySlug</code></td>
+      <td><em>Project</em> and <em>Signing Policy</em> slug, separated by a forward slash</td>
+    </tr>
+  </tbody>
 </table>
+
 <p>Sample: sign <code class="language-plaintext highlighter-rouge">myapp.jar</code></p>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">jarsigner</span><span class="w"> </span><span class="nt">-keystore</span><span class="w"> </span><span class="nx">NONE</span><span class="w"> </span><span class="nt">-storetype</span><span class="w"> </span><span class="nx">PKCS11</span><span class="w"> </span><span class="nt">-providerClass</span><span class="w"> </span><span class="s2">"sun.security.pkcs11.SunPKCS11"</span><span class="w"> </span><span class="nt">-providerArg</span><span class="w"> </span><span class="nx">pkcs11.config</span><span class="w"> </span><span class="nt">-sigalg</span><span class="w"> </span><span class="s2">"SHA256withRSA"</span><span class="w"> </span><span class="nt">-storepass</span><span class="w"> </span><span class="s2">"CONFIG"</span><span class="w"> </span><span class="nx">myapp.jar</span><span class="w"> </span><span class="s2">"</span><span class="nv">$ProjectSlug</span><span class="s2">/</span><span class="nv">$SigningPolicySlug</span><span class="s2">"</span><span class="w"> 
 </span></code></pre></div></div>
 
-<div class="panel warning">
-  <div class="panel-header">Warning: Produce correct timestamps</div>
+<blockquote class="panel warning">
+  <p><strong>Warning: Produce correct timestamps</strong></p>
 
   <p>When using jarsigner (or any other signing tool) directly, you are responsible for correct time stamping. See <a href="/documentation/crypto-providers#timestamps">Timestamps</a></p>
-
-</div>
+</blockquote>
 
 
 		</article>

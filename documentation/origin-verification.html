@@ -104,11 +104,11 @@
 
 <p>Origin verification results in additional confidence for information in signing reqeusts, whether used for inspection or for policies. The feature is designed for use in enterprise scenarios, where policies and security controls need to be administered, enforced and audited centrally, while development teams still maintain full control over their projects. The ultimate goal of origin verification is to enable signing policies based on source code reviews.</p>
 
-<div class="panel info">
-  <div class="panel-header">Open Source code signing</div>
+<blockquote class="panel info">
+  <p><strong>Open Source code signing</strong></p>
 
   <p>The same principles are applied for Open Source signing, where <a href="https://signpath.org">SignPath Foundation</a> provides certificates to individual OSS projects. Origin verification ensures that the Foundation’s signing policies are observed while leaving full control over repositories and build configurations with the OSS teams.</p>
-</div>
+</blockquote>
 
 <p>Origin verification verifies the following information:</p>
 
@@ -130,8 +130,9 @@
 
 <p>In order to use origin verification, a <a href="trusted-build-systems">Trusted Build System</a> must be configured and linked to the project.</p>
 
-<div class="panel tip">
-  <div class="panel-header">Use origin verification restrictions</div>
+<blockquote class="panel tip">
+  <p><strong>Use origin verification restrictions</strong></p>
+
   <p>Enable additional restrictions for signing policies that use release certificates:</p>
 
   <ul>
@@ -139,14 +140,15 @@
     <li>Define source code review policies for branches that are supposed to be used for production releases. Use the <strong>Allowed branch names</strong> setting to make sure that a signing policy can only be used for specified branches. Typical settings include <code class="language-plaintext highlighter-rouge">master</code> or <code class="language-plaintext highlighter-rouge">release/*</code>.</li>
     <li>If you need to be able to sign other builds under special circumstances, consider adding another signing policy with strong approval requirements (e.g. 2 out of <em>n</em>).</li>
   </ul>
-</div>
+</blockquote>
 
-<div class="panel warning">
-  <div class="panel-header">Source code reviews must include build scripts</div>
+<blockquote class="panel warning">
+  <p><strong>Source code reviews must include build scripts</strong></p>
+
   <p>Note that a build script or makefile can download any software from the Internet and include it as a build artifact. SignPath cannot possibly detect or prevent this, but it can make sure that any such evasion will be visible in the source code repository.</p>
 
   <p>Make sure that your source code review policy includes CI configuration, build scripts, and makefiles. External content should not be accepted in reviews.</p>
-</div>
+</blockquote>
 
 <p>See the <a href="/documentation/projects#signing-policy-origin-verification">signing policy</a> documentation for some ideas on how to secure your build pipelines using origin verification.</p>
 
@@ -165,8 +167,8 @@
 
 <h2 id="appveyor">AppVeyor</h2>
 
-<div class="panel info">
-  <div class="panel-header">Pre-configured connector</div>
+<blockquote class="panel info">
+  <p><strong>Pre-configured connector</strong></p>
 
   <p>The AppVeyor connector is built into SignPath and connects to appveyor.com.</p>
   <ul>
@@ -175,7 +177,7 @@
   </ul>
 
   <p>A customizable connector for AppVeyor Server will be provided in the future.</p>
-</div>
+</blockquote>
 
 <h3 id="prerequisites-and-restrictions">Prerequisites and restrictions</h3>
 
@@ -192,27 +194,26 @@
 
 <p>These checks are performed to ensure that the binary artifacts result purely from the specified source code.</p>
 
-<div class="panel todo">
-  <div class="panel-header">TODO</div>
+<blockquote class="panel todo">
+  <p><strong>TODO</strong></p>
 
   <p>Is the following list complete? see https://www.appveyor.com/docs/build-configuration/#generic-git-repositories-and-yaml</p>
-  <blockquote>
-    <p>At the moment those supported are: GitHub (hosted and on-premises), Bitbucket (hosted and on-premises), GitLab (hosted and on-premises), Azure DevOps, Kiln and Gitea.</p>
-  </blockquote>
-</div>
+
+  <p>At the moment those supported are: GitHub (hosted and on-premises), Bitbucket (hosted and on-premises), GitLab (hosted and on-premises), Azure DevOps, Kiln and Gitea.</p>
+</blockquote>
 
 <h3 id="setup">Setup</h3>
 <p>This figure shows the secrets that must be shared between AppVeyor.com and SignPath.io:
 <img src="/assets/img/resources/documentation_build-integration_appveyor.png" alt="AppVeyor Setup flow" /></p>
 <table>
     <thead>
-        <tr><th style="width: 20%">
+        <tr><th>
 
 Action 
-</th><th style="width: 60%">
+</th><th>
 
 Steps 
-</th><th style="width: 20%">
+</th><th>
 
 Remarks 
 </th></tr>
@@ -261,7 +262,7 @@ Remarks
           <li>On <a href="https://ci.appveyor.com">ci.appveyor.com</a>
             <ul>
               <li>Open <em>Account Settings</em> and choose <em><a href="https://ci.appveyor.com/tools/encrypt">Encrypt YAML</a></em></li>
-              <li>Enter ② <strong><code class="language-plaintext highlighter-rouge">Bearer &lt;SIGNPATH_API_TOKEN&gt;</code></strong> (without &lt;brackets&gt;)</li>
+              <li>Enter ② <strong><code class="language-plaintext highlighter-rouge">Bearer $SIGNPATH_API_TOKEN</code></strong> (without $)</li>
               <li>Remember the ③ <strong>encrypted SignPath API token</strong> for the next step</li>
             </ul>
           </li>
@@ -279,9 +280,9 @@ Remarks
 
         <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">deploy</span><span class="pi">:</span>
 <span class="pi">-</span> <span class="na">provider</span><span class="pi">:</span> <span class="s">Webhook</span>
-  <span class="na">url</span><span class="pi">:</span> <span class="s">https://app.signpath.io/API/v1/&lt;ORGANIZATION_ID&gt;/Integrations/AppVeyor?ProjectSlug=&lt;PROJECT_SLUG&gt;&amp;SigningPolicySlug=&lt;SIGNING_POLICY_SLUG&gt;&amp;ArtifactConfigurationSlug=&lt;ARTIFACT_CONFIGURATION_SLUG&gt;</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="s">https://app.signpath.io/API/v1/$ORGANIZATION_ID/Integrations/AppVeyor?ProjectSlug=$PROJECT_SLUG&amp;SigningPolicySlug=$SIGNING_POLICY_SLUG&amp;ArtifactConfigurationSlug=$ARTIFACT_CONFIGURATION_SLUG</span>
   <span class="na">authorization</span><span class="pi">:</span>
-    <span class="na">secure</span><span class="pi">:</span> <span class="s">&lt;ENCRYPTED_SIGNPATH_API_TOKEN&gt;</span>
+    <span class="na">secure</span><span class="pi">:</span> <span class="s">$ENCRYPTED_SIGNPATH_API_TOKEN</span>
 </code></pre></div>        </div>
 
         <table>
@@ -293,23 +294,23 @@ Remarks
           </thead>
           <tbody>
             <tr>
-              <td><code class="language-plaintext highlighter-rouge">&lt;ORGANIZATION_ID&gt;</code></td>
+              <td><code class="language-plaintext highlighter-rouge">$ORGANIZATION_ID</code></td>
               <td>SignPath organization ID (can be retrieved from the organization page)</td>
             </tr>
             <tr>
-              <td><code class="language-plaintext highlighter-rouge">&lt;PROJECT_SLUG&gt;</code></td>
+              <td><code class="language-plaintext highlighter-rouge">$PROJECT_SLUG</code></td>
               <td>Project slug</td>
             </tr>
             <tr>
-              <td><code class="language-plaintext highlighter-rouge">&lt;SIGNING_POLICY_SLUG&gt;</code></td>
+              <td><code class="language-plaintext highlighter-rouge">$SIGNING_POLICY_SLUG</code></td>
               <td>Signing policy slug</td>
             </tr>
             <tr>
-              <td><code class="language-plaintext highlighter-rouge">&lt;ARTIFACT_CONFIGURATION_SLUG&gt;</code></td>
+              <td><code class="language-plaintext highlighter-rouge">$ARTIFACT_CONFIGURATION_SLUG</code></td>
               <td><em>Optional</em> artifact configuration slug (default artifact configuration if not specified)</td>
             </tr>
             <tr>
-              <td><code class="language-plaintext highlighter-rouge">&lt;ENCRYPTED_SIGNPATH_API_TOKEN&gt;</code></td>
+              <td><code class="language-plaintext highlighter-rouge">$ENCRYPTED_SIGNPATH_API_TOKEN</code></td>
               <td>③ The encrypted value from the previous step</td>
             </tr>
           </tbody>
