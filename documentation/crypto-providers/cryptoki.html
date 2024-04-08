@@ -527,12 +527,29 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pkcs11-tool</span><span class="w"> </span><span class="nt">--module</span><span class="w"> </span><span class="nv">$LibSignPathCryptokiPath</span><span class="w"> </span><span class="nt">--pin</span><span class="w"> </span><span class="nx">CONFIG</span><span class="w"> </span><span class="o">...</span><span class="w">
 </span></code></pre></div></div>
+
 <table>
-    <thead>
-        <tr></tr>
-    </thead>
-    <tbody></tbody>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--module</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/path/to/libSignPath.Cryptoki.so</code></td>
+      <td>Path to the SignPath Cryptoki library</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--pin</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CONFIG</code> or <code class="language-plaintext highlighter-rouge">$OrganizationId:$ApiToken</code></td>
+      <td>See <a href="#cryptoki-parameters">PIN parameter</a></td>
+    </tr>
+  </tbody>
 </table>
+
 <h4 id="listing-of-the-available-pkcs-11-objects">Listing of the available PKCS #11 objects</h4>
 
 <p>The following command lists available objects, which corresponds to the list of signing policies for which the authenticated user has <em>Submitter</em> permissions.</p>
