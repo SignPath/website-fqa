@@ -513,7 +513,13 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 
 <h3 id="setup-2">Setup</h3>
 
-<p>Before version 0.23, <code class="language-plaintext highlighter-rouge">pkcs11-tool</code> always opened the Cryptoki session in a read/write mode (see <a href="https://github.com/OpenSC/OpenSC/issues/2182">GitHub issue #2182</a>) and therefore fails with a <em>“PKCS11 function C_OpenSession failed: rv = CKR_TOKEN_WRITE_PROTECTED”</em> error. To enable compatibility with these earlier versions you need to set the <code class="language-plaintext highlighter-rouge">Cryptoki.DoNotFailOnReadWriteSessions</code> value in the SignPath <a href="/documentation/crypto-providers#crypto-provider-config-values">Crypto Provider configuration</a>.</p>
+<blockquote class="panel info">
+  <p><strong><code class="language-plaintext highlighter-rouge">pkcs11-tool</code> before version 0.23</strong></p>
+
+  <p>Set <code class="language-plaintext highlighter-rouge">Cryptoki.DoNotFailOnReadWriteSessions</code> to <code class="language-plaintext highlighter-rouge">true</code> in the SignPath <a href="/documentation/crypto-providers#crypto-provider-config-values">Crypto Provider configuration</a>.</p>
+
+  <p><em>Background: <code class="language-plaintext highlighter-rouge">pkcs11-tool</code> used to open the Cryptoki session in a read/write mode (see <a href="https://github.com/OpenSC/OpenSC/issues/2182">GitHub issue #2182</a>) and therefore fails with <code class="language-plaintext highlighter-rouge">PKCS11 function C_OpenSession failed: rv = CKR_TOKEN_WRITE_PROTECTED</code>. This flag enables compatibility with these earlier versions.</em></p>
+</blockquote>
 
 <h3 id="invocation-2">Invocation</h3>
 
