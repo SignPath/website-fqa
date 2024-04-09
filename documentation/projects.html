@@ -84,11 +84,25 @@
 							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class=''>
 							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=''>
 							<a href='/documentation/changelog#'>Product updates</a></li></ul>
-			</aside><article><ul class="article-toc mobile-only">
+			</aside><article><ul class="article-toc">
   <li><a href="#overview">Overview</a></li>
   <li><a href="#project-settings">Project settings</a></li>
-  <li><a href="#signing-policies">Signing policies</a></li>
-  <li><a href="#artifact-configurations">Artifact configurations</a></li>
+  <li><a href="#signing-policies">Signing policies</a>
+    <ul>
+      <li><a href="#general-properties">General Properties</a></li>
+      <li><a href="#approval-process">Approval process</a></li>
+      <li><a href="#signing-policy-trusted-build-system">Trusted build system verification</a></li>
+      <li><a href="#signing-policy-origin-verification">Origin verification restriction</a></li>
+    </ul>
+  </li>
+  <li><a href="#artifact-configurations">Artifact configurations</a>
+    <ul>
+      <li><a href="#signing-multiple-files-in-one-step">Signing multiple files in one step</a></li>
+      <li><a href="#signing-nested-artifacts-deep-signing">Signing nested artifacts (deep-signing)</a></li>
+      <li><a href="#keeping-versions-of-artifact-configurations">Keeping versions of artifact configurations</a></li>
+      <li><a href="#defining-artifact-configurations">Defining artifact configurations</a></li>
+    </ul>
+  </li>
   <li><a href="#trusted-build-systems">Trusted build systems</a></li>
   <li><a href="#webhooks">Webhooks</a></li>
 </ul>
@@ -355,7 +369,7 @@ with Authenticode).</p>
 
 <p>In the latter case, you need to manually review the resulting artifact configuration and exclude all 3rd party libraries that you don’t want to be signed with your certificate.</p>
 
-<p>For details on how to create, generate or edit an artifact configuration, see <a href="/documentation/artifact-configuration">artifact configuration</a>.</p>
+<p>For details on how to create, generate or edit an artifact configuration, see <a href="/documentation/artifact-configuration/screenshot.png">artifact configuration</a>.</p>
 
 <h2 id="trusted-build-systems">Trusted build systems</h2>
 

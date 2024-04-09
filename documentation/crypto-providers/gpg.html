@@ -95,11 +95,9 @@
 
 <h3 id="overview">Overview</h3>
 
-<p>GnuPG does not directly support PKCS #11/Cryptoki but offers a <a href="https://wiki.gnupg.org/SmartCard">“Smart Card” interface</a>, normally used to access smart card or USB token based HSMs.</p>
+<p>GnuPG does not directly support the PKCS #11/Cryptoki interface. The <a href="https://github.com/alonbl/gnupg-pkcs11-scd/">gnupg-pkcs11-scd</a> project adds this capability as a GnuPG <a href="https://wiki.gnupg.org/SmartCard">“Smart Card” interface</a> daemon.</p>
 
-<p>Here the <a href="https://github.com/alonbl/gnupg-pkcs11-scd/">gnupg-pkcs11-scd</a> project comes into play, which uses the GnuPG smart card interface to adapt to a PKCS #11 Crypto Provider. This tool runs as a GnuPG smart card daemon which we use to connect GnuPG to the SignPath PKCS #11/Cryptoki Crypto Provider as shown in the following figure.</p>
-
-<p><img src="/assets/img/resources/documentation_crypto_providers-GpgSigningFlow.svg" alt="Figure: GPG signing flow" /></p>
+<p><img src="/assets/img/resources/documentation/crypto-providers/gpg-signing-flow.svg" alt="Figure: GPG signing flow" /></p>
 
 <h3 id="setup">Setup</h3>
 

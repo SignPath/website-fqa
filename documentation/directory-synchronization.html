@@ -89,13 +89,13 @@
 
 <p>In the <em>Azure Portal,</em> go to <em>Microsoft Entra ID</em> / <em>Enterprise Applications</em> and create a new application. Select “Create your own application” on the top.</p>
 
-<p><img src="/assets/img/resources/documentation_scim-01-create-app.png" alt="Microsoft Entra ID - creating a new custom application" class="margin-left" /></p>
+<p><img src="/assets/img/resources/documentation/scim/scr_01-create-app.png" alt="Microsoft Entra ID - creating a new custom application" class="margin-left" /></p>
 
 <h4 id="2-define-signpath-application-roles-in-the-application-registration">2. Define SignPath application roles in the application registration</h4>
 
 <p>Go back to the Microsoft Entra ID main page, select <em>App registrations</em>, change the list to <em>All Applications</em> and find the application registration you just created.</p>
 
-<p><img src="/assets/img/resources/documentation_scim-02a-select-app-registration.png" alt="Microsoft Entra ID - finding the App registration" class="margin-left" /></p>
+<p><img src="/assets/img/resources/documentation/scim/scr_02a-select-app-registration.png" alt="Microsoft Entra ID - finding the App registration" class="margin-left" /></p>
 
 <p>Under <em>App roles</em>, create an entry for each role in SignPath using “Users/Groups” as allowed member types:</p>
 
@@ -136,7 +136,7 @@
 
 <p><em>Note: For more information about the permissions assigned to each role, see the <a href="/documentation/users#roles">user documentation</a>.</em></p>
 
-<p><img src="/assets/img/resources/documentation_scim-02b-create-app-roles.png" alt="Microsoft Entra ID - create app roles" class="margin-left" /></p>
+<p><img src="/assets/img/resources/documentation/scim/scr_02b-create-app-roles.png" alt="Microsoft Entra ID - create app roles" class="margin-left" /></p>
 
 <h4 id="3-create-a-synchronization-user-on-signpath">3. Create a synchronization user on SignPath</h4>
 
@@ -154,7 +154,7 @@
   <li>Use the SignPath CI User <em>API token</em> from step 3 as the <em>Secret Token</em>.</li>
 </ul>
 
-<p><img src="/assets/img/resources/documentation_scim-04a-select-provisioning.png" alt="Microsoft Entra ID - select provisioning" class="margin-left" /></p>
+<p><img src="/assets/img/resources/documentation/scim/scr_04a-select-provisioning.png" alt="Microsoft Entra ID - select provisioning" class="margin-left" /></p>
 
 <blockquote class="panel tip">
   <p><strong>Dry-Run mode</strong></p>
@@ -168,26 +168,26 @@
 
 <p>Close the dialog, select <em>Provisioning</em>, open the <em>Mapping</em> group and click <em>Azure Active Directory Users</em>.</p>
 
-<p><img src="/assets/img/resources/documentation_scim-05a-mapping-part1.png" alt="Microsoft Entra ID - select mapping" class="margin-left" /></p>
+<p><img src="/assets/img/resources/documentation/scim/scr_05a-mapping-part1.png" alt="Microsoft Entra ID - select mapping" class="margin-left" /></p>
 
 <p>On the next page, check <em>Show advanced options</em> and click on <em>Review your schema here</em>.</p>
 
-<p><img src="/assets/img/resources/documentation_scim-05b-mapping-part2.png" alt="Microsoft Entra ID - select mapping" class="margin-left" /></p>
+<p><img src="/assets/img/resources/documentation/scim/scr_05b-mapping-part2.png" alt="Microsoft Entra ID - select mapping" class="margin-left" /></p>
 
 <p>Then, replace the existing JSON with the one from <a href="/assets/MicrosoftEntraIDScimConfiguration.json">this link</a> and save the schema. After closing the dialog, you <strong>need to refresh the Azure page</strong>, then the <em>Attribute Mappings</em> will be pre-filled for you. Click on the row that maps to “externalId” in the <em>customappsso Attribute</em> column.</p>
 
-<p><img src="/assets/img/resources/documentation_scim-05c-mapping-part3.png" alt="Microsoft Entra ID - replace mapping" class="margin-left" /></p>
+<p><img src="/assets/img/resources/documentation/scim/scr_05c-mapping-part3.png" alt="Microsoft Entra ID - replace mapping" class="margin-left" /></p>
 
 <p>Change the <em>Mapping type</em> to “Expression” and enter the following expression: <code class="language-plaintext highlighter-rouge">Append("&lt;your-sso-identifier&gt;:", [objectId])</code>.</p>
 
-<p><img src="/assets/img/resources/documentation_scim-05d-mapping-part4.png" alt="Microsoft Entra ID - mapping expression" class="margin-left" /></p>
+<p><img src="/assets/img/resources/documentation/scim/scr_05d-mapping-part4.png" alt="Microsoft Entra ID - mapping expression" class="margin-left" /></p>
 
 <blockquote class="panel tip">
   <p><strong>Mapping expression</strong></p>
 
   <p>To find out the value for <code class="language-plaintext highlighter-rouge">&lt;your-sso-identifier&gt;:</code>, open an exising user on SignPath. In the <em>Identity</em> field, everything before the first <code class="language-plaintext highlighter-rouge">:</code> is your SSO identifier.</p>
 
-  <p><img src="/assets/img/resources/documentation_scim-05e-sso-identifier-on-signpath.png" alt="SignPath - look up SSO identifier" /></p>
+  <p><img src="/assets/img/resources/documentation/scim/scr_05e-sso-identifier-on-signpath.png" alt="SignPath - look up SSO identifier" /></p>
 
   <p>In order for SignPath to be able to map your Microsoft Entra ID users correctly, the second part of the <em>SignPath Identity</em> (after the <code class="language-plaintext highlighter-rouge">:</code>) should map to the respective field of the Microsoft Entra ID user. If you are mapping your Microsoft Entra ID users directly, you can use <code class="language-plaintext highlighter-rouge">[objectId]</code>. If you are forwarding your <code class="language-plaintext highlighter-rouge">sid</code> from your Active Directory, use <code class="language-plaintext highlighter-rouge">[onPremisesSecurityIdentifier]</code>.</p>
 
@@ -200,21 +200,21 @@
 
 <p>Go back to the <em>Entra ID</em> main page, select <em>Enterprise applications</em> and select the enterprise application you created. Select <em>Users and groups</em> and click “Add users and groups”.</p>
 
-<p><img src="/assets/img/resources/documentation_scim-06a-add-users-and-groups.png" alt="Microsoft Entra ID - add users and groups" class="margin-left" /></p>
+<p><img src="/assets/img/resources/documentation/scim/scr_06a-add-users-and-groups.png" alt="Microsoft Entra ID - add users and groups" class="margin-left" /></p>
 
 <p>Select a test user that already exists in the SignPath organization and assign them a role. Then select <em>Provisioning</em> on the left pane and <em>Provision on demand</em> on the next screen. Select the user you just added and click “Provision”.</p>
 
-<p><img src="/assets/img/resources/documentation_scim-06b-test-provisioning.png" alt="Microsoft Entra ID - test provisioning" class="margin-left" /></p>
+<p><img src="/assets/img/resources/documentation/scim/scr_06b-test-provisioning.png" alt="Microsoft Entra ID - test provisioning" class="margin-left" /></p>
 
 <p>When the provisioning succeeded, click on “View details” in section <em>3. Match user between source and target system</em>. The synchronization should have found an existing user on SignPath that matches. If it attempts to create a new user, there is an error in the configuration.</p>
 
-<p><img src="/assets/img/resources/documentation_scim-06c-validate-provisioning.png" alt="Microsoft Entra ID - validate provisioning" class="margin-left" /></p>
+<p><img src="/assets/img/resources/documentation/scim/scr_06c-validate-provisioning.png" alt="Microsoft Entra ID - validate provisioning" class="margin-left" /></p>
 
 <h4 id="7-remove-the-dry-run-postfix-assign-users-and-groups-and-start-provisioning">7. Remove the <code class="language-plaintext highlighter-rouge">/dry-run</code> postfix, assign users and groups and start provisioning</h4>
 
 <p>After you successfully tested the configuration, you can remove the <code class="language-plaintext highlighter-rouge">/dry-run</code> postfix of the <em>Tenant URL</em> that was entered in step 4. Afterwards, you can start the provisioning on the <em>Overview</em> page of the provisioning settings The assigned Entra ID users and groups will then be synchronized to your SignPath organization.</p>
 
-<p><img src="/assets/img/resources/documentation_scim-07a-start-provisioning.png" alt="Microsoft Entra ID - validate provisioning" class="margin-left" /></p>
+<p><img src="/assets/img/resources/documentation/scim/scr_07a-start-provisioning.png" alt="Microsoft Entra ID - validate provisioning" class="margin-left" /></p>
 
 <p>You can now assign all users and groups that you want to synchronize.</p>
 

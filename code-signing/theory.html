@@ -129,7 +129,7 @@
 
 <p>Here’s a simplified overview of the interaction between all parties:</p>
 
-<p><img src="/assets/img/resources/code-signing_overview.png" alt="Overview" /></p>
+<p><img src="/assets/img/resources/code-signing/overview.png" alt="Overview" /></p>
 
 <ul>
   <li><strong>(1)</strong> A software publisher selects a CA to buy a certificate from. Certificates have to be renewed every one to three years, depending on certificate validity.</li>
@@ -305,7 +305,7 @@
 
 <p>A typical certificate chain looks like this:</p>
 
-<p><img src="/assets/img/resources/code-signing_certificate-chains-abstract.png" alt="Certificate chain" /></p>
+<p><img src="/assets/img/resources/code-signing/certificate-chains-abstract.png" alt="Certificate chain" /></p>
 
 <p>Let’s examine this in detail:</p>
 
@@ -331,7 +331,7 @@
 
 <p>For instance, the actual certificate chain of Mozilla’s Firefox (firefox.exe) looks like this:</p>
 
-<p><img src="/assets/img/resources/code-signing_certificate-chains-concrete.png" alt="Firefox certificate chain sample" /></p>
+<p><img src="/assets/img/resources/code-signing/certificate-chains-concrete.png" alt="Firefox certificate chain sample" /></p>
 
 <p>In order to verify the legitimacy of a signature, a client needs to know the entire certificate chain. Therefore, certificate files usually contain not only the certificate, but also every certificate in its chain of parents.</p>
 
@@ -350,7 +350,7 @@
 <p>Certificate revocation is an essential part of the certificate validation process. When a client encounters an unknown certificate, it must contact the certificate authority and check whether this certificate has been revoked. If a certificate has been revoked, the client will not accept signatures from past the revocation date.</p>
 
 <blockquote class="panel info">
-  <p>** Revocation protocols and reliability**</p>
+  <p><strong>Revocation protocols and reliability</strong></p>
 
   <p>The certificate contains the URL for this check, and depending on the mechanisms provided, the client can either download a full Certificate Revocation List (CRL) or check validity of an individual certificate through the OCSP protocol.</p>
 
