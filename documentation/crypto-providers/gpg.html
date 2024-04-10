@@ -91,11 +91,11 @@
 </ul>
 <h2 id="general-instructions">General Instructions</h2>
 
-<p>This section provides information to use SignPath with any tool that uses GPG for signing.</p>
+<p><a href="https://gnupg.org/">Gnu Privacy Guard</a>, also known as GPG or GnuPG, is an Open Source implementation of the OpenPGP standard. This section provides information about using GPG with SignPath, as well as some code signing tools that build on GPG.</p>
 
 <h3 id="overview">Overview</h3>
 
-<p>GnuPG does not directly support the PKCS #11/Cryptoki interface. The <a href="https://github.com/alonbl/gnupg-pkcs11-scd/">gnupg-pkcs11-scd</a> project adds this capability as a GnuPG <a href="https://wiki.gnupg.org/SmartCard">“Smart Card” interface</a> daemon.</p>
+<p>GnuPG does not directly support the PKCS #11/Cryptoki interface. The <a href="https://github.com/alonbl/gnupg-pkcs11-scd/">gnupg-pkcs11-scd</a> project adds this capability as a daemon for the GnuPG <a href="https://wiki.gnupg.org/SmartCard">“Smartcard”</a> interface.</p>
 
 <p><img src="/assets/img/resources/documentation/crypto-providers/gpg-signing-flow.svg" alt="Figure: GPG signing flow" /></p>
 
@@ -199,6 +199,7 @@
 <p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain a full example to build, sign and verify Maven artifacts using the <em><a href="https://maven.apache.org/plugins/maven-gpg-plugin/">Apache maven-gpg-plugin</a></em> in <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario SignMaven</code>. The used GPG key is referenced via its email address.</p>
 
 <p>During <code class="language-plaintext highlighter-rouge">mvn install</code>, SignPath is called to perform a hash based signing operations with the <em>Project</em> / <em>Signing Policy</em> referenced in the shadowed private key. Note that the <em>OrganizationId</em> and the <em>ApiToken</em> still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
+
 
 		</article>
 	</div>
