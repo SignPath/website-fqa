@@ -113,7 +113,19 @@
 </ul>
 <h2 id="general-instructions">General instructions</h2>
 
-<p>This section provides information how to use the SignPath Cryptoki library with any tool that supports Cryptoki. Below this section you will find instructions for specific tools.</p>
+<p>The SignPath Cryptoki library is used to enables code signing using tools that support the Cryptoki/PKCS #11 standard.</p>
+
+<blockquote class="panel info" id="about-cryptoki">
+  <p><strong>Cryptoki and PKCS #11</strong></p>
+
+  <p>Cryptoki is the <em>Cryptographic Token Interface</em> <a href="https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html">defined</a> by the PKCS #11 standard. 
+It is used by cryotographic software to access encryption and signing keys that are not stored on disks.</p>
+
+  <p>Cryptoki/PKCS #11 is primarily used in the Open Source ecosystem, e.g. Linux tools and their ports to other platforms including Windows. 
+Some tools support it indirectly through their own provider ecosystem, e.g. <a href="#jarsigner">Java via SunPKCS11</a> and <a href="gpg">GPG via gnupg-pkcs11-scd</a>.</p>
+</blockquote>
+
+<p>This section provides general information about using the SignPath Cryptoki library with code signing tools. Subsequent sections provide instructions for specific tools.</p>
 
 <h3 id="supported-linux-distributions">Supported Linux distributions</h3>
 
@@ -156,7 +168,7 @@
 The reason is an <a href="https://github.com/openssl/openssl/issues/20161">OpenSSL bug</a> which has been fixed in OpenSSL 3.0.9.
 The issue results in <em>“http_exception occurred (error code= generic:168296454): Error in SSL handshake”</em> errors.</p>
 
-  <p>You need to replace the system’s OpenSSL version with &gt;= 3.0.9 or to use an isolated OpenSSL installation.</p>
+  <p>You need to replace the system’s OpenSSL version with &gt;= 3.0.9 or use an isolated OpenSSL installation.</p>
 </blockquote>
 
 <h3 id="installation">Installation</h3>
@@ -172,37 +184,37 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 
 <h3 id="cryptoki-parameters">Parameters</h3>
 
-<p>Additionally to the general <a href="/documentation/crypto-providers#crypto-provider-configuration">Crypto Provider configuration</a>, Cryptoki-enabled tools usually provide the following parameters:</p>
+<p>Signing tools with Cryptoki support usually provide <em>PIN</em> and <em>key ID</em> parameters. These are passed to the respective Cryptoki provider. For SignPath, provide the following values:</p>
 
 <table>
   <thead>
     <tr>
-      <th>Parameter</th>
-      <th>Value for the SignPath Cryptoki Library</th>
+      <th>Tool parameter</th>
+      <th>Value (using SignPath provider)</th>
       <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>PIN</td>
+      <td><em>PIN</em></td>
       <td><code class="language-plaintext highlighter-rouge">$OrganizationId:$ApiToken</code> or <code class="language-plaintext highlighter-rouge">CONFIG</code></td>
-      <td>SignPath <em>Organization</em> and <em>Submitter</em> API token, separated by a colon. Specify <code class="language-plaintext highlighter-rouge">CONFIG</code> to use the values from the <a href="/documentation/crypto-providers#crypto-provider-config-values">configuration file or environment variables</a>.</td>
+      <td>SignPath <em>Organization</em> and <em>Submitter</em> API token, separated by a colon. Specify <code class="language-plaintext highlighter-rouge">CONFIG</code> to use the values definded in <a href="/documentation/crypto-providers#crypto-provider-config-values">the configuration file or environment variables</a></td>
     </tr>
     <tr>
-      <td>Key ID</td>
+      <td><em>key ID</em></td>
       <td><code class="language-plaintext highlighter-rouge">$ProjectSlug/$SigningPolicySlug</code></td>
       <td>SignPath <em>Project</em> and <em>Signing Policy</em> slugs, separated by a forward slash</td>
     </tr>
   </tbody>
 </table>
 
+<p>Name and synopsis for these parameters depend on the tool. For tools that support Cryptoki only <a href="#about-cryptoki">indirectly</a>, parameters may also be passed indirectly or using a specific syntax for an existing tool parameter (see below).</p>
+
 <blockquote class="panel info">
   <p><strong>Keys are not specified directly</strong></p>
 
-  <p>The Cryptoki API expects you to identify a key, but SignPath requires you to specify a <em>Project</em> and a <em>Signing Policy</em>. SignPath will select the correct key or certificate based on the <em>Project</em> and <em>Signing Policy</em> you specify.</p>
+  <p>The Cryptoki API expects you to identify a <em>key</em>, but SignPath requires you to specify a <em>Project</em> and a <em>Signing Policy</em>. SignPath will select the key or certificate of the specified <em>Signing Policy</em>.</p>
 </blockquote>
-
-<p>How these parameters can be specified depends on the tool being used. Since not all tools support Cryptoki directly, parameters are sometimes passed indirectly or using a specific syntax for an existing tool parameter (see below).</p>
 
 <h3 id="error-handling">Error handling</h3>
 
@@ -259,7 +271,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 <blockquote class="panel warning">
   <p><strong>Important</strong></p>
 
-  <p>Only latest OpenSSL 1.1 and 3.x versions are supported. For Linux, see also the notes in <a href="/documentation/crypto-providers#supported-linux-distributions">supported Linux distributions</a>.</p>
+  <p>Only latest OpenSSL 1.1 and 3.x versions are supported. For Linux, see also the notes in <a href="#supported-linux-distributions">supported Linux distributions</a>.</p>
 </blockquote>
 
 <h3 id="setup">Setup</h3>
@@ -455,7 +467,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 <blockquote class="panel warning">
   <p><strong>Important</strong></p>
 
-  <p>Only osslsigncode 2.x or higher is supported. Also see the notes in <a href="/documentation/crypto-providers#supported-linux-distributions">supported Linux distributions</a> regarding the supported OpenSSL versions.</p>
+  <p>Only osslsigncode 2.x or higher is supported. Also see the notes in <a href="#supported-linux-distributions">supported Linux distributions</a> regarding the supported OpenSSL versions.</p>
 </blockquote>
 
 <h3 id="setup-1">Setup</h3>
