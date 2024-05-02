@@ -159,9 +159,13 @@
 
 <p>Example call starting the application:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">SIGNPATH_ORGANIZATION_ID</span><span class="o">=</span>...
-<span class="nb">export </span><span class="nv">SIGNPATH_API_TOKEN</span><span class="o">=</span>...
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">SIGNPATH_API_TOKEN</span><span class="o">=</span>...
 open <span class="s2">"SignPathCryptoTokenKit.app"</span> <span class="nt">--args</span> <span class="nt">-p</span> MyProject <span class="nt">-s</span> release-signing <span class="nt">-u</span> https://app.signpath.io/Api
+open SignPathCryptoTokenKit.app <span class="nt">--args</span> <span class="se">\</span>
+  <span class="nt">-p</span> MyProject <span class="se">\</span>
+  <span class="nt">-s</span> release-signing <span class="se">\</span>
+  <span class="nt">-u</span> https://app.signpath.io/Api <span class="se">\</span>
+  <span class="nt">-o</span> 0241f767-69c8-448d-ad5e-8bd453916068
 </code></pre></div></div>
 
 <h3 id="troubleshooting">Troubleshooting</h3>
