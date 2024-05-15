@@ -115,6 +115,18 @@
   <li><code class="language-plaintext highlighter-rouge">samples/Scenarios/Gpg</code> in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> (details about configuration and necessary dependencies)</li>
 </ul>
 
+<h4 id="gpg-error-logs">Error logs</h4>
+
+<p>For <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd</code>, <code class="language-plaintext highlighter-rouge">stdout</code> console output must be disabled. Use the log files for troubleshooting.</p>
+
+<p>For the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>, the following log file locations are configured:</p>
+
+<ul>
+  <li>SignPath Cryptoki logs: <code class="language-plaintext highlighter-rouge">samples/Scenarios/temp/SignPathLogs/*.log</code></li>
+  <li><code class="language-plaintext highlighter-rouge">gnupg-pkcs11</code> logs: <code class="language-plaintext highlighter-rouge">samples/Scenarios/temp/gnupg-pkcs11-scd.log</code></li>
+  <li>GPG logs: <code class="language-plaintext highlighter-rouge">samples/Scenarios/temp/gpg-agent.log</code></li>
+</ul>
+
 <h4 id="gpg-key-generation">GPG Key Generation</h4>
 
 <blockquote class="panel info">
@@ -164,6 +176,8 @@
     <li>self-sign the key</li>
     <li>sign the revocation certificate</li>
   </ul>
+
+  <p>In case errors appear, check out the <a href="#gpg-error-logs">error logs</a>.</p>
 </blockquote>
 
 <h4 id="prepare-for-signing">Prepare for signing</h4>
