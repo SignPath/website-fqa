@@ -68,7 +68,6 @@
 							<a href='/documentation/artifact-configuration/reference#'>Reference</a><div class="no-mobile" ><ul>
   <li><a href="#file-elements">File and directory elements</a></li>
   <li><a href="#signing-methods">Signing methods</a></li>
-  <li><a href="#verification">Verification methods</a></li>
   <li><a href="#metadata-restrictions">File metadata restrictions</a></li>
 </ul>
 </div></li><li class=''>
@@ -89,11 +88,6 @@
       <li><a href="#jar-sign"><code class="language-plaintext highlighter-rouge">&lt;jar-sign&gt;</code></a></li>
       <li><a href="#xml-sign"><code class="language-plaintext highlighter-rouge">&lt;xml-sign&gt;</code></a></li>
       <li><a href="#create-raw-signature">Detached raw signatures using <code class="language-plaintext highlighter-rouge">&lt;create-raw-signature&gt;</code></a></li>
-    </ul>
-  </li>
-  <li><a href="#verification">Verification methods</a>
-    <ul>
-      <li><a href="#authenticode-verify"><code class="language-plaintext highlighter-rouge">&lt;authenticode-verify&gt;</code></a></li>
     </ul>
   </li>
   <li><a href="#metadata-restrictions">File metadata restrictions</a></li>
@@ -482,7 +476,6 @@ Description
 <p>See also:</p>
 
 <ul>
-  <li>Verify existing signatures using <a href="#authenticode-verify"><code class="language-plaintext highlighter-rouge">authenticode-verify</code></a>.</li>
   <li>Use <a href="#metadata-restrictions">metadata restrictions</a> for <code class="language-plaintext highlighter-rouge">&lt;pe-file&gt;</code> to restrict product name and version.</li>
 </ul>
 
@@ -674,7 +667,7 @@ Description
 </table>
 <p>Android apps and app-bundles: Note that JAR signatures only implement APK signing scheme v1 (v2 and v3 are not yet supported).</p>
 
-<h4 id="jar-sign-verification">Verification</h4>
+<h4 id="verification">Verification</h4>
 
 <ul>
   <li><strong>Java</strong> always verifies signatures for client components. For server components, you will need to create a policy. Please consult the documentation of your application server or <a href="https://docs.oracle.com/javase/tutorial/security/toolsign/receiver.html">Oracle’s documentation</a>.</li>
@@ -876,60 +869,11 @@ Description
 
 <p>The resulting artifact will contain both the original file <code class="language-plaintext highlighter-rouge">myfile.bin</code> and the detached signature in <code class="language-plaintext highlighter-rouge">myfile.bin.sig</code>.</p>
 
-<h4 id="detached-signature-verification">Detached signature verification</h4>
+<h4 id="verification-1">Verification</h4>
 
 <p>There are multiple tools and solutions that support handling of raw signature blocks. One popular option is <code class="language-plaintext highlighter-rouge">openssl dgst</code>. As the command does not support X.509 certificates, the public key has to be extracted before the signature can be verified using the following call:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl dgst <span class="nt">-verify</span> pubkey.pem <span class="nt">-signature</span> file.sig file
-</code></pre></div></div>
-
-<h2 id="verification">Verification methods</h2>
-
-<p>Verification directives are used to ensure that files in a singing request are already properly signed by their respective publisher.</p>
-
-<p>Use this to</p>
-
-<ul>
-  <li>avoid installing unsigned files with your (signed) installers or packages</li>
-  <li>sign each file in it’s respective build pipeline rather than signing everything in the final (downstream) pipeline</li>
-  <li>re-sign third-party files to comply with your organization’s code signing policies</li>
-</ul>
-
-<p>When used to verify a file before signing it, the <em>verify</em> directive must precede any <em>sign</em> directives.</p>
-
-<h3 id="authenticode-verify"><code class="language-plaintext highlighter-rouge">&lt;authenticode-verify&gt;</code></h3>
-
-<p>Verifies that a file has a valid Authenticode signature.</p>
-
-<p>This method verifies signatures according to Windows rules:</p>
-
-<ul>
-  <li>Supported hash digest algorithm and length, signing key type and length</li>
-  <li>Valid timestamp (or unexpired publisher certificate)</li>
-  <li>Certificate chain ends in Windows trusted root certificate</li>
-</ul>
-
-<p>May be combined with <a href="#authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code></a>.</p>
-
-<blockquote class="panel todo">
-  <p><strong>TODO: add</strong></p>
-
-  <p>Use <code class="language-plaintext highlighter-rouge">append="true"</code> to add the new signature instead of replacing the existing one (supported formats only).</p>
-</blockquote>
-
-<h4 id="example-1">Example</h4>
-
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;msi-file&gt;</span>
-    <span class="nt">&lt;pe-file-set&gt;</span>
-      <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"Microsoft.*.dll"</span> <span class="na">max-matches=</span><span class="s">"unbounded"</span> <span class="nt">/&gt;</span>
-      <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"System.*.dll"</span> <span class="na">max-matches=</span><span class="s">"unbounded"</span> <span class="nt">/&gt;</span>
-      <span class="nt">&lt;for-each&gt;</span>
-        <span class="nt">&lt;authenticode-verify/&gt;</span>
-      <span class="nt">&lt;/for-each&gt;</span>
-    <span class="nt">&lt;/pe-file-set&gt;</span>
-  <span class="nt">&lt;/msi-file&gt;</span>
-<span class="nt">&lt;/artifact-configuration&gt;</span>
 </code></pre></div></div>
 
 <h2 id="metadata-restrictions">File metadata restrictions</h2>
