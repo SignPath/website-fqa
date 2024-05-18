@@ -323,9 +323,11 @@
 </ul>
 
 <blockquote class="panel warning">
-  <p><strong>User Administrators may assign Global Administrator permissions</strong></p>
+  <p><strong>User Administrators may assign permissions exceeding their own</strong></p>
 
-  <p>In order to use the <em>User Administrator</em> role for directory synchronization, this role can assign and remove the <em>Global Administrator</em> role.</p>
+  <p>This role can assign roles to itself or other users. Since most roles include some permissions beyond that of <em>User Administrator</em>, any person with this role can escalate their own permissions by assigning roles to their own account or to users accounts they create specifically for this purpose. While this will be visible and detectable in audit logs, we suggest assigning this role carefully.</p>
+
+  <p>For <em>Enterprise</em> subscriptions, we suggest using <a href="#directory-sync">directory synchronization</a> as the primary means of user and group administration.</p>
 </blockquote>
 
 <blockquote class="panel tip">
