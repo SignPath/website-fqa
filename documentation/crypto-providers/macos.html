@@ -70,6 +70,7 @@
 							<a href='/documentation/crypto-providers/macos#'>macOS CryptoTokenKit</a><div class="no-mobile" ><ul>
   <li><a href="#general-instructions">General instructions</a></li>
   <li><a href="#codesign">codesign</a></li>
+  <li><a href="#productsign">productsign</a></li>
 </ul>
 </div></li><li class=''>
 							<a href='/documentation/crypto-providers/rest-api#'>REST API</a></li></ul>
@@ -84,6 +85,7 @@
     </ul>
   </li>
   <li><a href="#codesign">codesign</a></li>
+  <li><a href="#productsign">productsign</a></li>
 </ul>
 <h2 id="general-instructions">General instructions</h2>
 
@@ -180,6 +182,18 @@ open SignPathCryptoTokenKit.app <span class="nt">--args</span> <span class="se">
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pluginkit <span class="nt">-m</span> <span class="nt">-v</span> <span class="nt">-p</span> com.apple.ctk-tokens
 </code></pre></div></div>
 
+<blockquote class="panel info">
+  <p><strong>Info: Updated intermediate certificate</strong></p>
+
+  <p>When creating a certificate in the Apple Developer portal, the intermediate certificate can be selected. On some machines, the new intermediate certificate is still missing. You can download it <a href="https://www.apple.com/certificateauthority/DeveloperIDG2CA.cer">here</a>.</p>
+</blockquote>
+
+<blockquote class="panel warning">
+  <p><strong>Warning: Produce correct timestamps</strong></p>
+
+  <p>When using codesign (or any other signing tool) directly, you are responsible for correct time stamping. See <a href="/documentation/crypto-providers#timestamps">Timestamps</a></p>
+</blockquote>
+
 <h2 id="codesign">codesign</h2>
 
 <p><em><a href="https://developer.apple.com/library/archive/documentation/Security/Conceptual/CodeSigningGuide/Procedures/Procedures.html">codesign</a></em> is a command line tool by Apple.</p>
@@ -208,12 +222,39 @@ open SignPathCryptoTokenKit.app <span class="nt">--args</span> <span class="se">
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">codesign</span><span class="w"> </span><span class="nt">-s</span><span class="w"> </span><span class="nx">MyCertificateSubjectName</span><span class="w"> </span><span class="nx">MyApp.app</span><span class="w">
 </span></code></pre></div></div>
 
-<blockquote class="panel warning">
-  <p><strong>Warning: Produce correct timestamps</strong></p>
+<h2 id="productsign">productsign</h2>
 
-  <p>When using codesign (or any other signing tool) directly, you are responsible for correct time stamping. See <a href="/documentation/crypto-providers#timestamps">Timestamps</a></p>
+<p><em>productsign</em> is a command line tool by Apple.</p>
+
+<p><em>productsign</em> requires the following parameter to find the correct certificate:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--sign</code></td>
+      <td><code class="language-plaintext highlighter-rouge">$SigningIdentity</code></td>
+      <td>A descriptor of the code signing identity that is stored in the keychain by the SignPath CryptoTokenKit. Provide the common name (or a substring) of the certificate.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Sample: sign <code class="language-plaintext highlighter-rouge">MyInstaller.pkg</code></p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">productsign</span><span class="w"> </span><span class="nt">--timestamp</span><span class="w"> </span><span class="nt">--sign</span><span class="w"> </span><span class="s2">"XX6NBJ3UUF"</span><span class="w"> </span><span class="nx">MyInstaller.pkg</span><span class="w"> </span><span class="nx">MyInstaller-signed.pkg</span><span class="w">
+</span></code></pre></div></div>
+
+<blockquote class="panel info">
+  <p><strong>Info: using the right certificate</strong></p>
+
+  <p><code class="language-plaintext highlighter-rouge">productsign</code> requires an “Apple Developer Installer” certificate.</p>
 </blockquote>
-
 
 		</article>
 	</div>
