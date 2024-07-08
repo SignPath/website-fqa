@@ -65,7 +65,10 @@
 				<ul><li class=''>
 							<a href='/documentation/crypto-providers/#'>Crypto Providers</a></li><li class='active'>
 							<a href='/documentation/crypto-providers/windows#'>Windows CSP and KSP</a><div class="no-mobile" ><ul>
-  <li><a href="#general-instructions">General instructions</a></li>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#using-kspcsp-parameters-of-signing-tools">Using KSP/CSP parameters of signing tools</a></li>
+  <li><a href="#error-handling">Error handling</a></li>
   <li><a href="#signtool">SignTool.exe</a></li>
 </ul>
 </div></li><li class=''>
@@ -74,35 +77,31 @@
 							<a href='/documentation/crypto-providers/macos#'>macOS CryptoTokenKit</a></li><li class=''>
 							<a href='/documentation/crypto-providers/rest-api#'>REST API</a></li></ul>
 			</aside><article><ul class="article-toc">
-  <li><a href="#general-instructions">General instructions</a>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#installation">Installation</a>
     <ul>
-      <li><a href="#installation">Installation</a></li>
-      <li><a href="#parameters">Parameters</a></li>
-      <li><a href="#error-handling">Error handling</a></li>
+      <li><a href="#unattended-installation">Unattended installation</a></li>
+      <li><a href="#update-to-a-new-version">Update to a new version</a></li>
+      <li><a href="#uninstallation">Uninstallation</a></li>
+      <li><a href="#unattended-uninstallation">Unattended uninstallation</a></li>
     </ul>
   </li>
+  <li><a href="#using-kspcsp-parameters-of-signing-tools">Using KSP/CSP parameters of signing tools</a></li>
+  <li><a href="#error-handling">Error handling</a></li>
   <li><a href="#signtool">SignTool.exe</a></li>
 </ul>
-<h2 id="general-instructions">General instructions</h2>
+<h2 id="overview">Overview</h2>
 
-<p>This section provides information to use SignPath with any tool that supports KSP or CSP providers.</p>
+<p>Signing tools secifically designed for Windows typicall use CNG KSP or CAPI CSP providers. Install and use the SignPath KSP and CSP providers to use this tools with SignPath.</p>
 
-<h3 id="installation">Installation</h3>
+<h2 id="installation">Installation</h2>
 
-<p>To install both CSP and KSP,</p>
+<p>To install the Windows CNG KSP and CAPI CSP providers,</p>
 
 <ol>
-  <li>Copy the contents of the <code class="language-plaintext highlighter-rouge">Windows</code> directory of the Crypto Providers ZIP archive to the target system.</li>
-  <li>
-    <p>Run the following command with Administrator privileges in the destination directory:</p>
-
-    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">powershell</span><span class="w"> </span><span class="nt">-ExecutionPolicy</span><span class="w"> </span><span class="nx">RemoteSigned</span><span class="w"> </span><span class="o">.</span><span class="nx">\InstallCspKsp.ps1</span><span class="w">
-</span></code></pre></div>    </div>
-  </li>
+  <li>Run the MSI installer file from the <code class="language-plaintext highlighter-rouge">Windows</code> subdirectory of the Crypto Providers ZIP archive. (See below for unattended options.)</li>
   <li>Continue with the <a href="/documentation/crypto-providers#crypto-provider-configuration">general Crypto Provider configuration</a>.</li>
 </ol>
-
-<p>Alternatively, you can also run <code class="language-plaintext highlighter-rouge">.\InstallCspKsp.ps1</code> within a PowerShell or PowerShell Core session.</p>
 
 <blockquote class="panel info">
   <p><strong>Verification</strong></p>
@@ -120,25 +119,57 @@
   </ul>
 </blockquote>
 
-<p>CSPs <a href="https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers">are deprecated by Microsoft</a> and therefore most tools only require a KSP. In case you only want to install the KSP, use the following command:</p>
+<p>CSPs <a href="https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers">are deprecated by Microsoft</a>, so most up-to-date tools only require a KSP. You can deselect the “Windows CAPI CSP” in the “custom setup” installer step.</p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">powershell</span><span class="w"> </span><span class="nt">-ExecutionPolicy</span><span class="w"> </span><span class="nx">RemoteSigned</span><span class="w"> </span><span class="o">.</span><span class="nx">\InstallCspKsp.ps1</span><span class="w"> </span><span class="nt">-InstallParts</span><span class="w"> </span><span class="nx">KSP</span><span class="w">
+<h3 id="unattended-installation">Unattended installation</h3>
+
+<p>To install the MSI in an automated fashion, run the following command (in an elevated command prompt).</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">msiexec</span><span class="w"> </span><span class="nx">/i</span><span class="w"> </span><span class="nx">SignPathCryptoProviders-</span><span class="nv">$Version</span><span class="o">.</span><span class="nf">msi</span><span class="w"> </span><span class="nx">/qn</span><span class="w"> </span><span class="nx">/L</span><span class="o">*</span><span class="w"> </span><span class="nx">install.log</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="update-to-a-new-version">Update to a new version</h4>
+<p>See <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/msiexec"><code class="language-plaintext highlighter-rouge">msiexec</code> documentation</a>.</p>
+
+<h4 id="installing-as-a-prerequisite-for-build-steps">Installing as a prerequisite for build steps</h4>
+
+<p>If you want <code class="language-plaintext highlighter-rouge">msiexec</code> to terminate only after the installation has completed, run the following command in a PowerShell session:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">msiexec</span><span class="w"> </span><span class="nx">/i</span><span class="w"> </span><span class="nx">SignPathCryptoProviders-</span><span class="nv">$Version</span><span class="o">.</span><span class="nf">msi</span><span class="w"> </span><span class="nx">/qn</span><span class="w"> </span><span class="nx">/L</span><span class="o">*</span><span class="w"> </span><span class="nx">install.log</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Out-Host</span><span class="p">;</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="nv">$LASTEXITCODE</span><span class="w"> </span><span class="o">-ne</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kr">throw</span><span class="w"> </span><span class="s2">"msiexec exited with </span><span class="nv">$LASTEXITCODE</span><span class="s2">"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="selecting-components">Selecting components</h4>
+
+<p>To install only parts, use the <code class="language-plaintext highlighter-rouge">ADDLOCAL</code> msiexec parameter with the following options (delimited by commas):</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">KSP</code> for the Windows CNG KSP installation and registration</li>
+  <li><code class="language-plaintext highlighter-rouge">CSP</code> for the Windows CAPI CNG installation and registration</li>
+  <li><code class="language-plaintext highlighter-rouge">Cryptoki</code> for the Cryptoki library installation</li>
+  <li><code class="language-plaintext highlighter-rouge">SignPathConfigAndEnv</code> for the default <code class="language-plaintext highlighter-rouge">CryptoProvidersConfig.json</code> configuration file in <code class="language-plaintext highlighter-rouge">%ProgramFiles%\SignPath\CryptoProviders</code>
+and the system-wide <code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code> environment variable</li>
+</ul>
+
+<p>Example: install KSP and configuration file variable</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">msiexec</span><span class="w"> </span><span class="nx">/i</span><span class="w"> </span><span class="nx">SignPathCryptoProviders-</span><span class="nv">$Version</span><span class="o">.</span><span class="nf">msi</span><span class="w"> </span><span class="nx">/qn</span><span class="w"> </span><span class="nx">/L</span><span class="o">*</span><span class="w"> </span><span class="nx">install.log</span><span class="w"> </span><span class="nx">ADDLOCAL</span><span class="o">=</span><span class="n">KSP</span><span class="p">,</span><span class="nx">SignPathConfigAndEnv</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Out-Host</span><span class="p">;</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="nv">$LASTEXITCODE</span><span class="w"> </span><span class="o">-ne</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kr">throw</span><span class="w"> </span><span class="s2">"msiexec exited with </span><span class="nv">$LASTEXITCODE</span><span class="s2">"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="update-to-a-new-version">Update to a new version</h3>
 
 <p>Installing a new version will overwrite the existing installation.</p>
 
-<h4 id="uninstallation">Uninstallation</h4>
+<h3 id="uninstallation">Uninstallation</h3>
 
-<p>Run the following command with Administrator privileges in the installation directory:</p>
+<p>Uninstall via Windows’ “Apps &amp; features” / “Installed apps” dialog.</p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">powershell</span><span class="w"> </span><span class="nt">-ExecutionPolicy</span><span class="w"> </span><span class="nx">RemoteSigned</span><span class="w"> </span><span class="o">.</span><span class="nx">\InstallCspKsp.ps1</span><span class="w"> </span><span class="nx">Uninstall</span><span class="w">
+<h3 id="unattended-uninstallation">Unattended uninstallation</h3>
+
+<p>To uninstall in an automated fashion, run the following command (in an elevated PowerShell session).</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">msiexec</span><span class="w"> </span><span class="nx">/x</span><span class="w"> </span><span class="nx">SignPathCryptoProviders-</span><span class="nv">$Version</span><span class="o">.</span><span class="nf">msi</span><span class="w"> </span><span class="nx">/qn</span><span class="w"> </span><span class="nx">/L</span><span class="o">*</span><span class="w"> </span><span class="nx">uninstall.log</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Out-Host</span><span class="w">
 </span></code></pre></div></div>
 
-<p>This removes both the CSP and KSP version (in case they are installed).</p>
-
-<h3 id="parameters">Parameters</h3>
+<h2 id="using-kspcsp-parameters-of-signing-tools">Using KSP/CSP parameters of signing tools</h2>
 
 <p>Additionally to the general <a href="/documentation/crypto-providers#crypto-provider-configuration">Crypto Provider configuration</a>, specify the following values using the parameters provided by your signing tool:</p>
 
@@ -175,10 +206,9 @@
   <p>The KSP and CSP interfaces expect you to identify a key, but SignPath requires you to specify <em>Project</em> and <em>Signing Policy</em>. SignPath will select the correct key or certificate based on the <em>Project</em> and <em>Signing Policy</em> you specify.</p>
 </blockquote>
 
-<h3 id="error-handling">Error handling</h3>
+<h2 id="error-handling">Error handling</h2>
 
-<p>The following table shows the KSP <code class="language-plaintext highlighter-rouge">HRESULT</code> result codes for the different error situations when calling the SignPath REST API.
-Note that the CSP error code has to be retrieved via <a href="https://learn.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror"><code class="language-plaintext highlighter-rouge">GetLastError()</code></a>.</p>
+<p>The following table shows the KSP <code class="language-plaintext highlighter-rouge">HRESULT</code> result codes for different error situations when calling the SignPath REST API.</p>
 
 <table>
   <thead>
@@ -206,6 +236,8 @@ Note that the CSP error code has to be retrieved via <a href="https://learn.micr
     </tr>
   </tbody>
 </table>
+
+<p>The CSP error code has to be retrieved via <a href="https://learn.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror"><code class="language-plaintext highlighter-rouge">GetLastError()</code></a>.</p>
 
 <h2 id="signtool">SignTool.exe</h2>
 

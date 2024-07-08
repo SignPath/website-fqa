@@ -11,10 +11,10 @@
   <title>Documentation - Crypto Providers | SignPath</title>
   <meta property="og:title" content="Documentation - Crypto Providers | SignPath" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:description" content="SignPath Crypto Providers (CSP, KSP, Cryptoki)" />
+  <meta property="og:description" content="SignPath Crypto Providers (Cryptoki, KSP, CSP, CryptoTokenKit)" />
   <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/crypto-providers/" />
   <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
-  <meta name="description" content="SignPath Crypto Providers (CSP, KSP, Cryptoki)"/>
+  <meta name="description" content="SignPath Crypto Providers (Cryptoki, KSP, CSP, CryptoTokenKit)"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
   <link rel="stylesheet" href="/assets/css/index.css?cache=2024-02-22">
@@ -236,9 +236,15 @@ Again, for Authenticode this is actually performed by the SIP.</li>
 
 <p>This section describes how to specify configuration values for all Crypto Providers.</p>
 
-<p>You can either use a JSON configuration file and specify the JSON file path via the <code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code> environment variable, or use individual configuration environment variables per setting.</p>
+<p>Configuration options:</p>
 
-<p>Environment variables take precedence over the corresponding JSON values.</p>
+<ul>
+  <li>Provide individual environment variables per setting</li>
+  <li>Specify the path to a JSON configuration file via the <code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code> environment variable</li>
+  <li>Combine both approaches (individual environment variables take precedence over the corresponding JSON file values)</li>
+</ul>
+
+<p>In case you used the <a href="/documentation/crypto-providers/windows#installation">MSI installer</a>, a <code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code> system env variable is created and set to <code class="language-plaintext highlighter-rouge">%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json</code> which points to a skeleton JSON file you can use to provide your own (default) values.</p>
 
 <table class="break-code">
   <thead>
@@ -308,16 +314,22 @@ Again, for Authenticode this is actually performed by the SIP.</li>
       <td>Log level used for console logging (not available on macOS)</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">Log.Console.OutputStream</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_CONSOLE_OUTPUT_STREAM</code></td>
+      <td><code class="language-plaintext highlighter-rouge">stderr</code></td>
+      <td>Console stream to use (either <code class="language-plaintext highlighter-rouge">stderr</code> or <code class="language-plaintext highlighter-rouge">stdout</code>)</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">Log.File.Level</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_FILE_LEVEL</code></td>
-      <td><code class="language-plaintext highlighter-rouge">warning</code></td>
+      <td><code class="language-plaintext highlighter-rouge">info</code></td>
       <td>Log level used for file logging (not available on macOS)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Log.File.Directory</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_FILE_DIRECTORY</code></td>
-      <td>(optional)</td>
-      <td>Path to the folder to store log files (no file logging if not provided)</td>
+      <td>Windows: <code class="language-plaintext highlighter-rouge">%TEMP%\SignPathLogs</code>, Linux: <code class="language-plaintext highlighter-rouge">/tmp/SignPathLogs</code></td>
+      <td>Path to the folder to store log files</td>
     </tr>
   </tbody>
 </table>

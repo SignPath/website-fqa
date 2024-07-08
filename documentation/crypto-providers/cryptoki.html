@@ -81,6 +81,7 @@
     <ul>
       <li><a href="#supported-linux-distributions">Supported Linux distributions</a></li>
       <li><a href="#installation">Installation</a></li>
+      <li><a href="#linux">Linux</a></li>
       <li><a href="#cryptoki-parameters">Parameters</a></li>
       <li><a href="#error-handling">Error handling</a></li>
       <li><a href="#integration-with-signing-tools">Integration with signing tools</a></li>
@@ -113,7 +114,7 @@
 </ul>
 <h2 id="general-instructions">General instructions</h2>
 
-<p>The SignPath Cryptoki library is used to enables code signing using tools that support the Cryptoki/PKCS #11 standard.</p>
+<p>The SignPath Cryptoki library is used to enable code signing using tools that support the Cryptoki/PKCS #11 standard.</p>
 
 <blockquote class="panel info" id="about-cryptoki">
   <p><strong>Cryptoki and PKCS #11</strong></p>
@@ -173,12 +174,15 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 
 <h3 id="installation">Installation</h3>
 
-<p>Simply copy the library file from the Crypto Providers ZIP archive to a directory in your system’s file path.</p>
+<h4 id="windows">Windows</h4>
 
-<ul>
-  <li>Windows: <code class="language-plaintext highlighter-rouge">Windows\SignPath.Cryptoki.dll</code></li>
-  <li>Linux: <code class="language-plaintext highlighter-rouge">Linux/libSignPath.Cryptoki/$OpenSslVersion/libSignPath.Cryptoki.so</code></li>
-</ul>
+<p>The Cryptoki library is installed to <code class="language-plaintext highlighter-rouge">%ProgramFiles%\SignPath\CryptoProviders\SignPath.Cryptoki.dll</code> by the <a href="/documentation/crypto-providers/windows#installation">MSI installer</a>.</p>
+
+<p>Alternatively, you can copy-deploy <code class="language-plaintext highlighter-rouge">Windows\SignPath.Cryptoki.dll</code> from the Crypto Providers ZIP archive to your target system.</p>
+
+<h3 id="linux">Linux</h3>
+
+<p>Copy-deploy the Cryptoki library <code class="language-plaintext highlighter-rouge">Linux/libSignPath.Cryptoki/$OpenSslVersion/libSignPath.Cryptoki.so</code> from the Crypto Providers ZIP archive to your target system.</p>
 
 <p>Check the output of <code class="language-plaintext highlighter-rouge">openssl version</code> on your target system to select the correct OpenSSL version.</p>
 
@@ -276,7 +280,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 
 <h3 id="setup">Setup</h3>
 
-<p><em>OpenSSL</em> cannot directly communicate with a Cryptoki library. Instead, the <a href="https://github.com/OpenSC/libp11">OpenSC pkcs11 OpenSSL engine</a> can be used as adapter between OpenSSL and the SignPath Cryptoki/PKCS #11 library.</p>
+<p><em>OpenSSL</em> cannot directly communicate with a Cryptoki library. Instead, the <a href="https://github.com/OpenSC/libp11">OpenSC pkcs11 OpenSSL engine</a> can be used as adapter between OpenSSL and the SignPath Cryptoki library.</p>
 
 <p><strong>Windows:</strong> Download <code class="language-plaintext highlighter-rouge">libp11-...-windows.zip </code> from <a href="https://github.com/OpenSC/libp11/releases">OpenSC libp11 Releases</a> and copy-deploy <code class="language-plaintext highlighter-rouge">pkcs11.dll</code> (x64 version).</p>
 
@@ -367,7 +371,11 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 <blockquote class="panel tip">
   <p><strong>Tip</strong></p>
 
-  <p>For <em>Linux</em>, configuration, signing invocation and verification examples are provided in the Docker container samples via <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario OpenSSL</code>. See <a href="#linux-docker-samples">Linux container samples</a>.</p>
+  <p>For <em>Linux</em>, configuration, signing invocation and verification examples are provided in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>. Sample invocation:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>run_scenario.sh ... <span class="nt">-Scenario</span> OpenSSL <span class="nt">-ProjectSlug</span> <span class="s2">"hash-signing"</span> <span class="nt">-SigningPolicySlug</span> <span class="s2">"test-signing"</span>
+</code></pre></div>  </div>
+
 </blockquote>
 
 <p>Generally, all commands require the following parameters to work with the SignPath Cryptoki library:</p>
@@ -516,7 +524,10 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 <blockquote class="panel tip">
   <p><strong>Tip</strong></p>
 
-  <p>This invocation example is also provided in the Docker container samples via <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario osslsigncode</code>. See <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</p>
+  <p>This invocation is also provided in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>run_scenario.sh ... <span class="nt">-Scenario</span> osslsigncode <span class="nt">-ProjectSlug</span> <span class="s2">"hash-signing"</span> <span class="nt">-SigningPolicySlug</span> <span class="s2">"test-signing"</span>
+</code></pre></div>  </div>
 </blockquote>
 
 <h2 id="opensc-pkcs11-tool-linux">OpenSC pkcs11-tool (Linux)</h2>
@@ -538,7 +549,11 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 <blockquote class="panel tip">
   <p><strong>Tip</strong></p>
 
-  <p>The following invocation examples are also provided in the Docker container samples via <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario Pkcs11Tool</code>. See <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</p>
+  <p>The following invocation examples are also provided in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>run_scenario.sh ... <span class="nt">-Scenario</span> Pkcs11Tool <span class="nt">-ProjectSlug</span> <span class="s2">"hash-signing"</span> <span class="nt">-SigningPolicySlug</span> <span class="s2">"test-signing"</span>
+</code></pre></div>  </div>
+
 </blockquote>
 
 <h4 id="common-parameters">Common parameters</h4>
@@ -644,7 +659,11 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 <blockquote class="panel tip">
   <p><strong>Tip</strong></p>
 
-  <p>For <em>Linux</em>, configuration and invocation examples are provided in the Docker container samples via <code class="language-plaintext highlighter-rouge">.\RunScenario.ps1 ... -Scenario JarSigner</code>. See <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</p>
+  <p>For <em>Linux</em>, configuration and invocation examples are provided in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>. Sample invocation:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>run_scenario.sh ... <span class="nt">-Scenario</span> JarSigner <span class="nt">-ProjectSlug</span> <span class="s2">"hash-signing"</span> <span class="nt">-SigningPolicySlug</span> <span class="s2">"test-signing"</span>
+</code></pre></div>  </div>
+
 </blockquote>
 
 <p>Synopsis for <em>jarsigner</em> when using the SignPath Cryptoki library:</p>

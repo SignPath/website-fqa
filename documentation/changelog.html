@@ -123,6 +123,197 @@
 
 
 
+<article class="release component-crypto_providers change_type-version change_type-breaking_changes change_type-new_features change_type-improvements change_type-bug_fixes" id="2024-07-04">
+	<h1>&nbsp;<span>July 04, 2024</span></h1>
+	
+		
+			
+			
+			
+			
+			
+			
+			
+
+			<div class="component-crypto_providers component change_type-version change_type-breaking_changes change_type-new_features change_type-improvements change_type-bug_fixes">
+			<h2>
+				 Crypto Providers 5.0.7
+				
+			</h2>
+			
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+				  <div class="change_type-breaking_changes">
+					<h3>
+						 Breaking Changes / Manual migration steps:
+							
+					</h3>
+					
+					
+						<ul>
+							
+								<li>
+									<p>Changed default logging behavior:</p>
+
+<ul>
+  <li>File logging (with <code class="language-plaintext highlighter-rouge">info</code> level) is now enabled by default
+    <ul>
+      <li>The target directory on Windows is <code class="language-plaintext highlighter-rouge">%TEMP%\SignPathLogs</code>, on Linux <code class="language-plaintext highlighter-rouge">/tmp/SignPathLogs</code>.</li>
+      <li>Use <code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_CONSOLE_LEVEL=none</code> to opt-out from file logging.</li>
+    </ul>
+  </li>
+  <li>Console logging (if enabled) now logs to stderr instead of stdout by default.
+    <ul>
+      <li>Use the new <code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_CONSOLE_OUTPUT_STREAM</code> configuration to switch back to <code class="language-plaintext highlighter-rouge">stdout</code>.</li>
+    </ul>
+  </li>
+  <li>See <a href="/documentation/crypto-providers#crypto-provider-configuration">Crypto Provider configuration</a> for details.</li>
+</ul>
+
+									
+								</li>
+							
+						</ul>
+					
+					</div> <!-- change_type -->
+				
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+				  <div class="change_type-new_features">
+					<h3>
+						 New Features:
+							
+					</h3>
+					
+					
+						<ul>
+							
+								<li>
+									<p>The Windows Crypto Providers (incl. KSP, CSP and Cryptoki library) now are delivered with a Windows MSI installer.</p>
+
+<ul>
+  <li>See <a href="/documentation/crypto-providers/windows#installation">install/uninstall docs</a>. This also includes unattended installation options.</li>
+  <li>To upgrade from a previous <em>manual</em> installation/registration or from an <code class="language-plaintext highlighter-rouge">InstallCspKsp.ps1</code> installation:
+    <ul>
+      <li>Install using the new MSI</li>
+      <li>In case you used a <code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code> JSON file: copy its content to <code class="language-plaintext highlighter-rouge">%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json</code></li>
+      <li>Delete the old installation target directory (including the old configuration file)</li>
+    </ul>
+  </li>
+</ul>
+
+									
+								</li>
+							
+						</ul>
+					
+					</div> <!-- change_type -->
+				
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+				  <div class="change_type-improvements">
+					<h3>
+						 Improvements:
+							
+					</h3>
+					
+					
+						<ul>
+							
+								<li>
+									<p>Linux container samples improvements:</p>
+<ul>
+  <li>Added a Bash port for the entry point script (<code class="language-plaintext highlighter-rouge">run_scenario.sh</code>) next to the existing PowerShell version (<code class="language-plaintext highlighter-rouge">RunScenario.ps1</code>).</li>
+  <li>The <code class="language-plaintext highlighter-rouge">GenerateGpgKey</code> scenario now allows to specify all key parameters like full name, email or expiration directly to the entry point script.</li>
+  <li>The GPG scenarios (e.g. <code class="language-plaintext highlighter-rouge">SignRpm</code>) now allow to specify the key’s ID (email) directly to the entry point script.</li>
+</ul>
+
+									
+								</li>
+							
+								<li>
+									<p>The CryptoProvider package now includes SBOM files.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+					</div> <!-- change_type -->
+				
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+				  <div class="change_type-bug_fixes">
+					<h3>
+						 Bug Fixes:
+						
+					</h3>
+					
+					
+						<ul>
+							
+								<li>
+									<p>Linux container samples: fixed incompatibility with recent RedHat 8 and 9 repository changes concerning <code class="language-plaintext highlighter-rouge">openssl</code> and <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd</code>.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+					</div> <!-- change_type -->
+				
+			
+			</div>
+		
+	
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <article class="release component-application change_type-version change_type-improvements change_type-bug_fixes" id="2024-06-10">
 	<h1>&nbsp;<span>June 10, 2024</span></h1>
 	
