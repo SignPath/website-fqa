@@ -82,6 +82,7 @@
   <li><a href="#signing-methods">Signing methods</a>
     <ul>
       <li><a href="#authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code></a></li>
+      <li><a href="#clickonce-sign"><code class="language-plaintext highlighter-rouge">&lt;clickonce-sign&gt;</code></a></li>
       <li><a href="#nuget-sign"><code class="language-plaintext highlighter-rouge">&lt;nuget-sign&gt;</code></a></li>
       <li><a href="#office-macro-sign"><code class="language-plaintext highlighter-rouge">&lt;office-macro-sign&gt;</code></a></li>
       <li><a href="#opc-sign"><code class="language-plaintext highlighter-rouge">&lt;opc-sign&gt;</code></a></li>
@@ -489,61 +490,62 @@ Description
 
 <p>Some file formats support multiple Authenticode signatures. By default, signing will replace existing signatures. To <em>append</em> a signature instead, use the <code class="language-plaintext highlighter-rouge">append</code> attribute:</p>
 
-<p>~~~ xml ~~~</p>
-<authenticode-sign append="true" />
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;authenticode-sign</span> <span class="na">append=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-This feature is only needed for edge cases including
+<p>This feature is only needed for edge cases including</p>
 
-* adding an signature to a file that's already signed using another certificate
-* adding a signature using different parameters, such as digest algorithm
+<ul>
+  <li>adding an signature to a file that’s already signed using another certificate</li>
+  <li>adding a signature using different parameters, such as digest algorithm</li>
+</ul>
 
-File formats that support appending signatures:
+<p>File formats that support appending signatures:</p>
 
-* `&lt;pe-file&gt;` (.exe, .dll, ...)
-* `&lt;cab-file&gt;` (.cab)
-* `&lt;catalog-file&gt;` (.cat)
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;pe-file&gt;</code> (.exe, .dll, …)</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;cab-file&gt;</code> (.cab)</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;catalog-file&gt;</code> (.cat)</li>
+</ul>
 
-### `&lt;clickonce-sign&gt;`
+<h3 id="clickonce-sign"><code class="language-plaintext highlighter-rouge">&lt;clickonce-sign&gt;</code></h3>
 
-&lt;p&gt;&lt;strong&gt;Supported elements:&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Supported elements:</strong></p>
 
-
-&lt;table&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;&lt;th markdown="1"  &gt;
+<table>
+    <thead>
+        <tr><th>
 
 Element 
-&lt;/th&gt;&lt;th markdown="1"  &gt;
+</th><th>
 
 Extensions 
-&lt;/th&gt;&lt;th markdown="1"  &gt;
+</th><th>
 
 Description 
-&lt;/th&gt;&lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;&lt;tr&gt;&lt;td markdown="1"  &gt;
+</th></tr>
+    </thead>
+    <tbody><tr><td>
 
-[`&lt;directory&gt;`](syntax#directory-element)
-&lt;/td&gt;&lt;td markdown="1"  &gt;
+        <p><a href="syntax#directory-element"><code class="language-plaintext highlighter-rouge">&lt;directory&gt;</code></a></p>
+      </td><td>
 
+      </td><td>
 
-&lt;/td&gt;&lt;td markdown="1"  &gt;
+        <p>Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files.</p>
+      </td></tr></tbody>
+</table>
+<p>ClickOnce signing, also called ‘manifest signing’, is a method used for ClickOnce applications and Microsoft Office Add-ins. Using <code class="language-plaintext highlighter-rouge">&lt;clickonce-sign&gt;</code> is equivalent to using Microsoft’s <code class="language-plaintext highlighter-rouge">mage.exe</code>.</p>
 
-Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files.
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
-&lt;/table&gt;ClickOnce signing, also called 'manifest signing', is a method used for ClickOnce applications and Microsoft Office Add-ins. Using `&lt;clickonce-sign&gt;` is equivalent to using Microsoft's `mage.exe`.
+<p>ClickOnce signing applies to directories, not to individual files. Therefore, you need to specify a <code class="language-plaintext highlighter-rouge">&lt;directory&gt;</code> element for this method. If you want to sign files in the root directory of a container, specify <code class="language-plaintext highlighter-rouge">path="."</code>.</p>
 
-ClickOnce signing applies to directories, not to individual files. Therefore, you need to specify a `&lt;directory&gt;` element for this method. If you want to sign files in the root directory of a container, specify `path="."`.
-
-~~~ xml
-&lt;artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1"&gt;
-  &lt;zip-file&gt;
-    &lt;directory path="."&gt;
-      &lt;clickonce-sign/&gt;
-    &lt;/directory&gt;
-  &lt;/zip-file&gt;
-&lt;/artifact-configuration&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;zip-file&gt;</span>
+    <span class="nt">&lt;directory</span> <span class="na">path=</span><span class="s">"."</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;clickonce-sign/&gt;</span>
+    <span class="nt">&lt;/directory&gt;</span>
+  <span class="nt">&lt;/zip-file&gt;</span>
+<span class="nt">&lt;/artifact-configuration&gt;</span>
 </code></pre></div></div>
 
 <h3 id="nuget-sign"><code class="language-plaintext highlighter-rouge">&lt;nuget-sign&gt;</code></h3>
