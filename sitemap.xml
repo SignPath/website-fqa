@@ -145,12 +145,32 @@
     <lastmod>2024-07-05T19:29:21+00:00</lastmod>
   </url>
   <url>
-    <loc>https://about.fqa.test.signpath.io/documentation/changelog/feed.xml</loc>
-    <lastmod>2024-08-05T11:33:28+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://about.fqa.test.signpath.io/documentation/changelog</loc>
     <lastmod>2024-08-05T10:50:25+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/changelog/feeds/all.xml</loc>
+    <lastmod>2024-08-05T13:19:27+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/changelog/feeds/powershell_module.xml</loc>
+    <lastmod>2024-08-05T13:19:27+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/changelog/feeds/crypto_providers.xml</loc>
+    <lastmod>2024-08-05T13:19:27+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/changelog/feeds/application.xml</loc>
+    <lastmod>2024-08-05T13:19:27+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml</loc>
+    <lastmod>2024-08-05T13:19:27+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/changelog/feeds/powershell_module_docker.xml</loc>
+    <lastmod>2024-08-05T13:19:27+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/product/editions-explained</loc>
