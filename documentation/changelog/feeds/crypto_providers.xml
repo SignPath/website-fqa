@@ -3,7 +3,7 @@
 <link href="https://about.signpath.io/documentation/changelog/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://about.signpath.io/" rel="alternate" type="text/html" />
 <updated>2024-07-23</updated>
-<id>https://about.signpath.io/documentation/changelog/feeds/{{ include.category }}.xml</id>
+<id>https://about.signpath.io/documentation/changelog/feeds/crypto_providers.xml</id>
 <title type="html">SignPath - Changelog</title>
 <author>
   <name>SignPath GmbH</name>
@@ -13,7 +13,7 @@
         <title>SignPath Crypto Providers 5.0.11</title>
         <updated>2024-07-23</updated>
         <published>2024-07-23</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2024-07-23&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-23" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 5.0.11</summary>
         <content type="html">
           &lt;div&gt;
@@ -28,7 +28,7 @@
         <title>SignPath Crypto Providers 5.0.7</title>
         <updated>2024-07-04</updated>
         <published>2024-07-04</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2024-07-04&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-04" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 5.0.7</summary>
         <content type="html">
           &lt;div&gt;
@@ -80,7 +80,7 @@
         <title>SignPath Crypto Providers 4.4.1</title>
         <updated>2024-03-14</updated>
         <published>2024-03-14</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2024-03-14&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-03-14" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 4.4.1</summary>
         <content type="html">
           &lt;div&gt;
@@ -97,7 +97,7 @@
         <title>SignPath Crypto Providers 4.3.0</title>
         <updated>2023-12-13</updated>
         <published>2023-12-13</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2023-12-13&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-12-13" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 4.3.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -116,7 +116,7 @@
         <title>SignPath Crypto Providers 4.2.0</title>
         <updated>2023-11-16</updated>
         <published>2023-11-16</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2023-11-16&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-11-16" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 4.2.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -133,7 +133,7 @@
         <title>SignPath Crypto Providers 4.1.0</title>
         <updated>2023-09-27</updated>
         <published>2023-09-27</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2023-09-27&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-09-27" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 4.1.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -146,7 +146,7 @@
         <title>SignPath Crypto Providers 4.0.1</title>
         <updated>2023-09-13</updated>
         <published>2023-09-13</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2023-09-13&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-09-13" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 4.0.1</summary>
         <content type="html">
           &lt;div&gt;
@@ -169,7 +169,7 @@
         <title>SignPath Crypto Providers 3.4.0</title>
         <updated>2023-03-23</updated>
         <published>2023-03-23</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2023-03-23&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-23" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 3.4.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -184,7 +184,7 @@
         <title>SignPath Crypto Providers 3.3.0</title>
         <updated>2023-03-02</updated>
         <published>2023-03-02</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2023-03-02&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-02" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 3.3.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -199,7 +199,7 @@
         <title>SignPath Crypto Providers 3.2.2</title>
         <updated>2022-11-15</updated>
         <published>2022-11-15</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2022-11-15&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-11-15" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 3.2.2</summary>
         <content type="html">
           &lt;div&gt;
@@ -214,7 +214,7 @@
         <title>SignPath Crypto Providers 3.2.1</title>
         <updated>2022-09-20</updated>
         <published>2022-09-20</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2022-09-20&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-20" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 3.2.1</summary>
         <content type="html">
           &lt;div&gt;
@@ -233,7 +233,7 @@
         <title>SignPath Crypto Providers 3.2.0</title>
         <updated>2022-09-01</updated>
         <published>2022-09-01</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2022-09-01&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-01" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 3.2.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -246,7 +246,7 @@
         <title>SignPath Crypto Providers 3.1.0</title>
         <updated>2022-08-11</updated>
         <published>2022-08-11</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2022-08-11&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-08-11" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 3.1.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -263,7 +263,7 @@
         <title>SignPath Crypto Providers 3.0.0</title>
         <updated>2022-08-04</updated>
         <published>2022-08-04</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2022-08-04&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-08-04" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 3.0.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -280,7 +280,7 @@
         <title>SignPath Crypto Providers 2.1.0</title>
         <updated>2022-03-21</updated>
         <published>2022-03-21</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2022-03-21&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-21" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 2.1.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -297,7 +297,7 @@
         <title>SignPath Crypto Providers 2.0.0</title>
         <updated>2022-03-03</updated>
         <published>2022-03-03</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2022-03-03&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-03" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 2.0.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -312,7 +312,7 @@
         <title>SignPath Crypto Providers 1.1.0</title>
         <updated>2022-01-20</updated>
         <published>2022-01-20</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2022-01-20&lt;/link&gt;<category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-01-20" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
         <summary type="html">New Release: SignPath Crypto Providers 1.1.0</summary>
         <content type="html">
           &lt;div&gt;

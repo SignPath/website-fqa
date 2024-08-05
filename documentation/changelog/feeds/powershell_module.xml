@@ -3,7 +3,7 @@
 <link href="https://about.signpath.io/documentation/changelog/feed.xml" rel="self" type="application/atom+xml" />
 <link href="https://about.signpath.io/" rel="alternate" type="text/html" />
 <updated>2024-07-08</updated>
-<id>https://about.signpath.io/documentation/changelog/feeds/{{ include.category }}.xml</id>
+<id>https://about.signpath.io/documentation/changelog/feeds/powershell_module.xml</id>
 <title type="html">SignPath - Changelog</title>
 <author>
   <name>SignPath GmbH</name>
@@ -13,7 +13,7 @@
         <title>SignPath SignPath PowerShell Module 4.4.1</title>
         <updated>2024-07-08</updated>
         <published>2024-07-08</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2024-07-08&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-08" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 4.4.1</summary>
         <content type="html">
           &lt;div&gt;
@@ -26,7 +26,7 @@
         <title>SignPath SignPath PowerShell Module 4.3.4</title>
         <updated>2024-02-01</updated>
         <published>2024-02-01</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2024-02-01&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-02-01" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 4.3.4</summary>
         <content type="html">
           &lt;div&gt;
@@ -39,7 +39,7 @@
         <title>SignPath SignPath PowerShell Module 4.3.2</title>
         <updated>2023-10-02</updated>
         <published>2023-10-02</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2023-10-02&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-10-02" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 4.3.2</summary>
         <content type="html">
           &lt;div&gt;
@@ -52,7 +52,7 @@
         <title>SignPath SignPath PowerShell Module 4.3.1</title>
         <updated>2023-09-13</updated>
         <published>2023-09-13</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2023-09-13&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-09-13" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 4.3.1</summary>
         <content type="html">
           &lt;div&gt;
@@ -65,7 +65,7 @@
         <title>SignPath SignPath PowerShell Module 4.3.0</title>
         <updated>2023-05-12</updated>
         <published>2023-05-12</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2023-05-12&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-05-12" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 4.3.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -78,7 +78,7 @@
         <title>SignPath SignPath PowerShell Module 4.2.1</title>
         <updated>2023-03-23</updated>
         <published>2023-03-23</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2023-03-23&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-23" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 4.2.1</summary>
         <content type="html">
           &lt;div&gt;
@@ -91,7 +91,7 @@
         <title>SignPath SignPath PowerShell Module 4.2.0</title>
         <updated>2022-11-15</updated>
         <published>2022-11-15</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2022-11-15&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-11-15" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 4.2.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -104,7 +104,7 @@
         <title>SignPath SignPath PowerShell Module 4.1.3</title>
         <updated>2022-09-29</updated>
         <published>2022-09-29</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2022-09-29&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-29" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 4.1.3</summary>
         <content type="html">
           &lt;div&gt;
@@ -119,7 +119,7 @@
         <title>SignPath SignPath PowerShell Module 4.1.1</title>
         <updated>2022-07-25</updated>
         <published>2022-07-25</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2022-07-25&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-07-25" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 4.1.1</summary>
         <content type="html">
           &lt;div&gt;
@@ -132,7 +132,7 @@
         <title>SignPath SignPath PowerShell Module 4.1.0</title>
         <updated>2022-03-31</updated>
         <published>2022-03-31</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2022-03-31&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-31" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 4.1.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -145,7 +145,7 @@
         <title>SignPath SignPath PowerShell Module 4.0.0</title>
         <updated>2021-12-09</updated>
         <published>2021-12-09</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2021-12-09&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-12-09" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 4.0.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -158,7 +158,7 @@
         <title>SignPath SignPath PowerShell Module 3.2.1</title>
         <updated>2021-11-10</updated>
         <published>2021-11-10</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2021-11-10&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-11-10" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 3.2.1</summary>
         <content type="html">
           &lt;div&gt;
@@ -171,7 +171,7 @@
         <title>SignPath SignPath PowerShell Module 3.1.3</title>
         <updated>2021-07-08</updated>
         <published>2021-07-08</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2021-07-08&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-07-08" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 3.1.3</summary>
         <content type="html">
           &lt;div&gt;
@@ -184,7 +184,7 @@
         <title>SignPath SignPath PowerShell Module 3.1.0</title>
         <updated>2021-04-29</updated>
         <published>2021-04-29</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2021-04-29&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-29" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 3.1.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -197,7 +197,7 @@
         <title>SignPath SignPath PowerShell Module 3.0.2</title>
         <updated>2021-04-15</updated>
         <published>2021-04-15</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2021-04-15&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-15" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 3.0.2</summary>
         <content type="html">
           &lt;div&gt;
@@ -210,7 +210,7 @@
         <title>SignPath SignPath PowerShell Module 3.0.1</title>
         <updated>2021-04-01</updated>
         <published>2021-04-01</published>
-        <link rel="alternate" />https://about.signpath.io/documentation/changelog#2021-04-01&lt;/link&gt;<category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-01" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
         <summary type="html">New Release: SignPath SignPath PowerShell Module 3.0.1</summary>
         <content type="html">
           &lt;div&gt;
