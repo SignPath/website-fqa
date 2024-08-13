@@ -2,12 +2,27 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml" rel="self" type="application/atom+xml" />
 <link href="https://about.signpath.io/" rel="alternate" type="text/html" />
-<updated>2024-08-01</updated>
+<updated>2024-08-13</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml</id><title type="html">SignPath - Self-hosted Installations Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2024-08-13:self_hosted_installations:1.170.2</id>
+        <title>SignPath Self-hosted Installations 1.170.2</title>
+        <updated>2024-08-13</updated>
+        <published>2024-08-13</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-08-13" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.170.2</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.170.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Improve error reporting for authentication errors in Operator Client.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed missing error detection in pairing restore startup script in HSM SignService.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2024-08-01:self_hosted_installations:1.169.0</id>
         <title>SignPath Self-hosted Installations 1.169.0</title>
         <updated>2024-08-01</updated>
