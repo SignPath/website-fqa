@@ -17,7 +17,7 @@
   <meta name="description" content="Detailed description of SignPath editions: features and quotas"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-02-22">
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-08-14">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2024-03-07'></script>
   <script src='/assets/js/main-bundle.js?cache=2024-08-05'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
@@ -81,16 +81,15 @@
       <li><a href="#ci-pipelines">CI pipelines</a></li>
     </ul>
   </li>
-  <li><a href="#signing-methods">Signing methods and file types</a>
+  <li><a href="#file-based-signing">Signing methods and file types</a>
     <ul>
-      <li><a href="#file-signing">File-based signing</a></li>
       <li><a href="#office-macros">Microsoft Office macros</a></li>
       <li><a href="#xml-signing">XML Signing</a></li>
       <li><a href="#container-signing">Container image signing</a></li>
       <li><a href="#sbom-signing">Bills of Material</a></li>
-      <li><a href="#hash-signing">Hash-based signing</a></li>
     </ul>
   </li>
+  <li><a href="#hash-based-signing">Hash-based signing</a></li>
   <li><a href="#artifact-configuration">Artifact configuration</a>
     <ul>
       <li><a href="#deep-signing">Deep signing</a></li>
@@ -246,9 +245,7 @@
 
 <p>Additional signing requests submitted from CI pipelines may be rejected and have to be repeated later.</p>
 
-<h2 id="signing-methods">Signing methods and file types</h2>
-
-<h3 id="file-signing">File-based signing</h3>
+<h2 id="file-based-signing">Signing methods and file types</h2>
 
 <p>SignPath directly supports signing various file formats. See <a href="/documentation/artifact-configuration/reference#file-elements">the artifact configuration reference</a> for details about available signing methods and file types.</p>
 
@@ -260,7 +257,7 @@
 
 <p>See <a href="/product/office-macros">Office macros</a> for more information.</p>
 
-<p><strong>Available for</strong> <em>Enterprise</em> subscriptions.</p>
+<p><strong>Available for</strong> <em>Advanced Code Signing</em> subscriptions.</p>
 
 <h3 id="xml-signing">XML Signing</h3>
 
@@ -268,13 +265,13 @@
 
 <p>See <a href="/documentation/artifact-configuration/reference#xml-sign">artifact configuration</a> for details.</p>
 
-<p><strong>Available for</strong> <em>Enterprise</em> subscriptions.</p>
+<p><strong>Available for</strong> <em>Advanced Code Signing</em> subscriptions.</p>
 
 <h3 id="container-signing">Container image signing</h3>
 
 <p>SignPath supports signing Docker container images and tags using cosign and Docker Content Trust (DCT). See <a href="/documentation/signing-containers">Signing Container Images</a> for details.</p>
 
-<p><strong>Available for</strong> <em>Enterprise, Open Source</em> subscriptions.</p>
+<p><strong>Available for</strong> <em>Advanced Code Signing, Open Source</em> subscriptions.</p>
 
 <h3 id="sbom-signing">Bills of Material</h3>
 
@@ -289,9 +286,9 @@
 
 <p>See this <a href="/documentation/artifact-configuration/examples#sbom-restriction">artifact configuration sample</a> for details.</p>
 
-<p><strong>Available for</strong> <em>Enterprise</em> subscriptions.</p>
+<p><strong>Available for</strong> <em>Advanced Code Signing</em> subscriptions.</p>
 
-<h3 id="hash-signing">Hash-based signing</h3>
+<h2 id="hash-based-signing">Hash-based signing</h2>
 
 <p>Use any code signing tool that supports either of these interfaces:</p>
 
@@ -334,18 +331,20 @@
 
 <p>Note that with hash-based signing, artifacts are not transferred to and signed by the SignPath application, but locally on the user machine or build agent. The signing operation is always executed synchronously, typically through one of the cryptographic providers listed above.</p>
 
-<p>The following features are therefore not available for hash-based signing:</p>
+<blockquote class="panel info">
+  <p><strong>Advanced usage scenarios</strong></p>
 
-<ul>
-  <li><a href="#deep-signing">Deep signing</a></li>
-  <li><a href="#metadata-constraints">Metadata constraints</a></li>
-  <li><a href="#user-defined-parameters">User-defined parameters</a></li>
-  <li><a href="#manual-approval">Manual approval</a></li>
-  <li><a href="#origin-verification">Origin verification</a></li>
-  <li><a href="#resubmit">Resubmit</a></li>
-</ul>
+  <p>Certain features are not available for hash-based signing with these cryptographic providers. However, they may be used in certain scenarios when directly using SignPath REST APIs. Contact <a href="/support">SignPath Support</a> for more information.</p>
 
-<p><strong>Available for</strong> <em>Enterprise</em> subscriptions.</p>
+  <ul>
+    <li><a href="/documentation/artifact-configuration/#signing-multiple-files">Signing multiple files in a single signing request</a></li>
+    <li><a href="#user-defined-parameters">User-defined parameters</a></li>
+    <li><a href="#manual-approval">Manual approval</a></li>
+    <li><a href="#origin-verification">Origin verification</a></li>
+  </ul>
+</blockquote>
+
+<!--TODO **Available for** __ subscriptions. -->
 
 <h2 id="artifact-configuration">Artifact configuration</h2>
 
@@ -364,7 +363,7 @@
   <li>artifact configurations that change significantly over time (versioning)</li>
 </ul>
 
-<p><strong>Available for</strong> <em>Basic, Enterprise, Open Source</em> subscriptions.</p>
+<p><strong>Available for</strong> <em>Code Signing Basic, Advanced Code Signing, Code Signing Gateway, Open Source</em> subscriptions.</p>
 
 <h3 id="metadata-constraints">Metadata constraints</h3>
 
@@ -391,7 +390,7 @@
   <li>include build-time values</li>
 </ul>
 
-<p><strong>Available for</strong> <em>Enterprise, Open Source</em> subscriptions.</p>
+<p><strong>Available for</strong> <em>Advanced Code Signing, Code Signing Gateway, Open Source</em> subscriptions.</p>
 
 <h2 id="policy-enforcement">Policy enforcement</h2>
 
@@ -401,13 +400,13 @@
 
 <p>This is typically used for release-signing. Note that <a href="#origin-verification">origin verification</a> allows to create secure signing policies without manual approval.</p>
 
-<p><strong>Available for</strong> <em>Basic, Enterprise</em> subscriptions. Required for <em>Open Source</em> subscriptions.</p>
+<p><strong>Available for</strong> <em>Code Signing Basic, Advanced Code Signing, Code Signing Gateway</em> subscriptions. Required for <em>Open Source</em> subscriptions.</p>
 
 <h4 id="quorum-approval">Quorum approval</h4>
 
 <p>You may also specify that a certain number approvals is required (a.k.a. <em>k-out-of-n</em> approval).</p>
 
-<p><strong>Available for</strong> <em>Enterprise, Open Source</em> subscriptions.</p>
+<p><strong>Available for</strong> <em>Advanced Code Signing, Code Signing Gateway, Open Source</em> subscriptions.</p>
 
 <p>See <a href="/documentation/projects#approval-process">approval process</a> for more information about manual approval.</p>
 
@@ -483,7 +482,7 @@
 
 <p>See <a href="/documentation/signing-code#resubmit">signing code</a>.</p>
 
-<p><strong>Available for</strong> <em>Enterprise, Open Source</em> subscriptions.</p>
+<p><strong>Available for</strong> <em>Advanced Code Signing, Open Source</em> subscriptions.</p>
 
 <h3 id="certificate-policies">Certificate policies</h3>
 

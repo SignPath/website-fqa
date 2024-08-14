@@ -17,7 +17,7 @@
   <meta name="description" content="Comparison chart of SignPath editions"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-02-22">
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-08-14">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2024-03-07'></script>
   <script src='/assets/js/main-bundle.js?cache=2024-08-05'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
@@ -94,7 +94,7 @@
 									<span aria-label='Limits the number of parallel signing requests.' class='hint--top-right hint--medium'>
 										<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
-									</span></li><li class='head f'><a href='/product/editions-explained#signing-methods'>Signing methods and file types</a></span></li><li class='f'>Windows Authenticode
+									</span></li><li class='head f'><a href='/product/editions-explained#file-based-signing'>Signing methods and file types</a></span></li><li class='f'>Windows Authenticode
 									<span aria-label='Windows programs, installers, packages and components. This includes the file types EXE and DLL files, MSI and MSIX installers, AppX packages and bundles, cabinet (CAB) and catalog (CAT) files, and a few other formats.' class='hint--top-right hint--medium'>
 										<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
@@ -122,11 +122,23 @@
 									<span aria-label='Software/SaaS/Hardware/... Bills of Material' class='hint--top-right hint--medium'>
 										<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
-									</span><span class='sub f'>CycloneDX XML</span></li><li class='f'><a href='/product/editions-explained#hash-signing'>Hash-based signing</a></span>
-									<span aria-label='Sign files using various tools with SignPath cryptographic providers' class='hint--top-right hint--medium'>
+									</span><span class='sub f'>CycloneDX XML</span></li><li class='head f'><a href='/product/editions-explained#hash-based-signing'>Crypto providers (hash signing)</a></span></li><li class='f'>Windows KSP/CSP
+									<span aria-label='Sign files using various Windows tools with SignPath KSP (CNG) and CSP (CAPI)' class='hint--top-right hint--medium'>
 										<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
-									</span><span class='sub f'> Windows, <br> Linux, macOS</span></li><li class='head f'>Artifact configuration</li><li class='f'><a href='/product/editions-explained#deep-signing'>Deep signing</a></span>
+									</span></li><li class='f'>Cryptoki/PKCS #11
+									<span aria-label='Sign files using various PKCS# 11 compliant tools with SignPath Cryptoki library for Windows, Linux and macOS' class='hint--top-right hint--medium'>
+										<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
+
+									</span></li><li class='f'>Apple CryptoTokenKit
+									<span aria-label='Sign files for macOS, iOS etc. using macOS signing tools with SignPath CTK library.' class='hint--top-right hint--medium'>
+										<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
+
+									</span></li><li class='f'>REST API
+									<span aria-label='Use the SignPath REST API for custom integration and advanced scenarios not supported by crypto providers' class='hint--top-right hint--medium'>
+										<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
+
+									</span></li><li class='head f'>Artifact configuration</li><li class='f'><a href='/product/editions-explained#deep-signing'>Deep signing</a></span>
 									<span aria-label='Sign files contained in installers, packages, add-ins etc.' class='hint--top-right hint--medium'>
 										<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
@@ -154,7 +166,15 @@
 									<span aria-label='For each project, signing policies define signing permissions and policies for a specific certificate.' class='hint--top-right hint--medium'>
 										<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
-									</span></li><li class='f'><a href='/product/editions-explained#origin-verification'>Origin verification</a></span>
+									</span></li><li class='f'><a href='/product/editions-explained#resubmit'>Resubmit</a></span>
+									<span aria-label='Resubmit signing requests for signing using different policies and/or certificates, e.g. for final signing of release candidates' class='hint--top-right hint--medium'>
+										<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
+
+									</span></li><li class='f'><a href='/product/editions-explained#certificate-policies'>Certificate policies</a></span>
+									<span aria-label='Specify minimum requirements e.g. for release certificates.' class='hint--top-right hint--medium'>
+										<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
+
+									</span></li><li class='head f'>Pipeline Integrity</li><li class='f'><a href='/product/editions-explained#origin-verification'>Origin verification</a></span>
 									<span aria-label='Source code repository and build metadata are automatically collected and verified.' class='hint--top-right hint--medium'>
 										<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
@@ -164,14 +184,6 @@
 
 									</span></li><li class='f sub'>Build validation
 									<span aria-label='Automatically checks build configurations for security weaknesses.' class='hint--top-right hint--medium'>
-										<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
-
-									</span></li><li class='f'><a href='/product/editions-explained#resubmit'>Resubmit</a></span>
-									<span aria-label='Resubmit signing requests for signing using different policies and/or certificates, e.g. for final signing of release candidates' class='hint--top-right hint--medium'>
-										<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
-
-									</span></li><li class='f'><a href='/product/editions-explained#certificate-policies'>Certificate policies</a></span>
-									<span aria-label='Specify minimum requirements e.g. for release certificates.' class='hint--top-right hint--medium'>
 										<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
 									</span></li><li class='head f'>User Management</li><li class='f'>Single sign-on
@@ -213,25 +225,25 @@
 
 									</span></li></ul>
 			</div><div class='content col'>
-					<h3>Starter</h3>
+					<h3>Code&nbsp;Signing Starter</h3>
 					<ul><li  class='first-after-header first-after-main-header'>1 EV
-										<span aria-label='Includes a single Extended Validation (EV) certificate' class='hint--top-right hint--medium'>
+										<span aria-label='Includes a single Extended Validation (EV) certificate' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
 										</span></li><li >up to 3
-										<span aria-label='Click "buy now" and add projects to adjust quota.' class='hint--top-right hint--medium'>
+										<span aria-label='Click "buy now" and add projects to adjust quota.' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
 										</span></li><li >up to 2
-										<span aria-label='Click "buy now" and add projects to adjust quota.' class='hint--top-right hint--medium'>
+										<span aria-label='Click "buy now" and add projects to adjust quota.' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
 										</span></li><li ><span>&nbsp;</span></li><li >up to 60
-										<span aria-label='Click "buy now" and add projects to adjust quota.' class='hint--top-right hint--medium'>
+										<span aria-label='Click "buy now" and add projects to adjust quota.' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
 										</span></li><li >up to 300
-										<span aria-label='Click "buy now" and add projects to adjust quota.' class='hint--top-right hint--medium'>
+										<span aria-label='Click "buy now" and add projects to adjust quota.' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
 										</span></li><li >1</li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
@@ -241,35 +253,35 @@
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
-</li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li >test & release
-										<span aria-label='Each project has predefined policies for test- and release-siging.' class='hint--top-right hint--medium'>
+										<span aria-label='Each project has predefined policies for test- and release-siging.' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
-										</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+										</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li >email</li><li ><span>&nbsp;</span></li></ul><a class='btn pricing' href='/product/pricing'>Buy now</a>
 							<a class='btn trial' href='https://fqa.test.signpath.io/Web/Subscription/StartFreeTrial'>Start free trial
 							</a></div><div class='content col'>
-					<h3>Basic</h3>
+					<h3>Code&nbsp;Signing Basic</h3>
 					<ul><li  class='first-after-header first-after-main-header'>1 EV
-										<span aria-label='Includes a single Extended Validation (EV) certificate' class='hint--top-right hint--medium'>
+										<span aria-label='Includes a single Extended Validation (EV) certificate' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
 										</span></li><li >up to 10
-										<span aria-label='You may use several artifact configurations per project, e.g. for different components. Click "buy now" and add projects to adjust quota.' class='hint--top-right hint--medium'>
+										<span aria-label='You may use several artifact configurations per project, e.g. for different components. Click "buy now" and add projects to adjust quota.' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
 										</span></li><li >up to 15
-										<span aria-label='Click "buy now" and add projects to adjust quota.' class='hint--top-right hint--medium'>
+										<span aria-label='Click "buy now" and add projects to adjust quota.' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
 										</span></li><li ><span>&nbsp;</span></li><li >up to 500
-										<span aria-label='Click "buy now" and add projects to adjust quota.' class='hint--top-right hint--medium'>
+										<span aria-label='Click "buy now" and add projects to adjust quota.' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
 										</span></li><li >up to 2500
-										<span aria-label='Click "buy now" and add projects to adjust quota.' class='hint--top-right hint--medium'>
+										<span aria-label='Click "buy now" and add projects to adjust quota.' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
 										</span></li><li >1 per project</li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
@@ -281,19 +293,19 @@
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
-</li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><span>&nbsp;</span></li><li >test & release
-										<span aria-label='Each project has predefined policies for test- and release-siging.' class='hint--top-right hint--medium'>
+										<span aria-label='Each project has predefined policies for test- and release-siging.' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
-										</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+										</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li >email</li><li ><span>&nbsp;</span></li></ul><a class='btn pricing' href='/product/pricing'>Buy now</a>
 							<a class='btn trial' href='https://fqa.test.signpath.io/Web/Subscription/StartFreeTrial'>Start free trial
 							</a></div><div class='content col'>
-					<h3>Enterprise</h3>
+					<h3>Advanced Code&nbsp;Signing</h3>
 					<ul><li  class='first-after-header first-after-main-header'>unlimited</li><li >unlimited</li><li >unlimited</li><li ><span>&nbsp;</span></li><li >unlimited</li><li >unlimited</li><li >unlimited</li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
@@ -308,8 +320,7 @@
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
-</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
-</li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li class='first-after-header'><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
@@ -317,8 +328,7 @@
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li >unlimited</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
-</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
-</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li class='first-after-header'>Optional</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
@@ -329,19 +339,61 @@
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li >priority
-										<span aria-label='Priority support using email, phone and screen sharing' class='hint--top-right hint--medium'>
+										<span aria-label='Priority support using email, phone and screen sharing' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
-										</span></li><li >available</li></ul><a class='btn' href='mailto:sales@signpath.io?Subject=Enterprise%20subscription'>Contact sales</a>
-							<a class='btn' href='mailto:sales@signpath.io?Subject=Request%20trial%20for%20Enterprise%20subscription'>Request free trial 
+										</span></li><li >available</li></ul><a class='btn' href='mailto:sales@signpath.io?Subject=Advanced Code Signing%20subscription'>Contact sales</a>
+							<a class='btn' href='mailto:sales@signpath.io?Subject=Request%20trial%20for%20Advanced Code Signing%20subscription'>Request free trial 
 							</a></div><div class='content col'>
-					<h3>Open Source</h3>
+					<h3>Code&nbsp;Signing Gateway</h3>
+					<ul><li  class='first-after-header first-after-main-header'>unlimited</li><li >n/a</li><li >unlimited</li><li ><span>&nbsp;</span></li><li >unlimited</li><li >unlimited</li><li >unlimited</li><li class='first-after-header'><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li class='first-after-header'><span>&nbsp;</span></li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+
+										<span aria-label='Not supported by crypto providers' class='hint--top-left hint--medium'>
+											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
+
+										</span></li><li ><span>&nbsp;</span></li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+
+										<span aria-label='Not supported by crypto providers' class='hint--top-left hint--medium'>
+											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
+
+										</span></li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+
+										<span aria-label='Not supported by crypto providers' class='hint--top-left hint--medium'>
+											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
+
+										</span></li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li >unlimited</li><li ><span>&nbsp;</span></li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li class='first-after-header'>Optional
+										<span aria-label='Not supported by crypto providers' class='hint--top-left hint--medium'>
+											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
+
+										</span></li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li class='first-after-header'><span>&nbsp;</span></li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li >priority
+										<span aria-label='Priority support using email, phone and screen sharing' class='hint--top-left hint--medium'>
+											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
+
+										</span></li><li >available</li></ul><a class='btn' href='mailto:sales@signpath.io?Subject=Code Signing Gateway%20subscription'>Contact sales</a>
+							<a class='btn' href='mailto:sales@signpath.io?Subject=Request%20trial%20for%20Code Signing Gateway%20subscription'>Request free trial 
+							</a></div><div class='content col'>
+					<h3>Open&nbsp;Source</h3>
 					<ul><li  class='first-after-header first-after-main-header'>1 standard
-										<span aria-label='Includes one standard (OV) code signing certificate issued to SignPath Foundation' class='hint--top-right hint--medium'>
+										<span aria-label='Includes one standard (OV) code signing certificate issued to SignPath Foundation' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
 										</span></li><li >unlimited
-										<span aria-label='OSS teams must apply for each project individually.' class='hint--top-right hint--medium'>
+										<span aria-label='OSS teams must apply for each project individually.' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
 										</span></li><li >unlimited</li><li ><span>&nbsp;</span></li><li >fair use</li><li >fair use</li><li >1 per project</li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
@@ -349,7 +401,7 @@
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><span>&nbsp;</span>
-										<span aria-label='Due to changes in Microsoft&apos;s policies, device driver signing now requires EV certificates and attestation signing. Currently we cannot provide EV certificates to OSS projects.' class='hint--top-right hint--medium'>
+										<span aria-label='Due to changes in Microsoft&apos;s policies, device driver signing now requires EV certificates and attestation signing. Currently we cannot provide EV certificates to OSS projects.' class='hint--top-left hint--medium'>
 											<svg class="icon small darkBlue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
 
 										</span></li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
@@ -358,12 +410,12 @@
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
-</li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li ><span>&nbsp;</span></li><li class='first-after-header'><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li >required</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li class='first-after-header'>required</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
-</li><li >unlimited</li><li >required</li><li >required</li><li >required</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
-</li><li >required</li><li class='first-after-header'><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li >unlimited</li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</li><li >required</li><li class='first-after-header'>required</li><li >required</li><li >required</li><li class='first-after-header'><span>&nbsp;</span></li><li ><span>&nbsp;</span></li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li class='first-after-header'><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
 </li><li ><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
