@@ -114,7 +114,7 @@
         <content type="html">
           &lt;div&gt;
             &lt;h2&gt;New Release: SignPath Application 1.168.1&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Added support for &lt;a href=&quot;/documentation/artifact-configuration/reference#authenticode-append&quot;&gt;appending Authenticode signatures&lt;/a&gt;.&lt;/p&gt;
+                        &lt;p&gt;Added support for &lt;a href=&quot;/documentation/artifact-configuration/reference#authenticode-sign-attributes&quot;&gt;appending Authenticode signatures&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved approval notification emails: added project, signing policy and artifact file name to email body.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
