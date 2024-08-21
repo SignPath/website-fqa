@@ -89,7 +89,7 @@
       <li><a href="#sbom-signing">Bills of Material</a></li>
     </ul>
   </li>
-  <li><a href="#hash-based-signing">Hash-based signing</a></li>
+  <li><a href="#hash-based-signing">Crypto providers and hash signing</a></li>
   <li><a href="#artifact-configuration">Artifact configuration</a>
     <ul>
       <li><a href="#deep-signing">Deep signing</a></li>
@@ -102,9 +102,13 @@
     <ul>
       <li><a href="#manual-approval">Manual approval</a></li>
       <li><a href="#signing-policies-per-project">Signing policies per project</a></li>
-      <li><a href="#origin-verification">Origin verification</a></li>
       <li><a href="#resubmit">Resubmit</a></li>
       <li><a href="#certificate-policies">Certificate policies</a></li>
+    </ul>
+  </li>
+  <li><a href="#pipeline-integrity">Pipeline Integrity</a>
+    <ul>
+      <li><a href="#origin-verification">Origin verification</a></li>
     </ul>
   </li>
 </ul>
@@ -139,7 +143,7 @@
 
 <h3 id="projects">Projects</h3>
 
-<p><em>Starter</em> and <em>Basic</em> subscriptions are priced based on the number of projects you can create in SignPath. Choose the number of projects you need when you buy your subscription, or upgrade later. If you need more than <em>max. projects</em>, you need to upgrade to another the subscription type.</p>
+<p><em>Code Signing Starter</em> and <em>Code Signing Basic</em> are priced based on the number of projects you can create in SignPath. Choose the number of projects you need when you buy your subscription, or upgrade later. If you need more than <em>max. projects</em>, you need to upgrade to another the subscription type.</p>
 
 <p>We recommend to use one SignPath <em>project</em> for each actual software project.</p>
 
@@ -148,12 +152,12 @@
 <ul>
   <li>Use deep signing: Sign an installer <em>and</em> the files it contains</li>
   <li>Package your artifacts into a ZIP archive: Sign all artifacts that result from a single build job in one step</li>
-  <li>Use multiple artifact configurations within one project (not available for <em>Starter</em> subscriptions)</li>
+  <li>Use multiple artifact configurations within one project (not available for <em>Code Signing Starter</em>)</li>
 </ul>
 
 <h3 id="users">Users</h3>
 
-<p><em>Starter</em> and <em>Basic</em> subscriptions are priced based on the number of active user accounts. Choose the number of users you need when you buy your subscription, or upgrade later. If you need more than <em>max. users</em>, you need to upgrade to another subscription type.</p>
+<p><em>Code Signing Starter</em> and <em>Code Signing Basic</em> are priced based on the number of active user accounts. Choose the number of users you need when you buy your subscription, or upgrade later. If you need more than <em>max. users</em>, you need to upgrade to another subscription type.</p>
 
 <p>User accounts are required for all interactions with the SignPath user interface, including</p>
 
@@ -169,7 +173,7 @@
 
 <h3 id="signing-requests">Signing requests</h3>
 
-<p><em>Starter</em> and <em>Basic</em> subscriptions have an upper limit for the number of signing requests.</p>
+<p><em>Code Signing Starter</em> and <em>Code Signing Basic</em> have an upper limit for the number of signing requests.</p>
 
 <p>Included signing requests per year and project:</p>
 
@@ -198,7 +202,7 @@
   </tbody>
 </table>
 
-<p><strong>Example:</strong> a <em>Basic</em> subscription with 3 <em>projects</em> allows you to complete</p>
+<p><strong>Example:</strong> a <em>Code Signing Basic</em> subscription with 3 <em>projects</em> allows you to complete</p>
 
 <ul>
   <li>150 release-signing requests per year (50 × 3)</li>
@@ -239,9 +243,9 @@
 
 <h3 id="ci-pipelines">CI pipelines</h3>
 
-<p><em>Starter</em> subscriptions: one CI pipeline at a time.</p>
+<p><em>Code Signing Starter</em>: one CI pipeline at a time.</p>
 
-<p><em>Basic</em> subscriptions: one CI pipeline per available project at a time.</p>
+<p><em>Code Signing Basic</em>: one CI pipeline per available project at a time.</p>
 
 <p>Additional signing requests submitted from CI pipelines may be rejected and have to be repeated later.</p>
 
@@ -251,29 +255,31 @@
 
 <h3 id="office-macros">Microsoft Office macros</h3>
 
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>.</p>
+
 <p>Sign Office macros to protect against macro malware.</p>
 
 <p>With a policy-based code signing process, you can sign your company’s Office macros for internal and/or external use. As an immediate benefit, you can disable execution of unsigned macros, thus preventing macro viruses and other macro-based malware deterministically.</p>
 
 <p>See <a href="/product/office-macros">Office macros</a> for more information.</p>
 
-<p><strong>Available for</strong> <em>Advanced Code Signing</em> subscriptions.</p>
-
 <h3 id="xml-signing">XML Signing</h3>
+
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>.</p>
 
 <p>SignPath supports signing XML files using <a href="https://www.w3.org/TR/xmldsig-core1/">XMLDSIG</a>.</p>
 
 <p>See <a href="/documentation/artifact-configuration/reference#xml-sign">artifact configuration</a> for details.</p>
 
-<p><strong>Available for</strong> <em>Advanced Code Signing</em> subscriptions.</p>
-
 <h3 id="container-signing">Container image signing</h3>
+
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Open Source Code Signing</em>.</p>
 
 <p>SignPath supports signing Docker container images and tags using cosign and Docker Content Trust (DCT). See <a href="/documentation/signing-containers">Signing Container Images</a> for details.</p>
 
-<p><strong>Available for</strong> <em>Advanced Code Signing, Open Source</em> subscriptions.</p>
-
 <h3 id="sbom-signing">Bills of Material</h3>
+
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>.</p>
 
 <p>Sign Bills of Material (BOM) in the <a href="https://owasp.org/www-project-cyclonedx/">Cyclone DX</a> XML format. This includes</p>
 
@@ -286,11 +292,11 @@
 
 <p>See this <a href="/documentation/artifact-configuration/examples#sbom-restriction">artifact configuration sample</a> for details.</p>
 
-<p><strong>Available for</strong> <em>Advanced Code Signing</em> subscriptions.</p>
+<h2 id="hash-based-signing">Crypto providers and hash signing</h2>
 
-<h2 id="hash-based-signing">Hash-based signing</h2>
+<p class="badge icon-signpath">Available for <em>Code Signing Gateway</em>.</p>
 
-<p>Use any code signing tool that supports either of these interfaces:</p>
+<p>Use SignPath cryptographic providers with any code signing tool that supports either of these interfaces:</p>
 
 <table>
   <thead>
@@ -344,8 +350,6 @@
   </ul>
 </blockquote>
 
-<!--TODO **Available for** __ subscriptions. -->
-
 <h2 id="artifact-configuration">Artifact configuration</h2>
 
 <p>Artifact configurations define what artifacts to sign and how. They can either simply define the file type, or they can be detailed specifications of complex artifacts that contain other (nested) artifacts. See <a href="/documentation/projects#artifact-configurations">setting up projects</a> for details.</p>
@@ -356,6 +360,8 @@
 
 <h3 id="multiple-versions">Multiple versions</h3>
 
+<p class="badge icon-signpath">Available for <em>Code Signing Basic, Advanced Code Signing, Code Signing Gateway, Open Source Code Signing</em>.</p>
+
 <p>Create <a href="/documentation/projects#keeping-versions-of-artifact-configurations">multiple artifact configurations</a> for</p>
 
 <ul>
@@ -363,9 +369,9 @@
   <li>artifact configurations that change significantly over time (versioning)</li>
 </ul>
 
-<p><strong>Available for</strong> <em>Code Signing Basic, Advanced Code Signing, Code Signing Gateway, Open Source</em> subscriptions.</p>
-
 <h3 id="metadata-constraints">Metadata constraints</h3>
+
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>.  Required for <em>Open Source Code Signing</em>.</p>
 
 <p>You can restrict some <a href="/documentation/artifact-configuration/reference#metadata-restrictions">file attributes</a> in the artifact configuration.</p>
 
@@ -377,9 +383,9 @@
   <li>defend against unauthorized signing (while this can be circumvented by aware parties, the attempt is reported and can be investigated)</li>
 </ul>
 
-<p><strong>Available for</strong> <em>Enterprise</em> subscriptions. Required for <em>Open Source</em> subscriptions.</p>
-
 <h3 id="user-defined-parameters">User-defined parameters</h3>
+
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway, Open Source Code Signing</em>.</p>
 
 <p>You can define <a href="/documentation/artifact-configuration/syntax#parameters">parameters</a> for each signing request.</p>
 
@@ -390,36 +396,34 @@
   <li>include build-time values</li>
 </ul>
 
-<p><strong>Available for</strong> <em>Advanced Code Signing, Code Signing Gateway, Open Source</em> subscriptions.</p>
-
 <h2 id="policy-enforcement">Policy enforcement</h2>
 
 <h3 id="manual-approval">Manual approval</h3>
+
+<p class="badge icon-signpath">Available for <em>Code Signing Basic, Advanced Code Signing, Code Signing Gateway</em>.  Required for <em>Open Source Code Signing</em>.</p>
 
 <p>Specify that one or more approvals are required before a signing request is processed.</p>
 
 <p>This is typically used for release-signing. Note that <a href="#origin-verification">origin verification</a> allows to create secure signing policies without manual approval.</p>
 
-<p><strong>Available for</strong> <em>Code Signing Basic, Advanced Code Signing, Code Signing Gateway</em> subscriptions. Required for <em>Open Source</em> subscriptions.</p>
-
 <h4 id="quorum-approval">Quorum approval</h4>
 
-<p>You may also specify that a certain number approvals is required (a.k.a. <em>k-out-of-n</em> approval).</p>
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway, Open Source Code Signing</em>.</p>
 
-<p><strong>Available for</strong> <em>Advanced Code Signing, Code Signing Gateway, Open Source</em> subscriptions.</p>
+<p>You may also specify that a certain number approvals is required (a.k.a. <em>k-out-of-n</em> approval).</p>
 
 <p>See <a href="/documentation/projects#approval-process">approval process</a> for more information about manual approval.</p>
 
 <h3 id="signing-policies-per-project">Signing policies per project</h3>
 
-<p>For <em>Starter</em> and <em>Basic</em> subscriptions, you get two signing policies per project:</p>
+<p>For <em>Code Signing Starter</em> and <em>Code Signing Basic</em>, you get two signing policies per project:</p>
 
 <ul>
   <li>a test-signing policy for testing the signing configuration and signing test builds</li>
   <li>a release-signing policy for signing builds that will be delivered to end users</li>
 </ul>
 
-<p><em>Enterprise</em> subscriptions allow to define any number of singing policies per project. You can use this to create policies with different levels of manual and automatic verification.</p>
+<p><em>Advanced Code Signing</em> and <em>Code Signing Gateway</em> allow to define any number of singing policies per project. You can use this to create policies with different levels of manual and automatic verification.</p>
 
 <p>Example:</p>
 
@@ -433,7 +437,29 @@
 
 <p>See <a href="#code-signing-certificates">code signing certificates</a>.</p>
 
+<h3 id="resubmit">Resubmit</h3>
+
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Open Source Code Signing</em>.</p>
+
+<p>Resubmit signing requests for signing using different policies and/or certificates.</p>
+
+<p>This can be used to sign <em>release candidates</em> with test certificates at first, and re-sign them with release certificates once they have been tested and approved for release.</p>
+
+<p>See <a href="/documentation/signing-code#resubmit">signing code</a>.</p>
+
+<h3 id="certificate-policies">Certificate policies</h3>
+
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway</em>.  Required for <em>Open Source Code Signing</em>.</p>
+
+<p>Specify that certain validation criteria must be enabled for specific certificates. This enforces these policies for all projects end their respective signing policies.</p>
+
+<p>See <a href="/documentation/managing-certificates">managing certificates</a>.</p>
+
+<h2 id="pipeline-integrity">Pipeline Integrity</h2>
+
 <h3 id="origin-verification">Origin verification</h3>
+
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway</em>.  Required for <em>Open Source Code Signing</em>.</p>
 
 <p>When a CI build is submitted to SignPath, certain metadata will be retrieved and verified by SignPath. This includes</p>
 
@@ -460,8 +486,6 @@
 
 <p>See <a href="/documentation/origin-verification">origin verfication</a> for more information.</p>
 
-<p><strong>Available for</strong> <em>Enterprise</em> subscriptions. Required for <em>Open Source</em> subscriptions.</p>
-
 <h4 id="origin-based-policies">Origin-based policies</h4>
 
 <p>Specify the <em>source code repository</em> for a SignPath project, and (optionally) the <em>branch</em> name(s) for a signing policy. This ensures that only software from legitimate builds of these repositories can be signed using this policy.</p>
@@ -473,24 +497,6 @@
 <h4 id="build-validation">Build validation</h4>
 
 <p>For some CI systems, SignPath offers connectors that can validate software builds for security. This ensures that development teams do not use or enable inherently insecure mechanisms in their release build configurations. Insecure practices include caching on build nodes, interactive access to build nodes, ad-hoc build configuration changes and more.</p>
-
-<h3 id="resubmit">Resubmit</h3>
-
-<p>Resubmit signing requests for signing using different policies and/or certificates.</p>
-
-<p>This can be used to sign <em>release candidates</em> with test certificates at first, and re-sign them with release certificates once they have been tested and approved for release.</p>
-
-<p>See <a href="/documentation/signing-code#resubmit">signing code</a>.</p>
-
-<p><strong>Available for</strong> <em>Advanced Code Signing, Open Source</em> subscriptions.</p>
-
-<h3 id="certificate-policies">Certificate policies</h3>
-
-<p>Specify that certain validation criteria must be enabled for specific certificates. This enforces these policies for all projects end their respective signing policies.</p>
-
-<p>See <a href="/documentation/managing-certificates">managing certificates</a>.</p>
-
-<p><strong>Available for</strong> <em>Enterprise</em> subscriptions. Required for <em>Open Source</em> subscriptions.</p>
 
 		</article>
 	</div>

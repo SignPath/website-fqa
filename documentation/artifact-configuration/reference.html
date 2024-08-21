@@ -163,7 +163,7 @@ Description
         <p>.wsf, ,vbs, .js</p>
       </td><td>
 
-        <p>Windows scripts for Windows Scripting Host, typically VBScript and JScript<sup id="fnref:jscript" role="doc-noteref"><a href="#fn:jscript" class="footnote" rel="footnote">1</a></sup>. (Not available for Starter subscriptions.)</p>
+        <p>Windows scripts for Windows Scripting Host, typically VBScript and JScript<sup id="fnref:jscript" role="doc-noteref"><a href="#fn:jscript" class="footnote" rel="footnote">1</a></sup>. (Not available for Code Signing Starter.)</p>
       </td></tr><tr><td>
 
         <p><code class="language-plaintext highlighter-rouge">&lt;msi-file&gt;</code></p>
@@ -256,7 +256,7 @@ Description
         <p>.vsix, .xps, hlkx, …</p>
       </td><td>
 
-        <p>Open Packaging Conventions (OPC) files including Visual Studio Extensions (VSIX) and Hardware Lab Kit driver signing packages.  (Driver signing not available for Starter subscriptions.) File size limit: 40 MB.</p>
+        <p>Open Packaging Conventions (OPC) files including Visual Studio Extensions (VSIX) and Hardware Lab Kit driver signing packages.  (Driver signing not available for Code Signing Starter.) File size limit: 40 MB.</p>
       </td></tr><tr><td>
 
         <p><code class="language-plaintext highlighter-rouge">&lt;nupkg-file&gt;</code></p>
@@ -286,7 +286,7 @@ Description
         <p>.jar, .war, .ear, .apk, .aab</p>
       </td><td>
 
-        <p>Java archives and Android apps. (Not available for Starter subscriptions.)</p>
+        <p>Java archives and Android apps. (Not available for Code Signing Starter.)</p>
       </td></tr><tr><td>
 
         <p><a href="syntax#zip-file-element"><code class="language-plaintext highlighter-rouge">&lt;zip-file&gt;</code></a></p>
@@ -316,7 +316,7 @@ Description
         <p>.xlsm, .xltm, .docm, .dotm, .pptm, .potm, .vsdm, vstm, …</p>
       </td><td>
 
-        <p>Sign VBA macros in Microsoft Office Open XML files and templates: Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)</p>
+        <p>Sign VBA macros in Microsoft Office Open XML files and templates: Excel, Word, PowerPoint and Visio (available for Advanced Code Signing)</p>
       </td></tr><tr><td>
 
         <p><code class="language-plaintext highlighter-rouge">&lt;office-binary-file&gt;</code></p>
@@ -331,7 +331,7 @@ Description
         <p>.xls, .xlt, .doc, .dot, .pot, .ppa, .pps, .ppt, .mpp, .mpt, .pub, .vsd, .vst, …</p>
       </td><td>
 
-        <p>Sign VBA macros in binary Microsoft Office files and templates: Project, Publisher, and legacy Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)</p>
+        <p>Sign VBA macros in binary Microsoft Office files and templates: Project, Publisher, and legacy Excel, Word, PowerPoint and Visio (available for Advanced Code Signing)</p>
       </td></tr><tr><td>
 
         <p><code class="language-plaintext highlighter-rouge">&lt;xml-file&gt;</code></p>
@@ -346,7 +346,7 @@ Description
         <p>.xml</p>
       </td><td>
 
-        <p>Use this directive to sign XML files using <a href="https://www.w3.org/TR/xmldsig-core1/">XMLDSIG</a> (available for Enterprise subscriptions). File size limit: 2 MB.</p>
+        <p>Use this directive to sign XML files using <a href="https://www.w3.org/TR/xmldsig-core1/">XMLDSIG</a> (available for Advanced Code Signing). File size limit: 2 MB.</p>
       </td></tr><tr><td>
 
         <p><a href="syntax#directory-element"><code class="language-plaintext highlighter-rouge">&lt;directory&gt;</code></a></p>
@@ -374,7 +374,7 @@ Description
 
       </td><td>
 
-        <p>Arbitrary files. This directive will create a detached raw signature file (available for Enterprise subscriptions)</p>
+        <p>Arbitrary files. This directive will create a detached raw signature file (available for Advanced Code Signing)</p>
       </td></tr></tbody>
 </table>
 <h3 id="containers">Container formats</h3>
@@ -432,7 +432,7 @@ Description
         <p>.wsf, ,vbs, .js</p>
       </td><td>
 
-        <p>Windows scripts for Windows Scripting Host, typically VBScript and JScript<sup id="fnref:jscript:1" role="doc-noteref"><a href="#fn:jscript" class="footnote" rel="footnote">1</a></sup>. (Not available for Starter subscriptions.)</p>
+        <p>Windows scripts for Windows Scripting Host, typically VBScript and JScript<sup id="fnref:jscript:1" role="doc-noteref"><a href="#fn:jscript" class="footnote" rel="footnote">1</a></sup>. (Not available for Code Signing Starter.)</p>
       </td></tr><tr><td>
 
         <p><code class="language-plaintext highlighter-rouge">&lt;msi-file&gt;</code></p>
@@ -677,7 +677,7 @@ Description
 
 <h3 id="office-macro-sign"><code class="language-plaintext highlighter-rouge">&lt;office-macro-sign&gt;</code></h3>
 
-<p class="badge icon-signpath">Available for Enterprise subscriptions</p>
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>.</p>
 
 <p>Use this directive to sign Visual Basic for Applications (VBA) macros in Microsoft Office documents and templates.</p>
 
@@ -728,7 +728,7 @@ Description
         <p>.vsix, .xps, hlkx, …</p>
       </td><td>
 
-        <p>Open Packaging Conventions (OPC) files including Visual Studio Extensions (VSIX) and Hardware Lab Kit driver signing packages.  (Driver signing not available for Starter subscriptions.) File size limit: 40 MB.</p>
+        <p>Open Packaging Conventions (OPC) files including Visual Studio Extensions (VSIX) and Hardware Lab Kit driver signing packages.  (Driver signing not available for Code Signing Starter.) File size limit: 40 MB.</p>
       </td></tr></tbody>
 </table>
 <p>Signs according to the <a href="https://en.wikipedia.org/wiki/Open_Packaging_Conventions">Open Packaging Conventions</a> (OPC) specification. Using <code class="language-plaintext highlighter-rouge">&lt;opc-sign&gt;</code> for Visual Studio Extensions is equivalent to using Microsoft’s <code class="language-plaintext highlighter-rouge">VSIXSignTool.exe</code>.</p>
@@ -744,7 +744,7 @@ Description
 
 <h3 id="jar-sign"><code class="language-plaintext highlighter-rouge">&lt;jar-sign&gt;</code></h3>
 
-<p class="badge icon-signpath">Available for Basic and Enterprise subscriptions</p>
+<p class="badge icon-signpath">Available for <em>Code Signing Basic, Advanced Code Signing, Open Source Code Signing</em>.</p>
 
 <p><strong>Supported elements:</strong></p>
 
@@ -769,7 +769,7 @@ Description
         <p>.jar, .war, .ear, .apk, .aab</p>
       </td><td>
 
-        <p>Java archives and Android apps. (Not available for Starter subscriptions.)</p>
+        <p>Java archives and Android apps. (Not available for Code Signing Starter.)</p>
       </td></tr><tr><td>
 
         <p><a href="syntax#zip-file-element"><code class="language-plaintext highlighter-rouge">&lt;zip-file&gt;</code></a></p>
@@ -800,7 +800,7 @@ Description
 
 <h3 id="xml-sign"><code class="language-plaintext highlighter-rouge">&lt;xml-sign&gt;</code></h3>
 
-<p class="badge icon-signpath">Available for Enterprise subscriptions</p>
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>.</p>
 
 <p><strong>Supported elements:</strong></p>
 
@@ -825,7 +825,7 @@ Description
         <p>.xml</p>
       </td><td>
 
-        <p>Use this directive to sign XML files using <a href="https://www.w3.org/TR/xmldsig-core1/">XMLDSIG</a> (available for Enterprise subscriptions). File size limit: 2 MB.</p>
+        <p>Use this directive to sign XML files using <a href="https://www.w3.org/TR/xmldsig-core1/">XMLDSIG</a> (available for Advanced Code Signing). File size limit: 2 MB.</p>
       </td></tr></tbody>
 </table>
 <p>Sign XML files with <a href="https://www.w3.org/TR/xmldsig-core1/">XMLDSIG</a>.</p>
@@ -908,7 +908,7 @@ Description
 
 <h3 id="create-raw-signature">Detached raw signatures using <code class="language-plaintext highlighter-rouge">&lt;create-raw-signature&gt;</code></h3>
 
-<p class="badge icon-signpath">Available for Enterprise subscriptions</p>
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>.</p>
 
 <p><strong>Supported elements:</strong></p>
 
@@ -932,7 +932,7 @@ Description
 
       </td><td>
 
-        <p>Arbitrary files. This directive will create a detached raw signature file (available for Enterprise subscriptions)</p>
+        <p>Arbitrary files. This directive will create a detached raw signature file (available for Advanced Code Signing)</p>
       </td></tr></tbody>
 </table>
 <p><strong>Note: Since the detached signatures are placed in a separate file, this directive is only available within a <a href="syntax#zip-file-element"><code class="language-plaintext highlighter-rouge">&lt;zip-file&gt;</code></a> element.</strong></p>
