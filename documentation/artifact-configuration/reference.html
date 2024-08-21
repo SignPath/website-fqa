@@ -223,7 +223,10 @@ Description
         <p>.appx, .appxbundle</p>
       </td><td>
 
-        <p>App packages for Microsoft Store/Universal Windows Platform<br /> <span style="font-family: 'Line Awesome Free'; font-weight: 800;"></span>  The Common Name of the code signing certificate must match the <code class="language-plaintext highlighter-rouge">PublisherDisplayName</code> in the <code class="language-plaintext highlighter-rouge">AppxManifest.xml</code> file.</p>
+        <p>App packages for Microsoft Store/Universal Windows Platform</p>
+
+        <p class="p info">The Common Name of the code signing certificate must match the <code class="language-plaintext highlighter-rouge">PublisherDisplayName</code> in the <code class="language-plaintext highlighter-rouge">AppxManifest.xml</code> file.</p>
+
       </td></tr><tr><td>
 
         <p><code class="language-plaintext highlighter-rouge">&lt;msix-file&gt;</code></p>
@@ -465,7 +468,10 @@ Description
         <p>.appx, .appxbundle</p>
       </td><td>
 
-        <p>App packages for Microsoft Store/Universal Windows Platform<br /> <span style="font-family: 'Line Awesome Free'; font-weight: 800;"></span>  The Common Name of the code signing certificate must match the <code class="language-plaintext highlighter-rouge">PublisherDisplayName</code> in the <code class="language-plaintext highlighter-rouge">AppxManifest.xml</code> file.</p>
+        <p>App packages for Microsoft Store/Universal Windows Platform</p>
+
+        <p class="p info">The Common Name of the code signing certificate must match the <code class="language-plaintext highlighter-rouge">PublisherDisplayName</code> in the <code class="language-plaintext highlighter-rouge">AppxManifest.xml</code> file.</p>
+
       </td></tr><tr><td>
 
         <p><code class="language-plaintext highlighter-rouge">&lt;msix-file&gt;</code></p>
@@ -481,44 +487,73 @@ Description
 
 <h4 id="authenticode-sign-attributes">Optional attributes</h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>Attribute</th>
-      <th>Default</th>
-      <th>Values</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">hash-algorithm</code></td>
-      <td><code class="language-plaintext highlighter-rouge">sha256</code></td>
-      <td><code class="language-plaintext highlighter-rouge">sha1</code>, <code class="language-plaintext highlighter-rouge">sha256</code>, <code class="language-plaintext highlighter-rouge">sha384</code>, <code class="language-plaintext highlighter-rouge">sha512</code></td>
-      <td>Hash algorithm used to calculate the signature digest</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">description</code></td>
-      <td> </td>
-      <td>text</td>
-      <td>Description of the signed content</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">description-url</code></td>
-      <td> </td>
-      <td>URL</td>
-      <td>Uniform Resource Locator (URL) for the expanded description of the signed content</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">append</code></td>
-      <td><code class="language-plaintext highlighter-rouge">false</code></td>
-      <td>boolean</td>
-      <td>When true, append the signature to any existing signatures. When false, replace any existing signatures. See below for supported formats.</td>
-    </tr>
-  </tbody>
-</table>
+<table class="panel info">
+    <thead>
+        <tr><th>
 
-<blockquote class="panel info">
+Attribute 
+</th><th>
+
+Default 
+</th><th>
+
+Values 
+</th><th>
+
+Description 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">hash-algorithm</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">sha-256</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">sha1</code>, <code class="language-plaintext highlighter-rouge">sha256</code>, <code class="language-plaintext highlighter-rouge">sha384</code>, <code class="language-plaintext highlighter-rouge">sha512</code></p>
+      </td><td>
+
+        <p>Hash algorithm used to calculate the signature digest.</p>
+
+        <p class="p info"><code class="language-plaintext highlighter-rouge">&lt;appx-file&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;msix-file&gt;</code> don’t support <code class="language-plaintext highlighter-rouge">sha1</code> and require the <code class="language-plaintext highlighter-rouge">hash-algorithm</code> to match the one specified in the <code class="language-plaintext highlighter-rouge">AppxBlockMap.xml</code> file.</p>
+
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">description</code></p>
+      </td><td>
+
+      </td><td>
+
+        <p>text</p>
+      </td><td>
+
+        <p>Description of the signed content</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">description-url</code></p>
+      </td><td>
+
+      </td><td>
+
+      </td><td>
+
+        <p>Uniform Resource Locator (URL) for the expanded description of the signed content</p>
+      </td></tr><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">append</code></p>
+      </td><td>
+
+        <p><code class="language-plaintext highlighter-rouge">false</code></p>
+      </td><td>
+
+        <p>boolean</p>
+      </td><td>
+
+        <p>When true, append the signature to any existing signatures. When false, replace any existing signatures. See below for supported formats.</p>
+      </td></tr></tbody>
+</table>
+<blockquote>
   <p><strong>Appending signatures</strong></p>
 
   <p>File formats that support appending signatures:</p>
