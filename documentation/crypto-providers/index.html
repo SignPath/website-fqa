@@ -106,7 +106,7 @@
 <blockquote class="panel info">
   <p><strong>Version info</strong></p>
 
-  <p>This documentation contains information about the latest version of the CryptoProviders. See the <a href="/documentation/changelog?component=crypto_providers">CryptoProvider changelog</a> or the <a href="/documentation/changelog?component=macos_cryptotokenkit">macOS CryptoTokenKit changelog</a> for updates.</p>
+  <p>This documentation contains information about the latest version of the CryptoProviders. See the <a href="/documentation/changelog?component=crypto_providers">changelog</a> for updates.</p>
 </blockquote>
 
 <h3 id="crypto-providers">Crypto Providers</h3>
@@ -317,13 +317,13 @@ Again, for Authenticode this is actually performed by the SIP.</li>
       <td><code class="language-plaintext highlighter-rouge">Log.Console.OutputStream</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_CONSOLE_OUTPUT_STREAM</code></td>
       <td><code class="language-plaintext highlighter-rouge">stderr</code></td>
-      <td>Console stream to use (either <code class="language-plaintext highlighter-rouge">stderr</code> or <code class="language-plaintext highlighter-rouge">stdout</code>) (not available on macOS)</td>
+      <td>Console stream to use (either <code class="language-plaintext highlighter-rouge">stderr</code> or <code class="language-plaintext highlighter-rouge">stdout</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Log.File.Level</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_LOG_FILE_LEVEL</code></td>
       <td><code class="language-plaintext highlighter-rouge">info</code></td>
-      <td>Log level used for file logging</td>
+      <td>Log level used for file logging (not available on macOS)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Log.File.Directory</code></td>
@@ -352,19 +352,19 @@ Again, for Authenticode this is actually performed by the SIP.</li>
       <td><code class="language-plaintext highlighter-rouge">Timeouts.HttpRequest</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_TIMEOUTS_HTTP_REQUEST</code></td>
       <td><code class="language-plaintext highlighter-rouge">30</code></td>
-      <td>Timeout for HTTP calls in seconds per attempt</td>
+      <td>Timeout for HTTP calls in seconds per attempt (not available on macOS)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Timeouts.FirstRetryDelay</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_TIMEOUTS_FIRST_RETRY_DELAY</code></td>
       <td><code class="language-plaintext highlighter-rouge">1.16</code></td>
-      <td>Initial delay in seconds in case of failed API HTTP requests</td>
+      <td>Initial delay in seconds in case of failed API HTTP requests (not available on macOS)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Timeouts.RetryCount</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_TIMEOUTS_RETRY_COUNT</code></td>
       <td><code class="language-plaintext highlighter-rouge">10</code></td>
-      <td>Maximum number of retries in case of failed API HTTP requests</td>
+      <td>Maximum number of retries in case of failed API HTTP requests (not available on macOS)</td>
     </tr>
   </tbody>
 </table>

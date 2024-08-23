@@ -2,35 +2,12 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/all.xml" rel="self" type="application/atom+xml" />
 <link href="https://about.signpath.io/" rel="alternate" type="text/html" />
-<updated>2999-99-99</updated>
+<updated>2024-08-13</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/all.xml</id><title type="html">SignPath - Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
-        <id>tag:about.signpath.io,2999-99-99:macos_cryptotokenkit:2.0</id>
-        <title>SignPath macOS CryptoTokenKit 2.0</title>
-        <updated>2999-99-99</updated>
-        <published>2999-99-99</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2999-99-99" /><category term="release/macos_cryptotokenkit" label="" />
-        <summary type="html">New Release:  2.0</summary>
-        <content type="html">
-          &lt;div&gt;
-            &lt;h2&gt;New Release:  2.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Renamed the command-line parameters.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Added support for sha1 signatures required for productsign.&lt;/p&gt;
-&lt;/li&gt;&lt;li&gt;
-                        &lt;p&gt;Added support for HTTP timeout and retry configuration.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Improved logging and logging configuration.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Fixed a bug that prevented multiple certificates from being loaded at once.&lt;/p&gt;
-&lt;/li&gt;&lt;li&gt;
-                        &lt;p&gt;Fixed a bug where the application failed when provided with an invalid configuration file.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
-        </content>
-      </entry><entry>
         <id>tag:about.signpath.io,2024-08-13:application:1.170.2</id>
         <title>SignPath Application 1.170.2</title>
         <updated>2024-08-13</updated>
@@ -489,19 +466,6 @@ Use to ensure that third-party components are properly signed in deep signing co
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;The HSM SignServices watchdog doesn’t require a TSA URL anymore. The previously mandatory SignService values
 config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appSettings.signService.cspWatchdogOptions.timestampingServerUrl&lt;/code&gt; can be removed.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
-        </content>
-      </entry><entry>
-        <id>tag:about.signpath.io,2024-03-18:macos_cryptotokenkit:1.0</id>
-        <title>SignPath macOS CryptoTokenKit 1.0</title>
-        <updated>2024-03-18</updated>
-        <published>2024-03-18</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-03-18" /><category term="release/macos_cryptotokenkit" label="SignPath Self-hosted Installations" />
-        <summary type="html">New Release: SignPath Self-hosted Installations 1.0</summary>
-        <content type="html">
-          &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Initial release&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
