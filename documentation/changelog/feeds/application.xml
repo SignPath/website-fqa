@@ -2,12 +2,31 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/application.xml" rel="self" type="application/atom+xml" />
 <link href="https://about.signpath.io/" rel="alternate" type="text/html" />
-<updated>2024-08-13</updated>
+<updated>2024-08-29</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/application.xml</id><title type="html">SignPath - Application Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2024-08-29:application:1.171.0</id>
+        <title>SignPath Application 1.171.0</title>
+        <updated>2024-08-29</updated>
+        <published>2024-08-29</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-08-29" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.171.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.171.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed missing response models and response status codes in the &lt;a href=&quot;https://app.signpath.io/Api/swagger&quot;&gt;API definition&lt;/a&gt; for the following REST API routes:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1/{organizationId}/CIUsers/{id}/RegenerateApiToken&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1/{organizationId}/InteractiveUsers/{id}/RegenerateApiToken&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1/{organizationId}/TrustedBuildSystems/{slug}/RegenerateTrustedBuildSystemToken&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1/{organizationId}/SigningRequests/Resubmit&lt;/code&gt; (only status code was wrong)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2024-08-13:application:1.170.2</id>
         <title>SignPath Application 1.170.2</title>
         <updated>2024-08-13</updated>
@@ -52,7 +71,7 @@
   &lt;/li&gt;
   &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;name&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;slug&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;description&lt;/code&gt; properties are now in the request or response root object.
     &lt;ul&gt;
-      &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;metadata&quot;&lt;/code&gt; object has been dropped in all JSON requests and responss.&lt;/li&gt;
+      &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;metadata&quot;&lt;/code&gt; object has been dropped in all JSON requests and responses.&lt;/li&gt;
       &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;metadata.&lt;/code&gt; prefix has been dropped in all multipart/form-data requests.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
