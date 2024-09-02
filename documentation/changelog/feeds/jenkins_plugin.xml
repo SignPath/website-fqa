@@ -1,0 +1,60 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+<generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
+<link href="https://about.signpath.io/documentation/changelog/feeds/jenkins_plugin.xml" rel="self" type="application/atom+xml"/>
+<link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
+<updated>2023-12-10</updated>
+<id>https://about.signpath.io/documentation/changelog/feeds/jenkins_plugin.xml</id><title type="html">SignPath - Jenkins PluginChangelog</title>
+<author>
+  <name>SignPath GmbH</name>
+  <uri>https://about.signpath.io</uri>
+</author><entry>
+        <id>tag:about.signpath.io,2023-12-10:jenkins_plugin:2.0.0</id>
+        <title>SignPath Jenkins Plugin 2.0.0</title>
+        <updated>2023-12-10</updated>
+        <published>2023-12-10</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-12-10" />
+        <category term="release/jenkins_plugin" label="Jenkins Plugin" />
+        <summary type="html">New Release:  2.0.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  2.0.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Renamed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CIUserToken&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApiToken&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Added configurable timeouts for HTTP requests and signing request processing.&lt;/p&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;Improved error messages.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
+        <id>tag:about.signpath.io,2023-01-30:jenkins_plugin:1.1.0</id>
+        <title>SignPath Jenkins Plugin 1.1.0</title>
+        <updated>2023-01-30</updated>
+        <published>2023-01-30</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-01-30" />
+        <category term="release/jenkins_plugin" label="Jenkins Plugin" />
+        <summary type="html">New Release:  1.1.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.1.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Removed PowerShell dependency.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed a bug that allowed a potential attacker to submit files other than the build artifacts.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
+        <id>tag:about.signpath.io,2021-11-19:jenkins_plugin:1.0.6</id>
+        <title>SignPath Jenkins Plugin 1.0.6</title>
+        <updated>2021-11-19</updated>
+        <published>2021-11-19</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-11-19" />
+        <category term="release/jenkins_plugin" label="Jenkins Plugin" />
+        <summary type="html">New Release:  1.0.6</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.0.6&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Security-hardened handling of tokens and artifacts within the plugin.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed a bug that caused Jenkins to run into timeouts when uploading large artifacts for signing.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry></feed>
