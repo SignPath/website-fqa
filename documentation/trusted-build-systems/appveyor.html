@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/origin-verification' />
+  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/trusted-build-systems/appveyor' />
   <!-- Begin Jekyll SEO tag v2.6.1 -->
   <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
-  <title>Documentation - Origin Verification | SignPath</title>
-  <meta property="og:title" content="Documentation - Origin Verification | SignPath" />
+  <title>Trusted Build Systems - AppVeyor | SignPath</title>
+  <meta property="og:title" content="Trusted Build Systems - AppVeyor | SignPath" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:description" content="Documentation for using Origin Verification in SignPath" />
-  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/origin-verification" />
+  <meta property="og:description" content="AppVeyor" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/trusted-build-systems/appveyor" />
   <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
-  <meta name="description" content="Documentation for using Origin Verification in SignPath"/>
+  <meta name="description" content="AppVeyor"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
   <link rel="stylesheet" href="/assets/css/index.css?cache=2024-08-14">
@@ -57,80 +57,193 @@
   <main>
 <section class="bg-blue font-white top-section">
 	<div>
-		<h1><span class='no-break'>Documentation &nbsp;❯&nbsp; </span> Origin Verification</h1>
+		<h1><span class='no-break'>Trusted Build Systems &nbsp;❯&nbsp; </span> AppVeyor</h1>
 	</div>
 </section>
 <section class="resources-section">
 	<div><aside>
 				<ul><li class=''>
-							<a href='/documentation/getting-started#'>Getting Started</a></li><li class=''>
-							<a href='/documentation/managing-certificates#'>Managing Certificates</a></li><li class=''>
-							<a href='/documentation/users#'>Managing Users</a></li><li class=''>
-							<a href='/documentation/projects#'>Setting up Projects</a></li><li class=''>
-							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=''>
-							<a href='/documentation/signing-containers#'>Signing Container Images</a></li><li class='separator' /><li class=''>
-							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=''>
-							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=''>
-							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class='active'>
-							<a href='/documentation/origin-verification#'>Origin Verification</a><div class="no-mobile" >
-</div></li><li class='separator' /><li class=''>
-							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class=''>
-							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=''>
-							<a href='/documentation/changelog#'>Product updates</a></li></ul>
+							<a href='/documentation/trusted-build-systems/#'>Trusted Build Systems</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems/github#'>GitHub</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems/jenkins#'>Jenkins</a></li><li class='active'>
+							<a href='/documentation/trusted-build-systems/appveyor#'>AppVeyor</a><div class="no-mobile" ><ul>
+  <li><a href="#prerequisites-and-restrictions">Prerequisites and restrictions</a></li>
+  <li><a href="#setup">Setup</a></li>
+  <li><a href="#attached-build-documentation">Attached build documentation</a></li>
+</ul>
+</div></li><li class=''>
+							<a href='/documentation/trusted-build-systems/azure-devops#'>Azure DevOps</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems/double-authentication-proxy#'>Double Authentication Proxy</a></li></ul>
 			</aside><article>
-<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway</em>.  Required for <em>Open Source Code Signing</em>.</p>
-
-<p>Origin verification allows trusted build systems to provide reliable origin metadata with your signing requests, so that SignPath can execute advanced policies based on trusted information.</p>
-
-<p>Origin verification results in additional confidence for information in signing reqeusts, whether used for inspection or for policies. The feature is designed for use in enterprise scenarios, where policies and security controls need to be administered, enforced and audited centrally, while development teams still maintain full control over their projects. The ultimate goal of origin verification is to enable signing policies based on source code reviews.</p>
-
 <blockquote class="panel info">
-  <p><strong>Open Source code signing</strong></p>
+  <p><strong>Pre-configured connector</strong></p>
 
-  <p>The same principles are applied for Open Source signing, where <a href="https://signpath.org">SignPath Foundation</a> provides certificates to individual OSS projects. Origin verification ensures that the Foundation’s signing policies are observed while leaving full control over repositories and build configurations with the OSS teams.</p>
-</blockquote>
-
-<p>Origin verification verifies the following information:</p>
-
-<ul>
-  <li><strong>Source code repository URL</strong> as specified in the SignPath <strong>project</strong></li>
-  <li><strong>Branch</strong> as specified in the <strong>signing policy</strong></li>
-  <li><strong>Commit version</strong></li>
-  <li><strong>Build job URL</strong> as provided by the CI system</li>
-  <li><strong>Reproducability</strong> checks that the build process is completely determined by the source code repository</li>
-</ul>
-
-<p>Verification of reproducability depends on the CI system used. Typical verifications include:</p>
-
-<ul>
-  <li><strong>Build settings</strong> are fully determined by a configuration file under <strong>source control</strong></li>
-  <li><strong>No manual overrides</strong> of critical build settings in CI system’s build job</li>
-  <li><strong>Prevent caching</strong> from previous (possibly unverified) builds</li>
-</ul>
-
-<p>In order to use origin verification, a <a href="trusted-build-systems">Trusted Build System</a> must be configured and linked to the project.</p>
-
-<blockquote class="panel tip">
-  <p><strong>Use origin verification restrictions</strong></p>
-
-  <p>Enable additional restrictions for signing policies that use release certificates:</p>
-
+  <p>The AppVeyor connector is built into SignPath and connects to appveyor.com.</p>
   <ul>
-    <li>Select <strong>Verify origin</strong> to make sure that only verified builds can be signed</li>
-    <li>Define source code review policies for branches that are supposed to be used for production releases. Use the <strong>Allowed branch names</strong> setting to make sure that a signing policy can only be used for specified branches. Typical settings include <code class="language-plaintext highlighter-rouge">main</code> or <code class="language-plaintext highlighter-rouge">release/*</code>.</li>
-    <li>If you need to be able to sign other builds under special circumstances, consider adding another signing policy with strong approval requirements (e.g. 2 out of <em>n</em>).</li>
+    <li>AppVeyor is available based on the configuration of your SignPath organization. You don’t need to add it on the Trusted Build Systems page.</li>
+    <li>It must still be linked to each project (see below)</li>
   </ul>
+
+  <p>A customizable connector for AppVeyor Server will be provided in the future.</p>
 </blockquote>
 
-<blockquote class="panel warning">
-  <p><strong>Source code reviews must include build scripts</strong></p>
+<h2 id="prerequisites-and-restrictions">Prerequisites and restrictions</h2>
 
-  <p>Note that a build script or makefile can download any software from the Internet and include it as a build artifact. SignPath cannot possibly detect or prevent this, but it can make sure that any such evasion will be visible in the source code repository.</p>
+<p>In order to ensure Origin Verification, you cannot submit a signing request from an unfinished build. Instead, you have to finish the build job without signing, and then trigger a signing request with origin verification. When signing is completed, you can use a Webhook handler for further processing, such as uploading the signed artifact to a repository.</p>
 
-  <p>Make sure that your source code review policy includes CI configuration, build scripts, and makefiles. External content should not be accepted in reviews.</p>
+<p>The following checks are performed:</p>
+
+<ul>
+  <li>No additional scripts may be executed during the build step and no cache entries may be used (so that the build remains fully traceable and is only built from the repository). The scripts must be all set to off at the bottom of the project settings page on AppVeyor.</li>
+  <li>The build settings may not be modified between starting the AppVeyor build and calling SignPath.io</li>
+  <li>The build configuration must be stored in the root directory under the name <code class="language-plaintext highlighter-rouge">appveyor.yml</code> or <code class="language-plaintext highlighter-rouge">.appveyor.yml</code> (no custom name is allowed to be set under <em>Project settings</em> and <em>Custom configuration .yml file name</em>)</li>
+  <li>For Open Source subscriptions, the AppVeyor project and the Git repository must be public.</li>
+</ul>
+
+<p>These checks are performed to ensure that the binary artifacts result purely from the specified source code.</p>
+
+<blockquote class="panel todo">
+  <p><strong>TODO</strong></p>
+
+  <p>Is the following list complete? see https://www.appveyor.com/docs/build-configuration/#generic-git-repositories-and-yaml</p>
+
+  <p>At the moment those supported are: GitHub (hosted and on-premises), Bitbucket (hosted and on-premises), GitLab (hosted and on-premises), Azure DevOps, Kiln and Gitea.</p>
 </blockquote>
 
-<p>See the <a href="/documentation/projects#signing-policy-origin-verification">signing policy</a> documentation for some ideas on how to secure your build pipelines using origin verification.</p>
+<h2 id="setup">Setup</h2>
+<p>This figure shows the secrets that must be shared between AppVeyor.com and SignPath.io:
+<img src="/assets/img/resources/documentation/build-integration_appveyor.png" alt="AppVeyor Setup flow" /></p>
+
+<table>
+    <thead>
+        <tr><th>
+
+Action 
+</th><th>
+
+Steps 
+</th><th>
+
+Remarks 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <p>Add an AppVeyor integration to a SignPath project</p>
+      </td><td>
+
+        <ol>
+          <li>On <a href="https://ci.appveyor.com">ci.appveyor.com</a>
+            <ul>
+              <li>Select <em>Account</em> and <em>Security</em></li>
+              <li>Make sure the checkboxes for both <em>API v1</em> and <em>API v2</em> are checked</li>
+            </ul>
+          </li>
+          <li>On <a href="https://ci.appveyor.com">ci.appveyor.com</a>
+            <ul>
+              <li>Select <em>My Profile</em> and <a href="https://ci.appveyor.com/api-keys"><em>API Keys</em></a></li>
+              <li>Remember the ① <strong>Bearer token</strong> for the next step</li>
+            </ul>
+          </li>
+          <li>On <a href="https://app.signpath.io">SignPath.io</a>
+            <ul>
+              <li>Navigate to your <em>project</em>, scroll down to the <em>Trusted Build Systems</em> section and add a link to <em>AppVeyor</em></li>
+              <li>In the dialog, enter the ① <strong>API key</strong> you just acquired</li>
+            </ul>
+          </li>
+        </ol>
+
+      </td><td>
+
+        <p>SignPath.io must authenticate against Appveyor to retrieve the build artifacts</p>
+      </td></tr><tr><td>
+
+        <p>Encrypt the SignPath API token in AppVeyor</p>
+      </td><td>
+
+        <ol>
+          <li>On <a href="https://app.signpath.io">SignPath.io</a>
+            <ul>
+              <li>Choose the Users menu and create a new <em>CI User</em> or open an existing one</li>
+              <li>Remember the ② <strong>SignPath API token</strong> for the next step</li>
+            </ul>
+          </li>
+          <li>On <a href="https://ci.appveyor.com">ci.appveyor.com</a>
+            <ul>
+              <li>Open <em>Account Settings</em> and choose <em><a href="https://ci.appveyor.com/tools/encrypt">Encrypt YAML</a></em></li>
+              <li>Enter ② <strong><code class="language-plaintext highlighter-rouge">Bearer $SIGNPATH_API_TOKEN</code></strong> (without $)</li>
+              <li>Remember the ③ <strong>encrypted SignPath API token</strong> for the next step</li>
+            </ul>
+          </li>
+        </ol>
+
+      </td><td>
+
+        <p>AppVeyor lets you encrypt secret values. You can then safely use the encrypted string in your appveyor.yaml file</p>
+      </td></tr><tr><td>
+
+        <p>Add a deploy Webhook</p>
+      </td><td colspan="2">
+
+        <p>Append this to your appveyor.yaml file:</p>
+
+        <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">deploy</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">provider</span><span class="pi">:</span> <span class="s">Webhook</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="s">https://app.signpath.io/API/v1/$ORGANIZATION_ID/Integrations/AppVeyor?ProjectSlug=$PROJECT_SLUG&amp;SigningPolicySlug=$SIGNING_POLICY_SLUG&amp;ArtifactConfigurationSlug=$ARTIFACT_CONFIGURATION_SLUG</span>
+  <span class="na">authorization</span><span class="pi">:</span>
+    <span class="na">secure</span><span class="pi">:</span> <span class="s">$ENCRYPTED_SIGNPATH_API_TOKEN</span>
+</code></pre></div>        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code class="language-plaintext highlighter-rouge">$ORGANIZATION_ID</code></td>
+              <td>SignPath organization ID (can be retrieved from the organization page)</td>
+            </tr>
+            <tr>
+              <td><code class="language-plaintext highlighter-rouge">$PROJECT_SLUG</code></td>
+              <td>Project slug</td>
+            </tr>
+            <tr>
+              <td><code class="language-plaintext highlighter-rouge">$SIGNING_POLICY_SLUG</code></td>
+              <td>Signing policy slug</td>
+            </tr>
+            <tr>
+              <td><code class="language-plaintext highlighter-rouge">$ARTIFACT_CONFIGURATION_SLUG</code></td>
+              <td><em>Optional</em> artifact configuration slug (default artifact configuration if not specified)</td>
+            </tr>
+            <tr>
+              <td><code class="language-plaintext highlighter-rouge">$ENCRYPTED_SIGNPATH_API_TOKEN</code></td>
+              <td>③ The encrypted value from the previous step</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </td><td>
+
+      </td></tr></tbody>
+</table>
+<h2 id="attached-build-documentation">Attached build documentation</h2>
+
+<p>SignPath adds the following information to packages:</p>
+
+<ul>
+  <li>For NuGet packages:
+    <ol>
+      <li>The build settings are stored in an AppVeyorSettings.json file in the root of the NuGet package</li>
+      <li>The commit hash and repository URL are written to the metadata of the NuGet package</li>
+    </ol>
+  </li>
+</ul>
+
+<p>These steps allow consumers of the signed artifact to verify source code version and build settings.</p>
+
 
 		</article>
 	</div>

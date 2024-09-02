@@ -82,11 +82,11 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/build-system-integration</loc>
-    <lastmod>2024-08-21T22:33:53+00:00</lastmod>
+    <lastmod>2024-09-02T16:27:27+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/origin-verification</loc>
-    <lastmod>2024-08-21T22:33:53+00:00</lastmod>
+    <lastmod>2024-09-02T16:27:27+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/directory-synchronization</loc>
@@ -115,6 +115,30 @@
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/artifact-configuration/reference</loc>
     <lastmod>2024-08-21T22:33:53+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems/jenkins</loc>
+    <lastmod>2024-09-02T16:27:27+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems</loc>
+    <lastmod>2024-09-02T16:27:27+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems/github</loc>
+    <lastmod>2024-09-02T16:27:27+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems/azure-devops</loc>
+    <lastmod>2024-09-02T17:48:55+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems/appveyor</loc>
+    <lastmod>2024-09-02T16:27:27+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems/double-authentication-proxy</loc>
+    <lastmod>2024-09-02T16:27:27+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/changelog</loc>
