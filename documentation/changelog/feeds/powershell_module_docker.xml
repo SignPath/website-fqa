@@ -1,7 +1,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
-<link href="https://about.signpath.io/documentation/changelog/feeds/powershell_module_docker.xml" rel="self" type="application/atom+xml" />
-<link href="https://about.signpath.io/" rel="alternate" type="text/html" />
+<link href="https://about.signpath.io/documentation/changelog/feeds/powershell_module_docker.xml" rel="self" type="application/atom+xml"/>
+<link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
 <updated>2022-07-29</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/powershell_module_docker.xml</id><title type="html">SignPath - Docker PowerShell Module Changelog</title>
 <author>
@@ -12,11 +12,12 @@
         <title>SignPath Docker PowerShell Module 4.1.4</title>
         <updated>2022-07-29</updated>
         <published>2022-07-29</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-07-29" /><category term="release/powershell_module_docker" label="SignPath Docker PowerShell Module" />
-        <summary type="html">New Release: SignPath Docker PowerShell Module 4.1.4</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-07-29" />
+        <category term="release/powershell_module_docker" label="Docker PowerShell Module" />
+        <summary type="html">New Release:  4.1.4</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath Docker PowerShell Module 4.1.4&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  4.1.4&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed interopability problems with the Azure Container Registry.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>

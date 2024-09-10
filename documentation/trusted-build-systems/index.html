@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="canonical" href='https://signpath.github.io/website-staging//product/open-source' />
+  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/trusted-build-systems/' />
   <!-- Begin Jekyll SEO tag v2.6.1 -->
   <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
-  <title>SignPath for Open Source projects | SignPath</title>
-  <meta property="og:title" content="SignPath for Open Source projects | SignPath" />
+  <title>Documentation - Trusted Build Systems | SignPath</title>
+  <meta property="og:title" content="Documentation - Trusted Build Systems | SignPath" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:description" content="Using SignPath to sign free and open source projects - for free" />
-  <meta property="og:url" content="https://signpath.github.io/website-staging//product/open-source" />
+  <meta property="og:description" content="Documentation for providing Trusted Build Systems to SignPath" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/trusted-build-systems/" />
   <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
-  <meta name="description" content="Using SignPath to sign free and open source projects - for free"/>
+  <meta name="description" content="Documentation for providing Trusted Build Systems to SignPath"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
   <link rel="stylesheet" href="/assets/css/index.css?cache=2024-08-14">
@@ -55,76 +55,103 @@
     </div>
   </header>
   <main>
-
-
-<section class="bg-image font-white top-section" style='background-image:url(/assets/img/opensource.jpg);'>
-  <div>
-    <h1>SignPath for Open Source projects</h1>
-  </div>
+<section class="bg-blue font-white top-section">
+	<div>
+		<h1><span class='no-break'>Documentation &nbsp;❯&nbsp; </span> Trusted Build Systems</h1>
+	</div>
 </section>
+<section class="resources-section">
+	<div><aside>
+				<ul><li class='active'>
+							<a href='/documentation/trusted-build-systems/#'>Trusted Build Systems</a><div class="no-mobile" ><ul>
+  <li><a href="#abstract">Abstract</a></li>
+  <li><a href="#supported-build-systems">Supported build systems</a></li>
+  <li><a href="#configuration">Configuration</a></li>
+  <li><a href="#direct-use">Direct use of trusted build systems</a></li>
+</ul>
+</div></li><li class=''>
+							<a href='/documentation/trusted-build-systems/github#'>GitHub</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems/jenkins#'>Jenkins</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems/appveyor#'>AppVeyor</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems/azure-devops#'>Azure DevOps</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems/double-authentication-proxy#'>Double Authentication Proxy</a></li></ul>
+			</aside><article><ul class="article-toc mobile-only">
+  <li><a href="#abstract">Abstract</a></li>
+  <li><a href="#supported-build-systems">Supported build systems</a></li>
+  <li><a href="#configuration">Configuration</a></li>
+  <li><a href="#direct-use">Direct use of trusted build systems</a></li>
+</ul>
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway</em>.  Required for <em>Open Source Code Signing</em>.</p>
 
-<section class='bg-grey'>
-  <div>
-    <div class='columns'>
-      <div>
-        <h2>Open Source is ubiquituous</h2>
-        <p>
-          Open source software has become one of the pillars upon which modern software development builds. Without the thousands of high-quality open source libraries and tools, developed and maintained by contributors from all around the world, many of today's popular services and applications would be unthinkable. Due to the enormous success, open source projects enjoy the advantages of free resources for hosting, building and deploying their content.
-        </p>
-      </div>
-      <div>
-        <h2>Challenges of code signing</h2>
-        <p>
-           When it comes to code signing, community-driven projects still face a number of burdens: As they constitute no legal entity, certificate authorities (CAs) refuse to grant a code signing certificate to open source projects (only to individual contributors) and their services are also not yet provided for free. This is where the SignPath Foundation comes into play. Under the umbrella of the SignPath Foundation, open source projects can apply for a free code signing certificate. In order to use the free certificate, the build process has to be fully automated and integrated with SignPath.io, to ensure that the resulting binary results directly from the source code checked into the repository.    
-        </p>
-      </div>
-    </div>
-    <p class='center'><a class='btn btn-primary' href='mailto:oss-support@signpath.org?subject=OSS%20subscription'>Contact us</a>
-  </div>
-</section>
+<h2 id="abstract">Abstract</h2>
 
-<section class='bg-blue font-white oss-section'>
-  <div>
-    <h2>Transparency matters</h2>
-    <div>
-      <i class="icon-origin-verification"></i>
-      <p>
-        One of the many advantages of open source software is the transparency it provides in respect to which code is executed on your system. However, for compiled programs, this only holds true if the build process is also transparent and reproducible. SignPath tightly integrates with online build systems to ensure that the library or program that is code signed was built only from code checked into the repository.
-      </p>
-    </div>
-  </div>
-</section>
+<p>Trusted build systems create a trust relationship between SignPath and certain systems used in your build pipeline. They are typically implemented as connectors and configured in SignPath.</p>
 
-<section>
-  <div>
-    <h2>You're in good company</h2>
-    <div class='accordion'>
-      <a href='https://github.com/gitextensions/gitextensions' target='_blank'>
-        <div>
-          <img src='/assets/img/opensource/gitextensions.svg' title='GitExtensions' />
-          <h3>Git Extensions</h3>
-          <p>Git Extensions is a graphical user interface for Git that allows you to control Git without using the commandline</p>
-        </div>
-      </a>
-      <a href='https://github.com/vim/vim-win32-installer' target='_blank'>
-        <div>
-          <img src='/assets/img/opensource/vim.gif' title='Vim' />
-          <h3>Vim for Windows</h3>
-          <p>Vim is a highly configurable text editor for efficiently creating and changing any kind of text.</p>
-        </div>
-      </a>
-      <a href='https://github.com/KirillOsenkov/MSBuildStructuredLog' target='_blank'>
-        <div>
-          <img src='/assets/img/opensource/msbuildstructuredlog.png' title='MSBuildStructuredLog' />
-          <h3>MSBuildStructured Log</h3>
-          <p>A logger for MSBuild that records a structured representation of executed targets, tasks, property and item values.</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
+<h3 id="abstract-origin-verification">Origin verification</h3>
 
-<!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
+<p>The primary function of trusted build systems is to serve as the foundation of origin verifcation. This feature allows build systems to provide reliable origin metadata with your signing requests, so that SignPath can execute advanced policies based on trusted information.</p>
+
+<p>See <a href="/documentation/origin-verification">origin verifcation</a> for details.</p>
+
+<h3 id="abstract-direct-use">Direct use</h3>
+
+<p>Trusted build systems can also be used to simply restrict signing to certain build systems. Use them to make sure that certain signing policies and certificates can only be used from build agents with specific properties.</p>
+
+<p>See <a href="#direct-use">below</a> for details.</p>
+
+<h2 id="supported-build-systems">Supported build systems</h2>
+
+<p>The following build systems are currently supported by SignPath:</p>
+
+<ul>
+  <li><a href="/documentation/trusted-build-systems/github">GitHub</a></li>
+  <li><a href="/documentation/trusted-build-systems/jenkins">Jenkins</a></li>
+  <li><a href="/documentation/trusted-build-systems/azure-devops">Azure DevOps</a></li>
+  <li><a href="/documentation/trusted-build-systems/appveyor">AppVeyor</a></li>
+</ul>
+
+<p>Generic support for any build system is available with the <a href="/documentation/trusted-build-systems/double-authentication-proxy">Double Authentication Proxy</a>.</p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>To add a trusted build system to your SignPath organization:</p>
+<ul>
+  <li>go to the <strong>Trusted Build Systems</strong> page (top menu) and click <strong>Add custom</strong> or <strong>Add predefined</strong>.</li>
+  <li>enter a name, slug and (optionally) description</li>
+  <li>for <em>custom</em> Trusted Build Systems, remember the token that is created as a result</li>
+</ul>
+
+<h3 id="custom-trusted-build-systems">Custom Trusted Build Systems</h3>
+
+<p>The token that was generated must be used to configure the connector (see the connector documentation for the respective build system). You can now link this trusted build system to your projects.</p>
+
+<p>To use a trusted build system in a project:</p>
+<ul>
+  <li>open the project</li>
+  <li>find the <strong>Trusted build systems</strong> section</li>
+  <li>click <strong>Link</strong></li>
+  <li>select one of the trusted build systems of your organization</li>
+  <li>depending on the type of build system, you might need to add authentication information and/or an artifact path</li>
+</ul>
+
+<p>The build system can now be used to submit signing requests with origin metadata. A trusted build system is required for signing policies with origin verification enabled.</p>
+
+<h2 id="direct-use">Direct use of trusted build systems</h2>
+
+<p>Possible policies include:</p>
+
+<ul>
+  <li>Prevent root access: allow code signing only from build agents that don’t allow any build scripts to modify systems settings</li>
+  <li>Prevent network access: guarantee that artifacts cannot be arbitrarily received from internet sources</li>
+  <li>Restrict user access: don’t let development teams connect to the build agent, with or without administrative permissions (if you need build nodes with wider permission sets, consider separating the process of compilation and packaging from other steps such as running tests)</li>
+  <li>Require current security policies: avoid misuse of recently restored or otherwise not up-to-date build agents</li>
+</ul>
+
+<p>See the <a href="/documentation/trusted-build-systems/double-authentication-proxy">Double Authentication Proxy</a> for a simple way to achieve this using machine certificate enrollment.</p>
+
+		</article>
+	</div>
+</section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>
 		<h2>Sign up for news and special offers</h2>
 		<form class="ml-block-form" action="https://app.mailerlite.com/webforms/submit/d7c3i1" data-code="d7c3i1" method="post">
@@ -200,4 +227,3 @@
 	</footer>
 </body>
 </html>
-
