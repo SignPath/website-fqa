@@ -2,17 +2,17 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/application.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-09-26</updated>
+<updated>2024-09-24</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/application.xml</id><title type="html">SignPath - Application Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
-        <id>tag:about.signpath.io,2024-09-26:application:1.172.0</id>
+        <id>tag:about.signpath.io,2024-09-24:application:1.172.0</id>
         <title>SignPath Application 1.172.0</title>
-        <updated>2024-09-26</updated>
-        <published>2024-09-26</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-09-26" />
+        <updated>2024-09-24</updated>
+        <published>2024-09-24</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-09-24" />
         <category term="release/application" label="Application" />
         <summary type="html">New Release:  1.172.0</summary>
         <content type="html">
