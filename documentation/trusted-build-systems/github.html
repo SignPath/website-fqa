@@ -167,7 +167,7 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">github-artifact-id</code></td>
       <td>(mandatory)</td>
-      <td>ID of the Github Actions artifact. Must be uploaded using the <a href="https://github.com/actions/upload-artifact">actions/upload-artifact</a> v4+ action before it can be signed. Use <code class="language-plaintext highlighter-rouge">{{ steps.&lt;step-id&gt;.outputs.artifact-id }}</code> from the preceding actions/upload-artifact action step.</td>
+      <td>ID of the Github Actions artifact. Must be uploaded using the <a href="https://github.com/actions/upload-artifact">actions/upload-artifact</a> v4+ action before it can be signed. Use <code class="language-plaintext highlighter-rouge">${{ steps.&lt;step-id&gt;.outputs.artifact-id }}</code> from the preceding actions/upload-artifact action step.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">wait-for-completion</code></td>
