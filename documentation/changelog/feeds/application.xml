@@ -41,7 +41,7 @@
   &lt;li&gt;Previous value of ‘type’ is now in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x509Certificate.creationMethod&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SelfSigned&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Csr&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PfxImport&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ImportedWithExistingKeyPair&lt;/code&gt;).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;(Rationale: we expect no external dependencies on the current value of ‘type’.)&lt;/p&gt;
+&lt;p&gt;(Rationale: we expect no external dependencies on the current value of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;type&lt;/code&gt;.)&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;ECDSA hash signing: added support for signature block format “RFC 3279 ASN.1 sequence”. See &lt;a href=&quot;/documentation/crypto-providers/rest-api#hash-signing-payload-json&quot;&gt;artifact format for signing hash digests&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
