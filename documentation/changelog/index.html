@@ -170,8 +170,8 @@
 
 <p>Changes:</p>
 <ul>
-  <li>Existing property <code class="language-plaintext highlighter-rouge">type</code> (top-level) now represents the certificate type (currently only ‘X509`).</li>
-  <li>Previous value of ‘type’ is now in <code class="language-plaintext highlighter-rouge">x509Certificate.creationMethod</code> (<code class="language-plaintext highlighter-rouge">SelfSigned</code>, <code class="language-plaintext highlighter-rouge">Csr</code>, <code class="language-plaintext highlighter-rouge">PfxImport</code>, <code class="language-plaintext highlighter-rouge">ImportedWithExistingKeyPair</code>).</li>
+  <li>Existing property <code class="language-plaintext highlighter-rouge">type</code> (top-level) now represents the certificate type (currently only <code class="language-plaintext highlighter-rouge">X509</code>).</li>
+  <li>Previous value of <code class="language-plaintext highlighter-rouge">type</code> is now in <code class="language-plaintext highlighter-rouge">x509Certificate.creationMethod</code> (<code class="language-plaintext highlighter-rouge">SelfSigned</code>, <code class="language-plaintext highlighter-rouge">Csr</code>, <code class="language-plaintext highlighter-rouge">PfxImport</code>, <code class="language-plaintext highlighter-rouge">ImportedWithExistingKeyPair</code>).</li>
 </ul>
 
 <p>(Rationale: we expect no external dependencies on the current value of <code class="language-plaintext highlighter-rouge">type</code>.)</p>
