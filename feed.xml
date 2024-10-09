@@ -1,8 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://about.fqa.test.signpath.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://about.fqa.test.signpath.io/" rel="alternate" type="text/html" /><updated>2024-10-08T11:05:14+00:00</updated><id>https://about.fqa.test.signpath.io/feed.xml</id><title type="html">SignPath - Code Signing simple and secure</title><entry><title type="html">From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps</title><link href="https://about.fqa.test.signpath.io/blog/2024/09/10/implicit-to-explicit" rel="alternate" type="text/html" title="From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps" /><published>2024-09-10T08:00:00+00:00</published><updated>2024-09-10T08:00:00+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2024/09/10/implicit-to-explicit</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2024/09/10/implicit-to-explicit"><![CDATA[<h1 id="from-implicit-to-explicit-why-code-signing-is-the-missing-link-in-devsecops">From Implicit to Explicit: Why code signing is the missing link in DevSecOps</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://about.fqa.test.signpath.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://about.fqa.test.signpath.io/" rel="alternate" type="text/html" /><updated>2024-10-09T14:00:40+00:00</updated><id>https://about.fqa.test.signpath.io/feed.xml</id><title type="html">SignPath - Code Signing simple and secure</title><entry><title type="html">The Misconception of Integrity as Quality: A Perspective on Definitions and Misuses</title><link href="https://about.fqa.test.signpath.io/blog/2024/10/08/code-integrity-quality" rel="alternate" type="text/html" title="The Misconception of Integrity as Quality: A Perspective on Definitions and Misuses" /><published>2024-10-08T08:00:00+00:00</published><updated>2024-10-08T08:00:00+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2024/10/08/code-integrity-quality</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2024/10/08/code-integrity-quality"><![CDATA[<h1 id="the-misconception-of-integrity-as-quality-a-perspective-on-definitions-and-misuses">The Misconception of Integrity as Quality: A Perspective on Definitions and Misuses</h1>
+
+<p>In the context of code, “integrity” and “quality” are terms I often see used interchangeably. As the founder of a startup that provides software integrity, I see this as a problem! In software architecture and development, precision in terminology is crucial. Conflating terms can lead to mistakes, compromises, and system failures.</p>
+
+<figure class="image">
+  <img src="/assets/posts/2024-10-08.jpg" alt="" />
+  <figcaption>
+
+  </figcaption>
+</figure>
+
+<p>Take, for example, the Wikipedia page on <a href="https://en.wikipedia.org/wiki/Code_integrity">Code Integrity</a>. The article reiterates various definitions and ideas about software quality under the rubric of code integrity.</p>
+
+<p>The confusion is evident in the first line:</p>
+
+<blockquote>
+  <p>Code integrity is a measurement used in the software delivery lifecycle. It measures how high the source code’s quality is when it is passed on to QA.</p>
+</blockquote>
+
+<p>The article also sources definitions from seemingly circular references and random web pages.  Given that Wikipedia is often the “go-to” source for authoritative definitions, this article only reinforces the need for clarity and accuracy in defining such critical terms.</p>
+
+<p>In my view, such confusion has consequences, particularly keeping in mind the current state of software supply chain security. Words have specific meanings, and while their usage can evolve, stretching them too far often leads to confusion and miscommunication, especially in a technical context. Clarity in terms such as “integrity” and “quality” is essential for effective design and proper implementation of best practices.</p>
+
+<h2 id="what-we-talk-about-when-we-talk-about-integrity">What we talk about when we talk about “integrity”</h2>
+
+<p>Integrity, in its truest sense, refers to the state of being whole, undivided, and uncorrupted. In the world of  software, “integrity” has a precise meaning. By saying the software has “integrity”, we mean that it remains unadulterated by any third parties or even any unintended modifications. Some might argue that software integrity refers to the absence of any unauthorized changes in the delivered product. This interpretation aligns well with the concept of maintaining the original intent and design of the software. For example, people in our field refer to some forms of software supply chain attacks as “code integrity attacks”.</p>
+
+<p>Quality, on the other hand, is a multifaceted concept in software development. While often considered subjective, it encompasses both measurable and perceptual aspects. In the context of software, quality refers to how well the product meets specified requirements, user needs, and industry standards.
+The Consortium for IT Software Quality (CISQ) has defined five major desirable structural characteristics needed for a piece of software to provide business value: Reliability, Efficiency, Security, Maintainability, and Size.</p>
+
+<p>High-quality software not only performs its intended functions correctly but also provides a positive user experience, is robust against errors, and can be easily modified or extended. Unlike integrity, which focuses on preserving the original state of the software, quality is about enhancing its overall value and effectiveness.</p>
+
+<h2 id="what-is-code-integrity-after-all">What is “code integrity” after all?</h2>
+
+<p>“Software integrity” refers specifically to the preservation of the original state of a piece of code. This involves several dimensions:</p>
+
+<ul>
+  <li>Authenticity and Security: Ensuring that the code has not been modified by unauthorized parties. Code signing is a technique that guarantees authenticity and integrity by confirming the source of the code and ensuring it has not been tampered with.</li>
+  <li>Source Code Integrity: Encompasses version management, branch protections, and thorough reviews, ensuring the source code remains as intended by its creators.</li>
+  <li>Dependency Integrity: Ensuring third-party dependencies are trustworthy and have not been compromised.</li>
+  <li>Build Integrity: Covers the transformation of source code and dependencies into a final software package, which must be secure and reliable to maintain integrity.</li>
+  <li>Package Integrity: The final deliverable’s integrity must be protected to ensure that what is delivered to users is exactly what was intended.</li>
+</ul>
+
+<h2 id="stretching-the-definition">Stretching the definition</h2>
+
+<p>While these points might seem to stretch the definition of integrity slightly, they all focus on maintaining the original, uncorrupted state of the software. Extending the definition further to include all kinds of policies and procedures might seem reasonable, as violations of these can corrupt the process and, consequently, the final product.</p>
+
+<h2 id="the-integrity--quality-misconception">The Integrity = Quality misconception</h2>
+
+<p>Claiming that integrity equals quality is not only incorrect but also unhelpful. It attempts to simplify a nuanced concept into a catch-all term, which leads to a loss of precision and meaning. Such oversimplifications are often found in marketing materials, where the goal might be to sell a concept rather than to convey its precise technical meaning.</p>
+
+<p>A precise and useful definition of code integrity would encompass:</p>
+
+<ul>
+  <li>Ensuring no unauthorized changes have been made.</li>
+  <li>Maintaining the authenticity and original state of the software.</li>
+  <li>Safeguarding the integrity of the source code, dependencies, build process, and final package.</li>
+</ul>
+
+<p>Such a definition would be a much more valuable contribution to resources like Wikipedia, compared to the current ambiguous and circular definitions.
+In fact, several working groups are tackling this issue of code integrity. The OWASP community, for example, is developing a standard for Software Bill of Materials (SBOM). OASIS-OPEN is focusing on creating end-to-end traceability for threats impacting software components. Meanwhile, the Open Source Software Foundation is working on establishing code integrity guidelines. Google’s SLSA and Microsoft’s SCIM frameworks are notable in their innovative approaches within the field.</p>
+
+<h2 id="wrap-up">Wrap up</h2>
+<p>In conclusion, while integrity and quality are related, they are far from synonymous. Integrity focuses on the preservation of the original state and authenticity, while quality encompasses a broader range of attributes. Clear and precise definitions are crucial, particularly in technical fields, to ensure effective communication and implementation of best practices. So, let’s maintain the integrity of our language and use terms appropriately, especially when it comes to important concepts like code integrity.</p>
+
+<p>To experience the distinctive advantages SignPath offers, <a href="https://forms.gle/sAHSsxgASx2BYPzc9">Request a Demo</a> today.</p>]]></content><author><name>Stefan Wenig</name></author><category term="blog" /><summary type="html"><![CDATA[description]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about.fqa.test.signpath.io/2024-10-08-bg" /><media:content medium="image" url="https://about.fqa.test.signpath.io/2024-10-08-bg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps</title><link href="https://about.fqa.test.signpath.io/blog/2024/09/10/implicit-to-explicit" rel="alternate" type="text/html" title="From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps" /><published>2024-09-10T08:00:00+00:00</published><updated>2024-09-10T08:00:00+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2024/09/10/implicit-to-explicit</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2024/09/10/implicit-to-explicit"><![CDATA[<h1 id="from-implicit-to-explicit-why-code-signing-is-the-missing-link-in-devsecops">From Implicit to Explicit: Why code signing is the missing link in DevSecOps</h1>
 
 <p>“Trust, but verify”: this is a well-known proverb that defined the Cold War era. Today, these powerful words alone could be used to describe the philosophy behind the security of the world’s digital infrastructure, from satellites to web browsers.</p>
 
-<p>Thanks to modern cryptographic techniques, especially asymmetric key encryption, we can ensure the integrity and authenticity of billions of website visits and software downloads worldwide. Users can remain blissfully unaware of the behind-the-scenes process to benefit from it – a hallmark of great security. This invisible protection works silently to keep our digital interactions safe and trustworthy.</p>
+<p>Thanks to modern cryptographic techniques, especially asymmetric key encryption, we can ensure the integrity and authenticity of billions of website visits and software downloads worldwide. Users don’t can remain blissfully unaware of the behind-the-scenes process to benefit from it – a hallmark of great security. This invisible protection works silently to keep our digital interactions safe and trustworthy.</p>
 
 <p>However, there’s an inconvenient truth for us software professionals who see how “the sausage is made”: when it comes to assembling software for professional use, the benefits of modern crytography, in the form of code signing, prove to be the exception rather than the rule.</p>
 
@@ -40,13 +106,13 @@
 
 <h2 id="how-signpath-brings-code-signing-to-devsecops">How SignPath Brings Code Signing to DevSecOps</h2>
 
-<p>At SignPath, our mission is to relentlessly simplify and abstract the complexity out of code signing infrastructure.  The result is automated, authenticated builds that eliminate friction from the development process, while significantly improving software supply chain security. Our robust and flexible mechanism is a natural fit for modern CI/CD pipelines and software development practices.</p>
+<p>At SignPath,our mission is to relentlessly simplify and abstract the complexity out of code signing infrastructure.  The result is automated, authenticated builds that eliminate friction from the development process, while significantly improving software supply chain security. Our robust and flexible mechanism is a natural fit for modern CI/CD pipelines and software development practices.</p>
 
 <p>We created a solution that enables teams to:</p>
 
 <ul>
   <li>Neatly integrate code signing into your existing CI/CD pipelines: we enable fully automated code signing workflows. Our solution eliminates many maintenance headaches by avoiding cumbersome ad-hoc scripts that need to securely handle cryptographic providers and tools. Metadata from the CI system can easily be attached to signing requests, providing additional context. This allows you to know exactly what got signed and enhances transparency.</li>
-  <li>Deep sign software packages: we allow to sign multiple artifacts—such as executables, packages, SBOMs, or files within packages—in a single request. This feature is particularly useful when both application files and the package (or installer) require signing, which often creates a challenging dependency between the build process and the code signing process.</li>
+  <li>Deep sign software packages: we allow enable to sign multiple artifacts—such as executables, packages, SBOMs, or files within packages—in a single request. This feature is particularly useful when both application files and the package (or installer) require signing, which often creates a challenging dependency between the build process and the code signing process.</li>
   <li>Centrally manage signing policies: organizations can define comprehensive, fine-grained signing policies in a central location. These policies control permissions, approvals, and origin verification, ensuring every signing operation follows strict security guidelines. Regardless of the tech stack, build process, or signing methods used, all rules are declared in a single location.</li>
 </ul>
 
@@ -62,11 +128,77 @@
 
 <p>Software supply chain attacks are on the rise. It’s time to raise our collective standards and apply the same security mantra when building software as when we deliver it: trust but verify, making the implicit explicit.</p>
 
-<p>By making code signing an intrinsic part of the DevSecOps framework, organizations can significantly reduce the risk of tampering, ensure compliance, and build resilient software supply chains.</p>
+<p>By making code signing an intrinsic part of the DevSecOps framework, organizations can significantly reduce the risk of tampering, ensure compliance, and build resilient software supply chains.
+Thanks to its years of experience implementing code signing into the most complex infrastructure, SignPath is proud to play a unique role in bringing code signing to DevSecOps.</p>
 
-<p>Thanks to years of experience implementing code signing into the most complex infrastructure, SignPath is proud to play a unique role in bringing code signing to DevSecOps.</p>
+<p>To experience the distinctive advantages SignPath offers, <a href="https://forms.gle/sAHSsxgASx2BYPzc9">Request a Demo</a> today.</p>]]></content><author><name>Paul Savoie</name></author><category term="blog" /><summary type="html"><![CDATA[description]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about.fqa.test.signpath.io/2024-09-09-bg" /><media:content medium="image" url="https://about.fqa.test.signpath.io/2024-09-09-bg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps</title><link href="https://about.fqa.test.signpath.io/blog/2024/09/09/implicit-to-explicit" rel="alternate" type="text/html" title="From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps" /><published>2024-09-09T08:00:00+00:00</published><updated>2024-09-09T08:00:00+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2024/09/09/implicit-to-explicit</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2024/09/09/implicit-to-explicit"><![CDATA[<h1 id="from-implicit-to-explicit-why-code-signing-is-the-missing-link-in-devsecops">From Implicit to Explicit: Why code signing is the missing link in DevSecOps</h1>
 
-<p>To experience the distinctive advantages SignPath offers, <a href="https://forms.gle/sAHSsxgASx2BYPzc9">request a demo</a> today.</p>]]></content><author><name>Paul Savoie</name></author><category term="blog" /><summary type="html"><![CDATA[description]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about.fqa.test.signpath.io/2024-09-09-bg" /><media:content medium="image" url="https://about.fqa.test.signpath.io/2024-09-09-bg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">New year, new faces: SignPath expands the market going activities</title><link href="https://about.fqa.test.signpath.io/blog/2024/02/22/new-year-new-faces" rel="alternate" type="text/html" title="New year, new faces: SignPath expands the market going activities" /><published>2024-02-22T08:00:00+00:00</published><updated>2024-02-22T08:00:00+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2024/02/22/new-year-new-faces</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2024/02/22/new-year-new-faces"><![CDATA[<p><strong>SignPath, the leading provider of advanced code signing solutions and build protection, will boost and expand the market going activities. With this move, SignPath also grows its leadership team.</strong></p>
+<p>“Trust, but verify”: this is a well-known proverb that defined the Cold War era. Today, these powerful words alone could be used to describe the philosophy behind the security of the world’s digital infrastructure, from satellites to web browsers.</p>
+
+<p>Thanks to modern cryptographic techniques, especially asymmetric key encryption, we can ensure the integrity and authenticity of billions of website visits and software downloads worldwide. Users don’t can remain blissfully unaware of the behind-the-scenes process to benefit from it – a hallmark of great security. This invisible protection works silently to keep our digital interactions safe and trustworthy.</p>
+
+<p>However, there’s an inconvenient truth for us software professionals who see how “the sausage is made”: when it comes to assembling software for professional use, the benefits of modern crytography, in the form of code signing, prove to be the exception rather than the rule.</p>
+
+<p>In this blog post, I want to emphasize the importance of explicitly establishing trust in our software supply chains. As more DevSecOps initiatives launch to build a more resilient global digital infrastructure, we can no longer justify trusting without verifying the software components in our pipelines.</p>
+
+<h2 id="why-devsecops-needs-code-signing">Why DevSecOps Needs Code Signing</h2>
+
+<p>Today, the importance of protecting supply chains cannot be overstated: Gartner predicts that by 2025, 45% of organizations worldwide will have experienced attacks on their software supply chains (a three-fold increase from 2021). The reason is straightforward: with the rise of DevOps and open source, software supply chains have rapidly grown more complex. This has created an attack surface that is not only much larger but also harder to measure and, in many cases, beyond direct control.</p>
+
+<p>Code signing has long been a pillar of IT security. Yet applications have grown in complexity. Applications often consist of hundreds or even thousands of components. Such complexity makes code signing seem almost impossible. Many administrators find that the limited guarantees of incomplete verification simply aren’t worth the hassle.</p>
+
+<p>Where it is in use, code signing often occurs too late in the development cycle to be of much use. Typically, DevOps teams only sign the final, assembled software build before delivery. Even worse, software is often signed without any mechanism in place to verify the signature!</p>
+
+<p>There are many drivers behind lack of adption, including limited awareness, budget constraints, and competing priorities. The challenge is reminiscent of the problem DevSecOps was created to address: by integrating security and development throughout the entire process, we can ensure that security becomes an integral part of the software lifecycle rather than an afterthought.</p>
+
+<p>So why isn’t code signing integrated in the same way as other DevOps tools?</p>
+
+<p>Code signing is the only surefire way to guarantee that pipelines haven’t been tampered with, and that they produce the expected output. It’s time we raise the bar to ensure the integrity of entire build pipelines instead of beefing up each individual step (code, build, deliver) separately.</p>
+
+<h2 id="the-problem-with-traditional-code-signing">The Problem with Traditional Code Signing</h2>
+
+<p>Code-signing means attaching a digital certificate to software. Traditionally, within a Public Key Infrastructure (PKI), a certificate authority (CA) verifies the developer’s identity and adds its public key to the certificate. The developer then hashes the source code, encrypts the hash (digest) with their private key, and combines this with the certificate and hash function to create a signature block. This block is then inserted into the software, completing the code-signing process.</p>
+
+<p>The problem with this process arises when the build environment grows more complex and dynamic:</p>
+
+<ul>
+  <li>In DevOps, build pipelines involve many steps that require careful verification. Third-party dependencies need thorough vetting before approval. Securing continuous integration (CI) systems is already a challenge for DevOps engineers who must balance security and velocity. Imposing traditional code signing can seem impractical, if not impossible.</li>
+  <li>Code signing solutions must be selective about what they accept to sign. They can’t simply sign anything presented to them. Instead, they need to verify that each signature request is valid and comes from a trusted source, following a specific set of rules.</li>
+  <li>As more developers need permission to sign software, encryption keys must be both accessible and carefully safeguarded. Key management is a huge challenge in itself: code signing must use keys that are protected on hardware. So-called hardware signing modules (HSMs) were simply not designed to support modern CI/CD pipelines, which require flexibility and agility.</li>
+</ul>
+
+<p>In short, traditional code signing demands complex security infrastructure, often beyond the capacity of all but the largest organizations teams to handle. For this reason, code signing adoption by DevSecOps teams has lagged other software supply chain security capabilties, such as software composition analysis (SCA).</p>
+
+<p>But source code integrity and trusted build systems don’t have to be daunting. Let’s explore a few simple, pragmatic solutions.</p>
+
+<h2 id="how-signpath-brings-code-signing-to-devsecops">How SignPath Brings Code Signing to DevSecOps</h2>
+
+<p>At SignPath,our mission is to relentlessly simplify and abstract the complexity out of code signing infrastructure.  The result is automated, authenticated builds that eliminate friction from the development process, while significantly improving software supply chain security. Our robust and flexible mechanism is a natural fit for modern CI/CD pipelines and software development practices.</p>
+
+<p>We created a solution that enables teams to:</p>
+
+<ul>
+  <li>Neatly integrate code signing into your existing CI/CD pipelines: we enable fully automated code signing workflows. Our solution eliminates many maintenance headaches by avoiding cumbersome ad-hoc scripts that need to securely handle cryptographic providers and tools. Metadata from the CI system can easily be attached to signing requests, providing additional context. This allows you to know exactly what got signed and enhances transparency.</li>
+  <li>Deep sign software packages: we allow enable to sign multiple artifacts—such as executables, packages, SBOMs, or files within packages—in a single request. This feature is particularly useful when both application files and the package (or installer) require signing, which often creates a challenging dependency between the build process and the code signing process.</li>
+  <li>Centrally manage signing policies: organizations can define comprehensive, fine-grained signing policies in a central location. These policies control permissions, approvals, and origin verification, ensuring every signing operation follows strict security guidelines. Regardless of the tech stack, build process, or signing methods used, all rules are declared in a single location.</li>
+</ul>
+
+<p>As a result, you gain strong cryptographic assurance that every software release:</p>
+
+<ul>
+  <li>Can be comprehensively traced back to a specific source code version</li>
+  <li>Meets all policy requirements, including those for reviews and testing</li>
+  <li>Originates from secure infrastructure that resists tampering, from within or without</li>
+</ul>
+
+<h2 id="wrap-up">Wrap Up</h2>
+
+<p>Software supply chain attacks are on the rise. It’s time to raise our collective standards and apply the same security mantra when building software as when we deliver it: trust but verify, making the implicit explicit.</p>
+
+<p>By making code signing an intrinsic part of the DevSecOps framework, organizations can significantly reduce the risk of tampering, ensure compliance, and build resilient software supply chains.
+Thanks to its years of experience implementing code signing into the most complex infrastructure, SignPath is proud to play a unique role in bringing code signing to DevSecOps.</p>
+
+<p>To experience the distinctive advantages SignPath offers, <a href="https://forms.gle/sAHSsxgASx2BYPzc9">schedule a demo</a> today.</p>]]></content><author><name>Paul Savoie</name></author><category term="blog" /><summary type="html"><![CDATA[description]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about.fqa.test.signpath.io/2024-09-09-bg" /><media:content medium="image" url="https://about.fqa.test.signpath.io/2024-09-09-bg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">New year, new faces: SignPath expands the market going activities</title><link href="https://about.fqa.test.signpath.io/blog/2024/02/22/new-year-new-faces" rel="alternate" type="text/html" title="New year, new faces: SignPath expands the market going activities" /><published>2024-02-22T08:00:00+00:00</published><updated>2024-02-22T08:00:00+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2024/02/22/new-year-new-faces</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2024/02/22/new-year-new-faces"><![CDATA[<p><strong>SignPath, the leading provider of advanced code signing solutions and build protection, will boost and expand the market going activities. With this move, SignPath also grows its leadership team.</strong></p>
 
 <p>It’s official now: SignPath, based in Vienna, Austria, has been fully independent since the end of 2023. The company was initially founded in 2017 as a subsidiary of RUBICON IT GmbH, a leading European software development company.</p>
 
@@ -506,155 +638,4 @@
     <li>[<span id="5">5</span>] <a href="https://www.csoonline.com/article/2607448/revoke-certificates-when-you-need-to----the-right-way.html">https://www.csoonline.com/article/2607448/revoke-certificates-when-you-need-to—-the-right-way.html</a></li>
     <li>[<span id="6">6</span>] <a href="https://openjdk.java.net/projects/jdk/15/">https://openjdk.java.net/projects/jdk/15/</a></li>
   </ul>
-</div>]]></content><author><name>Daniel Ostovary</name></author><category term="blog" /><summary type="html"><![CDATA[In April 2020 we became aware of a conceptual security issue in the Java JarSigner. The JarSigner does not check certificate revocations, which breaks JAR signing to some extent.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about.fqa.test.signpath.io/2020-08-26-02-bg" /><media:content medium="image" url="https://about.fqa.test.signpath.io/2020-08-26-02-bg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">A White Hat Story: Analysis of Secure Variables in AppVeyor</title><link href="https://about.fqa.test.signpath.io/blog/2019/12/13/an-analysis-of-secure-variables-in-appveyor" rel="alternate" type="text/html" title="A White Hat Story: Analysis of Secure Variables in AppVeyor" /><published>2019-12-13T09:38:20+00:00</published><updated>2019-12-13T09:38:20+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2019/12/13/an-analysis-of-secure-variables-in-appveyor</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2019/12/13/an-analysis-of-secure-variables-in-appveyor"><![CDATA[<p>SignPath integrates with other systems, so we have to understand how they work and what the security attributes of certain features are. Any over-reliance on implicit or explicit security guarantees might effect the entire code signing process.</p>
-
-<p>For this reason, we routinely analyze not only our own software and services, but also certain features of third party systems.</p>
-
-<p>In our analysis of AppVeyor, we looked at the encryption of secrets, such as SignPath API tokens. Note that what we have discovered is not an exploitable security issue, but we thought the entire analysis still makes a good read for people interested in application security.</p>
-
-<p>SignPath integrates with AppVeyor builds to verify the origin of build artifacts before they are signed. We recently investigated AppVeyor’s “secure variables” (aka “Encrypt YAML”) <a href="https://www.appveyor.com/docs/build-configuration#secure-variables">feature</a>. We discovered a few interesting things, which we describe in this blog post.</p>
-
-<h1 id="appveyors-secure-variables">AppVeyors Secure Variables</h1>
-<p>AppVeyor is a build software that is available on-premises or in the cloud. AppVeyor can be connected to a (public) source code repository, such as your GitHub repository, and be configured to automatically build a new version of the software whenever code in the repository is changed. The AppVeyor build configuration file (appveyor.yml) can also be checked in to a source code repository to make use of its collaboration and versioning features.</p>
-
-<p>However, certain information in this appeyor.yml file might be sensitive (e.g. access credentials to other systems or services required during the build) and should not be visible to all developers (or to everyone in case of open source projects). The AppVeyor secure variables feature allows you to encrypt sensitive data before putting it into the appveyor.yml file. So only AppVeyor can decrypt this data to obtain the original value and use it during the build process. These encrypted values can e.g. be used in the appveyor.yml in configurations for environment variables or within webhooks.</p>
-
-<p>The first thing to be aware of is that secure variables are only protected from users without write access to the appveyor.yml. <strong>Users with write access to this file can obtain the decrypted value</strong>. A user with write access can do this by e.g. just printing the secure variable to the build log (the secure variable is automatically decrypted by AppVeyor).</p>
-
-<h2 id="secure-variable-encryption">Secure Variable Encryption</h2>
-<p>We analysed properties of the encryption of secure variables.</p>
-
-<p>We found out that <strong>the used cipher is a block cipher and has 128 bit (16 bytes) block size</strong>. The cipher type and the block size can be discovered by increasing the length of the plaintext. If the ciphertext length increases equally to the the plaintext length, the used cipher is a stream cipher. If the ciphertext length increases in blocks, then it is a block cipher. In the case of a block cipher, one can easily find out the block length by observing the increase in length of the ciphertext.</p>
-
-<p>Furthermore, we found out that the used cipher mode is <strong>CBC</strong>. For that we performed the following test.</p>
-
-<p>Our test used the following text (unencrypted) as secure variable:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bearer SecretToken123456789012345678901234567890
-</code></pre></div></div>
-
-<p>The hexadecimal representation of this string is:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>42 65 61 72 65 72 20 53 65 63 72 65 74 54 6F 6B
-65 6E 31 32 33 34 35 36 37 38 39 30 31 32 33 34
-35 36 37 38 39 30 31 32 33 34 35 36 37 38 39 30
-</code></pre></div></div>
-
-<p>When using the Encrypt YAML feature for this text, AppVeyor returns the following Base64-encoded encrypted string:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FVwaQuowgIbDmPo987vdYrmGEHeelN7l6ni8MTzouU3jtrE8/9w6tYSuq84DHJbXhMQKpxqfZOTRIH0g/flKjg==
-</code></pre></div></div>
-
-<p>After Base64 decoding, the hex representation is:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>15 5C 1A 42 EA 30 80 86 C3 98 FA 3D F3 BB DD 62
-B9 86 10 77 9E 94 DE E5 EA 78 BC 31 3C E8 B9 4D
-E3 B6 B1 3C FF DC 3A B5 84 AE AB CE 03 1C 96 D7
-84 C4 0A A7 1A 9F 64 E4 D1 20 7D 20 FD F9 4A 8E
-</code></pre></div></div>
-
-<p>Here we can already see that our encrypted ciphertext has 16 bytes more than the plaintext. This is probably due to padding and allows us infer that the block size of the ciphertext is 16 bytes.</p>
-
-<p>To find out more about block size and the mode of operation, we modified the following bytes of the ciphertext:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>15 5C 1A 42 EA 30 80 86 C3 98 FA 3D F3 BB DD 62
-B9 86 <strong>11</strong> 77 9E 94 DE E5 EA 78 BC 31 3C E8 B9 4D
-E3 B6 B1 3C FF DC 3A B5 84 AE AB CE 03 1C 96 D7
-84 C4 0A A7 1A 9F 64 E4 D1 20 7D 20 FD F9 4A 8E
-</code></pre></div></div>
-
-<p>This ciphertext decrypted to the following text:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bearer SecretTokL        Q4▒u5i?y▒▒'15668901234567890
-</code></pre></div></div>
-
-<p>The hexadecimal representation of this string is:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>42 65 61 72 65 72 20 53 65 63 72 65 74 54 6F 6B
-<strong>4C 09 51 34 FD 75 35 16 69 3F 79 FD FD 27 31 1C</strong>
-35 <strong>36</strong> 36 38 39 30 31 32 33 34 35 36 37 38 39 30
-</code></pre></div></div>
-
-<p>We can see that a change of the third byte in the second ciphertext block changed the whole second plaintext block and the third byte of the next plaintext block. This perfectly matches the behavior of the cipher mode CBC (as displayed in the following figure).</p>
-
-<p><img src="/assets/posts/2019-12-13-cbc.png" alt="CBC" /></p>
-
-<p>Generally, in CBC a change in a byte of a ciphertext block at index X directly affects all bytes of the same ciphertext block and the byte at index X of the next ciphertext block. The observed behavior further confirms that the encryption algorithm is a block cipher with 16 bytes length.</p>
-
-<p>Our test didn’t lead to an error, but decrypted normally. From that we can infer that <strong>the ciphertext is not integrity protected</strong>.</p>
-
-<p>In many cases missing integrity protection has security implications. In combination with the CBC cipher mode, this can result in so called “Padding Oracle” attacks. These attacks exploit</p>
-
-<ul>
-  <li>the lack of integrity protection and</li>
-  <li>some properties of CBC mode and PKCS#7 padding</li>
-</ul>
-
-<p>and allow attackers to fully or partially decrypt ciphertext! This means, AppVeyor is potentially vulnerable to Padding Oracle attacks. Notably, as laid out at the beginning of the post, anyone with write access to the appveyor.yml can decrypt values by design. Thus, a Padding Oracle would have no security implications in AppVeyor anyways.</p>
-
-<p>For more curious readers, we briefly describe our analysis of a potential Padding Oracle in AppVeyor.</p>
-
-<h2 id="padding-oracle-in-appveyor">Padding Oracle in AppVeyor</h2>
-<p>For a Padding Oracle to exist, it must be possible to distinguish the following cases (e.g. by different error message, by timing, or other means) when decrypting ciphertext:</p>
-
-<ul>
-  <li>A given ciphertext decrypts to a valid plaintext.</li>
-  <li>A given ciphertext decrypts to a malformed plaintext (e.g. with non-ASCII characters) and has valid padding.</li>
-  <li>A given ciphertext decrypts has invalid padding.</li>
-</ul>
-
-<p>This information, combined with the knowledge of the functionality of CBC and PKCS#7 and some basic logic, is enough for an attacker to decrypt most of a given ciphertext. To confirm the existence or non-existence of a potential Padding Oracle in AppVeyor, we performed the following tests.</p>
-
-<p>We used a secure variable (encrypted Bearer <code class="language-plaintext highlighter-rouge">SecretToken123456789012345678901234567890</code> to let AppVeyor authenticate against our web server.  On the web server we received:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST / HTTP/1.1
-Authorization: Bearer SecretToken123456789012345678901234567890
-Content-Type: application/json; charset=utf-8
-Host: 54.69.243.156:8000
-Content-Length: 8858
-Connection: Keep-Alive
-</code></pre></div></div>
-
-<p>This matches the behavior of <strong>case 1.a</strong>.</p>
-
-<p>We then modified the third byte of the second ciphertext block and again let AppVeyor against our web server. This time we received:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST / HTTP/1.1
-Authorization: Bearer SecretTokL        Q4▒u5i?y▒▒'15668901234567890
-Content-Type: application/json; charset=utf-8
-Host: 54.69.243.156:8000
-Content-Length: 8860
-Connection: Keep-Alive
-</code></pre></div></div>
-
-<p>This matches the behavior of <strong>case 1.b</strong>.</p>
-
-<p>Lastly, we crafted ciphertext that causes bad padding. For that we changed the last byte of the third ciphertext block. Due to CBC mode, this change should not only scramble the third block, but also change the last byte of the fourth block, which is our padding. Since padding needs to have a specific structure in PKCS#7, this change should cause incorrect padding. We used the following ciphertext:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>15 5C 1A 42 EA 30 80 86 C3 98 FA 3D F3 BB DD 62
-B9 86 10 77 9E 94 DE E5 EA 78 BC 31 3C E8 B9 4D
-E3 B6 B1 3C FF DC 3A B5 84 AE AB CE 03 1C 96 <strong>00</strong>
-84 C4 0A A7 1A 9F 64 E4 D1 20 7D 20 FD F9 4A 8E
-</code></pre></div></div>
-<p>With this ciphertext we let AppVeyor authenticate against our web server one last time. The result was:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST / HTTP/1.1
-Content-Type: application/json; charset=utf-8
-Host: 54.69.243.156:8000
-Content-Length: 8840
-Connection: Keep-Alive
-</code></pre></div></div>
-
-<p>This matches the behavior of <strong>case 1.c</strong>.</p>
-
-<p>Can this be a problem? Yes it can be! This behavior exactly matches the definition of a Padding Oracle. An attacker could now continue this attack as described in <a href="https://robertheaton.com/2013/07/29/padding-oracle-attack/">this blog post</a> and could obtain most or all of the plaintext from the ciphertext. Particularly, if an attacker knows the initialization vector, he/she can obtain all of the plaintext. If an attacker doesn’t know the initialization vector, he/she could obtain the plaintext for the whole ciphertext except the first ciphertext block. However, in many cases the first ciphertext block can be guessed or obtained from the system.</p>
-
-<p>Conclusively, in this article we showed:</p>
-
-<ol>
-  <li>The functionality of AppVeyor’s secure variables.</li>
-  <li>The encryption used for AppVeyor’s secure variables.</li>
-  <li>How a small mistake in encryption could, in principle, lead to Padding Oracle attacks that allow the decryption of most or all of the ciphertext.</li>
-</ol>
-
-<p>This post was written together with Marc Nimmerichter from <a href="https://www.impidio.com/">Impidio</a>. All findings were responsibly disclosed to AppVeyor and only published when we agreed that they contain no exploitable information.</p>]]></content><author><name>Daniel Ostovary</name></author><category term="blog" /><summary type="html"><![CDATA[SignPath integrates with other systems, so we have to understand how they work and what the security attributes of certain features are. Any over-reliance on implicit or explicit security guarantees might effect the entire code signing process.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about.fqa.test.signpath.io/2019-12-13-bg" /><media:content medium="image" url="https://about.fqa.test.signpath.io/2019-12-13-bg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name>Daniel Ostovary</name></author><category term="blog" /><summary type="html"><![CDATA[In April 2020 we became aware of a conceptual security issue in the Java JarSigner. The JarSigner does not check certificate revocations, which breaks JAR signing to some extent.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about.fqa.test.signpath.io/2020-08-26-02-bg" /><media:content medium="image" url="https://about.fqa.test.signpath.io/2020-08-26-02-bg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

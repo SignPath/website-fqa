@@ -5,14 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="canonical" href='https://signpath.github.io/website-staging//blog/2024/09/10/implicit-to-explicit' />
+  <link rel="canonical" href='https://signpath.github.io/website-staging//blog/2024/10/08/code-integrity-quality' />
   <!-- Begin Jekyll SEO tag v2.6.1 -->
   <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
-  <title>From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps | SignPath</title>
-  <meta property="og:title" content="From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps | SignPath" />
+  <title>The Misconception of Integrity as Quality: A Perspective on Definitions and Misuses | SignPath</title>
+  <meta property="og:title" content="The Misconception of Integrity as Quality: A Perspective on Definitions and Misuses | SignPath" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:description" content="description" />
-  <meta property="og:url" content="https://signpath.github.io/website-staging//blog/2024/09/10/implicit-to-explicit" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//blog/2024/10/08/code-integrity-quality" />
   <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
   <meta name="description" content="description"/>
   <!-- End Jekyll SEO tag -->
@@ -59,87 +59,86 @@
 
 <section class="bg-dark-grey font-white top-section">
 	<div>
-		<h1>From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps</h1>
+		<h1>The Misconception of Integrity as Quality: A Perspective on Definitions and Misuses</h1>
 		<div class='info'>
                   <span>
 <svg class="icon blog" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 5 C 12.144531 5 9 8.144531 9 12 C 9 14.410156 10.230469 16.550781 12.09375 17.8125 C 8.527344 19.34375 6 22.882813 6 27 L 8 27 C 8 22.570313 11.570313 19 16 19 C 20.429688 19 24 22.570313 24 27 L 26 27 C 26 22.882813 23.472656 19.34375 19.90625 17.8125 C 21.769531 16.550781 23 14.410156 23 12 C 23 8.144531 19.855469 5 16 5 Z M 16 7 C 18.773438 7 21 9.226563 21 12 C 21 14.773438 18.773438 17 16 17 C 13.226563 17 11 14.773438 11 12 C 11 9.226563 13.226563 7 16 7 Z"/></svg>
 
-                    Paul Savoie</span>
+                    Stefan Wenig</span>
 			<span>
                     <svg class="icon blog" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 9 4 L 9 5 L 5 5 L 5 27 L 27 27 L 27 5 L 23 5 L 23 4 L 21 4 L 21 5 L 11 5 L 11 4 Z M 7 7 L 9 7 L 9 8 L 11 8 L 11 7 L 21 7 L 21 8 L 23 8 L 23 7 L 25 7 L 25 9 L 7 9 Z M 7 11 L 25 11 L 25 25 L 7 25 Z M 13 13 L 13 15 L 15 15 L 15 13 Z M 17 13 L 17 15 L 19 15 L 19 13 Z M 21 13 L 21 15 L 23 15 L 23 13 Z M 9 17 L 9 19 L 11 19 L 11 17 Z M 13 17 L 13 19 L 15 19 L 15 17 Z M 17 17 L 17 19 L 19 19 L 19 17 Z M 21 17 L 21 19 L 23 19 L 23 17 Z M 9 21 L 9 23 L 11 23 L 11 21 Z M 13 21 L 13 23 L 15 23 L 15 21 Z M 17 21 L 17 23 L 19 23 L 19 21 Z"/></svg>
-                     September 10, 2024</span>
+                     October 08, 2024</span>
 		</div>
 	</div>
 </section>
 <section class="default-section post-section">
 	<div>
 		<article>
-			<h1 id="from-implicit-to-explicit-why-code-signing-is-the-missing-link-in-devsecops">From Implicit to Explicit: Why code signing is the missing link in DevSecOps</h1>
+			<h1 id="the-misconception-of-integrity-as-quality-a-perspective-on-definitions-and-misuses">The Misconception of Integrity as Quality: A Perspective on Definitions and Misuses</h1>
 
-<p>“Trust, but verify”: this is a well-known proverb that defined the Cold War era. Today, these powerful words alone could be used to describe the philosophy behind the security of the world’s digital infrastructure, from satellites to web browsers.</p>
+<p>In the context of code, “integrity” and “quality” are terms I often see used interchangeably. As the founder of a startup that provides software integrity, I see this as a problem! In software architecture and development, precision in terminology is crucial. Conflating terms can lead to mistakes, compromises, and system failures.</p>
 
-<p>Thanks to modern cryptographic techniques, especially asymmetric key encryption, we can ensure the integrity and authenticity of billions of website visits and software downloads worldwide. Users don’t can remain blissfully unaware of the behind-the-scenes process to benefit from it – a hallmark of great security. This invisible protection works silently to keep our digital interactions safe and trustworthy.</p>
+<figure class="image">
+  <img src="/assets/posts/2024-10-08.jpg" alt="" />
+  <figcaption>
 
-<p>However, there’s an inconvenient truth for us software professionals who see how “the sausage is made”: when it comes to assembling software for professional use, the benefits of modern crytography, in the form of code signing, prove to be the exception rather than the rule.</p>
+  </figcaption>
+</figure>
 
-<p>In this blog post, I want to emphasize the importance of explicitly establishing trust in our software supply chains. As more DevSecOps initiatives launch to build a more resilient global digital infrastructure, we can no longer justify trusting without verifying the software components in our pipelines.</p>
+<p>Take, for example, the Wikipedia page on <a href="https://en.wikipedia.org/wiki/Code_integrity">Code Integrity</a>. The article reiterates various definitions and ideas about software quality under the rubric of code integrity.</p>
 
-<h2 id="why-devsecops-needs-code-signing">Why DevSecOps Needs Code Signing</h2>
+<p>The confusion is evident in the first line:</p>
 
-<p>Today, the importance of protecting supply chains cannot be overstated: Gartner predicts that by 2025, 45% of organizations worldwide will have experienced attacks on their software supply chains (a three-fold increase from 2021). The reason is straightforward: with the rise of DevOps and open source, software supply chains have rapidly grown more complex. This has created an attack surface that is not only much larger but also harder to measure and, in many cases, beyond direct control.</p>
+<blockquote>
+  <p>Code integrity is a measurement used in the software delivery lifecycle. It measures how high the source code’s quality is when it is passed on to QA.</p>
+</blockquote>
 
-<p>Code signing has long been a pillar of IT security. Yet applications have grown in complexity. Applications often consist of hundreds or even thousands of components. Such complexity makes code signing seem almost impossible. Many administrators find that the limited guarantees of incomplete verification simply aren’t worth the hassle.</p>
+<p>The article also sources definitions from seemingly circular references and random web pages.  Given that Wikipedia is often the “go-to” source for authoritative definitions, this article only reinforces the need for clarity and accuracy in defining such critical terms.</p>
 
-<p>Where it is in use, code signing often occurs too late in the development cycle to be of much use. Typically, DevOps teams only sign the final, assembled software build before delivery. Even worse, software is often signed without any mechanism in place to verify the signature!</p>
+<p>In my view, such confusion has consequences, particularly keeping in mind the current state of software supply chain security. Words have specific meanings, and while their usage can evolve, stretching them too far often leads to confusion and miscommunication, especially in a technical context. Clarity in terms such as “integrity” and “quality” is essential for effective design and proper implementation of best practices.</p>
 
-<p>There are many drivers behind lack of adption, including limited awareness, budget constraints, and competing priorities. The challenge is reminiscent of the problem DevSecOps was created to address: by integrating security and development throughout the entire process, we can ensure that security becomes an integral part of the software lifecycle rather than an afterthought.</p>
+<h2 id="what-we-talk-about-when-we-talk-about-integrity">What we talk about when we talk about “integrity”</h2>
 
-<p>So why isn’t code signing integrated in the same way as other DevOps tools?</p>
+<p>Integrity, in its truest sense, refers to the state of being whole, undivided, and uncorrupted. In the world of  software, “integrity” has a precise meaning. By saying the software has “integrity”, we mean that it remains unadulterated by any third parties or even any unintended modifications. Some might argue that software integrity refers to the absence of any unauthorized changes in the delivered product. This interpretation aligns well with the concept of maintaining the original intent and design of the software. For example, people in our field refer to some forms of software supply chain attacks as “code integrity attacks”.</p>
 
-<p>Code signing is the only surefire way to guarantee that pipelines haven’t been tampered with, and that they produce the expected output. It’s time we raise the bar to ensure the integrity of entire build pipelines instead of beefing up each individual step (code, build, deliver) separately.</p>
+<p>Quality, on the other hand, is a multifaceted concept in software development. While often considered subjective, it encompasses both measurable and perceptual aspects. In the context of software, quality refers to how well the product meets specified requirements, user needs, and industry standards.
+The Consortium for IT Software Quality (CISQ) has defined five major desirable structural characteristics needed for a piece of software to provide business value: Reliability, Efficiency, Security, Maintainability, and Size.</p>
 
-<h2 id="the-problem-with-traditional-code-signing">The Problem with Traditional Code Signing</h2>
+<p>High-quality software not only performs its intended functions correctly but also provides a positive user experience, is robust against errors, and can be easily modified or extended. Unlike integrity, which focuses on preserving the original state of the software, quality is about enhancing its overall value and effectiveness.</p>
 
-<p>Code-signing means attaching a digital certificate to software. Traditionally, within a Public Key Infrastructure (PKI), a certificate authority (CA) verifies the developer’s identity and adds its public key to the certificate. The developer then hashes the source code, encrypts the hash (digest) with their private key, and combines this with the certificate and hash function to create a signature block. This block is then inserted into the software, completing the code-signing process.</p>
+<h2 id="what-is-code-integrity-after-all">What is “code integrity” after all?</h2>
 
-<p>The problem with this process arises when the build environment grows more complex and dynamic:</p>
-
-<ul>
-  <li>In DevOps, build pipelines involve many steps that require careful verification. Third-party dependencies need thorough vetting before approval. Securing continuous integration (CI) systems is already a challenge for DevOps engineers who must balance security and velocity. Imposing traditional code signing can seem impractical, if not impossible.</li>
-  <li>Code signing solutions must be selective about what they accept to sign. They can’t simply sign anything presented to them. Instead, they need to verify that each signature request is valid and comes from a trusted source, following a specific set of rules.</li>
-  <li>As more developers need permission to sign software, encryption keys must be both accessible and carefully safeguarded. Key management is a huge challenge in itself: code signing must use keys that are protected on hardware. So-called hardware signing modules (HSMs) were simply not designed to support modern CI/CD pipelines, which require flexibility and agility.</li>
-</ul>
-
-<p>In short, traditional code signing demands complex security infrastructure, often beyond the capacity of all but the largest organizations teams to handle. For this reason, code signing adoption by DevSecOps teams has lagged other software supply chain security capabilties, such as software composition analysis (SCA).</p>
-
-<p>But source code integrity and trusted build systems don’t have to be daunting. Let’s explore a few simple, pragmatic solutions.</p>
-
-<h2 id="how-signpath-brings-code-signing-to-devsecops">How SignPath Brings Code Signing to DevSecOps</h2>
-
-<p>At SignPath,our mission is to relentlessly simplify and abstract the complexity out of code signing infrastructure.  The result is automated, authenticated builds that eliminate friction from the development process, while significantly improving software supply chain security. Our robust and flexible mechanism is a natural fit for modern CI/CD pipelines and software development practices.</p>
-
-<p>We created a solution that enables teams to:</p>
+<p>“Software integrity” refers specifically to the preservation of the original state of a piece of code. This involves several dimensions:</p>
 
 <ul>
-  <li>Neatly integrate code signing into your existing CI/CD pipelines: we enable fully automated code signing workflows. Our solution eliminates many maintenance headaches by avoiding cumbersome ad-hoc scripts that need to securely handle cryptographic providers and tools. Metadata from the CI system can easily be attached to signing requests, providing additional context. This allows you to know exactly what got signed and enhances transparency.</li>
-  <li>Deep sign software packages: we allow enable to sign multiple artifacts—such as executables, packages, SBOMs, or files within packages—in a single request. This feature is particularly useful when both application files and the package (or installer) require signing, which often creates a challenging dependency between the build process and the code signing process.</li>
-  <li>Centrally manage signing policies: organizations can define comprehensive, fine-grained signing policies in a central location. These policies control permissions, approvals, and origin verification, ensuring every signing operation follows strict security guidelines. Regardless of the tech stack, build process, or signing methods used, all rules are declared in a single location.</li>
+  <li>Authenticity and Security: Ensuring that the code has not been modified by unauthorized parties. Code signing is a technique that guarantees authenticity and integrity by confirming the source of the code and ensuring it has not been tampered with.</li>
+  <li>Source Code Integrity: Encompasses version management, branch protections, and thorough reviews, ensuring the source code remains as intended by its creators.</li>
+  <li>Dependency Integrity: Ensuring third-party dependencies are trustworthy and have not been compromised.</li>
+  <li>Build Integrity: Covers the transformation of source code and dependencies into a final software package, which must be secure and reliable to maintain integrity.</li>
+  <li>Package Integrity: The final deliverable’s integrity must be protected to ensure that what is delivered to users is exactly what was intended.</li>
 </ul>
 
-<p>As a result, you gain strong cryptographic assurance that every software release:</p>
+<h2 id="stretching-the-definition">Stretching the definition</h2>
+
+<p>While these points might seem to stretch the definition of integrity slightly, they all focus on maintaining the original, uncorrupted state of the software. Extending the definition further to include all kinds of policies and procedures might seem reasonable, as violations of these can corrupt the process and, consequently, the final product.</p>
+
+<h2 id="the-integrity--quality-misconception">The Integrity = Quality misconception</h2>
+
+<p>Claiming that integrity equals quality is not only incorrect but also unhelpful. It attempts to simplify a nuanced concept into a catch-all term, which leads to a loss of precision and meaning. Such oversimplifications are often found in marketing materials, where the goal might be to sell a concept rather than to convey its precise technical meaning.</p>
+
+<p>A precise and useful definition of code integrity would encompass:</p>
 
 <ul>
-  <li>Can be comprehensively traced back to a specific source code version</li>
-  <li>Meets all policy requirements, including those for reviews and testing</li>
-  <li>Originates from secure infrastructure that resists tampering, from within or without</li>
+  <li>Ensuring no unauthorized changes have been made.</li>
+  <li>Maintaining the authenticity and original state of the software.</li>
+  <li>Safeguarding the integrity of the source code, dependencies, build process, and final package.</li>
 </ul>
 
-<h2 id="wrap-up">Wrap Up</h2>
+<p>Such a definition would be a much more valuable contribution to resources like Wikipedia, compared to the current ambiguous and circular definitions.
+In fact, several working groups are tackling this issue of code integrity. The OWASP community, for example, is developing a standard for Software Bill of Materials (SBOM). OASIS-OPEN is focusing on creating end-to-end traceability for threats impacting software components. Meanwhile, the Open Source Software Foundation is working on establishing code integrity guidelines. Google’s SLSA and Microsoft’s SCIM frameworks are notable in their innovative approaches within the field.</p>
 
-<p>Software supply chain attacks are on the rise. It’s time to raise our collective standards and apply the same security mantra when building software as when we deliver it: trust but verify, making the implicit explicit.</p>
-
-<p>By making code signing an intrinsic part of the DevSecOps framework, organizations can significantly reduce the risk of tampering, ensure compliance, and build resilient software supply chains.
-Thanks to its years of experience implementing code signing into the most complex infrastructure, SignPath is proud to play a unique role in bringing code signing to DevSecOps.</p>
+<h2 id="wrap-up">Wrap up</h2>
+<p>In conclusion, while integrity and quality are related, they are far from synonymous. Integrity focuses on the preservation of the original state and authenticity, while quality encompasses a broader range of attributes. Clear and precise definitions are crucial, particularly in technical fields, to ensure effective communication and implementation of best practices. So, let’s maintain the integrity of our language and use terms appropriately, especially when it comes to important concepts like code integrity.</p>
 
 <p>To experience the distinctive advantages SignPath offers, <a href="https://forms.gle/sAHSsxgASx2BYPzc9">Request a Demo</a> today.</p>
 

@@ -108,88 +108,31 @@
 <h3 id="hash-signing-payload-json">Artifact format for signing hash digests</h3>
 
 <table>
-    <thead>
-        <tr><th>
-
-JSON property 
-</th><th>
-
-Value 
-</th><th>
-
-Remarks 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">SignatureAlgorithm</code></p>
-      </td><td>
-
-        <p>RSA keys:</p>
-        <ul>
-          <li><code class="language-plaintext highlighter-rouge">RsaPkcs1</code>: PKCS #1 v1.5 padding mode</li>
-          <li><code class="language-plaintext highlighter-rouge">RsaPss</code>: PSS padding mode (PKCS #1 v2.1)</li>
-        </ul>
-
-        <p>Elliptic curve keys: <code class="language-plaintext highlighter-rouge">Ecdsa</code></p>
-
-      </td><td>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">RsaHashAlgorithm</code></p>
-      </td><td>
-
-        <p>The OID for the hash algorithm used. Available values:</p>
-        <ul>
-          <li>MD5: <code class="language-plaintext highlighter-rouge">1.2.840.113549.2.5</code></li>
-          <li>SHA1: <code class="language-plaintext highlighter-rouge">1.3.14.3.2.26</code></li>
-          <li>SHA-256: <code class="language-plaintext highlighter-rouge">2.16.840.1.101.3.4.2.1</code></li>
-          <li>SHA-384: <code class="language-plaintext highlighter-rouge">2.16.840.1.101.3.4.2.2</code></li>
-          <li>SHA-512: <code class="language-plaintext highlighter-rouge">2.16.840.1.101.3.4.2.3</code></li>
-        </ul>
-
-      </td><td>
-
-        <p>Only used for RSA keys.</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">EcdsaSignatureFormat</code></p>
-      </td><td>
-
-        <ul>
-          <li><code class="language-plaintext highlighter-rouge">Ieee</code> (default): IEEE P1363 fixed-size signature block</li>
-          <li><code class="language-plaintext highlighter-rouge">Asn1</code>: RFC 3279 ASN.1 sequence</li>
-        </ul>
-
-      </td><td>
-
-        <p>Only used for ECDSA keys.</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">Base64EncodedHash</code></p>
-      </td><td>
-
-        <p>The Base64 encoded hash value to sign.</p>
-
-      </td><td>
-
-        <p>For RSA, the result of the function specified as <code class="language-plaintext highlighter-rouge">RsaHashAlgorithm</code>.</p>
-
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">Metadata</code></p>
-      </td><td>
-
-        <p><code class="language-plaintext highlighter-rouge">CreatingProcess</code> object with <code class="language-plaintext highlighter-rouge">CommandLine</code> and <code class="language-plaintext highlighter-rouge">User</code> properties (see example below)</p>
-
-      </td><td>
-
-        <p>Can contain arbitrary metadata JSON values. Specified values are used by SignPath crypto providers.</p>
-
-      </td></tr></tbody>
+  <thead>
+    <tr>
+      <th>JSON property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SignatureAlgorithm</code></td>
+      <td>For RSA certificates: <code class="language-plaintext highlighter-rouge">"RsaPkcs1"</code> for the PKCS #1 v1.5 padding mode, or <code class="language-plaintext highlighter-rouge">"RsaPss"</code> for PSS padding mode. For elliptic curve certificates: <code class="language-plaintext highlighter-rouge">Ecdsa</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RsaHashAlgorithm</code></td>
+      <td>The OID for used hash algorithm with the following allowed values: <code class="language-plaintext highlighter-rouge">"1.2.840.113549.2.5"</code> (MD5), <code class="language-plaintext highlighter-rouge">"1.3.14.3.2.26"</code> (SHA1), <code class="language-plaintext highlighter-rouge">"2.16.840.1.101.3.4.2.1"</code> (SHA-256), <code class="language-plaintext highlighter-rouge">"2.16.840.1.101.3.4.2.2"</code> (SHA-384), <code class="language-plaintext highlighter-rouge">"2.16.840.1.101.3.4.2.3"</code> (SHA-512). <em>Note that this property is only used for RSA certificates.</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Base64EncodedHash</code></td>
+      <td>The Base64 encoded hash value to sign. I.e. the result of the used <code class="language-plaintext highlighter-rouge">RsaHashAlgorithm</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Metadata</code></td>
+      <td>Can contain arbitrary metadata JSON values. We recommend to include <code class="language-plaintext highlighter-rouge">CreatingProcess</code> metadata with <code class="language-plaintext highlighter-rouge">CommandLine</code> and <code class="language-plaintext highlighter-rouge">User</code> as shown in the example above.</td>
+    </tr>
+  </tbody>
 </table>
-<!-- this comment is a workaround for a markdown parsing error, next panel class would be ignored -->
 
 <blockquote class="panel info">
   <p><strong>Key length</strong></p>
@@ -298,7 +241,7 @@ Remarks
 	  	<div>
 	  		<img src='/assets/signpath-logo-white.svg' width="334" height="67" alt='SignPath'/>
 	  		<svg viewBox="0 0 244 18">
-			  <text x="0" y="15" textLength="244" lengthAdjust="spacingAndGlyphs">CODE SIGNING SIMPLE &amp; SECURE</text>
+			  <text x="0" y="15">CODE SIGNING SIMPLE &amp; SECURE</text>
 			</svg>
 	  		<div>
 				<a target="_blank" href="https://www.linkedin.com/company/33243108" rel="noopener noreferrer">
