@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/status</loc>
-    <lastmod>2024-09-11T13:06:05+00:00</lastmod>
+    <lastmod>2024-09-27T16:10:07+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/privacy-policy</loc>
@@ -126,7 +126,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/crypto-providers/rest-api</loc>
-    <lastmod>2024-08-29T12:10:26+00:00</lastmod>
+    <lastmod>2024-10-04T16:32:56+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/crypto-providers/windows</loc>
@@ -142,7 +142,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/changelog</loc>
-    <lastmod>2024-09-02T11:32:07+00:00</lastmod>
+    <lastmod>2024-10-08T13:04:38+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems/appveyor</loc>
@@ -154,7 +154,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems/github</loc>
-    <lastmod>2024-09-02T16:27:27+00:00</lastmod>
+    <lastmod>2024-09-27T10:46:41+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems/jenkins</loc>
@@ -166,7 +166,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems/double-authentication-proxy</loc>
-    <lastmod>2024-09-02T16:27:27+00:00</lastmod>
+    <lastmod>2024-10-08T11:41:06+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/code-signing/private-keys</loc>
@@ -242,15 +242,11 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog/2024/09/10/implicit-to-explicit</loc>
-    <lastmod>2024-10-10T09:24:53+00:00</lastmod>
+    <lastmod>2024-09-12T09:54:09+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog/2020/12/21/evaluating-sunburst</loc>
     <lastmod>2024-02-22T17:20:11+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://about.fqa.test.signpath.io/blog/2024/10/08/code-integrity-quality</loc>
-    <lastmod>2024-10-11T11:44:54+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog/2020/08/26/unfulfilled-expectations</loc>
@@ -274,7 +270,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog/2024/02/22/new-year-new-faces</loc>
-    <lastmod>2024-10-10T09:24:53+00:00</lastmod>
+    <lastmod>2024-03-01T18:49:48+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog/2021/03/23/dp-api-encryption-ineffective-in-windows-containers</loc>

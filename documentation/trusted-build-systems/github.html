@@ -167,7 +167,7 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">github-artifact-id</code></td>
       <td>(mandatory)</td>
-      <td>ID of the Github Actions artifact. Must be uploaded using the <a href="https://github.com/actions/upload-artifact">actions/upload-artifact</a> v4+ action before it can be signed. Use <code class="language-plaintext highlighter-rouge">{{ steps.&lt;step-id&gt;.outputs.artifact-id }}</code> from the preceding actions/upload-artifact action step.</td>
+      <td>ID of the Github Actions artifact. Must be uploaded using the <a href="https://github.com/actions/upload-artifact">actions/upload-artifact</a> v4+ action before it can be signed. Use <code class="language-plaintext highlighter-rouge">${{ steps.&lt;step-id&gt;.outputs.artifact-id }}</code> from the preceding actions/upload-artifact action step.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">wait-for-completion</code></td>
@@ -237,7 +237,7 @@
 	  	<div>
 	  		<img src='/assets/signpath-logo-white.svg' width="334" height="67" alt='SignPath'/>
 	  		<svg viewBox="0 0 244 18">
-			  <text x="0" y="15">CODE SIGNING SIMPLE &amp; SECURE</text>
+			  <text x="0" y="15" textLength="244" lengthAdjust="spacingAndGlyphs">CODE SIGNING SIMPLE &amp; SECURE</text>
 			</svg>
 	  		<div>
 				<a target="_blank" href="https://www.linkedin.com/company/33243108" rel="noopener noreferrer">

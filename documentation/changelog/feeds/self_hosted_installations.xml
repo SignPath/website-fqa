@@ -2,12 +2,29 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-08-29</updated>
+<updated>2024-09-24</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml</id><title type="html">SignPath - Self-hosted Installations Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2024-09-24:self_hosted_installations:1.172.0</id>
+        <title>SignPath Application (self-hosted only) 1.172.0</title>
+        <updated>2024-09-24</updated>
+        <published>2024-09-24</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-09-24" />
+        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
+        <summary type="html">New Release:  1.172.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.172.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Changed recommended Kubernetes version to 1.29 and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpathio/kubectl&lt;/code&gt; image tag to 1.29.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Graceful container shutdown: termination of Pods is now delayed (default of 30 secs). 
+This allows for request drain-out and safe shutdown (e.g. flushing Application Insights data).&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2024-08-29:self_hosted_installations:1.171.0</id>
         <title>SignPath Application (self-hosted only) 1.171.0</title>
         <updated>2024-08-29</updated>

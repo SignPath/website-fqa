@@ -2,12 +2,79 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/application.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-08-29</updated>
+<updated>2024-10-08</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/application.xml</id><title type="html">SignPath - Application Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2024-10-08:application:1.173.0</id>
+        <title>SignPath Application 1.173.0</title>
+        <updated>2024-10-08</updated>
+        <published>2024-10-08</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-10-08" />
+        <category term="release/application" label="Application" />
+        <summary type="html">New Release:  1.173.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.173.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Renamed the X.509 certificate creation/upload REST API routes:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POST /v1/{organizationId}/Certificates/CreateSelfSigned&lt;/code&gt; → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreateSelfSignedX509&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POST /v1/{organizationId}/Certificates/CreateCsrBased&lt;/code&gt; → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreateCsrBasedX509&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POST /v1/{organizationId}/Certificates/{slug}/UploadCertificate&lt;/code&gt; → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UploadX509Certificate&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Old routes are still available but deprecated. No changes in request bodies.&lt;/p&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;Breaking change in v1 response properties.&lt;/p&gt;
+
+&lt;p&gt;Affected routes:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Certificates&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Certificates/{slug}&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Changes:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Existing property &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;type&lt;/code&gt; (top-level) now represents the certificate type (currently only &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;X509&lt;/code&gt;).&lt;/li&gt;
+  &lt;li&gt;Previous value of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;type&lt;/code&gt; is now in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x509Certificate.creationMethod&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SelfSigned&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Csr&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PfxImport&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ImportedWithExistingKeyPair&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(Rationale: we expect no external dependencies on the current value of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;type&lt;/code&gt;.)&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;ECDSA hash signing: added support for signature block format “RFC 3279 ASN.1 sequence”. See &lt;a href=&quot;/documentation/crypto-providers/rest-api#hash-signing-payload-json&quot;&gt;artifact format for signing hash digests&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Signing request details page now shows HTTP response status code for failed artifact retrievals.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed broken base URL in Swagger UI (affected version 1.172).&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
+        <id>tag:about.signpath.io,2024-09-24:application:1.172.0</id>
+        <title>SignPath Application 1.172.0</title>
+        <updated>2024-09-24</updated>
+        <published>2024-09-24</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-09-24" />
+        <category term="release/application" label="Application" />
+        <summary type="html">New Release:  1.172.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.172.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Added origin information to the signing request list (verified origin or trusted build system name).&lt;/p&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;Improved quota display on the organization page.&lt;/p&gt;
+&lt;span class='enterprise-only'&gt;(SaaS only)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;Artifact configuration visualization: multiple signing directives now displayed separately.&lt;/p&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;Signing request processing history now displayed indefinitely (was not displayed for “archived” signing requests, i.e. 31 days after completion in SaaS).&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed disabled “Resubmit with current settings” button for archived signing requests (completion older than 31 days).&lt;/p&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed interactive user invitation flow for newly registered users.&lt;/p&gt;
+&lt;span class='enterprise-only'&gt;(SaaS only)&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2024-08-29:application:1.171.0</id>
         <title>SignPath Application 1.171.0</title>
         <updated>2024-08-29</updated>
