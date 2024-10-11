@@ -76,7 +76,7 @@
 		<article>
 			<h1 id="the-misconception-of-integrity-as-quality-a-perspective-on-definitions-and-misuses">The Misconception of Integrity as Quality: A Perspective on Definitions and Misuses</h1>
 
-<p>In the context of code, “integrity” and “quality” are terms I often see used interchangeably. As the founder of a startup that provides software integrity, I see this as a problem! In software architecture and development, precision in terminology is crucial. Conflating terms can lead to mistakes, compromises, and system failures.</p>
+<p>I’m seeing far too many sources conflating the concepts of “code integrity” and “code quality”. As the founder of a startup that provides a code integrity platform, I see this as a problem! In software architecture and development, precise terminology is crucial. Conflating terms can, and often does, lead to mistakes, compromises, and system failures.</p>
 
 <figure class="image">
   <img src="/assets/posts/2024-10-08.jpg" alt="" />
@@ -93,22 +93,23 @@
   <p>Code integrity is a measurement used in the software delivery lifecycle. It measures how high the source code’s quality is when it is passed on to QA.</p>
 </blockquote>
 
-<p>The article also sources definitions from seemingly circular references and random web pages.  Given that Wikipedia is often the “go-to” source for authoritative definitions, this article only reinforces the need for clarity and accuracy in defining such critical terms.</p>
+<p>Huh? Code integrity is a measure of code quality? Given that Wikipedia is often the “go-to” source for authoritative definitions, this article only reinforces my point – the need for clarity and accuracy in defining such critical terms.</p>
 
-<p>In my view, such confusion has consequences, particularly keeping in mind the current state of software supply chain security. Words have specific meanings, and while their usage can evolve, stretching them too far often leads to confusion and miscommunication, especially in a technical context. Clarity in terms such as “integrity” and “quality” is essential for effective design and proper implementation of best practices.</p>
+<p>It wouldn’t be a big deal if the integrity/quality confusion were confined to a single Wikipedia article. But the article is just a symptom of a wider problem. The conflation crops up again and again, even on product pages of (otherwise sophisticated) technology companies.</p>
+
+<p>Keeping in mind the current state of software supply chain security, such confusion can have potentially catastrophic consequences. True, word usages and meanings can (and must) evolve. That’s the nature of language. However, stretching them too far in a technical context is unwise. For effective design and proper implementation of best practices, we need to be crystal clear about what we mean by “integrity” and “quality”.</p>
 
 <h2 id="what-we-talk-about-when-we-talk-about-integrity">What we talk about when we talk about “integrity”</h2>
 
-<p>Integrity, in its truest sense, refers to the state of being whole, undivided, and uncorrupted. In the world of  software, “integrity” has a precise meaning. By saying the software has “integrity”, we mean that it remains unadulterated by any third parties or even any unintended modifications. Some might argue that software integrity refers to the absence of any unauthorized changes in the delivered product. This interpretation aligns well with the concept of maintaining the original intent and design of the software. For example, people in our field refer to some forms of software supply chain attacks as “code integrity attacks”.</p>
+<p>In the general sense, integrity refers to the state of being whole, undivided, and uncorrupted. In the domain of software, “integrity” has a very precise meaning. By saying the software exhibits “integrity”, we mean that it remains unadulterated by any third parties, and is provably free of any unintended modifications. Some might argue that software integrity refers to the absence of any unauthorized changes in the delivered product. This interpretation aligns well with the concept of maintaining the original intent and design of the software. For example, some types of software supply chain attacks are referred to as “code integrity attacks”.</p>
 
-<p>Quality, on the other hand, is a multifaceted concept in software development. While often considered subjective, it encompasses both measurable and perceptual aspects. In the context of software, quality refers to how well the product meets specified requirements, user needs, and industry standards.
-The Consortium for IT Software Quality (CISQ) has defined five major desirable structural characteristics needed for a piece of software to provide business value: Reliability, Efficiency, Security, Maintainability, and Size.</p>
-
-<p>High-quality software not only performs its intended functions correctly but also provides a positive user experience, is robust against errors, and can be easily modified or extended. Unlike integrity, which focuses on preserving the original state of the software, quality is about enhancing its overall value and effectiveness.</p>
+<p>Quality, on the other hand, is a multifaceted concept. We usually think of quality as a (surprise!) qualitative, rather than a quantitative, measure. Yet, in the domain of software, quality measures, as empirically as possible, a software deliverable’s adherence to product requirements, performance metrics, scaling characteristics, UX/DX designs, and industry standards.</p>
 
 <h2 id="what-is-code-integrity-after-all">What is “code integrity” after all?</h2>
 
-<p>“Software integrity” refers specifically to the preservation of the original state of a piece of code. This involves several dimensions:</p>
+<p>Let’s boil it down. “Code integrity” refers specifically to the preservation of the original state of a piece of code, even across a heterogeneous set of developers, machines, repositories, CI/CD pipelines, and environments.</p>
+
+<p>This definition encompasses multiple dimensions of integrity:</p>
 
 <ul>
   <li>Authenticity and Security: Ensuring that the code has not been modified by unauthorized parties. Code signing is a technique that guarantees authenticity and integrity by confirming the source of the code and ensuring it has not been tampered with.</li>
@@ -118,15 +119,11 @@ The Consortium for IT Software Quality (CISQ) has defined five major desirable s
   <li>Package Integrity: The final deliverable’s integrity must be protected to ensure that what is delivered to users is exactly what was intended.</li>
 </ul>
 
-<h2 id="stretching-the-definition">Stretching the definition</h2>
+<h2 id="refuting-the-integrity--quality-misconception">Refuting the Integrity = Quality misconception</h2>
 
-<p>While these points might seem to stretch the definition of integrity slightly, they all focus on maintaining the original, uncorrupted state of the software. Extending the definition further to include all kinds of policies and procedures might seem reasonable, as violations of these can corrupt the process and, consequently, the final product.</p>
+<p>Claiming that integrity equals quality is wrong, wrong, wrong! Simplifying such a nuanced concept into a catch-all term leads to a perilous lack of precision. Without pointing fingers, such oversimplifications typically find their outlet in marketing materials, which often strive to appease (bamboozle?) multiple audiences, or at least to solve more problems than is realistic, or, for that matter, true.</p>
 
-<h2 id="the-integrity--quality-misconception">The Integrity = Quality misconception</h2>
-
-<p>Claiming that integrity equals quality is not only incorrect but also unhelpful. It attempts to simplify a nuanced concept into a catch-all term, which leads to a loss of precision and meaning. Such oversimplifications are often found in marketing materials, where the goal might be to sell a concept rather than to convey its precise technical meaning.</p>
-
-<p>A precise and useful definition of code integrity would encompass:</p>
+<p>A precise and useful definition of code integrity encompasses:</p>
 
 <ul>
   <li>Ensuring no unauthorized changes have been made.</li>
@@ -134,11 +131,16 @@ The Consortium for IT Software Quality (CISQ) has defined five major desirable s
   <li>Safeguarding the integrity of the source code, dependencies, build process, and final package.</li>
 </ul>
 
-<p>Such a definition would be a much more valuable contribution to resources like Wikipedia, compared to the current ambiguous and circular definitions.
-In fact, several working groups are tackling this issue of code integrity. The OWASP community, for example, is developing a standard for Software Bill of Materials (SBOM). OASIS-OPEN is focusing on creating end-to-end traceability for threats impacting software components. Meanwhile, the Open Source Software Foundation is working on establishing code integrity guidelines. Google’s SLSA and Microsoft’s SCIM frameworks are notable in their innovative approaches within the field.</p>
+<p>That’s a much more valuable, not to mention, <em>actionable</em>, contribution to resources like Wikipedia, compared to the current ambiguous and circular definitions.</p>
+
+<h2 id="industry-efforts-around-code-integrity">Industry efforts around code integrity</h2>
+
+<p>Thanksfully, a number of organizations and working groups are tackling this issue of code integrity. The OWASP community, for example, is developing a standard for Software Bill of Materials (SBOM). CycloneDX, as it is called, is a “full-stack Bill of Materials (BOM) standard that provides advanced supply chain capabilities for cyber risk reduction.” <a href="https://www.oasis-open.org/standards/">OASIS-OPEN</a> is creating end-to-end traceability for threats impacting software components. Another notable industry initiative is the security framework known as <a href="https://slsa.dev/">Supply-chain Levels for Software Artifacts</a>, or, SLSA. Proposed by Google in collaboration with <a href="https://openssf.org/">Open Source Security Foundation</a>, SLSA bills itself as a “a checklist of standards and controls to prevent tampering, improve integrity, and secure packages and infrastructure.”</p>
 
 <h2 id="wrap-up">Wrap up</h2>
-<p>In conclusion, while integrity and quality are related, they are far from synonymous. Integrity focuses on the preservation of the original state and authenticity, while quality encompasses a broader range of attributes. Clear and precise definitions are crucial, particularly in technical fields, to ensure effective communication and implementation of best practices. So, let’s maintain the integrity of our language and use terms appropriately, especially when it comes to important concepts like code integrity.</p>
+<p>In conclusion, while integrity and quality are related, they’re not, by any means, synonymous. Integrity focuses on the preservation of the original state and authenticity. Quality involves a broader, perhaps less well-defined, range of attributes. If we want to build software that incorporates both integrity and quality, we first need clear and precise definitions.</p>
+
+<p>So, let’s maintain the integrity of our language and use terms appropriately, especially when it comes to important concepts like code integrity.</p>
 
 <p>To experience the distinctive advantages SignPath offers for code integrity, <a href="https://forms.gle/sAHSsxgASx2BYPzc9">Request a Demo</a> today.</p>
 
