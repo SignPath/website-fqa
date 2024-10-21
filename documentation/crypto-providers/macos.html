@@ -170,7 +170,7 @@ open SignPathCryptoTokenKit.app <span class="nt">--args</span> <span class="se">
 
 <h3 id="troubleshooting">Troubleshooting</h3>
 
-<p>Loading the certificates and making them available in the MacOS keychain can take up to 20 seconds.</p>
+<p>Loading the certificates and making them available in the macOS keychain can take up to 20 seconds.</p>
 
 <h4 id="logs">Logs</h4>
 
@@ -189,7 +189,7 @@ open SignPathCryptoTokenKit.app <span class="nt">--args</span> <span class="se">
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pluginkit <span class="nt">-m</span> <span class="nt">-v</span> <span class="nt">-p</span> com.apple.ctk-tokens
 </code></pre></div></div>
 
-<p>If the certificates cannot be loaded, it helps to stop the smartcard service on MacOS (it is restarted automatically) by running:</p>
+<p>The smartcard service on macOS sometimes has issues. If the certificates cannot be loaded, the service can be restarted by running the following command:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>killall ctkd
 </code></pre></div></div>

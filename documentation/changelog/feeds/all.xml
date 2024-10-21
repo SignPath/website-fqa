@@ -9,11 +9,11 @@
   <uri>https://about.signpath.io</uri>
 </author><entry>
         <id>tag:about.signpath.io,2024-10-21:macos_cryptotokenkit:2.0</id>
-        <title>SignPath MacOS CryptoTokenKit 2.0</title>
+        <title>SignPath macOS CryptoTokenKit 2.0</title>
         <updated>2024-10-21</updated>
         <published>2024-10-21</published>
         <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-10-21" />
-        <category term="release/macos_cryptotokenkit" label="MacOS CryptoTokenKit" />
+        <category term="release/macos_cryptotokenkit" label="macOS CryptoTokenKit" />
         <summary type="html">New Release:  2.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -649,11 +649,11 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-03-18:macos_cryptotokenkit:1.0</id>
-        <title>SignPath MacOS CryptoTokenKit 1.0</title>
+        <title>SignPath macOS CryptoTokenKit 1.0</title>
         <updated>2024-03-18</updated>
         <published>2024-03-18</published>
         <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-03-18" />
-        <category term="release/macos_cryptotokenkit" label="MacOS CryptoTokenKit" />
+        <category term="release/macos_cryptotokenkit" label="macOS CryptoTokenKit" />
         <summary type="html">New Release:  1.0</summary>
         <content type="html">
           &lt;div&gt;
