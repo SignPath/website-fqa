@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/trusted-build-systems' />
+  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/trusted-build-systems/double-authentication-proxy' />
   <!-- Begin Jekyll SEO tag v2.6.1 -->
   <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
-  <title>Documentation - Trusted Build Systems | SignPath</title>
-  <meta property="og:title" content="Documentation - Trusted Build Systems | SignPath" />
+  <title>Trusted Build Systems - Double Authentication Proxy | SignPath</title>
+  <meta property="og:title" content="Trusted Build Systems - Double Authentication Proxy | SignPath" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:description" content="Documentation for providing Trusted Build Systems to SignPath" />
-  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/trusted-build-systems" />
+  <meta property="og:description" content="Double Authentication Proxy" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/trusted-build-systems/double-authentication-proxy" />
   <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
-  <meta name="description" content="Documentation for providing Trusted Build Systems to SignPath"/>
+  <meta name="description" content="Double Authentication Proxy"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
   <link rel="stylesheet" href="/assets/css/index.css?cache=2024-08-14">
@@ -57,100 +57,21 @@
   <main>
 <section class="bg-blue font-white top-section">
 	<div>
-		<h1><span class='no-break'>Documentation &nbsp;❯&nbsp; </span> Trusted Build Systems</h1>
+		<h1><span class='no-break'>Trusted Build Systems &nbsp;❯&nbsp; </span> Double Authentication Proxy</h1>
 	</div>
 </section>
 <section class="resources-section">
 	<div><aside>
 				<ul><li class=''>
-							<a href='/documentation/getting-started#'>Getting Started</a></li><li class=''>
-							<a href='/documentation/managing-certificates#'>Managing Certificates</a></li><li class=''>
-							<a href='/documentation/users#'>Managing Users</a></li><li class=''>
-							<a href='/documentation/projects#'>Setting up Projects</a></li><li class=''>
-							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=''>
-							<a href='/documentation/signing-containers#'>Signing Container Images</a></li><li class='separator' /><li class=''>
-							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=''>
-							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class='active'>
-							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a><div class="no-mobile" ><ul>
-  <li><a href="#abstract">Abstract</a></li>
-  <li><a href="#configuration">Configuration</a></li>
-  <li><a href="#direct-use">Direct use of trusted build systems</a></li>
-</ul>
-</div></li><li class=''>
-							<a href='/documentation/origin-verification#'>Origin Verification</a></li><li class='separator' /><li class=''>
-							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class=''>
-							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=''>
-							<a href='/documentation/changelog#'>Product updates</a></li></ul>
-			</aside><article><ul class="article-toc">
-  <li><a href="#abstract">Abstract</a>
-    <ul>
-      <li><a href="#abstract-origin-verification">Origin verification</a></li>
-      <li><a href="#abstract-direct-use">Direct use</a></li>
-    </ul>
-  </li>
-  <li><a href="#configuration">Configuration</a></li>
-  <li><a href="#direct-use">Direct use of trusted build systems</a>
-    <ul>
-      <li><a href="#da-proxy">Double Authentication Proxy</a></li>
-    </ul>
-  </li>
-</ul>
-<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway</em>.  Required for <em>Open Source Code Signing</em>.</p>
-
-<h2 id="abstract">Abstract</h2>
-
-<p>Trusted build systems create a trust relationship between SignPath and certain systems used in your build pipeline. They are typically implemented as connectors and configured in SignPath.</p>
-
-<h3 id="abstract-origin-verification">Origin verification</h3>
-
-<p>The primary function of trusted build systems is to serve as the foundation of origin verifcation. This feature allows build systems to provide reliable origin metadata with your signing requests, so that SignPath can execute advanced policies based on trusted information.</p>
-
-<p>See <a href="/documentation/origin-verification">origin verifcation</a> for details.</p>
-
-<h3 id="abstract-direct-use">Direct use</h3>
-
-<p>Trusted build systems can also be used to simply restrict signing to certain build systems. Use them to make sure that certain signing policies and certificates can only be used from build agents with specific properties.</p>
-
-<p>See <a href="#direct-use">below</a> for details.</p>
-
-<h2 id="configuration">Configuration</h2>
-
-<p>To add a trusted build system to your SignPath organization:</p>
-<ul>
-  <li>go to the <strong>Trusted Build Systems</strong> page (top menu) and click <strong>Add</strong>.</li>
-  <li>enter a name, slug and (optionally) description</li>
-  <li>remember the token that is created as a result</li>
-</ul>
-
-<p>The token must then be used to configure the connector (see connector documentation). You can now link this trusted build system to your projects.</p>
-
-<p>To use a trusted build system in a project:</p>
-<ul>
-  <li>open the project</li>
-  <li>find the <strong>Trusted build systems</strong> section</li>
-  <li>click <strong>Link</strong></li>
-  <li>select one of the trusted build systems of your organization</li>
-  <li>depending on the type of build system, you might need to add authentication information and/or an artifact path (see your connector’s documentation)</li>
-</ul>
-
-<p>The build system can now be used to submit signing requests with origin metadata. A trusted build system is required for signing policies with origin verification enabled.</p>
-
-<h2 id="direct-use">Direct use of trusted build systems</h2>
-
-<p>Possible policies include:</p>
-
-<ul>
-  <li>Prevent root access: allow code signing only from build agents that don’t allow any build scripts to modify systems settings</li>
-  <li>Prevent network access: guarantee that artifacts cannot be arbitrarily received from internet sources</li>
-  <li>Restrict user access: don’t let development teams connect to the build agent, with or without administrative permissions (if you need build nodes with wider permission sets, consider separating the process of compilation and packaging from other steps such as running tests)</li>
-  <li>Require current security policies: avoid misuse of recently restored or otherwise not up-to-date build agents</li>
-</ul>
-
-<p>See <a href="#da-proxy">below</a> for a simple way to achieve this using machine certificate enrollment.</p>
-
-<h3 id="da-proxy">Double Authentication Proxy</h3>
-
-<p>Double Authentication Proxy is a connector that will let you use mutual TLS (TLS/SSL client certificates) for build node authentication.</p>
+							<a href='/documentation/trusted-build-systems/#'>Trusted Build Systems</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems/github#'>GitHub</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems/jenkins#'>Jenkins</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems/appveyor#'>AppVeyor</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems/azure-devops#'>Azure DevOps</a></li><li class='active'>
+							<a href='/documentation/trusted-build-systems/double-authentication-proxy#'>Double Authentication Proxy</a><div class="no-mobile" >
+</div></li></ul>
+			</aside><article>
+<p>The Double Authentication Proxy is a connector that will let you use mutual TLS (TLS/SSL client certificates) for build node authentication.</p>
 
 <p>This results in a two-fold authentication strategy:</p>
 
@@ -172,7 +93,7 @@
   <p>This is a very straightforward way to authorize specific groups of build nodes for SignPath:</p>
 
   <ul>
-    <li>Include all buiild nodes with certain security properties in a computer group</li>
+    <li>Include all build nodes with certain security properties in a computer group</li>
     <li>Use Microsoft Certificate Server to assign computer certificates to this group (we recommend using short-lived certificates, i.e. days or weeks, for security critical groups)</li>
     <li>Specify the template ID in the Double Authentication Proxy configuration</li>
     <li>Register the Double Authentication Proxy as trusted build system (see <a href="#configuration">configuration</a>)</li>
@@ -206,7 +127,7 @@
 	  	<div>
 	  		<img src='/assets/signpath-logo-white.svg' width="334" height="67" alt='SignPath'/>
 	  		<svg viewBox="0 0 244 18">
-			  <text x="0" y="15">CODE SIGNING SIMPLE &amp; SECURE</text>
+			  <text x="0" y="15" textLength="244" lengthAdjust="spacingAndGlyphs">CODE SIGNING SIMPLE &amp; SECURE</text>
 			</svg>
 	  		<div>
 				<a target="_blank" href="https://www.linkedin.com/company/33243108" rel="noopener noreferrer">

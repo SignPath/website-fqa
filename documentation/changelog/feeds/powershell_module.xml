@@ -1,7 +1,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
-<link href="https://about.signpath.io/documentation/changelog/feeds/powershell_module.xml" rel="self" type="application/atom+xml" />
-<link href="https://about.signpath.io/" rel="alternate" type="text/html" />
+<link href="https://about.signpath.io/documentation/changelog/feeds/powershell_module.xml" rel="self" type="application/atom+xml"/>
+<link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
 <updated>2024-07-08</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/powershell_module.xml</id><title type="html">SignPath - PowerShell Module Changelog</title>
 <author>
@@ -9,105 +9,113 @@
   <uri>https://about.signpath.io</uri>
 </author><entry>
         <id>tag:about.signpath.io,2024-07-08:powershell_module:4.4.1</id>
-        <title>SignPath SignPath PowerShell Module 4.4.1</title>
+        <title>SignPath PowerShell Module 4.4.1</title>
         <updated>2024-07-08</updated>
         <published>2024-07-08</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-08" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 4.4.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-08" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  4.4.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 4.4.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  4.4.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Signing requests are new automatically cancelled after &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WaitForCompletionTimeoutInSeconds&lt;/code&gt;. This can be overridden with the new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-CancellationTimeoutInSeconds&lt;/code&gt; parameter.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-02-01:powershell_module:4.3.4</id>
-        <title>SignPath SignPath PowerShell Module 4.3.4</title>
+        <title>SignPath PowerShell Module 4.3.4</title>
         <updated>2024-02-01</updated>
         <published>2024-02-01</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-02-01" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 4.3.4</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-02-01" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  4.3.4</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 4.3.4&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  4.3.4&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a bug that prevented read-only files from being submitted for signing.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-10-02:powershell_module:4.3.2</id>
-        <title>SignPath SignPath PowerShell Module 4.3.2</title>
+        <title>SignPath PowerShell Module 4.3.2</title>
         <updated>2023-10-02</updated>
         <published>2023-10-02</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-10-02" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 4.3.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-10-02" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  4.3.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 4.3.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  4.3.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved the inline documentation&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-09-13:powershell_module:4.3.1</id>
-        <title>SignPath SignPath PowerShell Module 4.3.1</title>
+        <title>SignPath PowerShell Module 4.3.1</title>
         <updated>2023-09-13</updated>
         <published>2023-09-13</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-09-13" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 4.3.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-09-13" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  4.3.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 4.3.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  4.3.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Renamed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-CIUserToken&lt;/code&gt; parameter to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-ApiToken&lt;/code&gt;. The old name is still valid for this major version (4.x).&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-05-12:powershell_module:4.3.0</id>
-        <title>SignPath SignPath PowerShell Module 4.3.0</title>
+        <title>SignPath PowerShell Module 4.3.0</title>
         <updated>2023-05-12</updated>
         <published>2023-05-12</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-05-12" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 4.3.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-05-12" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  4.3.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 4.3.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  4.3.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Support for using mutual TLS client certificates specified by a Microsoft template ID.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-03-23:powershell_module:4.2.1</id>
-        <title>SignPath SignPath PowerShell Module 4.2.1</title>
+        <title>SignPath PowerShell Module 4.2.1</title>
         <updated>2023-03-23</updated>
         <published>2023-03-23</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-23" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 4.2.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-23" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  4.2.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 4.2.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  4.2.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved error messages when a wrong URL is provided.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-11-15:powershell_module:4.2.0</id>
-        <title>SignPath SignPath PowerShell Module 4.2.0</title>
+        <title>SignPath PowerShell Module 4.2.0</title>
         <updated>2022-11-15</updated>
         <published>2022-11-15</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-11-15" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 4.2.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-11-15" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  4.2.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 4.2.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  4.2.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Artifact Retrieval: Instead of uploading the artifact file, a HTTPS retrieval link including authentication headers can now be passed to SignPath.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-09-29:powershell_module:4.1.3</id>
-        <title>SignPath SignPath PowerShell Module 4.1.3</title>
+        <title>SignPath PowerShell Module 4.1.3</title>
         <updated>2022-09-29</updated>
         <published>2022-09-29</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-29" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 4.1.3</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-29" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  4.1.3</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 4.1.3&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  4.1.3&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added a proper return message when an operation is not allowed.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Cleaned up the documentation.&lt;/p&gt;
@@ -115,105 +123,113 @@
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-07-25:powershell_module:4.1.1</id>
-        <title>SignPath SignPath PowerShell Module 4.1.1</title>
+        <title>SignPath PowerShell Module 4.1.1</title>
         <updated>2022-07-25</updated>
         <published>2022-07-25</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-07-25" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 4.1.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-07-25" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  4.1.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 4.1.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  4.1.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added references to the online documentation.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-03-31:powershell_module:4.1.0</id>
-        <title>SignPath SignPath PowerShell Module 4.1.0</title>
+        <title>SignPath PowerShell Module 4.1.0</title>
         <updated>2022-03-31</updated>
         <published>2022-03-31</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-31" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 4.1.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-31" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  4.1.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 4.1.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  4.1.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;An error message is shown when an artifact is no longer available for download.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-12-09:powershell_module:4.0.0</id>
-        <title>SignPath SignPath PowerShell Module 4.0.0</title>
+        <title>SignPath PowerShell Module 4.0.0</title>
         <updated>2021-12-09</updated>
         <published>2021-12-09</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-12-09" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 4.0.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-12-09" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  4.0.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 4.0.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  4.0.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Submit-SigningRequestResubmit&lt;/code&gt; command has been removed. Resubmit is now possible using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-Resubmit&lt;/code&gt; flag of the regular &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Submit-SigningRequest&lt;/code&gt; command.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-11-10:powershell_module:3.2.1</id>
-        <title>SignPath SignPath PowerShell Module 3.2.1</title>
+        <title>SignPath PowerShell Module 3.2.1</title>
         <updated>2021-11-10</updated>
         <published>2021-11-10</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-11-10" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 3.2.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-11-10" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  3.2.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 3.2.1&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  3.2.1&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a bug that prevented an error message from being shown when a parameter is missing.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-07-08:powershell_module:3.1.3</id>
-        <title>SignPath SignPath PowerShell Module 3.1.3</title>
+        <title>SignPath PowerShell Module 3.1.3</title>
         <updated>2021-07-08</updated>
         <published>2021-07-08</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-07-08" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 3.1.3</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-07-08" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  3.1.3</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 3.1.3&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  3.1.3&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Cleaned up the code.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-04-29:powershell_module:3.1.0</id>
-        <title>SignPath SignPath PowerShell Module 3.1.0</title>
+        <title>SignPath PowerShell Module 3.1.0</title>
         <updated>2021-04-29</updated>
         <published>2021-04-29</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-29" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 3.1.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-29" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  3.1.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 3.1.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  3.1.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added support for user-defined parameters.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-04-15:powershell_module:3.0.2</id>
-        <title>SignPath SignPath PowerShell Module 3.0.2</title>
+        <title>SignPath PowerShell Module 3.0.2</title>
         <updated>2021-04-15</updated>
         <published>2021-04-15</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-15" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 3.0.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-15" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  3.0.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 3.0.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  3.0.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added more explicit error messages when a Trusted Build System Link is missing in the Project configuration.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-04-01:powershell_module:3.0.1</id>
-        <title>SignPath SignPath PowerShell Module 3.0.1</title>
+        <title>SignPath PowerShell Module 3.0.1</title>
         <updated>2021-04-01</updated>
         <published>2021-04-01</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-01" /><category term="release/powershell_module" label="SignPath SignPath PowerShell Module" />
-        <summary type="html">New Release: SignPath SignPath PowerShell Module 3.0.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-01" />
+        <category term="release/powershell_module" label="PowerShell Module" />
+        <summary type="html">New Release:  3.0.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: SignPath SignPath PowerShell Module 3.0.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  3.0.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-Verbose&lt;/code&gt; flag for better debugging experience.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-ClientCertificate&lt;/code&gt; parameter is now also supported in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Get-SignedArtifact&lt;/code&gt; command.&lt;/p&gt;

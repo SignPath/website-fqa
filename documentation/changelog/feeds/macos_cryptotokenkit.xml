@@ -2,17 +2,18 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/macos_cryptotokenkit.xml" rel="self" type="application/atom+xml" />
 <link href="https://about.signpath.io/" rel="alternate" type="text/html" />
-<updated>2999-99-99</updated>
+<updated>2024-10-21</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/macos_cryptotokenkit.xml</id><title type="html">SignPath - macOS CryptoTokenKit Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
-        <id>tag:about.signpath.io,2999-99-99:macos_cryptotokenkit:2.0</id>
-        <title>SignPath macOS CryptoTokenKit 2.0</title>
-        <updated>2999-99-99</updated>
-        <published>2999-99-99</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2999-99-99" /><category term="release/macos_cryptotokenkit" label="" />
+        <id>tag:about.signpath.io,2024-10-21:macos_cryptotokenkit:2.0</id>
+        <title>SignPath MacOS CryptoTokenKit 2.0</title>
+        <updated>2024-10-21</updated>
+        <published>2024-10-21</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-10-21" />
+        <category term="release/macos_cryptotokenkit" label="MacOS CryptoTokenKit" />
         <summary type="html">New Release:  2.0</summary>
         <content type="html">
           &lt;div&gt;
@@ -32,10 +33,11 @@
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-03-18:macos_cryptotokenkit:1.0</id>
-        <title>SignPath macOS CryptoTokenKit 1.0</title>
+        <title>SignPath MacOS CryptoTokenKit 1.0</title>
         <updated>2024-03-18</updated>
         <published>2024-03-18</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-03-18" /><category term="release/macos_cryptotokenkit" label="" />
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-03-18" />
+        <category term="release/macos_cryptotokenkit" label="MacOS CryptoTokenKit" />
         <summary type="html">New Release:  1.0</summary>
         <content type="html">
           &lt;div&gt;

@@ -93,6 +93,7 @@
       <li><a href="#approval-process">Approval process</a></li>
       <li><a href="#signing-policy-trusted-build-system">Trusted build system verification</a></li>
       <li><a href="#signing-policy-origin-verification">Origin verification restriction</a></li>
+      <li><a href="#malware-scanning">Malware scanning</a></li>
     </ul>
   </li>
   <li><a href="#artifact-configurations">Artifact configurations</a>
@@ -273,7 +274,7 @@
 </table>
 
 <blockquote class="panel tip">
-  <p><strong>Create differentiated signing policies</strong></p>
+  <h6 id="differentiated-policies">Create differentiated signing policies</h6>
 
   <p>You can create multiple signing policies with any combination of manual approval and origin verification. Use this to draw a clear line between standard and exceptional procedures.</p>
 
@@ -317,6 +318,14 @@
 
   <p>In some situations, it might even be necessary to sign any old release, e.g. via manual upload. This requires approval from two persons, maybe even from a reduced list that includes senior management.</p>
 </blockquote>
+
+<h3 id="malware-scanning">Malware scanning</h3>
+
+<p class="badge icon-signpath">Contact <a href="/support">Support</a> to activate this option. Not available for Open Source Code Signing.</p>
+
+<p>Select <strong>Disable malware scanning</strong> to skip malware scanning for this policy.</p>
+
+<p>Use this option to sign releases that have been falsely identified as malware. For release signing, we recommend using this only in specific scenarios. Consider creating specific policies, optionally protected with approval rules (see <a href="#differentiated-policies">above</a>).</p>
 
 <h2 id="artifact-configurations">Artifact configurations</h2>
 
@@ -404,7 +413,7 @@ with Authenticode).</p>
 	  	<div>
 	  		<img src='/assets/signpath-logo-white.svg' width="334" height="67" alt='SignPath'/>
 	  		<svg viewBox="0 0 244 18">
-			  <text x="0" y="15">CODE SIGNING SIMPLE &amp; SECURE</text>
+			  <text x="0" y="15" textLength="244" lengthAdjust="spacingAndGlyphs">CODE SIGNING SIMPLE &amp; SECURE</text>
 			</svg>
 	  		<div>
 				<a target="_blank" href="https://www.linkedin.com/company/33243108" rel="noopener noreferrer">

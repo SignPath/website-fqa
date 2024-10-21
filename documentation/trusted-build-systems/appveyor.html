@@ -1,0 +1,325 @@
+<!-- last_modified_at:  --><!DOCTYPE html>
+<html lang="en" data-appurl='https://fqa.test.signpath.io'>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/trusted-build-systems/appveyor' />
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+  <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
+  <title>Trusted Build Systems - AppVeyor | SignPath</title>
+  <meta property="og:title" content="Trusted Build Systems - AppVeyor | SignPath" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:description" content="AppVeyor" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/trusted-build-systems/appveyor" />
+  <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
+  <meta name="description" content="AppVeyor"/>
+  <!-- End Jekyll SEO tag -->
+  <link rel='stylesheet' href='/assets/css/hint.min.css'>
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-08-14">
+  <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
+  <script src='/assets/index.js?cache=2024-03-07'></script>
+  <script src='/assets/js/main-bundle.js?cache=2024-08-05'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.png" sizes="192x192">
+  <link rel="apple-touch-icon-precomposed" href="/assets/favicon.png">
+  <meta name="msapplication-TileImage" content="/assets/favicon.png">
+</head>
+<body>
+  <header>
+    <div>
+      <a href='/'><img src='/assets/signpath-logo-white.svg' width="181" height="36" alt='SignPath'></a>
+      <nav>
+        <ul><li>
+              <a href='/product'> Product </a>
+              <ul><li> <a href='/product/features'> Features </a> </li><li> <a href='/product/editions'> Editions </a> </li><li class='separator' /><li> <a href='/product/devops'> For DevOps teams </a> </li><li> <a href='/product/infosec'> For InfoSec teams </a> </li><li> <a href='/product/open-source'> For Open Source projects </a> </li><li class='separator' /><li> <a href='/product/office-macros'> Office macro signing </a> </li><li> <a href='/product/thales-dpod'> Thales DPoD Cloud HSM </a> </li><li> <a href='/product/pkic-best-practices'> PKI Consortium best practices </a> </li></ul>
+            </li><li>
+              <a href='/code-signing'> Code Signing </a>
+              <ul><li> <a href='/code-signing/introduction'> Introduction </a> </li><li> <a href='/code-signing/theory'> Theory </a> </li><li> <a href='/code-signing/windows-platform'> Windows Platform </a> </li><li> <a href='/code-signing/test-certificates'> Managing Test Certificates </a> </li><li> <a href='/code-signing/private-keys'> Storage of Private Keys </a> </li><li> <a href='/code-signing/media-coverage'> Media Coverage </a> </li></ul>
+            </li><li>
+              <a href='/documentation'> Documentation </a>
+              <ul><li> <a href='/documentation/getting-started'> Getting Started </a> </li><li> <a href='/documentation/managing-certificates'> Managing Certificates </a> </li><li> <a href='/documentation/users'> Managing Users </a> </li><li> <a href='/documentation/projects'> Setting up Projects </a> </li><li> <a href='/documentation/signing-code'> Signing Code </a> </li><li> <a href='/documentation/signing-containers'> Signing Container Images </a> </li><li class='separator' /><li> <a href='/documentation/artifact-configuration'> Artifact Configuration </a> </li><li> <a href='/documentation/build-system-integration'> Build System Integration </a> </li><li> <a href='/documentation/trusted-build-systems'> Trusted Build Systems </a> </li><li> <a href='/documentation/origin-verification'> Origin Verification </a> </li><li class='separator' /><li> <a href='/documentation/powershell'> PowerShell cmdlets </a> </li><li> <a href='/documentation/crypto-providers'> Crypto Providers </a> </li><li class='separator' /><li> <a href='/documentation/changelog'> Product updates </a> </li></ul>
+            </li><li>
+              <a href='/about-us'> About us </a>
+              <ul><li> <a href='/company'> Company </a> </li><li> <a href='/team'> Team </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/support'> Support </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
+            </li><li class='login'><a class='btn btn-flat' href='https://fqa.test.signpath.io/Web/Home/Login'>Login</a>
+          <li class='login'><a href='https://fqa.test.signpath.io/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
+          </li>
+        </ul>
+        <a id='main-menu-toggle' href='#' onclick='document.querySelector("header > div > nav > ul").classList.toggle("open")'>
+          <div></div>
+          <div></div>
+          <div></div>
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main>
+<section class="bg-blue font-white top-section">
+	<div>
+		<h1><span class='no-break'>Trusted Build Systems &nbsp;❯&nbsp; </span> AppVeyor</h1>
+	</div>
+</section>
+<section class="resources-section">
+	<div><aside>
+				<ul><li class=''>
+							<a href='/documentation/trusted-build-systems/#'>Trusted Build Systems</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems/github#'>GitHub</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems/jenkins#'>Jenkins</a></li><li class='active'>
+							<a href='/documentation/trusted-build-systems/appveyor#'>AppVeyor</a><div class="no-mobile" ><ul>
+  <li><a href="#prerequisites-and-restrictions">Prerequisites and restrictions</a></li>
+  <li><a href="#setup">Setup</a></li>
+  <li><a href="#attached-build-documentation">Attached build documentation</a></li>
+</ul>
+</div></li><li class=''>
+							<a href='/documentation/trusted-build-systems/azure-devops#'>Azure DevOps</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems/double-authentication-proxy#'>Double Authentication Proxy</a></li></ul>
+			</aside><article>
+<blockquote class="panel info">
+  <p><strong>Pre-configured connector</strong></p>
+
+  <p>The AppVeyor connector is built into SignPath and connects to appveyor.com.</p>
+  <ul>
+    <li>AppVeyor is available based on the configuration of your SignPath organization. You don’t need to add it on the Trusted Build Systems page.</li>
+    <li>It must still be linked to each project (see below)</li>
+  </ul>
+
+  <p>A customizable connector for AppVeyor Server will be provided in the future.</p>
+</blockquote>
+
+<h2 id="prerequisites-and-restrictions">Prerequisites and restrictions</h2>
+
+<p>In order to ensure Origin Verification, you cannot submit a signing request from an unfinished build. Instead, you have to finish the build job without signing, and then trigger a signing request with origin verification. When signing is completed, you can use a Webhook handler for further processing, such as uploading the signed artifact to a repository.</p>
+
+<p>The following checks are performed:</p>
+
+<ul>
+  <li>No additional scripts may be executed during the build step and no cache entries may be used (so that the build remains fully traceable and is only built from the repository). The scripts must be all set to off at the bottom of the project settings page on AppVeyor.</li>
+  <li>The build settings may not be modified between starting the AppVeyor build and calling SignPath.io</li>
+  <li>The build configuration must be stored in the root directory under the name <code class="language-plaintext highlighter-rouge">appveyor.yml</code> or <code class="language-plaintext highlighter-rouge">.appveyor.yml</code> (no custom name is allowed to be set under <em>Project settings</em> and <em>Custom configuration .yml file name</em>)</li>
+  <li>For Open Source subscriptions, the AppVeyor project and the Git repository must be public.</li>
+</ul>
+
+<p>These checks are performed to ensure that the binary artifacts result purely from the specified source code.</p>
+
+<blockquote class="panel todo">
+  <p><strong>TODO</strong></p>
+
+  <p>Is the following list complete? see https://www.appveyor.com/docs/build-configuration/#generic-git-repositories-and-yaml</p>
+
+  <p>At the moment those supported are: GitHub (hosted and on-premises), Bitbucket (hosted and on-premises), GitLab (hosted and on-premises), Azure DevOps, Kiln and Gitea.</p>
+</blockquote>
+
+<h2 id="setup">Setup</h2>
+<p>This figure shows the secrets that must be shared between AppVeyor.com and SignPath.io:
+<img src="/assets/img/resources/documentation/build-integration_appveyor.png" alt="AppVeyor Setup flow" /></p>
+
+<table>
+    <thead>
+        <tr><th>
+
+Action 
+</th><th>
+
+Steps 
+</th><th>
+
+Remarks 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <p>Add an AppVeyor integration to a SignPath project</p>
+      </td><td>
+
+        <ol>
+          <li>On <a href="https://ci.appveyor.com">ci.appveyor.com</a>
+            <ul>
+              <li>Select <em>Account</em> and <em>Security</em></li>
+              <li>Make sure the checkboxes for both <em>API v1</em> and <em>API v2</em> are checked</li>
+            </ul>
+          </li>
+          <li>On <a href="https://ci.appveyor.com">ci.appveyor.com</a>
+            <ul>
+              <li>Select <em>My Profile</em> and <a href="https://ci.appveyor.com/api-keys"><em>API Keys</em></a></li>
+              <li>Remember the ① <strong>Bearer token</strong> for the next step</li>
+            </ul>
+          </li>
+          <li>On <a href="https://app.signpath.io">SignPath.io</a>
+            <ul>
+              <li>Navigate to your <em>project</em>, scroll down to the <em>Trusted Build Systems</em> section and add a link to <em>AppVeyor</em></li>
+              <li>In the dialog, enter the ① <strong>API key</strong> you just acquired</li>
+            </ul>
+          </li>
+        </ol>
+
+      </td><td>
+
+        <p>SignPath.io must authenticate against Appveyor to retrieve the build artifacts</p>
+      </td></tr><tr><td>
+
+        <p>Encrypt the SignPath API token in AppVeyor</p>
+      </td><td>
+
+        <ol>
+          <li>On <a href="https://app.signpath.io">SignPath.io</a>
+            <ul>
+              <li>Choose the Users menu and create a new <em>CI User</em> or open an existing one</li>
+              <li>Remember the ② <strong>SignPath API token</strong> for the next step</li>
+            </ul>
+          </li>
+          <li>On <a href="https://ci.appveyor.com">ci.appveyor.com</a>
+            <ul>
+              <li>Open <em>Account Settings</em> and choose <em><a href="https://ci.appveyor.com/tools/encrypt">Encrypt YAML</a></em></li>
+              <li>Enter ② <strong><code class="language-plaintext highlighter-rouge">Bearer $SIGNPATH_API_TOKEN</code></strong> (without $)</li>
+              <li>Remember the ③ <strong>encrypted SignPath API token</strong> for the next step</li>
+            </ul>
+          </li>
+        </ol>
+
+      </td><td>
+
+        <p>AppVeyor lets you encrypt secret values. You can then safely use the encrypted string in your appveyor.yaml file</p>
+      </td></tr><tr><td>
+
+        <p>Add a deploy Webhook</p>
+      </td><td colspan="2">
+
+        <p>Append this to your appveyor.yaml file:</p>
+
+        <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">deploy</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">provider</span><span class="pi">:</span> <span class="s">Webhook</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="s">https://app.signpath.io/API/v1/$ORGANIZATION_ID/Integrations/AppVeyor?ProjectSlug=$PROJECT_SLUG&amp;SigningPolicySlug=$SIGNING_POLICY_SLUG&amp;ArtifactConfigurationSlug=$ARTIFACT_CONFIGURATION_SLUG</span>
+  <span class="na">authorization</span><span class="pi">:</span>
+    <span class="na">secure</span><span class="pi">:</span> <span class="s">$ENCRYPTED_SIGNPATH_API_TOKEN</span>
+</code></pre></div>        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code class="language-plaintext highlighter-rouge">$ORGANIZATION_ID</code></td>
+              <td>SignPath organization ID (can be retrieved from the organization page)</td>
+            </tr>
+            <tr>
+              <td><code class="language-plaintext highlighter-rouge">$PROJECT_SLUG</code></td>
+              <td>Project slug</td>
+            </tr>
+            <tr>
+              <td><code class="language-plaintext highlighter-rouge">$SIGNING_POLICY_SLUG</code></td>
+              <td>Signing policy slug</td>
+            </tr>
+            <tr>
+              <td><code class="language-plaintext highlighter-rouge">$ARTIFACT_CONFIGURATION_SLUG</code></td>
+              <td><em>Optional</em> artifact configuration slug (default artifact configuration if not specified)</td>
+            </tr>
+            <tr>
+              <td><code class="language-plaintext highlighter-rouge">$ENCRYPTED_SIGNPATH_API_TOKEN</code></td>
+              <td>③ The encrypted value from the previous step</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </td><td>
+
+      </td></tr></tbody>
+</table>
+<h2 id="attached-build-documentation">Attached build documentation</h2>
+
+<p>SignPath adds the following information to packages:</p>
+
+<ul>
+  <li>For NuGet packages:
+    <ol>
+      <li>The build settings are stored in an AppVeyorSettings.json file in the root of the NuGet package</li>
+      <li>The commit hash and repository URL are written to the metadata of the NuGet package</li>
+    </ol>
+  </li>
+</ul>
+
+<p>These steps allow consumers of the signed artifact to verify source code version and build settings.</p>
+
+
+		</article>
+	</div>
+</section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
+	<div>
+		<h2>Sign up for news and special offers</h2>
+		<form class="ml-block-form" action="https://app.mailerlite.com/webforms/submit/d7c3i1" data-code="d7c3i1" method="post">
+			<input type="text" class="form-control" data-inputmask="" name="fields[name]" value="" placeholder="Name">
+			<input type="email" class="form-control" data-inputmask="" name="fields[email]" value="" placeholder="Email">
+			<input type="hidden" name="ml-submit" value="1">
+			<button type="submit" class="btn btn-secondary newsletter">Subscribe</button>
+		</form>
+	</div>
+</section>
+</main>
+  <footer>
+  	<div>
+	  	<div>
+	  		<img src='/assets/signpath-logo-white.svg' width="334" height="67" alt='SignPath'/>
+	  		<svg viewBox="0 0 244 18">
+			  <text x="0" y="15" textLength="244" lengthAdjust="spacingAndGlyphs">CODE SIGNING SIMPLE &amp; SECURE</text>
+			</svg>
+	  		<div>
+				<a target="_blank" href="https://www.linkedin.com/company/33243108" rel="noopener noreferrer">
+<svg class="icon footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor"  d="M 8.6425781 4 C 7.1835781 4 6 5.181625 6 6.640625 C 6 8.099625 7.182625 9.3085938 8.640625 9.3085938 C 10.098625 9.3085938 11.283203 8.099625 11.283203 6.640625 C 11.283203 5.182625 10.101578 4 8.6425781 4 z M 21.535156 11 C 19.316156 11 18.0465 12.160453 17.4375 13.314453 L 17.373047 13.314453 L 17.373047 11.310547 L 13 11.310547 L 13 26 L 17.556641 26 L 17.556641 18.728516 C 17.556641 16.812516 17.701266 14.960938 20.072266 14.960938 C 22.409266 14.960937 22.443359 17.145609 22.443359 18.849609 L 22.443359 26 L 26.994141 26 L 27 26 L 27 17.931641 C 27 13.983641 26.151156 11 21.535156 11 z M 6.3632812 11.310547 L 6.3632812 26 L 10.923828 26 L 10.923828 11.310547 L 6.3632812 11.310547 z"/></svg></a>
+				&nbsp;&nbsp;
+				<a target="_blank" href="mailto:info@signpath.io" rel="noopener noreferrer"><svg class="icon footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 3 8 L 3 26 L 29 26 L 29 8 Z M 7.3125 10 L 24.6875 10 L 16 15.78125 Z M 5 10.875 L 15.4375 17.84375 L 16 18.1875 L 16.5625 17.84375 L 27 10.875 L 27 24 L 5 24 Z"/></svg>
+</div>
+	  	</div>
+	  	<div>
+	  		<a href='/privacy-policy'>Privacy Policy</a>
+	  		<a href='/terms-of-service'>Terms of Service</a>
+	  		<a href='/status'><span style="color: lightgreen;"><svg class="icon small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 28.28125 6.28125 L 11 23.5625 L 3.71875 16.28125 L 2.28125 17.71875 L 10.28125 25.71875 L 11 26.40625 L 11.71875 25.71875 L 29.71875 7.71875 Z"/></svg>
+</span>Status
+			</a>
+	  	</div>
+	</div>
+  </footer>
+        <div id='cookie-info'>
+            <h3>Cookie settings</h3>
+            <div class="container">
+                <span>We use cookies to enhance your browsing experience.</span>
+                <p class="mobile show-more active"><a>Show more information</a></p>
+                <p class="mobile show-less"><a>Show less information</a></p>
+                <span class="information">By clicking the “Accept” button below, you agree that non-essential cookies on our website may be used by us and by third parties, some of them located in the USA. Learn more about our cookies in our <a
+                            href='/privacy-policy'>Privacy
+					Policy</a>
+                </span>
+				<div class="actions">
+					<button class='btn btn-primary' id='acknowledge-cookies-btn'>Accept</button>
+					<button class="btn btn-grey" id='refuse-cookies-btn'>Refuse</button>
+				</div>
+            </div>
+			<script>
+				const queryString = window.location.search;
+				const urlParams = new URLSearchParams(queryString);
+				const adgroupid = urlParams.get('adgroupid') ? urlParams.get('adgroupid') : document.cookie.match('(^|;)\\s*' + 'adgroupid' + '\\s*=\\s*([^;]+)')?.pop() || ''
+
+				if (adgroupid) {
+					const els_trial = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Subscription/StartFreeTrial' + "']")
+					const els_login = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Home/Login' + "']");
+
+					for (let child of els_trial) {
+						if (child.tagName === 'A') {
+							child.href = child.href + '?websiteCorrelationId=' + adgroupid
+						}
+					}
+
+					for (let child of els_login) {
+						if (child.tagName === 'A') {
+							child.href = child.href + '?websiteCorrelationId=' + adgroupid
+						}
+					}
+				}
+			</script>
+		</div>
+	</footer>
+</body>
+</html>

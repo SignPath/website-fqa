@@ -69,6 +69,7 @@
 							<a href='/documentation/crypto-providers/gpg#'>GPG</a></li><li class='active'>
 							<a href='/documentation/crypto-providers/macos#'>macOS CryptoTokenKit</a><div class="no-mobile" ><ul>
   <li><a href="#general-instructions">General instructions</a></li>
+  <li><a href="#codesign">codesign</a></li>
   <li><a href="#productsign">productsign</a></li>
 </ul>
 </div></li><li class=''>
@@ -83,6 +84,7 @@
       <li><a href="#troubleshooting">Troubleshooting</a></li>
     </ul>
   </li>
+  <li><a href="#codesign">codesign</a></li>
   <li><a href="#productsign">productsign</a></li>
 </ul>
 <h2 id="general-instructions">General instructions</h2>
@@ -168,6 +170,10 @@ open SignPathCryptoTokenKit.app <span class="nt">--args</span> <span class="se">
 
 <h3 id="troubleshooting">Troubleshooting</h3>
 
+<p>Loading the certificates and making them available in the MacOS keychain can take up to 20 seconds.</p>
+
+<h4 id="logs">Logs</h4>
+
 <p>Unless specified otherwise, the log files are stored in <code class="language-plaintext highlighter-rouge">~/Library/Logs/SignPathCryptoTokenKit/</code> and <code class="language-plaintext highlighter-rouge">~/Library/Containers/io.signpath.apps.CryptoTokenKit/Data/Library/Logs/ctk/</code> respectively.</p>
 
 <h4 id="useful-commands">Useful commands:</h4>
@@ -186,35 +192,53 @@ open SignPathCryptoTokenKit.app <span class="nt">--args</span> <span class="se">
 <p>If the certificates cannot be loaded, it helps to stop the smartcard service on MacOS (it is restarted automatically) by running:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>killall ctkd
-~~ 
-
-<span class="o">{</span>:.panel.info<span class="o">}</span>
-<span class="o">&gt;</span> <span class="k">**</span>Info: Updated intermediate certificate<span class="k">**</span>
-<span class="o">&gt;</span> 
-<span class="o">&gt;</span> When creating a certificate <span class="k">in </span>the Apple Developer portal, the intermediate certificate can be selected. On some machines, the new intermediate certificate is still missing. You can download it <span class="o">[</span>here]<span class="o">(</span>https://www.apple.com/certificateauthority/DeveloperIDG2CA.cer<span class="o">)</span><span class="nb">.</span>
-
-<span class="o">{</span>:.panel.warning<span class="o">}</span>
-<span class="o">&gt;</span> <span class="k">**</span>Warning: Produce correct timestamps<span class="k">**</span>
-<span class="o">&gt;</span> 
-<span class="o">&gt;</span> When using codesign <span class="o">(</span>or any other signing tool<span class="o">)</span> directly, you are responsible <span class="k">for </span>correct <span class="nb">time </span>stamping. See <span class="o">[</span>Timestamps]<span class="o">(</span>/documentation/crypto-providers#timestamps<span class="o">)</span>
-
-<span class="o">[</span>codesign]: https://developer.apple.com/library/archive/documentation/Security/Conceptual/CodeSigningGuide/Procedures/Procedures.html
-
-<span class="c">## codesign {#codesign}</span>
-
-_[codesign]_ is a <span class="nb">command </span>line tool by Apple.
-
-_codesign_ requires the following parameter to find the correct certificate:
-
-| Parameter          | Value                                   | Description
-|--------------------|-----------------------------------------|---------------------------------
-| <span class="sb">`</span><span class="nt">-s</span><span class="sb">`</span>               | <span class="sb">`</span><span class="nv">$SigningIdentity</span><span class="sb">`</span>                      | A descriptor of the code signing identity that is stored <span class="k">in </span>the keychain by the SignPath CryptoTokenKit. Provide the common name <span class="o">(</span>or a substring<span class="o">)</span> of the certificate.
-
-Sample: sign <span class="sb">`</span>MyApp.app<span class="sb">`</span>
-
-~~~powershell
-codesign <span class="nt">-s</span> MyCertificateSubjectName MyApp.app
 </code></pre></div></div>
+
+<blockquote class="panel info">
+  <p><strong>Info: Updated intermediate certificate</strong></p>
+
+  <p>When creating a certificate in the Apple Developer portal, the intermediate certificate can be selected. On some machines, the new intermediate certificate is still missing. You can download it <a href="https://www.apple.com/certificateauthority/DeveloperIDG2CA.cer">here</a>.</p>
+</blockquote>
+
+<blockquote class="panel warning">
+  <p><strong>Warning: Produce correct timestamps</strong></p>
+
+  <p>When using codesign (or any other signing tool) directly, you are responsible for correct time stamping. See <a href="/documentation/crypto-providers#timestamps">Timestamps</a></p>
+</blockquote>
+
+<h2 id="codesign">codesign</h2>
+
+<p><em><a href="https://developer.apple.com/library/archive/documentation/Security/Conceptual/CodeSigningGuide/Procedures/Procedures.html">codesign</a></em> is a command line tool by Apple.</p>
+
+<p><em>codesign</em> requires the following parameter to find the correct certificate:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-s</code></td>
+      <td><code class="language-plaintext highlighter-rouge">$SigningIdentity</code></td>
+      <td>A descriptor of the code signing identity that is stored in the keychain by the SignPath CryptoTokenKit. Provide the common name (or a substring) of the certificate.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Sample: sign <code class="language-plaintext highlighter-rouge">MyApp.app</code></p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">codesign</span><span class="w"> </span><span class="nt">-s</span><span class="w"> </span><span class="nx">MyCertificateSubjectName</span><span class="w"> </span><span class="nx">MyApp.app</span><span class="w">
+</span></code></pre></div></div>
+
+<blockquote class="panel info">
+  <p><strong>Info: Using the right certificate</strong></p>
+
+  <p><code class="language-plaintext highlighter-rouge">codesign</code> requires an “Apple Developer Application” certificate.</p>
+</blockquote>
 
 <h2 id="productsign">productsign</h2>
 
@@ -269,7 +293,7 @@ codesign <span class="nt">-s</span> MyCertificateSubjectName MyApp.app
 	  	<div>
 	  		<img src='/assets/signpath-logo-white.svg' width="334" height="67" alt='SignPath'/>
 	  		<svg viewBox="0 0 244 18">
-			  <text x="0" y="15">CODE SIGNING SIMPLE &amp; SECURE</text>
+			  <text x="0" y="15" textLength="244" lengthAdjust="spacingAndGlyphs">CODE SIGNING SIMPLE &amp; SECURE</text>
 			</svg>
 	  		<div>
 				<a target="_blank" href="https://www.linkedin.com/company/33243108" rel="noopener noreferrer">
