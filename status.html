@@ -73,33 +73,7 @@ All systems are operational
 			</div>
 
 
-		<h3>Planned maintenance</h3><div>No maintenance planned.</div><ul></ul>
-
-		<h3>Past incidents and maintenance</h3>
-		<ul><li class="warning">
-					<h3>Oct. 13, 2024</h3>
-					<label>Oct. 13, 2024, 08:00 - 09:00 UTC</label>
-					<h4>HTTPS gateway maintenance</h4>
-					<div>
-
-          <p>Planned maintenance for the gateway that handles incoming network traffic.</p>
-
-          <ul>
-            <li>During this time range inbound requests may fail, including REST API, Web UI, connectors and and crypto providers.</li>
-            <li>Processing of accepted signing requests will not be affected.</li>
-          </ul>
-
-        </div>
-				</li><li class="warning">
-					<h3>Sep. 11, 2024</h3>
-					<label>Sep. 11, 2024, 10:26 - 10:55 UTC</label>
-					<h4>DPoD services unavailable</h4>
-					<div>
-
-          <p>For customers using Thales DPoD Cloud HSM, completion of signing requests was delayed until after the outage and synchronous hash-based signing failed.
- <a href="https://status.dpondemand.io/incidents/5ybkmzvq8bmn"> (Read more)</a></p>
-        </div>
-				</li><li class="warning">
+		<h3>Planned maintenance</h3><ul><li class="warning">
 					<h3>Aug. 07, 2024</h3>
 					<label>Aug. 07, 2024 17:00 - 20:00 UTC</label>
 					<h4>HSM infrastructure maintenance</h4>
@@ -108,12 +82,15 @@ All systems are operational
           <p>Planned maintenance for SignPath HSM cluster’s infrastructure.</p>
 
           <ul>
-            <li>Slightly longer processing times for signing requests including hash signing</li>
-            <li>Software certificates and Thales DPoD Cloud HSM certificates were not affected</li>
+            <li>Slightly longer processing times for signing requests including and hash signing</li>
+            <li>Software certificates and Thales DPoD Cloud HSM certificates won’t be affected.</li>
           </ul>
 
         </div>
-				</li><li class="warning">
+				</li></ul>
+
+		<h3>Past incidents and maintenance</h3>
+		<ul><li class="warning">
 					<h3>Jun. 19, 2024</h3>
 					<label>Jun. 19, 2024 10:00 - 12:00 UTC</label>
 					<h4>HSM maintenance</h4>
@@ -123,9 +100,10 @@ All systems are operational
 
           <ul>
             <li>Disabled Creating/importing certificates</li>
-            <li>Slightly longer processing times for signing requests including hash signing</li>
-            <li>Software certificates and Thales DPoD Cloud HSM certificates were not affected</li>
+            <li>Slightly longer processing times for signing requests including and hash signing</li>
           </ul>
+
+          <p>Software certificates and Thales DPoD Cloud HSM certificates were not affected.</p>
 
         </div>
 				</li><li class="warning">
@@ -488,7 +466,7 @@ All systems are operational
 	  	<div>
 	  		<img src='/assets/signpath-logo-white.svg' width="334" height="67" alt='SignPath'/>
 	  		<svg viewBox="0 0 244 18">
-			  <text x="0" y="15" textLength="244" lengthAdjust="spacingAndGlyphs">CODE SIGNING SIMPLE &amp; SECURE</text>
+			  <text x="0" y="15">CODE SIGNING SIMPLE &amp; SECURE</text>
 			</svg>
 	  		<div>
 				<a target="_blank" href="https://www.linkedin.com/company/33243108" rel="noopener noreferrer">

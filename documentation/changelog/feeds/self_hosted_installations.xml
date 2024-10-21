@@ -1,54 +1,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
-<link href="https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml" rel="self" type="application/atom+xml"/>
-<link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-09-24</updated>
+<link href="https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml" rel="self" type="application/atom+xml" />
+<link href="https://about.signpath.io/" rel="alternate" type="text/html" />
+<updated>2024-08-13</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml</id><title type="html">SignPath - Self-hosted Installations Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
-        <id>tag:about.signpath.io,2024-09-24:self_hosted_installations:1.172.0</id>
-        <title>SignPath Application (self-hosted only) 1.172.0</title>
-        <updated>2024-09-24</updated>
-        <published>2024-09-24</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-09-24" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.172.0</summary>
-        <content type="html">
-          &lt;div&gt;
-            &lt;h2&gt;New Release:  1.172.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Changed recommended Kubernetes version to 1.29 and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpathio/kubectl&lt;/code&gt; image tag to 1.29.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Graceful container shutdown: termination of Pods is now delayed (default of 30 secs). 
-This allows for request drain-out and safe shutdown (e.g. flushing Application Insights data).&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
-        </content>
-      </entry><entry>
-        <id>tag:about.signpath.io,2024-08-29:self_hosted_installations:1.171.0</id>
-        <title>SignPath Application (self-hosted only) 1.171.0</title>
-        <updated>2024-08-29</updated>
-        <published>2024-08-29</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-08-29" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.171.0</summary>
-        <content type="html">
-          &lt;div&gt;
-            &lt;h2&gt;New Release:  1.171.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;All &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-application&lt;/code&gt; Pods now correctly report &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application_Version&lt;/code&gt; to Application Insights (if enabled).&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
-        </content>
-      </entry><entry>
         <id>tag:about.signpath.io,2024-08-13:self_hosted_installations:1.170.2</id>
-        <title>SignPath Application (self-hosted only) 1.170.2</title>
+        <title>SignPath Self-hosted Installations 1.170.2</title>
         <updated>2024-08-13</updated>
         <published>2024-08-13</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-08-13" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.170.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-08-13" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.170.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.170.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.170.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improve error reporting for authentication errors in Operator Client.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed missing error detection in pairing restore startup script in HSM SignService.&lt;/p&gt;
@@ -56,15 +24,14 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-08-01:self_hosted_installations:1.169.0</id>
-        <title>SignPath Application (self-hosted only) 1.169.0</title>
+        <title>SignPath Self-hosted Installations 1.169.0</title>
         <updated>2024-08-01</updated>
         <published>2024-08-01</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-08-01" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.169.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-08-01" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.169.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.169.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.169.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Internal SignService API breaking change: when upgrading from a version below 1.165, follow the &lt;em&gt;SignService breaking changes&lt;/em&gt; steps in the installation guide, section “Version compatibility”.&lt;/p&gt;
 
 &lt;p&gt;Details: All file-based signing operations have been removed from the SignService API. Since version 1.165, all file-based signing operations have been executed by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signing-processor-service&lt;/code&gt;.&lt;/p&gt;
@@ -72,57 +39,53 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-07-22:self_hosted_installations:1.168.1</id>
-        <title>SignPath Application (self-hosted only) 1.168.1</title>
+        <title>SignPath Self-hosted Installations 1.168.1</title>
         <updated>2024-07-22</updated>
         <published>2024-07-22</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-22" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.168.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-22" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.168.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.168.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.168.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Auto-restart detection mechanism extended to include a specific Luna Client startup error in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-signservice-lunahsm&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-07-08:self_hosted_installations:1.167.3</id>
-        <title>SignPath Application (self-hosted only) 1.167.3</title>
+        <title>SignPath Self-hosted Installations 1.167.3</title>
         <updated>2024-07-08</updated>
         <published>2024-07-08</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-08" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.167.3</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-08" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.167.3</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.167.3&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.167.3&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Reduced memory overhead in all Pods deployed by the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-signservice-&amp;lt;type&amp;gt;&lt;/code&gt; charts by switching the entry point from PowerShell to CMD.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-06-10:self_hosted_installations:1.166.2</id>
-        <title>SignPath Application (self-hosted only) 1.166.2</title>
+        <title>SignPath Self-hosted Installations 1.166.2</title>
         <updated>2024-06-10</updated>
         <published>2024-06-10</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-06-10" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.166.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-06-10" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.166.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.166.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.166.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Reduced memory overhead in all Pods deployed by the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-application&lt;/code&gt; chart by switching the entry point from PowerShell to CMD.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-05-27:self_hosted_installations:1.164.3</id>
-        <title>SignPath Application (self-hosted only) 1.164.3</title>
+        <title>SignPath Self-hosted Installations 1.164.3</title>
         <updated>2024-05-27</updated>
         <published>2024-05-27</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-05-27" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.164.3</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-05-27" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.164.3</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.164.3&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.164.3&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Changed the recommended Kubernetes version to 1.28 and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpathio/kubectl&lt;/code&gt; image tag to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.28&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Reduced the compressed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signing-processor-service&lt;/code&gt; image size by 350 MB.&lt;/p&gt;
@@ -136,29 +99,27 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-05-13:self_hosted_installations:1.163.0</id>
-        <title>SignPath Application (self-hosted only) 1.163.0</title>
+        <title>SignPath Self-hosted Installations 1.163.0</title>
         <updated>2024-05-13</updated>
         <published>2024-05-13</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-05-13" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.163.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-05-13" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.163.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.163.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.163.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Replaced the “readiness probes” in all K8s deployments with startup + liveness probes to improve startup perf and stability.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-04-25:self_hosted_installations:1.162.2</id>
-        <title>SignPath Application (self-hosted only) 1.162.2</title>
+        <title>SignPath Self-hosted Installations 1.162.2</title>
         <updated>2024-04-25</updated>
         <published>2024-04-25</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-04-25" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.162.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-04-25" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.162.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.162.2&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.162.2&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;HSM SignServices now provides “readonly” mode for operational/maintenance purposes, which disables key management while still allowing signing operations.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;K8s readiness probe for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signingprocessorservice&lt;/code&gt; switched from “readyfile” command probe to HTTP “healthz” probe to improve stability.&lt;/p&gt;
@@ -166,15 +127,14 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-04-11:self_hosted_installations:1.161.1</id>
-        <title>SignPath Application (self-hosted only) 1.161.1</title>
+        <title>SignPath Self-hosted Installations 1.161.1</title>
         <updated>2024-04-11</updated>
         <published>2024-04-11</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-04-11" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.161.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-04-11" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.161.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.161.1&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.161.1&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;When applying changes via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helm upgrade&lt;/code&gt;, now all &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-application&lt;/code&gt; deployments restart automatically (via rollout restart).&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added a safeguard mechanism for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-application&lt;/code&gt; pods which prevents startup on inactive colors due to deployment or configuration errors.&lt;/p&gt;
@@ -182,15 +142,14 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-03-28:self_hosted_installations:1.160.1</id>
-        <title>SignPath Application (self-hosted only) 1.160.1</title>
+        <title>SignPath Self-hosted Installations 1.160.1</title>
         <updated>2024-03-28</updated>
         <published>2024-03-28</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-03-28" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.160.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-03-28" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.160.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.160.1&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.160.1&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Hash signing operations are now performed by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signingprocessorservice&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;You need to configure basic authentication configuration:&lt;/p&gt;
@@ -207,15 +166,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-03-14:self_hosted_installations:1.159.0</id>
-        <title>SignPath Application (self-hosted only) 1.159.0</title>
+        <title>SignPath Self-hosted Installations 1.159.0</title>
         <updated>2024-03-14</updated>
         <published>2024-03-14</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-03-14" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.159.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-03-14" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.159.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.159.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.159.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added additional custom dimensions to AppInsights events.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;The AdministrationUtility tool can now also log to AppInsights.&lt;/p&gt;
@@ -229,15 +187,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-02-29:self_hosted_installations:1.158.0</id>
-        <title>SignPath Application (self-hosted only) 1.158.0</title>
+        <title>SignPath Self-hosted Installations 1.158.0</title>
         <updated>2024-02-29</updated>
         <published>2024-02-29</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-02-29" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.158.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-02-29" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.158.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.158.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.158.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;New “Operator REST API” (part of the Operator Client deployment) including organization list queries and organization creation APIs. Can be activated via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appSettings.shared.globalFeatureToggleOptions.isOperatorApiEnabled&lt;/code&gt; configuration.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Generate-Secret&lt;/code&gt; tool to simplify secure encryption key, basic authentication secret and API token generation.&lt;/p&gt;
@@ -245,15 +202,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-02-15:self_hosted_installations:1.157.0</id>
-        <title>SignPath Application (self-hosted only) 1.157.0</title>
+        <title>SignPath Self-hosted Installations 1.157.0</title>
         <updated>2024-02-15</updated>
         <published>2024-02-15</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-02-15" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.157.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-02-15" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.157.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.157.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.157.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Renamed the Hangfire dashboard application component K8s Deployment to “Operator Client”:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Renamed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpathio/hangfire-dashboard&lt;/code&gt; Docker image to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpathio/operator-client&lt;/code&gt; (you may need to update your Docker image mirroring)&lt;/li&gt;
@@ -273,15 +229,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-02-01:self_hosted_installations:1.156.0</id>
-        <title>SignPath Application (self-hosted only) 1.156.0</title>
+        <title>SignPath Self-hosted Installations 1.156.0</title>
         <updated>2024-02-01</updated>
         <published>2024-02-01</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-02-01" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.156.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-02-01" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.156.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.156.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.156.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Changed the recommended Kubernetes version to 1.27 and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpathio/kubectl&lt;/code&gt; image tag to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.27&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Application Insights: The custom dimension name has been renamed from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LoggerName&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CategoryName&lt;/code&gt; to comply with Microsoft standards.&lt;/p&gt;
@@ -293,15 +248,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2024-01-22:self_hosted_installations:1.155.0</id>
-        <title>SignPath Application (self-hosted only) 1.155.0</title>
+        <title>SignPath Self-hosted Installations 1.155.0</title>
         <updated>2024-01-22</updated>
         <published>2024-01-22</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-01-22" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.155.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-01-22" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.155.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.155.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.155.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-application&lt;/code&gt; values &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chartSettings&lt;/code&gt; section: removed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;malwareScanning.timeout&lt;/code&gt; configuration value, and instead introduced scanner-type specific values:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;malwareScanning.signPathMalwareScanningService.scanningTimeout&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.httpRequestTimeout&lt;/code&gt;&lt;/li&gt;
@@ -317,29 +271,27 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-12-11:self_hosted_installations:1.153.0</id>
-        <title>SignPath Application (self-hosted only) 1.153.0</title>
+        <title>SignPath Self-hosted Installations 1.153.0</title>
         <updated>2023-12-11</updated>
         <published>2023-12-11</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-12-11" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.153.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-12-11" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.153.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.153.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.153.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;additionalApplicationInsightsOptions&lt;/code&gt; section to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-application&lt;/code&gt; values which allows to configure Application Insights sampling options.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-11-23:self_hosted_installations:1.152.0</id>
-        <title>SignPath Application (self-hosted only) 1.152.0</title>
+        <title>SignPath Self-hosted Installations 1.152.0</title>
         <updated>2023-11-23</updated>
         <published>2023-11-23</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-11-23" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.152.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-11-23" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.152.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.152.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.152.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Changed the recommended Kubernetes version to 1.26 and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpathio/kubectl&lt;/code&gt; image tag to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.26&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added a Helm chart check which fails the installation in case the pod disruption budget’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minAvailable&lt;/code&gt; count is larger or equal to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;replicaCount&lt;/code&gt;.&lt;/p&gt;
@@ -347,15 +299,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-11-02:self_hosted_installations:1.151.0</id>
-        <title>SignPath Application (self-hosted only) 1.151.0</title>
+        <title>SignPath Self-hosted Installations 1.151.0</title>
         <updated>2023-11-02</updated>
         <published>2023-11-02</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-11-02" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.151.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-11-02" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.151.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.151.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.151.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Dropped the JCE key “retargeting” when creating certificates on nShield HSMs (previously required for Jar signing).&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a problem that caused the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sandbox.vhdx&lt;/code&gt; files of the Docker Mirantis runtime to grow continuously in Docker Compose installations.&lt;/p&gt;
@@ -363,15 +314,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-10-12:self_hosted_installations:1.150.2</id>
-        <title>SignPath Application (self-hosted only) 1.150.2</title>
+        <title>SignPath Self-hosted Installations 1.150.2</title>
         <updated>2023-10-12</updated>
         <published>2023-10-12</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-10-12" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.150.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-10-12" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.150.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.150.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.150.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved logging login/logout errors by providing more details on OIDC related errors.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed issue of unnecessarily delay of automatic artifact deletion or archiving in content store of 23 days (affected versions 1.148 and 1.149).&lt;/p&gt;
@@ -381,15 +331,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-10-02:self_hosted_installations:1.149.2</id>
-        <title>SignPath Application (self-hosted only) 1.149.2</title>
+        <title>SignPath Self-hosted Installations 1.149.2</title>
         <updated>2023-10-02</updated>
         <published>2023-10-02</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-10-02" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.149.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-10-02" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.149.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.149.2&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.149.2&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Configuration setting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appSettings.shared.signingOptions.timestampingServerUrl&lt;/code&gt; has been renamed to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;timestampingServerUrlTemplate&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-application&lt;/code&gt; values.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SignPath.Application.AdministrationUtility.exe&lt;/code&gt; tool in the &lt;em&gt;Administration Utility pod&lt;/em&gt; has been renamed to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SignPath.Application.Clients.AdministrationUtility.exe&lt;/code&gt;.&lt;/p&gt;
@@ -397,15 +346,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-09-13:self_hosted_installations:1.148.2</id>
-        <title>SignPath Application (self-hosted only) 1.148.2</title>
+        <title>SignPath Self-hosted Installations 1.148.2</title>
         <updated>2023-09-13</updated>
         <published>2023-09-13</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-09-13" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.148.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-09-13" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.148.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.148.2&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.148.2&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added support for “nginx.org” Ingress Controller distribution (see &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ingressAnnotations.nginx.ingressControllerDistribution&lt;/code&gt; configuration value).&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved memory consumption of the Signing Processor Service pod (see &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signingProcessorService.dotNetGCHeapHardLimit&lt;/code&gt; configuration value).&lt;/p&gt;
@@ -421,15 +369,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-08-21:self_hosted_installations:1.147.0</id>
-        <title>SignPath Application (self-hosted only) 1.147.0</title>
+        <title>SignPath Self-hosted Installations 1.147.0</title>
         <updated>2023-08-21</updated>
         <published>2023-08-21</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-08-21" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.147.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-08-21" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.147.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.147.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.147.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added confirmation prompts in the administration utility for all commands and a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-y&lt;/code&gt; argument.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Added recommendation of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;master&lt;/code&gt; database SQL user creation to “Database logins and permissions” section in documentation.&lt;/p&gt;
@@ -437,15 +384,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-08-07:self_hosted_installations:1.146.0</id>
-        <title>SignPath Application (self-hosted only) 1.146.0</title>
+        <title>SignPath Self-hosted Installations 1.146.0</title>
         <updated>2023-08-07</updated>
         <published>2023-08-07</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-08-07" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.146.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-08-07" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.146.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.146.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.146.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Limit number of maximum events per stored entity to avoid performance bottlenecks.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chartSettings.signingProcessorService.dotNetGCHeapHardLimit&lt;/code&gt; to reduce memory consumption of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signingprocessorservice&lt;/code&gt; pods.&lt;/p&gt;
@@ -455,15 +401,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-07-13:self_hosted_installations:1.145.1</id>
-        <title>SignPath Application (self-hosted only) 1.145.1</title>
+        <title>SignPath Self-hosted Installations 1.145.1</title>
         <updated>2023-07-13</updated>
         <published>2023-07-13</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-07-13" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.145.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-07-13" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.145.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.145.1&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.145.1&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Changed the recommended Kubernetes version to 1.25 (note that 1.24 will go EOL on 2023-07-28) and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpathio/kubectl&lt;/code&gt; image tag to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.25&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Changed the Web Client authentication ticket lifetime from 14 days to 12 hours. This means that after 12 hours without any request, the Web Client will re-authenticate via OIDC.&lt;/p&gt;
@@ -481,15 +426,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-07-11:self_hosted_installations:1.144.1</id>
-        <title>SignPath Application (self-hosted only) 1.144.1</title>
+        <title>SignPath Self-hosted Installations 1.144.1</title>
         <updated>2023-07-11</updated>
         <published>2023-07-11</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-07-11" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.144.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-07-11" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.144.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.144.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.144.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved performance and reduced memory consumption of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signPathMalwareScanningService&lt;/code&gt; malware scanning client.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed duplicate &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MalwareScannerOptions__MalwareScannerType&lt;/code&gt; config map entries.&lt;/p&gt;
@@ -497,15 +441,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-06-26:self_hosted_installations:1.143.2</id>
-        <title>SignPath Application (self-hosted only) 1.143.2</title>
+        <title>SignPath Self-hosted Installations 1.143.2</title>
         <updated>2023-06-26</updated>
         <published>2023-06-26</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-06-26" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.143.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-06-26" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.143.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.143.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.143.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Reduced memory consumption when signing jar files.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed aborted SignService deployments in cases using descheduler for Kubernetes with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RemovePodsViolatingTopologySpreadConstraint&lt;/code&gt;.&lt;/p&gt;
@@ -513,15 +456,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-06-14:self_hosted_installations:1.142.1</id>
-        <title>SignPath Application (self-hosted only) 1.142.1</title>
+        <title>SignPath Self-hosted Installations 1.142.1</title>
         <updated>2023-06-14</updated>
         <published>2023-06-14</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-06-14" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.142.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-06-14" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.142.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.142.1&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.142.1&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added support for optionally moving contents to the Azure Blob store archive tier instead of deleting them.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Reduced amount of application logging for Azure Blob content store accesses.&lt;/p&gt;
@@ -531,15 +473,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-05-26:self_hosted_installations:1.141.1</id>
-        <title>SignPath Application (self-hosted only) 1.141.1</title>
+        <title>SignPath Self-hosted Installations 1.141.1</title>
         <updated>2023-05-26</updated>
         <published>2023-05-26</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-05-26" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.141.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-05-26" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.141.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.141.1&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.141.1&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added support for &lt;a href=&quot;https://thalesdocs.com/gphsm/luna/7/docs/network/Content/admin_partition/ha/ha.htm&quot;&gt;client-mediated HA Group Pairing&lt;/a&gt; for Luna Network HSMs.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added the “Signing Request Accepted” event to the reported “custom events” in Application Insights.&lt;/p&gt;
@@ -549,29 +490,27 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-05-12:self_hosted_installations:</id>
-        <title>SignPath Application (self-hosted only) </title>
+        <title>SignPath Self-hosted Installations </title>
         <updated>2023-05-12</updated>
         <published>2023-05-12</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-05-12" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  </summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-05-12" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations </summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  &lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations &lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;&lt;em&gt;No change required:&lt;/em&gt; After the upgrade the report model database will be automatically built up from scratch. This means that for a while (depending on the number of signing requests) the signing request list in the UI and the CSV report may be incomplete until the report model building reached the latest signing requests.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-03-30:self_hosted_installations:1.137.0</id>
-        <title>SignPath Application (self-hosted only) 1.137.0</title>
+        <title>SignPath Self-hosted Installations 1.137.0</title>
         <updated>2023-03-30</updated>
         <published>2023-03-30</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-30" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.137.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-30" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.137.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.137.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.137.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed the issue that not all application logging entries reached Application Insights.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Fixed missing error reporting details for failed malware scanning service calls.&lt;/p&gt;
@@ -579,15 +518,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-03-23:self_hosted_installations:1.136.3</id>
-        <title>SignPath Application (self-hosted only) 1.136.3</title>
+        <title>SignPath Self-hosted Installations 1.136.3</title>
         <updated>2023-03-23</updated>
         <published>2023-03-23</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-23" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.136.3</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-23" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.136.3</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.136.3&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.136.3&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;The following configuration values have been moved from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appSettings&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appSecrets&lt;/code&gt;:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-application&lt;/code&gt; value &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appSettings.shared.applicationInsights.connectionString&lt;/code&gt;&lt;/li&gt;
@@ -603,15 +541,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-03-02:self_hosted_installations:1.135.0</id>
-        <title>SignPath Application (self-hosted only) 1.135.0</title>
+        <title>SignPath Self-hosted Installations 1.135.0</title>
         <updated>2023-03-02</updated>
         <published>2023-03-02</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-02" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.135.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-02" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.135.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.135.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.135.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;For Luna and DPoD HSMs it’s now possible to delete certificate keys on the HSM storage 60 days after the “Delete private key” action (&lt;em&gt;Note: By default, deleted keys are only recorded for manual deletion.&lt;/em&gt;)&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;The configuration parameters for NGINX proxy settings in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-application-ingress&lt;/code&gt; chart have a new location.&lt;/p&gt;
@@ -639,15 +576,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-02-02:self_hosted_installations:1.133.0</id>
-        <title>SignPath Application (self-hosted only) 1.133.0</title>
+        <title>SignPath Self-hosted Installations 1.133.0</title>
         <updated>2023-02-02</updated>
         <published>2023-02-02</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-02-02" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.133.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-02-02" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.133.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.133.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.133.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added new mandatory database connection strings for the application: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DataProtectionDatabase&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DataProtectionDatabaseDdl&lt;/code&gt;.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;We recommend to rename the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ReportModel&lt;/code&gt; database to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplicationShared&lt;/code&gt; and use this database in the connections strings &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ReportModelDatabase&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ReportModelDatabaseDdl&lt;/code&gt; and the two new connection strings.&lt;/li&gt;
@@ -666,15 +602,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2023-01-12:self_hosted_installations:1.132.0</id>
-        <title>SignPath Application (self-hosted only) 1.132.0</title>
+        <title>SignPath Self-hosted Installations 1.132.0</title>
         <updated>2023-01-12</updated>
         <published>2023-01-12</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-01-12" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.132.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-01-12" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.132.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.132.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.132.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Uploaded artifact files can now be exempt from Windows Defender realtime scanning on Kubernetes hosts.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Temporary files during HTTP uploads are now stored in an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;emptyDir&lt;/code&gt; volume, which can improve performance and fix disk usage issues (Kubernetes).&lt;/p&gt;
@@ -682,15 +617,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-11-29:self_hosted_installations:1.129.0</id>
-        <title>SignPath Application (self-hosted only) 1.129.0</title>
+        <title>SignPath Self-hosted Installations 1.129.0</title>
         <updated>2022-11-29</updated>
         <published>2022-11-29</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-11-29" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.129.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-11-29" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.129.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.129.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.129.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Renamed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signServiceOptions&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;keyStoreOptions&lt;/code&gt; in the following places:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appSecrets/appSettings.shared.signServiceOptions&lt;/code&gt; (also changed the structure)&lt;/li&gt;
@@ -707,15 +641,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-11-15:self_hosted_installations:1.128.0</id>
-        <title>SignPath Application (self-hosted only) 1.128.0</title>
+        <title>SignPath Self-hosted Installations 1.128.0</title>
         <updated>2022-11-15</updated>
         <published>2022-11-15</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-11-15" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.128.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-11-15" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.128.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.128.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.128.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;New Administration Utility &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChangeMultipleSubscriptions&lt;/code&gt; command to (partially) update multiple organizations with new subscription options.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Added support for including images files in custom notification email styling.&lt;/p&gt;
@@ -727,15 +660,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-10-13:self_hosted_installations:1.126.0</id>
-        <title>SignPath Application (self-hosted only) 1.126.0</title>
+        <title>SignPath Self-hosted Installations 1.126.0</title>
         <updated>2022-10-13</updated>
         <published>2022-10-13</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-10-13" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.126.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-10-13" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.126.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.126.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.126.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;New mandatory &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chartSettings.malwareScanning.malwareScannerType&lt;/code&gt; configuration for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-application&lt;/code&gt; (Kubernetes only).&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;New mandatory &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signService.cspWatchdogOptions.keyId&lt;/code&gt; app setting for Luna HSM SignService.&lt;/p&gt;
@@ -749,29 +681,27 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-09-29:self_hosted_installations:1.125.0</id>
-        <title>SignPath Application (self-hosted only) 1.125.0</title>
+        <title>SignPath Self-hosted Installations 1.125.0</title>
         <updated>2022-09-29</updated>
         <published>2022-09-29</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-29" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.125.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-29" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.125.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.125.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.125.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;To continue using the REST API to resubmit signing requests (preview), a feature toggle needs to be enabled for every organization.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-09-20:self_hosted_installations:1.124.0</id>
-        <title>SignPath Application (self-hosted only) 1.124.0</title>
+        <title>SignPath Self-hosted Installations 1.124.0</title>
         <updated>2022-09-20</updated>
         <published>2022-09-20</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-20" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.124.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-20" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.124.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.124.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.124.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved pairing experience with nShield HSMs.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;The “HashPassword” functionality doesn’t require a Windows container anymore.&lt;/p&gt;
@@ -781,15 +711,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-08-04:self_hosted_installations:1.121.0</id>
-        <title>SignPath Application (self-hosted only) 1.121.0</title>
+        <title>SignPath Self-hosted Installations 1.121.0</title>
         <updated>2022-08-04</updated>
         <published>2022-08-04</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-08-04" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.121.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-08-04" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.121.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.121.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.121.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved error reporting for wrong configurations.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added missing error reporting in the Administration Utility.&lt;/p&gt;
@@ -797,15 +726,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-07-25:self_hosted_installations:1.120.0</id>
-        <title>SignPath Application (self-hosted only) 1.120.0</title>
+        <title>SignPath Self-hosted Installations 1.120.0</title>
         <updated>2022-07-25</updated>
         <published>2022-07-25</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-07-25" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.120.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-07-25" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.120.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.120.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.120.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved the pairing process for Thales Luna and DPoD Cloud HSMs.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Added support for Azure Application Insights logging.&lt;/p&gt;
@@ -813,43 +741,40 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-07-14:self_hosted_installations:1.119.0</id>
-        <title>SignPath Application (self-hosted only) 1.119.0</title>
+        <title>SignPath Self-hosted Installations 1.119.0</title>
         <updated>2022-07-14</updated>
         <published>2022-07-14</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-07-14" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.119.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-07-14" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.119.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.119.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.119.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a bug that that required self-hosted installations to configure a timestamping server URL for FreeTrial subscriptions.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-05-16:self_hosted_installations:1.117.0</id>
-        <title>SignPath Application (self-hosted only) 1.117.0</title>
+        <title>SignPath Self-hosted Installations 1.117.0</title>
         <updated>2022-05-16</updated>
         <published>2022-05-16</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-05-16" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.117.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-05-16" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.117.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.117.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.117.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;In Kubernetes installations, an improved migration mode ensures that all container images are ready before to the new version starts, ensuring a minimum downtime.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-05-02:self_hosted_installations:1.115.0</id>
-        <title>SignPath Application (self-hosted only) 1.115.0</title>
+        <title>SignPath Self-hosted Installations 1.115.0</title>
         <updated>2022-05-02</updated>
         <published>2022-05-02</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-05-02" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.115.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-05-02" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.115.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.115.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.115.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;A new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ReportModel&lt;/code&gt; database needs to be created. See the installation guide for more details.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Administrators are now prevented from deploying to the wrong color.&lt;/p&gt;
@@ -859,15 +784,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-04-14:self_hosted_installations:1.114.0</id>
-        <title>SignPath Application (self-hosted only) 1.114.0</title>
+        <title>SignPath Self-hosted Installations 1.114.0</title>
         <updated>2022-04-14</updated>
         <published>2022-04-14</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-04-14" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.114.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-04-14" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.114.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.114.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.114.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Calling SetupDBs.ps1 now prints out a usage message when no parameters are supplied in the Docker Compose setup.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Improved default values in configuration files.&lt;/p&gt;
@@ -875,15 +799,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-03-31:self_hosted_installations:1.113.0</id>
-        <title>SignPath Application (self-hosted only) 1.113.0</title>
+        <title>SignPath Self-hosted Installations 1.113.0</title>
         <updated>2022-03-31</updated>
         <published>2022-03-31</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-31" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.113.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-31" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.113.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.113.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.113.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Artifacts can now be deleted using the administration utility.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;The database connection strings used in the initial setup and during the migration are now read from the configuration files.&lt;/p&gt;
@@ -891,15 +814,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-03-21:self_hosted_installations:1.112.0</id>
-        <title>SignPath Application (self-hosted only) 1.112.0</title>
+        <title>SignPath Self-hosted Installations 1.112.0</title>
         <updated>2022-03-21</updated>
         <published>2022-03-21</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-21" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.112.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-21" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.112.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.112.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.112.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;NShield HSM keys are automatically retargeted to be used for Java signing.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed Malware Scanner warnings on startup on Windows Server machines using Docker Compose.&lt;/p&gt;
@@ -907,100 +829,93 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-03-03:self_hosted_installations:1.111.0</id>
-        <title>SignPath Application (self-hosted only) 1.111.0</title>
+        <title>SignPath Self-hosted Installations 1.111.0</title>
         <updated>2022-03-03</updated>
         <published>2022-03-03</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-03" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.111.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-03" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.111.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.111.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.111.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Introduced a configurable file size limit for the artifact retrieval feature (defaults to 4GB).&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-02-21:self_hosted_installations:1.110.0</id>
-        <title>SignPath Application (self-hosted only) 1.110.0</title>
+        <title>SignPath Self-hosted Installations 1.110.0</title>
         <updated>2022-02-21</updated>
         <published>2022-02-21</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-02-21" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.110.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-02-21" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.110.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.110.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.110.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Introduced option to change the log4net configuration used in SignPath.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2022-01-20:self_hosted_installations:1.108.0</id>
-        <title>SignPath Application (self-hosted only) 1.108.0</title>
+        <title>SignPath Self-hosted Installations 1.108.0</title>
         <updated>2022-01-20</updated>
         <published>2022-01-20</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-01-20" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.108.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-01-20" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.108.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.108.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.108.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Only for nShield HSMs: Move the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kneti-hardserver&lt;/code&gt; file from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NShieldHardserverPath&lt;/code&gt; directory to a subdirectory &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hardserver&lt;/code&gt; in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NShieldPairingDataPath&lt;/code&gt; directory. (&lt;em&gt;Note: The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NShieldHardserverPath&lt;/code&gt; configuration value has been removed.&lt;/em&gt;)&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-12-09:self_hosted_installations:1.106.0</id>
-        <title>SignPath Application (self-hosted only) 1.106.0</title>
+        <title>SignPath Self-hosted Installations 1.106.0</title>
         <updated>2021-12-09</updated>
         <published>2021-12-09</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-12-09" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.106.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-12-09" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.106.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.106.0&lt;/h2&gt;&lt;h3&gt;Upgrade Information:&lt;/h3&gt;&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Configuration.yml&lt;/code&gt; file does not contain settings for the connection strings any more. Connection strings are now handled as secrets by default. However, for migration purposes, the connection strings can still be added to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Configuration.yml&lt;/code&gt; and referencing secret files is still supported.&lt;/p&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.106.0&lt;/h2&gt;&lt;h3&gt;Upgrade Information:&lt;/h3&gt;&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Configuration.yml&lt;/code&gt; file does not contain settings for the connection strings any more. Connection strings are now handled as secrets by default. However, for migration purposes, the connection strings can still be added to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Configuration.yml&lt;/code&gt; and referencing secret files is still supported.&lt;/p&gt;
 &lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;The secret handling has been unified between the Docker Compose and K8s deployment targets.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-11-25:self_hosted_installations:1.105.0</id>
-        <title>SignPath Application (self-hosted only) 1.105.0</title>
+        <title>SignPath Self-hosted Installations 1.105.0</title>
         <updated>2021-11-25</updated>
         <published>2021-11-25</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-11-25" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.105.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-11-25" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.105.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.105.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.105.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a bug that hid an error message when the configuration file could not be properly read.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-11-10:self_hosted_installations:1.104.0</id>
-        <title>SignPath Application (self-hosted only) 1.104.0</title>
+        <title>SignPath Self-hosted Installations 1.104.0</title>
         <updated>2021-11-10</updated>
         <published>2021-11-10</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-11-10" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.104.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-11-10" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.104.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.104.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.104.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Special characters are now handled correctly during the creation of the ENV-file.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-10-14:self_hosted_installations:1.102.0</id>
-        <title>SignPath Application (self-hosted only) 1.102.0</title>
+        <title>SignPath Self-hosted Installations 1.102.0</title>
         <updated>2021-10-14</updated>
         <published>2021-10-14</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-10-14" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.102.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-10-14" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.102.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.102.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.102.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;In the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Docker.LunaPairingDataPath&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Docker.NShieldPairingDataPath&lt;/code&gt; directory respectively, replace all characters in the filenames that do not fall in the following patterns with underscores (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_&lt;/code&gt;): &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;^[-._a-zA-Z0-9]+$&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Dropped support for file-based content stores. Use content stores compatible with the Amazon S3 interface instead.&lt;/p&gt;
@@ -1012,15 +927,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-09-16:self_hosted_installations:1.100.0</id>
-        <title>SignPath Application (self-hosted only) 1.100.0</title>
+        <title>SignPath Self-hosted Installations 1.100.0</title>
         <updated>2021-09-16</updated>
         <published>2021-09-16</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-09-16" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.100.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-09-16" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.100.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.100.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.100.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Support for the (AWS) S3 content store backend. (&lt;em&gt;Note: The file-based content-store will be dropped in the next version.&lt;/em&gt;)&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;The health check route of the Hangfire Dashboard works again.&lt;/p&gt;
@@ -1028,15 +942,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-09-02:self_hosted_installations:1.99.0</id>
-        <title>SignPath Application (self-hosted only) 1.99.0</title>
+        <title>SignPath Self-hosted Installations 1.99.0</title>
         <updated>2021-09-02</updated>
         <published>2021-09-02</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-09-02" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.99.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-09-02" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.99.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.99.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.99.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved logging during the database setup phase.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Fixed order of elements in Configuration.yml for easier comparison between versions.&lt;/p&gt;
@@ -1044,15 +957,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-08-23:self_hosted_installations:1.98.0</id>
-        <title>SignPath Application (self-hosted only) 1.98.0</title>
+        <title>SignPath Self-hosted Installations 1.98.0</title>
         <updated>2021-08-23</updated>
         <published>2021-08-23</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-08-23" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.98.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-08-23" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.98.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.98.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.98.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved migration times&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Unified &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;replaceme&lt;/code&gt; placeholders in configuration files.&lt;/p&gt;
@@ -1064,15 +976,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-07-08:self_hosted_installations:1.96.0</id>
-        <title>SignPath Application (self-hosted only) 1.96.0</title>
+        <title>SignPath Self-hosted Installations 1.96.0</title>
         <updated>2021-07-08</updated>
         <published>2021-07-08</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-07-08" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.96.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-07-08" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.96.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.96.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.96.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Changed the default isolation mode from Hyper-V to Process.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Removed necessity to set Multiple Active Result Set (MARS) in the connection strings explictly when upgrading.&lt;/p&gt;
@@ -1080,29 +991,27 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-06-24:self_hosted_installations:1.95.0</id>
-        <title>SignPath Application (self-hosted only) 1.95.0</title>
+        <title>SignPath Self-hosted Installations 1.95.0</title>
         <updated>2021-06-24</updated>
         <published>2021-06-24</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-06-24" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.95.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-06-24" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.95.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.95.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.95.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Docker images are now pulled from DockerHub instead of being included in the installation package.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-05-17:self_hosted_installations:1.92.0</id>
-        <title>SignPath Application (self-hosted only) 1.92.0</title>
+        <title>SignPath Self-hosted Installations 1.92.0</title>
         <updated>2021-05-17</updated>
         <published>2021-05-17</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-05-17" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.92.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-05-17" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.92.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.92.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.92.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved migration performance by reducing the number of events.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed wrong metadata type entry in content store for signed/unsigned artifacts.&lt;/p&gt;
@@ -1110,15 +1019,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-04-29:self_hosted_installations:1.91.0</id>
-        <title>SignPath Application (self-hosted only) 1.91.0</title>
+        <title>SignPath Self-hosted Installations 1.91.0</title>
         <updated>2021-04-29</updated>
         <published>2021-04-29</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-29" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.91.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-29" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.91.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.91.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.91.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Move all configuration values from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.env&lt;/code&gt; file to the respective section in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Configuration.yml&lt;/code&gt; file.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added possibility to configure an external malware scanner.&lt;/p&gt;
@@ -1130,15 +1038,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-04-15:self_hosted_installations:1.90.0</id>
-        <title>SignPath Application (self-hosted only) 1.90.0</title>
+        <title>SignPath Self-hosted Installations 1.90.0</title>
         <updated>2021-04-15</updated>
         <published>2021-04-15</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-15" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.90.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-15" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.90.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.90.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.90.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Move all secrets from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.env&lt;/code&gt; file to the respective secret files.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Switched to using Docker-Compose secrets.&lt;/p&gt;
@@ -1152,15 +1059,14 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         </content>
       </entry><entry>
         <id>tag:about.signpath.io,2021-04-01:self_hosted_installations:1.89.0</id>
-        <title>SignPath Application (self-hosted only) 1.89.0</title>
+        <title>SignPath Self-hosted Installations 1.89.0</title>
         <updated>2021-04-01</updated>
         <published>2021-04-01</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-01" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.89.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-01" /><category term="release/self_hosted_installations" label="SignPath Self-hosted Installations" />
+        <summary type="html">New Release: SignPath Self-hosted Installations 1.89.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.89.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Self-hosted Installations 1.89.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Reverse proxies are now supported, recommended and enabled by default.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>

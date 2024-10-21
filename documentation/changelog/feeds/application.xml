@@ -1,110 +1,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
-<link href="https://about.signpath.io/documentation/changelog/feeds/application.xml" rel="self" type="application/atom+xml"/>
-<link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-10-08</updated>
+<link href="https://about.signpath.io/documentation/changelog/feeds/application.xml" rel="self" type="application/atom+xml" />
+<link href="https://about.signpath.io/" rel="alternate" type="text/html" />
+<updated>2024-08-13</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/application.xml</id><title type="html">SignPath - Application Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
-        <id>tag:about.signpath.io,2024-10-08:application:1.173.0</id>
-        <title>SignPath Application 1.173.0</title>
-        <updated>2024-10-08</updated>
-        <published>2024-10-08</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-10-08" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.173.0</summary>
-        <content type="html">
-          &lt;div&gt;
-            &lt;h2&gt;New Release:  1.173.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Renamed the X.509 certificate creation/upload REST API routes:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POST /v1/{organizationId}/Certificates/CreateSelfSigned&lt;/code&gt; → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreateSelfSignedX509&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POST /v1/{organizationId}/Certificates/CreateCsrBased&lt;/code&gt; → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CreateCsrBasedX509&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POST /v1/{organizationId}/Certificates/{slug}/UploadCertificate&lt;/code&gt; → &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UploadX509Certificate&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Old routes are still available but deprecated. No changes in request bodies.&lt;/p&gt;
-&lt;/li&gt;&lt;li&gt;
-                        &lt;p&gt;Breaking change in v1 response properties.&lt;/p&gt;
-
-&lt;p&gt;Affected routes:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Certificates&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Certificates/{slug}&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Changes:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Existing property &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;type&lt;/code&gt; (top-level) now represents the certificate type (currently only &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;X509&lt;/code&gt;).&lt;/li&gt;
-  &lt;li&gt;Previous value of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;type&lt;/code&gt; is now in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x509Certificate.creationMethod&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SelfSigned&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Csr&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PfxImport&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ImportedWithExistingKeyPair&lt;/code&gt;).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;(Rationale: we expect no external dependencies on the current value of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;type&lt;/code&gt;.)&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;ECDSA hash signing: added support for signature block format “RFC 3279 ASN.1 sequence”. See &lt;a href=&quot;/documentation/crypto-providers/rest-api#hash-signing-payload-json&quot;&gt;artifact format for signing hash digests&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Signing request details page now shows HTTP response status code for failed artifact retrievals.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Fixed broken base URL in Swagger UI (affected version 1.172).&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
-        </content>
-      </entry><entry>
-        <id>tag:about.signpath.io,2024-09-24:application:1.172.0</id>
-        <title>SignPath Application 1.172.0</title>
-        <updated>2024-09-24</updated>
-        <published>2024-09-24</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-09-24" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.172.0</summary>
-        <content type="html">
-          &lt;div&gt;
-            &lt;h2&gt;New Release:  1.172.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Added origin information to the signing request list (verified origin or trusted build system name).&lt;/p&gt;
-&lt;/li&gt;&lt;li&gt;
-                        &lt;p&gt;Improved quota display on the organization page.&lt;/p&gt;
-&lt;span class='enterprise-only'&gt;(SaaS only)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;
-                        &lt;p&gt;Artifact configuration visualization: multiple signing directives now displayed separately.&lt;/p&gt;
-&lt;/li&gt;&lt;li&gt;
-                        &lt;p&gt;Signing request processing history now displayed indefinitely (was not displayed for “archived” signing requests, i.e. 31 days after completion in SaaS).&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Fixed disabled “Resubmit with current settings” button for archived signing requests (completion older than 31 days).&lt;/p&gt;
-&lt;/li&gt;&lt;li&gt;
-                        &lt;p&gt;Fixed interactive user invitation flow for newly registered users.&lt;/p&gt;
-&lt;span class='enterprise-only'&gt;(SaaS only)&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
-        </content>
-      </entry><entry>
-        <id>tag:about.signpath.io,2024-08-29:application:1.171.0</id>
-        <title>SignPath Application 1.171.0</title>
-        <updated>2024-08-29</updated>
-        <published>2024-08-29</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-08-29" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.171.0</summary>
-        <content type="html">
-          &lt;div&gt;
-            &lt;h2&gt;New Release:  1.171.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Fixed missing response models and response status codes in the &lt;a href=&quot;https://app.signpath.io/Api/swagger&quot;&gt;API definition&lt;/a&gt; for the following REST API routes:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1/{organizationId}/CIUsers/{id}/RegenerateApiToken&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1/{organizationId}/InteractiveUsers/{id}/RegenerateApiToken&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1/{organizationId}/TrustedBuildSystems/{slug}/RegenerateTrustedBuildSystemToken&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1/{organizationId}/SigningRequests/Resubmit&lt;/code&gt; (only status code was wrong)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
-        </content>
-      </entry><entry>
         <id>tag:about.signpath.io,2024-08-13:application:1.170.2</id>
         <title>SignPath Application 1.170.2</title>
         <updated>2024-08-13</updated>
         <published>2024-08-13</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-08-13" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.170.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-08-13" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.170.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.170.2&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.170.2&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;All &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1-pre&lt;/code&gt; REST API routes except audit log routes are now available as JSON APIs in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Changes in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1&lt;/code&gt;:&lt;/p&gt;
@@ -140,7 +52,7 @@
   &lt;/li&gt;
   &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;name&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;slug&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;description&lt;/code&gt; properties are now in the request or response root object.
     &lt;ul&gt;
-      &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;metadata&quot;&lt;/code&gt; object has been dropped in all JSON requests and responses.&lt;/li&gt;
+      &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;metadata&quot;&lt;/code&gt; object has been dropped in all JSON requests and responss.&lt;/li&gt;
       &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;metadata.&lt;/code&gt; prefix has been dropped in all multipart/form-data requests.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -178,12 +90,11 @@
         <title>SignPath Application 1.169.0</title>
         <updated>2024-08-01</updated>
         <published>2024-08-01</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-08-01" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.169.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-08-01" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.169.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.169.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.169.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added support for JSON &lt;em&gt;request&lt;/em&gt; bodies in the REST API.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -198,12 +109,11 @@
         <title>SignPath Application 1.168.1</title>
         <updated>2024-07-22</updated>
         <published>2024-07-22</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-22" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.168.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-22" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.168.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.168.1&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.168.1&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added support for &lt;a href=&quot;/documentation/artifact-configuration/reference#authenticode-sign-attributes&quot;&gt;appending Authenticode signatures&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved approval notification emails: added project, signing policy and artifact file name to email body.&lt;/p&gt;
@@ -216,12 +126,11 @@
         <title>SignPath Application 1.167.3</title>
         <updated>2024-07-08</updated>
         <published>2024-07-08</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-08" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.167.3</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-08" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.167.3</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.167.3&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.167.3&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added to organization page the number of “applied individual signatures” of the current month.&lt;/p&gt;
 &lt;span class='enterprise-only'&gt;(SaaS only)&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -230,12 +139,11 @@
         <title>SignPath Application 1.166.2</title>
         <updated>2024-06-10</updated>
         <published>2024-06-10</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-06-10" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.166.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-06-10" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.166.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.166.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.166.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added an optional &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cancellationTimeoutInSeconds&lt;/code&gt; parameter to the signing request submission REST APIs to automatically cancel signing requests after the provided timeout.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -244,12 +152,11 @@
         <title>SignPath Application 1.165.2</title>
         <updated>2024-06-10</updated>
         <published>2024-06-10</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-06-10" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.165.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-06-10" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.165.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.165.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.165.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Allow import of certificates that exceed RFC length limits in Distinguished Name components such as Common Name. Applies to Certificate Signing Request (CSR) certificate upload and PFX import.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Improve error reporting for PFX files with missing common name field in the contained certificate.&lt;/p&gt;
@@ -262,12 +169,11 @@
         <title>SignPath Application 1.164.3</title>
         <updated>2024-05-27</updated>
         <published>2024-05-27</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-05-27" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.164.3</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-05-27" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.164.3</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.164.3&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.164.3&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added ECDSA certificate support for Authenticode.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed minor UI glitch for edit signing policy (approval deactivated when removing all approvers).&lt;/p&gt;
@@ -278,12 +184,11 @@
         <title>SignPath Application 1.163.0</title>
         <updated>2024-05-13</updated>
         <published>2024-05-13</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-05-13" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.163.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-05-13" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.163.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.163.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.163.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Authenticode files can now be signature &lt;em&gt;validated&lt;/em&gt; with the new &lt;a href=&quot;/documentation/artifact-configuration/reference#authenticode-verify&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;authenticode-verify /&amp;gt;&lt;/code&gt;&lt;/a&gt; artifact configuration directive.
 Use to ensure that third-party components are properly signed in deep signing configurations.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
@@ -301,12 +206,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.162.2</title>
         <updated>2024-04-25</updated>
         <published>2024-04-25</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-04-25" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.162.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-04-25" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.162.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.162.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.162.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved history UI: table column alignment, use of screen estate.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Improved performance of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ModifyMembers&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ChangeMembers&lt;/code&gt; user group REST APIs.&lt;/p&gt;
@@ -317,12 +221,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.160.1</title>
         <updated>2024-03-28</updated>
         <published>2024-03-28</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-03-28" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.160.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-03-28" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.160.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.160.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.160.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Artifact configuration: &lt;a href=&quot;/documentation/artifact-configuration/reference#create-raw-signature&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;create-raw-signature&amp;gt;&lt;/code&gt;&lt;/a&gt; supports input filename substitution via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;${file.name}&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;“Resubmit with current settings” now also works for signing requests which fail due to an &lt;em&gt;artifact retrieval&lt;/em&gt; error.&lt;/p&gt;
@@ -333,12 +236,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.159.0</title>
         <updated>2024-03-14</updated>
         <published>2024-03-14</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-03-14" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.159.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-03-14" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.159.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.159.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.159.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Provided dedicated REST APIs for modifying group memberships:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/ChangeMembers&lt;/code&gt; sets a new list of members&lt;/li&gt;
@@ -357,12 +259,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.157.0</title>
         <updated>2024-02-15</updated>
         <published>2024-02-15</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-02-15" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.157.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-02-15" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.157.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.157.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.157.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;For failed singing requests, the “Retry with current settings” feature was replaced with “&lt;em&gt;Resubmit&lt;/em&gt; with current settings”. This feature creates a new signing request (linking back to the “original singing request”) instead of retrying the same signing request.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Stricter validation of email address input.&lt;/p&gt;
@@ -377,12 +278,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.156.0</title>
         <updated>2024-02-01</updated>
         <published>2024-02-01</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-02-01" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.156.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-02-01" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.156.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.156.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.156.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;REST API: Added new routes for creating, querying and modifying Trusted Build Systems.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved error reporting of internal errors during Authenticode signing operations.&lt;/p&gt;
@@ -397,12 +297,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.155.0</title>
         <updated>2024-01-22</updated>
         <published>2024-01-22</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-01-22" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.155.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-01-22" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.155.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.155.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.155.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;REST API: Added new routes for (de)activating certificates, projects, signing policies and artifact configurations, and a new route for the “delete private key” certificate operation.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;REST API: Added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1-pre/{organizationId}/InteractiveUsers/Me&lt;/code&gt; route.&lt;/p&gt;
@@ -417,12 +316,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.153.1</title>
         <updated>2023-12-20</updated>
         <published>2023-12-20</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-12-20" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.153.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-12-20" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.153.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.153.1&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.153.1&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Trusted build systems: Fixed validation error for Git repository SSH URLs.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -431,12 +329,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.153.0</title>
         <updated>2023-12-11</updated>
         <published>2023-12-11</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-12-11" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.153.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-12-11" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.153.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.153.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.153.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added support for creating raw detached signature files.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -445,12 +342,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.152.1</title>
         <updated>2023-11-28</updated>
         <published>2023-11-28</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-11-28" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.152.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-11-28" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.152.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.152.1&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.152.1&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Restricted user role assignment for OSS subscriptions.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -459,12 +355,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.152.0</title>
         <updated>2023-11-23</updated>
         <published>2023-11-23</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-11-23" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.152.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-11-23" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.152.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.152.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.152.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Granular read-access authorization for signing requests. (Work in progress, available on request.)&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Signing requests with artifact retrieval links: added support for HTTP content compression.&lt;/p&gt;
@@ -485,12 +380,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.151.1</title>
         <updated>2023-11-02</updated>
         <published>2023-11-02</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-11-02" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.151.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-11-02" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.151.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.151.1&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.151.1&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;New REST API route: download the X509 certificate of a signing request &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1-pre/{organizationId}/SigningRequests/{id}/X509Certificate&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved error messages for AppX and MSIX files when the publisher name does not match the certificate subject.&lt;/p&gt;
@@ -511,12 +405,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.150.2</title>
         <updated>2023-10-12</updated>
         <published>2023-10-12</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-10-12" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.150.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-10-12" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.150.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.150.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.150.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Renamed certificate field “Thumbprint” to “SHA-1 Thumbprint” in the user interface and pre-release API.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Added improved error messages for analyzing SSO-related configuration issues.&lt;/p&gt;
@@ -527,12 +420,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.149.2</title>
         <updated>2023-10-02</updated>
         <published>2023-10-02</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-10-02" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.149.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-10-02" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.149.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.149.2&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.149.2&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added limited administrator roles: &lt;em&gt;User Administrator&lt;/em&gt;, &lt;em&gt;Project Administrator&lt;/em&gt; and _Certificate Administrator. For more details, see the &lt;a href=&quot;/documentation/users#roles&quot;&gt;user roles documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;&lt;a href=&quot;/documentation/artifact-configuration/syntax#zip-file-element&quot;&gt;Select multiple files&lt;/a&gt; is now generally available.&lt;/p&gt;
@@ -553,12 +445,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.148.2</title>
         <updated>2023-09-13</updated>
         <published>2023-09-13</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-09-13" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.148.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-09-13" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.148.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.148.2&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.148.2&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added support for personal API tokens for interactive users. See &lt;a href=&quot;/documentation/build-system-integration#authentication&quot;&gt;authentication&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Renamed “CI user token” to “Api token” in the user interface and one pre-release API (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RegenerateApiToken&lt;/code&gt;).&lt;/p&gt;
@@ -575,12 +466,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.147.0</title>
         <updated>2023-08-21</updated>
         <published>2023-08-21</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-08-21" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.147.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-08-21" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.147.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.147.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.147.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added a “My profile” link in the user menu.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed incorrect handling of special characters in artifact file path during malware scanning and during OPC deep signing processing.&lt;/p&gt;
@@ -591,12 +481,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.146.0</title>
         <updated>2023-08-07</updated>
         <published>2023-08-07</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-08-07" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.146.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-08-07" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.146.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.146.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.146.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added &lt;a href=&quot;/documentation/artifact-configuration/syntax#zip-file-element&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ui-multifile-upload&lt;/code&gt;&lt;/a&gt; feature to upload multiple files in signing request web client UI (preview).&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Added “Multiple Office files with macros” default artifact configuration which allows to upload multiple Office files in the user interface.&lt;/p&gt;
@@ -609,12 +498,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.145.1</title>
         <updated>2023-07-13</updated>
         <published>2023-07-13</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-07-13" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.145.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-07-13" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.145.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.145.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.145.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1-pre/{organizationId}/AuditLog/SigningRequestEvents&lt;/code&gt; responses:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;originalSigningRequestId&lt;/code&gt; for resubmit events.&lt;/li&gt;
@@ -629,12 +517,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.144.1</title>
         <updated>2023-07-11</updated>
         <published>2023-07-11</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-07-11" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.144.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-07-11" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.144.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.144.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.144.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;New REST API route: reinvite interactive users &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1-pre/{organizationId}/InteractiveUsers/{id}/Reinvite&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;New REST API route: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1-pre/{organizationId}/Projects/{slug}/SetDefaultArtifactConfiguration&lt;/code&gt;.&lt;/p&gt;
@@ -647,12 +534,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.143.2</title>
         <updated>2023-06-26</updated>
         <published>2023-06-26</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-06-26" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.143.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-06-26" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.143.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.143.2&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.143.2&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Event Audit Log API (preview): The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TrustedBuildSystem.Added&lt;/code&gt; event has been renamed to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TrustedBuildSystem.CustomAdded&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -661,12 +547,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.141.1</title>
         <updated>2023-05-26</updated>
         <published>2023-05-26</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-05-26" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.141.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-05-26" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.141.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.141.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.141.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Malformed hash values in hash signing are now gracefully reported to the API caller.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a problem that caused some signing requests to be stuck in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Queued&lt;/code&gt; state.&lt;/p&gt;
@@ -679,12 +564,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.140.3</title>
         <updated>2023-05-12</updated>
         <published>2023-05-12</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-05-12" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.140.3</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-05-12" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.140.3</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.140.3&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.140.3&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added support for signing Cyclone DX SBOMs.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Added support for XML file signing based on the W3C XMLDSig standard.&lt;/p&gt;
@@ -699,12 +583,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.139.0</title>
         <updated>2023-04-25</updated>
         <published>2023-04-25</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-04-25" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.139.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-04-25" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.139.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.139.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.139.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a bug that allowed users to be created via the API even though the quota limit has been met.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Fixed timeouts in the signing request Audit Log API.&lt;/p&gt;
@@ -717,12 +600,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.138.0</title>
         <updated>2023-04-18</updated>
         <published>2023-04-18</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-04-18" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.138.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-04-18" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.138.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.138.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.138.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved performance in UI when showing long history lists.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed potential issue that allowed very long running background tasks to run in parallel.&lt;/p&gt;
@@ -733,12 +615,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.137.0</title>
         <updated>2023-03-30</updated>
         <published>2023-03-30</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-30" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.137.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-30" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.137.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.137.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.137.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;SignPath now explicitly drops any secrets exposed in the build settings by AppVeyor. All affected parties were informed.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -747,12 +628,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.136.3</title>
         <updated>2023-03-23</updated>
         <published>2023-03-23</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-23" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.136.3</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-23" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.136.3</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.136.3&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.136.3&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;New REST API route &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1-pre/{organizationId}/SigningRequests/{id}/ArtifactDescriptionXml&lt;/code&gt; allows to retrieve the artifact &lt;em&gt;description&lt;/em&gt; XML content for signing requests including file details for all contained signed files.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Added a “Sign artifact” button in the artifact configuration list in the project page.&lt;/p&gt;
@@ -765,12 +645,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.135.0</title>
         <updated>2023-03-02</updated>
         <published>2023-03-02</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-02" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.135.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-02" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.135.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.135.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.135.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added support for ECDSA X.509 (key type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ecdsa-x509&lt;/code&gt;) certificates for Docker Signing.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added new REST API for listing all projects as well as modifying projects, signing policies, and artifact configurations.&lt;/p&gt;
@@ -783,12 +662,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.133.0</title>
         <updated>2023-02-02</updated>
         <published>2023-02-02</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-02-02" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.133.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-02-02" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.133.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.133.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.133.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Artifact configurations can now be deactivated.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;New REST API &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1-pre/{organizationId}/Certificates&lt;/code&gt; allows to list all certificates.&lt;/p&gt;
@@ -803,12 +681,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.132.0</title>
         <updated>2023-01-12</updated>
         <published>2023-01-12</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-01-12" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.132.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-01-12" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.132.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.132.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.132.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Within the AuditLog API (preview) response, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;metadata.user&lt;/code&gt; property has been renamed to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;metadata.actor&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Changed web hooks to be triggered for &lt;em&gt;all final&lt;/em&gt; signing request statuses, not only &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Complete&lt;/code&gt;.&lt;/p&gt;
@@ -825,12 +702,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.130.0</title>
         <updated>2022-12-13</updated>
         <published>2022-12-13</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-12-13" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.130.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-12-13" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.130.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.130.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.130.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;The Audit Log REST API (preview) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1-pre/{organizationId}/AuditLog/Events&lt;/code&gt; doesn’t include signing request events anymore, instead they can be retrieved via the the new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1-pre/{organizationId}/AuditLog/SigningRequestEvents&lt;/code&gt; route.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added support for additional, organization-specific key stores.&lt;/p&gt;
@@ -843,12 +719,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.129.0</title>
         <updated>2022-11-29</updated>
         <published>2022-11-29</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-11-29" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.129.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-11-29" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.129.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.129.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.129.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Enabled Swagger UI for the REST API at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/Api/swagger&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed bug in elliptic curve certificate generation for the software key store.&lt;/p&gt;
@@ -859,12 +734,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.128.0</title>
         <updated>2022-11-15</updated>
         <published>2022-11-15</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-11-15" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.128.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-11-15" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.128.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.128.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.128.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added possibility to disable malware scanning for individual signing policies.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Performance improvement for signing requests using the HSM key store.&lt;/p&gt;
@@ -877,12 +751,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.126.0</title>
         <updated>2022-10-13</updated>
         <published>2022-10-13</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-10-13" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.126.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-10-13" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.126.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.126.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.126.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Verifying that a signing request was submitted from a trusted build system (TBS) is now possible without requiring the TBS to provide origin information.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;The certificate view now also lists the X509 Issuer, Serial Number, Thumbprint, Key Usage and Extended Key Usage flags for each certificate.&lt;/p&gt;
@@ -895,12 +768,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.125.0</title>
         <updated>2022-09-29</updated>
         <published>2022-09-29</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-29" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.125.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-29" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.125.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.125.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.125.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added support for MSIX (Windows app package) signing.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Added UI support for Re-submission of signing requests.&lt;/p&gt;
@@ -913,12 +785,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.124.0</title>
         <updated>2022-09-20</updated>
         <published>2022-09-20</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-20" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.124.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-20" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.124.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.124.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.124.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Interactive users can now be created via the REST API.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Various small UI/UX improvements:&lt;/p&gt;
@@ -940,12 +811,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.123.0</title>
         <updated>2022-09-01</updated>
         <published>2022-09-01</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-01" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.123.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-01" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.123.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.123.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.123.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Compatibility with Internet Explorer 11 has been dropped.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;The artifact description in signing requests now contains the full path of files inside container artifacts.&lt;/p&gt;
@@ -964,12 +834,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.120.0</title>
         <updated>2022-07-25</updated>
         <published>2022-07-25</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-07-25" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.120.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-07-25" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.120.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.120.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.120.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added support for Windows Script Signing.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved error handling for invalid archives.&lt;/p&gt;
@@ -982,12 +851,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.119.0</title>
         <updated>2022-07-14</updated>
         <published>2022-07-14</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-07-14" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.119.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-07-14" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.119.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.119.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.119.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added the possibility to provide a reason when denying a signing request.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved error messages when submitting invalid NuGet packages.&lt;/p&gt;
@@ -1000,12 +868,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.117.0</title>
         <updated>2022-06-08</updated>
         <published>2022-06-08</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-06-08" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.117.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-06-08" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.117.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.117.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.117.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a potential argument injection vulnerability in the jarsigner call.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a bug that prevented notification email changes from being shown in the history.&lt;/p&gt;
@@ -1016,12 +883,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application </title>
         <updated>2022-05-16</updated>
         <published>2022-05-16</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-05-16" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  </summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-05-16" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application </summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  &lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application &lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;New REST API route (preview): &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1-pre/{organizationId}/CIUsers/Me&lt;/code&gt; returns information about the authenticated CI user.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -1030,12 +896,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.115.0</title>
         <updated>2022-05-02</updated>
         <published>2022-05-02</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-05-02" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.115.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-05-02" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.115.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.115.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.115.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed Content-Security-Policy rules that prevented some SVG icons from being loaded.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -1044,12 +909,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.113.0</title>
         <updated>2022-03-31</updated>
         <published>2022-03-31</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-31" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.113.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-31" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.113.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.113.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.113.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a bug that prevented Docker Signing to work when using the Azure Container Registry.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -1058,12 +922,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.112.0</title>
         <updated>2022-03-21</updated>
         <published>2022-03-21</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-21" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.112.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-21" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.112.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.112.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.112.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;New REST API route (preview): &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/v1-pre/{organizationId}/Organization&lt;/code&gt; to query organization and quota information.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -1072,12 +935,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.111.0</title>
         <updated>2022-03-03</updated>
         <published>2022-03-03</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-03" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.111.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-03" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.111.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.111.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.111.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Limited the maximum file size for artifact retrieval to 4GB in SaaS.&lt;/p&gt;
 &lt;span class='enterprise-only'&gt;(SaaS only)&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -1086,12 +948,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.110.0</title>
         <updated>2022-02-21</updated>
         <published>2022-02-21</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-02-21" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.110.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-02-21" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.110.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.110.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.110.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Introduced the option to re-download a Certificate Signing Request (CSR) and to re-upload certificates.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Updated Java Runtime to JDK 12.&lt;/p&gt;
@@ -1104,12 +965,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.108.0</title>
         <updated>2022-01-20</updated>
         <published>2022-01-20</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-01-20" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.108.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-01-20" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.108.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.108.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.108.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Audit Log REST API is now available in preview.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Expiration emails for already expired certificates are no longer sent out.&lt;/p&gt;
@@ -1120,12 +980,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.107.0</title>
         <updated>2022-01-11</updated>
         <published>2022-01-11</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-01-11" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.107.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-01-11" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.107.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.107.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.107.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;The API now returns concrete error messages in the body of HTTP 401 Unauthorized responses.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;The signing request ID is now included in the HTTP response body of the submit API routes.&lt;/p&gt;
@@ -1138,12 +997,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.106.0</title>
         <updated>2021-12-09</updated>
         <published>2021-12-09</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-12-09" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.106.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-12-09" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.106.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.106.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.106.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;For Hash Signing, the metadata is now included in the signed artifact payload file.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a bug that caused expiration notifications to be sent out even if a new certificate was re-imported.&lt;/p&gt;
@@ -1154,12 +1012,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.105.0</title>
         <updated>2021-11-25</updated>
         <published>2021-11-25</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-11-25" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.105.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-11-25" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.105.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.105.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.105.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Signing request filters: The signing request list can be filtered by status and artifact configuration (when viewing signing requests for a specific project or signing policy).&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;User roles can also be configured for CI Users. Permissions will be applied to API calls accordingly.&lt;/p&gt;
@@ -1172,12 +1029,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.104.0</title>
         <updated>2021-11-10</updated>
         <published>2021-11-10</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-11-10" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.104.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-11-10" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.104.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.104.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.104.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;The content of signing request lists has been cleaned up and only includes the artifact name once.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a UI glitch in the webhook body editor.&lt;/p&gt;
@@ -1190,12 +1046,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.103.0</title>
         <updated>2021-11-02</updated>
         <published>2021-11-02</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-11-02" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.103.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-11-02" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.103.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.103.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.103.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added global reader and project reader roles.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Signing requests can now be resubmitted via the PowerShell module or via the API.&lt;/p&gt;
@@ -1210,12 +1065,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.102.0</title>
         <updated>2021-10-14</updated>
         <published>2021-10-14</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-10-14" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.102.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-10-14" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.102.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.102.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.102.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Support for Thales DPoD cloud HSMs are in pre-release status.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;The signing request status values have been reduced. Multiple status are now combined as “In Progress”.&lt;/p&gt;
@@ -1230,12 +1084,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.101.0</title>
         <updated>2021-09-30</updated>
         <published>2021-09-30</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-09-30" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.101.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-09-30" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.101.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.101.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.101.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a bug that caused exception stack traces during startup.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -1244,12 +1097,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.100.0</title>
         <updated>2021-09-16</updated>
         <published>2021-09-16</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-09-16" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.100.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-09-16" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.100.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.100.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.100.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Project configurators: Configurator permissions can be granted to users that allow them to edit the artifact configurations and webhooks for specific projects only.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;The signing request report now includes a link to the web page of the respective signing request.&lt;/p&gt;
@@ -1260,12 +1112,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.99.0</title>
         <updated>2021-09-02</updated>
         <published>2021-09-02</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-09-02" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.99.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-09-02" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.99.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.99.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.99.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Hardenend the content-security-policy settings.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -1274,12 +1125,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.98.0</title>
         <updated>2021-08-23</updated>
         <published>2021-08-23</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-08-23" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.98.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-08-23" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.98.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.98.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.98.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Notification Levels: Users can now select a notification level for each signing policy separately. By default, administrators will stop receiving notifications for signing requests unless they are configured as submitters or approvers.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved performance when processing artifacts.&lt;/p&gt;
@@ -1294,12 +1144,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.96.0</title>
         <updated>2021-07-08</updated>
         <published>2021-07-08</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-07-08" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.96.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-07-08" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.96.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.96.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.96.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Better error reporting for archives that contain multiple files with the same name.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Performance improvements when loading signing request lists.&lt;/p&gt;
@@ -1312,12 +1161,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.95.0</title>
         <updated>2021-06-24</updated>
         <published>2021-06-24</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-06-24" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.95.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-06-24" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.95.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.95.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.95.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved performance for hash-signing operations.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -1326,12 +1174,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.94.0</title>
         <updated>2021-05-27</updated>
         <published>2021-05-27</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-05-27" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.94.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-05-27" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.94.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.94.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.94.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;The default key size was increased to 4096 bits when creating keys via the user interface. This change was necessary to meet the new baseline requirements for code signing certificates as published by the CA/Browser forum. Existing certificates are not affected by this change.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Authenticode signatures may contain a description field that is displayed by Windows User Account Controls (UAC) and possibly other mechanisms. If present, SignPath will now use the FileDescription value of the PE file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VERSIONINFO&lt;/code&gt; resource (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VER_FILEDESCRIPTION_STR&lt;/code&gt;). Otherwise the file name will be used as before.&lt;/p&gt;
@@ -1344,12 +1191,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.91.0</title>
         <updated>2021-04-29</updated>
         <published>2021-04-29</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-29" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.91.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-29" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.91.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.91.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.91.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Various small UX improvements:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Renamed “Build information” to “Build data”.&lt;/li&gt;
@@ -1366,12 +1212,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.90.0</title>
         <updated>2021-04-15</updated>
         <published>2021-04-15</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-15" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.90.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-15" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.90.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.90.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.90.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Changed webhook URLs to only allow HTTPS.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Group memberships are also shown for user groups.&lt;/p&gt;
@@ -1384,12 +1229,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.89.0</title>
         <updated>2021-04-01</updated>
         <published>2021-04-01</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-01" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.89.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-04-01" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.89.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.89.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.89.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Signing request reports now also include the user IDs of all submitters and approvers.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -1398,12 +1242,11 @@ Use to ensure that third-party components are properly signed in deep signing co
         <title>SignPath Application 1.88.0</title>
         <updated>2021-03-17</updated>
         <published>2021-03-17</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-03-17" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.88.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2021-03-17" /><category term="release/application" label="SignPath Application" />
+        <summary type="html">New Release: SignPath Application 1.88.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.88.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Application 1.88.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Artifact configurations now support user-defined parameters.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a bug that did not show the organization name on the invitation page.&lt;/p&gt;

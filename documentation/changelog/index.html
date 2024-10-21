@@ -63,11 +63,18 @@
 <section class="resources-section">
 	<div><article>
 <section class="changelog">
+
 <div class="changelog-select-ctn">
 	<div>
 		Component 
 		<select id="changelog-component-select">
-			<option value="all">All components</option><option value="application">Application</option><option value="self_hosted_installations">Application (self-hosted only)</option><option value="powershell_module">PowerShell Module</option><option value="powershell_module_docker">Docker PowerShell Module</option><option value="crypto_providers">Crypto Providers</option><option value="github_connector">GitHub Connector</option><option value="jenkins_plugin">Jenkins Plugin</option></select>
+			<option value="all">All components</option>
+			<option value="application">SignPath Application</option>
+			<option value="self_hosted_installations">Self-hosted Installations</option>
+			<option value="powershell_module">PowerShell module</option>
+			<option value="crypto_providers">Crypto Providers</option>
+			<option value="macos_cryptotokenkit">macOS CryptoTokenKit</option>
+		</select>
 	</div>
 	<div>
 		Changes 
@@ -99,6 +106,11 @@
 
 
 
+	
+		
+<p id="show-older-releases"><a id="show-older-releases-link" href="#">Show older releases</a></p>
+<div id="older-releases"> 	
+	
 
 
 
@@ -106,8 +118,9 @@
 
 
 
-<article class="release component-application change_type-version change_type-breaking_changes change_type-new_features change_type-improvements change_type-bug_fixes" id="2024-10-08">
-	<h1>&nbsp;<span>October 08, 2024</span></h1>
+
+<article class="release component-macos_cryptotokenkit change_type-version change_type-breaking_changes change_type-new_features change_type-improvements change_type-bug_fixes" id="2999-99-99">
+	<h1>&nbsp;<span>2999-99-99</span></h1>
 	
 		
 			
@@ -118,8 +131,11 @@
 			
 			
 
-			<div class="component-application component change_type-version change_type-breaking_changes change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.173.0</h2>
+			<div class="component-macos_cryptotokenkit component change_type-version change_type-breaking_changes change_type-new_features change_type-improvements change_type-bug_fixes">
+			<h2>
+				 macOS CryptoTokenKit 2.0
+				
+			</h2>
 			
 			
 				
@@ -147,34 +163,7 @@
 						<ul>
 							
 								<li>
-									<p>Renamed the X.509 certificate creation/upload REST API routes:</p>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">POST /v1/{organizationId}/Certificates/CreateSelfSigned</code> → <code class="language-plaintext highlighter-rouge">CreateSelfSignedX509</code></li>
-  <li><code class="language-plaintext highlighter-rouge">POST /v1/{organizationId}/Certificates/CreateCsrBased</code> → <code class="language-plaintext highlighter-rouge">CreateCsrBasedX509</code></li>
-  <li><code class="language-plaintext highlighter-rouge">POST /v1/{organizationId}/Certificates/{slug}/UploadCertificate</code> → <code class="language-plaintext highlighter-rouge">UploadX509Certificate</code></li>
-</ul>
-
-<p>Old routes are still available but deprecated. No changes in request bodies.</p>
-
-									
-								</li>
-							
-								<li>
-									<p>Breaking change in v1 response properties.</p>
-
-<p>Affected routes:</p>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">GET /v1/{organizationId}/Certificates</code></li>
-  <li><code class="language-plaintext highlighter-rouge">GET /v1/{organizationId}/Certificates/{slug}</code></li>
-</ul>
-
-<p>Changes:</p>
-<ul>
-  <li>Existing property <code class="language-plaintext highlighter-rouge">type</code> (top-level) now represents the certificate type (currently only <code class="language-plaintext highlighter-rouge">X509</code>).</li>
-  <li>Previous value of <code class="language-plaintext highlighter-rouge">type</code> is now in <code class="language-plaintext highlighter-rouge">x509Certificate.creationMethod</code> (<code class="language-plaintext highlighter-rouge">SelfSigned</code>, <code class="language-plaintext highlighter-rouge">Csr</code>, <code class="language-plaintext highlighter-rouge">PfxImport</code>, <code class="language-plaintext highlighter-rouge">ImportedWithExistingKeyPair</code>).</li>
-</ul>
-
-<p>(Rationale: we expect no external dependencies on the current value of <code class="language-plaintext highlighter-rouge">type</code>.)</p>
+									<p>Renamed the command-line parameters.</p>
 
 									
 								</li>
@@ -201,7 +190,13 @@
 						<ul>
 							
 								<li>
-									<p>ECDSA hash signing: added support for signature block format “RFC 3279 ASN.1 sequence”. See <a href="/documentation/crypto-providers/rest-api#hash-signing-payload-json">artifact format for signing hash digests</a>.</p>
+									<p>Added support for sha1 signatures required for productsign.</p>
+
+									
+								</li>
+							
+								<li>
+									<p>Added support for HTTP timeout and retry configuration.</p>
 
 									
 								</li>
@@ -228,7 +223,7 @@
 						<ul>
 							
 								<li>
-									<p>Signing request details page now shows HTTP response status code for failed artifact retrievals.</p>
+									<p>Improved logging and logging configuration.</p>
 
 									
 								</li>
@@ -255,404 +250,13 @@
 						<ul>
 							
 								<li>
-									<p>Fixed broken base URL in Swagger UI (affected version 1.172).</p>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-			</div>
-		
-	
-</article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<article class="release component-application change_type-version change_type-improvements change_type-bug_fixes component-self_hosted_installations change_type-breaking_changes" id="2024-09-24">
-	<h1>&nbsp;<span>September 24, 2024</span></h1>
-	
-		
-			
-			
-			
-			
-			
-			
-			
-
-			<div class="component-application component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.172.0</h2>
-			
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-improvements">
-					<h3>
-						 Improvements:
-							
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Added origin information to the signing request list (verified origin or trusted build system name).</p>
+									<p>Fixed a bug that prevented multiple certificates from being loaded at once.</p>
 
 									
 								</li>
 							
 								<li>
-									<p>Improved quota display on the organization page.</p>
-
-									
-										<span class="enterprise-only">(SaaS only)</span>
-									
-								</li>
-							
-								<li>
-									<p>Artifact configuration visualization: multiple signing directives now displayed separately.</p>
-
-									
-								</li>
-							
-								<li>
-									<p>Signing request processing history now displayed indefinitely (was not displayed for “archived” signing requests, i.e. 31 days after completion in SaaS).</p>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-bug_fixes">
-					<h3>
-						 Bug Fixes:
-						
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Fixed disabled “Resubmit with current settings” button for archived signing requests (completion older than 31 days).</p>
-
-									
-								</li>
-							
-								<li>
-									<p>Fixed interactive user invitation flow for newly registered users.</p>
-
-									
-										<span class="enterprise-only">(SaaS only)</span>
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-			</div>
-		
-			
-			
-			
-			
-			
-			
-			
-
-			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-improvements">
-			<h2>Application (self-hosted only) 1.172.0</h2>
-			
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-breaking_changes">
-					<h3>
-						 Breaking Changes / Manual migration steps:
-							
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Changed recommended Kubernetes version to 1.29 and <code class="language-plaintext highlighter-rouge">signpathio/kubectl</code> image tag to 1.29.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-improvements">
-					<h3>
-						 Improvements:
-							
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Graceful container shutdown: termination of Pods is now delayed (default of 30 secs). 
-This allows for request drain-out and safe shutdown (e.g. flushing Application Insights data).</p>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-			</div>
-		
-	
-</article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<article class="release component-application change_type-version change_type-bug_fixes component-self_hosted_installations" id="2024-08-29">
-	<h1>&nbsp;<span>August 29, 2024</span></h1>
-	
-		
-			
-			
-			
-			
-			
-			
-			
-
-			<div class="component-application component change_type-version change_type-bug_fixes">
-			<h2>Application 1.171.0</h2>
-			
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-bug_fixes">
-					<h3>
-						 Bug Fixes:
-						
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Fixed missing response models and response status codes in the <a href="https://app.signpath.io/Api/swagger">API definition</a> for the following REST API routes:</p>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">/v1/{organizationId}/CIUsers/{id}/RegenerateApiToken</code></li>
-  <li><code class="language-plaintext highlighter-rouge">/v1/{organizationId}/InteractiveUsers/{id}/RegenerateApiToken</code></li>
-  <li><code class="language-plaintext highlighter-rouge">/v1/{organizationId}/TrustedBuildSystems/{slug}/RegenerateTrustedBuildSystemToken</code></li>
-  <li><code class="language-plaintext highlighter-rouge">/v1/{organizationId}/SigningRequests/Resubmit</code> (only status code was wrong)</li>
-</ul>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-			</div>
-		
-			
-			
-			
-			
-			
-			
-			
-
-			<div class="component-self_hosted_installations component change_type-version change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.171.0</h2>
-			
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-bug_fixes">
-					<h3>
-						 Bug Fixes:
-						
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>All <code class="language-plaintext highlighter-rouge">signpath-application</code> Pods now correctly report <code class="language-plaintext highlighter-rouge">application_Version</code> to Application Insights (if enabled).</p>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-			</div>
-		
-	
-</article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<article class="release component-github_connector change_type-version change_type-new_features" id="2024-08-16">
-	<h1>&nbsp;<span>August 16, 2024</span></h1>
-	
-		
-			
-			
-			
-			
-			
-			
-			
-
-			<div class="component-github_connector component change_type-version change_type-new_features">
-			<h2>GitHub Connector 1.0</h2>
-			
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-new_features">
-					<h3>
-						 New Features:
-							
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Initial release: GitHub.com is now available as a <a href="/documentation/trusted-build-systems">Trusted Build System</a>.</p>
+									<p>Fixed a bug where the application failed when provided with an invalid configuration file.</p>
 
 									
 								</li>
@@ -694,7 +298,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-bug_fixes">
-			<h2>Application 1.170.2</h2>
+			<h2>
+				 SignPath Application 1.170.2
+					
+			</h2>
 			
 			
 				
@@ -757,7 +364,7 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
   </li>
   <li>The <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">slug</code> and <code class="language-plaintext highlighter-rouge">description</code> properties are now in the request or response root object.
     <ul>
-      <li>The <code class="language-plaintext highlighter-rouge">"metadata"</code> object has been dropped in all JSON requests and responses.</li>
+      <li>The <code class="language-plaintext highlighter-rouge">"metadata"</code> object has been dropped in all JSON requests and responss.</li>
       <li>The <code class="language-plaintext highlighter-rouge">metadata.</code> prefix has been dropped in all multipart/form-data requests.</li>
     </ul>
   </li>
@@ -845,7 +452,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.170.2</h2>
+			<h2>
+				 Self-hosted Installations 1.170.2
+					
+			</h2>
 			
 			
 				
@@ -942,7 +552,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.169.0</h2>
+			<h2>
+				 SignPath Application 1.169.0
+					
+			</h2>
 			
 			
 				
@@ -997,7 +610,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes">
-			<h2>Application (self-hosted only) 1.169.0</h2>
+			<h2>
+				 Self-hosted Installations 1.169.0
+					
+			</h2>
 			
 			
 				
@@ -1069,7 +685,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Crypto Providers 5.0.11</h2>
+			<h2>
+				 Crypto Providers 5.0.11
+					
+			</h2>
 			
 			
 				
@@ -1166,7 +785,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.168.1</h2>
+			<h2>
+				 SignPath Application 1.168.1
+					
+			</h2>
 			
 			
 				
@@ -1269,7 +891,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements">
-			<h2>Application (self-hosted only) 1.168.1</h2>
+			<h2>
+				 Self-hosted Installations 1.168.1
+					
+			</h2>
 			
 			
 				
@@ -1339,7 +964,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.167.3</h2>
+			<h2>
+				 SignPath Application 1.167.3
+					
+			</h2>
 			
 			
 				
@@ -1390,7 +1018,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements">
-			<h2>Application (self-hosted only) 1.167.3</h2>
+			<h2>
+				 Self-hosted Installations 1.167.3
+					
+			</h2>
 			
 			
 				
@@ -1439,7 +1070,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-powershell_module component change_type-version change_type-improvements">
-			<h2>PowerShell Module 4.4.1</h2>
+			<h2>
+				 SignPath PowerShell Module 4.4.1
+					
+			</h2>
 			
 			
 				
@@ -1509,7 +1143,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.166.2</h2>
+			<h2>
+				 SignPath Application 1.166.2
+					
+			</h2>
 			
 			
 				
@@ -1558,7 +1195,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements">
-			<h2>Application (self-hosted only) 1.166.2</h2>
+			<h2>
+				 Self-hosted Installations 1.166.2
+					
+			</h2>
 			
 			
 				
@@ -1628,7 +1268,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-breaking_changes change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Crypto Providers 5.0.7</h2>
+			<h2>
+				 Crypto Providers 5.0.7
+					
+			</h2>
 			
 			
 				
@@ -1816,7 +1459,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-application component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.165.2</h2>
+			<h2>
+				 SignPath Application 1.165.2
+					
+			</h2>
 			
 			
 				
@@ -1919,7 +1565,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-bug_fixes">
-			<h2>Application 1.164.3</h2>
+			<h2>
+				 SignPath Application 1.164.3
+					
+			</h2>
 			
 			
 				
@@ -1995,7 +1644,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.164.3</h2>
+			<h2>
+				 Self-hosted Installations 1.164.3
+					
+			</h2>
 			
 			
 				
@@ -2131,7 +1783,10 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.163.0</h2>
+			<h2>
+				 SignPath Application 1.163.0
+					
+			</h2>
 			
 			
 				
@@ -2247,7 +1902,10 @@ Use to ensure that third-party components are properly signed in deep signing co
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements">
-			<h2>Application (self-hosted only) 1.163.0</h2>
+			<h2>
+				 Self-hosted Installations 1.163.0
+					
+			</h2>
 			
 			
 				
@@ -2317,7 +1975,10 @@ Use to ensure that third-party components are properly signed in deep signing co
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.162.2</h2>
+			<h2>
+				 SignPath Application 1.162.2
+					
+			</h2>
 			
 			
 				
@@ -2372,7 +2033,10 @@ Use to ensure that third-party components are properly signed in deep signing co
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application (self-hosted only) 1.162.2</h2>
+			<h2>
+				 Self-hosted Installations 1.162.2
+					
+			</h2>
 			
 			
 				
@@ -2469,7 +2133,10 @@ Use to ensure that third-party components are properly signed in deep signing co
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application (self-hosted only) 1.161.1</h2>
+			<h2>
+				 Self-hosted Installations 1.161.1
+					
+			</h2>
 			
 			
 				
@@ -2566,7 +2233,10 @@ Use to ensure that third-party components are properly signed in deep signing co
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.160.1</h2>
+			<h2>
+				 SignPath Application 1.160.1
+					
+			</h2>
 			
 			
 				
@@ -2621,7 +2291,10 @@ Use to ensure that third-party components are properly signed in deep signing co
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-improvements">
-			<h2>Application (self-hosted only) 1.160.1</h2>
+			<h2>
+				 Self-hosted Installations 1.160.1
+					
+			</h2>
 			
 			
 				
@@ -2714,6 +2387,79 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 
 
 
+<article class="release component-macos_cryptotokenkit change_type-version change_type-new_features" id="2024-03-18">
+	<h1>&nbsp;<span>March 18, 2024</span></h1>
+	
+		
+			
+			
+			
+			
+			
+			
+			
+
+			<div class="component-macos_cryptotokenkit component change_type-version change_type-new_features">
+			<h2>
+				 macOS CryptoTokenKit 1.0
+				
+			</h2>
+			
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+				  <div class="change_type-new_features">
+					<h3>
+						 New Features:
+							
+					</h3>
+					
+					
+						<ul>
+							
+								<li>
+									<p>Initial release</p>
+
+									
+								</li>
+							
+						</ul>
+					
+					</div> <!-- change_type -->
+				
+			
+			</div>
+		
+	
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <article class="release component-application change_type-version change_type-breaking_changes change_type-improvements component-self_hosted_installations change_type-bug_fixes component-crypto_providers" id="2024-03-14">
 	<h1>&nbsp;<span>March 14, 2024</span></h1>
 	
@@ -2727,7 +2473,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-breaking_changes change_type-improvements">
-			<h2>Application 1.159.0</h2>
+			<h2>
+				 SignPath Application 1.159.0
+					
+			</h2>
 			
 			
 				
@@ -2815,7 +2564,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.159.0</h2>
+			<h2>
+				 Self-hosted Installations 1.159.0
+					
+			</h2>
 			
 			
 				
@@ -2909,7 +2661,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-bug_fixes">
-			<h2>Crypto Providers 4.4.1</h2>
+			<h2>
+				 Crypto Providers 4.4.1
+					
+			</h2>
 			
 			
 				
@@ -2991,7 +2746,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application (self-hosted only) 1.158.0</h2>
+			<h2>
+				 Self-hosted Installations 1.158.0
+					
+			</h2>
 			
 			
 				
@@ -3088,7 +2846,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.157.0</h2>
+			<h2>
+				 SignPath Application 1.157.0
+					
+			</h2>
 			
 			
 				
@@ -3176,7 +2937,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.157.0</h2>
+			<h2>
+				 Self-hosted Installations 1.157.0
+					
+			</h2>
 			
 			
 				
@@ -3318,7 +3082,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.156.0</h2>
+			<h2>
+				 SignPath Application 1.156.0
+					
+			</h2>
 			
 			
 				
@@ -3427,7 +3194,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-improvements">
-			<h2>Application (self-hosted only) 1.156.0</h2>
+			<h2>
+				 Self-hosted Installations 1.156.0
+					
+			</h2>
 			
 			
 				
@@ -3515,7 +3285,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module component change_type-version change_type-bug_fixes">
-			<h2>PowerShell Module 4.3.4</h2>
+			<h2>
+				 SignPath PowerShell Module 4.3.4
+					
+			</h2>
 			
 			
 				
@@ -3585,7 +3358,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application 1.155.0</h2>
+			<h2>
+				 SignPath Application 1.155.0
+					
+			</h2>
 			
 			
 				
@@ -3673,7 +3449,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.155.0</h2>
+			<h2>
+				 Self-hosted Installations 1.155.0
+					
+			</h2>
 			
 			
 				
@@ -3807,7 +3586,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-bug_fixes">
-			<h2>Application 1.153.1</h2>
+			<h2>
+				 SignPath Application 1.153.1
+					
+			</h2>
 			
 			
 				
@@ -3877,7 +3659,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Crypto Providers 4.3.0</h2>
+			<h2>
+				 Crypto Providers 4.3.0
+					
+			</h2>
 			
 			
 				
@@ -3986,7 +3771,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features">
-			<h2>Application 1.153.0</h2>
+			<h2>
+				 SignPath Application 1.153.0
+					
+			</h2>
 			
 			
 				
@@ -4035,7 +3823,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements">
-			<h2>Application (self-hosted only) 1.153.0</h2>
+			<h2>
+				 Self-hosted Installations 1.153.0
+					
+			</h2>
 			
 			
 				
@@ -4092,109 +3883,6 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 
 
 
-<article class="release component-jenkins_plugin change_type-version change_type-breaking_changes change_type-improvements" id="2023-12-10">
-	<h1>&nbsp;<span>December 10, 2023</span></h1>
-	
-		
-			
-			
-			
-			
-			
-			
-			
-
-			<div class="component-jenkins_plugin component change_type-version change_type-breaking_changes change_type-improvements">
-			<h2>Jenkins Plugin 2.0.0</h2>
-			
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-breaking_changes">
-					<h3>
-						 Breaking Changes / Manual migration steps:
-							
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Renamed <code class="language-plaintext highlighter-rouge">CIUserToken</code> to <code class="language-plaintext highlighter-rouge">ApiToken</code>.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-improvements">
-					<h3>
-						 Improvements:
-							
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Added configurable timeouts for HTTP requests and signing request processing.</p>
-
-									
-								</li>
-							
-								<li>
-									<p>Improved error messages.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-			</div>
-		
-	
-</article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <article class="release component-application change_type-version change_type-bug_fixes" id="2023-11-28">
 	<h1>&nbsp;<span>November 28, 2023</span></h1>
 	
@@ -4208,7 +3896,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-bug_fixes">
-			<h2>Application 1.152.1</h2>
+			<h2>
+				 SignPath Application 1.152.1
+					
+			</h2>
 			
 			
 				
@@ -4278,7 +3969,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.152.0</h2>
+			<h2>
+				 SignPath Application 1.152.0
+					
+			</h2>
 			
 			
 				
@@ -4407,7 +4101,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-improvements">
-			<h2>Application (self-hosted only) 1.152.0</h2>
+			<h2>
+				 Self-hosted Installations 1.152.0
+					
+			</h2>
 			
 			
 				
@@ -4504,7 +4201,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-improvements">
-			<h2>Crypto Providers 4.2.0</h2>
+			<h2>
+				 Crypto Providers 4.2.0
+					
+			</h2>
 			
 			
 				
@@ -4586,7 +4286,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.151.1</h2>
+			<h2>
+				 SignPath Application 1.151.1
+					
+			</h2>
 			
 			
 				
@@ -4715,7 +4418,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.151.0</h2>
+			<h2>
+				 Self-hosted Installations 1.151.0
+					
+			</h2>
 			
 			
 				
@@ -4793,10 +4499,6 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 
 
 	
-		
-<p id="show-older-releases"><a id="show-older-releases-link" href="#">Show older releases</a></p>
-<div id="older-releases"> 	
-	
 
 
 
@@ -4818,7 +4520,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.150.2</h2>
+			<h2>
+				 SignPath Application 1.150.2
+					
+			</h2>
 			
 			
 				
@@ -4873,7 +4578,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.150.2</h2>
+			<h2>
+				 Self-hosted Installations 1.150.2
+					
+			</h2>
 			
 			
 				
@@ -4978,7 +4686,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-bug_fixes">
-			<h2>Application 1.149.2</h2>
+			<h2>
+				 SignPath Application 1.149.2
+					
+			</h2>
 			
 			
 				
@@ -5086,7 +4797,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes">
-			<h2>Application (self-hosted only) 1.149.2</h2>
+			<h2>
+				 Self-hosted Installations 1.149.2
+					
+			</h2>
 			
 			
 				
@@ -5141,7 +4855,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module component change_type-version change_type-improvements">
-			<h2>PowerShell Module 4.3.2</h2>
+			<h2>
+				 SignPath PowerShell Module 4.3.2
+					
+			</h2>
 			
 			
 				
@@ -5213,7 +4930,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-improvements">
-			<h2>Crypto Providers 4.1.0</h2>
+			<h2>
+				 Crypto Providers 4.1.0
+					
+			</h2>
 			
 			
 				
@@ -5285,7 +5005,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application 1.148.2</h2>
+			<h2>
+				 SignPath Application 1.148.2
+					
+			</h2>
 			
 			
 				
@@ -5379,7 +5102,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.148.2</h2>
+			<h2>
+				 Self-hosted Installations 1.148.2
+					
+			</h2>
 			
 			
 				
@@ -5500,7 +5226,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module component change_type-version change_type-improvements">
-			<h2>PowerShell Module 4.3.1</h2>
+			<h2>
+				 SignPath PowerShell Module 4.3.1
+					
+			</h2>
 			
 			
 				
@@ -5549,7 +5278,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-breaking_changes change_type-improvements">
-			<h2>Crypto Providers 4.0.1</h2>
+			<h2>
+				 Crypto Providers 4.0.1
+					
+			</h2>
 			
 			
 				
@@ -5672,7 +5404,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.147.0</h2>
+			<h2>
+				 SignPath Application 1.147.0
+					
+			</h2>
 			
 			
 				
@@ -5748,7 +5483,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements">
-			<h2>Application (self-hosted only) 1.147.0</h2>
+			<h2>
+				 Self-hosted Installations 1.147.0
+					
+			</h2>
 			
 			
 				
@@ -5826,7 +5564,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application 1.146.0</h2>
+			<h2>
+				 SignPath Application 1.146.0
+					
+			</h2>
 			
 			
 				
@@ -5908,7 +5649,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.146.0</h2>
+			<h2>
+				 Self-hosted Installations 1.146.0
+					
+			</h2>
 			
 			
 				
@@ -6013,7 +5757,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.145.1</h2>
+			<h2>
+				 SignPath Application 1.145.1
+					
+			</h2>
 			
 			
 				
@@ -6072,7 +5819,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-improvements">
-			<h2>Application (self-hosted only) 1.145.1</h2>
+			<h2>
+				 Self-hosted Installations 1.145.1
+					
+			</h2>
 			
 			
 				
@@ -6201,7 +5951,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.144.1</h2>
+			<h2>
+				 SignPath Application 1.144.1
+					
+			</h2>
 			
 			
 				
@@ -6262,7 +6015,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.144.1</h2>
+			<h2>
+				 Self-hosted Installations 1.144.1
+					
+			</h2>
 			
 			
 				
@@ -6361,7 +6117,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-breaking_changes">
-			<h2>Application 1.143.2</h2>
+			<h2>
+				 SignPath Application 1.143.2
+					
+			</h2>
 			
 			
 				
@@ -6410,7 +6169,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.143.2</h2>
+			<h2>
+				 Self-hosted Installations 1.143.2
+					
+			</h2>
 			
 			
 				
@@ -6509,7 +6271,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.142.1</h2>
+			<h2>
+				 Self-hosted Installations 1.142.1
+					
+			</h2>
 			
 			
 				
@@ -6635,7 +6400,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.141.1</h2>
+			<h2>
+				 SignPath Application 1.141.1
+					
+			</h2>
 			
 			
 				
@@ -6717,7 +6485,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application (self-hosted only) 1.141.1</h2>
+			<h2>
+				 Self-hosted Installations 1.141.1
+					
+			</h2>
 			
 			
 				
@@ -6822,7 +6593,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-bug_fixes">
-			<h2>Application 1.140.3</h2>
+			<h2>
+				 SignPath Application 1.140.3
+					
+			</h2>
 			
 			
 				
@@ -6910,7 +6684,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module component change_type-version change_type-new_features">
-			<h2>PowerShell Module 4.3.0</h2>
+			<h2>
+				 SignPath PowerShell Module 4.3.0
+					
+			</h2>
 			
 			
 				
@@ -6959,7 +6736,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-breaking_changes">
-			<h2>Application (self-hosted only) </h2>
+			<h2>
+				 Self-hosted Installations 
+					
+			</h2>
 			
 			
 				
@@ -7023,7 +6803,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-bug_fixes">
-			<h2>Application 1.139.0</h2>
+			<h2>
+				 SignPath Application 1.139.0
+					
+			</h2>
 			
 			
 				
@@ -7107,7 +6890,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.138.0</h2>
+			<h2>
+				 SignPath Application 1.138.0
+					
+			</h2>
 			
 			
 				
@@ -7206,7 +6992,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.137.0</h2>
+			<h2>
+				 SignPath Application 1.137.0
+					
+			</h2>
 			
 			
 				
@@ -7255,7 +7044,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.137.0</h2>
+			<h2>
+				 Self-hosted Installations 1.137.0
+					
+			</h2>
 			
 			
 				
@@ -7333,7 +7125,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.136.3</h2>
+			<h2>
+				 SignPath Application 1.136.3
+					
+			</h2>
 			
 			
 				
@@ -7394,7 +7189,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module component change_type-version change_type-improvements">
-			<h2>PowerShell Module 4.2.1</h2>
+			<h2>
+				 SignPath PowerShell Module 4.2.1
+					
+			</h2>
 			
 			
 				
@@ -7443,7 +7241,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-improvements">
-			<h2>Crypto Providers 3.4.0</h2>
+			<h2>
+				 Crypto Providers 3.4.0
+					
+			</h2>
 			
 			
 				
@@ -7498,7 +7299,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-new_features change_type-improvements">
-			<h2>Application (self-hosted only) 1.136.3</h2>
+			<h2>
+				 Self-hosted Installations 1.136.3
+					
+			</h2>
 			
 			
 				
@@ -7634,7 +7438,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application 1.135.0</h2>
+			<h2>
+				 SignPath Application 1.135.0
+					
+			</h2>
 			
 			
 				
@@ -7716,7 +7523,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-new_features change_type-improvements">
-			<h2>Crypto Providers 3.3.0</h2>
+			<h2>
+				 Crypto Providers 3.3.0
+					
+			</h2>
 			
 			
 				
@@ -7792,7 +7602,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-new_features change_type-breaking_changes change_type-improvements">
-			<h2>Application (self-hosted only) 1.135.0</h2>
+			<h2>
+				 Self-hosted Installations 1.135.0
+					
+			</h2>
 			
 			
 				
@@ -7972,7 +7785,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application 1.133.0</h2>
+			<h2>
+				 SignPath Application 1.133.0
+					
+			</h2>
 			
 			
 				
@@ -8060,7 +7876,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.133.0</h2>
+			<h2>
+				 Self-hosted Installations 1.133.0
+					
+			</h2>
 			
 			
 				
@@ -8190,105 +8009,6 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 
 
 
-<article class="release component-jenkins_plugin change_type-version change_type-improvements change_type-bug_fixes" id="2023-01-30">
-	<h1>&nbsp;<span>January 30, 2023</span></h1>
-	
-		
-			
-			
-			
-			
-			
-			
-			
-
-			<div class="component-jenkins_plugin component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Jenkins Plugin 1.1.0</h2>
-			
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-improvements">
-					<h3>
-						 Improvements:
-							
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Removed PowerShell dependency.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-bug_fixes">
-					<h3>
-						 Bug Fixes:
-						
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Fixed a bug that allowed a potential attacker to submit files other than the build artifacts.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-			</div>
-		
-	
-</article>
-
-
-
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
 <article class="release component-application change_type-version change_type-breaking_changes change_type-improvements change_type-bug_fixes component-self_hosted_installations" id="2023-01-12">
 	<h1>&nbsp;<span>January 12, 2023</span></h1>
 	
@@ -8302,7 +8022,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-breaking_changes change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.132.0</h2>
+			<h2>
+				 SignPath Application 1.132.0
+					
+			</h2>
 			
 			
 				
@@ -8417,7 +8140,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.132.0</h2>
+			<h2>
+				 Self-hosted Installations 1.132.0
+					
+			</h2>
 			
 			
 				
@@ -8516,7 +8242,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-breaking_changes change_type-new_features change_type-bug_fixes">
-			<h2>Application 1.130.0</h2>
+			<h2>
+				 SignPath Application 1.130.0
+					
+			</h2>
 			
 			
 				
@@ -8642,7 +8371,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-bug_fixes">
-			<h2>Application 1.129.0</h2>
+			<h2>
+				 SignPath Application 1.129.0
+					
+			</h2>
 			
 			
 				
@@ -8718,7 +8450,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-new_features">
-			<h2>Application (self-hosted only) 1.129.0</h2>
+			<h2>
+				 Self-hosted Installations 1.129.0
+					
+			</h2>
 			
 			
 				
@@ -8834,7 +8569,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application 1.128.0</h2>
+			<h2>
+				 SignPath Application 1.128.0
+					
+			</h2>
 			
 			
 				
@@ -8916,7 +8654,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module component change_type-version change_type-new_features">
-			<h2>PowerShell Module 4.2.0</h2>
+			<h2>
+				 SignPath PowerShell Module 4.2.0
+					
+			</h2>
 			
 			
 				
@@ -8965,7 +8706,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-improvements">
-			<h2>Crypto Providers 3.2.2</h2>
+			<h2>
+				 Crypto Providers 3.2.2
+					
+			</h2>
 			
 			
 				
@@ -9020,7 +8764,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application (self-hosted only) 1.128.0</h2>
+			<h2>
+				 Self-hosted Installations 1.128.0
+					
+			</h2>
 			
 			
 				
@@ -9131,7 +8878,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application 1.126.0</h2>
+			<h2>
+				 SignPath Application 1.126.0
+					
+			</h2>
 			
 			
 				
@@ -9213,7 +8963,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-new_features change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.126.0</h2>
+			<h2>
+				 Self-hosted Installations 1.126.0
+					
+			</h2>
 			
 			
 				
@@ -9351,7 +9104,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application 1.125.0</h2>
+			<h2>
+				 SignPath Application 1.125.0
+					
+			</h2>
 			
 			
 				
@@ -9433,7 +9189,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module component change_type-version change_type-improvements">
-			<h2>PowerShell Module 4.1.3</h2>
+			<h2>
+				 SignPath PowerShell Module 4.1.3
+					
+			</h2>
 			
 			
 				
@@ -9488,7 +9247,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes">
-			<h2>Application (self-hosted only) 1.125.0</h2>
+			<h2>
+				 Self-hosted Installations 1.125.0
+					
+			</h2>
 			
 			
 				
@@ -9560,7 +9322,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application 1.124.0</h2>
+			<h2>
+				 SignPath Application 1.124.0
+					
+			</h2>
 			
 			
 				
@@ -9647,7 +9412,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Crypto Providers 3.2.1</h2>
+			<h2>
+				 Crypto Providers 3.2.1
+					
+			</h2>
 			
 			
 				
@@ -9735,7 +9503,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.124.0</h2>
+			<h2>
+				 Self-hosted Installations 1.124.0
+					
+			</h2>
 			
 			
 				
@@ -9840,7 +9611,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-breaking_changes change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.123.0</h2>
+			<h2>
+				 SignPath Application 1.123.0
+					
+			</h2>
 			
 			
 				
@@ -9982,7 +9756,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-bug_fixes">
-			<h2>Crypto Providers 3.2.0</h2>
+			<h2>
+				 Crypto Providers 3.2.0
+					
+			</h2>
 			
 			
 				
@@ -10054,7 +9831,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-new_features change_type-bug_fixes">
-			<h2>Crypto Providers 3.1.0</h2>
+			<h2>
+				 Crypto Providers 3.1.0
+					
+			</h2>
 			
 			
 				
@@ -10159,7 +9939,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-breaking_changes change_type-new_features">
-			<h2>Crypto Providers 3.0.0</h2>
+			<h2>
+				 Crypto Providers 3.0.0
+					
+			</h2>
 			
 			
 				
@@ -10241,7 +10024,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.121.0</h2>
+			<h2>
+				 Self-hosted Installations 1.121.0
+					
+			</h2>
 			
 			
 				
@@ -10340,7 +10126,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module_docker component change_type-version change_type-bug_fixes">
-			<h2>Docker PowerShell Module 4.1.4</h2>
+			<h2>
+				 SignPathDocker PowerShell Module 4.1.4
+					
+			</h2>
 			
 			
 				
@@ -10412,7 +10201,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.120.0</h2>
+			<h2>
+				 SignPath Application 1.120.0
+					
+			</h2>
 			
 			
 				
@@ -10515,7 +10307,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module component change_type-version change_type-improvements">
-			<h2>PowerShell Module 4.1.1</h2>
+			<h2>
+				 SignPath PowerShell Module 4.1.1
+					
+			</h2>
 			
 			
 				
@@ -10564,7 +10359,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements">
-			<h2>Application (self-hosted only) 1.120.0</h2>
+			<h2>
+				 Self-hosted Installations 1.120.0
+					
+			</h2>
 			
 			
 				
@@ -10642,7 +10440,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.119.0</h2>
+			<h2>
+				 SignPath Application 1.119.0
+					
+			</h2>
 			
 			
 				
@@ -10745,7 +10546,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.119.0</h2>
+			<h2>
+				 Self-hosted Installations 1.119.0
+					
+			</h2>
 			
 			
 				
@@ -10817,7 +10621,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-bug_fixes">
-			<h2>Application 1.117.0</h2>
+			<h2>
+				 SignPath Application 1.117.0
+					
+			</h2>
 			
 			
 				
@@ -10895,7 +10702,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-improvements">
-			<h2>Application </h2>
+			<h2>
+				 SignPath Application 
+					
+			</h2>
 			
 			
 				
@@ -10936,7 +10746,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements">
-			<h2>Application (self-hosted only) 1.117.0</h2>
+			<h2>
+				 Self-hosted Installations 1.117.0
+					
+			</h2>
 			
 			
 				
@@ -11008,7 +10821,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-bug_fixes">
-			<h2>Application 1.115.0</h2>
+			<h2>
+				 SignPath Application 1.115.0
+					
+			</h2>
 			
 			
 				
@@ -11057,7 +10873,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-improvements">
-			<h2>Application (self-hosted only) 1.115.0</h2>
+			<h2>
+				 Self-hosted Installations 1.115.0
+					
+			</h2>
 			
 			
 				
@@ -11162,7 +10981,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements">
-			<h2>Application (self-hosted only) 1.114.0</h2>
+			<h2>
+				 Self-hosted Installations 1.114.0
+					
+			</h2>
 			
 			
 				
@@ -11240,7 +11062,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-bug_fixes">
-			<h2>Application 1.113.0</h2>
+			<h2>
+				 SignPath Application 1.113.0
+					
+			</h2>
 			
 			
 				
@@ -11289,7 +11114,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module component change_type-version change_type-improvements">
-			<h2>PowerShell Module 4.1.0</h2>
+			<h2>
+				 SignPath PowerShell Module 4.1.0
+					
+			</h2>
 			
 			
 				
@@ -11338,7 +11166,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application (self-hosted only) 1.113.0</h2>
+			<h2>
+				 Self-hosted Installations 1.113.0
+					
+			</h2>
 			
 			
 				
@@ -11437,7 +11268,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.112.0</h2>
+			<h2>
+				 SignPath Application 1.112.0
+					
+			</h2>
 			
 			
 				
@@ -11486,7 +11320,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-new_features change_type-improvements">
-			<h2>Crypto Providers 2.1.0</h2>
+			<h2>
+				 Crypto Providers 2.1.0
+					
+			</h2>
 			
 			
 				
@@ -11568,7 +11405,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.112.0</h2>
+			<h2>
+				 Self-hosted Installations 1.112.0
+					
+			</h2>
 			
 			
 				
@@ -11667,7 +11507,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.111.0</h2>
+			<h2>
+				 SignPath Application 1.111.0
+					
+			</h2>
 			
 			
 				
@@ -11718,7 +11561,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-breaking_changes change_type-improvements">
-			<h2>Crypto Providers 2.0.0</h2>
+			<h2>
+				 Crypto Providers 2.0.0
+					
+			</h2>
 			
 			
 				
@@ -11794,7 +11640,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements">
-			<h2>Application (self-hosted only) 1.111.0</h2>
+			<h2>
+				 Self-hosted Installations 1.111.0
+					
+			</h2>
 			
 			
 				
@@ -11866,7 +11715,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.110.0</h2>
+			<h2>
+				 SignPath Application 1.110.0
+					
+			</h2>
 			
 			
 				
@@ -11969,7 +11821,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-new_features">
-			<h2>Application (self-hosted only) 1.110.0</h2>
+			<h2>
+				 Self-hosted Installations 1.110.0
+					
+			</h2>
 			
 			
 				
@@ -12041,7 +11896,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-bug_fixes">
-			<h2>Application 1.108.0</h2>
+			<h2>
+				 SignPath Application 1.108.0
+					
+			</h2>
 			
 			
 				
@@ -12117,7 +11975,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-crypto_providers component change_type-version change_type-new_features">
-			<h2>Crypto Providers 1.1.0</h2>
+			<h2>
+				 Crypto Providers 1.1.0
+					
+			</h2>
 			
 			
 				
@@ -12172,7 +12033,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes">
-			<h2>Application (self-hosted only) 1.108.0</h2>
+			<h2>
+				 Self-hosted Installations 1.108.0
+					
+			</h2>
 			
 			
 				
@@ -12244,7 +12108,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.107.0</h2>
+			<h2>
+				 SignPath Application 1.107.0
+					
+			</h2>
 			
 			
 				
@@ -12328,7 +12195,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.106.0</h2>
+			<h2>
+				 SignPath Application 1.106.0
+					
+			</h2>
 			
 			
 				
@@ -12404,7 +12274,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module component change_type-version change_type-breaking_changes">
-			<h2>PowerShell Module 4.0.0</h2>
+			<h2>
+				 SignPath PowerShell Module 4.0.0
+					
+			</h2>
 			
 			
 				
@@ -12453,7 +12326,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-upgrade_information change_type-improvements">
-			<h2>Application (self-hosted only) 1.106.0</h2>
+			<h2>
+				 Self-hosted Installations 1.106.0
+					
+			</h2>
 			
 			
 				
@@ -12546,7 +12422,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-bug_fixes">
-			<h2>Application 1.105.0</h2>
+			<h2>
+				 SignPath Application 1.105.0
+					
+			</h2>
 			
 			
 				
@@ -12628,7 +12507,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.105.0</h2>
+			<h2>
+				 Self-hosted Installations 1.105.0
+					
+			</h2>
 			
 			
 				
@@ -12687,105 +12569,6 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 
 
 
-<article class="release component-jenkins_plugin change_type-version change_type-improvements change_type-bug_fixes" id="2021-11-19">
-	<h1>&nbsp;<span>November 19, 2021</span></h1>
-	
-		
-			
-			
-			
-			
-			
-			
-			
-
-			<div class="component-jenkins_plugin component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Jenkins Plugin 1.0.6</h2>
-			
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-improvements">
-					<h3>
-						 Improvements:
-							
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Security-hardened handling of tokens and artifacts within the plugin.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-bug_fixes">
-					<h3>
-						 Bug Fixes:
-						
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Fixed a bug that caused Jenkins to run into timeouts when uploading large artifacts for signing.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-			</div>
-		
-	
-</article>
-
-
-
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
 <article class="release component-application change_type-version change_type-improvements change_type-bug_fixes component-powershell_module component-self_hosted_installations" id="2021-11-10">
 	<h1>&nbsp;<span>November 10, 2021</span></h1>
 	
@@ -12799,7 +12582,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.104.0</h2>
+			<h2>
+				 SignPath Application 1.104.0
+					
+			</h2>
 			
 			
 				
@@ -12881,7 +12667,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module component change_type-version change_type-bug_fixes">
-			<h2>PowerShell Module 3.2.1</h2>
+			<h2>
+				 SignPath PowerShell Module 3.2.1
+					
+			</h2>
 			
 			
 				
@@ -12930,7 +12719,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.104.0</h2>
+			<h2>
+				 Self-hosted Installations 1.104.0
+					
+			</h2>
 			
 			
 				
@@ -13002,7 +12794,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.103.0</h2>
+			<h2>
+				 SignPath Application 1.103.0
+					
+			</h2>
 			
 			
 				
@@ -13134,7 +12929,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.102.0</h2>
+			<h2>
+				 SignPath Application 1.102.0
+					
+			</h2>
 			
 			
 				
@@ -13243,7 +13041,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-improvements">
-			<h2>Application (self-hosted only) 1.102.0</h2>
+			<h2>
+				 Self-hosted Installations 1.102.0
+					
+			</h2>
 			
 			
 				
@@ -13354,7 +13155,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-bug_fixes">
-			<h2>Application 1.101.0</h2>
+			<h2>
+				 SignPath Application 1.101.0
+					
+			</h2>
 			
 			
 				
@@ -13426,7 +13230,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application 1.100.0</h2>
+			<h2>
+				 SignPath Application 1.100.0
+					
+			</h2>
 			
 			
 				
@@ -13502,7 +13309,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-new_features change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.100.0</h2>
+			<h2>
+				 Self-hosted Installations 1.100.0
+					
+			</h2>
 			
 			
 				
@@ -13601,7 +13411,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.99.0</h2>
+			<h2>
+				 SignPath Application 1.99.0
+					
+			</h2>
 			
 			
 				
@@ -13650,7 +13463,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements">
-			<h2>Application (self-hosted only) 1.99.0</h2>
+			<h2>
+				 Self-hosted Installations 1.99.0
+					
+			</h2>
 			
 			
 				
@@ -13728,7 +13544,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.98.0</h2>
+			<h2>
+				 SignPath Application 1.98.0
+					
+			</h2>
 			
 			
 				
@@ -13837,7 +13656,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.98.0</h2>
+			<h2>
+				 Self-hosted Installations 1.98.0
+					
+			</h2>
 			
 			
 				
@@ -13948,7 +13770,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.96.0</h2>
+			<h2>
+				 SignPath Application 1.96.0
+					
+			</h2>
 			
 			
 				
@@ -14009,7 +13834,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module component change_type-version change_type-improvements">
-			<h2>PowerShell Module 3.1.3</h2>
+			<h2>
+				 SignPath PowerShell Module 3.1.3
+					
+			</h2>
 			
 			
 				
@@ -14058,7 +13886,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements">
-			<h2>Application (self-hosted only) 1.96.0</h2>
+			<h2>
+				 Self-hosted Installations 1.96.0
+					
+			</h2>
 			
 			
 				
@@ -14136,7 +13967,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.95.0</h2>
+			<h2>
+				 SignPath Application 1.95.0
+					
+			</h2>
 			
 			
 				
@@ -14185,7 +14019,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements">
-			<h2>Application (self-hosted only) 1.95.0</h2>
+			<h2>
+				 Self-hosted Installations 1.95.0
+					
+			</h2>
 			
 			
 				
@@ -14257,7 +14094,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.94.0</h2>
+			<h2>
+				 SignPath Application 1.94.0
+					
+			</h2>
 			
 			
 				
@@ -14341,7 +14181,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application (self-hosted only) 1.92.0</h2>
+			<h2>
+				 Self-hosted Installations 1.92.0
+					
+			</h2>
 			
 			
 				
@@ -14440,7 +14283,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.91.0</h2>
+			<h2>
+				 SignPath Application 1.91.0
+					
+			</h2>
 			
 			
 				
@@ -14528,7 +14374,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module component change_type-version change_type-new_features">
-			<h2>PowerShell Module 3.1.0</h2>
+			<h2>
+				 SignPath PowerShell Module 3.1.0
+					
+			</h2>
 			
 			
 				
@@ -14577,7 +14426,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-new_features change_type-improvements">
-			<h2>Application (self-hosted only) 1.91.0</h2>
+			<h2>
+				 Self-hosted Installations 1.91.0
+					
+			</h2>
 			
 			
 				
@@ -14709,7 +14561,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.90.0</h2>
+			<h2>
+				 SignPath Application 1.90.0
+					
+			</h2>
 			
 			
 				
@@ -14770,7 +14625,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module component change_type-version change_type-improvements">
-			<h2>PowerShell Module 3.0.2</h2>
+			<h2>
+				 SignPath PowerShell Module 3.0.2
+					
+			</h2>
 			
 			
 				
@@ -14819,7 +14677,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-new_features change_type-improvements">
-			<h2>Application (self-hosted only) 1.90.0</h2>
+			<h2>
+				 Self-hosted Installations 1.90.0
+					
+			</h2>
 			
 			
 				
@@ -14957,7 +14818,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.89.0</h2>
+			<h2>
+				 SignPath Application 1.89.0
+					
+			</h2>
 			
 			
 				
@@ -15006,7 +14870,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-powershell_module component change_type-version change_type-improvements change_type-bug_fixes">
-			<h2>PowerShell Module 3.0.1</h2>
+			<h2>
+				 SignPath PowerShell Module 3.0.1
+					
+			</h2>
 			
 			
 				
@@ -15088,7 +14955,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-self_hosted_installations component change_type-version change_type-new_features">
-			<h2>Application (self-hosted only) 1.89.0</h2>
+			<h2>
+				 Self-hosted Installations 1.89.0
+					
+			</h2>
 			
 			
 				
@@ -15160,7 +15030,10 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 			
 
 			<div class="component-application component change_type-version change_type-new_features change_type-bug_fixes">
-			<h2>Application 1.88.0</h2>
+			<h2>
+				 SignPath Application 1.88.0
+					
+			</h2>
 			
 			
 				
@@ -15255,7 +15128,7 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 	  	<div>
 	  		<img src='/assets/signpath-logo-white.svg' width="334" height="67" alt='SignPath'/>
 	  		<svg viewBox="0 0 244 18">
-			  <text x="0" y="15" textLength="244" lengthAdjust="spacingAndGlyphs">CODE SIGNING SIMPLE &amp; SECURE</text>
+			  <text x="0" y="15">CODE SIGNING SIMPLE &amp; SECURE</text>
 			</svg>
 	  		<div>
 				<a target="_blank" href="https://www.linkedin.com/company/33243108" rel="noopener noreferrer">

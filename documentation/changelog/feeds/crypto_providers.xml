@@ -1,7 +1,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
-<link href="https://about.signpath.io/documentation/changelog/feeds/crypto_providers.xml" rel="self" type="application/atom+xml"/>
-<link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
+<link href="https://about.signpath.io/documentation/changelog/feeds/crypto_providers.xml" rel="self" type="application/atom+xml" />
+<link href="https://about.signpath.io/" rel="alternate" type="text/html" />
 <updated>2024-07-23</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/crypto_providers.xml</id><title type="html">SignPath - Crypto Providers Changelog</title>
 <author>
@@ -12,12 +12,11 @@
         <title>SignPath Crypto Providers 5.0.11</title>
         <updated>2024-07-23</updated>
         <published>2024-07-23</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-23" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  5.0.11</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-23" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 5.0.11</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  5.0.11&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 5.0.11&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved warning and error logging for HTTP call errors: log message now includes details about the error incl. HTTP status and response body if available.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed unnecessary retries for non-recoverable errors like authentication errors or invalid artifact configurations (anything but hash-signing) in the SignPath project.&lt;/p&gt;
@@ -28,12 +27,11 @@
         <title>SignPath Crypto Providers 5.0.7</title>
         <updated>2024-07-04</updated>
         <published>2024-07-04</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-04" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  5.0.7</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-07-04" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 5.0.7</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  5.0.7&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 5.0.7&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Changed default logging behavior:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -81,12 +79,11 @@
         <title>SignPath Crypto Providers 4.4.1</title>
         <updated>2024-03-14</updated>
         <published>2024-03-14</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-03-14" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  4.4.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-03-14" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 4.4.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  4.4.1&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 4.4.1&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a bug that prevented the underlying error messages from being shown.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a bug that prevented retries from being executed properly in certain situations.&lt;/p&gt;
@@ -99,12 +96,11 @@
         <title>SignPath Crypto Providers 4.3.0</title>
         <updated>2023-12-13</updated>
         <published>2023-12-13</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-12-13" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  4.3.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-12-13" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 4.3.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  4.3.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 4.3.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved GPG initialization and shadow key fetching in Linux container sample scripts (which also fixed a compatibility issue with GnuPG 2.3+).&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Linux PKCS#11 CryptoProvider: Added support for Debian 11 and RedHat 9 distros incl. updated Linux container samples.&lt;/p&gt;
@@ -119,12 +115,11 @@
         <title>SignPath Crypto Providers 4.2.0</title>
         <updated>2023-11-16</updated>
         <published>2023-11-16</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-11-16" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  4.2.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-11-16" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 4.2.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  4.2.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 4.2.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Renamed the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CIUserToken&lt;/code&gt; configuration file property to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApiToken&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SIGNPATH_CI_USER_TOKEN&lt;/code&gt; environment variable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SIGNPATH_API_TOKEN&lt;/code&gt;). Please adapt your configurations (you can use the same value for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApiToken&lt;/code&gt;). Note that the old names are still accepted, but will be removed in a future version.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Added documentation and Linux integration tests for the &lt;em&gt;osslsigncode&lt;/em&gt; tool.&lt;/p&gt;
@@ -137,12 +132,11 @@
         <title>SignPath Crypto Providers 4.1.0</title>
         <updated>2023-09-27</updated>
         <published>2023-09-27</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-09-27" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  4.1.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-09-27" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 4.1.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  4.1.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 4.1.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added installation/uninstallation PowerShell script for Windows CSP and KSP. Note that the old installation method (involving &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;System32&lt;/code&gt; file copying, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sp-register-ksp&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;regsvr32&lt;/code&gt;) still works, but it’s recommended to switch to the installation script. For details and usage see the “CSP/KSP installation (Windows)” section in the CryptoProviders documentation.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -151,12 +145,11 @@
         <title>SignPath Crypto Providers 4.0.1</title>
         <updated>2023-09-13</updated>
         <published>2023-09-13</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-09-13" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  4.0.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-09-13" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 4.0.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  4.0.1&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 4.0.1&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Replaced &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Timeouts.ServiceUnavailable&lt;/code&gt; (and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SIGNPATH_TIMEOUTS_SERVICE_UNAVAILABLE&lt;/code&gt;) configuration value with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Timeouts.FirstRetryDelay&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Timeouts.RetryCount&lt;/code&gt;  (See “Setting configuration values” section in the CryptoProviders documentation for details).&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Changed the HTTP call error retry strategy to use an exponential back-off mechanism.&lt;/p&gt;
@@ -175,12 +168,11 @@
         <title>SignPath Crypto Providers 3.4.0</title>
         <updated>2023-03-23</updated>
         <published>2023-03-23</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-23" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  3.4.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-23" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 3.4.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  3.4.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 3.4.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Cryptoki: Added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cryptoki.DoNotFailOnReadWriteSessions&lt;/code&gt; configuration flag to enable compatibility with Cryptoki / PKCS #11 clients which always open the session with the read/write option (e.g. pkcs11-tool in version lower than 0.23).&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Added documentation for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pkcs11-tool&lt;/code&gt; usage and Linux Docker container sample scenario.&lt;/p&gt;
@@ -191,12 +183,11 @@
         <title>SignPath Crypto Providers 3.3.0</title>
         <updated>2023-03-02</updated>
         <published>2023-03-02</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-02" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  3.3.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2023-03-02" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 3.3.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  3.3.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 3.3.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added suppport for using a HTTP web proxy (Linux and Windows).&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Improved the error reporting for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sp-register-ksp&lt;/code&gt; command (Windows).&lt;/p&gt;
@@ -207,12 +198,11 @@
         <title>SignPath Crypto Providers 3.2.2</title>
         <updated>2022-11-15</updated>
         <published>2022-11-15</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-11-15" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  3.2.2</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-11-15" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 3.2.2</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  3.2.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 3.2.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Linux: Added Debian package signing via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dpkg-sig&lt;/code&gt; to signing scenarios.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Linux: Added Maven GPG signing Docker container sample scenario.&lt;/p&gt;
@@ -223,12 +213,11 @@
         <title>SignPath Crypto Providers 3.2.1</title>
         <updated>2022-09-20</updated>
         <published>2022-09-20</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-20" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  3.2.1</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-20" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 3.2.1</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  3.2.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 3.2.1&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Linux: Updated the statically linked dependencies to Boost 1.79.0, OpenSSL 1.1.1n/3.0.5, plog 1.1.8 and zlib 1.2.12&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a segmentation fault when using Cryptoki on Linux.&lt;/p&gt;
@@ -243,12 +232,11 @@
         <title>SignPath Crypto Providers 3.2.0</title>
         <updated>2022-09-01</updated>
         <published>2022-09-01</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-01" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  3.2.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-09-01" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 3.2.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  3.2.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 3.2.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed Cryptoki loading errors on RedHat Linux 8.6.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
@@ -257,12 +245,11 @@
         <title>SignPath Crypto Providers 3.1.0</title>
         <updated>2022-08-11</updated>
         <published>2022-08-11</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-08-11" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  3.1.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-08-11" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 3.1.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  3.1.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 3.1.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Collecting information about the invoking process (command line call and user account) is now also supported on Linux.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed missing support for libp11 (OpenSSL engine) version 0.4.12.&lt;/p&gt;
@@ -275,12 +262,11 @@
         <title>SignPath Crypto Providers 3.0.0</title>
         <updated>2022-08-04</updated>
         <published>2022-08-04</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-08-04" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  3.0.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-08-04" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 3.0.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  3.0.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 3.0.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SIGNPATH_LOG_LEVEL&lt;/code&gt; configuration was split into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SIGNPATH_LOG_CONSOLE_LEVEL&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SIGNPATH_LOG_FILE_LEVEL&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;The console logging was disabled by default (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SIGNPATH_LOG_CONSOLE_LEVEL=none&lt;/code&gt;).&lt;/p&gt;
@@ -293,12 +279,11 @@
         <title>SignPath Crypto Providers 2.1.0</title>
         <updated>2022-03-21</updated>
         <published>2022-03-21</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-21" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  2.1.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-21" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 2.1.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  2.1.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 2.1.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Support for DPAPI-encrypted CI User tokens.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Dedicated support for signing of Microsoft Office macros.&lt;/p&gt;
@@ -311,12 +296,11 @@
         <title>SignPath Crypto Providers 2.0.0</title>
         <updated>2022-03-03</updated>
         <published>2022-03-03</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-03" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  2.0.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-03-03" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 2.0.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  2.0.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 2.0.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Configuration and parameter names changed. All Crypto Providers now use a common naming schema. Environment variables have precedence over the configuration file. Command line parameters have precedence over environment variables.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;All Crypto Providers can now gracefully handle application downtimes and will retry HTTP requests if the application is temporarily unavailable.&lt;/p&gt;
@@ -327,12 +311,11 @@
         <title>SignPath Crypto Providers 1.1.0</title>
         <updated>2022-01-20</updated>
         <published>2022-01-20</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-01-20" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  1.1.0</summary>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2022-01-20" /><category term="release/crypto_providers" label="SignPath Crypto Providers" />
+        <summary type="html">New Release: SignPath Crypto Providers 1.1.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.1.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release: SignPath Crypto Providers 1.1.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Windows only: Information about the invoking process (command line call and user account) is collected.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Windows only: Mutual TLS (mTLS) client certificates can be specified.&lt;/p&gt;
