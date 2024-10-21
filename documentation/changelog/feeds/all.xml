@@ -18,7 +18,7 @@
         <content type="html">
           &lt;div&gt;
             &lt;h2&gt;New Release:  2.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Renamed the command-line parameters.&lt;/p&gt;
+                        &lt;p&gt;Renamed the command-line parameters to align with the other client tools.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Added support for sha1 signatures required for productsign.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
