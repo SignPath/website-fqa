@@ -61,16 +61,10 @@
 	</div>
 </section>
 <section class="resources-section">
-	<div><aside>
+	<div><nav>
 				<ul><li class=''>
 							<a href='/documentation/getting-started#'>Getting Started</a></li><li class='active'>
-							<a href='/documentation/managing-certificates#'>Managing Certificates</a><div class="no-mobile" ><ul>
-  <li><a href="#overview">Overview</a></li>
-  <li><a href="#test-and-release-certificates">Test and Release certificates</a></li>
-  <li><a href="#certificate-types">Certificate types</a></li>
-  <li><a href="#restrictions">Restrictions</a></li>
-</ul>
-</div></li><li class=''>
+							<a href='/documentation/managing-certificates#'>Managing Certificates</a></li><li class=''>
 							<a href='/documentation/users#'>Managing Users</a></li><li class=''>
 							<a href='/documentation/projects#'>Setting up Projects</a></li><li class=''>
 							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=''>
@@ -82,13 +76,14 @@
 							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class=''>
 							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=''>
 							<a href='/documentation/changelog#'>Product updates</a></li></ul>
-			</aside><article><ul class="article-toc mobile-only">
+			</nav><div class='content'><ul class="article-toc">
   <li><a href="#overview">Overview</a></li>
   <li><a href="#test-and-release-certificates">Test and Release certificates</a></li>
   <li><a href="#certificate-types">Certificate types</a></li>
   <li><a href="#restrictions">Restrictions</a></li>
 </ul>
-<h2 id="overview">Overview</h2>
+<article>
+					<h2 id="overview">Overview</h2>
 
 <p>SignPath helps you control access to your code signing certificates. You have to decide how many code signing certificates you need in your organization. Depending on your business model, you might want to use one certificate across your entire organizations or have separate certificates for each project or customer.</p>
 
@@ -113,7 +108,8 @@
 
 <p>SignPath allows you to configure restrictions for certificates. You can, for instance, specify that all signing requests that are using the certificate must be manually approved.</p>
 
-		</article>
+				</article>
+			</div>
 	</div>
 </section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>

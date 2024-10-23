@@ -61,19 +61,48 @@
 	</div>
 </section>
 <section class="resources-section">
-	<div><aside>
+	<div><nav>
 				<ul><li class=''>
-							<a href='/documentation/signing-containers/#'>Signing Container Images</a></li><li class=''>
-							<a href='/documentation/signing-containers/cosign#'>Sigstore Cosign</a></li><li class='active'>
-							<a href='/documentation/signing-containers/docker-content-trust#'>Docker Content Trust (DCT)</a><div class="no-mobile" ><ul>
-  <li><a href="#overview">Overview</a></li>
+							<a href='/documentation/getting-started#'>Getting Started</a></li><li class=''>
+							<a href='/documentation/managing-certificates#'>Managing Certificates</a></li><li class=''>
+							<a href='/documentation/users#'>Managing Users</a></li><li class=''>
+							<a href='/documentation/projects#'>Setting up Projects</a></li><li class=''>
+							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=''>
+							<a href='/documentation/signing-containers#'>Signing Container Images</a><ul><li class=''>
+										<a href='/documentation/signing-containers/cosign'>Sigstore Cosign</a>
+									</li><li class='active'>
+										<a href='/documentation/signing-containers/docker-content-trust'>Docker Content Trust (DCT)</a>
+									</li></ul></li><li class='separator' /><li class=''>
+							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=''>
+							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class=''>
+							<a href='/documentation/origin-verification#'>Origin Verification</a></li><li class='separator' /><li class=''>
+							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class=''>
+							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=''>
+							<a href='/documentation/changelog#'>Product updates</a></li></ul>
+			</nav><div class='content'><ul class="article-toc">
+  <li><a href="#overview">Overview</a>
+    <ul>
+      <li><a href="#setup-overview">Setup overview</a></li>
+      <li><a href="#signing-overview">Signing overview</a></li>
+    </ul>
+  </li>
   <li><a href="#security-considerations">Security considerations</a></li>
-  <li><a href="#setup-phase">Setup phase</a></li>
-  <li><a href="#signing-phase">Signing phase</a></li>
+  <li><a href="#setup-phase">Setup phase</a>
+    <ul>
+      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#steps">Steps</a></li>
+    </ul>
+  </li>
+  <li><a href="#signing-phase">Signing phase</a>
+    <ul>
+      <li><a href="#prerequisites-1">Prerequisites</a></li>
+      <li><a href="#execution">Execution</a></li>
+    </ul>
+  </li>
 </ul>
-</div></li></ul>
-			</aside><article>
-<h2 id="overview">Overview</h2>
+<article>
+					<h2 id="overview">Overview</h2>
 
 <p>Docker Content Trust (DCT) is based on Notary v1, which uses a system of keys:</p>
 
@@ -539,7 +568,8 @@
   <p>Instead of calling <code class="language-plaintext highlighter-rouge">Get-SignedArtifact</code> separately, you may call <code class="language-plaintext highlighter-rouge">Submit-SigningRequest</code> with the  <code class="language-plaintext highlighter-rouge">-WaitForCompletion</code> parameter. The <code class="language-plaintext highlighter-rouge">Submit-SigningRequest</code> command is described in  <a href="/documentation/build-system-integration#powershell">build system integration</a>.</p>
 </blockquote>
 
-		</article>
+				</article>
+			</div>
 	</div>
 </section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>

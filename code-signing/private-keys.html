@@ -61,29 +61,45 @@
 	</div>
 </section>
 <section class="resources-section">
-	<div><aside>
+	<div><nav>
 				<ul><li class=''>
 							<a href='/code-signing/introduction#'>Introduction</a></li><li class=''>
 							<a href='/code-signing/theory#'>Theory</a></li><li class=''>
 							<a href='/code-signing/windows-platform#'>Windows Platform</a></li><li class=''>
 							<a href='/code-signing/test-certificates#'>Managing Test Certificates</a></li><li class='active'>
-							<a href='/code-signing/private-keys#'>Storage of Private Keys</a><div class="no-mobile" ><ul>
-  <li><a href="#overview">Overview</a></li>
-  <li><a href="#pfx-files-with-private-keys">PFX files with private keys</a></li>
-  <li><a href="#windows-certificate-store">Windows certificate store</a></li>
-  <li><a href="#usb-hsm-tokens">USB HSM tokens</a></li>
-  <li><a href="#professional-hsms">Professional HSMs</a></li>
-</ul>
-</div></li><li class=''>
+							<a href='/code-signing/private-keys#'>Storage of Private Keys</a></li><li class=''>
 							<a href='/code-signing/media-coverage#'>Media Coverage</a></li></ul>
-			</aside><article><ul class="article-toc mobile-only">
+			</nav><div class='content'><ul class="article-toc">
   <li><a href="#overview">Overview</a></li>
-  <li><a href="#pfx-files-with-private-keys">PFX files with private keys</a></li>
-  <li><a href="#windows-certificate-store">Windows certificate store</a></li>
-  <li><a href="#usb-hsm-tokens">USB HSM tokens</a></li>
-  <li><a href="#professional-hsms">Professional HSMs</a></li>
+  <li><a href="#pfx-files-with-private-keys">PFX files with private keys</a>
+    <ul>
+      <li><a href="#risks">Risks</a></li>
+      <li><a href="#verdict">Verdict</a></li>
+    </ul>
+  </li>
+  <li><a href="#windows-certificate-store">Windows certificate store</a>
+    <ul>
+      <li><a href="#risks-1">Risks</a></li>
+      <li><a href="#verdict-1">Verdict</a></li>
+    </ul>
+  </li>
+  <li><a href="#usb-hsm-tokens">USB HSM tokens</a>
+    <ul>
+      <li><a href="#assumptions">Assumptions</a></li>
+      <li><a href="#remaining-risks">Remaining risks</a></li>
+      <li><a href="#verdict-2">Verdict</a></li>
+    </ul>
+  </li>
+  <li><a href="#professional-hsms">Professional HSMs</a>
+    <ul>
+      <li><a href="#assumptions-1">Assumptions</a></li>
+      <li><a href="#remaining-risks-1">Remaining risks</a></li>
+      <li><a href="#verdict-3">Verdict</a></li>
+    </ul>
+  </li>
 </ul>
-<h2 id="overview">Overview</h2>
+<article>
+					<h2 id="overview">Overview</h2>
 
 <p>How do you keep your keys secure? There are a number of ways to store your private keys, but only hardware security modules (HSMs) guarantee that the private key cannot be extracted:</p>
 
@@ -221,7 +237,8 @@
   </li>
 </ul>
 
-		</article>
+				</article>
+			</div>
 	</div>
 </section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>

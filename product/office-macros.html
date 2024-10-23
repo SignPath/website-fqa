@@ -61,31 +61,30 @@
 	</div>
 </section>
 <section class="resources-section">
-	<div><aside>
+	<div><nav>
 				<ul><li class=''>
 							<a href='/product/features#'>Features</a></li><li class=''>
 							<a href='/product/editions#'>Editions</a></li><li class='separator' /><li class=''>
 							<a href='/product/devops#'>For DevOps teams</a></li><li class=''>
 							<a href='/product/infosec#'>For InfoSec teams</a></li><li class=''>
 							<a href='/product/open-source#'>For Open Source projects</a></li><li class='separator' /><li class='active'>
-							<a href='/product/office-macros#'>Office macro signing</a><div class="no-mobile" ><ul>
-  <li><a href="#the-threat-of-office-macros">The Threat of Office Macros</a></li>
-  <li><a href="#implement-macro-signing-to-create-secure-end-user-policies">Implement Macro Signing to Create Secure End User Policies</a></li>
-  <li><a href="#inadequacy-of-existing-approaches">Inadequacy of Existing Approaches</a></li>
-  <li><a href="#end-to-end-security-for-office-macros">End-to-End Security for Office Macros</a></li>
-  <li><a href="#certificate-scopes-global-vs-departmental-execution-permissions">Certificate scopes: global vs. departmental execution permissions</a></li>
-</ul>
-</div></li><li class=''>
+							<a href='/product/office-macros#'>Office macro signing</a></li><li class=''>
 							<a href='/product/thales-dpod#'>Thales DPoD Cloud HSM</a></li><li class=''>
 							<a href='/product/pkic-best-practices#'>PKI Consortium best practices</a></li></ul>
-			</aside><article><ul class="article-toc mobile-only">
+			</nav><div class='content'><ul class="article-toc">
   <li><a href="#the-threat-of-office-macros">The Threat of Office Macros</a></li>
   <li><a href="#implement-macro-signing-to-create-secure-end-user-policies">Implement Macro Signing to Create Secure End User Policies</a></li>
   <li><a href="#inadequacy-of-existing-approaches">Inadequacy of Existing Approaches</a></li>
   <li><a href="#end-to-end-security-for-office-macros">End-to-End Security for Office Macros</a></li>
-  <li><a href="#certificate-scopes-global-vs-departmental-execution-permissions">Certificate scopes: global vs. departmental execution permissions</a></li>
+  <li><a href="#certificate-scopes-global-vs-departmental-execution-permissions">Certificate scopes: global vs. departmental execution permissions</a>
+    <ul>
+      <li><a href="#fine-tune-signing-and-execution-permissions">Fine-tune signing and execution permissions</a></li>
+      <li><a href="#business-partners-and-customers">Business partners and customers</a></li>
+    </ul>
+  </li>
 </ul>
-<h2 id="the-threat-of-office-macros">The Threat of Office Macros</h2>
+<article>
+					<h2 id="the-threat-of-office-macros">The Threat of Office Macros</h2>
 
 <p>While many organizations depend on <strong>Microsoft Office macros for business-critical processes</strong>, they pose a <strong>high risk for IT security</strong>. Macros are programs within Office documents that <strong>execute with the same permissions as the user</strong> opening the document. Not to speak of macros that use other exploits to elevate their privileges even beyond that. That makes Office macros a preferred way for hackers to get into organizations, with attacks ranging from <strong>ransomware</strong> to <strong>spear phishing</strong>.</p>
 
@@ -237,7 +236,8 @@
 
 <p>For documents that are used outside of your organization, you can use your EV code signing certificate. External users, such as business partners or customers, will be informed that macros have been signed by your organizations. They can then decide to trust these macros on a per-user basis or through their own policy framework.</p>
 
-		</article>
+				</article>
+			</div>
 	</div>
 </section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>

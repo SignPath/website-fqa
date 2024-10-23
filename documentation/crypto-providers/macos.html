@@ -61,20 +61,32 @@
 	</div>
 </section>
 <section class="resources-section">
-	<div><aside>
+	<div><nav>
 				<ul><li class=''>
-							<a href='/documentation/crypto-providers/#'>Crypto Providers</a></li><li class=''>
-							<a href='/documentation/crypto-providers/windows#'>Windows CSP and KSP</a></li><li class=''>
-							<a href='/documentation/crypto-providers/cryptoki#'>Cryptoki/PKCS#11</a></li><li class=''>
-							<a href='/documentation/crypto-providers/gpg#'>GPG</a></li><li class='active'>
-							<a href='/documentation/crypto-providers/macos#'>macOS CryptoTokenKit</a><div class="no-mobile" ><ul>
-  <li><a href="#general-instructions">General instructions</a></li>
-  <li><a href="#codesign">codesign</a></li>
-  <li><a href="#productsign">productsign</a></li>
-</ul>
-</div></li><li class=''>
-							<a href='/documentation/crypto-providers/rest-api#'>REST API</a></li></ul>
-			</aside><article><ul class="article-toc">
+							<a href='/documentation/getting-started#'>Getting Started</a></li><li class=''>
+							<a href='/documentation/managing-certificates#'>Managing Certificates</a></li><li class=''>
+							<a href='/documentation/users#'>Managing Users</a></li><li class=''>
+							<a href='/documentation/projects#'>Setting up Projects</a></li><li class=''>
+							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=''>
+							<a href='/documentation/signing-containers#'>Signing Container Images</a></li><li class='separator' /><li class=''>
+							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=''>
+							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class=''>
+							<a href='/documentation/origin-verification#'>Origin Verification</a></li><li class='separator' /><li class=''>
+							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class=''>
+							<a href='/documentation/crypto-providers#'>Crypto Providers</a><ul><li class=''>
+										<a href='/documentation/crypto-providers/windows'>Windows CSP and KSP</a>
+									</li><li class=''>
+										<a href='/documentation/crypto-providers/cryptoki'>Cryptoki/PKCS#11</a>
+									</li><li class=''>
+										<a href='/documentation/crypto-providers/gpg'>GPG</a>
+									</li><li class='active'>
+										<a href='/documentation/crypto-providers/macos'>macOS CryptoTokenKit</a>
+									</li><li class=''>
+										<a href='/documentation/crypto-providers/rest-api'>REST API</a>
+									</li></ul></li><li class='separator' /><li class=''>
+							<a href='/documentation/changelog#'>Product updates</a></li></ul>
+			</nav><div class='content'><ul class="article-toc">
   <li><a href="#general-instructions">General instructions</a>
     <ul>
       <li><a href="#supported-versions">Supported versions</a></li>
@@ -87,7 +99,8 @@
   <li><a href="#codesign">codesign</a></li>
   <li><a href="#productsign">productsign</a></li>
 </ul>
-<h2 id="general-instructions">General instructions</h2>
+<article>
+					<h2 id="general-instructions">General instructions</h2>
 
 <p>This section provides information to use SignPath with any tool that supports macOS CryptoTokenKit.</p>
 
@@ -274,7 +287,8 @@ open SignPathCryptoTokenKit.app <span class="nt">--args</span> <span class="se">
   <p><code class="language-plaintext highlighter-rouge">productsign</code> requires an “Apple Developer Installer” certificate.</p>
 </blockquote>
 
-		</article>
+				</article>
+			</div>
 	</div>
 </section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>

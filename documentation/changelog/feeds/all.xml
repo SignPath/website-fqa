@@ -2,30 +2,12 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/all.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-10-22</updated>
+<updated>2024-10-21</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/all.xml</id><title type="html">SignPath - Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
-        <id>tag:about.signpath.io,2024-10-22:jenkins_plugin:2.1.0</id>
-        <title>SignPath Jenkins Plugin 2.1.0</title>
-        <updated>2024-10-22</updated>
-        <published>2024-10-22</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-10-22" />
-        <category term="release/jenkins_plugin" label="Jenkins Plugin" />
-        <summary type="html">New Release:  2.1.0</summary>
-        <content type="html">
-          &lt;div&gt;
-            &lt;h2&gt;New Release:  2.1.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Added support for &lt;a href=&quot;/documentation/artifact-configuration/syntax#parameters&quot;&gt;user-defined parameters&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;The &lt;em&gt;API Token Credential&lt;/em&gt; can now be stored either in th &lt;em&gt;System&lt;/em&gt; or a &lt;em&gt;Global&lt;/em&gt; (recommended) scope.&lt;/p&gt;
-&lt;/li&gt;&lt;li&gt;
-                        &lt;p&gt;Improved error messages.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
-        </content>
-      </entry><entry>
         <id>tag:about.signpath.io,2024-10-21:macos_cryptotokenkit:2.0</id>
         <title>SignPath macOS CryptoTokenKit 2.0</title>
         <updated>2024-10-21</updated>
