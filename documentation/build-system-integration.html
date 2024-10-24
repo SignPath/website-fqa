@@ -17,7 +17,7 @@
   <meta name="description" content="Documentation for integrating SignPath with Continuous Integration (CI) platforms and pipelines"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-10-23">
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-08-14">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2024-03-07'></script>
   <script src='/assets/js/main-bundle.js?cache=2024-08-05'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
@@ -61,7 +61,7 @@
 	</div>
 </section>
 <section class="resources-section">
-	<div><nav>
+	<div><aside>
 				<ul><li class=''>
 							<a href='/documentation/getting-started#'>Getting Started</a></li><li class=''>
 							<a href='/documentation/managing-certificates#'>Managing Certificates</a></li><li class=''>
@@ -70,13 +70,22 @@
 							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=''>
 							<a href='/documentation/signing-containers#'>Signing Container Images</a></li><li class='separator' /><li class=''>
 							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class='active'>
-							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=''>
+							<a href='/documentation/build-system-integration#'>Build System Integration</a><div class="no-mobile" ><ul>
+  <li><a href="#abstract">Abstract</a></li>
+  <li><a href="#authentication">Authentication</a></li>
+  <li><a href="#powershell">PowerShell</a></li>
+  <li><a href="#rest-api">HTTP REST API</a></li>
+  <li><a href="#ci-integrations-with-origin-verification">CI integrations with origin verification</a></li>
+  <li><a href="#other-ci-integrations">Other CI integrations</a></li>
+  <li><a href="#webhook-notifications">Webhook notifications</a></li>
+</ul>
+</div></li><li class=''>
 							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class=''>
 							<a href='/documentation/origin-verification#'>Origin Verification</a></li><li class='separator' /><li class=''>
 							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class=''>
 							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=''>
 							<a href='/documentation/changelog#'>Product updates</a></li></ul>
-			</nav><div class='content'><ul class="article-toc">
+			</aside><article><ul class="article-toc">
   <li><a href="#abstract">Abstract</a></li>
   <li><a href="#authentication">Authentication</a></li>
   <li><a href="#powershell">PowerShell</a></li>
@@ -97,8 +106,7 @@
   </li>
   <li><a href="#webhook-notifications">Webhook notifications</a></li>
 </ul>
-<article>
-					<h2 id="abstract">Abstract</h2>
+<h2 id="abstract">Abstract</h2>
 
 <p>This section describes how SignPath can be integrated into automated builds using continuous integration software. You can use the PowerShell module provided by SignPath, directly call the Web API to submit signing requests, or integrate SignPath as part of your AppVeyor build step.</p>
 
@@ -451,8 +459,7 @@
   <p><code class="language-plaintext highlighter-rouge">Bearer JEAG1OrTXZ/t4URp5URt40DLBlA3WtcJmbwfeosyBkTABr6r</code></p>
 </blockquote>
 
-				</article>
-			</div>
+		</article>
 	</div>
 </section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>

@@ -17,7 +17,7 @@
   <meta name="description" content="How to sign your code using SignPath"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-10-23">
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-08-14">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2024-03-07'></script>
   <script src='/assets/js/main-bundle.js?cache=2024-08-05'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
@@ -61,13 +61,19 @@
 	</div>
 </section>
 <section class="resources-section">
-	<div><nav>
+	<div><aside>
 				<ul><li class=''>
 							<a href='/documentation/getting-started#'>Getting Started</a></li><li class=''>
 							<a href='/documentation/managing-certificates#'>Managing Certificates</a></li><li class=''>
 							<a href='/documentation/users#'>Managing Users</a></li><li class=''>
 							<a href='/documentation/projects#'>Setting up Projects</a></li><li class='active'>
-							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=''>
+							<a href='/documentation/signing-code#'>Signing Code</a><div class="no-mobile" ><ul>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#direct-upload">Direct upload</a></li>
+  <li><a href="#build-process-integration">Build process integration</a></li>
+  <li><a href="#resubmit">Resubmitting an existing signing request</a></li>
+</ul>
+</div></li><li class=''>
 							<a href='/documentation/signing-containers#'>Signing Container Images</a></li><li class='separator' /><li class=''>
 							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=''>
 							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=''>
@@ -76,22 +82,13 @@
 							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class=''>
 							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=''>
 							<a href='/documentation/changelog#'>Product updates</a></li></ul>
-			</nav><div class='content'><ul class="article-toc">
+			</aside><article><ul class="article-toc mobile-only">
   <li><a href="#overview">Overview</a></li>
   <li><a href="#direct-upload">Direct upload</a></li>
   <li><a href="#build-process-integration">Build process integration</a></li>
-  <li><a href="#resubmit">Resubmitting an existing signing request</a>
-    <ul>
-      <li><a href="#resubmit-via-user-interface">Resubmit via user interface</a></li>
-      <li><a href="#resubmit-via-api">Resubmit via API</a></li>
-      <li><a href="#parameters">Parameters</a></li>
-      <li><a href="#permissions-and-policies">Permissions and policies</a></li>
-      <li><a href="#usage-scenario">Usage scenario</a></li>
-    </ul>
-  </li>
+  <li><a href="#resubmit">Resubmitting an existing signing request</a></li>
 </ul>
-<article>
-					<h2 id="overview">Overview</h2>
+<h2 id="overview">Overview</h2>
 
 <p>Once your project is set up, you can submit a signing request by either</p>
 
@@ -236,8 +233,7 @@
 
 <p>Instead of manual approval using SignPath (steps 5 and 6), a release management or workflow system might be used to submit the re-signing request and/or provide the approval using SignPath REST APIs.</p>
 
-				</article>
-			</div>
+		</article>
 	</div>
 </section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>

@@ -17,7 +17,7 @@
   <meta name="description" content="Get-SignedArtifact"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-10-23">
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-08-14">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2024-03-07'></script>
   <script src='/assets/js/main-bundle.js?cache=2024-08-05'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
@@ -61,35 +61,20 @@
 	</div>
 </section>
 <section class="resources-section">
-	<div><nav>
+	<div><aside>
 				<ul><li class=''>
-							<a href='/documentation/getting-started#'>Getting Started</a></li><li class=''>
-							<a href='/documentation/managing-certificates#'>Managing Certificates</a></li><li class=''>
-							<a href='/documentation/users#'>Managing Users</a></li><li class=''>
-							<a href='/documentation/projects#'>Setting up Projects</a></li><li class=''>
-							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=''>
-							<a href='/documentation/signing-containers#'>Signing Container Images</a></li><li class='separator' /><li class=''>
-							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=''>
-							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=''>
-							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class=''>
-							<a href='/documentation/origin-verification#'>Origin Verification</a></li><li class='separator' /><li class=''>
-							<a href='/documentation/powershell#'>PowerShell cmdlets</a><ul><li class=''>
-										<a href='/documentation/powershell/Submit-SigningRequest'>Submit-SigningRequest</a>
-									</li><li class='active'>
-										<a href='/documentation/powershell/Get-SignedArtifact'>Get-SignedArtifact</a>
-									</li><li class=''>
-										<a href='/documentation/powershell/Get-CertificateByMicrosoftTemplateId'>Get-CertificateBy&shy;Microsoft&shy;TemplateId</a>
-									</li></ul></li><li class=''>
-							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=''>
-							<a href='/documentation/changelog#'>Product updates</a></li></ul>
-			</nav><div class='content'><ul class="article-toc">
+							<a href='/documentation/powershell/#'>PowerShell cmdlets</a></li><li class=''>
+							<a href='/documentation/powershell/Submit-SigningRequest#'>Submit-SigningRequest</a></li><li class='active'>
+							<a href='/documentation/powershell/Get-SignedArtifact#'>Get-SignedArtifact</a><div class="no-mobile" ><ul>
   <li><a href="#syntax">Syntax</a></li>
   <li><a href="#description">Description</a></li>
   <li><a href="#parameters">Parameters</a></li>
   <li><a href="#examples">Examples</a></li>
 </ul>
-<article>
-					<p>Downloads a signed artifact based on a signing request ID.</p>
+</div></li><li class=''>
+							<a href='/documentation/powershell/Get-CertificateByMicrosoftTemplateId#'>Get-CertificateBy&shy;Microsoft&shy;TemplateId</a></li></ul>
+			</aside><article>
+<p>Downloads a signed artifact based on a signing request ID.</p>
 
 <h2 id="syntax">Syntax</h2>
 
@@ -197,7 +182,7 @@
 
 <h2 id="examples">Examples</h2>
 
-<h4 id="example-1-download-an-artifact-from-a-previously-submitted-signing-request">Example 1: Download an artifact from a previously submitted signing request</h4>
+<h3 id="example-1-download-an-artifact-from-a-previously-submitted-signing-request">Example 1: Download an artifact from a previously submitted signing request</h3>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$signingRequestID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Submit-SigningRequest</span><span class="w"> </span><span class="se">`
 </span><span class="w">    </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> </span><span class="se">`-</span><span class="nx">ApiToken</span><span class="w"> </span><span class="nv">$API_TOKEN</span><span class="w"> </span><span class="se">`
@@ -211,8 +196,7 @@
 </span><span class="w">    </span><span class="nt">-OutputArtifactPath</span><span class="w"> </span><span class="nv">$PATH_TO_OUTPUT_ARTIFACT</span><span class="w">
 </span></code></pre></div></div>
 
-				</article>
-			</div>
+		</article>
 	</div>
 </section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>
