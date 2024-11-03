@@ -17,7 +17,7 @@
   <meta name="description" content="Documentation for signing Docker images with SignPath using Cosign"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-08-14">
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-10-23">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2024-03-07'></script>
   <script src='/assets/js/main-bundle.js?cache=2024-08-05'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
@@ -61,18 +61,39 @@
 	</div>
 </section>
 <section class="resources-section">
-	<div><aside>
+	<div><nav>
 				<ul><li class=''>
-							<a href='/documentation/signing-containers/#'>Signing Container Images</a></li><li class='active'>
-							<a href='/documentation/signing-containers/cosign#'>Sigstore Cosign</a><div class="no-mobile" ><ul>
+							<a href='/documentation/getting-started#'>Getting Started</a></li><li class=''>
+							<a href='/documentation/managing-certificates#'>Managing Certificates</a></li><li class=''>
+							<a href='/documentation/users#'>Managing Users</a></li><li class=''>
+							<a href='/documentation/projects#'>Setting up Projects</a></li><li class=''>
+							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=''>
+							<a href='/documentation/signing-containers#'>Signing Container Images</a><ul><li class='active'>
+										<a href='/documentation/signing-containers/cosign'>Sigstore Cosign</a>
+									</li><li class=''>
+										<a href='/documentation/signing-containers/docker-content-trust'>Docker Content Trust (DCT)</a>
+									</li></ul></li><li class='separator' /><li class=''>
+							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=''>
+							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class=''>
+							<a href='/documentation/origin-verification#'>Origin Verification</a></li><li class='separator' /><li class=''>
+							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class=''>
+							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=''>
+							<a href='/documentation/changelog#'>Product updates</a></li></ul>
+			</nav><div class='content'><ul class="article-toc">
   <li><a href="#cosign-overview">Cosign Overview</a></li>
   <li><a href="#advantages-of-using-signpath-for-cosign">Advantages of using SignPath for Cosign</a></li>
-  <li><a href="#how-to-use-cosign-with-signpath">How to use Cosign with SignPath</a></li>
+  <li><a href="#how-to-use-cosign-with-signpath">How to use Cosign with SignPath</a>
+    <ul>
+      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#step-1-create-the-metadata-file">Step 1: create the metadata file</a></li>
+      <li><a href="#step-2-create-a-signature-for-the-metadata">Step 2: create a signature for the metadata</a></li>
+      <li><a href="#step-3-attach-the-signature-to-the-image">Step 3: attach the signature to the image</a></li>
+    </ul>
+  </li>
 </ul>
-</div></li><li class=''>
-							<a href='/documentation/signing-containers/docker-content-trust#'>Docker Content Trust (DCT)</a></li></ul>
-			</aside><article>
-<h2 id="cosign-overview">Cosign Overview</h2>
+<article>
+					<h2 id="cosign-overview">Cosign Overview</h2>
 
 <p><em>Cosign</em> is part of the <a href="https://www.sigstore.dev/">Sigstore</a> project. It is primarily targeted at the open source community, allowing individual developers to sign container images using OpenID user accounts from GitHub, Google or Microsoft. For those developers, Sigstore eliminates the need for certificates or locally storeed private keys.</p>
 
@@ -193,7 +214,8 @@ unzip <span class="nt">-n</span> payload.json.signed.zip
 cosign attach signature <span class="nt">--payload</span> payload.json <span class="nt">--signature</span> payload.json.base64.sig <span class="nv">$IMAGE_DIGEST</span>
 </code></pre></div></div>
 
-		</article>
+				</article>
+			</div>
 	</div>
 </section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>

@@ -17,7 +17,7 @@
   <meta name="description" content="Artifact Configuration Syntax and Structure"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-08-14">
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-10-23">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2024-03-07'></script>
   <script src='/assets/js/main-bundle.js?cache=2024-08-05'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
@@ -61,23 +61,29 @@
 	</div>
 </section>
 <section class="resources-section">
-	<div><aside>
+	<div><nav>
 				<ul><li class=''>
-							<a href='/documentation/artifact-configuration/#'>Artifact Configuration</a></li><li class='active'>
-							<a href='/documentation/artifact-configuration/syntax#'>Syntax</a><div class="no-mobile" ><ul>
-  <li><a href="#syntax">Artifact configuration syntax</a></li>
-  <li><a href="#structure">Basic artifact structure</a></li>
-  <li><a href="#main-structural-elements">Main structural elements</a></li>
-  <li><a href="#platform-considerations">Platform considerations</a></li>
-  <li><a href="#wildcards">Using wildcards</a></li>
-  <li><a href="#file-and-directory-sets">File and directory sets</a></li>
-  <li><a href="#parameters">User-defined parameters</a></li>
-</ul>
-</div></li><li class=''>
-							<a href='/documentation/artifact-configuration/reference#'>Reference</a></li><li class=''>
-							<a href='/documentation/artifact-configuration/examples#'>Examples</a></li></ul>
-			</aside><article><ul class="article-toc">
-  <li><a href="#syntax">Artifact configuration syntax</a></li>
+							<a href='/documentation/getting-started#'>Getting Started</a></li><li class=''>
+							<a href='/documentation/managing-certificates#'>Managing Certificates</a></li><li class=''>
+							<a href='/documentation/users#'>Managing Users</a></li><li class=''>
+							<a href='/documentation/projects#'>Setting up Projects</a></li><li class=''>
+							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=''>
+							<a href='/documentation/signing-containers#'>Signing Container Images</a></li><li class='separator' /><li class=''>
+							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a><ul><li class='active'>
+										<a href='/documentation/artifact-configuration/syntax'>Syntax</a>
+									</li><li class=''>
+										<a href='/documentation/artifact-configuration/reference'>Reference</a>
+									</li><li class=''>
+										<a href='/documentation/artifact-configuration/examples'>Examples</a>
+									</li></ul></li><li class=''>
+							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=''>
+							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class=''>
+							<a href='/documentation/origin-verification#'>Origin Verification</a></li><li class='separator' /><li class=''>
+							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class=''>
+							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=''>
+							<a href='/documentation/changelog#'>Product updates</a></li></ul>
+			</nav><div class='content'><ul class="article-toc">
+  <li><a href="#syntax">Artifcat configuration syntax</a></li>
   <li><a href="#structure">Basic artifact structure</a></li>
   <li><a href="#main-structural-elements">Main structural elements</a>
     <ul>
@@ -98,7 +104,8 @@
   </li>
   <li><a href="#parameters">User-defined parameters</a></li>
 </ul>
-<h2 id="syntax">Artifact configuration syntax</h2>
+<article>
+					<h2 id="syntax">Artifcat configuration syntax</h2>
 
 <p>Artifact configurations are XML files with the schema <code class="language-plaintext highlighter-rouge">http://signpath.io/artifact-configuration/v1"</code>. You can download the schema file when you edit an artifact configuration in SignPath.</p>
 
@@ -111,21 +118,6 @@
   <span class="nt">&lt;/root-file-element&gt;</span>
 <span class="nt">&lt;/artifact-configuration&gt;</span>
 </code></pre></div></div>
-
-<blockquote class="panel info">
-  <p><strong>XML editor schema support</strong></p>
-
-  <p>If autocomplete does not work in your schema-aware editor, try adding the <code class="language-plaintext highlighter-rouge">xsi:schemaLocation</code> attribute to the root element.</p>
-
-  <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
-<span class="nt">&lt;artifact-configuration</span>
-  <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span>
-  <span class="na">xmlns:xsi=</span> <span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
-  <span class="na">xsi:schemaLocation=</span><span class="s">"http://signpath.io/artifact-configuration/v1 https://app.signpath.io/Web/artifact-configuration/v1.xsd"</span><span class="nt">&gt;</span>
-...
-<span class="nt">&lt;/artifact-configuration&gt;</span>
-</code></pre></div>  </div>
-</blockquote>
 
 <h2 id="structure">Basic artifact structure</h2>
 
@@ -435,7 +427,8 @@ is equivalent to
 </code></pre></div></div>
 
 
-		</article>
+				</article>
+			</div>
 	</div>
 </section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>
