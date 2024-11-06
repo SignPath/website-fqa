@@ -2,12 +2,26 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/all.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-10-24</updated>
+<updated>2024-11-06</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/all.xml</id><title type="html">SignPath - Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2024-11-06:github_connector:1.0.1</id>
+        <title>SignPath GitHub Connector 1.0.1</title>
+        <updated>2024-11-06</updated>
+        <published>2024-11-06</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-11-06" />
+        <category term="release/github_connector" label="GitHub Connector" />
+        <summary type="html">New Release:  1.0.1</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.0.1&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed an integer overflow bug that prevented signing of artifacts with high GitHub artifact IDs.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2024-10-24:application:1.174.1</id>
         <title>SignPath Application 1.174.1</title>
         <updated>2024-10-24</updated>
