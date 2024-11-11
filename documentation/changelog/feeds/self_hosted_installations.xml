@@ -2,12 +2,26 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-09-24</updated>
+<updated>2024-11-11</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml</id><title type="html">SignPath - Self-hosted Installations Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2024-11-11:self_hosted_installations:1.175.1</id>
+        <title>SignPath Application (self-hosted only) 1.175.1</title>
+        <updated>2024-11-11</updated>
+        <published>2024-11-11</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-11-11" />
+        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
+        <summary type="html">New Release:  1.175.1</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.175.1&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;In the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-application&lt;/code&gt; chart, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appSettings/appSecrets.shared.fastSigningRequestProcessorServiceClientOptions&lt;/code&gt; configuration section has been renamed to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fastSigningServiceClientOptions&lt;/code&gt; (its content stays the same).&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2024-09-24:self_hosted_installations:1.172.0</id>
         <title>SignPath Application (self-hosted only) 1.172.0</title>
         <updated>2024-09-24</updated>
