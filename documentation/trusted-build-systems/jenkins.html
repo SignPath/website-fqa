@@ -271,7 +271,7 @@
     <span class="o">}</span>
 </code></pre></div></div>
 
-<h4 id="example-submit-an-asynchronous-signing-request">Example: Submit an asynchronous signing request</h4>
+<h4 id="example-submit-an-asynchronous-signing-request-with-parameters">Example: Submit an asynchronous signing request with parameters</h4>
 
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nf">stage</span><span class="o">(</span><span class="ss">'Sign</span> <span class="k">with</span> <span class="nc">SignPath</span><span class="o">')</span> <span class="o">{</span>
       <span class="n">steps</span> <span class="o">{</span>
@@ -283,7 +283,11 @@
             <span class="n">artifactConfigurationSlug</span><span class="k">:</span> <span class="err">"</span><span class="kt">$</span><span class="o">{</span><span class="kt">ARTIFACT_CONFIGURATION_SLUG</span><span class="o">}</span><span class="err">"</span><span class="o">,</span>
             <span class="n">inputArtifactPath</span><span class="k">:</span> <span class="err">"</span><span class="kt">build-output/my-artifact.exe</span><span class="err">"</span><span class="o">,</span>
             <span class="n">outputArtifactPath</span><span class="k">:</span> <span class="err">"</span><span class="kt">build-output/my-artifact.signed.exe</span><span class="err">"</span><span class="o">,</span>
-            <span class="n">waitForCompletion</span><span class="k">:</span> <span class="kt">false</span>
+            <span class="n">waitForCompletion</span><span class="k">:</span> <span class="kt">false</span><span class="o">,</span>
+            <span class="n">parameters</span><span class="k">:</span> <span class="err">[</span>
+              <span class="err">"</span><span class="kt">version</span><span class="err">"</span><span class="kt">:</span> <span class="err">"1</span><span class="kt">.</span><span class="err">0"</span><span class="o">,</span>
+              <span class="s">"my-param"</span><span class="k">:</span> <span class="err">"</span><span class="kt">another</span> <span class="kt">param</span><span class="err">"</span>
+            <span class="err">]</span>
           <span class="o">)</span>
         <span class="o">}</span>
       <span class="o">}</span>
