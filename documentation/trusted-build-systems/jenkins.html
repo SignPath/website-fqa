@@ -81,6 +81,13 @@
 <ul>
   <li>The Jenkins plugin has been installed on the respective Jenkins instance (Jenkins 2.359 or higher are supported).</li>
   <li>The plugin has been registered as a <em>custom</em> Trusted Build System within SignPath and linked to the respective project (see the <a href="/documentation/trusted-build-systems#configuration">configuration</a> section).</li>
+  <li>The following plugins are installed on the Jenkins server:
+    <ul>
+      <li><a href="https://plugins.jenkins.io/credentials-binding/">Credentials binding</a></li>
+      <li><a href="https://plugins.jenkins.io/git/">Git</a></li>
+      <li><a href="https://plugins.jenkins.io/workflow-aggregator/">Pipeline (Workflow aggregator)</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="performed-checks">Performed checks</h2>
@@ -94,16 +101,7 @@
 
 <h2 id="installation">Installation</h2>
 
-<ul>
-  <li>The Jenkins Plugin is available for download from the <a href="https://github.com/jenkinsci/signpath-plugin/releases">GitHub releases</a> page.</li>
-  <li>The following additional plugins must be installed:
-    <ul>
-      <li><a href="https://plugins.jenkins.io/credentials-binding/">Credentials binding</a></li>
-      <li><a href="https://plugins.jenkins.io/git/">Git</a></li>
-      <li><a href="https://plugins.jenkins.io/workflow-aggregator/">Pipeline (Workflow aggregator)</a></li>
-    </ul>
-  </li>
-</ul>
+<p>See the <a href="https://plugins.jenkins.io/signpath/">official plugin page</a> on how the plugin can be installed.</p>
 
 <h3 id="configuration">Configuration</h3>
 
@@ -304,7 +302,6 @@
       <span class="o">}</span>
     <span class="o">}</span>
 </code></pre></div></div>
-
 
 		</article>
 	</div>
