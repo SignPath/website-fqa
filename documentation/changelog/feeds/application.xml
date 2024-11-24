@@ -2,12 +2,28 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/application.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-11-11</updated>
+<updated>2024-11-21</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/application.xml</id><title type="html">SignPath - Application Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2024-11-21:application:1.176.0</id>
+        <title>SignPath Application 1.176.0</title>
+        <updated>2024-11-21</updated>
+        <published>2024-11-21</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-11-21" />
+        <category term="release/application" label="Application" />
+        <summary type="html">New Release:  1.176.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.176.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;JAR signing: Added a workaround for Java code signing using recent GlobalSign code signing certificates. (The default root certificate is not in the Java root trust list, so a special cross-signed certificate must be applied.)&lt;/p&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;Improved display of validation errors in the user invitation UI.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2024-11-11:application:1.175.1</id>
         <title>SignPath Application 1.175.1</title>
         <updated>2024-11-11</updated>
@@ -196,7 +212,7 @@
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hash-algorithm&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Fixed failed Jar signing operations for Jar files with &amp;gt;20,000 items.&lt;/p&gt;
+                        &lt;p&gt;Fixed failed JAR signing operations for JAR files with &amp;gt;20,000 items.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Fixed error during rendering of old failed signing requests with specific errors (e.g. artifact retrieval).&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;

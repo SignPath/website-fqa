@@ -18,7 +18,7 @@
         <content type="html">
           &lt;div&gt;
             &lt;h2&gt;New Release:  1.0.1&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Fixed an integer overflow bug that prevented signing of artifacts with high GitHub artifact IDs.&lt;/p&gt;
+                        &lt;p&gt;Fixed a bug that prevented signing of artifactsf from GitHub.com. (GitHub’s global ID values crossed the max-int threshold on Nov. 5, 2024.)&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
