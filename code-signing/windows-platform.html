@@ -8,8 +8,8 @@
   <link rel="canonical" href='https://signpath.github.io/website-staging//code-signing/windows-platform' />
   <!-- Begin Jekyll SEO tag v2.6.1 -->
   <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
-  <title>Code Signing - Windows Platform | SignPath</title>
-  <meta property="og:title" content="Code Signing - Windows Platform | SignPath" />
+  <title>Windows Platform | SignPath</title>
+  <meta property="og:title" content="Windows Platform | SignPath" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:description" content="An in-depth look into the code signing technologies and procedures for Microsoft Windows" />
   <meta property="og:url" content="https://signpath.github.io/website-staging//code-signing/windows-platform" />
@@ -17,7 +17,7 @@
   <meta name="description" content="An in-depth look into the code signing technologies and procedures for Microsoft Windows"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-08-14">
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-10-23">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2024-03-07'></script>
   <script src='/assets/js/main-bundle.js?cache=2024-08-05'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
@@ -55,28 +55,21 @@
     </div>
   </header>
   <main>
-<section class="bg-blue font-white top-section">
+-f<section class="bg-blue font-white top-section">
 	<div>
-		<h1><span class='no-break'>Code Signing &nbsp;❯&nbsp; </span> Windows Platform</h1>
+		<h1><span class='no-break'><a href='/code-signing'>Code Signing</a>&nbsp;&nbsp;❯&nbsp;&nbsp;</span><span class='no-break'>Windows Platform</span></h1>
 	</div>
 </section>
 <section class="resources-section">
-	<div><aside>
-				<ul><li class=''>
-							<a href='/code-signing/introduction#'>Introduction</a></li><li class=''>
-							<a href='/code-signing/theory#'>Theory</a></li><li class='active'>
-							<a href='/code-signing/windows-platform#'>Windows Platform</a><div class="no-mobile" ><ul>
-  <li><a href="#signing-methods">Signing methods</a></li>
-  <li><a href="#when-are-signatures-verified">When are signatures verified?</a></li>
-  <li><a href="#file-types">File types</a></li>
-  <li><a href="#tools-used-for-code-signing">Tools used for code signing</a></li>
-  <li><a href="#hsm">Hardware Security Modules (HSMs)</a></li>
-</ul>
-</div></li><li class=''>
-							<a href='/code-signing/test-certificates#'>Managing Test Certificates</a></li><li class=''>
-							<a href='/code-signing/private-keys#'>Storage of Private Keys</a></li><li class=''>
+	<div><nav class='hidden-on-mobile'>
+				<ul><li class=' '>
+							<a href='/code-signing/introduction#'>Introduction</a></li><li class=' '>
+							<a href='/code-signing/theory#'>Theory</a></li><li class='active '>
+							<a href='/code-signing/windows-platform#'>Windows Platform</a></li><li class=' '>
+							<a href='/code-signing/test-certificates#'>Managing Test Certificates</a></li><li class=' '>
+							<a href='/code-signing/private-keys#'>Storage of Private Keys</a></li><li class=' '>
 							<a href='/code-signing/media-coverage#'>Media Coverage</a></li></ul>
-			</aside><article><ul class="article-toc">
+			</nav><div class='content'><ul class="article-toc">
   <li><a href="#signing-methods">Signing methods</a></li>
   <li><a href="#when-are-signatures-verified">When are signatures verified?</a>
     <ul>
@@ -113,7 +106,8 @@
     </ul>
   </li>
 </ul>
-<h2 id="signing-methods">Signing methods</h2>
+<article>
+					<h2 id="signing-methods">Signing methods</h2>
 
 <p>The primary code signing mechanism of Windows is Authenticode. It is used to sign executables and libraries as well as installers, packages, device drivers, and PowerShell scripts. Additionally, some programs use code signing to validate add-ins on installation. They use specific package formats, such as ClickOnce (Microsoft Office) or Open Packaging Convention (Microsoft Visual Studio), and therefore require specific tools for code signing. Every program has its own rules for displaying and enforcing code signing.</p>
 
@@ -338,7 +332,8 @@
   <li>Some complex key management systems have a FIPS-certified HSM at their core as part of a larger physical or virtual system. In this case, the FIPS certification might not encompass the entire system. You should ask specifically if FIPS certification is provided for the entire use case of generating keys and CSRs, as well as creating signatures.</li>
 </ul>
 
-		</article>
+				</article>
+			</div>
 	</div>
 </section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>

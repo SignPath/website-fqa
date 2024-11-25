@@ -8,8 +8,8 @@
   <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/directory-synchronization' />
   <!-- Begin Jekyll SEO tag v2.6.1 -->
   <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
-  <title>Documentation - Directory synchronization | SignPath</title>
-  <meta property="og:title" content="Documentation - Directory synchronization | SignPath" />
+  <title>Directory synchronization | SignPath</title>
+  <meta property="og:title" content="Directory synchronization | SignPath" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:description" content="Documentation for SignPath directory synchronization using Microsoft Entra ID" />
   <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/directory-synchronization" />
@@ -17,7 +17,7 @@
   <meta name="description" content="Documentation for SignPath directory synchronization using Microsoft Entra ID"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-08-14">
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-10-23">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2024-03-07'></script>
   <script src='/assets/js/main-bundle.js?cache=2024-08-05'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
@@ -55,31 +55,48 @@
     </div>
   </header>
   <main>
-<section class="bg-blue font-white top-section">
+-f<section class="bg-blue font-white top-section">
 	<div>
-		<h1><span class='no-break'>Documentation &nbsp;❯&nbsp; </span> Directory synchronization</h1>
+		<h1><span class='no-break'><a href='/documentation'>Documentation</a>&nbsp;&nbsp;❯&nbsp;&nbsp;</span><span class='no-break'>
+	  	         Directory synchronization
+	  	      </span></h1>
 	</div>
 </section>
 <section class="resources-section">
-	<div><aside>
-				<ul><li class=''>
-							<a href='/documentation/getting-started#'>Getting Started</a></li><li class=''>
-							<a href='/documentation/managing-certificates#'>Managing Certificates</a></li><li class=''>
-							<a href='/documentation/users#'>Managing Users</a></li><li class=''>
-							<a href='/documentation/projects#'>Setting up Projects</a></li><li class=''>
-							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=''>
-							<a href='/documentation/signing-containers#'>Signing Container Images</a></li><li class='separator' /><li class=''>
-							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=''>
-							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=''>
-							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class=''>
-							<a href='/documentation/origin-verification#'>Origin Verification</a></li><li class='separator' /><li class=''>
-							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class=''>
-							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=''>
+	<div><nav class='hidden-on-mobile'>
+				<ul><li class=' '>
+							<a href='/documentation/getting-started#'>Getting Started</a></li><li class=' '>
+							<a href='/documentation/managing-certificates#'>Managing Certificates</a></li><li class=' '>
+							<a href='/documentation/users#'>Managing Users</a></li><li class=' '>
+							<a href='/documentation/projects#'>Setting up Projects</a></li><li class=' '>
+							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=' '>
+							<a href='/documentation/signing-containers#'>Signing Container Images</a></li><li class='separator' /><li class=' '>
+							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=' '>
+							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=' '>
+							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class=' '>
+							<a href='/documentation/origin-verification#'>Origin Verification</a></li><li class='separator' /><li class=' '>
+							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class=' '>
+							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=' '>
 							<a href='/documentation/changelog#'>Product updates</a></li></ul>
-			</aside><article><ul class="article-toc mobile-only">
-  <li><a href="#directory-synchronization-with-microsoft-entra-idazure-active-directory">Directory synchronization with Microsoft Entra ID/Azure Active Directory</a></li>
+			</nav><div class='content'><ul class="article-toc">
+  <li><a href="#directory-synchronization-with-microsoft-entra-idazure-active-directory">Directory synchronization with Microsoft Entra ID/Azure Active Directory</a>
+    <ul>
+      <li><a href="#steps">Steps</a>
+        <ul>
+          <li><a href="#1-create-a-new-enterprise-application-in-microsoft-entra-id">1. Create a new enterprise application in Microsoft Entra ID</a></li>
+          <li><a href="#2-define-signpath-application-roles-in-the-application-registration">2. Define SignPath application roles in the application registration</a></li>
+          <li><a href="#3-create-a-synchronization-user-on-signpath">3. Create a synchronization user on SignPath</a></li>
+          <li><a href="#4-configure-provisioning-for-the-enterprise-application">4. Configure provisioning for the enterprise application</a></li>
+          <li><a href="#5-configure-provisioning-mapping-for-the-enterprise-application">5. Configure provisioning mapping for the enterprise application</a></li>
+          <li><a href="#6-test-the-configuration">6. Test the configuration</a></li>
+          <li><a href="#7-remove-the-dry-run-postfix-assign-users-and-groups-and-start-provisioning">7. Remove the <code class="language-plaintext highlighter-rouge">/dry-run</code> postfix, assign users and groups and start provisioning</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
-<h2 id="directory-synchronization-with-microsoft-entra-idazure-active-directory">Directory synchronization with Microsoft Entra ID/Azure Active Directory</h2>
+<article>
+					<h2 id="directory-synchronization-with-microsoft-entra-idazure-active-directory">Directory synchronization with Microsoft Entra ID/Azure Active Directory</h2>
 
 <p>Directory synchronization is supported via the SCIM protocol. This page describes the configuration for Microsoft Entra ID (previously Azure Active Directory).</p>
 
@@ -258,7 +275,8 @@
 </blockquote>
 
 
-		</article>
+				</article>
+			</div>
 	</div>
 </section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>

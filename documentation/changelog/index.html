@@ -17,7 +17,7 @@
   <meta name="description" content="Product Changelog for all SignPath components"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-08-14">
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-10-23">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2024-03-07'></script>
   <script src='/assets/js/main-bundle.js?cache=2024-08-05'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
@@ -55,14 +55,30 @@
     </div>
   </header>
   <main>
-<section class="bg-blue font-white top-section">
+-f<section class="bg-blue font-white top-section">
 	<div>
-		<h1> Product Updates</h1>
+		<h1><span class='no-break'><a href='/documentation'>Documentation</a>&nbsp;&nbsp;❯&nbsp;&nbsp;</span><span class='no-break'>Product updates</span></h1>
 	</div>
 </section>
 <section class="resources-section">
-	<div><article>
-<section class="changelog">
+	<div><nav class='hidden-on-mobile'>
+				<ul><li class=' '>
+							<a href='/documentation/getting-started#'>Getting Started</a></li><li class=' '>
+							<a href='/documentation/managing-certificates#'>Managing Certificates</a></li><li class=' '>
+							<a href='/documentation/users#'>Managing Users</a></li><li class=' '>
+							<a href='/documentation/projects#'>Setting up Projects</a></li><li class=' '>
+							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=' '>
+							<a href='/documentation/signing-containers#'>Signing Container Images</a></li><li class='separator' /><li class=' '>
+							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=' '>
+							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=' '>
+							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class=' '>
+							<a href='/documentation/origin-verification#'>Origin Verification</a></li><li class='separator' /><li class=' '>
+							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class=' '>
+							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class='active current-group'>
+							<a href='/documentation/changelog#'>Product updates</a></li></ul>
+			</nav><div class='content'>
+<article>
+					<section class="changelog">
 <div class="changelog-select-ctn">
 	<div>
 		Component 
@@ -91,158 +107,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<article class="release component-application change_type-version change_type-improvements component-self_hosted_installations change_type-new_features" id="2024-11-21">
-	<h1>&nbsp;<span>November 21, 2024</span></h1>
-	
-		
-			
-			
-			
-			
-			
-			
-			
-
-			<div class="component-application component change_type-version change_type-improvements">
-			<h2>Application 1.176.0</h2>
-			
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-improvements">
-					<h3>
-						 Improvements:
-							
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>JAR signing: Added a workaround for Java code signing using recent GlobalSign code signing certificates. (The default root certificate is not in the Java root trust list, so a special cross-signed certificate must be applied.)</p>
-
-									
-								</li>
-							
-								<li>
-									<p>Improved display of validation errors in the user invitation UI.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-			</div>
-		
-			
-			
-			
-			
-			
-			
-			
-
-			<div class="component-self_hosted_installations component change_type-version change_type-new_features change_type-improvements">
-			<h2>Application (self-hosted only) 1.176.0</h2>
-			
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-new_features">
-					<h3>
-						 New Features:
-							
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Azure Blob Storage and SQL Server connections: added support for Azure Workload Identity authentication. See “Azure Workload Identity” in the installation guide for details.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-improvements">
-					<h3>
-						 Improvements:
-							
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Reduced image size of the <code class="language-plaintext highlighter-rouge">signpathio/signservice-setup-db</code> container image and startup time of the SignService migration jobs.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-			</div>
-		
-	
-</article>
 
 
 
@@ -354,7 +218,7 @@
 						<ul>
 							
 								<li>
-									<p>In the <code class="language-plaintext highlighter-rouge">signpath-application</code> chart, the <code class="language-plaintext highlighter-rouge">appSettings/appSecrets.shared.fastSigningRequestProcessorServiceClientOptions</code> configuration section has been renamed to <code class="language-plaintext highlighter-rouge">fastSigningServiceClientOptions</code> (value unchanged).</p>
+									<p>In the <code class="language-plaintext highlighter-rouge">signpath-application</code> chart, the <code class="language-plaintext highlighter-rouge">appSettings/appSecrets.shared.fastSigningRequestProcessorServiceClientOptions</code> configuration section has been renamed to <code class="language-plaintext highlighter-rouge">fastSigningServiceClientOptions</code> (its content stays the same).</p>
 
 									
 								</li>
@@ -424,7 +288,7 @@
 						<ul>
 							
 								<li>
-									<p>Fixed a bug that prevented signing of artifactsf from GitHub.com. (GitHub’s global ID values crossed the max-int threshold on Nov. 5, 2024.)</p>
+									<p>Fixed an integer overflow bug that prevented signing of artifacts with high GitHub artifact IDs.</p>
 
 									
 								</li>
@@ -1495,7 +1359,7 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
 						<ul>
 							
 								<li>
-									<p>Fixed failed JAR signing operations for JAR files with &gt;20,000 items.</p>
+									<p>Fixed failed Jar signing operations for Jar files with &gt;20,000 items.</p>
 
 									
 								</li>
@@ -5506,7 +5370,7 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 						<ul>
 							
 								<li>
-									<p>Dropped the JCE key “retargeting” when creating certificates on nShield HSMs (previously required for JAR signing).</p>
+									<p>Dropped the JCE key “retargeting” when creating certificates on nShield HSMs (previously required for Jar signing).</p>
 
 									
 								</li>
@@ -7197,7 +7061,7 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 						<ul>
 							
 								<li>
-									<p>Reduced memory consumption when signing JAR files.</p>
+									<p>Reduced memory consumption when signing jar files.</p>
 
 									
 								</li>
@@ -15995,7 +15859,8 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 
 </section>
 
-		</article>
+				</article>
+			</div>
 	</div>
 </section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>

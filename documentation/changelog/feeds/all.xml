@@ -2,44 +2,12 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/all.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-11-21</updated>
+<updated>2024-11-11</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/all.xml</id><title type="html">SignPath - Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
-        <id>tag:about.signpath.io,2024-11-21:application:1.176.0</id>
-        <title>SignPath Application 1.176.0</title>
-        <updated>2024-11-21</updated>
-        <published>2024-11-21</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-11-21" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.176.0</summary>
-        <content type="html">
-          &lt;div&gt;
-            &lt;h2&gt;New Release:  1.176.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;JAR signing: Added a workaround for Java code signing using recent GlobalSign code signing certificates. (The default root certificate is not in the Java root trust list, so a special cross-signed certificate must be applied.)&lt;/p&gt;
-&lt;/li&gt;&lt;li&gt;
-                        &lt;p&gt;Improved display of validation errors in the user invitation UI.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
-        </content>
-      </entry><entry>
-        <id>tag:about.signpath.io,2024-11-21:self_hosted_installations:1.176.0</id>
-        <title>SignPath Application (self-hosted only) 1.176.0</title>
-        <updated>2024-11-21</updated>
-        <published>2024-11-21</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-11-21" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.176.0</summary>
-        <content type="html">
-          &lt;div&gt;
-            &lt;h2&gt;New Release:  1.176.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Azure Blob Storage and SQL Server connections: added support for Azure Workload Identity authentication. See “Azure Workload Identity” in the installation guide for details.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Reduced image size of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpathio/signservice-setup-db&lt;/code&gt; container image and startup time of the SignService migration jobs.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
-        </content>
-      </entry><entry>
         <id>tag:about.signpath.io,2024-11-11:application:1.175.1</id>
         <title>SignPath Application 1.175.1</title>
         <updated>2024-11-11</updated>
@@ -66,7 +34,7 @@
         <content type="html">
           &lt;div&gt;
             &lt;h2&gt;New Release:  1.175.1&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;In the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-application&lt;/code&gt; chart, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appSettings/appSecrets.shared.fastSigningRequestProcessorServiceClientOptions&lt;/code&gt; configuration section has been renamed to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fastSigningServiceClientOptions&lt;/code&gt; (value unchanged).&lt;/p&gt;
+                        &lt;p&gt;In the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-application&lt;/code&gt; chart, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appSettings/appSecrets.shared.fastSigningRequestProcessorServiceClientOptions&lt;/code&gt; configuration section has been renamed to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fastSigningServiceClientOptions&lt;/code&gt; (its content stays the same).&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
@@ -80,7 +48,7 @@
         <content type="html">
           &lt;div&gt;
             &lt;h2&gt;New Release:  1.0.1&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Fixed a bug that prevented signing of artifactsf from GitHub.com. (GitHub’s global ID values crossed the max-int threshold on Nov. 5, 2024.)&lt;/p&gt;
+                        &lt;p&gt;Fixed an integer overflow bug that prevented signing of artifacts with high GitHub artifact IDs.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
@@ -343,7 +311,7 @@ This allows for request drain-out and safe shutdown (e.g. flushing Application I
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hash-algorithm&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Fixed failed JAR signing operations for JAR files with &amp;gt;20,000 items.&lt;/p&gt;
+                        &lt;p&gt;Fixed failed Jar signing operations for Jar files with &amp;gt;20,000 items.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Fixed error during rendering of old failed signing requests with specific errors (e.g. artifact retrieval).&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
@@ -1186,7 +1154,7 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         <content type="html">
           &lt;div&gt;
             &lt;h2&gt;New Release:  1.151.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Dropped the JCE key “retargeting” when creating certificates on nShield HSMs (previously required for JAR signing).&lt;/p&gt;
+                        &lt;p&gt;Dropped the JCE key “retargeting” when creating certificates on nShield HSMs (previously required for Jar signing).&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a problem that caused the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sandbox.vhdx&lt;/code&gt; files of the Docker Mirantis runtime to grow continuously in Docker Compose installations.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
@@ -1552,7 +1520,7 @@ config entry &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
         <content type="html">
           &lt;div&gt;
             &lt;h2&gt;New Release:  1.143.2&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Reduced memory consumption when signing JAR files.&lt;/p&gt;
+                        &lt;p&gt;Reduced memory consumption when signing jar files.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed aborted SignService deployments in cases using descheduler for Kubernetes with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RemovePodsViolatingTopologySpreadConstraint&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;

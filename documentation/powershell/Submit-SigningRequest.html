@@ -8,8 +8,8 @@
   <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/powershell/Submit-SigningRequest' />
   <!-- Begin Jekyll SEO tag v2.6.1 -->
   <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
-  <title>PowerShell - Submit-SigningRequest | SignPath</title>
-  <meta property="og:title" content="PowerShell - Submit-SigningRequest | SignPath" />
+  <title>Submit-SigningRequest | SignPath</title>
+  <meta property="og:title" content="Submit-SigningRequest | SignPath" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:description" content="Submit-SigningRequest cmdlet" />
   <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/powershell/Submit-SigningRequest" />
@@ -17,7 +17,7 @@
   <meta name="description" content="Submit-SigningRequest cmdlet"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-08-14">
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-10-23">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2024-03-07'></script>
   <script src='/assets/js/main-bundle.js?cache=2024-08-05'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
@@ -55,26 +55,62 @@
     </div>
   </header>
   <main>
-<section class="bg-blue font-white top-section">
+-f<section class="bg-blue font-white top-section">
 	<div>
-		<h1><span class='no-break'>PowerShell &nbsp;❯&nbsp; </span> Submit-SigningRequest</h1>
+		<h1><span class='no-break'><a href='/documentation'>Documentation</a>&nbsp;&nbsp;❯&nbsp;&nbsp;</span><span class='no-break'><a href='/documentation/powershell'>PowerShell cmdlets</a>
+		  	  		  &nbsp;&nbsp;❯&nbsp;&nbsp;</span><span class='no-break'>
+		  	  	         Submit-SigningRequest
+		  	  	       </span></h1>
 	</div>
 </section>
 <section class="resources-section">
-	<div><aside>
-				<ul><li class=''>
-							<a href='/documentation/powershell/#'>PowerShell cmdlets</a></li><li class='active'>
-							<a href='/documentation/powershell/Submit-SigningRequest#'>Submit-SigningRequest</a><div class="no-mobile" ><ul>
-  <li><a href="#syntax">Syntax</a></li>
-  <li><a href="#description">Description</a></li>
-  <li><a href="#parameters">Parameters</a></li>
+	<div><nav class=''>
+				<ul><li class=' '>
+							<a href='/documentation/getting-started#'>Getting Started</a></li><li class=' '>
+							<a href='/documentation/managing-certificates#'>Managing Certificates</a></li><li class=' '>
+							<a href='/documentation/users#'>Managing Users</a></li><li class=' '>
+							<a href='/documentation/projects#'>Setting up Projects</a></li><li class=' '>
+							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=' '>
+							<a href='/documentation/signing-containers#'>Signing Container Images</a></li><li class='separator' /><li class=' '>
+							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=' '>
+							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=' '>
+							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a></li><li class=' '>
+							<a href='/documentation/origin-verification#'>Origin Verification</a></li><li class='separator' /><li class=' current-group'>
+							<a href='/documentation/powershell#'>PowerShell cmdlets</a><ul><li class='active'>
+										<a href='/documentation/powershell/Submit-SigningRequest'>Submit-SigningRequest</a>
+									</li><li class=''>
+										<a href='/documentation/powershell/Get-SignedArtifact'>Get-SignedArtifact</a>
+									</li><li class=''>
+										<a href='/documentation/powershell/Get-CertificateByMicrosoftTemplateId'>Get-CertificateBy&shy;Microsoft&shy;TemplateId</a>
+									</li></ul></li><li class=' '>
+							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=' '>
+							<a href='/documentation/changelog#'>Product updates</a></li></ul>
+			</nav><div class='content'><ul class="article-toc">
+  <li><a href="#syntax">Syntax</a>
+    <ul>
+      <li><a href="#input-artifact">Upload an input artifact</a></li>
+      <li><a href="#artifact-retrieval">Provide a URL to retrieve the artifact</a></li>
+      <li><a href="#resubmit">Resubmit an existing singing request</a></li>
+    </ul>
+  </li>
+  <li><a href="#description">Description</a>
+    <ul>
+      <li><a href="#new-vs-resigning">Creating a new signing request vs. re-signing</a></li>
+      <li><a href="#downloading-the-signed-artifact">Downloading the signed artifact</a></li>
+    </ul>
+  </li>
+  <li><a href="#parameters">Parameters</a>
+    <ul>
+      <li><a href="#parameters-with--inputartifactpath-or--artifactretrievallink">Parameters with <code class="language-plaintext highlighter-rouge">-InputArtifactPath</code> or <code class="language-plaintext highlighter-rouge">-ArtifactRetrievalLink</code></a></li>
+      <li><a href="#parameters-with--resubmit">Parameters with <code class="language-plaintext highlighter-rouge">-Resubmit</code></a></li>
+      <li><a href="#parameters-with--waitforcompletion">Parameters with <code class="language-plaintext highlighter-rouge">-WaitForCompletion</code></a></li>
+      <li><a href="#common-parameters">Common parameters</a></li>
+    </ul>
+  </li>
   <li><a href="#examples">Examples</a></li>
 </ul>
-</div></li><li class=''>
-							<a href='/documentation/powershell/Get-SignedArtifact#'>Get-SignedArtifact</a></li><li class=''>
-							<a href='/documentation/powershell/Get-CertificateByMicrosoftTemplateId#'>Get-CertificateBy&shy;Microsoft&shy;TemplateId</a></li></ul>
-			</aside><article>
-<p>Submits a new signing request or resubmits an existing one via the SignPath REST API.</p>
+<article>
+					<p>Submits a new signing request or resubmits an existing one via the SignPath REST API.</p>
 
 <h2 id="syntax">Syntax</h2>
 
@@ -489,7 +525,7 @@
 
 <h2 id="examples">Examples</h2>
 
-<h3 id="example-1-submit-a-signing-request-and-wait-for-completion">Example 1: Submit a signing request and wait for completion</h3>
+<h4 id="example-1-submit-a-signing-request-and-wait-for-completion">Example 1: Submit a signing request and wait for completion</h4>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Submit-SigningRequest</span><span class="w"> </span><span class="se">`
 </span><span class="w">    </span><span class="nt">-InputArtifactPath</span><span class="w"> </span><span class="nv">$PATH_TO_INPUT_ARTIFACT</span><span class="w"> </span><span class="se">`
@@ -498,7 +534,7 @@
 </span><span class="w">    </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> </span><span class="nt">-ApiToken</span><span class="w"> </span><span class="nv">$API_TOKEN</span><span class="w"> 
 </span></code></pre></div></div>
 
-<h3 id="example-2-submit-a-signing-request-with-an-artifact-retrieval-link-and-wait-for-completion">Example 2: Submit a signing request with an artifact retrieval link and wait for completion</h3>
+<h4 id="example-2-submit-a-signing-request-with-an-artifact-retrieval-link-and-wait-for-completion">Example 2: Submit a signing request with an artifact retrieval link and wait for completion</h4>
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Submit-SigningRequest</span><span class="w"> </span><span class="se">`
 </span><span class="w">    </span><span class="nt">-ArtifactRetrievalLink</span><span class="w"> </span><span class="s2">"https://files.acme.com/my+program.exe"</span><span class="w"> </span><span class="se">`
 </span><span class="w">    </span><span class="nt">-ArtifactRetrievalLinkFileName</span><span class="w"> </span><span class="s2">"my program.exe"</span><span class="w"> </span><span class="se">`
@@ -511,7 +547,7 @@
     </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> </span><span class="nt">-ApiToken</span><span class="w"> </span><span class="nv">$API_TOKEN</span><span class="w"> 
 </span></code></pre></div></div>
 
-<h3 id="example-3-separate-calls-for-submission-and-retrieval">Example 3: Separate calls for submission and retrieval</h3>
+<h4 id="example-3-separate-calls-for-submission-and-retrieval">Example 3: Separate calls for submission and retrieval</h4>
 
 <p>Submit a signing request and get a signing request ID without waiting for completion …</p>
 
@@ -529,7 +565,7 @@
 </span><span class="w">    </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> </span><span class="nt">-ApiToken</span><span class="w"> </span><span class="nv">$API_TOKEN</span><span class="w"> 
 </span></code></pre></div></div>
 
-<h3 id="example-4-resubmit-an-existing-signing-request-with-a-different-signing-policy">Example 4: Resubmit an existing signing request with a different signing policy</h3>
+<h4 id="example-4-resubmit-an-existing-signing-request-with-a-different-signing-policy">Example 4: Resubmit an existing signing request with a different signing policy</h4>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="n">Submit-SigningRequestResubmit</span><span class="w"> </span><span class="se">`
 </span><span class="w">    </span><span class="nt">-Resubmit</span><span class="w"> </span><span class="nt">-OriginalSigningRequestId</span><span class="w"> </span><span class="nv">$ORIGINAL_SIGNING_REQUEST_ID</span><span class="w"> </span><span class="se">`
@@ -539,7 +575,7 @@
 </span><span class="w">    </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> </span><span class="nt">-ApiToken</span><span class="w"> </span><span class="nv">$API_TOKEN</span><span class="w"> 
 </span></code></pre></div></div>
 
-<h3 id="example-params-origin">Example 5: Provide user-defined parameters and origin verification</h3>
+<h4 id="example-params-origin">Example 5: Provide user-defined parameters and origin verification</h4>
 
 <p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway, Open Source Code Signing</em>.</p>
 
@@ -564,7 +600,8 @@
 </span><span class="w">    </span><span class="nt">-OrganizationId</span><span class="w"> </span><span class="nv">$ORGANIZATION_ID</span><span class="w"> </span><span class="nt">-ApiToken</span><span class="w"> </span><span class="nv">$API_TOKEN</span><span class="w"> 
 </span></code></pre></div></div>
 
-		</article>
+				</article>
+			</div>
 	</div>
 </section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>
