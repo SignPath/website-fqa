@@ -62,8 +62,7 @@
 		  	  	         Cryptoki/PKCS#11
 		  	  	       </span></h1>
 	</div>
-</section>
-<section class="resources-section">
+</section><section class="resources-section ">
 	<div><nav class=''>
 				<ul><li class=' '>
 							<a href='/documentation/getting-started#'>Getting Started</a></li><li class=' '>
@@ -99,30 +98,10 @@
       <li><a href="#integration-with-signing-tools">Integration with signing tools</a></li>
     </ul>
   </li>
-  <li><a href="#openssl">OpenSSL</a>
-    <ul>
-      <li><a href="#setup">Setup</a></li>
-      <li><a href="#invocation">Invocation</a></li>
-    </ul>
-  </li>
-  <li><a href="#osslsigncode">osslsigncode</a>
-    <ul>
-      <li><a href="#setup-1">Setup</a></li>
-      <li><a href="#invocation-1">Invocation</a></li>
-    </ul>
-  </li>
-  <li><a href="#opensc-pkcs11-tool-linux">OpenSC pkcs11-tool (Linux)</a>
-    <ul>
-      <li><a href="#setup-2">Setup</a></li>
-      <li><a href="#invocation-2">Invocation</a></li>
-    </ul>
-  </li>
-  <li><a href="#jarsigner">Java jarsigner</a>
-    <ul>
-      <li><a href="#setup-3">Setup</a></li>
-      <li><a href="#invocation-3">Invocation</a></li>
-    </ul>
-  </li>
+  <li><a href="#openssl">OpenSSL</a></li>
+  <li><a href="#osslsigncode">osslsigncode</a></li>
+  <li><a href="#opensc-pkcs11-tool-linux">OpenSC pkcs11-tool (Linux)</a></li>
+  <li><a href="#jarsigner">Java jarsigner</a></li>
 </ul>
 <article>
 					<h2 id="general-instructions">General instructions</h2>
@@ -291,7 +270,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
   <p>Only latest OpenSSL 1.1 and 3.x versions are supported. For Linux, see also the notes in <a href="#supported-linux-distributions">supported Linux distributions</a>.</p>
 </blockquote>
 
-<h3 id="setup">Setup</h3>
+<h4 id="setup">Setup</h4>
 
 <p><em>OpenSSL</em> cannot directly communicate with a Cryptoki library. Instead, the <a href="https://github.com/OpenSC/libp11">OpenSC pkcs11 OpenSSL engine</a> can be used as adapter between OpenSSL and the SignPath Cryptoki library.</p>
 
@@ -377,7 +356,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
   </tbody>
 </table>
 
-<h3 id="invocation">Invocation</h3>
+<h4 id="invocation">Invocation</h4>
 
 <p><em>OpenSSL</em> provides a variety of commands that can be used for signing. In this section, a few of them are outlined.</p>
 
@@ -420,7 +399,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
   </tbody>
 </table>
 
-<h4 id="openssl-dgst">openssl dgst</h4>
+<h5 id="openssl-dgst">openssl dgst</h5>
 
 <p>The <em><a href="https://www.openssl.org/docs/man1.1.1/man1/dgst.html">dgst</a></em> command calculates digests of files, but can also be used to create and verify signatures.</p>
 
@@ -435,7 +414,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
   <p>The following digests are supported: <code class="language-plaintext highlighter-rouge">sha256</code>, <code class="language-plaintext highlighter-rouge">sha384</code>, <code class="language-plaintext highlighter-rouge">sha512</code></p>
 </blockquote>
 
-<h4 id="openssl-pkeyutl">openssl pkeyutl</h4>
+<h5 id="openssl-pkeyutl">openssl pkeyutl</h5>
 
 <p>The <em><a href="https://www.openssl.org/docs/man1.1.1/man1/pkeyutl.html">pkeyutl</a></em> command performs low-level cryptographic operations, such as signing.</p>
 
@@ -491,14 +470,14 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
   <p>Only osslsigncode 2.x or higher is supported. Also see the notes in <a href="#supported-linux-distributions">supported Linux distributions</a> regarding the supported OpenSSL versions.</p>
 </blockquote>
 
-<h3 id="setup-1">Setup</h3>
+<h4 id="setup-1">Setup</h4>
 
 <p><code class="language-plaintext highlighter-rouge">osslsigncode</code> requires the X.509 certificate corresponding to the SignPath Project and Signing Policy to be downloaded from SignPath and converted to <em>PEM format</em>. You can convert the certificate using OpenSSL via the following example.</p>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">openssl</span><span class="w"> </span><span class="nx">x509</span><span class="w"> </span><span class="nt">-inform</span><span class="w"> </span><span class="nx">DER</span><span class="w"> </span><span class="nt">-in</span><span class="w"> </span><span class="s2">"certificate.cer"</span><span class="w"> </span><span class="nt">-outform</span><span class="w"> </span><span class="nx">PEM</span><span class="w"> </span><span class="nt">-out</span><span class="w"> </span><span class="s2">"certificate.pem"</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="invocation-1">Invocation</h3>
+<h4 id="invocation-1">Invocation</h4>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">osslsigncode</span><span class="w"> </span><span class="nx">sign</span><span class="w"> </span><span class="se">`
 </span><span class="w">   </span><span class="nt">-pkcs11module</span><span class="w"> </span><span class="nv">$LibSignPathCryptokiPath</span><span class="w"> </span><span class="se">`
@@ -547,7 +526,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 
 <p>The <a href="https://github.com/OpenSC/OpenSC">OpenSC</a> <a href="https://linux.die.net/man/1/pkcs11-tool"><code class="language-plaintext highlighter-rouge">pkcs11-tool</code></a> utility can be used to troubleshoot PKCS #11 modules (e.g. listing all available objects or supported algorithms) but also can be used to read certificates/public keys and to perform signing operations.</p>
 
-<h3 id="setup-2">Setup</h3>
+<h4 id="setup-2">Setup</h4>
 
 <blockquote class="panel info">
   <p><strong><code class="language-plaintext highlighter-rouge">pkcs11-tool</code> before version 0.23</strong></p>
@@ -557,7 +536,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
   <p><em>Background: <code class="language-plaintext highlighter-rouge">pkcs11-tool</code> used to open the Cryptoki session in a read/write mode (see <a href="https://github.com/OpenSC/OpenSC/issues/2182">GitHub issue #2182</a>) and therefore fails with <code class="language-plaintext highlighter-rouge">PKCS11 function C_OpenSession failed: rv = CKR_TOKEN_WRITE_PROTECTED</code>. This flag enables compatibility with these earlier versions.</em></p>
 </blockquote>
 
-<h3 id="invocation-2">Invocation</h3>
+<h4 id="invocation-2">Invocation</h4>
 
 <blockquote class="panel tip">
   <p><strong>Tip</strong></p>
@@ -569,7 +548,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 
 </blockquote>
 
-<h4 id="common-parameters">Common parameters</h4>
+<h5 id="common-parameters">Common parameters</h5>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pkcs11-tool</span><span class="w"> </span><span class="nt">--module</span><span class="w"> </span><span class="nv">$LibSignPathCryptokiPath</span><span class="w"> </span><span class="nt">--pin</span><span class="w"> </span><span class="nx">CONFIG</span><span class="w"> </span><span class="o">...</span><span class="w">
 </span></code></pre></div></div>
@@ -596,14 +575,14 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
   </tbody>
 </table>
 
-<h4 id="listing-of-the-available-pkcs-11-objects">Listing of the available PKCS #11 objects</h4>
+<h5 id="listing-of-the-available-pkcs-11-objects">Listing of the available PKCS #11 objects</h5>
 
 <p>The following command lists available objects, which corresponds to the list of signing policies for which the authenticated user has <em>Submitter</em> permissions.</p>
 
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pkcs11-tool</span><span class="w"> </span><span class="nt">--module</span><span class="w"> </span><span class="nv">$LibSignPathCryptokiPath</span><span class="w"> </span><span class="nt">--pin</span><span class="w"> </span><span class="nx">CONFIG</span><span class="w"> </span><span class="nt">--list-objects</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="signing-operation">Signing operation</h4>
+<h5 id="signing-operation">Signing operation</h5>
 
 <p>The following sample call shows an RSA signing operation using PSS padding and SHA-256.</p>
 
@@ -648,7 +627,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 
 <p>The <a href="https://docs.oracle.com/en/java/javase/17/docs/specs/man/jarsigner.html"><code class="language-plaintext highlighter-rouge">jarsigner</code></a> command signs and verifies Java archives (e.g. JAR, WAR, EAR). It is included with the Java Development Kit (JDK).</p>
 
-<h3 id="setup-3">Setup</h3>
+<h4 id="setup-3">Setup</h4>
 
 <ol>
   <li>Configure the SunPKCS11 Provider
@@ -667,7 +646,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 <span class="py">slot</span><span class="p">=</span><span class="s">1</span>
 </code></pre></div></div>
 
-<h3 id="invocation-3">Invocation</h3>
+<h4 id="invocation-3">Invocation</h4>
 
 <blockquote class="panel tip">
   <p><strong>Tip</strong></p>
