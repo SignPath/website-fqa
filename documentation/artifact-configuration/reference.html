@@ -498,7 +498,7 @@ Description
 
 <h4 id="authenticode-sign-attributes">Optional attributes</h4>
 
-<table class="panel info">
+<table>
     <thead>
         <tr><th>
 
@@ -564,24 +564,24 @@ Description
         <p>When true, append the signature to any existing signatures. When false, replace any existing signatures. See below for supported formats.</p>
       </td></tr></tbody>
 </table>
-<blockquote>
-  <p><strong>Appending signatures</strong></p>
+<h5 id="append-attribute"><em>append</em> attribute</h5>
 
-  <p>File formats that support appending signatures:</p>
+<p>File formats that support appending signatures:</p>
 
-  <ul>
-    <li><code class="language-plaintext highlighter-rouge">&lt;pe-file&gt;</code> (.exe, .dll, …)</li>
-    <li><code class="language-plaintext highlighter-rouge">&lt;cab-file&gt;</code> (.cab)</li>
-    <li><code class="language-plaintext highlighter-rouge">&lt;catalog-file&gt;</code> (.cat)</li>
-  </ul>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;pe-file&gt;</code> (.exe, .dll, …)</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;cab-file&gt;</code> (.cab)</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;catalog-file&gt;</code> (.cat)</li>
+</ul>
 
-  <p>Appending signatures is only needed for edge cases including</p>
+<p>Appending signatures is only needed for edge cases including</p>
 
-  <ul>
-    <li>adding an signature to a file that’s already signed using another certificate</li>
-    <li>adding a signature using different parameters, such as digest algorithm</li>
-  </ul>
-</blockquote>
+<ul>
+  <li>adding an signature to a file that’s already signed using another certificate</li>
+  <li>adding a signature using different parameters, such as digest algorithm</li>
+</ul>
+
+<h5 id="authenticode-examples">Authenticode examples</h5>
 
 <p>Example: append signature, preserving any existing signatures</p>
 
