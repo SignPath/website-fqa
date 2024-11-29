@@ -1,4 +1,163 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://about.fqa.test.signpath.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://about.fqa.test.signpath.io/" rel="alternate" type="text/html" /><updated>2024-11-28T15:42:26+00:00</updated><id>https://about.fqa.test.signpath.io/feed.xml</id><title type="html">SignPath - Code Signing simple and secure</title><entry><title type="html">From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps</title><link href="https://about.fqa.test.signpath.io/blog/2024/09/10/implicit-to-explicit" rel="alternate" type="text/html" title="From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps" /><published>2024-09-10T08:00:00+00:00</published><updated>2024-09-10T08:00:00+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2024/09/10/implicit-to-explicit</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2024/09/10/implicit-to-explicit"><![CDATA[<h1 id="from-implicit-to-explicit-why-code-signing-is-the-missing-link-in-devsecops">From Implicit to Explicit: Why code signing is the missing link in DevSecOps</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://about.fqa.test.signpath.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://about.fqa.test.signpath.io/" rel="alternate" type="text/html" /><updated>2024-11-29T09:02:01+00:00</updated><id>https://about.fqa.test.signpath.io/feed.xml</id><title type="html">SignPath - Code Signing simple and secure</title><entry><title type="html">Building trusted software for macOS</title><link href="https://about.fqa.test.signpath.io/blog/2024/11/29/building-trusted-software-for-macos" rel="alternate" type="text/html" title="Building trusted software for macOS" /><published>2024-11-29T06:00:00+00:00</published><updated>2024-11-29T06:00:00+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2024/11/29/building-trusted-software-for-macos</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2024/11/29/building-trusted-software-for-macos"><![CDATA[<p>The App Store is a powerful force in the digital world, serving as a portal to a massive user base.  Today, there are over 2.2 billion active Apple devices worldwide. Apple’s App Store alone attracts more than <a href="https://www.apple.com/newsroom/2023/05/developers-generated-one-point-one-trillion-in-the-app-store-ecosystem-in-2022/">650 million</a> weekly active users worldwide. Often, however, it makes sense to bypass the App Store and deliver your applications directly to your users, for example, via a download from your web site.</p>
+
+<p>The downside of direct distribution are the annoying pop-ups and alerts that can plague users trying install and execute apps. To prevent that experience, you must digitally sign your app to make it trusted by macOS.</p>
+
+<p>In this post, we’ll show you how to deliver trusted macOS apps, without the added overhead of distributing via the App Store.</p>
+
+<h2 id="gatekeeper">Gatekeeper</h2>
+<p>To protect Apple users against untrustworthy apps, macOS relies on technology called ‘Gatekeeper’. Gatekeeper scans software from any source, from an app store, an arbitrary website, an email attachment, wherever. The application that downloads the file (that browser or email client) adds the file attribute <code class="language-plaintext highlighter-rouge">com.apple.quarantine</code>. The quarantine attribute alerts Gatekeeper to both verify the digital signature, and to check whether it’s notarized, before executing it.  We’ll discuss notarization later. But the critical point is that your software must be digitally signed by a private key associated with a trusted X.509 certificate.</p>
+
+<h2 id="formats">Formats</h2>
+<p>Applications on macOS are saved in the <code class="language-plaintext highlighter-rouge">.app</code> format, a file system folder with a specific layout. If you want to distribute software, you package the <code class="language-plaintext highlighter-rouge">.app</code> folder using one of two container formats:</p>
+
+<ul>
+  <li>Disk Images (<code class="language-plaintext highlighter-rouge">.dmg</code>): Easiest when distributing a single file/app.</li>
+  <li>Installer packages (<code class="language-plaintext highlighter-rouge">.pkg</code>): Allows for specialized scenarios, such as running code during the installation.</li>
+</ul>
+
+<p>(Refer to Apple’s <a href="https://developer.apple.com/documentation/xcode/packaging-mac-software-for-distribution">official guide to packaging applications</a> for more details.)</p>
+
+<h2 id="prereqs-for-code-signing">Prereqs for Code Signing</h2>
+<p>First, make sure you have:</p>
+
+<ul>
+  <li>An <a href="https://developer.apple.com/programs/enroll/">Apple developer account</a>. It costs $99 a year.</li>
+  <li>Xcode</li>
+  <li>Xcode developer tools.
+    <ul>
+      <li>Run <code class="language-plaintext highlighter-rouge">xcode-select --install</code> on the command line</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="code-signing-certificates">Code Signing Certificates</h2>
+<p>Apple software is signed using x.509 code signing certificates.</p>
+
+<h3 id="certificate-signing-requests">Certificate Signing Requests</h3>
+<p>Code Signing Certificates link metadata, such as the name and place of registration of your company, to an asymmetric, public/private key pair. You can request a certificate from a Certificate Authority (CA), providing the metadata and the public key. This request is called a Certificate Signing Request (CSR); the CA verifies that the metadata is correct before issuing and signing the certificate.</p>
+
+<p>The private key remains under your control. It must be securely stored. Anybody in possession of the private key can sign software in the name of your organization.</p>
+
+<h3 id="storage-of-the-private-key">Storage of the Private Key</h3>
+<p>Apple’s <a href="https://developer.apple.com/help/account/create-certificates/create-a-certificate-signing-request">documentation</a> refers to creating the keypair on a Mac and storing it in the local keychain, protected by a password. To make the keys available on other build/developer machines, you have to share the key pair. Popular tools, such as <a href="https://docs.fastlane.tools/actions/match/">fastlane</a>, recommend storing certificates and encrypted private keys in a central location where they can be accessed by any developer. Of course, this introduces risk. It makes it easier for an attacker to steal the key file and encryption password to sign any software in your company’s name! Since no further authentication is required, this attack vector is especially dangerous when publishing software outside the confines and relative security of the App Store.</p>
+
+<p>In the Windows world, the CA/Browser forum mandates that private keys for code signing certificates are generated on Hardware Security Modules (HSM) where they are protected from theft. It’s a good idea to follow these guidelines for Apple software as well.</p>
+
+<p>Cloud-based code signing solutions (<a href="https://about.signpath.io">SignPath</a>, for one) make it easy to use an HSM for code signing. SignPath provides an option, via the web-based console, to generate a certificate signing request (CSR) for a  private key generated on hardware. It’s a simple point-and-click operation, with absolutely zero configuration or provisioning hassle.</p>
+
+<h3 id="creating-a-test-certificate">Creating a Test Certificate</h3>
+<p>These days, everyone builds software on continuous integration systems. No matter which system you use, it’s a good idea to bake code signing into the build process itself. This will minimize the hassle of doing manual signing or writing scripts at build and release time.</p>
+
+<p>But you probably don’t want to sign all your nightly builds with an official Apple code signing certificate.  It’s easier to just use a test certificate. One hitch is that you need to configure your system to trust that test certificate.</p>
+
+<p>To make it trusted, you can install the test certificate on a keychain in your macOS system and enable the “Code Signing” trust setting. Gatekeeper will still identify and complain about the missing notarization though. If you’re doing manual testing, you can right-click the application and ignore the warning. If you’re testing programmatically, you can remove the quarantine flag. Use the following command to avoid Gatekeeper checks altogether:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xattr -d com.apple.quarantine ~/Downloads/sample.app 
+</code></pre></div></div>
+
+<p><em>Important: Apple’s <code class="language-plaintext highlighter-rouge">codesign</code> tool, which is used for signing software, does not require certificates to be issued by Apple. Package Installers (<code class="language-plaintext highlighter-rouge">.pkg</code>) are a notable exception. The <code class="language-plaintext highlighter-rouge">.pkg</code> format only supports official certificates by Apple. Test certificates cannot be used.</em></p>
+
+<h3 id="creating-a-release-certificate">Creating a Release Certificate</h3>
+<p>If you want all the Apple devices in the world to trust your application, you need an official certificate from Apple. Those certificates are trusted by default on all Apple devices. You can get an official Apple certificate from the <a href="https://developer.apple.com/documentation/xcode/packaging-mac-software-for-distribution">developer portal</a>.  Apple supports a variety of certificates. Depending on the chosen distribution format, you need to create either a Developer ID Installer (for <code class="language-plaintext highlighter-rouge">.pkg</code>) or a Developer ID Application (for <code class="language-plaintext highlighter-rouge">.dmg</code> and <code class="language-plaintext highlighter-rouge">.app</code>) certificate.</p>
+
+<p><img src="/assets/posts/2024-10-25_developer_portal.png" alt="Screenshot of Apple's Developer Portal" /></p>
+
+<p>After choosing the certificate type, you can upload your Certificate Signing Request (CSR). (Hopefully, you generated the private key for the CSR on an HSM.)  Note that the underlying key pair must be generated using the <strong>RSA algorithm</strong> with a length of <strong>2048 bits</strong>. Apple will issue the certificate, and then you can import it into your code signing solution of choice.</p>
+
+<h3 id="putting-code-signing-certificates-to-work">Putting Code Signing Certificates to Work</h3>
+<p>You can’t distribute that HSM-backed key to your build/developer machines. That key will never leave the HSM. So how do you use it for code signing in your continuous integration pipeline?  Simple. You just need an application known as CryptoTokenKit. It registers your certificate  in the system’s keychain, along with an identifier for the private key. During the signing operation, Apple’s crypto backend calls the CryptoTokenKit extension, which in turn forwards any signing operation to the signing service (in our case, SignPath.io). If you’re interested in the technical details, there’s an excellent deep dive into the CryptoTokenKit architecture by Timothy Perfitt on <a href="https://twocanoes.com/cryptotokenkit-communication/">this website</a>.</p>
+
+<p>The documentation for the <strong>SignPath CryptoTokenKit</strong> can be found <a href="/documentation/crypto-providers/macos">here</a>.</p>
+
+<h2 id="notarization">Notarization</h2>
+<blockquote>
+  <p>The Apple notary service is an automated system that scans your software for malicious content, checks for code-signing issues, and returns the results to you quickly. If there are no issues, the notary service generates a ticket for you to staple to your software; the notary service also publishes that ticket online where Gatekeeper can find it.</p>
+</blockquote>
+
+<p>If you want to avoid warning dialogs during install, notarization is required when distributing your software outside of the AppStore. For more details, see the <a href="https://developer.apple.com/documentation/security/notarizing-macos-software-before-distribution">official documentation</a>. To automate this process, Apple provides the <code class="language-plaintext highlighter-rouge">notarytool</code> and <code class="language-plaintext highlighter-rouge">stapler</code> executables. The former uploads the artifact to the Apple servers for automated scanning and the latter attaches the notarization to the software. You will have to authenticate against Apple using an <a href="https://support.apple.com/en-us/102654">app-specific password</a>. According to Apple, notarization is completed within 5 minutes for most software and within 15 minutes for 98% of uploaded software. That’s fast enough to include it in most automated builds. However, note that the first submission can take up to day.</p>
+
+<p><em>Notarization requires a signature with a valid release certificate issued by Apple. You must use release certificates, or it won’t work.</em></p>
+
+<h3 id="hardened-runtime">Hardened Runtime</h3>
+<p>A hardened runtime is a pre-requisite for notarization. Follow the <a href="https://developer.apple.com/documentation/xcode/configuring-the-hardened-runtime">official article</a> by Apple to add a hardened runtime capability to your app. You need to list all exceptions to the restrictions explicitly.</p>
+
+<blockquote>
+  <p>The Hardened Runtime is a collection of system-enforced restrictions that disable a set of functional capabilities, such as loading third-party frameworks, and prohibit access to restricted resources, such as the device’s built-in camera, to prevent certain classes of exploits from compromising the runtime integrity of your macOS app.</p>
+</blockquote>
+
+<p>When signing your software with a hardened runtime, you need to add the <code class="language-plaintext highlighter-rouge">–-options=runtime</code> parameter to the <code class="language-plaintext highlighter-rouge">codesign</code> call. Make sure to test your app thoroughly after enabling the hardened runtime to ensure that all use-cases still work.</p>
+
+<h3 id="the-get-task-allow-entitlement">The <code class="language-plaintext highlighter-rouge">get-task-allow</code> entitlement</h3>
+
+<p>When building the software automatically using the <code class="language-plaintext highlighter-rouge">xcodebuild</code> tool, there is another special setting to consider: Apple automatically injects an entitlement used for debugging at build time which is incompatible with the notarization process. You can disable this behavior by passing the <code class="language-plaintext highlighter-rouge">CODE_SIGN_INJECT_BASE_ENTITLEMENTS=NO</code> flag to your <code class="language-plaintext highlighter-rouge">xcodebuild</code> call. See <a href="https://developer.apple.com/documentation/security/resolving-common-notarization-issues#Avoid-the-get-task-allow-entitlement">here</a> for more technical details.</p>
+
+<h2 id="sample-workflow">Sample Workflow</h2>
+<p>Let’s get hands on! First you’ll need a Free Trial account on Signpath. Sign up here: https://login.signpath.io/</p>
+
+<p>Below is an extract of a GitHub Actions workflow which signs and notarizes an application. For a full working sample, visit the <a href="https://github.com/SignPath/demo-macos">demo repository</a>.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">Signs and notarizes a sample app</span>
+
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">workflow_dispatch</span><span class="pi">:</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">sign_and_notarize</span><span class="pi">:</span>
+    <span class="na">steps</span><span class="pi">:</span>
+     <span class="c1"># other steps for building the software</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Sign .app file</span>
+        <span class="na">env</span><span class="pi">:</span>
+          <span class="na">SIGNPATH_API_TOKEN</span><span class="pi">:</span> <span class="s">${{ secrets.SIGNPATH_API_TOKEN }}</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">open "./tools/SignPathCryptoTokenKit/SignPathCryptoTokenKit.app" --args \</span>
+            <span class="s">--organization-id ${{ vars.SIGNPATH_ORGANIZATION_ID }} \</span>
+            <span class="s">--project-slug ${{ vars.SIGNPATH_PROJECT_SLUG }} \</span>
+            <span class="s">--signing-policy-slug ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}</span>
+
+          <span class="s">sleep 20 # wait for token to be registered</span>
+
+          <span class="s"># sign</span>
+          <span class="s">codesign -f --timestamp --options=runtime \</span>
+            <span class="s">-s "${{ vars.CERTIFICATE_SUBJECT_NAME }}" \</span>
+            <span class="s">--entitlements sample/sample/sample.entitlements \</span>
+            <span class="s">./build/sample.app</span>
+
+          <span class="s"># check signature</span>
+          <span class="s">codesign -dv --verbose ./build/sample.app</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Create .dmg file</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">hdiutil create -format UDZO -srcfolder ./build/sample.app ./build/sample.dmg</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Sign .dmg file</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s"># sign</span>
+          <span class="s">codesign -f --timestamp --options=runtime \</span>
+            <span class="s">-s "${{ vars.CERTIFICATE_SUBJECT_NAME }}" \</span>
+            <span class="s">--entitlements sample/sample/sample.entitlements \</span>
+            <span class="s">./build/sample.dmg</span>
+
+          <span class="s"># check signature</span>
+          <span class="s">codesign -dv --verbose ./build/sample.dmg</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Notarize .dmg file</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s"># submit the software to Apple</span>
+          <span class="s">xcrun notarytool submit ./build/sample.dmg \</span>
+            <span class="s">--apple-id ${{ vars.APPLE_ID }} \</span>
+            <span class="s">--team-id ${{ vars.APPLE_TEAM_ID }} \</span>
+            <span class="s">--password ${{ secrets.APPLE_NOTARIZATION_APP_SPECIFIC_PASSWORD }} \</span>
+            <span class="s">--wait \</span>
+            <span class="s">--timeout 15m</span>
+
+          <span class="s"># staple the notarization result</span>
+          <span class="s">xcrun stapler staple ./build/sample.dmg</span>
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>You now have everything you need to start building and releasing trusted applications for macOS, directly to your user base. The Apple App Store and enterprise distribution channels provide safe and convenient ways to reach users, but direct distribution is often preferred for Enterprise software. However, it does come with the added responsibility of properly signing and notarizing your applications. By following these requirements and keeping your keys secure, you can safely distribute your application outside of the App Store, while still ensuring a quality end user experience with your trustworthy apps.</p>]]></content><author><name>Paul Savoie</name></author><category term="blog" /><summary type="html"><![CDATA[description]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about.fqa.test.signpath.io/2024-09-09-bg" /><media:content medium="image" url="https://about.fqa.test.signpath.io/2024-09-09-bg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps</title><link href="https://about.fqa.test.signpath.io/blog/2024/09/10/implicit-to-explicit" rel="alternate" type="text/html" title="From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps" /><published>2024-09-10T08:00:00+00:00</published><updated>2024-09-10T08:00:00+00:00</updated><id>https://about.fqa.test.signpath.io/blog/2024/09/10/implicit-to-explicit</id><content type="html" xml:base="https://about.fqa.test.signpath.io/blog/2024/09/10/implicit-to-explicit"><![CDATA[<h1 id="from-implicit-to-explicit-why-code-signing-is-the-missing-link-in-devsecops">From Implicit to Explicit: Why code signing is the missing link in DevSecOps</h1>
 
 <p>“Trust, but verify”: this is a well-known proverb that defined the Cold War era. Today, these powerful words alone could be used to describe the philosophy behind the security of the world’s digital infrastructure, from satellites to web browsers.</p>
 
