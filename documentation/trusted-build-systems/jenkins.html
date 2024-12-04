@@ -88,27 +88,12 @@
 							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=' '>
 							<a href='/documentation/changelog#'>Product updates</a></li></ul>
 			</nav><div class='content'><ul class="article-toc">
-  <li><a href="#prerequisites">Prerequisites</a></li>
   <li><a href="#performed-checks">Performed checks</a></li>
   <li><a href="#installation">Installation</a></li>
   <li><a href="#usage">Usage</a></li>
 </ul>
 <article>
-					<h2 id="prerequisites">Prerequisites</h2>
-
-<ul>
-  <li>The Jenkins plugin has been installed on the respective Jenkins instance (Jenkins 2.359 or higher are supported).</li>
-  <li>The plugin has been registered as a <em>custom</em> Trusted Build System within SignPath and linked to the respective project (see the <a href="/documentation/trusted-build-systems#configuration">configuration</a> section).</li>
-  <li>The following plugins are installed on the Jenkins server:
-    <ul>
-      <li><a href="https://plugins.jenkins.io/credentials-binding/">Credentials binding</a></li>
-      <li><a href="https://plugins.jenkins.io/git/">Git</a></li>
-      <li><a href="https://plugins.jenkins.io/workflow-aggregator/">Pipeline (Workflow aggregator)</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="performed-checks">Performed checks</h2>
+					<h2 id="performed-checks">Performed checks</h2>
 
 <p>The plugin ensures that</p>
 <ul>
@@ -123,9 +108,14 @@
 
 <h3 id="configuration">Configuration</h3>
 
+<p>On SignPath: See the respective <a href="/documentation/trusted-build-systems#configuration">configuration section</a>.</p>
+
+<p>On Jenkins:</p>
+
 <ul>
+  <li>Under <em>Manage Jenkins</em> and <em>System</em> in the plugin’s configuration section, the default values for the endpoint and credential ID can be set</li>
   <li>The <em>Trusted Build System Token</em> needs to be stored in a <em>System</em> Credential (Under <em>Manage Jenkins / Manage Credentials</em>)</li>
-  <li>The <em>Api Token</em> of a SignPath user with submitter permissions needs to be available to the build pipelines of the respective projects.</li>
+  <li>The <em>Api Token</em> of a SignPath user with submitter permissions needs to be available to the build pipelines of the respective projects</li>
 </ul>
 
 <h2 id="usage">Usage</h2>
@@ -154,11 +144,6 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">apiUrl</code></td>
-      <td><code class="language-plaintext highlighter-rouge">https://app.signpath.io/Api</code></td>
-      <td>SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations.</td>
-    </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">apiTokenCredentialId</code></td>
       <td><code class="language-plaintext highlighter-rouge">SignPath.ApiToken</code></td>
