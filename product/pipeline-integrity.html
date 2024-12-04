@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="canonical" href='https://signpath.github.io/website-staging//product/office-macros' />
+  <link rel="canonical" href='https://signpath.github.io/website-staging//product/pipeline-integrity' />
   <!-- Begin Jekyll SEO tag v2.6.1 -->
   <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
-  <title>Microsoft Office Macro Signing | SignPath</title>
-  <meta property="og:title" content="Microsoft Office Macro Signing | SignPath" />
+  <title>Pipeline Integrity | SignPath</title>
+  <meta property="og:title" content="Pipeline Integrity | SignPath" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:description" content="Protecting from malicious Office macros through policy restrictions and signing" />
-  <meta property="og:url" content="https://signpath.github.io/website-staging//product/office-macros" />
+  <meta property="og:description" content="End-to-end integrity for CI/CD pipelines" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//product/pipeline-integrity" />
   <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
-  <meta name="description" content="Protecting from malicious Office macros through policy restrictions and signing"/>
+  <meta name="description" content="End-to-end integrity for CI/CD pipelines"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
   <link rel="stylesheet" href="/assets/css/index.css?cache=2024-11-28">
@@ -59,180 +59,155 @@
     </div>
   </header>
   <main>
-<section class="bg-blue font-white top-section resources-header">
+
+
+<section class='bg-blue font-white top-section product-start bg-image'>
+  <div>
+		<h1><b>Pipeline Integrity</b></h1>
+		<h3>
+			<b>Integrity from development</b><br>
+			 <b>to operations</b><br>
+		</h3>
+	</div>
+</section>
+
+<section class='bg-grey'>
 	<div>
-		<h1>Microsoft Office Macro Signing</h1>
-	</div>
-</section><section class="resources-section nav-hidden">
-	<div><div class='content'><ul class="article-toc">
-  <li><a href="#the-threat-of-office-macros">The Threat of Office Macros</a></li>
-  <li><a href="#implement-macro-signing-to-create-secure-end-user-policies">Implement Macro Signing to Create Secure End User Policies</a></li>
-  <li><a href="#inadequacy-of-existing-approaches">Inadequacy of Existing Approaches</a></li>
-  <li><a href="#end-to-end-security-for-office-macros">End-to-End Security for Office Macros</a></li>
-  <li><a href="#certificate-scopes-global-vs-departmental-execution-permissions">Certificate scopes: global vs. departmental execution permissions</a>
-    <ul>
-      <li><a href="#fine-tune-signing-and-execution-permissions">Fine-tune signing and execution permissions</a></li>
-      <li><a href="#business-partners-and-customers">Business partners and customers</a></li>
-    </ul>
-  </li>
-</ul>
-<article>
-					<h2 id="the-threat-of-office-macros">The Threat of Office Macros</h2>
-
-<p>While many organizations depend on <strong>Microsoft Office macros for business-critical processes</strong>, they pose a <strong>high risk for IT security</strong>. Macros are programs within Office documents that <strong>execute with the same permissions as the user</strong> opening the document. Not to speak of macros that use other exploits to elevate their privileges even beyond that. That makes Office macros a preferred way for hackers to get into organizations, with attacks ranging from <strong>ransomware</strong> to <strong>spear phishing</strong>.</p>
-
-<p>Unlike normal programs, Office documents are often opened by users without thinking twice. Enabling macro execution is then just a click away, which is especially easy to achieve via <strong>social engineering</strong> by including instructions in an email or even the document itself.</p>
-
-<p>Also unlike normal programs, administrators find it <strong>almost impossible to provide policy settings</strong> that define which macros may be executed. Policy frameworks such as <strong>application control/whitelisting don’t work for macros</strong>. And malware scanners will always miss some malevolent macros.</p>
-
-<h2 id="implement-macro-signing-to-create-secure-end-user-policies">Implement Macro Signing to Create Secure End User Policies</h2>
-
-<p><strong>Digitally signing your organization’s macros will unlock the policy capabilities of Microsoft Office:</strong></p>
-
-<ul>
-  <li>Use group policies to allow execution only for macros signed with trusted certificates</li>
-  <li>Assign trusted certificates to users and groups</li>
-</ul>
-
-<p><img src="/assets/img/product/office-macros/office-supported-apps.png" alt="Supported applications: Excel, PowerPoint, Project, Publisher, Visio, Word" /></p>
-
-<p><strong>Using SignPath, you can keep your signing keys safe and easily create well-defined signing processes for each of these certificates.</strong></p>
-
-<h2 id="inadequacy-of-existing-approaches">Inadequacy of Existing Approaches</h2>
-
-<p>This table shows how readily available policies provide <strong>inadequate security</strong> and/or <strong>impact the business</strong> to an unacceptable degree:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Security level</th>
-      <th>Implementation</th>
-      <th>Business impact</th>
-      <th>Remarks</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Enable macro execution</td>
-      <td>🔴</td>
-      <td>🟢</td>
-      <td>🟢</td>
-      <td>This should never be enabled</td>
-    </tr>
-    <tr>
-      <td>Let users decide whether to execute macros</td>
-      <td>🟠</td>
-      <td>🟢</td>
-      <td>🟢</td>
-      <td>You cannot rely on users <em>always</em> making the right decision</td>
-    </tr>
-    <tr>
-      <td>Disable macro execution except for digitally signed macros</td>
-      <td>🟡</td>
-      <td>🟠</td>
-      <td>🟢</td>
-      <td>Digital signing in Office is a manual activity and requires private key access for macro authors from their development PCs</td>
-    </tr>
-    <tr>
-      <td>Disable macro execution except for users who require them</td>
-      <td>🟡</td>
-      <td>🔴</td>
-      <td>🟠</td>
-      <td>Each of these users still poses a risk, and they often add up</td>
-    </tr>
-    <tr>
-      <td>Disable macro execution except for certain storage locations</td>
-      <td>🟡</td>
-      <td>🟡</td>
-      <td>🟡</td>
-      <td>This will mitigate direct internet/email attacks, but still any user can drop a malicious document in a trusted location</td>
-    </tr>
-    <tr>
-      <td>Disable macro execution for everyone</td>
-      <td>🟢</td>
-      <td>🟢</td>
-      <td>🔴</td>
-      <td>Very safe but often unrealistic</td>
-    </tr>
-    <tr>
-      <td><strong>Using SignPath:</strong> <br /> Disable macro execution except for digitally signed macros</td>
-      <td>🟢</td>
-      <td>🟢</td>
-      <td>🟢</td>
-      <td>Provide a secure process that aligns signing authorization and approval policies with macro execution policies.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="end-to-end-security-for-office-macros">End-to-End Security for Office Macros</h2>
-
-<p>Macros signing is easy to set up using the policy framework provided by SignPath:</p>
-
-<ul>
-  <li>VBA developers create and edit macros in office documents and document templates</li>
-  <li>Macros are signed manually or automatically using SignPath</li>
-  <li>Administrators set up signing permissions and approval rules</li>
-</ul>
-
-<p>For approved macros, this process has no impact on business units using Office documents:</p>
-
-<ul>
-  <li>Users can create new documents and view, edit and save data in existing documents without affecting signed macros</li>
-  <li>Documents can be stored in any location and shared via email</li>
-</ul>
-
-<p><img src="/assets/img/product/office-macros/macro-signing-process.png" alt="Macro signing process" /></p>
-
-<h2 id="certificate-scopes-global-vs-departmental-execution-permissions">Certificate scopes: global vs. departmental execution permissions</h2>
-
-<p>Once you have set up a signing policy for your organization, you can disable execution of unsigned macros via Microsoft Office group policies.</p>
-
-<h3 id="fine-tune-signing-and-execution-permissions">Fine-tune signing and execution permissions</h3>
-
-<p>Some organizations need more fine-grained control over macro execution. In this case you can assign <strong>specific macro signing certificates</strong> to departments.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Department</th>
-      <th>Trusted certificates</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Finance</td>
-      <td>Global, Finance</td>
-    </tr>
-    <tr>
-      <td>Legal</td>
-      <td>Legal</td>
-    </tr>
-    <tr>
-      <td>Engineering</td>
-      <td>Global, Engineering, some subcontractors</td>
-    </tr>
-    <tr>
-      <td>Restricted users</td>
-      <td>none</td>
-    </tr>
-    <tr>
-      <td>Everyone else</td>
-      <td>Global</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Adjust your signing policies accordingly, e.g. provide signing permissions for the <em>Finance</em> certificate only to macro authors supposed to create Office macros for the finance departement.</p>
-
-<h3 id="business-partners-and-customers">Business partners and customers</h3>
-
-<p>For documents that are used outside of your organization, you can use your EV code signing certificate. External users, such as business partners or customers, will be informed that macros have been signed by your organizations. They can then decide to trust these macros on a per-user basis or through their own policy framework.</p>
-
-				</article>
+		<div class='columns'>
+			<div>
+				<p>
+SignPath Pipeline integrity continuously verifies the production pipeline integrity from source code to
+binary package for every single release. Only software versions that pass the basic integrity criteria
+and any additionally invoked policy conditions will be signed. This ensures that signatures deliver on
+the promise of integrity that they implicitly convey.
+				</p>
 			</div>
+		</div>
 	</div>
-</section><!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
+</section>
+
+
+<section>
+	<div>
+		<div class='columns'>
+			<div class='column-stretched'>
+				<div>
+					<svg class="icon blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 5 6 L 5 19.5625 L 2.71875 21.875 C 2.265625 22.328125 2 22.953125 2 23.59375 C 2 24.914063 3.085938 26 4.40625 26 L 27.59375 26 C 28.914063 26 30 24.914063 30 23.59375 C 30 22.953125 29.734375 22.328125 29.28125 21.875 L 27 19.5625 L 27 6 Z M 7 8 L 25 8 L 25 19 L 7 19 Z M 6.4375 21 L 25.5625 21 L 27.875 23.28125 C 27.953125 23.359375 28 23.484375 28 23.59375 C 28 23.835938 27.835938 24 27.59375 24 L 4.40625 24 C 4.164063 24 4 23.835938 4 23.59375 C 4 23.484375 4.046875 23.359375 4.125 23.28125 Z"/></svg>
+
+					<h3><b>Pipeline Integrity Verification</b></h3>
+					<b>Beyond simple code signing gateways</b>
+					<p>
+Guarantees that signed software is secure and trustworthy, delivering on the implicit promise of code integrity to users and customers.
+
+					</p>
+				</div>
+				<a class='btn btn-secondary' href='/product/advanced-code-signing'>Learn more</a>
+			</div>
+			<div class='column-stretched'>
+				<div>
+					<svg class="icon blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 4 C 13.75 4 12.234375 4.886719 10.875 5.625 C 9.515625 6.363281 8.28125 7 6 7 L 5 7 L 5 8 C 5 15.71875 7.609375 20.742188 10.25 23.78125 C 12.890625 26.820313 15.625 27.9375 15.625 27.9375 L 16 28.0625 L 16.375 27.9375 C 16.375 27.9375 19.109375 26.84375 21.75 23.8125 C 24.390625 20.78125 27 15.746094 27 8 L 27 7 L 26 7 C 23.730469 7 22.484375 6.363281 21.125 5.625 C 19.765625 4.886719 18.25 4 16 4 Z M 16 6 C 17.75 6 18.753906 6.613281 20.15625 7.375 C 21.339844 8.019531 22.910156 8.636719 24.9375 8.84375 C 24.746094 15.609375 22.507813 19.910156 20.25 22.5 C 18.203125 24.847656 16.484375 25.628906 16 25.84375 C 15.511719 25.625 13.796875 24.824219 11.75 22.46875 C 9.492188 19.871094 7.253906 15.578125 7.0625 8.84375 C 9.097656 8.636719 10.660156 8.019531 11.84375 7.375 C 13.246094 6.613281 14.25 6 16 6 Z"/></svg>
+
+					<h3><b>Security and Policy Enforcement</b></h3>
+					<p>
+					<p><b>CI/CD-Aware Signing Controls</b></p>
+					<p>	Ensures that code signing is tightly aligned with automated build workflows, enabling secure, policy-driven signing within dynamic CI/CD environments.
+
+</p>  
+					</p>
+				</div>
+				<a class='btn btn-secondary' href='/product/pipeline-integrity'>Learn more</a>
+			</div>
+			<div class='column-stretched'>
+				<div>
+					<svg class="icon blue"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 18 5 L 12 27 L 14 27 L 20 5 Z M 7.9375 6.40625 L 1.1875 15.40625 L 0.75 16 L 1.1875 16.59375 L 7.9375 25.59375 L 9.5625 24.40625 L 3.25 16 L 9.5625 7.59375 Z M 24.0625 6.40625 L 22.4375 7.59375 L 28.75 16 L 22.4375 24.40625 L 24.0625 25.59375 L 30.8125 16.59375 L 31.25 16 L 30.8125 15.40625 Z"/></svg>
+
+					<h3><b>Simplified Security Controls</b></h3>
+					<b>Deployment flexibility</b>
+					<p>
+Reduces the complexity of managing security while ensuring consistent and reliable builds with full integrity.
+ 
+					</p>
+				</div>
+				<a class='btn btn-secondary' href='/product/code-signing-gateway'>Learn more</a>
+			</div>
+		</div>
+		</div>
+	</div>
+	
+</section>
+
+
+
+<section class='feature'>
+	<div class='img'><div><img src='/assets/img/product/features/certificate-management.png' title='Certificate management' /></div></div>
+	<div class='description'>
+		<h2><b>Trusted Build System</b></h2>
+		<h3>Say goodbye to USB tokens and tedious HSM setups</h3>
+		<p>
+			In SignPath all your organization's code signing certificates are centrally managed. The InfoSec teams have full control over what code is signed and which certificate was used. They can view the entire history in case of an incident and define clear policies to restrict how each certificate may be used. SignPath allows you to import your own certificates or create a certificate signing request (CSR) for your certificate authority (CA). You are also notified on time before your certificate expires.
+		</p>
+	</div>
+</section>
+
+<section class='feature right'>
+	<div class='img'><div><img src='/assets/img/product/features/policy-enforcement.png' title='Policy enforcement' /></div></div>
+	<div class='description'>
+		<h2><b>Policy enforcement</b></h2>
+		<h3><b>Take control over your code signing process</b></h3>
+		<p>
+			SignPath enables development teams to stay agile by allowing them to automate the code signing process as long as they stay within the boundaries of their organization's policies. Administrators can define which kind of software may be signed, who is allowed to submit a signing request and how many approvers must authorize it before it is signed. Additionally, SignPath offers origin verification, which ensures that a software artifact was built from a specific commit in your source code repository.
+		</p>
+	</div>
+</section>
+
+<section class='feature'>
+	<div class='img'><div class='no-shadow'><img src='/assets/img/product/features/origin-verification.jpg' title='Secure private keys' /></div></div>
+	<div class='description'>
+		<h2><b>Origin verification</b></h2>
+		<h3 class='subtitle'><b>Trace every artifact back to its source code</b></h3>
+		<p>
+			SignPath integrates with build servers and allows you to securely track the origin of your binary artifacts. The signed software releases can be linked to a specific commit in your source code repository, allowing you to reliably and securely pin down which code was shipped and who made changes to it.
+		</p>
+	</div>
+</section>
+
+
+<section class='feature right'>
+	<div class='img'><div><img src='/assets/img/product/features/build-integration.png' title='Build integration' /></div></div>
+	<div class='description'>
+		<h2><b>Build integration</b></h2>
+		<h3><b>Automate your code signing process</b></h3>
+		<p>
+			Software development processes are increasingly automated to cope with the demand for more agility and frequent releases. SignPath allows code signing to be part of the build pipeline by providing a modern API, third party integrations and tools for seamless CI integration.
+		</p>
+	</div>
+</section>
+
+<section class='feature'>
+	<div class='img'><div><img src='/assets/img/product/features/malware-scanning.png' title='Malware scanning' /></div></div>
+	<div class='description'>
+		<h2><b>Malware scanning of artifacts</b></h2>
+		<h3 class='subtitle'><b>Know that there's another layer of security</b></h3>
+		<p>
+			All artifacts you upload to SignPath are checked for malware. Even if your build server is infected, SignPath adds an additional barrier to prevent shipping viruses to your users and customers.
+		</p>
+	</div>
+</section>
+
+<section class='feature right'>
+	<div class='img'><div class='no-shadow'><img src='/assets/img/product/features/secure-private-keys.png' title='Secure private keys' /></div></div>
+	<div class='description'>
+		<h2><b>Secure storage of private keys</b></h2>
+		<h3 class='subtitle'>Rest assured that your private keys can never be compromised</h3>
+		<p>
+			SignPath provides a FIPS-certified Hardware Security Module (HSM) to generate and store the private keys for your certificates. The HSM is located in a physically secured data center. Every signing operation takes place on the HSM ensuring that the private key is never exposed. The key infrastructure of SignPath fulfills all requirements for Extended Validation (EV) certificates without having to deal with USB tokens or spending money on dedicated hardware.
+		</p>
+	</div>
+</section>
+
+
+
+<!-- last_modified_at:  --><section class='bg-dark-grey font-white newsletter' id="newsletter">
 	<div>
 		<h3>Share your contact info, and we'll stay in touch</h3>
 		<form class="ml-block-form" action="https://app.mailerlite.com/webforms/submit/d7c3i1" data-code="d7c3i1" method="post">
