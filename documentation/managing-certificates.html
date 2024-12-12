@@ -94,33 +94,13 @@
 
 <h2 id="certificate-types">Certificate types</h2>
 
-<p>With SignPath, you have the following options for creating or importing a certificate:</p>
+<p>With SignPath, you have three options for creating or importing a certificate:</p>
 
 <ul>
-  <li><strong>Self-signed X.509 certificates</strong> are not signed by any certificate authority and therefore not trusted. You can use them for testing your release process.</li>
-  <li><strong>X.509 certificate signing requests (CSRs)</strong> can be created using SignPath. You can use the CSR to purchase a certificate from a trusted certificate authority (CA). By creating a CSR, you ensure that the private key is created directly on our hardware security module (HSM) and cannot be compromised. This is the recommended way for securing your code signing process.</li>
-  <li><strong>PFX-imported X.509 certificates</strong>: If you already own a certificate, you can simply upload it. However, as your private key may have already been exposed, we recommend to use PFX imports only as a temporary solution. (Only available for RSA keys.)</li>
-  <li><strong>GPG keys</strong> are certificates based on the OpenPGP standard, also known as GPG or GnuPG. They can be used to sign arbitrary files using GPG detached signature file. It is also the foundation of many Linux and Open Source signing formats including RPM and Debian package signing.</li>
+  <li><strong>Self-signed certificates</strong> are not signed by any certificate authority and therefore not trusted. You can use them for testing your release process.</li>
+  <li><strong>Certificate signing requests (CSRs)</strong> can be created using SignPath. You can use the CSR to purchase a certificate from a trusted certificate authority (CA). By creating a CSR, you ensure that the private key is created directly on our hardware security module (HSM) and cannot be compromised. This is the recommended way for securing your code signing process.</li>
+  <li><strong>PFX files</strong> can be imported into SignPath. If you already own a certificate, you can simply upload it. However, as your private key may have already been exposed, we recommend to use PFX imports only as a temporary solution. (Only available for RSA keys.)</li>
 </ul>
-
-<blockquote class="panel info">
-  <p><strong>GPG keys and certificates</strong></p>
-
-  <p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway</em>. </p>
-
-  <p>In the world of GPG, certificates are known under various names:</p>
-
-  <ul>
-    <li>Certificate or Transferable Public Keys according to <a href="https://datatracker.ietf.org/doc/html/rfc4880">OpenPGP</a></li>
-    <li>GPG keys or GPG public keys in everyday usage (which can be confusing as <em>public key</em> usually means the public part of an asymmetfic cryptographic key pair)</li>
-  </ul>
-
-  <p>SignPath uses the term <em>GPG key</em> to denote this type of <em>Certificate</em>.</p>
-
-  <p>These terms all refer to a specific file format that includes the actual public key, the key holder’s identity (name and email address), expiration, and other data.</p>
-
-  <p>Unlike X.509, GPG does not define a Public Key Infrastructure (PKI) based on Certificate Authoities (CAs). Instead, GPG certificates are usually provided as downloads on a separate channel and/or published on an <a href="https://en.wikipedia.org/wiki/Key_server_(cryptographic)">OpenPGP Key server</a>.</p>
-</blockquote>
 
 <h2 id="restrictions">Restrictions</h2>
 

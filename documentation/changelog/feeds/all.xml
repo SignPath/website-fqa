@@ -2,99 +2,27 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/all.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-12-10</updated>
+<updated>2024-12-XX</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/all.xml</id><title type="html">SignPath - Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
-        <id>tag:about.signpath.io,2024-12-10:application:1.177.0</id>
-        <title>SignPath Application 1.177.0</title>
-        <updated>2024-12-10</updated>
-        <published>2024-12-10</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-12-10" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.177.0</summary>
+        <id>tag:about.signpath.io,2024-12-XX:github_connector:1.1.0</id>
+        <title>SignPath GitHub Connector 1.1.0</title>
+        <updated>2024-12-XX</updated>
+        <published>2024-12-XX</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-12-XX" />
+        <category term="release/github_connector" label="GitHub Connector" />
+        <summary type="html">New Release:  1.1.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.177.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Added &lt;a href=&quot;/documentation/managing-certificates&quot;&gt;GPG key management&lt;/a&gt;:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;GPG keys can now be created directly in the SignPath UI.&lt;/li&gt;
-  &lt;li&gt;They can currently be used for hash signing and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;create-raw-signature&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;REST API additions and improvements regarding certificates and signing policies:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;New route to retrieve signing policy details:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;New route to retrieve certificate metadata and to directly download a X.509 certificate or GPG public key file for a &lt;em&gt;signing policy&lt;/em&gt;:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}/Certificate&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}/Certificate/X509Certificate&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}/Certificate/GpgPublicKey&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The following routes now return the X.509 certificate specific data in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x509CertificateData&lt;/code&gt; property instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x509Certificate&lt;/code&gt;:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Certificates&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Certificates/{slug}&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;Note that the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x509Certificate&lt;/code&gt; property is included returned for backwards compatibility, but marked as “deprecated”.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;For details see &lt;a href=&quot;https://app.signpath.io/Api/swagger&quot;&gt;API definition&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;&lt;li&gt;
-                        &lt;p&gt;Improved error reporting for projects with manual approval enabled (not available for hash-signing) for SignPath Crypto Providers.&lt;/p&gt;
+            &lt;h2&gt;New Release:  1.1.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Policy checks for branch rulesets, build and build runner are supported. See the &lt;a href=&quot;/documentation/trusted-build-systems/github#build-and-source-code-policies&quot;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Fixed a concurrency issue which potentially caused signing request processing to stop for the affected organization.&lt;/p&gt;
-&lt;span class='enterprise-only'&gt;(SaaS only)&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
-        </content>
-      </entry><entry>
-        <id>tag:about.signpath.io,2024-12-10:self_hosted_installations:1.177.0</id>
-        <title>SignPath Application (self-hosted only) 1.177.0</title>
-        <updated>2024-12-10</updated>
-        <published>2024-12-10</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-12-10" />
-        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
-        <summary type="html">New Release:  1.177.0</summary>
-        <content type="html">
-          &lt;div&gt;
-            &lt;h2&gt;New Release:  1.177.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;JAR signing is now disabled by default because it requires dedicated service instances. To enable it, you need to deploy the new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;javasigningmethodservice&lt;/code&gt; component via the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chartSettings.javaSigningMethodService.replicaCount&lt;/code&gt; value and set up authentication configuration.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Improved basic authentication configuration (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;basicAuthenticationOptions&lt;/code&gt; sections):&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Password hash and salt (server-side) have been combined into a single configuration value (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passwordHash&lt;/code&gt; value).&lt;/li&gt;
-  &lt;li&gt;Updated the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Generate-Secret&lt;/code&gt; tool to generate the new format (see “Generate basic authentication passwords and hashes” in the installation guide).&lt;/li&gt;
-  &lt;li&gt;Added an optional new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;previousPasswordHash&lt;/code&gt; value to allow zero-downtime rotation.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This change is backwards-compatible. The legacy &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passwordSalt&lt;/code&gt; can be still used.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
-        </content>
-      </entry><entry>
-        <id>tag:about.signpath.io,2024-12-10:crypto_providers:5.1.0</id>
-        <title>SignPath Crypto Providers 5.1.0</title>
-        <updated>2024-12-10</updated>
-        <published>2024-12-10</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-12-10" />
-        <category term="release/crypto_providers" label="Crypto Providers" />
-        <summary type="html">New Release:  5.1.0</summary>
-        <content type="html">
-          &lt;div&gt;
-            &lt;h2&gt;New Release:  5.1.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Added support for using GPG keys generated by &lt;a href=&quot;/documentation/managing-certificates&quot;&gt;SignPath certificate management&lt;/a&gt;:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;It is no longer required to locally generate GPG keys based on backing X.509 certificates. You can create GPG keys directly in the SignPath UI.&lt;/li&gt;
-  &lt;li&gt;Requires SignPath version 1.177 or higher.&lt;/li&gt;
-  &lt;li&gt;Adapted and simplified the Linux container samples for &lt;a href=&quot;/documentation/crypto-providers/gpg&quot;&gt;GPG hash signing&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Linux PKCS#11 CryptoProvider: Added support for Debian 12 “bookworm” and Ubuntu 24.04 distros.&lt;/p&gt;
+                        &lt;p&gt;Fixed a bug that prevented signing requests from being submitted when the “re-run failed jobs” feature of workflows was used for workflows with multiple jobs.&lt;/p&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed an integer overflow bug caused by large artifact IDs.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
