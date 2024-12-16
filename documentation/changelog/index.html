@@ -113,6 +113,11 @@
 
 
 
+	
+		
+<p id="show-older-releases"><a id="show-older-releases-link" href="#">Show older releases</a></p>
+<div id="older-releases"> 	
+	
 
 
 
@@ -120,8 +125,9 @@
 
 
 
-<article class="release component-application change_type-version change_type-new_features change_type-improvements change_type-bug_fixes component-self_hosted_installations change_type-breaking_changes" id="2024-12-10">
-	<h1>&nbsp;<span>December 10, 2024</span></h1>
+
+<article class="release component-github_connector change_type-version change_type-new_features change_type-bug_fixes" id="2024-12-XX">
+	<h1>&nbsp;<span>2024-12-XX</span></h1>
 	
 		
 			
@@ -132,8 +138,8 @@
 			
 			
 
-			<div class="component-application component change_type-version change_type-new_features change_type-improvements change_type-bug_fixes">
-			<h2>Application 1.177.0</h2>
+			<div class="component-github_connector component change_type-version change_type-new_features change_type-bug_fixes">
+			<h2>GitHub Connector 1.1.0</h2>
 			
 			
 				
@@ -161,66 +167,7 @@
 						<ul>
 							
 								<li>
-									<p>Added <a href="/documentation/managing-certificates">GPG key management</a>:</p>
-<ul>
-  <li>GPG keys can now be created directly in the SignPath UI.</li>
-  <li>They can currently be used for hash signing and <code class="language-plaintext highlighter-rouge">create-raw-signature</code>.</li>
-</ul>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-improvements">
-					<h3>
-						 Improvements:
-							
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>REST API additions and improvements regarding certificates and signing policies:</p>
-<ul>
-  <li>New route to retrieve signing policy details:
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}</code></li>
-    </ul>
-  </li>
-  <li>New route to retrieve certificate metadata and to directly download a X.509 certificate or GPG public key file for a <em>signing policy</em>:
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}/Certificate</code></li>
-      <li><code class="language-plaintext highlighter-rouge">GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}/Certificate/X509Certificate</code></li>
-      <li><code class="language-plaintext highlighter-rouge">GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}/Certificate/GpgPublicKey</code></li>
-    </ul>
-  </li>
-  <li>The following routes now return the X.509 certificate specific data in the <code class="language-plaintext highlighter-rouge">x509CertificateData</code> property instead of <code class="language-plaintext highlighter-rouge">x509Certificate</code>:
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">GET /v1/{organizationId}/Certificates</code></li>
-      <li><code class="language-plaintext highlighter-rouge">GET /v1/{organizationId}/Certificates/{slug}</code></li>
-      <li>Note that the <code class="language-plaintext highlighter-rouge">x509Certificate</code> property is included returned for backwards compatibility, but marked as “deprecated”.</li>
-    </ul>
-  </li>
-  <li>For details see <a href="https://app.signpath.io/Api/swagger">API definition</a>.</li>
-</ul>
-
-									
-								</li>
-							
-								<li>
-									<p>Improved error reporting for projects with manual approval enabled (not available for hash-signing) for SignPath Crypto Providers.</p>
+									<p>Policy checks for branch rulesets, build and build runner are supported. See the <a href="/documentation/trusted-build-systems/github#build-and-source-code-policies">documentation</a>.</p>
 
 									
 								</li>
@@ -247,194 +194,13 @@
 						<ul>
 							
 								<li>
-									<p>Fixed a concurrency issue which potentially caused signing request processing to stop for the affected organization.</p>
-
-									
-										<span class="enterprise-only">(SaaS only)</span>
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-			</div>
-		
-			
-			
-			
-			
-			
-			
-			
-
-			<div class="component-self_hosted_installations component change_type-version change_type-breaking_changes change_type-improvements">
-			<h2>Application (self-hosted only) 1.177.0</h2>
-			
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-breaking_changes">
-					<h3>
-						 Breaking Changes / Manual migration steps:
-							
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>JAR signing is now disabled by default because it requires dedicated service instances. To enable it, you need to deploy the new <code class="language-plaintext highlighter-rouge">javasigningmethodservice</code> component via the <code class="language-plaintext highlighter-rouge">chartSettings.javaSigningMethodService.replicaCount</code> value and set up authentication configuration.</p>
+									<p>Fixed a bug that prevented signing requests from being submitted when the “re-run failed jobs” feature of workflows was used for workflows with multiple jobs.</p>
 
 									
 								</li>
 							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-improvements">
-					<h3>
-						 Improvements:
-							
-					</h3>
-					
-					
-						<ul>
-							
 								<li>
-									<p>Improved basic authentication configuration (<code class="language-plaintext highlighter-rouge">basicAuthenticationOptions</code> sections):</p>
-<ul>
-  <li>Password hash and salt (server-side) have been combined into a single configuration value (<code class="language-plaintext highlighter-rouge">passwordHash</code> value).</li>
-  <li>Updated the <code class="language-plaintext highlighter-rouge">Generate-Secret</code> tool to generate the new format (see “Generate basic authentication passwords and hashes” in the installation guide).</li>
-  <li>Added an optional new <code class="language-plaintext highlighter-rouge">previousPasswordHash</code> value to allow zero-downtime rotation.</li>
-</ul>
-
-<p>This change is backwards-compatible. The legacy <code class="language-plaintext highlighter-rouge">passwordSalt</code> can be still used.</p>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-			</div>
-		
-	
-</article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<article class="release component-crypto_providers change_type-version change_type-new_features change_type-improvements" id="2024-12-10">
-	<h1>&nbsp;<span>December 10, 2024</span></h1>
-	
-		
-			
-			
-			
-			
-			
-			
-			
-
-			<div class="component-crypto_providers component change_type-version change_type-new_features change_type-improvements">
-			<h2>Crypto Providers 5.1.0</h2>
-			
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-new_features">
-					<h3>
-						 New Features:
-							
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Added support for using GPG keys generated by <a href="/documentation/managing-certificates">SignPath certificate management</a>:</p>
-<ul>
-  <li>It is no longer required to locally generate GPG keys based on backing X.509 certificates. You can create GPG keys directly in the SignPath UI.</li>
-  <li>Requires SignPath version 1.177 or higher.</li>
-  <li>Adapted and simplified the Linux container samples for <a href="/documentation/crypto-providers/gpg">GPG hash signing</a>.</li>
-</ul>
-
-									
-								</li>
-							
-						</ul>
-					
-					</div> <!-- change_type -->
-				
-			
-				
-				 
-			  
-			  
-			  
-			  
-				
-				  <div class="change_type-improvements">
-					<h3>
-						 Improvements:
-							
-					</h3>
-					
-					
-						<ul>
-							
-								<li>
-									<p>Linux PKCS#11 CryptoProvider: Added support for Debian 12 “bookworm” and Ubuntu 24.04 distros.</p>
+									<p>Fixed an integer overflow bug caused by large artifact IDs.</p>
 
 									
 								</li>
@@ -4967,10 +4733,6 @@ config entry <code class="language-plaintext highlighter-rouge">appSettings.sign
 
 
 
-	
-		
-<p id="show-older-releases"><a id="show-older-releases-link" href="#">Show older releases</a></p>
-<div id="older-releases"> 	
 	
 
 

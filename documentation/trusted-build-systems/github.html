@@ -89,8 +89,9 @@
 							<a href='/documentation/changelog#'>Product updates</a></li></ul>
 			</nav><div class='content'><ul class="article-toc">
   <li><a href="#prerequisites">Prerequisites</a></li>
-  <li><a href="#performed-checks">Performed checks</a></li>
+  <li><a href="#checks-performed-by-signpath">Checks performed by SignPath</a></li>
   <li><a href="#usage">Usage</a></li>
+  <li><a href="#define-policies-for-source-code-and-builds">Define policies for source code and builds</a></li>
 </ul>
 <article>
 					<h2 id="prerequisites">Prerequisites</h2>
@@ -111,7 +112,7 @@
   <p>SignPath hosts an instance of the GitHub connector which is linked to GitHub.com For integrating self-hosted GitHub Enterprise instances, contact our <a href="/support">support</a> team.</p>
 </blockquote>
 
-<h2 id="performed-checks">Performed checks</h2>
+<h2 id="checks-performed-by-signpath">Checks performed by SignPath</h2>
 
 <p>The GitHub connector performs the following checks:</p>
 
@@ -239,6 +240,248 @@
   <li><code class="language-plaintext highlighter-rouge">signpath-api-url</code>: The base API url of the SignPath API</li>
   <li><code class="language-plaintext highlighter-rouge">signed-artifact-download-url</code>: The url of the signed artifact in SignPath</li>
 </ul>
+
+<h2 id="define-policies-for-source-code-and-builds">Define policies for source code and builds</h2>
+
+<p class="badge icon-signpath">Available for __.</p>
+
+<p>You can define specific source code and build policies for your repository per Signing Policy:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">runners</code>: define which runners may be used by GitHub Actions</li>
+  <li><code class="language-plaintext highlighter-rouge">build</code>: define conditions for GitHub Actions workflows and runs</li>
+  <li><code class="language-plaintext highlighter-rouge">branch_rulesets</code>: define minimum requirements for branch rulesets including conditions for integrity, reviews, and code scanning</li>
+</ul>
+
+<!-- TODO insert app instructions in correct section
+grant the [SignPath GitHub App](https://github.com/apps/signpath) access to the [?] source code repositories
+-->
+
+<p>Steps to create a policy file:</p>
+
+<ul>
+  <li>create the policy file in the <code class="language-plaintext highlighter-rouge">default</code> branch of the source code repository</li>
+  <li>name it <code class="language-plaintext highlighter-rouge">.signpath/policies/&lt;project-slug&gt;/&lt;signing-policy-slug&gt;.yml</code></li>
+  <li>restrict write permissions to the policy files using GitHub’s <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners">code owners</a> feature.</li>
+</ul>
+
+<h3 id="policy-sections">Policy sections</h3>
+
+<h4 id="runners-section"><code class="language-plaintext highlighter-rouge">runners</code> section</h4>
+
+<p>Use the <code class="language-plaintext highlighter-rouge">runners</code> section to define which runners may be used in the workflow run.</p>
+
+<table>
+    <thead>
+        <tr><th style="width: 50%">
+Policy 
+</th><th style="width: 50%">
+Description 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">allowed_groups</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">GitHub</span><span class="nv"> </span><span class="s">Actions'</span>
+</code></pre></div>        </div>
+
+      </td><td>
+
+        <p>Ensures that all jobs of the workflow are executed on runners from one of the listed groups. Note that the <code class="language-plaintext highlighter-rouge">GitHub Actions</code> group is predefined and represents GitHub-hosted runners.</p>
+      </td></tr></tbody>
+</table>
+<h4 id="build-section"><code class="language-plaintext highlighter-rouge">build</code> section</h4>
+
+<p>Use the <code class="language-plaintext highlighter-rouge">build</code> section to configure rules for the build run.</p>
+
+<table>
+    <thead>
+        <tr><th style="width: 50%">
+Policy 
+</th><th style="width: 50%">
+Description 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">disallow_reruns</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div>        </div>
+
+      </td><td>
+
+        <p>Prevents signing builds from re-runs. By enforcing this policy, old, temporarily failed builds cannot be re-run and signed under the false impression that they include recent changes, such as vulnerability fixes. These builds would still be identified by their branch name, e.g. <code class="language-plaintext highlighter-rouge">main</code>.</p>
+      </td></tr></tbody>
+</table>
+<h4 id="branch_rulesets-section"><code class="language-plaintext highlighter-rouge">branch_rulesets</code> section</h4>
+
+<p>Use the <code class="language-plaintext highlighter-rouge">branch_rulests</code> section to configure conditions for <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets">GitHub branch rulesets</a>.</p>
+
+<ul>
+  <li>You can configure branch rulesets in GitHub on an organization or repository level. SignPath verifies that there is at least one branch ruleset for each specified condition.</li>
+  <li>Rules define minimum requirements that may be exceeded by the actual branch ruleset.</li>
+</ul>
+
+<h5 id="how-branch_rulesets-conditions-are-evaluated">How <code class="language-plaintext highlighter-rouge">branch_rulesets</code> conditions are evaluated</h5>
+
+<p>You can group your policy requirements into multiple conditions, each containing a combination of rules, bypassers, and enforcement date:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>Values</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">rules</code></td>
+      <td>See below</td>
+      <td>Rules that must be implemented by one ore more active branch rulesets</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">allow_bypass_actors</code></td>
+      <td>boolean</td>
+      <td>If <code class="language-plaintext highlighter-rouge">true</code>, the branche ruleset is allowed to define bypassers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">enforced_from</code></td>
+      <td>None, timestamp, or <code class="language-plaintext highlighter-rouge">EARLIEST</code></td>
+      <td>By default, the rules are only evaluated at the time of signing. When provided, defines that these rules must have been in place from the specified date (YAML ISO timestamp) or <strong>TODO define</strong>* (<code class="language-plaintext highlighter-rouge">EARLIEST</code>).</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote class="panel info">
+  <p><strong>About <code class="language-plaintext highlighter-rouge">enforced_from</code> evaluation</strong></p>
+
+  <p>Depending on your GitHub subscription, the continuous enforcement of policies is either based on:</p>
+
+  <ul>
+    <li><strong>Audit log events</strong> for <em>GitHub Enterprise</em> subscriptions. Audit log events are only available for the last 180 days, any prior policy violations will not be detected.</li>
+    <li>The <strong>last modified date</strong> of the branch rulesets for all other subscriptions. At least one branch ruleset that has not been modified since the specified timestap must implement the rule.</li>
+  </ul>
+</blockquote>
+
+<h5 id="available-branch_rulesets-rules">Available <code class="language-plaintext highlighter-rouge">branch_rulesets</code> rules</h5>
+
+<table>
+    <thead>
+        <tr><th style="width: 50%">
+Policy 
+</th><th style="width: 50%">
+Description 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">restrict_creations</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div>        </div>
+
+      </td><td>
+
+        <p>Only allow users with bypass permission to create matching refs.</p>
+      </td></tr><tr><td>
+
+        <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">restrict_updates</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div>        </div>
+
+      </td><td>
+
+        <p>Only allow users with bypass permission to update matching refs.</p>
+      </td></tr><tr><td>
+
+        <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">restrict_deletions</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div>        </div>
+
+      </td><td>
+
+        <p>Only allow users with bypass permissions to delete matching refs.</p>
+      </td></tr><tr><td>
+
+        <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">require_linear_history</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div>        </div>
+
+      </td><td>
+
+        <p>Prevent merge commits from being pushed to matching refs.</p>
+      </td></tr><tr><td>
+
+        <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">require_pull_request</span><span class="pi">:</span>
+      <span class="na">min_required_approvals</span><span class="pi">:</span> <span class="m">2</span>
+      <span class="na">dismiss_stale_reviews_on_push</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="na">require_code_owner_review</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="na">require_last_push_approval</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="na">require_review_thread_resolution</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div>        </div>
+
+      </td><td>
+
+        <p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. Can be set to <code class="language-plaintext highlighter-rouge">true</code> or defined as a block with the following parameters:</p>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">min_required_approvals</code>: The minimum number of required approvals.</li>
+          <li><code class="language-plaintext highlighter-rouge">dismiss_stale_reviews_on_push</code>: Dismiss stale pull request approvals when new commits are pushed.</li>
+          <li><code class="language-plaintext highlighter-rouge">require_code_owner_review</code>: Require review from Code Owners.</li>
+          <li><code class="language-plaintext highlighter-rouge">require_last_push_approval</code>: Require approval of the most recent reviewable push.</li>
+          <li><code class="language-plaintext highlighter-rouge">require_review_thread_resolution</code>: Require conversation resolution before merging.</li>
+        </ul>
+
+      </td></tr><tr><td>
+
+        <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">block_force_pushes</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div>        </div>
+
+      </td><td>
+
+        <p>Prevent users with push access from force pushing to refs.</p>
+      </td></tr><tr><td>
+
+        <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">require_code_scanning</span><span class="pi">:</span>
+    <span class="na">tools</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">tool</span><span class="pi">:</span> <span class="s">CodeQL</span>
+        <span class="na">min_alerts_threshold</span><span class="pi">:</span> <span class="s">errors</span>
+        <span class="na">min_security_alerts_threshold</span><span class="pi">:</span> <span class="s">high</span>
+</code></pre></div>        </div>
+
+      </td><td>
+
+        <p>Choose which tool must provide code scanning results. Provides the following options for each tool:</p>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">min_alerts_threshold</code>: one of <code class="language-plaintext highlighter-rouge">none</code>, <code class="language-plaintext highlighter-rouge">errors</code> or <code class="language-plaintext highlighter-rouge">warnings</code></li>
+          <li><code class="language-plaintext highlighter-rouge">min_security_alerts_threshold</code>: one of <code class="language-plaintext highlighter-rouge">none</code>, <code class="language-plaintext highlighter-rouge">critical</code>, <code class="language-plaintext highlighter-rouge">high</code>, <code class="language-plaintext highlighter-rouge">medium</code> or <code class="language-plaintext highlighter-rouge">all</code></li>
+        </ul>
+
+      </td></tr></tbody>
+</table>
+<h3 id="example">Example</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .signpath/policies/my-project-slug/release-signing.yml</span>
+
+<span class="na">github-policies</span><span class="pi">:</span>
+  <span class="na">runners</span><span class="pi">:</span>
+    <span class="na">allowed_groups</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">GitHub</span><span class="nv"> </span><span class="s">Actions'</span>                         <span class="c1"># all jobs need to run on GitHub-hosted runners</span>
+  <span class="na">build</span><span class="pi">:</span>
+    <span class="na">disallow_reruns</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">branch_rulesets</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">condition</span><span class="pi">:</span>
+        <span class="na">rules</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">block_force_pushes</span><span class="pi">:</span>                    <span class="c1"># force pushes are prevented</span>
+        <span class="pi">-</span> <span class="na">pull_request</span><span class="pi">:</span>                          <span class="c1"># code reviews are required</span>
+            <span class="na">min_required_approvals</span><span class="pi">:</span> <span class="m">1</span>
+            <span class="na">require_code_owner_review</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="na">allow_bypass_actors</span><span class="pi">:</span> <span class="no">false</span>                 <span class="c1"># no-one is allowed to bypass this rule</span>
+      <span class="na">enforced_from</span><span class="pi">:</span> <span class="s">EARLIEST</span>                    <span class="c1"># rule enforcement history is checked</span>
+    <span class="pi">-</span> <span class="na">condition</span><span class="pi">:</span>
+        <span class="na">rules</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">require_code_scanning</span><span class="pi">:</span>                 <span class="c1"># code scanning must not reveal problems</span>
+            <span class="na">tools</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="na">tool</span><span class="pi">:</span> <span class="s">CodeQL</span>
+                <span class="na">min_alerts_threshold</span><span class="pi">:</span> <span class="s">errors</span>
+                <span class="na">min_security_alerts_threshold</span><span class="pi">:</span> <span class="s">medium</span>
+        <span class="na">allow_bypass_actors</span><span class="pi">:</span> <span class="no">true</span>                <span class="c1"># some people may bypass these rules</span>
+        <span class="na">enforced_from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2025-01-01</span><span class="nv"> </span><span class="s">00:00'</span>        <span class="c1"># had to be reset at some point</span>
+</code></pre></div></div>
 
 
 				</article>

@@ -212,7 +212,7 @@
 
 <h3 id="office-macros">Microsoft Office macros</h3>
 
-<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>. </p>
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>.</p>
 
 <p>Sign Office macros to protect against macro malware.</p>
 
@@ -222,7 +222,7 @@
 
 <h3 id="xml-signing">XML Signing</h3>
 
-<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>. </p>
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>.</p>
 
 <p>SignPath supports signing XML files using <a href="https://www.w3.org/TR/xmldsig-core1/">XMLDSIG</a>.</p>
 
@@ -230,13 +230,13 @@
 
 <h3 id="container-signing">Container image signing</h3>
 
-<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Open Source Code Signing</em>. </p>
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Open Source Code Signing</em>.</p>
 
 <p>SignPath supports signing Docker container images and tags using cosign and Docker Content Trust (DCT). See <a href="/documentation/signing-containers">Signing Container Images</a> for details.</p>
 
 <h3 id="sbom-signing">Bills of Material</h3>
 
-<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>. </p>
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>.</p>
 
 <p>Sign Bills of Material (BOM) in the <a href="https://owasp.org/www-project-cyclonedx/">Cyclone DX</a> XML format. This includes</p>
 
@@ -251,7 +251,7 @@
 
 <h2 id="hash-based-signing">Crypto providers and hash signing</h2>
 
-<p class="badge icon-signpath">Available for <em>Code Signing Gateway</em>. </p>
+<p class="badge icon-signpath">Available for <em>Code Signing Gateway</em>.</p>
 
 <p>Use SignPath cryptographic providers with any code signing tool that supports either of these interfaces:</p>
 
@@ -304,6 +304,7 @@
     <li><a href="#user-defined-parameters">User-defined parameters</a></li>
     <li><a href="#manual-approval">Manual approval</a></li>
     <li><a href="#origin-verification">Origin verification</a></li>
+    <li><a href="#extended-policies">Build and source code policies</a></li>
   </ul>
 </blockquote>
 
@@ -317,7 +318,7 @@
 
 <h3 id="multiple-versions">Multiple versions</h3>
 
-<p class="badge icon-signpath">Available for <em>Code Signing Basic, Advanced Code Signing, Code Signing Gateway, Open Source Code Signing</em>. </p>
+<p class="badge icon-signpath">Available for <em>Code Signing Basic, Advanced Code Signing, Code Signing Gateway, Open Source Code Signing</em>.</p>
 
 <p>Create <a href="/documentation/projects#keeping-versions-of-artifact-configurations">multiple artifact configurations</a> for</p>
 
@@ -328,7 +329,7 @@
 
 <h3 id="metadata-constraints">Metadata constraints</h3>
 
-<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>.  Required for <em>Open Source Code Signing</em>. </p>
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>.  Required for <em>Open Source Code Signing</em>.</p>
 
 <p>You can restrict some <a href="/documentation/artifact-configuration/reference#metadata-restrictions">file attributes</a> in the artifact configuration.</p>
 
@@ -342,7 +343,7 @@
 
 <h3 id="user-defined-parameters">User-defined parameters</h3>
 
-<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway, Open Source Code Signing</em>. </p>
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway, Open Source Code Signing</em>.</p>
 
 <p>You can define <a href="/documentation/artifact-configuration/syntax#parameters">parameters</a> for each signing request.</p>
 
@@ -357,7 +358,7 @@
 
 <h3 id="manual-approval">Manual approval</h3>
 
-<p class="badge icon-signpath">Available for <em>Code Signing Basic, Advanced Code Signing, Code Signing Gateway</em>.  Required for <em>Open Source Code Signing</em>. </p>
+<p class="badge icon-signpath">Available for <em>Code Signing Basic, Advanced Code Signing, Code Signing Gateway</em>.  Required for <em>Open Source Code Signing</em>.</p>
 
 <p>Specify that one or more approvals are required before a signing request is processed.</p>
 
@@ -365,7 +366,7 @@
 
 <h4 id="quorum-approval">Quorum approval</h4>
 
-<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway, Open Source Code Signing</em>. </p>
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway, Open Source Code Signing</em>.</p>
 
 <p>You may also specify that a certain number approvals is required (a.k.a. <em>k-out-of-n</em> approval).</p>
 
@@ -396,7 +397,7 @@
 
 <h3 id="resubmit">Resubmit</h3>
 
-<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Open Source Code Signing</em>. </p>
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Open Source Code Signing</em>.</p>
 
 <p>Resubmit signing requests for signing using different policies and/or certificates.</p>
 
@@ -406,7 +407,7 @@
 
 <h3 id="certificate-policies">Certificate policies</h3>
 
-<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway</em>.  Required for <em>Open Source Code Signing</em>. </p>
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway</em>.  Required for <em>Open Source Code Signing</em>.</p>
 
 <p>Specify that certain validation criteria must be enabled for specific certificates. This enforces these policies for all projects end their respective signing policies.</p>
 
@@ -416,7 +417,7 @@
 
 <h3 id="origin-verification">Origin verification</h3>
 
-<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway</em>.  Required for <em>Open Source Code Signing</em>. </p>
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway</em>.  Required for <em>Open Source Code Signing</em>.</p>
 
 <p>When a CI build is submitted to SignPath, certain metadata will be retrieved and verified by SignPath. This includes</p>
 
@@ -454,6 +455,10 @@
 <h4 id="build-validation">Build validation</h4>
 
 <p>For some CI systems, SignPath offers connectors that can validate software builds for security. This ensures that development teams do not use or enable inherently insecure mechanisms in their release build configurations. Insecure practices include caching on build nodes, interactive access to build nodes, ad-hoc build configuration changes and more.</p>
+
+<h4 id="scm-and-ci-policy-control">SCM and CI policy control</h4>
+
+<p>For some CI systems, SignPath allows defining detailed policies for Source Code Management (SCM) and CI/CD policies. You can set requirements for branch protection, build agents and other properties per Signing Policy.</p>
 
 				</article>
 			</div>

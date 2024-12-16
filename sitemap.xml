@@ -46,7 +46,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/origin-verification</loc>
-    <lastmod>2024-11-26T17:25:16+00:00</lastmod>
+    <lastmod>2024-12-16T12:51:14+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/users</loc>
@@ -70,11 +70,11 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/projects</loc>
-    <lastmod>2024-11-26T17:25:16+00:00</lastmod>
+    <lastmod>2024-12-16T12:51:14+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/managing-certificates</loc>
-    <lastmod>2024-12-09T12:57:47+00:00</lastmod>
+    <lastmod>2024-11-26T17:25:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/signing-containers/cosign</loc>
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/powershell/Submit-SigningRequest</loc>
-    <lastmod>2024-12-16T10:32:52+00:00</lastmod>
+    <lastmod>2024-12-16T12:51:14+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/artifact-configuration/syntax</loc>
@@ -110,7 +110,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/artifact-configuration/reference</loc>
-    <lastmod>2024-12-11T13:39:42+00:00</lastmod>
+    <lastmod>2024-11-27T16:38:54+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/artifact-configuration</loc>
@@ -122,11 +122,11 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/crypto-providers/gpg</loc>
-    <lastmod>2024-12-09T10:47:28+00:00</lastmod>
+    <lastmod>2024-11-26T17:25:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/crypto-providers/cryptoki</loc>
-    <lastmod>2024-12-12T18:00:59+00:00</lastmod>
+    <lastmod>2024-11-26T17:25:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/crypto-providers/rest-api</loc>
@@ -134,11 +134,11 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/crypto-providers/windows</loc>
-    <lastmod>2024-12-09T10:47:28+00:00</lastmod>
+    <lastmod>2024-11-26T17:25:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/crypto-providers</loc>
-    <lastmod>2024-12-09T12:33:23+00:00</lastmod>
+    <lastmod>2024-11-26T17:25:16+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/crypto-providers/macos</loc>
@@ -146,7 +146,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/changelog</loc>
-    <lastmod>2024-12-09T12:57:47+00:00</lastmod>
+    <lastmod>2024-12-06T10:08:46+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/changelog/feeds/macos_cryptotokenkit</loc>
@@ -162,7 +162,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems/github</loc>
-    <lastmod>2024-12-04T11:24:22+00:00</lastmod>
+    <lastmod>2024-12-16T12:51:14+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems/jenkins</loc>
@@ -170,7 +170,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems</loc>
-    <lastmod>2024-11-26T17:25:16+00:00</lastmod>
+    <lastmod>2024-12-16T12:51:14+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems/double-authentication-proxy</loc>
@@ -206,7 +206,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/product/editions-explained</loc>
-    <lastmod>2024-11-26T17:25:16+00:00</lastmod>
+    <lastmod>2024-12-16T12:51:14+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/product/thales-dpod</loc>
@@ -238,7 +238,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/product/editions</loc>
-    <lastmod>2024-12-09T12:45:39+00:00</lastmod>
+    <lastmod>2024-12-16T12:51:14+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/product/devops</loc>

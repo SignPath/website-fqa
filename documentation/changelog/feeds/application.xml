@@ -2,58 +2,12 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/application.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-12-10</updated>
+<updated>2024-11-21</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/application.xml</id><title type="html">SignPath - Application Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
-        <id>tag:about.signpath.io,2024-12-10:application:1.177.0</id>
-        <title>SignPath Application 1.177.0</title>
-        <updated>2024-12-10</updated>
-        <published>2024-12-10</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-12-10" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.177.0</summary>
-        <content type="html">
-          &lt;div&gt;
-            &lt;h2&gt;New Release:  1.177.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Added &lt;a href=&quot;/documentation/managing-certificates&quot;&gt;GPG key management&lt;/a&gt;:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;GPG keys can now be created directly in the SignPath UI.&lt;/li&gt;
-  &lt;li&gt;They can currently be used for hash signing and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;create-raw-signature&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;REST API additions and improvements regarding certificates and signing policies:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;New route to retrieve signing policy details:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;New route to retrieve certificate metadata and to directly download a X.509 certificate or GPG public key file for a &lt;em&gt;signing policy&lt;/em&gt;:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}/Certificate&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}/Certificate/X509Certificate&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}/Certificate/GpgPublicKey&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The following routes now return the X.509 certificate specific data in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x509CertificateData&lt;/code&gt; property instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x509Certificate&lt;/code&gt;:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Certificates&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Certificates/{slug}&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;Note that the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x509Certificate&lt;/code&gt; property is included returned for backwards compatibility, but marked as “deprecated”.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;For details see &lt;a href=&quot;https://app.signpath.io/Api/swagger&quot;&gt;API definition&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;&lt;li&gt;
-                        &lt;p&gt;Improved error reporting for projects with manual approval enabled (not available for hash-signing) for SignPath Crypto Providers.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Fixed a concurrency issue which potentially caused signing request processing to stop for the affected organization.&lt;/p&gt;
-&lt;span class='enterprise-only'&gt;(SaaS only)&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
-        </content>
-      </entry><entry>
         <id>tag:about.signpath.io,2024-11-21:application:1.176.0</id>
         <title>SignPath Application 1.176.0</title>
         <updated>2024-11-21</updated>
