@@ -42,7 +42,19 @@
             </li><li>
               <a href='/about-us'> About us </a>
               <ul><li> <a href='/company'> Company </a> </li><li> <a href='/team'> Team </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/support'> Support </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
-            </li><li class='login'><a class='btn btn-flat' href='https://fqa.test.signpath.io/Web/Home/Login'>Login</a>
+            </li><li class='search'>
+            <div>
+              <div>
+                <form method="get" target="_self" action="/search">
+                  <input type='search' name='q' placeholder="Search website" />
+                </form
+>              </div>
+            </div>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 19 3 C 13.488281 3 9 7.488281 9 13 C 9 15.394531 9.839844 17.589844 11.25 19.3125 L 3.28125 27.28125 L 4.71875 28.71875 L 12.6875 20.75 C 14.410156 22.160156 16.605469 23 19 23 C 24.511719 23 29 18.511719 29 13 C 29 7.488281 24.511719 3 19 3 Z M 19 5 C 23.429688 5 27 8.570313 27 13 C 27 17.429688 23.429688 21 19 21 C 14.570313 21 11 17.429688 11 13 C 11 8.570313 14.570313 5 19 5 Z"/></svg>
+            </span>
+          </li>
+          <li class='login'><a class='btn btn-flat' href='https://fqa.test.signpath.io/Web/Home/Login'>Login</a>
           <li class='login'><a href='https://fqa.test.signpath.io/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
           </li>
         </ul>
@@ -99,7 +111,6 @@
       <li><a href="#jar-sign"><code class="language-plaintext highlighter-rouge">&lt;jar-sign&gt;</code></a></li>
       <li><a href="#xml-sign"><code class="language-plaintext highlighter-rouge">&lt;xml-sign&gt;</code></a></li>
       <li><a href="#create-raw-signature">Detached raw signatures using <code class="language-plaintext highlighter-rouge">&lt;create-raw-signature&gt;</code></a></li>
-      <li><a href="#create-cms-signature">Detached CMS signatures using <code class="language-plaintext highlighter-rouge">&lt;create-cms-signature&gt;</code></a></li>
     </ul>
   </li>
   <li><a href="#verification">Verification methods</a>
@@ -114,15 +125,20 @@
 
 <table>
     <thead>
-        <tr><th style="width: 9em;">
+        <tr><th>
+
 Element 
 </th><th>
+
 <a href="#containers">Container format</a> 
-</th><th style="width: 10em;">
+</th><th>
+
 Signing directive 
 </th><th>
+
 Extensions 
 </th><th>
+
 Description 
 </th></tr>
     </thead>
@@ -382,20 +398,6 @@ Description
       </td><td>
 
         <p>Arbitrary files. This directive will create a detached raw signature file (available for Advanced Code Signing)</p>
-      </td></tr><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">&lt;file&gt;</code></p>
-      </td><td>
-
-        <p>No</p>
-      </td><td>
-
-        <p><a href="#create-cms-signature"><code class="language-plaintext highlighter-rouge">&lt;create-cms-signature&gt;</code></a></p>
-      </td><td>
-
-      </td><td>
-
-        <p>Arbitrary files. This directive will create a detached CMS signature file (available for Advanced Code Signing)</p>
       </td></tr></tbody>
 </table>
 <h3 id="containers">Container formats</h3>
@@ -416,11 +418,14 @@ Description
 
 <table>
     <thead>
-        <tr><th style="width: 9em;">
+        <tr><th>
+
 Element 
 </th><th>
+
 Extensions 
 </th><th>
+
 Description 
 </th></tr>
     </thead>
@@ -508,12 +513,16 @@ Description
 <table>
     <thead>
         <tr><th>
+
 Attribute 
 </th><th>
+
 Default 
 </th><th>
+
 Values 
 </th><th>
+
 Description 
 </th></tr>
     </thead>
@@ -615,11 +624,14 @@ Description
 
 <table>
     <thead>
-        <tr><th style="width: 9em;">
+        <tr><th>
+
 Element 
 </th><th>
+
 Extensions 
 </th><th>
+
 Description 
 </th></tr>
     </thead>
@@ -652,11 +664,14 @@ Description
 
 <table>
     <thead>
-        <tr><th style="width: 9em;">
+        <tr><th>
+
 Element 
 </th><th>
+
 Extensions 
 </th><th>
+
 Description 
 </th></tr>
     </thead>
@@ -717,11 +732,14 @@ Description
 
 <table>
     <thead>
-        <tr><th style="width: 9em;">
+        <tr><th>
+
 Element 
 </th><th>
+
 Extensions 
 </th><th>
+
 Description 
 </th></tr>
     </thead>
@@ -755,11 +773,14 @@ Description
 
 <table>
     <thead>
-        <tr><th style="width: 9em;">
+        <tr><th>
+
 Element 
 </th><th>
+
 Extensions 
 </th><th>
+
 Description 
 </th></tr>
     </thead>
@@ -808,11 +829,14 @@ Description
 
 <table>
     <thead>
-        <tr><th style="width: 9em;">
+        <tr><th>
+
 Element 
 </th><th>
+
 Extensions 
 </th><th>
+
 Description 
 </th></tr>
     </thead>
@@ -913,11 +937,14 @@ Description
 
 <table>
     <thead>
-        <tr><th style="width: 9em;">
+        <tr><th>
+
 Element 
 </th><th>
+
 Extensions 
 </th><th>
+
 Description 
 </th></tr>
     </thead>
@@ -951,7 +978,7 @@ Description
       <td><code class="language-plaintext highlighter-rouge">file-name</code></td>
       <td>Yes</td>
       <td> </td>
-      <td>Name of the output file containing the signature. Use <code class="language-plaintext highlighter-rouge">${file.name}</code> to reference the source file name.</td>
+      <td>Name of the output file containing the signature. Use <code class="language-plaintext highlighter-rouge">$(file.name)</code> to reference the source file name.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">hash-algorithm</code></td>
@@ -988,104 +1015,6 @@ Description
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl dgst <span class="nt">-verify</span> pubkey.pem <span class="nt">-signature</span> file.sig file
 </code></pre></div></div>
 
-<h3 id="create-cms-signature">Detached CMS signatures using <code class="language-plaintext highlighter-rouge">&lt;create-cms-signature&gt;</code></h3>
-
-<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>. </p>
-
-<p><strong>Supported elements:</strong></p>
-
-<table>
-    <thead>
-        <tr><th style="width: 9em;">
-Element 
-</th><th>
-Extensions 
-</th><th>
-Description 
-</th></tr>
-    </thead>
-    <tbody><tr><td>
-
-        <p><code class="language-plaintext highlighter-rouge">&lt;file&gt;</code></p>
-      </td><td>
-
-      </td><td>
-
-        <p>Arbitrary files. This directive will create a detached CMS signature file (available for Advanced Code Signing)</p>
-      </td></tr></tbody>
-</table>
-<p><strong>Note: Since the detached signatures are placed in a separate file, this directive is only available within a <a href="syntax#zip-file-element"><code class="language-plaintext highlighter-rouge">&lt;zip-file&gt;</code></a> element.</strong></p>
-
-<p>Detached CMS signatures can be used to sign any binary or text file.</p>
-
-<p>The <code class="language-plaintext highlighter-rouge">create-cms-signature</code> directive supports the following parameters:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Parameter</th>
-      <th>Required</th>
-      <th>Values</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">output-file-name</code></td>
-      <td>Yes</td>
-      <td> </td>
-      <td>Name of the output file containing the signature. Use <code class="language-plaintext highlighter-rouge">${file.name}</code> to reference the source file name.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">output-encoding</code></td>
-      <td>Yes</td>
-      <td><code class="language-plaintext highlighter-rouge">pem</code>, <code class="language-plaintext highlighter-rouge">der</code></td>
-      <td>The encoding of the output file containing the signature.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">hash-algorithm</code></td>
-      <td>Yes</td>
-      <td><code class="language-plaintext highlighter-rouge">sha256</code>, <code class="language-plaintext highlighter-rouge">sha384</code>, <code class="language-plaintext highlighter-rouge">sha512</code></td>
-      <td>Hash algorithm used to create the signature</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">rsa-padding</code></td>
-      <td>For RSA keys</td>
-      <td><code class="language-plaintext highlighter-rouge">pkcs1</code>, <code class="language-plaintext highlighter-rouge">pss</code></td>
-      <td>Padding algorithm (RSA keys only)</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="example-1">Example</h4>
-
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;zip-file&gt;</span>
-    <span class="nt">&lt;file</span> <span class="na">path=</span><span class="s">"myfile.bin"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;create-cms-signature</span> <span class="na">output-encoding=</span><span class="s">"pem"</span> <span class="na">output-file-name=</span><span class="s">"${file.name}.cms.pem"</span> <span class="na">hash-algorithm=</span><span class="s">"sha256"</span> <span class="na">rsa-padding=</span><span class="s">"pkcs1"</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/pe-file&gt;</span>
-  <span class="nt">&lt;/zip-file&gt;</span>
-<span class="nt">&lt;/artifact-configuration&gt;</span>
-</code></pre></div></div>
-
-<p>The resulting artifact will contain both the original file <code class="language-plaintext highlighter-rouge">myfile.bin</code> and the detached signature in <code class="language-plaintext highlighter-rouge">myfile.cms.pem</code>.</p>
-
-<h4 id="detached-signature-verification-1">Detached signature verification</h4>
-
-<p>There are multiple tools and solutions that support handling of CMS signatures. One popular option is <code class="language-plaintext highlighter-rouge">openssl cms</code>. The signature can be verified using the following call:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl cms <span class="nt">-verify</span> <span class="nt">-purpose</span> codesign <span class="nt">-content</span> myfile.bin <span class="nt">-inform</span> PEM <span class="nt">-in</span> myfile.cms.pem <span class="nt">-out</span> /dev/null
-</code></pre></div></div>
-
-<blockquote class="panel warning">
-  <p><strong>OpenSSL CMS verification</strong></p>
-
-  <ul>
-    <li>Prior to OpenSSL 3.2, the <code class="language-plaintext highlighter-rouge">-purpose</code> flag does not support <code class="language-plaintext highlighter-rouge">codesign</code>, you can use <code class="language-plaintext highlighter-rouge">any</code> instead</li>
-    <li>When signing with a certificate that is not trusted on the respective platform, use the <code class="language-plaintext highlighter-rouge">-CAFile</code> and pass in a path to the root certificate</li>
-  </ul>
-</blockquote>
-
 <h2 id="verification">Verification methods</h2>
 
 <p>Verification directives are used to ensure that files in a singing request are already properly signed by their respective publisher.</p>
@@ -1120,7 +1049,7 @@ Description
   <p>Use <code class="language-plaintext highlighter-rouge">append="true"</code> to add the new signature instead of replacing the existing one (supported formats only).</p>
 </blockquote>
 
-<h4 id="example-2">Example</h4>
+<h4 id="example-1">Example</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;msi-file&gt;</span>
