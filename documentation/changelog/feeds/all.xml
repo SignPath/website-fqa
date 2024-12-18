@@ -2,12 +2,26 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/all.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-12-16</updated>
+<updated>2024-12-18</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/all.xml</id><title type="html">SignPath - Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2024-12-18:application:1.177.2</id>
+        <title>SignPath Application 1.177.2</title>
+        <updated>2024-12-18</updated>
+        <published>2024-12-18</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2024-12-18" />
+        <category term="release/application" label="Application" />
+        <summary type="html">New Release:  1.177.2</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.177.2&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Added support for &lt;a href=&quot;/documentation/artifact-configuration/reference#create-cms-signature&quot;&gt;detached CMS&lt;/a&gt; signatures.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2024-12-16:github_connector:1.1.0</id>
         <title>SignPath GitHub Connector 1.1.0</title>
         <updated>2024-12-16</updated>
