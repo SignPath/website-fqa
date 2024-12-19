@@ -480,12 +480,6 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">openssl</span><span class="w"> </span><span class="nx">cms</span><span class="w"> </span><span class="nt">-engine</span><span class="w"> </span><span class="nx">pkcs11</span><span class="w"> </span><span class="nt">-signer</span><span class="w"> </span><span class="s2">"certificate.pem"</span><span class="w"> </span><span class="nt">-inkey</span><span class="w"> </span><span class="s2">"pkcs11:id=</span><span class="nv">$ProjectSlug</span><span class="s2">/</span><span class="nv">$SigningPolicySlug</span><span class="s2">;type=private"</span><span class="w"> </span><span class="nt">-keyform</span><span class="w"> </span><span class="nx">engine</span><span class="w"> </span><span class="nt">-sign</span><span class="w"> </span><span class="nt">-binary</span><span class="w"> </span><span class="nt">-in</span><span class="w"> </span><span class="s2">"artifact.bin"</span><span class="w"> </span><span class="nt">-noattr</span><span class="w"> </span><span class="nt">-out</span><span class="w"> </span><span class="s2">"artifact.sig"</span><span class="w"> </span><span class="nt">-outform</span><span class="w"> </span><span class="nx">PEM</span><span class="w">
 </span></code></pre></div></div>
 
-<blockquote class="panel warning">
-  <p><strong>Important</strong></p>
-
-  <p><em>OpenSSL</em> fails to verify signatures that were created using X.509 certificates with the Extended Key Usage Code Signing (1.3.6.1.5.5.7.3.3).</p>
-</blockquote>
-
 <h2 id="osslsigncode">osslsigncode</h2>
 
 <p><em><a href="https://github.com/mtrojnar/osslsigncode">osslsigncode</a></em> is a tool that allows applying Windows Authenticode signatures on Linux systems using OpenSSL. Accordingly, it also requires an OpenSC pkcs11 OpenSSL engine installation. See the <a href="#openssl">OpenSSL</a> section for details.</p>
