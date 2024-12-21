@@ -13,13 +13,13 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:description" content="Artifact Configuration Reference" />
   <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/artifact-configuration/reference" />
-  <meta property="og:site_name" content="SignPath.io" />
+  <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
   <meta name="description" content="Artifact Configuration Reference"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-12-18">
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-11-28">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
-  <script src='/assets/index.js?cache=2024-12-18'></script>
+  <script src='/assets/index.js?cache=2024-03-07'></script>
   <script src='/assets/js/main-bundle.js?cache=2024-08-05'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
   <link rel="icon" href="/assets/favicon.png" sizes="192x192">
   <link rel="apple-touch-icon-precomposed" href="/assets/favicon.png">
@@ -42,19 +42,7 @@
             </li><li>
               <a href='/about-us'> About us </a>
               <ul><li> <a href='/company'> Company </a> </li><li> <a href='/team'> Team </a> </li><li> <a href='/blog'> Blog </a> </li><li> <a href='/jobs'> Jobs </a> </li><li> <a href='/support'> Support </a> </li><li> <a href='/contact'> Contact </a> </li></ul>
-            </li><li class='search'>
-            <div>
-              <div>
-                <form method="get" target="_self" action="/search">
-                  <input type='search' name='q' placeholder="Search SignPath.io" />
-                </form>
-              </div>
-            </div>
-            <span tabindex='0'>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M 19 3 C 13.488281 3 9 7.488281 9 13 C 9 15.394531 9.839844 17.589844 11.25 19.3125 L 3.28125 27.28125 L 4.71875 28.71875 L 12.6875 20.75 C 14.410156 22.160156 16.605469 23 19 23 C 24.511719 23 29 18.511719 29 13 C 29 7.488281 24.511719 3 19 3 Z M 19 5 C 23.429688 5 27 8.570313 27 13 C 27 17.429688 23.429688 21 19 21 C 14.570313 21 11 17.429688 11 13 C 11 8.570313 14.570313 5 19 5 Z"/></svg>
-            </span>
-          </li>
-          <li class='login'><a class='btn btn-flat' href='https://fqa.test.signpath.io/Web/Home/Login'>Login</a>
+            </li><li class='login'><a class='btn btn-flat' href='https://fqa.test.signpath.io/Web/Home/Login'>Login</a>
           <li class='login'><a href='https://fqa.test.signpath.io/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
           </li>
         </ul>
@@ -103,14 +91,15 @@
   </li>
   <li><a href="#signing-methods">Signing methods</a>
     <ul>
-      <li><a href="#authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code></a></li>
-      <li><a href="#clickonce-sign"><code class="language-plaintext highlighter-rouge">&lt;clickonce-sign&gt;</code></a></li>
-      <li><a href="#nuget-sign"><code class="language-plaintext highlighter-rouge">&lt;nuget-sign&gt;</code></a></li>
-      <li><a href="#office-macro-sign"><code class="language-plaintext highlighter-rouge">&lt;office-macro-sign&gt;</code></a></li>
-      <li><a href="#opc-sign"><code class="language-plaintext highlighter-rouge">&lt;opc-sign&gt;</code></a></li>
-      <li><a href="#jar-sign"><code class="language-plaintext highlighter-rouge">&lt;jar-sign&gt;</code></a></li>
-      <li><a href="#xml-sign"><code class="language-plaintext highlighter-rouge">&lt;xml-sign&gt;</code></a></li>
-      <li><a href="#create-raw-signature">Detached raw signatures using <code class="language-plaintext highlighter-rouge">&lt;create-raw-signature&gt;</code></a></li>
+      <li><a href="#authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code>: Authenticode (Windows)</a></li>
+      <li><a href="#clickonce-sign"><code class="language-plaintext highlighter-rouge">&lt;clickonce-sign&gt;</code>: Microsoft ClickOnce</a></li>
+      <li><a href="#nuget-sign"><code class="language-plaintext highlighter-rouge">&lt;nuget-sign&gt;</code>: NuGet packages</a></li>
+      <li><a href="#office-macro-sign"><code class="language-plaintext highlighter-rouge">&lt;office-macro-sign&gt;</code>: Microsoft Office VBA macros</a></li>
+      <li><a href="#opc-sign"><code class="language-plaintext highlighter-rouge">&lt;opc-sign&gt;</code>: Open Packaging Convention</a></li>
+      <li><a href="#jar-sign"><code class="language-plaintext highlighter-rouge">&lt;jar-sign&gt;</code>: Java Archives</a></li>
+      <li><a href="#xml-sign"><code class="language-plaintext highlighter-rouge">&lt;xml-sign&gt;</code>: XML Digital Signature</a></li>
+      <li><a href="#create-cms-signature"><code class="language-plaintext highlighter-rouge">&lt;create-cms-signature&gt;</code>: Cryptographic Message Syntax (CMS)</a></li>
+      <li><a href="#create-raw-signature"><code class="language-plaintext highlighter-rouge">&lt;create-raw-signature&gt;</code>: Detached raw signature files</a></li>
     </ul>
   </li>
   <li><a href="#verification">Verification methods</a>
@@ -319,7 +308,7 @@ Description
         <p>.zip</p>
       </td><td>
 
-        <p>Use ZIP archives to sign multiple files at once. (ZIP archives can also be signed and verified using the <a href="#jar-sign">JAR format</a></p>
+        <p>Use ZIP archives to sign multiple files at once. (ZIP archives can also be signed and verified using the <a href="#jar-sign">JAR format</a>.)</p>
       </td></tr><tr><td>
 
         <p><code class="language-plaintext highlighter-rouge">&lt;office-oxml-file&gt;</code></p>
@@ -387,12 +376,15 @@ Description
         <p>No</p>
       </td><td>
 
-        <p><a href="#create-raw-signature"><code class="language-plaintext highlighter-rouge">&lt;create-raw-signature&gt;</code></a></p>
-      </td><td>
+        <p><a href="#create-cms-signature"><code class="language-plaintext highlighter-rouge">&lt;create-cms-signature&gt;</code></a>,
+<a href="#create-raw-signature"><code class="language-plaintext highlighter-rouge">&lt;create-raw-signature&gt;</code></a></p>
 
       </td><td>
 
-        <p>Arbitrary files. This directive will create a detached raw signature file (available for Advanced Code Signing)</p>
+        <p>*</p>
+      </td><td>
+
+        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
       </td></tr></tbody>
 </table>
 <h3 id="containers">Container formats</h3>
@@ -407,7 +399,7 @@ Description
 
 <p>For <a href="syntax#file-and-directory-sets">file and directory sets</a>, specify the signing directive in the <code class="language-plaintext highlighter-rouge">&lt;for-each&gt;</code> element.</p>
 
-<h3 id="authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code></h3>
+<h3 id="authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code>: Authenticode (Windows)</h3>
 
 <p><strong>Supported elements:</strong></p>
 
@@ -606,7 +598,7 @@ Description
   <li>Use <a href="#metadata-restrictions">metadata restrictions</a> for <code class="language-plaintext highlighter-rouge">&lt;pe-file&gt;</code> to restrict product name and version.</li>
 </ul>
 
-<h3 id="clickonce-sign"><code class="language-plaintext highlighter-rouge">&lt;clickonce-sign&gt;</code></h3>
+<h3 id="clickonce-sign"><code class="language-plaintext highlighter-rouge">&lt;clickonce-sign&gt;</code>: Microsoft ClickOnce</h3>
 
 <p><strong>Supported elements:</strong></p>
 
@@ -643,7 +635,7 @@ Description
 <span class="nt">&lt;/artifact-configuration&gt;</span>
 </code></pre></div></div>
 
-<h3 id="nuget-sign"><code class="language-plaintext highlighter-rouge">&lt;nuget-sign&gt;</code></h3>
+<h3 id="nuget-sign"><code class="language-plaintext highlighter-rouge">&lt;nuget-sign&gt;</code>: NuGet packages</h3>
 
 <p><strong>Supported elements:</strong></p>
 
@@ -680,7 +672,7 @@ Description
 
 <p>Although the NuGet Package format is based on OPC (see next section), it uses its own specific signing format.</p>
 
-<h3 id="office-macro-sign"><code class="language-plaintext highlighter-rouge">&lt;office-macro-sign&gt;</code></h3>
+<h3 id="office-macro-sign"><code class="language-plaintext highlighter-rouge">&lt;office-macro-sign&gt;</code>: Microsoft Office VBA macros</h3>
 
 <p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>. </p>
 
@@ -708,7 +700,7 @@ Description
 
 <p>Macro signatures apply only to the macros within the document files and are not affected by any other changes in the signed document files.</p>
 
-<h3 id="opc-sign"><code class="language-plaintext highlighter-rouge">&lt;opc-sign&gt;</code></h3>
+<h3 id="opc-sign"><code class="language-plaintext highlighter-rouge">&lt;opc-sign&gt;</code>: Open Packaging Convention</h3>
 
 <p><strong>Supported elements:</strong></p>
 
@@ -744,7 +736,7 @@ Description
 
 <!-- markdownlint-enable MD026 no trailing punctuation -->
 
-<h3 id="jar-sign"><code class="language-plaintext highlighter-rouge">&lt;jar-sign&gt;</code></h3>
+<h3 id="jar-sign"><code class="language-plaintext highlighter-rouge">&lt;jar-sign&gt;</code>: Java Archives</h3>
 
 <p class="badge icon-signpath">Available for <em>Code Signing Basic, Advanced Code Signing, Open Source Code Signing</em>. </p>
 
@@ -777,7 +769,7 @@ Description
         <p>.zip</p>
       </td><td>
 
-        <p>Use ZIP archives to sign multiple files at once. (ZIP archives can also be signed and verified using the <a href="#jar-sign">JAR format</a></p>
+        <p>Use ZIP archives to sign multiple files at once. (ZIP archives can also be signed and verified using the <a href="#jar-sign">JAR format</a>.)</p>
       </td></tr></tbody>
 </table>
 <p>Android apps and app-bundles: Note that JAR signatures only implement APK signing scheme v1 (v2 and v3 are not yet supported).</p>
@@ -797,7 +789,7 @@ Description
 
 <p>Add the <code class="language-plaintext highlighter-rouge">-verbose</code> option to see the certificate.</p>
 
-<h3 id="xml-sign"><code class="language-plaintext highlighter-rouge">&lt;xml-sign&gt;</code></h3>
+<h3 id="xml-sign"><code class="language-plaintext highlighter-rouge">&lt;xml-sign&gt;</code>: XML Digital Signature</h3>
 
 <p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>. </p>
 
@@ -902,7 +894,7 @@ Description
   <li>Use <a href="#metadata-restrictions">metadata restrictions</a> for <code class="language-plaintext highlighter-rouge">&lt;xml-file&gt;</code> to restrict root element and namespace.</li>
 </ul>
 
-<h3 id="create-raw-signature">Detached raw signatures using <code class="language-plaintext highlighter-rouge">&lt;create-raw-signature&gt;</code></h3>
+<h3 id="create-cms-signature"><code class="language-plaintext highlighter-rouge">&lt;create-cms-signature&gt;</code>: Cryptographic Message Syntax (CMS)</h3>
 
 <p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>. </p>
 
@@ -923,14 +915,131 @@ Description
         <p><code class="language-plaintext highlighter-rouge">&lt;file&gt;</code></p>
       </td><td>
 
+        <p>*</p>
       </td><td>
 
-        <p>Arbitrary files. This directive will create a detached raw signature file (available for Advanced Code Signing)</p>
+        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
       </td></tr></tbody>
 </table>
-<p><strong>Note: Since the detached signatures are placed in a separate file, this directive is only available within a <a href="syntax#zip-file-element"><code class="language-plaintext highlighter-rouge">&lt;zip-file&gt;</code></a> element.</strong></p>
+<p>Create Cryptographic Message Syntax (CMS) signatures to sign any file with a X.509 certificates. Tools like <code class="language-plaintext highlighter-rouge">openssl cms</code> can be used to verify these signatures.</p>
 
-<p>Detached raw signatures can be used to sign any binary or text file. They can also be used to <a href="/documentation/signing-containers/cosign">sign <em>Cosign</em> metadata files</a>.</p>
+<blockquote class="panel note">
+  <p><strong>This directive creates a detached signature file</strong></p>
+
+  <p>This directive adds a file to the output and is therefore only available within a <a href="syntax#zip-file-element"><code class="language-plaintext highlighter-rouge">&lt;zip-file&gt;</code></a> element.</p>
+</blockquote>
+
+<p>The <code class="language-plaintext highlighter-rouge">create-cms-signature</code> directive supports the following parameters:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Values</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">output-file-name</code></td>
+      <td>Yes</td>
+      <td> </td>
+      <td>Name of the output file containing the signature. Use <code class="language-plaintext highlighter-rouge">${file.name}</code> to reference the source file name.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">output-encoding</code></td>
+      <td>Yes</td>
+      <td><code class="language-plaintext highlighter-rouge">pem</code>, <code class="language-plaintext highlighter-rouge">der</code></td>
+      <td>The encoding of the output file containing the signature.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">hash-algorithm</code></td>
+      <td>Yes</td>
+      <td><code class="language-plaintext highlighter-rouge">sha256</code>, <code class="language-plaintext highlighter-rouge">sha384</code>, <code class="language-plaintext highlighter-rouge">sha512</code></td>
+      <td>Hash algorithm used to create the signature.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">rsa-padding</code></td>
+      <td>For RSA keys</td>
+      <td><code class="language-plaintext highlighter-rouge">pkcs1</code>, <code class="language-plaintext highlighter-rouge">pss</code></td>
+      <td>Padding algorithm (supported only when using RSA keys).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="cms-example">CMS example</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;zip-file&gt;</span>
+    <span class="nt">&lt;file</span> <span class="na">path=</span><span class="s">"myfile.bin"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;create-cms-signature</span> <span class="na">output-encoding=</span><span class="s">"pem"</span> <span class="na">output-file-name=</span><span class="s">"${file.name}.cms.pem"</span>
+         <span class="na">hash-algorithm=</span><span class="s">"sha256"</span> <span class="na">rsa-padding=</span><span class="s">"pkcs1"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/pe-file&gt;</span>
+  <span class="nt">&lt;/zip-file&gt;</span>
+<span class="nt">&lt;/artifact-configuration&gt;</span>
+</code></pre></div></div>
+
+<p>The resulting artifact will contain both the original file <code class="language-plaintext highlighter-rouge">myfile.bin</code> and the detached signature in <code class="language-plaintext highlighter-rouge">myfile.bin.cms.pem</code>.</p>
+
+<h4 id="cms-signature-verification">CMS signature verification</h4>
+
+<p>Multiple tools support verification of CMS signature. One popular option is <code class="language-plaintext highlighter-rouge">openssl cms</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl cms <span class="nt">-verify</span> <span class="nt">-purpose</span> codesign <span class="nt">-content</span> myfile.bin <span class="nt">-inform</span> PEM <span class="nt">-in</span> myfile.cms.pem <span class="nt">-out</span> /dev/null
+</code></pre></div></div>
+
+<blockquote class="panel warning">
+  <p><strong>OpenSSL CMS verification</strong></p>
+
+  <ul>
+    <li>Prior to OpenSSL 3.2, the <code class="language-plaintext highlighter-rouge">-purpose</code> flag does not support <code class="language-plaintext highlighter-rouge">codesign</code>. Use <code class="language-plaintext highlighter-rouge">any</code> instead.</li>
+    <li>When the certificate is not trusted on the target system, specify <code class="language-plaintext highlighter-rouge">-CAFile</code> with the path of the root certificate. Make sure that the root certificate is distributed in a secure way.</li>
+  </ul>
+</blockquote>
+
+<h3 id="create-raw-signature"><code class="language-plaintext highlighter-rouge">&lt;create-raw-signature&gt;</code>: Detached raw signature files</h3>
+
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>. </p>
+
+<p><strong>Supported elements:</strong></p>
+
+<table>
+    <thead>
+        <tr><th style="width: 9em;">
+Element 
+</th><th>
+Extensions 
+</th><th>
+Description 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;file&gt;</code></p>
+      </td><td>
+
+        <p>*</p>
+      </td><td>
+
+        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
+      </td></tr></tbody>
+</table>
+<p>Create raw signatures for any binary or text file. A raw signature is the output of the key algorithm, or cipher (e.g. RSA, ECDSA), without any additional data.</p>
+
+<p>Use cases for raw signatures include:</p>
+
+<ul>
+  <li>Signing for lightweight verification, e.g. on embedded systems</li>
+  <li>Creating signature blocks for subsequent use with other tools and formats</li>
+  <li><a href="/documentation/signing-containers/cosign">Signing <em>Cosign</em> metadata files</a></li>
+</ul>
+
+<blockquote class="panel note">
+  <p><strong>This directive creates a detached signature file</strong></p>
+
+  <p>This directive adds a file to the output and is therefore only available within a <a href="syntax#zip-file-element"><code class="language-plaintext highlighter-rouge">&lt;zip-file&gt;</code></a> element.</p>
+</blockquote>
 
 <p>The <code class="language-plaintext highlighter-rouge">create-raw-signature</code> directive supports the following parameters:</p>
 
@@ -960,12 +1069,12 @@ Description
       <td><code class="language-plaintext highlighter-rouge">rsa-padding</code></td>
       <td>For RSA keys</td>
       <td><code class="language-plaintext highlighter-rouge">pkcs1</code>, <code class="language-plaintext highlighter-rouge">pss</code></td>
-      <td>Padding algorithm (RSA keys only)</td>
+      <td>Padding algorithm (supported only when using RSA keys).</td>
     </tr>
   </tbody>
 </table>
 
-<h4 id="example">Example</h4>
+<h4 id="raw-signature-example">Raw signature example</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;zip-file&gt;</span>
@@ -978,12 +1087,20 @@ Description
 
 <p>The resulting artifact will contain both the original file <code class="language-plaintext highlighter-rouge">myfile.bin</code> and the detached signature in <code class="language-plaintext highlighter-rouge">myfile.bin.sig</code>.</p>
 
-<h4 id="detached-signature-verification">Detached signature verification</h4>
+<h4 id="raw-signature-verification">Raw signature verification</h4>
 
-<p>There are multiple tools and solutions that support handling of raw signature blocks. One popular option is <code class="language-plaintext highlighter-rouge">openssl dgst</code>. As the command does not support X.509 certificates, the public key has to be extracted before the signature can be verified using the following call:</p>
+<p>Extract the public key from the certificate, then use any tool that can process raw signature blocks to verify the detached signature.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl dgst <span class="nt">-verify</span> pubkey.pem <span class="nt">-signature</span> file.sig file
+<p>Extract the public key:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl x509 <span class="nt">-in</span> certificate.cer <span class="nt">-inform</span> DER <span class="nt">-pubkey</span> <span class="nt">-out</span> pubkey.pem <span class="nt">-noout</span>
 </code></pre></div></div>
+
+<p>Verify the signature using the public key:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl dgst <span class="nt">-verify</span> pubkey.pem <span class="nt">-signature</span> file.sig
+</code></pre></div></div>
+
+<p>If you use this method directly to verify signatures, make sure that the public key is distributed in a secure way and independently from the file to be verified.</p>
 
 <h2 id="verification">Verification methods</h2>
 
@@ -1019,7 +1136,7 @@ Description
   <p>Use <code class="language-plaintext highlighter-rouge">append="true"</code> to add the new signature instead of replacing the existing one (supported formats only).</p>
 </blockquote>
 
-<h4 id="example-1">Example</h4>
+<h4 id="example">Example</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;msi-file&gt;</span>
