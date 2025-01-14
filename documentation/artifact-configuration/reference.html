@@ -111,6 +111,7 @@
       <li><a href="#jar-sign"><code class="language-plaintext highlighter-rouge">&lt;jar-sign&gt;</code>: Java Archives</a></li>
       <li><a href="#xml-sign"><code class="language-plaintext highlighter-rouge">&lt;xml-sign&gt;</code>: XML Digital Signature</a></li>
       <li><a href="#create-cms-signature"><code class="language-plaintext highlighter-rouge">&lt;create-cms-signature&gt;</code>: Cryptographic Message Syntax (CMS)</a></li>
+      <li><a href="#create-gpg-signature"><code class="language-plaintext highlighter-rouge">&lt;create-gpg-signature&gt;</code>: Detached GPG signing</a></li>
       <li><a href="#create-raw-signature"><code class="language-plaintext highlighter-rouge">&lt;create-raw-signature&gt;</code>: Detached raw signature files</a></li>
     </ul>
   </li>
@@ -389,6 +390,7 @@ Description
       </td><td>
 
         <p><a href="#create-cms-signature"><code class="language-plaintext highlighter-rouge">&lt;create-cms-signature&gt;</code></a>,
+<a href="#create-gpg-signature"><code class="language-plaintext highlighter-rouge">&lt;create-gpg-signature&gt;</code></a>,
 <a href="#create-raw-signature"><code class="language-plaintext highlighter-rouge">&lt;create-raw-signature&gt;</code></a></p>
 
       </td><td>
@@ -396,7 +398,7 @@ Description
         <p>*</p>
       </td><td>
 
-        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
+        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS</a>, <a href="#create-gpg-signature">GPG</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
       </td></tr></tbody>
 </table>
 <h3 id="containers">Container formats</h3>
@@ -592,7 +594,7 @@ Description
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;authenticode-sign</span> <span class="na">append=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
 </code></pre></div></div>
 
-<p>Example: sign using SHA1 algoritm, then sign again using default SHA-256 algorithm (explicitly specified for clarity)</p>
+<p>Example: sign using SHA1 algorithm, then sign again using default SHA-256 algorithm (explicitly specified for clarity)</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;authenticode-sign</span> <span class="na">hash-algorithm=</span><span class="s">"sha1"</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;authenticode-sign</span> <span class="na">hash-algorithm=</span><span class="s">"sha256"</span> <span class="na">append=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
@@ -930,7 +932,7 @@ Description
         <p>*</p>
       </td><td>
 
-        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
+        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS</a>, <a href="#create-gpg-signature">GPG</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
       </td></tr></tbody>
 </table>
 <p>Create Cryptographic Message Syntax (CMS) signatures to sign any file with a X.509 certificates. Tools like <code class="language-plaintext highlighter-rouge">openssl cms</code> can be used to verify these signatures.</p>
@@ -947,33 +949,33 @@ Description
   <thead>
     <tr>
       <th>Parameter</th>
-      <th>Required</th>
-      <th>Values</th>
+      <th>Default value</th>
+      <th>Available values</th>
       <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">output-file-name</code></td>
-      <td>Yes</td>
+      <td>(mandatory)</td>
       <td> </td>
       <td>Name of the output file containing the signature. Use <code class="language-plaintext highlighter-rouge">${file.name}</code> to reference the source file name.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">output-encoding</code></td>
-      <td>Yes</td>
+      <td>(mandatory)</td>
       <td><code class="language-plaintext highlighter-rouge">pem</code>, <code class="language-plaintext highlighter-rouge">der</code></td>
       <td>The encoding of the output file containing the signature.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">hash-algorithm</code></td>
-      <td>Yes</td>
+      <td><code class="language-plaintext highlighter-rouge">sha256</code></td>
       <td><code class="language-plaintext highlighter-rouge">sha256</code>, <code class="language-plaintext highlighter-rouge">sha384</code>, <code class="language-plaintext highlighter-rouge">sha512</code></td>
-      <td>Hash algorithm used to create the signature.</td>
+      <td>Hash algorithm used to create the signature</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">rsa-padding</code></td>
-      <td>For RSA keys</td>
+      <td>(mandatory for RSA keys)</td>
       <td><code class="language-plaintext highlighter-rouge">pkcs1</code>, <code class="language-plaintext highlighter-rouge">pss</code></td>
       <td>Padding algorithm (supported only when using RSA keys).</td>
     </tr>
@@ -1010,6 +1012,107 @@ Description
   </ul>
 </blockquote>
 
+<h3 id="create-gpg-signature"><code class="language-plaintext highlighter-rouge">&lt;create-gpg-signature&gt;</code>: Detached GPG signing</h3>
+
+<p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>. </p>
+
+<p><strong>Supported elements:</strong></p>
+
+<table>
+    <thead>
+        <tr><th style="width: 9em;">
+Element 
+</th><th>
+Extensions 
+</th><th>
+Description 
+</th></tr>
+    </thead>
+    <tbody><tr><td>
+
+        <p><code class="language-plaintext highlighter-rouge">&lt;file&gt;</code></p>
+      </td><td>
+
+        <p>*</p>
+      </td><td>
+
+        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS</a>, <a href="#create-gpg-signature">GPG</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
+      </td></tr></tbody>
+</table>
+<p>Create detached GPG signatures to sign any file with a GPG key.</p>
+
+<blockquote class="panel note">
+  <p><strong>Detached signature files and GPG key reference</strong></p>
+
+  <ul>
+    <li>This directive adds a file to the output and is therefore only available within a <a href="syntax#zip-file-element"><code class="language-plaintext highlighter-rouge">&lt;zip-file&gt;</code></a> element.</li>
+    <li>Only available for <a href="/documentation/projects#signing-policies">signing policies</a> with a <a href="/documentation/managing-certificates#certificate-types">GPG key</a> certificate.</li>
+  </ul>
+</blockquote>
+
+<p>The <code class="language-plaintext highlighter-rouge">create-gpg-signature</code> directive supports the following parameters:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Default value</th>
+      <th>Available values</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">output-file-name</code></td>
+      <td>(mandatory)</td>
+      <td> </td>
+      <td>Name of the output file containing the signature. Use <code class="language-plaintext highlighter-rouge">${file.name}</code> to reference the source file name.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">output-encoding</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ascii-armored</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ascii-armored</code>, <code class="language-plaintext highlighter-rouge">binary</code></td>
+      <td>The encoding of the output file containing the signature. Either <a href="https://datatracker.ietf.org/doc/html/rfc4880#section-6.2">ASCII armored, i.e. text-only</a> (default) or the binary OpenPGP packet format.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">hash-algorithm</code></td>
+      <td><code class="language-plaintext highlighter-rouge">sha256</code></td>
+      <td><code class="language-plaintext highlighter-rouge">sha256</code>, <code class="language-plaintext highlighter-rouge">sha384</code>, <code class="language-plaintext highlighter-rouge">sha512</code></td>
+      <td>Hash algorithm used to create the signature.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">version</code></td>
+      <td><code class="language-plaintext highlighter-rouge">4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">4</code></td>
+      <td>Specifies the <a href="https://datatracker.ietf.org/doc/html/rfc4880#section-5.2">signature version</a>. Currently only <code class="language-plaintext highlighter-rouge">4</code> is supported, the attribute is intended to allow to fixate the version in case the default version will be changed in the future.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="example">Example</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;zip-file&gt;</span>
+    <span class="nt">&lt;file</span> <span class="na">path=</span><span class="s">"myfile.bin"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;create-gpg-signature</span> <span class="na">output-encoding=</span><span class="s">"ascii-armored"</span> <span class="na">output-file-name=</span><span class="s">"${file.name}.asc"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/file&gt;</span>
+  <span class="nt">&lt;/zip-file&gt;</span>
+<span class="nt">&lt;/artifact-configuration&gt;</span>
+</code></pre></div></div>
+
+<p>The resulting artifact will contain both the original file <code class="language-plaintext highlighter-rouge">myfile.bin</code> and the detached signature in <code class="language-plaintext highlighter-rouge">myfile.bin.asc</code>.</p>
+
+<h4 id="gpg-signature-verification">GPG signature verification</h4>
+
+<p>Signature verification can be performed with any <a href="https://datatracker.ietf.org/doc/html/rfc4880">OpenPGP-compliant</a> tool. Example using <a href="https://www.gnupg.org/">GnuPG</a>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Import the GPG key (unless done before):</span>
+gpg <span class="nt">--import</span> my_key.asc
+
+<span class="c"># Verify `myfile.bin` against the detached signature file `myfile.bin.asc`:</span>
+gpg <span class="nt">--verify</span> myfile.bin.asc myfile.bin
+</code></pre></div></div>
+
 <h3 id="create-raw-signature"><code class="language-plaintext highlighter-rouge">&lt;create-raw-signature&gt;</code>: Detached raw signature files</h3>
 
 <p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>. </p>
@@ -1034,7 +1137,7 @@ Description
         <p>*</p>
       </td><td>
 
-        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
+        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS</a>, <a href="#create-gpg-signature">GPG</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
       </td></tr></tbody>
 </table>
 <p>Create raw signatures for any binary or text file. A raw signature is the output of the key algorithm, or cipher (e.g. RSA, ECDSA), without any additional data.</p>
@@ -1059,27 +1162,27 @@ Description
   <thead>
     <tr>
       <th>Parameter</th>
-      <th>Required</th>
+      <th>Default value</th>
       <th>Values</th>
       <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">file-name</code></td>
-      <td>Yes</td>
+      <td><code class="language-plaintext highlighter-rouge">output-file-name</code></td>
+      <td>(mandatory)</td>
       <td> </td>
       <td>Name of the output file containing the signature. Use <code class="language-plaintext highlighter-rouge">${file.name}</code> to reference the source file name.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">hash-algorithm</code></td>
-      <td>Yes</td>
+      <td>(mandatory))</td>
       <td><code class="language-plaintext highlighter-rouge">sha256</code>, <code class="language-plaintext highlighter-rouge">sha384</code>, <code class="language-plaintext highlighter-rouge">sha512</code></td>
-      <td>Hash algorithm used to create the signature</td>
+      <td>Hash algorithm used to create the signature.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">rsa-padding</code></td>
-      <td>For RSA keys</td>
+      <td>(mandatory for RSA keys)</td>
       <td><code class="language-plaintext highlighter-rouge">pkcs1</code>, <code class="language-plaintext highlighter-rouge">pss</code></td>
       <td>Padding algorithm (supported only when using RSA keys).</td>
     </tr>
@@ -1091,7 +1194,7 @@ Description
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;zip-file&gt;</span>
     <span class="nt">&lt;file</span> <span class="na">path=</span><span class="s">"myfile.bin"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;create-raw-signature</span> <span class="na">file-name=</span><span class="s">"${file.name}.sig"</span> <span class="na">hash-algorithm=</span><span class="s">"sha256"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;create-raw-signature</span> <span class="na">output-file-name=</span><span class="s">"${file.name}.sig"</span> <span class="na">hash-algorithm=</span><span class="s">"sha256"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/pe-file&gt;</span>
   <span class="nt">&lt;/zip-file&gt;</span>
 <span class="nt">&lt;/artifact-configuration&gt;</span>
@@ -1148,7 +1251,7 @@ Description
   <p>Use <code class="language-plaintext highlighter-rouge">append="true"</code> to add the new signature instead of replacing the existing one (supported formats only).</p>
 </blockquote>
 
-<h4 id="example">Example</h4>
+<h4 id="example-1">Example</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;msi-file&gt;</span>

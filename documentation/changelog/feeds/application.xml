@@ -2,12 +2,34 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/application.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-12-18</updated>
+<updated>2025-01-14</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/application.xml</id><title type="html">SignPath - Application Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-01-14:application:1.179.0</id>
+        <title>SignPath Application 1.179.0</title>
+        <updated>2025-01-14</updated>
+        <published>2025-01-14</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-01-14" />
+        <category term="release/application" label="Application" />
+        <summary type="html">New Release:  1.179.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.179.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Added support for &lt;a href=&quot;/documentation/artifact-configuration/reference#create-gpg-signature&quot;&gt;detached GPG file signing&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;The signing request details page now displays details of detected malware including threat names and the exact file location in container files like ZIP archives.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;&lt;a href=&quot;/documentation/artifact-configuration/reference#create-raw-signature&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;create-raw-signature&amp;gt;&lt;/code&gt;&lt;/a&gt;: renamed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;file-name&lt;/code&gt; attribute to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;output-file-name&lt;/code&gt;. (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;file-name&lt;/code&gt; is still supported for backwards compatibility.)&lt;/p&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;&lt;a href=&quot;/documentation/artifact-configuration/reference#create-cms-signature&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;create-cms-signature&amp;gt;&lt;/code&gt;&lt;/a&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hash-algorithm&lt;/code&gt; attribute is now optional.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;REST API: Fixed error in signing request approve/deny APIs when providing &lt;em&gt;empty&lt;/em&gt; request body. (Used to fail unless passing a dummy &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{}&lt;/code&gt; body.)&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2024-12-18:application:1.177.2</id>
         <title>SignPath Application 1.177.2</title>
         <updated>2024-12-18</updated>
