@@ -1176,7 +1176,7 @@ Description
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">hash-algorithm</code></td>
-      <td>(mandatory))</td>
+      <td>(mandatory)</td>
       <td><code class="language-plaintext highlighter-rouge">sha256</code>, <code class="language-plaintext highlighter-rouge">sha384</code>, <code class="language-plaintext highlighter-rouge">sha512</code></td>
       <td>Hash algorithm used to create the signature.</td>
     </tr>
@@ -1188,6 +1188,8 @@ Description
     </tr>
   </tbody>
 </table>
+
+<p>(All cryptographic parameters are mandatory because raw signatures contain no metadata for agnostic verification.)</p>
 
 <h4 id="raw-signature-example">Raw signature example</h4>
 
