@@ -389,9 +389,9 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 <blockquote class="panel tip">
   <p><strong>Tip</strong></p>
 
-  <p>For <em>Linux</em>, configuration, signing invocation and verification examples are provided in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> within <code class="language-plaintext highlighter-rouge">Scenarios/OpenSSL/OpenSSL.ps1</code>. Sample invocation:</p>
+  <p>For <em>Linux</em>, configuration, signing invocation and verification examples are provided in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux samples</a> within <code class="language-plaintext highlighter-rouge">Scenarios/OpenSSL/OpenSSL.sh</code>. Sample invocation:</p>
 
-  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>run_scenario.sh ... <span class="nt">-Scenario</span> OpenSSL <span class="nt">-ProjectSlug</span> <span class="s2">"hash-signing"</span> <span class="nt">-SigningPolicySlug</span> <span class="s2">"test-signing"</span>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./RunScenario.sh <span class="nt">-Scenario</span> OpenSSL <span class="nt">-OrganizationId</span> <span class="s2">"</span><span class="nv">$OrganizationId</span><span class="s2">"</span> <span class="nt">-ApiToken</span> <span class="s2">"</span><span class="nv">$ApiToken</span><span class="s2">"</span> <span class="nt">-ProjectSlug</span> <span class="s2">"hash-signing"</span> <span class="nt">-SigningPolicySlug</span> <span class="s2">"test-signing"</span> <span class="nt">-OpenSslDgst</span>
 </code></pre></div>  </div>
 
 </blockquote>
@@ -536,9 +536,9 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 <blockquote class="panel tip">
   <p><strong>Tip</strong></p>
 
-  <p>This invocation is also provided in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> within <code class="language-plaintext highlighter-rouge">Scenarios/osslsigncode/osslsigncode.ps1</code>. Sample invocation:</p>
+  <p>This invocation is also provided in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux samples</a> within <code class="language-plaintext highlighter-rouge">Scenarios/osslsigncode/osslsigncode.sh</code>. Sample invocation:</p>
 
-  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>run_scenario.sh ... <span class="nt">-Scenario</span> osslsigncode <span class="nt">-ProjectSlug</span> <span class="s2">"hash-signing"</span> <span class="nt">-SigningPolicySlug</span> <span class="s2">"test-signing"</span>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./RunScenario.sh <span class="nt">-Scenario</span> osslsigncode <span class="nt">-OrganizationId</span> <span class="s2">"</span><span class="nv">$OrganizationId</span><span class="s2">"</span> <span class="nt">-ApiToken</span> <span class="s2">"</span><span class="nv">$ApiToken</span><span class="s2">"</span> <span class="nt">-ProjectSlug</span> <span class="s2">"hash-signing"</span> <span class="nt">-SigningPolicySlug</span> <span class="s2">"test-signing"</span>
 </code></pre></div>  </div>
 </blockquote>
 
@@ -561,9 +561,9 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 <blockquote class="panel tip">
   <p><strong>Tip</strong></p>
 
-  <p>The following invocation examples are also provided in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> within <code class="language-plaintext highlighter-rouge">Scenarios/Pkcs11Tool/Pkcs11Tool.ps1</code>. Sample invocation:</p>
+  <p>The following invocation examples are also provided in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux samples</a> within <code class="language-plaintext highlighter-rouge">Scenarios/Pkcs11Tool/Pkcs11Tool.sh</code>. Sample invocation:</p>
 
-  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>run_scenario.sh ... <span class="nt">-Scenario</span> Pkcs11Tool <span class="nt">-ProjectSlug</span> <span class="s2">"hash-signing"</span> <span class="nt">-SigningPolicySlug</span> <span class="s2">"test-signing"</span>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./RunScenario.sh <span class="nt">-Scenario</span> Pkcs11Tool <span class="nt">-OrganizationId</span> <span class="s2">"</span><span class="nv">$OrganizationId</span><span class="s2">"</span> <span class="nt">-ApiToken</span> <span class="s2">"</span><span class="nv">$ApiToken</span><span class="s2">"</span> <span class="nt">-ProjectSlug</span> <span class="s2">"hash-signing"</span> <span class="nt">-SigningPolicySlug</span> <span class="s2">"test-signing"</span>
 </code></pre></div>  </div>
 
 </blockquote>
@@ -671,9 +671,9 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 <blockquote class="panel tip">
   <p><strong>Tip</strong></p>
 
-  <p>For <em>Linux</em>, configuration and invocation examples are provided in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> within <code class="language-plaintext highlighter-rouge">Scenarios/Jar/JarSigner.ps1</code>. Sample invocation:</p>
+  <p>For <em>Linux</em>, configuration and invocation examples are provided in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux samples</a> within <code class="language-plaintext highlighter-rouge">Scenarios/Jar/JarSigner.sh</code>. Sample invocation:</p>
 
-  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>run_scenario.sh ... <span class="nt">-Scenario</span> JarSigner <span class="nt">-ProjectSlug</span> <span class="s2">"hash-signing"</span> <span class="nt">-SigningPolicySlug</span> <span class="s2">"test-signing"</span>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./RunScenario.sh <span class="nt">-Scenario</span> JarSigner  <span class="nt">-OrganizationId</span> <span class="s2">"</span><span class="nv">$OrganizationId</span><span class="s2">"</span> <span class="nt">-ApiToken</span> <span class="s2">"</span><span class="nv">$ApiToken</span><span class="s2">"</span> <span class="nt">-ProjectSlug</span> <span class="s2">"hash-signing"</span> <span class="nt">-SigningPolicySlug</span> <span class="s2">"test-signing"</span>
 </code></pre></div>  </div>
 
 </blockquote>

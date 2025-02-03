@@ -2,12 +2,39 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/crypto_providers.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-12-10</updated>
+<updated>2025-01-31</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/crypto_providers.xml</id><title type="html">SignPath - Crypto Providers Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-01-31:crypto_providers:5.2.0</id>
+        <title>SignPath Crypto Providers 5.2.0</title>
+        <updated>2025-01-31</updated>
+        <published>2025-01-31</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-01-31" />
+        <category term="release/crypto_providers" label="Crypto Providers" />
+        <summary type="html">New Release:  5.2.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  5.2.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Improved Linux container samples:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Ported all scenario scripts and helper functions to Bash.&lt;/li&gt;
+  &lt;li&gt;Improved support for running the scenario scripts outside of a Docker container:
+    &lt;ul&gt;
+      &lt;li&gt;moved Organization ID and API token parameters to the “inner” scenario scripts&lt;/li&gt;
+      &lt;li&gt;improved Cryptoki library discovery&lt;/li&gt;
+      &lt;li&gt;various minor improvements&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/documentation/crypto-providers/gpg&quot;&gt;GPG-based hash signing&lt;/a&gt;: GPG public key file is now downloaded automatically. Therefore the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-GpgKeyId&lt;/code&gt; parameter of the scenario scripts has been replaced with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-ProjectSlug&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-SigningPolicySlug&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Changed work directory from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Samples/Scenarios/temp&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Samples/Scenarios/Work&lt;/code&gt; and logs directory to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Samples/Scenarios/Work/Logs&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Added detached CMS signing sample to the OpenSSL scenario.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2024-12-10:crypto_providers:5.1.0</id>
         <title>SignPath Crypto Providers 5.1.0</title>
         <updated>2024-12-10</updated>

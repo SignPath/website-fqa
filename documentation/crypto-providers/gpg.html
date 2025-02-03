@@ -105,19 +105,15 @@
       <li><a href="#using-gnupg-with-pkcs-11">Using GnuPG with PKCS #11</a></li>
     </ul>
   </li>
-  <li><a href="#setup">Setup</a>
+  <li><a href="#prepare-signing">Setup</a>
     <ul>
-      <li><a href="#configure-gnupg">Configuring GnuPG</a></li>
-      <li><a href="#gpg-error-logs">Error logs</a></li>
-      <li><a href="#prepare-signing">Prepare for signing</a></li>
+      <li><a href="#signpath-configuration">SignPath configuration</a></li>
+      <li><a href="#configure-gnupg">Configure GPG for signing</a></li>
     </ul>
   </li>
   <li><a href="#signing-code-with-gpg">Signing code with GPG</a>
     <ul>
-      <li><a href="#gpg-file-signing">GPG File Signing</a></li>
-      <li><a href="#rpm-signing-linux">RPM Signing (Linux)</a></li>
-      <li><a href="#deb-signing-via-dpkg-sig-linux">DEB Signing via dpkg-sig (Linux)</a></li>
-      <li><a href="#maven-artifact-signing-linux">Maven Artifact Signing (Linux)</a></li>
+      <li><a href="#gpg-error-logs">Error logs</a></li>
     </ul>
   </li>
 </ul>
@@ -132,76 +128,92 @@
 
 <p><img src="/assets/img/resources/documentation/crypto-providers/gpg-signing-flow.svg" alt="Figure: GPG signing flow" /></p>
 
-<h2 id="setup">Setup</h2>
+<h2 id="prepare-signing">Setup</h2>
 
-<h3 id="configure-gnupg">Configuring GnuPG</h3>
+<h3 id="signpath-configuration">SignPath configuration</h3>
 
-<p>Configure GnuPG to perform hash signing via SignPath:</p>
+<ol>
+  <li>Create a <a href="/documentation/managing-certificates">GPG key</a></li>
+  <li>Create a <a href="/documentation/crypto-providers/#signpath-project-configuration">hash signing project and signing policy</a> in SignPath</li>
+</ol>
 
-<ul>
-  <li>Configure the <a href="/documentation/crypto-providers#crypto-provider-configuration">SignPath Crypto Provider</a></li>
-  <li>Configure <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd</code> via <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd.conf</code></li>
-  <li>Configure GnuPG (<code class="language-plaintext highlighter-rouge">gpg-agent</code>) to use <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd</code></li>
-</ul>
+<h3 id="configure-gnupg">Configure GPG for signing</h3>
 
-<p>For more details and prerequisites, see the <code class="language-plaintext highlighter-rouge">samples/Scenarios/Gpg/GpgShared.ps1</code> script in the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</p>
+<p>Initialize GPG hash signing using the helper functions of <code class="language-plaintext highlighter-rouge">Samples/Scenarios/SignPathCryptoProviderHelpers.sh</code> of the <a href="/documentation/crypto-providers#linux-docker-samples">Linux samples</a>:</p>
+
+<ol>
+  <li>Call the <code class="language-plaintext highlighter-rouge">InitializeSignPathCryptoProviderGpgSigning</code> function to configure GPG and fetch the private key references
+    <ul>
+      <li>Configures the <a href="/documentation/crypto-providers#crypto-provider-configuration">SignPath Crypto Provider</a></li>
+      <li>Configures <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd</code> via <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd.conf</code></li>
+      <li>Configures GnuPG (<code class="language-plaintext highlighter-rouge">gpg-agent</code>) to use <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd</code></li>
+    </ul>
+  </li>
+  <li>Import a specific key into the GPG key chain via the <code class="language-plaintext highlighter-rouge">ImportSignPathGpgPublicKey</code> function (returns the GPG key ID for subsequent use in signing commands)</li>
+</ol>
+
+<blockquote class="panel warning">
+  <p><strong>Use a dedicated CI user for each signing policy</strong></p>
+
+  <p>We strongly recommend to use dedicated CI users for GPG signing, each <strong>assigned to exactly one signing policy as submitter</strong>. Otherwise the SignPath project and signing policy may not be determined unambiguously and GPG signing commands may fail with “signing failed: No secret key” errors.</p>
+
+  <p>Background: When performing a GPG signing operation (e.g. <code class="language-plaintext highlighter-rouge">gpg --sign -u my-gpg-key@example.com</code>), a GPG <em>public key</em> is selected. Internally (via <code class="language-plaintext highlighter-rouge">gnupg-pkcs11</code>), the corresponding SignPath project and signing policy are selected via the GPG key’s <em>public key hash</em> (a “keygrip” in <a href="https://www.gnupg.org/documentation/manuals/gnupg/Glossary.html">GnuPG lingo</a>). This means that when two or more signing policies are referencing <em>the same GPG key</em>, the signing policy cannot not be determined unambiguously and <code class="language-plaintext highlighter-rouge">gnupg-pkcs11</code> would just filter out these signing policies, resulting in “missing key” errors.</p>
+</blockquote>
+
+<h2 id="signing-code-with-gpg">Signing code with GPG</h2>
+
+<p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux samples</a> contain complete example scripts (including all preparation steps) to sign and verify files using the following formats and tools:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Format</th>
+      <th>Signing invocation</th>
+      <th>Sample script</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GPG detached signature</td>
+      <td><code class="language-plaintext highlighter-rouge">gpg --sign</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Scenarios/Gpg/GpgSignFile.sh</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>RPM (RedHat package)</td>
+      <td><code class="language-plaintext highlighter-rouge">rpmsign --resign</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Scenarios/RpmPackages/SignRpm.sh</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>DEB (Debian package)</td>
+      <td><a href="https://manpages.debian.org/bullseye/dpkg-sig/dpkg-sig.1.en.html"><code class="language-plaintext highlighter-rouge">dpkg-sig</code></a><code class="language-plaintext highlighter-rouge"> --sign</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Scenarios/DebPackages/SignDeb.sh</code></td>
+      <td>“builder” is used as <em>sign role</em></td>
+    </tr>
+    <tr>
+      <td>Maven artifact</td>
+      <td><code class="language-plaintext highlighter-rouge">mvn install</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Scenarios/Maven/SignMaven.sh</code></td>
+      <td>Requires the <a href="https://maven.apache.org/plugins/maven-gpg-plugin/">Maven GPG plugin</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>While executing each signing tool, SignPath is called to perform a hash-based signing operation. Note that <em>OrganizationId</em> and <em>ApiToken</em> must be passed to the SignPath Crypto Provider to authenticate the request.</p>
 
 <h3 id="gpg-error-logs">Error logs</h3>
 
 <p>For <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd</code>, <code class="language-plaintext highlighter-rouge">stdout</code> console output must be disabled. Use the log files for troubleshooting.</p>
 
-<p>For the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>, the following log file locations are configured:</p>
+<p>For the <a href="/documentation/crypto-providers#linux-docker-samples">Linux samples</a>, the following log file locations are configured:</p>
 
 <ul>
-  <li>SignPath Cryptoki logs: <code class="language-plaintext highlighter-rouge">samples/Scenarios/temp/SignPathLogs/*.log</code></li>
-  <li><code class="language-plaintext highlighter-rouge">gnupg-pkcs11</code> logs: <code class="language-plaintext highlighter-rouge">samples/Scenarios/temp/gnupg-pkcs11-scd.log</code></li>
-  <li>GPG logs: <code class="language-plaintext highlighter-rouge">samples/Scenarios/temp/gpg-agent.log</code></li>
+  <li>SignPath Cryptoki logs: <code class="language-plaintext highlighter-rouge">Samples/Scenarios/Work/Logs/SignPathLogs/*.log</code></li>
+  <li><code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd</code> logs: <code class="language-plaintext highlighter-rouge">Samples/Scenarios/Work/Logs/gnupg-pkcs11-scd.log</code></li>
+  <li>GPG logs: <code class="language-plaintext highlighter-rouge">Samples/Scenarios/Work/Logs/gpg-agent.log</code></li>
 </ul>
-
-<h3 id="prepare-signing">Prepare for signing</h3>
-
-<ol>
-  <li>Create a <a href="/documentation/managing-certificates">GPG key in SignPath</a>, download the GPG public key file, and copy it into the <code class="language-plaintext highlighter-rouge">samples/Scenarios/Gpg/Keys</code> directory.</li>
-  <li>Create a <a href="/documentation/crypto-providers/#signpath-project-configuration">hash signing project and signing policy</a> in SignPath.</li>
-  <li>Execute <code class="language-plaintext highlighter-rouge">SCD LEARN</code> to fetch the private key references. For details, see the <code class="language-plaintext highlighter-rouge">UseSignPathCryptokiGpgConfiguration</code> function in the GPG scenario of the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</li>
-  <li>Import the key into the GPG key chain with <code class="language-plaintext highlighter-rouge">gpg --import</code> . See the <code class="language-plaintext highlighter-rouge">ImportGpgKeys</code> function in the GPG scenario of the <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a>.</li>
-</ol>
-
-<p>For referencing a specific GPG key in the later signing commands (<code class="language-plaintext highlighter-rouge">-GpgKeyId</code> parameter), you can use the GPG key’s fingerprint, key ID, the full user ID, or email address.</p>
-
-<blockquote class="panel warning">
-  <p><strong>CI user ↔ signing policy assignment</strong></p>
-
-  <p>We strongly recommend to use an <strong>isolated CI user</strong> for GPG signing, which is <strong>assigned to exactly one signing policy as submitter</strong>. Else the SignPath project / signing policy could not be determined unambiguously and GPG signing commands may fail with “signing failed: No secret key” errors.</p>
-
-  <p>Background: When performing a GPG signing operation (e.g. <code class="language-plaintext highlighter-rouge">gpg --sign -u my-gpg-key@example.com</code>), a GPG <em>public key</em> is selected. Internally (via <code class="language-plaintext highlighter-rouge">gnupg-pkcs11</code>), the corresponding SignPath project / signing policy is selected via the GPG key’s <em>public key hash</em> (a “keygrip” in the <a href="https://www.gnupg.org/documentation/manuals/gnupg/Glossary.html">GnuPG lingo</a>). This means that when two or more signing policies are referencing <em>the same GPG key</em>, the signing policy cannot not be determined unambiguously and <code class="language-plaintext highlighter-rouge">gnupg-pkcs11</code> would just filter out these signing policies, resulting in “missing key” errors.</p>
-</blockquote>
-
-<h2 id="signing-code-with-gpg">Signing code with GPG</h2>
-
-<h3 id="gpg-file-signing">GPG File Signing</h3>
-
-<p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain a full example to sign and verify a file with a detached signature (including the mentioned preparation steps) within <code class="language-plaintext highlighter-rouge">Scenarios/Gpg/GpgSignFile.ps1</code>.</p>
-
-<p>During <code class="language-plaintext highlighter-rouge">gpg --sign</code>, SignPath is called to perform a hash based signing operation. Note that the <em>OrganizationId</em> and the <em>ApiToken</em> still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
-
-<h3 id="rpm-signing-linux">RPM Signing (Linux)</h3>
-
-<p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain a full example to sign and verify a RPM file within <code class="language-plaintext highlighter-rouge">Scenarios/RpmPackages/SignRpm.ps1</code>.</p>
-
-<p>During <code class="language-plaintext highlighter-rouge">rpm --addsign</code>, SignPath is called to perform a hash based signing operation. Note that the <em>OrganizationId</em> and the <em>ApiToken</em> still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
-
-<h3 id="deb-signing-via-dpkg-sig-linux">DEB Signing via dpkg-sig (Linux)</h3>
-
-<p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain a full example to sign and verify a DEB file using <em><a href="https://manpages.debian.org/bullseye/dpkg-sig/dpkg-sig.1.en.html">dpkg-sig</a></em> within <code class="language-plaintext highlighter-rouge">Scenarios/DebPackages/SignDeb.ps1</code>. Note the passed default “sign role” value of <code class="language-plaintext highlighter-rouge">"builder"</code>.</p>
-
-<p>During <code class="language-plaintext highlighter-rouge">dpkg-sig --sign</code>, SignPath is called to perform a hash based signing operation. Note that OrganizationId and the ApiToken still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
-
-<h3 id="maven-artifact-signing-linux">Maven Artifact Signing (Linux)</h3>
-
-<p>The <a href="/documentation/crypto-providers#linux-docker-samples">Linux container samples</a> contain a full example to build, sign and verify Maven artifacts using the <em><a href="https://maven.apache.org/plugins/maven-gpg-plugin/">Apache maven-gpg-plugin</a></em> within <code class="language-plaintext highlighter-rouge">Scenarios/Maven/SignMaven.ps1</code>. The used GPG key is referenced via its email address.</p>
-
-<p>During <code class="language-plaintext highlighter-rouge">mvn install</code>, SignPath is called to perform a hash based signing operations. Note that the <em>OrganizationId</em> and the <em>ApiToken</em> still need to be passed to the SignPath Crypto Provider to authenticate the request.</p>
 
 
 				</article>

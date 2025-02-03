@@ -101,8 +101,6 @@
     <ul>
       <li><a href="#crypto-providers">Crypto Providers</a></li>
       <li><a href="#flow">Signing flow</a></li>
-      <li><a href="#linux-docker-samples">Linux Docker container samples</a></li>
-      <li><a href="#timestamps">Timestamps</a></li>
     </ul>
   </li>
   <li><a href="#installation-and-usage">Installation and usage</a></li>
@@ -112,6 +110,8 @@
       <li><a href="#api-token-options">API token options</a></li>
       <li><a href="#http-proxy-config">HTTP Proxy</a></li>
       <li><a href="#signpath-project-configuration">SignPath Project</a></li>
+      <li><a href="#linux-docker-samples">Linux samples</a></li>
+      <li><a href="#timestamps">Timestamps</a></li>
     </ul>
   </li>
 </ul>
@@ -217,29 +217,6 @@ Again, for Authenticode this is actually performed by the SIP.</li>
 </ol>
 
 <p>As always, the private key does not leave the boundaries of the HSM.</p>
-
-<h3 id="linux-docker-samples">Linux Docker container samples</h3>
-
-<p>The Crypto Provider package contains Linux sample scripts that demonstrate the different signing tool scenarios, their configuration, and the required dependencies in the <code class="language-plaintext highlighter-rouge">Scenarios</code> directory. See the <code class="language-plaintext highlighter-rouge">README.md</code> for the full list.</p>
-
-<p>For supported Linux distributions, you can execute the samples using the provided Docker container configurations. See the <code class="language-plaintext highlighter-rouge">Linux/samples</code> directory in the Crypto Provider package. See <code class="language-plaintext highlighter-rouge">README.md</code> for further information and details how to use the <code class="language-plaintext highlighter-rouge">run_scenario.sh</code> and <code class="language-plaintext highlighter-rouge">RunScenario.ps1</code> entry point scripts to invoke samples.</p>
-
-<p>All scripts can also be executed without containers. We recommend using containers when possible to easily manage dependencies, especially for GPG based signing tools.</p>
-
-<h3 id="timestamps">Timestamps</h3>
-
-<p>When using SignTool.exe (or any other signing tool) directly, you are responsible for correct time stamping. Here are a few hints:</p>
-
-<ul>
-  <li>You may use the timestamp authority (TSA) provided by the certificate authority that issued your code signing certificate or any other CA that provides a free public TSA.</li>
-  <li>TSAs may impose quota limits, and free TSAs usually don’t provide any SLA level.</li>
-  <li>TSAs may ignore the parameters you provide, e.g. the hashing algorithm. This may result in invalid timestamps. Depending on the platform, that might only lead to problems after the certificate becomes invalid.</li>
-  <li>TSAs may use certificates with a short lifetime. Some platforms, such as Authenticode, accept expired TSA certificates. For other platforms, your signatures might become invalid after the TSA certificate has expired. A good TSA certificate should have a remaining lifetime of about 10 years or more.</li>
-</ul>
-
-<p>Always check your signatures and timestamps to ensure that they will be valid after your certificate expires or gets revoked. Otherwise, your signatures may become invalid. Another problem is that revocation for compromised certificates becomes a much harder decision if you cannot rely on timestamps.</p>
-
-<p>If you use the file-based signing method of SignPath, timestamps will be managed automatically.</p>
 
 <h2 id="installation-and-usage">Installation and usage</h2>
 
@@ -519,6 +496,29 @@ Again, for Authenticode this is actually performed by the SIP.</li>
     </ul>
   </li>
 </ol>
+
+<h3 id="linux-docker-samples">Linux samples</h3>
+
+<p>The Crypto Provider package contains Linux sample scripts that demonstrate the use of different signing tools, their configuration, and the required dependencies in the <code class="language-plaintext highlighter-rouge">Scenarios</code> directory. See the <code class="language-plaintext highlighter-rouge">README.md</code> for the full list.</p>
+
+<p>For supported Linux distributions, you can execute the samples using the provided Docker container configurations. See the <code class="language-plaintext highlighter-rouge">Linux/Samples</code> directory in the Crypto Provider package. See <code class="language-plaintext highlighter-rouge">README.md</code> for further information and details how to use the <code class="language-plaintext highlighter-rouge">RunScenario.sh</code> and <code class="language-plaintext highlighter-rouge">RunScenario.ps1</code> entry point scripts to invoke samples.</p>
+
+<p>In order to execute scripts directly, see the <code class="language-plaintext highlighter-rouge">Dockerfile</code> in <code class="language-plaintext highlighter-rouge">Samples/DebianBased/</code> or <code class="language-plaintext highlighter-rouge">Samples/RedHat/</code> respectively for prerequisites. (Not all prerequisites are required for all tools.)</p>
+
+<h3 id="timestamps">Timestamps</h3>
+
+<p>When using SignTool.exe (or any other signing tool) directly, you are responsible for correct time stamping. Here are a few hints:</p>
+
+<ul>
+  <li>You may use the timestamp authority (TSA) provided by the certificate authority that issued your code signing certificate or any other CA that provides a free public TSA.</li>
+  <li>TSAs may impose quota limits, and free TSAs usually don’t provide any SLA level.</li>
+  <li>TSAs may ignore the parameters you provide, e.g. the hashing algorithm. This may result in invalid timestamps. Depending on the platform, that might only lead to problems after the certificate becomes invalid.</li>
+  <li>TSAs may use certificates with a short lifetime. Some platforms, such as Authenticode, accept expired TSA certificates. For other platforms, your signatures might become invalid after the TSA certificate has expired. A good TSA certificate should have a remaining lifetime of about 10 years or more.</li>
+</ul>
+
+<p>Always check your signatures and timestamps to ensure that they will be valid after your certificate expires or gets revoked. Otherwise, your signatures may become invalid. Another problem is that revocation for compromised certificates becomes a much harder decision if you cannot rely on timestamps.</p>
+
+<p>If you use the file-based signing method of SignPath, timestamps will be managed automatically.</p>
 
 
 				</article>
