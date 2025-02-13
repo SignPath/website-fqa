@@ -2,12 +2,30 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/jenkins_plugin.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2024-10-22</updated>
+<updated>2025-02-12</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/jenkins_plugin.xml</id><title type="html">SignPath - Jenkins PluginChangelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-02-12:jenkins_plugin:3.0.1</id>
+        <title>SignPath Jenkins Plugin 3.0.1</title>
+        <updated>2025-02-12</updated>
+        <published>2025-02-12</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-02-12" />
+        <category term="release/jenkins_plugin" label="Jenkins Plugin" />
+        <summary type="html">New Release:  3.0.1</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  3.0.1&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;The SignPath &lt;em&gt;Api URL&lt;/em&gt; must now be configured globally in the Jenkins system settings. The parameter in the Pipeline step has been marked as deprecated. (It is ignored if it matches the global setting.)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;This fix removes a risk of introducing insecure configurations through individual Jenkins projects. All potentially affected customers have previously been informed.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;A default &lt;em&gt;Trusted Build System Token Credential ID&lt;/em&gt; and a default &lt;em&gt;Organization ID&lt;/em&gt; can now be configured globally in the Jenkins system settings.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2024-10-22:jenkins_plugin:2.1.0</id>
         <title>SignPath Jenkins Plugin 2.1.0</title>
         <updated>2024-10-22</updated>

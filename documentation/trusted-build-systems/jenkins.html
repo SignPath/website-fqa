@@ -138,6 +138,7 @@
 <ul>
   <li>The <em>Trusted Build System Token</em> needs to be stored in a <em>System</em> Credential (Under <em>Manage Jenkins / Manage Credentials</em>)</li>
   <li>The <em>Api Token</em> of a SignPath user with submitter permissions needs to be available to the build pipelines of the respective projects.</li>
+  <li>The default credential ID for the <em>Trusted Build System Token</em>, the default organization ID and the SignPath API endpoint can be configured in the plugin configuration (under <em>System</em> in the <em>Code Signing with SignPath</em> section).</li>
 </ul>
 
 <h2 id="usage">Usage</h2>
@@ -167,18 +168,13 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">apiUrl</code></td>
-      <td><code class="language-plaintext highlighter-rouge">https://app.signpath.io/Api</code></td>
-      <td>SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations.</td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">apiTokenCredentialId</code></td>
       <td><code class="language-plaintext highlighter-rouge">SignPath.ApiToken</code></td>
       <td>The ID of the credential containing the <strong>API Token</strong>. Recommended in scope “Global”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">trustedBuildSytemTokenCredentialId</code></td>
-      <td><code class="language-plaintext highlighter-rouge">SignPath.TrustedBuildSystemToken</code></td>
+      <td>Configured in global plugin configuration</td>
       <td>The ID of the credential containing the <strong>Trusted Build System Token</strong>. Needs to be in scope “System”.</td>
     </tr>
     <tr>
@@ -196,6 +192,11 @@
       <td><code class="language-plaintext highlighter-rouge">600</code></td>
       <td>Maximum time in seconds that the step will wait for the signing request to complete.</td>
     </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">apiUrl</code></td>
+      <td> </td>
+      <td>Deprecated. Is ignored if it matches the global setting. SignPath API endpoint to use.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -212,7 +213,7 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">organizationId</code></td>
-      <td>(mandatory)</td>
+      <td>Configured in global plugin configuration</td>
       <td>The ID of the SignPath organization</td>
     </tr>
     <tr>
@@ -266,7 +267,7 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">organizationId</code></td>
-      <td>(mandatory)</td>
+      <td>Configured in global plugin configuration</td>
       <td>The ID of the SignPath organization</td>
     </tr>
     <tr>
@@ -289,7 +290,6 @@
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nf">stage</span><span class="o">(</span><span class="ss">'Sign</span> <span class="k">with</span> <span class="nc">SignPath</span><span class="o">')</span> <span class="o">{</span>
       <span class="n">steps</span> <span class="o">{</span>
         <span class="nf">submitSigningRequest</span><span class="o">(</span>
-          <span class="n">organizationId</span><span class="k">:</span> <span class="err">"</span><span class="kt">$</span><span class="o">{</span><span class="kt">ORGANIZATION_ID</span><span class="o">}</span><span class="err">"</span><span class="o">,</span>
           <span class="n">projectSlug</span><span class="k">:</span> <span class="err">"</span><span class="kt">$</span><span class="o">{</span><span class="kt">PROJECT_SLUG</span><span class="o">}</span><span class="err">"</span><span class="o">,</span>
           <span class="n">signingPolicySlug</span><span class="k">:</span> <span class="err">"</span><span class="kt">$</span><span class="o">{</span><span class="kt">SIGNING_POLICY_SLUG</span><span class="o">}</span><span class="err">"</span><span class="o">,</span>
           <span class="n">artifactConfigurationSlug</span><span class="k">:</span> <span class="err">"</span><span class="kt">$</span><span class="o">{</span><span class="kt">ARTIFACT_CONFIGURATION_SLUG</span><span class="o">}</span><span class="err">"</span><span class="o">,</span>
@@ -307,7 +307,6 @@
       <span class="n">steps</span> <span class="o">{</span>
         <span class="n">script</span> <span class="o">{</span>
           <span class="n">signingRequestId</span> <span class="k">=</span> <span class="nf">submitSigningRequest</span><span class="o">(</span>
-            <span class="n">organizationId</span><span class="k">:</span> <span class="err">"</span><span class="kt">$</span><span class="o">{</span><span class="kt">ORGANIZATION_ID</span><span class="o">}</span><span class="err">"</span><span class="o">,</span>
             <span class="n">projectSlug</span><span class="k">:</span> <span class="err">"</span><span class="kt">$</span><span class="o">{</span><span class="kt">PROJECT_SLUG</span><span class="o">}</span><span class="err">"</span><span class="o">,</span>
             <span class="n">signingPolicySlug</span><span class="k">:</span> <span class="err">"</span><span class="kt">$</span><span class="o">{</span><span class="kt">SIGNING_POLICY_SLUG</span><span class="o">}</span><span class="err">"</span><span class="o">,</span>
             <span class="n">artifactConfigurationSlug</span><span class="k">:</span> <span class="err">"</span><span class="kt">$</span><span class="o">{</span><span class="kt">ARTIFACT_CONFIGURATION_SLUG</span><span class="o">}</span><span class="err">"</span><span class="o">,</span>
@@ -329,7 +328,6 @@
       <span class="o">}</span>
       <span class="n">steps</span><span class="o">{</span>
         <span class="nf">getSignedArtifact</span><span class="o">(</span> 
-          <span class="n">organizationId</span><span class="k">:</span> <span class="err">"</span><span class="kt">$</span><span class="o">{</span><span class="kt">ORGANIZATION_ID</span><span class="o">}</span><span class="err">"</span><span class="o">,</span>
           <span class="n">signingRequestId</span><span class="k">:</span> <span class="err">"</span><span class="kt">$</span><span class="o">{</span><span class="kt">signingRequestId</span><span class="o">}</span><span class="err">"</span><span class="o">,</span>
           <span class="n">outputArtifactPath</span><span class="k">:</span> <span class="err">"</span><span class="kt">build-output/my-artifact.exe</span><span class="err">"</span>
         <span class="o">)</span>
