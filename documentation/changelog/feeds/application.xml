@@ -2,32 +2,12 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/application.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-02-27</updated>
+<updated>2025-01-28</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/application.xml</id><title type="html">SignPath - Application Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
-        <id>tag:about.signpath.io,2025-02-27:application:1.182.0</id>
-        <title>SignPath Application 1.182.0</title>
-        <updated>2025-02-27</updated>
-        <published>2025-02-27</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-02-27" />
-        <category term="release/application" label="Application" />
-        <summary type="html">New Release:  1.182.0</summary>
-        <content type="html">
-          &lt;div&gt;
-            &lt;h2&gt;New Release:  1.182.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;ECDSA keys can now be created on custom HSMs with the “Exportable” flag turned on, which allows those keys to be synchronized to a self-hosted backup HSM.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Certificate signing requests (CSRs) and self-signed X.509 certificates now set the key usage &lt;em&gt;Code Signing&lt;/em&gt; as &lt;em&gt;critical&lt;/em&gt; to align with the CA/Browser forum requirements.&lt;/p&gt;
-&lt;/li&gt;&lt;li&gt;
-                        &lt;p&gt;Improved performance when dealing with large user groups or many artifact configurations.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Fixed a bug that did not allow saving artifact configurations containing detached signature (Raw, CMS or GPG) directives within &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;file-set&amp;gt;&lt;/code&gt; elements.&lt;/p&gt;
-&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
-        </content>
-      </entry><entry>
         <id>tag:about.signpath.io,2025-01-28:application:1.180.0</id>
         <title>SignPath Application 1.180.0</title>
         <updated>2025-01-28</updated>
