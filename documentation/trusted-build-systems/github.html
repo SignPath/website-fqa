@@ -198,8 +198,8 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">artifact-configuration-slug</code></td>
-      <td> </td>
-      <td>The SignPath artifact configuration slug. If not specified, the default is used.</td>
+      <td>default artifact configuration</td>
+      <td>The SignPath artifact configuration slug.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">github-artifact-id</code></td>
@@ -208,8 +208,8 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">wait-for-completion</code></td>
-      <td>(mandatory)</td>
-      <td>If true, the action will wait for the signing request to complete. Defaults to <code class="language-plaintext highlighter-rouge">true</code>.</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>Wait for the signing request to complete.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">output-artifact-directory</code></td>
@@ -218,8 +218,8 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">github-token</code></td>
-      <td> </td>
-      <td>GitHub access token used to read job details and download the artifact. Defaults to the <a href="https://docs.github.com/en/actions/security-guides/automatic-token-authentication"><code class="language-plaintext highlighter-rouge">secrets.GITHUB_TOKEN</code></a>. Requires the <code class="language-plaintext highlighter-rouge">action:read</code> and <code class="language-plaintext highlighter-rouge">content:read</code> permissions.</td>
+      <td><a href="https://docs.github.com/en/actions/security-guides/automatic-token-authentication"><code class="language-plaintext highlighter-rouge">secrets.GITHUB_TOKEN</code></a></td>
+      <td>GitHub access token for reading job details and downloading the artifact. Requires the <code class="language-plaintext highlighter-rouge">action:read</code> and <code class="language-plaintext highlighter-rouge">content:read</code> permissions.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">wait-for-completion-timeout-in-seconds</code></td>
@@ -234,7 +234,7 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">download-signed-artifact-timeout-in-seconds</code></td>
       <td><code class="language-plaintext highlighter-rouge">300</code></td>
-      <td>HTTP timeout when downloading the signed artifact. Defaults to 5 minutes.</td>
+      <td>HTTP timeout when downloading the signed artifact.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">parameters</code></td>
