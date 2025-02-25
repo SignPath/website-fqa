@@ -2,12 +2,26 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-01-14</updated>
+<updated>2025-02-27</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml</id><title type="html">SignPath - Self-hosted Installations Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-02-27:self_hosted_installations:1.182.0</id>
+        <title>SignPath Application (self-hosted only) 1.182.0</title>
+        <updated>2025-02-27</updated>
+        <published>2025-02-27</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-02-27" />
+        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
+        <summary type="html">New Release:  1.182.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.182.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Reduced image size of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpathio/signservice-lunahsm&lt;/code&gt; container image and startup time of the SignService migration jobs.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-01-14:self_hosted_installations:1.179.0</id>
         <title>SignPath Application (self-hosted only) 1.179.0</title>
         <updated>2025-01-14</updated>
