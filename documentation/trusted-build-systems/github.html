@@ -158,6 +158,9 @@
     <span class="na">github-artifact-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">${{</span><span class="nv"> </span><span class="s">steps.upload-unsigned-artifact.outputs.artifact-id</span><span class="nv"> </span><span class="s">}}'</span>
     <span class="na">wait-for-completion</span><span class="pi">:</span> <span class="no">true</span>
     <span class="na">output-artifact-directory</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/path/to/signed/artifact/directory'</span>
+    <span class="na">parameters</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="s">version: ${{ toJSON(some.userinput) }}</span>
+      <span class="s">myparam: "another param"</span>
 </code></pre></div></div>
 
 <h3 id="action-input-parameters">Action input parameters</h3>
