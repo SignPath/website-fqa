@@ -2,12 +2,30 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/application.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-02-25</updated>
+<updated>2025-03-11</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/application.xml</id><title type="html">SignPath - Application Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-03-11:application:1.183.0</id>
+        <title>SignPath Application 1.183.0</title>
+        <updated>2025-03-11</updated>
+        <published>2025-03-11</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-03-11" />
+        <category term="release/application" label="Application" />
+        <summary type="html">New Release:  1.183.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.183.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Added support for storing and retrieving X.509 certificate chains (for e.g. certificates issued by in-house PKIs).&lt;/p&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;Added support for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;file-version&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;company-name&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;copyright&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;original-filename&lt;/code&gt; to &lt;a href=&quot;/documentation/artifact-configuration/reference#metadata-restrictions&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;pe-file&amp;gt;&lt;/code&gt; metadata restrictions&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rsa-padding&lt;/code&gt; attribute in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;create-cms-signature&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;create-raw-signature&lt;/code&gt; doesn’t lead to validation errors when signing with an ECDSA certificate (it will be just ignored).&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-02-25:application:1.182.0</id>
         <title>SignPath Application 1.182.0</title>
         <updated>2025-02-25</updated>

@@ -259,12 +259,16 @@
 <h3 id="pe-restriction">PE file metadata restriction</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;parameters&gt;</span>
+    <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">"version"</span> <span class="na">required=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/parameters&gt;</span>
   <span class="nt">&lt;msi-file&gt;</span>
     <span class="c">&lt;!-- requires all pe-files to have the respective attributes set --&gt;</span>
-    <span class="nt">&lt;pe-file-set</span> <span class="na">product-name=</span><span class="s">"YourProductName"</span> <span class="na">product-version=</span><span class="s">"1.0.0.0"</span><span class="nt">&gt;</span> 
+    <span class="nt">&lt;pe-file-set</span> <span class="na">product-name=</span><span class="s">"MyProduct"</span> <span class="na">product-version=</span><span class="s">"${version}"</span> <span class="na">file-version=</span><span class="s">"${version}"</span>
+                 <span class="na">company-name=</span><span class="s">"ACME Inc."</span> <span class="na">copyright=</span><span class="s">"Copyright ACME Inc."</span> <span class="na">original-filename=</span><span class="s">"${file.name}"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"main.exe"</span> <span class="nt">/&gt;</span>
-      <span class="c">&lt;!-- overrides the value of the parent pe-file-set --&gt;</span>
-      <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"resources*.resource.dll"</span> <span class="na">max-matches=</span><span class="s">"unbounded"</span> <span class="na">product-version=</span><span class="s">"1.0.1.0"</span> <span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- for mylibrary, override product name, interit all other attributes from parent pe-file-set --&gt;</span>
+      <span class="nt">&lt;include</span> <span class="na">path=</span><span class="s">"mylibrary.dll"</span> <span class="na">max-matches=</span><span class="s">"unbounded"</span> <span class="na">product-name=</span><span class="s">"MyLibrary"</span> <span class="nt">/&gt;</span>
       <span class="nt">&lt;for-each&gt;</span>
         <span class="nt">&lt;authenticode-sign</span> <span class="nt">/&gt;</span>
       <span class="nt">&lt;/for-each&gt;</span>
