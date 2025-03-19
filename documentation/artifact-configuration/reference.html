@@ -96,30 +96,9 @@
 							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=' '>
 							<a href='/documentation/changelog#'>Product updates</a></li></ul>
 			</nav><div class='content'><ul class="article-toc">
-  <li><a href="#file-elements">File and directory elements</a>
-    <ul>
-      <li><a href="#containers">Container formats</a></li>
-    </ul>
-  </li>
-  <li><a href="#signing-methods">Signing methods</a>
-    <ul>
-      <li><a href="#authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code>: Authenticode (Windows)</a></li>
-      <li><a href="#clickonce-sign"><code class="language-plaintext highlighter-rouge">&lt;clickonce-sign&gt;</code>: Microsoft ClickOnce</a></li>
-      <li><a href="#nuget-sign"><code class="language-plaintext highlighter-rouge">&lt;nuget-sign&gt;</code>: NuGet packages</a></li>
-      <li><a href="#office-macro-sign"><code class="language-plaintext highlighter-rouge">&lt;office-macro-sign&gt;</code>: Microsoft Office VBA macros</a></li>
-      <li><a href="#opc-sign"><code class="language-plaintext highlighter-rouge">&lt;opc-sign&gt;</code>: Open Packaging Convention</a></li>
-      <li><a href="#jar-sign"><code class="language-plaintext highlighter-rouge">&lt;jar-sign&gt;</code>: Java Archives</a></li>
-      <li><a href="#xml-sign"><code class="language-plaintext highlighter-rouge">&lt;xml-sign&gt;</code>: XML Digital Signature</a></li>
-      <li><a href="#create-cms-signature"><code class="language-plaintext highlighter-rouge">&lt;create-cms-signature&gt;</code>: Cryptographic Message Syntax (CMS)</a></li>
-      <li><a href="#create-gpg-signature"><code class="language-plaintext highlighter-rouge">&lt;create-gpg-signature&gt;</code>: Detached GPG signing</a></li>
-      <li><a href="#create-raw-signature"><code class="language-plaintext highlighter-rouge">&lt;create-raw-signature&gt;</code>: Detached raw signature files</a></li>
-    </ul>
-  </li>
-  <li><a href="#verification">Verification methods</a>
-    <ul>
-      <li><a href="#authenticode-verify"><code class="language-plaintext highlighter-rouge">&lt;authenticode-verify&gt;</code></a></li>
-    </ul>
-  </li>
+  <li><a href="#file-elements">File and directory elements</a></li>
+  <li><a href="#signing-methods">Signing methods</a></li>
+  <li><a href="#verification">Verification methods</a></li>
   <li><a href="#metadata-restrictions">File metadata restrictions</a></li>
 </ul>
 <article>
@@ -409,9 +388,13 @@ Description
 
 <!-- markdownlint-disable MD026 no trailing punctuation -->
 
-<p>Specify signing directives in file and directory elements.</p>
+<p>Signing methods are used in:</p>
 
-<p>For <a href="syntax#file-and-directory-sets">file and directory sets</a>, specify the signing directive in the <code class="language-plaintext highlighter-rouge">&lt;for-each&gt;</code> element.</p>
+<ul>
+  <li>file elements (e.g. <code class="language-plaintext highlighter-rouge">&lt;authenticode-sign</code> in <code class="language-plaintext highlighter-rouge">&lt;pe-file&gt;</code>)</li>
+  <li>directory elements (<code class="language-plaintext highlighter-rouge">&lt;clickonce-sign&gt;</code> in <code class="language-plaintext highlighter-rouge">&lt;directory</code>)</li>
+  <li><a href="syntax#file-and-directory-sets">file and directory sets</a> (in the <code class="language-plaintext highlighter-rouge">&lt;for-each&gt;</code> element)</li>
+</ul>
 
 <h3 id="authenticode-sign"><code class="language-plaintext highlighter-rouge">&lt;authenticode-sign&gt;</code>: Authenticode (Windows)</h3>
 
