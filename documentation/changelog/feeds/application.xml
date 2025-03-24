@@ -18,9 +18,9 @@
         <content type="html">
           &lt;div&gt;
             &lt;h2&gt;New Release:  1.184.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Certificate chains are now automatically resolved.&lt;/p&gt;
+                        &lt;p&gt;Certificate chains are now automatically resolved. See the &lt;a href=&quot;/documentation/managing-certificates#uploading-certificates&quot;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;X.509 certificate chains from in-house PKIs are now embedded in the signature when using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;authenticode-sign&amp;gt;&lt;/code&gt; directive.&lt;/p&gt;
+                        &lt;p&gt;Uploaded X.509 certificate chains are now embedded in the signature when using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;authenticode-sign&amp;gt;&lt;/code&gt; directive.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
