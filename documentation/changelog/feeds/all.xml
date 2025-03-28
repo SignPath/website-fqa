@@ -56,16 +56,16 @@
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
-        <id>tag:about.signpath.io,2025-03-11:bug_fixes:1.183.0</id>
-        <title>SignPath  1.183.0</title>
+        <id>tag:about.signpath.io,2025-03-11:self_hosted_installations:1.183.0</id>
+        <title>SignPath Application (self-hosted only) 1.183.0</title>
         <updated>2025-03-11</updated>
         <published>2025-03-11</published>
         <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-03-11" />
-        <category term="release/bug_fixes" label="" />
+        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
         <summary type="html">New Release:  1.183.0</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release:  1.183.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+            &lt;h2&gt;New Release:  1.183.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;Fixed a memory leak in SignService with enabled HSM watchdog.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
