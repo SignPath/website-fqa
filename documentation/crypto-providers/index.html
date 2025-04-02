@@ -454,7 +454,7 @@ Again, for Authenticode this is actually performed by the SIP.</li>
 
 </span><span class="c"># Write encrypted &amp; encoded ApiToken to registry</span><span class="w">
 </span><span class="n">New-Item</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="s2">"HKCU:\SOFTWARE\"</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="nx">SignPath</span><span class="w">
-</span><span class="n">New-ItemProperty</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="s2">"HKCU:\SOFTWARE\SignPath"</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="s2">"</span><span class="nv">$ApiTokenRegistryValueName</span><span class="s2">"</span><span class="w"> </span><span class="nt">-Value</span><span class="w"> </span><span class="s2">"</span><span class="nv">$EncryptedBase64EncodedApiToken</span><span class="s2">"</span><span class="w"> </span><span class="nt">-PropertyType</span><span class="w"> </span><span class="s2">"String"</span><span class="w">
+</span><span class="n">New-ItemProperty</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="s2">"HKCU:\SOFTWARE\SignPath"</span><span class="w"> </span><span class="nt">-Name</span><span class="w"> </span><span class="nv">$ApiTokenRegistryValueName</span><span class="w"> </span><span class="nt">-Value</span><span class="w"> </span><span class="nv">$EncryptedBase64EncodedApiToken</span><span class="w"> </span><span class="nt">-PropertyType</span><span class="w"> </span><span class="s2">"String"</span><span class="w">
 </span></code></pre></div></div>
 
 <h3 id="http-proxy-config">HTTP Proxy</h3>
