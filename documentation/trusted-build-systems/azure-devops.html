@@ -99,13 +99,169 @@
 							<a href='/documentation/powershell#'>PowerShell cmdlets</a></li><li class=' '>
 							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=' '>
 							<a href='/documentation/changelog#'>Product updates</a></li></ul>
-			</nav><div class='content'>
+			</nav><div class='content'><ul class="article-toc">
+  <li><a href="#prerequisites">Prerequisites</a></li>
+  <li><a href="#checks-performed-by-signpath">Checks performed by SignPath</a></li>
+  <li><a href="#usage">Usage</a>
+    <ul>
+      <li><a href="#task-inputs">Task inputs</a></li>
+      <li><a href="#action-output-variables">Action output variables</a></li>
+    </ul>
+  </li>
+</ul>
 <article>
-					<p>The Azure DevOps connector is currently only available in preview mode.</p>
+					<h2 id="prerequisites">Prerequisites</h2>
 
-<p>Contact <a href="/support">our support team</a> for our Azure DevOps connector with origin verification support.</p>
+<ul>
+  <li>On SignPath.io: <a href="/documentation/trusted-build-systems#configuration">Use the predefined Trusted Build System</a> <em>Azure DevOps (dev.azure.com)</em>.</li>
+  <li>Create an artifact configuration with the following format:
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
+  <span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;zip-file&gt;</span>
+      <span class="nt">&lt;directory</span> <span class="na">path=</span><span class="s">"*"</span><span class="nt">&gt;</span>
+        ... the files you want to sign
+      <span class="nt">&lt;/directory&gt;</span>
+    <span class="nt">&lt;/zip-file&gt;</span>
+  <span class="nt">&lt;/artifact-configuration&gt;</span>
+</code></pre></div>    </div>
+    <p>See <a href="/documentation/artifact-configuration">Artifact Configurations</a> for more details.</p>
 
-<p>In the meantime, you maye use the build pipeline tasks from the <a href="https://marketplace.visualstudio.com/items?itemName=SignPath.signpath-tasks">official SignPath extension on Visual Studio Marketplace</a>.</p>
+    <blockquote class="panel info">
+      <p><strong>Root folder in artifact configuration</strong></p>
+
+      <p>Azure DevOps allows to publish whole directories as artifacts. When downloading the artifacts, they provide a zip archive including a folder with the name of artifact as specified in the pipeline definition. The artifact configuration needs to map this format.</p>
+    </blockquote>
+  </li>
+  <li>In your Azure DevOps organization, install the <a href="https://marketplace.visualstudio.com/items?itemName=SignPath.signpath-tasks">SignPath Azure DevOps Extension</a></li>
+  <li>In the Azure DevOps project settings, create a Service Connection of type SignPath</li>
+  <li>Use the provided task in your build pipelines to sign the artifact</li>
+</ul>
+
+<blockquote class="panel info">
+  <p><strong>Azure DevOps Server</strong></p>
+
+  <p>SignPath hosts an instance of the Azure DevOps connector which is linked to dev.azure.com For integrating self-hosted Azure DevOps Server instances, contact our <a href="/support">support</a> team.</p>
+</blockquote>
+
+<h2 id="checks-performed-by-signpath">Checks performed by SignPath</h2>
+
+<p>The Azure DevOps connector performs the following checks:</p>
+
+<ul>
+  <li>A build was actually performed by an Azure DevOps pipeline, not by some other entity in possession of the API token</li>
+  <li><a href="/documentation/origin-verification">Origin metadata</a> is provided by Azure DevOps, not the build script, and can therefore not be forged</li>
+  <li>The artifact is stored on the Azure DevOps server before it is submitted for signing</li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+
+<p>The SignPath extension provides a <code class="language-plaintext highlighter-rouge">SubmitSigningRequest</code> task that can be integrated into a Azure DevOps pipeline definition:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">steps</span><span class="pi">:</span>
+
+<span class="c1"># required for the artifact to be available on the Azure DevOps server</span>
+<span class="pi">-</span> <span class="na">task</span><span class="pi">:</span> <span class="s">PublishBuildArtifacts@1</span>
+  <span class="na">inputs</span><span class="pi">:</span>
+    <span class="na">PathtoPublish</span><span class="pi">:</span> <span class="s1">'</span><span class="s">$(Build.SourcesDirectory)/your-artifact'</span>
+    <span class="na">ArtifactName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">unsigned-artifact'</span>
+
+<span class="pi">-</span> <span class="na">task</span><span class="pi">:</span> <span class="s">SubmitSigningRequest@1</span>
+  <span class="na">inputs</span><span class="pi">:</span>
+    <span class="na">serviceConnectionName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">my-signpath-service-connection'</span>
+    <span class="na">projectSlug</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&lt;SignPath</span><span class="nv"> </span><span class="s">project</span><span class="nv"> </span><span class="s">slug&gt;'</span>
+    <span class="na">artifactConfigurationSlug</span><span class="pi">:</span> <span class="s1">'</span><span class="s">azure-devops'</span>
+    <span class="na">signingPolicySlug</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&lt;SignPath</span><span class="nv"> </span><span class="s">signing</span><span class="nv"> </span><span class="s">policy</span><span class="nv"> </span><span class="s">slug&gt;'</span>
+    <span class="na">parameters</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="s">version: ${{ convertToJson(parameters.someUserInput) }}</span>
+      <span class="s">myparam: "another param"</span>
+    <span class="na">azureDevOpsArtifactName</span><span class="pi">:</span> <span class="s1">'</span><span class="s">unsigned-artifact'</span>
+    <span class="na">waitForCompletion</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">outputArtifactDirectory</span><span class="pi">:</span> <span class="s1">'</span><span class="s">$(Build.SourcesDirectory)/signed'</span>
+</code></pre></div></div>
+
+<h3 id="task-inputs">Task inputs</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Default Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">serviceConnectionName</code></td>
+      <td>(mandatory)</td>
+      <td>The name of the service connection used for authentication.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">projectSlug</code></td>
+      <td>(mandatory)</td>
+      <td>The SignPath project slug.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">signingPolicySlug</code></td>
+      <td>(mandatory)</td>
+      <td>The SignPath signing policy slug.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">artifactConfigurationSlug</code></td>
+      <td> </td>
+      <td>The SignPath artifact configuration slug. If not specified, the default is used.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">azureDevOpsArtifactName</code></td>
+      <td>(mandatory)</td>
+      <td>The name of the Azure DevOps artifact. Must be uploaded using the <code class="language-plaintext highlighter-rouge">PublishBuildArtifact</code> task before it can be signed.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">waitForCompletion</code></td>
+      <td>(mandatory)</td>
+      <td>If true, the action will wait for the signing request to complete. Defaults to <code class="language-plaintext highlighter-rouge">true</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">outputArtifactDirectory</code></td>
+      <td> </td>
+      <td>Path to where the signed artifact will be extracted. If not specified, the task will not download the signed artifact from SignPath.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">waitForCompletionTimeoutInSeconds</code></td>
+      <td><code class="language-plaintext highlighter-rouge">600</code></td>
+      <td>Maximum time in seconds that the action will wait for the signing request to complete.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">serviceUnavailableTimeoutInSeconds</code></td>
+      <td><code class="language-plaintext highlighter-rouge">600</code></td>
+      <td>Total time in seconds that the action will wait for a single service call to succeed (across several retries).</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">downloadSignedArtifactTimeoutInSeconds</code></td>
+      <td><code class="language-plaintext highlighter-rouge">300</code></td>
+      <td>HTTP timeout when downloading the signed artifact. Defaults to 5 minutes.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">parameters</code></td>
+      <td> </td>
+      <td>Multiline-string of values that map to <a href="/documentation/artifact-configuration/syntax#parameters">user-defined parameters</a> in the Artifact Configuration. Use one line per parameter with the format <code class="language-plaintext highlighter-rouge">&lt;name&gt;: "&lt;value&gt;"</code> where <code class="language-plaintext highlighter-rouge">&lt;value&gt;</code> needs to be a valid JSON string.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="action-output-variables">Action output variables</h3>
+
+<p>The action supports the following output parameters:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">SigningRequestId</code>: The id of the newly created signing request. Available to subsequent tasks as an environment variable <code class="language-plaintext highlighter-rouge">&lt;TASKNAME&gt;_SIGNINGREQUESTID</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">SigningRequestWebUrl</code>: The url of the signing request in SignPath. Available to subsequent tasks as an environment variable <code class="language-plaintext highlighter-rouge">&lt;TASKNAME&gt;_SIGNINGREQUESTWEBURL</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">SignPathApiUrl</code>: The base API url of the SignPath API. Available to subsequent tasks as an environment variable <code class="language-plaintext highlighter-rouge">&lt;TASKNAME&gt;_SIGNPATHAPIURL</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">SignedArtifactDownloadUrl</code>: The url of the signed artifact in SignPath. Available to subsequent tasks as an environment variable <code class="language-plaintext highlighter-rouge">&lt;TASKNAME&gt;_SIGNEDARTIFACTDOWNLOADURL</code>.</li>
+</ul>
 
 				</article>
 			</div>
