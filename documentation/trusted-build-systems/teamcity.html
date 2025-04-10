@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/trusted-build-systems/' />
+  <link rel="canonical" href='https://signpath.github.io/website-staging//documentation/trusted-build-systems/teamcity' />
   <!-- Begin Jekyll SEO tag v2.6.1 -->
   <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
-  <title>Trusted Build Systems | SignPath</title>
-  <meta property="og:title" content="Trusted Build Systems | SignPath" />
+  <title>TeamCity | SignPath</title>
+  <meta property="og:title" content="TeamCity | SignPath" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:description" content="Documentation for providing Trusted Build Systems to SignPath" />
-  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/trusted-build-systems/" />
+  <meta property="og:description" content="TeamCity" />
+  <meta property="og:url" content="https://signpath.github.io/website-staging//documentation/trusted-build-systems/teamcity" />
   <meta property="og:site_name" content="SignPath.io" />
-  <meta name="description" content="Documentation for providing Trusted Build Systems to SignPath"/>
+  <meta name="description" content="TeamCity"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
   <link rel="stylesheet" href="/assets/css/index.css?cache=2024-12-18">
@@ -69,7 +69,10 @@
   <main>
 <section class="bg-blue font-white top-section resources-header">
 	<div>
-		<h1><span class='no-break'><a href='/documentation'>Documentation</a>&nbsp;&nbsp;❯&nbsp;&nbsp;</span><span class='no-break'>Trusted Build Systems</span></h1>
+		<h1><span class='no-break'><a href='/documentation'>Documentation</a>&nbsp;&nbsp;❯&nbsp;&nbsp;</span><span class='no-break'><a href='/documentation/trusted-build-systems'>Trusted Build Systems</a>
+		  	  		  &nbsp;&nbsp;❯&nbsp;&nbsp;</span><span class='no-break'>
+		  	  	         TeamCity
+		  	  	       </span></h1>
 	</div>
 </section><section class="resources-section ">
 	<div><nav class=''><ul class=''><li class=' '>
@@ -80,7 +83,7 @@
 							<a href='/documentation/signing-code#'>Signing Code</a></li><li class=' '>
 							<a href='/documentation/signing-containers#'>Signing Container Images</a></li><li class='separator' /><li class=' '>
 							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=' '>
-							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class='active current-group'>
+							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=' current-group'>
 							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a><ul><li class=''>
 										<a href='/documentation/trusted-build-systems/appveyor'>AppVeyor</a>
 									</li><li class=''>
@@ -89,7 +92,7 @@
 										<a href='/documentation/trusted-build-systems/jenkins'>Jenkins</a>
 									</li><li class=''>
 										<a href='/documentation/trusted-build-systems/github'>GitHub</a>
-									</li><li class=''>
+									</li><li class='active'>
 										<a href='/documentation/trusted-build-systems/teamcity'>TeamCity</a>
 									</li><li class=''>
 										<a href='/documentation/trusted-build-systems/double-authentication-proxy'>Double Authentication Proxy</a>
@@ -99,88 +102,182 @@
 							<a href='/documentation/crypto-providers#'>Crypto Providers</a></li><li class='separator' /><li class=' '>
 							<a href='/documentation/changelog#'>Product updates</a></li></ul>
 			</nav><div class='content'><ul class="article-toc">
-  <li><a href="#abstract">Abstract</a>
+  <li><a href="#setup">Setup</a>
     <ul>
-      <li><a href="#abstract-origin-verification">Origin verification</a></li>
-      <li><a href="#abstract-direct-use">Direct use</a></li>
+      <li><a href="#self-hosted-setup">Self-hosted setup</a></li>
+      <li><a href="#on-signpath">On SignPath</a></li>
     </ul>
   </li>
-  <li><a href="#supported-build-systems">Supported build systems</a></li>
-  <li><a href="#configuration">Configuration</a>
+  <li><a href="#checks-performed-by-signpath">Checks performed by SignPath</a></li>
+  <li><a href="#usage">Usage</a>
     <ul>
-      <li><a href="#custom-trusted-build-systems">Custom Trusted Build Systems</a></li>
+      <li><a href="#usage-with-versioned-settings">Usage with versioned settings</a></li>
+      <li><a href="#usage-without-versioned-settings">Usage without versioned settings</a></li>
+      <li><a href="#build-step-parameters">Build step parameters</a></li>
+      <li><a href="#build-step-output-parameters">Build step output parameters</a></li>
     </ul>
   </li>
-  <li><a href="#direct-use">Direct use of trusted build systems</a></li>
+  <li><a href="#example">Example</a></li>
 </ul>
 <article>
-					<p class="badge icon-signpath">Available for <em>Advanced Code Signing, Code Signing Gateway</em>.  Required for <em>Open Source Code Signing</em>. </p>
+					<h2 id="setup">Setup</h2>
 
-<h2 id="abstract">Abstract</h2>
+<h3 id="self-hosted-setup">Self-hosted setup</h3>
 
-<p>Trusted build systems create a trust relationship between SignPath and certain systems used in your build pipeline. They are typically implemented as connectors and configured in SignPath.</p>
+<p>For SignPath to integrate with the TeamCity server, you have to deploy the <strong>SignPath TeamCity Connector</strong> container image in a location that can reach the TeamCity server and install the <strong>SignPath TeamCity Plugin</strong> providing the dedicated build runners.</p>
 
-<h3 id="abstract-origin-verification">Origin verification</h3>
+<p>Contact our <a href="/support">support</a> team for access to these components.</p>
 
-<p>The primary function of trusted build systems is to serve as the foundation of origin verifcation. This feature allows build systems to provide reliable origin metadata with your signing requests, so that SignPath can execute advanced policies based on trusted information.</p>
+<h3 id="on-signpath">On SignPath</h3>
 
-<p>See <a href="/documentation/origin-verification">origin verifcation</a> for details.</p>
+<ol>
+  <li>Add a custom trusted build system and copy the <em>Trusted Build System Token</em> to your TeamCity connector configuration</li>
+  <li>Link the trusted build system with all projects built on TeamCity</li>
+</ol>
 
-<h3 id="abstract-direct-use">Direct use</h3>
+<h2 id="checks-performed-by-signpath">Checks performed by SignPath</h2>
 
-<p>Trusted build systems can also be used to simply restrict signing to certain build systems. Use them to make sure that certain signing policies and certificates can only be used from build agents with specific properties.</p>
-
-<p>See <a href="#direct-use">below</a> for details.</p>
-
-<h2 id="supported-build-systems">Supported build systems</h2>
-
-<p>The following build systems are currently supported by SignPath:</p>
+<p>The TeamCity connector performs the following checks:</p>
 
 <ul>
-  <li><a href="/documentation/trusted-build-systems/github">GitHub</a></li>
-  <li><a href="/documentation/trusted-build-systems/jenkins">Jenkins</a></li>
-  <li><a href="/documentation/trusted-build-systems/azure-devops">Azure DevOps</a></li>
-  <li><a href="/documentation/trusted-build-systems/appveyor">AppVeyor</a></li>
+  <li>A build was actually performed by a TeamCity build configuration, not by some other entity in possession of the API token</li>
+  <li><a href="/documentation/origin-verification">Origin metadata</a> is provided by the TeamCity server, not the build script, and can therefore not be forged</li>
+  <li>The artifact is stored on the TeamCity server before it is submitted for signing</li>
 </ul>
 
-<p>Generic support for any build system is available with the <a href="/documentation/trusted-build-systems/double-authentication-proxy">Double Authentication Proxy</a>.</p>
+<h2 id="usage">Usage</h2>
 
-<h2 id="configuration">Configuration</h2>
+<h3 id="usage-with-versioned-settings">Usage with versioned settings</h3>
+<p>The SignPath TeamCity Plugin provides a build runner that can be used for submitting signing requests to SignPath.</p>
 
-<p>To add a trusted build system to your SignPath organization:</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">jetbrains.buildServer.configs.kotlin.buildSteps.signPathSubmitSigningRequest</span>
+
+<span class="nf">project</span> <span class="p">{</span>
+    <span class="nf">buildType</span> <span class="p">{</span>
+        <span class="c1">// Other build type settings ...</span>
+        <span class="nf">steps</span> <span class="p">{</span>
+            <span class="c1">// Other build steps ...</span>
+            <span class="nf">signPathSubmitSigningRequest</span> <span class="p">{</span>
+                <span class="n">connectorUrl</span> <span class="p">=</span> <span class="s">"https://your-teamcity-connector-instance-base.url"</span>     
+                <span class="n">organizationId</span> <span class="p">=</span> <span class="s">"%SignPath.OrganizationId%"</span>
+                <span class="n">apiToken</span> <span class="p">=</span> <span class="s">"&lt;Signpath api token&gt;"</span>
+                <span class="n">projectSlug</span> <span class="p">=</span> <span class="s">"&lt;SignPath project slug&gt;"</span>
+                <span class="n">signingPolicySlug</span> <span class="p">=</span> <span class="s">"&lt;SignPath signing policy slug&gt;"</span>
+                <span class="n">inputArtifactPath</span> <span class="p">=</span> <span class="s">"path/to/your/artifact =&gt; tc_artifact_name"</span>
+                <span class="n">outputArtifactPath</span> <span class="p">=</span> <span class="s">"path/to/store/the/signed/artifact"</span>
+                <span class="n">waitForCompletion</span> <span class="p">=</span> <span class="k">true</span>
+                <span class="n">parameters</span> <span class="p">=</span> <span class="s">"""
+                    version: 1.0.0
+                    other_param: other value
+                """</span><span class="p">.</span><span class="nf">trimIndent</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="usage-without-versioned-settings">Usage without versioned settings</h3>
+
+<p>Add a build step of type <em>SignPath: Submit Signing Request</em></p>
+
+<h3 id="build-step-parameters">Build step parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Default Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">connectorUrl</code></td>
+      <td>(mandatory)</td>
+      <td>The base URL of the SignPath connector.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">organizationId</code></td>
+      <td>(mandatory)</td>
+      <td>The SignPath organization ID.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">apiToken</code></td>
+      <td>(mandatory)</td>
+      <td>The SignPath API token.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">projectSlug</code></td>
+      <td>(mandatory)</td>
+      <td>The SignPath project slug.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">signingPolicySlug</code></td>
+      <td>(mandatory)</td>
+      <td>The SignPath signing policy slug.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">artifactConfigurationSlug</code></td>
+      <td> </td>
+      <td>The SignPath artifact configuration slug. If not specified, the default is used.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">inputArtifactPath</code></td>
+      <td>(mandatory)</td>
+      <td>The path to the artifact to be signed. Both absolute paths and relative paths from the working directory are accepted. You can also use the TeamCity syntax <code class="language-plaintext highlighter-rouge">&lt;path&gt; =&gt; &lt;published_artifact_name&gt;</code> to map a file path to the name of a published artifact.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">waitForCompletion</code></td>
+      <td>(mandatory)</td>
+      <td>If true, the action will wait for the signing request to complete. Defaults to <code class="language-plaintext highlighter-rouge">true</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">outputArtifactPath</code></td>
+      <td> </td>
+      <td>Path to where the signed artifact will be stored. Both absolute paths and relative paths from the working directory are accepted.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">parameters</code></td>
+      <td> </td>
+      <td>Multiline-string of values that map to <a href="/documentation/artifact-configuration/syntax#parameters">user-defined parameters</a> in the Artifact Configuration. Use one line per parameter with the format <code class="language-plaintext highlighter-rouge">&lt;name&gt;: &lt;value&gt;</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">waitForCompletionTimeoutInSeconds</code></td>
+      <td><code class="language-plaintext highlighter-rouge">600</code></td>
+      <td>Maximum time in seconds that the action will wait for the signing request to complete.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">serviceUnavailableTimeoutInSeconds</code></td>
+      <td><code class="language-plaintext highlighter-rouge">600</code></td>
+      <td>Total time in seconds that the action will wait for a single service call to succeed (across several retries).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">uploadAndDownloadSignedArtifactTimeoutInSeconds</code></td>
+      <td><code class="language-plaintext highlighter-rouge">300</code></td>
+      <td>HTTP timeout used for upload or download of the artifact.Defaults to 5 minutes.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">publishUnsignedArtifactTimeoutInSeconds</code></td>
+      <td><code class="language-plaintext highlighter-rouge">300</code></td>
+      <td>Timeout used for publishing the unsigned artifact to the TeamCity server before sending the signing request.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="build-step-output-parameters">Build step output parameters</h3>
+
+<p>After the build step is run, the following parameters will be available to subsequent build steps:</p>
+
 <ul>
-  <li>go to the <strong>Trusted Build Systems</strong> page (top menu) and click <strong>Add custom</strong> or <strong>Add predefined</strong>.</li>
-  <li>enter a name, slug and (optionally) description</li>
-  <li>for <em>custom</em> Trusted Build Systems, remember the token that is created as a result</li>
+  <li><code class="language-plaintext highlighter-rouge">signingRequestId</code>: The id of the newly created signing request.</li>
+  <li><code class="language-plaintext highlighter-rouge">signingRequestWebUrl</code>: The url of the signing request in SignPath.</li>
+  <li><code class="language-plaintext highlighter-rouge">signPathApiUrl</code>: The base API url of the SignPath API.</li>
+  <li><code class="language-plaintext highlighter-rouge">signedArtifactDownloadUrl</code>: The url of the signed artifact in SignPath.</li>
 </ul>
 
-<h3 id="custom-trusted-build-systems">Custom Trusted Build Systems</h3>
+<h2 id="example">Example</h2>
 
-<p>The token that was generated must be used to configure the connector (see the connector documentation for the respective build system). You can now link this trusted build system to your projects.</p>
-
-<p>To use a trusted build system in a project:</p>
-<ul>
-  <li>open the project</li>
-  <li>find the <strong>Trusted build systems</strong> section</li>
-  <li>click <strong>Link</strong></li>
-  <li>select one of the trusted build systems of your organization</li>
-  <li>depending on the type of build system, you might need to add authentication information and/or an artifact path</li>
-</ul>
-
-<p>The build system can now be used to submit signing requests with origin metadata. A trusted build system is required for signing policies with origin verification enabled.</p>
-
-<h2 id="direct-use">Direct use of trusted build systems</h2>
-
-<p>Possible policies include:</p>
-
-<ul>
-  <li>Prevent root access: allow code signing only from build agents that don’t allow any build scripts to modify systems settings</li>
-  <li>Prevent network access: guarantee that artifacts cannot be arbitrarily received from internet sources</li>
-  <li>Restrict user access: don’t let development teams connect to the build agent, with or without administrative permissions (if you need build nodes with wider permission sets, consider separating the process of compilation and packaging from other steps such as running tests)</li>
-  <li>Require current security policies: avoid misuse of recently restored or otherwise not up-to-date build agents</li>
-</ul>
-
-<p>See the <a href="/documentation/trusted-build-systems/double-authentication-proxy">Double Authentication Proxy</a> for a simple way to achieve this using machine certificate enrollment.</p>
+<p>For a reference implementation, see the <a href="https://github.com/signpath/demo-teamcity">demo repository</a>.</p>
 
 				</article>
 			</div>
