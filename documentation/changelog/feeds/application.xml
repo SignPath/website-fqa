@@ -2,12 +2,40 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/application.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-04-08</updated>
+<updated>2025-04-22</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/application.xml</id><title type="html">SignPath - Application Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-04-22:application:1.186.1</id>
+        <title>SignPath Application 1.186.1</title>
+        <updated>2025-04-22</updated>
+        <published>2025-04-22</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-04-22" />
+        <category term="release/application" label="Application" />
+        <summary type="html">New Release:  1.186.1</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.186.1&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;X.509 certificate chains:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Certificates are now displayed with their full chain of issuers (root and intermediate certificates). This works automatically for certificate chains from public Certificate Authorities and if the chain was uploaded.&lt;/li&gt;
+  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/{organizationId}/Certificates/{slug}&lt;/code&gt; REST API contains a new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x509CertificateChain&lt;/code&gt; property (contains the available full chain).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;PFX import now also supports uploading X.509 certificate chains.&lt;/p&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;REST API additions:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;New &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POST /v1/{organizationId}/Projects/{projectSlug}/ArtifactConfigurations/{artifactConfigurationSlug}/EditXml&lt;/code&gt; route.&lt;/li&gt;
+  &lt;li&gt;New &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /v1/Meta/SystemInfo&lt;/code&gt; route to retrieve the application version and UI base URL.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed caching issue that prevented project configurators from editing recently created artifact configurations.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-04-08:application:1.185.0</id>
         <title>SignPath Application 1.185.0</title>
         <updated>2025-04-08</updated>
