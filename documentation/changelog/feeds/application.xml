@@ -2,12 +2,40 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/application.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-04-22</updated>
+<updated>2025-05-08</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/application.xml</id><title type="html">SignPath - Application Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-05-08:application:1.187.0</id>
+        <title>SignPath Application 1.187.0</title>
+        <updated>2025-05-08</updated>
+        <published>2025-05-08</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-05-08" />
+        <category term="release/application" label="Application" />
+        <summary type="html">New Release:  1.187.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.187.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Custom certificate chains are now embedded in Authenticode, ClickOnce, CMS and XML signatures.&lt;/p&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;Improved the user experience by removing unused Trusted Build System Link details.&lt;/p&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;The email notifications for administrators now include whether users accepted the invitation using a SSO account.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Changes of the purpose property of certificates and signing policies are now included in the history view.&lt;/p&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;Proper error messages are now displayed when invalid certificate files are uploaded.&lt;/p&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;The following REST APIs now return the correct error codes when no artifact is available:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /SigningRequests/{signingRequestId}/UnsignedArtifact&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /SigningRequests/{signingRequestId}/SignedArtifact&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-04-22:application:1.186.1</id>
         <title>SignPath Application 1.186.1</title>
         <updated>2025-04-22</updated>

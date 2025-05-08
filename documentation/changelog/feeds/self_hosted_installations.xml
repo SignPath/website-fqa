@@ -2,12 +2,26 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-03-11</updated>
+<updated>2025-05-08</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml</id><title type="html">SignPath - Self-hosted Installations Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-05-08:self_hosted_installations:1.187.0</id>
+        <title>SignPath Application (self-hosted only) 1.187.0</title>
+        <updated>2025-05-08</updated>
+        <published>2025-05-08</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-05-08" />
+        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
+        <summary type="html">New Release:  1.187.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.187.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;All (non-secret) configuration settings of each container instance are now dumped into a file at startup to make debugging issues easier.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-03-11:self_hosted_installations:1.183.0</id>
         <title>SignPath Application (self-hosted only) 1.183.0</title>
         <updated>2025-03-11</updated>

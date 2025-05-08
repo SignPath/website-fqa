@@ -669,6 +669,12 @@ Description
 
 <p>Although the NuGet Package format is based on OPC (see next section), it uses its own specific signing format.</p>
 
+<blockquote class="panel info">
+  <p><strong>Certificate chain support for NuGet</strong></p>
+
+  <p>Only self-signed certificates or certificates issued by a publicly trusted Certificate Authority are currently supported. If available, certificate chains are resolved at signing time and embedded in the signature.</p>
+</blockquote>
+
 <h3 id="office-macro-sign"><code class="language-plaintext highlighter-rouge">&lt;office-macro-sign&gt;</code>: Microsoft Office VBA macros</h3>
 
 <p class="badge icon-signpath">Available for <em>Advanced Code Signing</em>. </p>
@@ -696,6 +702,12 @@ Description
 </ul>
 
 <p>Macro signatures apply only to the macros within the document files and are not affected by any other changes in the signed document files.</p>
+
+<blockquote class="panel info">
+  <p><strong>Certificate chain support for Office Macros</strong></p>
+
+  <p>Only the publisher certificate is included in the signature.</p>
+</blockquote>
 
 <h3 id="opc-sign"><code class="language-plaintext highlighter-rouge">&lt;opc-sign&gt;</code>: Open Packaging Convention</h3>
 
@@ -730,6 +742,12 @@ Description
   <li>Office Open XML files (Microsoft Office): OPC signatures are only partially recognized by Office applications</li>
   <li>NuGet packages: ignored, use <code class="language-plaintext highlighter-rouge">&lt;nuget-sign&gt;</code> instead</li>
 </ul>
+
+<blockquote class="panel info">
+  <p><strong>Certificate chain support for Open Packaging Convention</strong></p>
+
+  <p>Only the publisher certificate is included in the signature.</p>
+</blockquote>
 
 <!-- markdownlint-enable MD026 no trailing punctuation -->
 
