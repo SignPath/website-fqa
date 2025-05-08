@@ -173,7 +173,7 @@
 						<ul>
 							
 								<li>
-									<p>Custom certificate chains are now embedded in Authenticode, ClickOnce, CMS and XML signatures.</p>
+									<p>Certificate chains are now always embedded in Authenticode, ClickOnce, CMS and XML signatures. (Previously only chains from public CAs were embedeed.)</p>
 
 									
 								</li>
@@ -185,7 +185,7 @@
 								</li>
 							
 								<li>
-									<p>The email notifications for administrators now include whether users accepted the invitation using a SSO account.</p>
+									<p>Email notifications for accepted invitations now state whether a SSO or personal user account was used.</p>
 
 									
 								</li>
@@ -212,7 +212,7 @@
 						<ul>
 							
 								<li>
-									<p>Changes of the purpose property of certificates and signing policies are now included in the history view.</p>
+									<p>Changes of the <em>purpose</em> property of certificates and signing policies are now included in the history view.</p>
 
 									
 								</li>
@@ -277,7 +277,7 @@
 						<ul>
 							
 								<li>
-									<p>All (non-secret) configuration settings of each container instance are now dumped into a file at startup to make debugging issues easier.</p>
+									<p>All configuration settings of each container instance are now dumped into a file at startup for easier troubleshooting (except secrets).</p>
 
 									
 								</li>

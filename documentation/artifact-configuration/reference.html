@@ -669,10 +669,16 @@ Description
 
 <p>Although the NuGet Package format is based on OPC (see next section), it uses its own specific signing format.</p>
 
-<blockquote class="panel info">
-  <p><strong>Certificate chain support for NuGet</strong></p>
+<blockquote class="panel warning">
+  <p><strong>No support for private PKI</strong></p>
 
-  <p>Only self-signed certificates or certificates issued by a publicly trusted Certificate Authority are currently supported. If available, certificate chains are resolved at signing time and embedded in the signature.</p>
+  <p>Only self-signed certificates or certificates issued by a publicly trusted Certificate Authority are supported by NuGet.</p>
+</blockquote>
+
+<blockquote class="panel info">
+  <p><strong>Certificate chain support</strong></p>
+
+  <p>If certificate chains can be resolved at signing time, they will be embedded in the signature.</p>
 </blockquote>
 
 <h3 id="office-macro-sign"><code class="language-plaintext highlighter-rouge">&lt;office-macro-sign&gt;</code>: Microsoft Office VBA macros</h3>
@@ -704,9 +710,9 @@ Description
 <p>Macro signatures apply only to the macros within the document files and are not affected by any other changes in the signed document files.</p>
 
 <blockquote class="panel info">
-  <p><strong>Certificate chain support for Office Macros</strong></p>
+  <p><strong>Certificate chain support</strong></p>
 
-  <p>Only the publisher certificate is included in the signature.</p>
+  <p>Only publisher certificates are embedded in Office macro signatures.</p>
 </blockquote>
 
 <h3 id="opc-sign"><code class="language-plaintext highlighter-rouge">&lt;opc-sign&gt;</code>: Open Packaging Convention</h3>
@@ -744,9 +750,9 @@ Description
 </ul>
 
 <blockquote class="panel info">
-  <p><strong>Certificate chain support for Open Packaging Convention</strong></p>
+  <p><strong>Certificate chain support</strong></p>
 
-  <p>Only the publisher certificate is included in the signature.</p>
+  <p>Only publisher certificates are embedded in OPC signatures.</p>
 </blockquote>
 
 <!-- markdownlint-enable MD026 no trailing punctuation -->

@@ -18,7 +18,7 @@
         <content type="html">
           &lt;div&gt;
             &lt;h2&gt;New Release:  1.187.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;All (non-secret) configuration settings of each container instance are now dumped into a file at startup to make debugging issues easier.&lt;/p&gt;
+                        &lt;p&gt;All configuration settings of each container instance are now dumped into a file at startup for easier troubleshooting (except secrets).&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>

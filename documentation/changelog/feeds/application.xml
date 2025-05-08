@@ -18,13 +18,13 @@
         <content type="html">
           &lt;div&gt;
             &lt;h2&gt;New Release:  1.187.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Custom certificate chains are now embedded in Authenticode, ClickOnce, CMS and XML signatures.&lt;/p&gt;
+                        &lt;p&gt;Certificate chains are now always embedded in Authenticode, ClickOnce, CMS and XML signatures. (Previously only chains from public CAs were embedeed.)&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Improved the user experience by removing unused Trusted Build System Link details.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
-                        &lt;p&gt;The email notifications for administrators now include whether users accepted the invitation using a SSO account.&lt;/p&gt;
+                        &lt;p&gt;Email notifications for accepted invitations now state whether a SSO or personal user account was used.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Changes of the purpose property of certificates and signing policies are now included in the history view.&lt;/p&gt;
+                        &lt;p&gt;Changes of the &lt;em&gt;purpose&lt;/em&gt; property of certificates and signing policies are now included in the history view.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Proper error messages are now displayed when invalid certificate files are uploaded.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
