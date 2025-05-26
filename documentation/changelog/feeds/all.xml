@@ -2,12 +2,86 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/all.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-05-08</updated>
-<id>https://about.signpath.io/documentation/changelog/feeds/all.xml</id><title type="html">SignPath - Changelog</title>
+<updated>2025-05-22</updated>
+<id>https://about.signpath.io/documentation/changelog/feeds/all.xml</id><title type="html">SignPath -  Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-05-22:scim_connector:1.5.0</id>
+        <title>SignPath SCIM Connector 1.5.0</title>
+        <updated>2025-05-22</updated>
+        <published>2025-05-22</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-05-22" />
+        <category term="release/scim_connector" label="SCIM Connector" />
+        <summary type="html">New Release:  1.5.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.5.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Improved the matching algorithm of users during the initial synchronization&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed a potential inconsistent state bug for group synchronization (not relevant for supported scenarios).&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
+        <id>tag:about.signpath.io,2025-05-22:azure_devops_connector:0.2.0</id>
+        <title>SignPath Azure DevOps Connector 0.2.0</title>
+        <updated>2025-05-22</updated>
+        <published>2025-05-22</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-05-22" />
+        <category term="release/azure_devops_connector" label="Azure DevOps Connector" />
+        <summary type="html">New Release:  0.2.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  0.2.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Processing now aborts immediately when client aborts HTTP connection.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
+        <id>tag:about.signpath.io,2025-05-22:github_connector:1.4.0</id>
+        <title>SignPath GitHub Connector 1.4.0</title>
+        <updated>2025-05-22</updated>
+        <published>2025-05-22</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-05-22" />
+        <category term="release/github_connector" label="GitHub Connector" />
+        <summary type="html">New Release:  1.4.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.4.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Processing now aborts immediately when client aborts HTTP connection.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed incorrect group name evaluation for GitHub runners due to unannounced GitHub API change.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
+        <id>tag:about.signpath.io,2025-05-22:teamcity_connector:0.2.0</id>
+        <title>SignPath TeamCity Connector 0.2.0</title>
+        <updated>2025-05-22</updated>
+        <published>2025-05-22</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-05-22" />
+        <category term="release/teamcity_connector" label="TeamCity Connector" />
+        <summary type="html">New Release:  0.2.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  0.2.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Processing now aborts immediately when client aborts HTTP connection.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
+        <id>tag:about.signpath.io,2025-05-22:teamcity_plugin:0.1.1</id>
+        <title>SignPath TeamCity Plugin 0.1.1</title>
+        <updated>2025-05-22</updated>
+        <published>2025-05-22</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-05-22" />
+        <category term="release/teamcity_plugin" label="TeamCity Plugin" />
+        <summary type="html">New Release:  0.1.1</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  0.1.1&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed a bug where the root cause of certain error cases was not properly displayed.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-05-08:application:1.187.0</id>
         <title>SignPath Application 1.187.0</title>
         <updated>2025-05-08</updated>

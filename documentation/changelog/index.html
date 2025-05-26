@@ -93,7 +93,7 @@
 	<div>
 		Component 
 		<select id="changelog-component-select">
-			<option value="all">All components</option><option value="application">Application</option><option value="self_hosted_installations">Application (self-hosted only)</option><option value="powershell_module">PowerShell Module</option><option value="powershell_module_docker">Docker PowerShell Module</option><option value="crypto_providers">Crypto Providers</option><option value="macos_cryptotokenkit">macOS CryptoTokenKit</option><option value="github_connector">GitHub Connector</option><option value="github_actions_action">GitHub Actions Action</option><option value="jenkins_plugin">Jenkins Plugin</option><option value="teamcity_plugin">TeamCity Plugin</option><option value="teamcity_connector">TeamCity Connector</option><option value="azure_devops_extension">Azure DevOps Extension</option></select>
+			<option value="all">All components</option><option value="application">Application</option><option value="self_hosted_installations">Application (self-hosted only)</option><option value="powershell_module">PowerShell Module</option><option value="powershell_module_docker">Docker PowerShell Module</option><option value="crypto_providers">Crypto Providers</option><option value="macos_cryptotokenkit">macOS CryptoTokenKit</option><option value="github_connector">GitHub Connector</option><option value="github_actions_action">GitHub Actions Action</option><option value="jenkins_plugin">Jenkins Plugin</option><option value="teamcity_plugin">TeamCity Plugin</option><option value="teamcity_connector">TeamCity Connector</option><option value="azure_devops_connector">Azure DevOps Connector</option><option value="azure_devops_extension">Azure DevOps Extension</option><option value="scim_connector">SCIM Connector</option></select>
 	</div>
 	<div>
 		Changes 
@@ -117,6 +117,326 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="release component-scim_connector change_type-version change_type-improvements change_type-bug_fixes component-azure_devops_connector component-github_connector component-teamcity_connector component-teamcity_plugin" id="2025-05-22">
+	<h1>&nbsp;<span>May 22, 2025</span></h1>
+	
+		
+			
+			
+			
+			
+			
+			
+			
+
+			<div class="component-scim_connector component change_type-version change_type-improvements change_type-bug_fixes">
+			<h2>SCIM Connector 1.5.0</h2>
+			
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+				  <div class="change_type-improvements">
+					<h3>
+						 Improvements:
+							
+					</h3>
+					
+					
+						<ul>
+							
+								<li>
+									<p>Improved the matching algorithm of users during the initial synchronization</p>
+
+									
+								</li>
+							
+						</ul>
+					
+					</div> <!-- change_type -->
+				
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+				  <div class="change_type-bug_fixes">
+					<h3>
+						 Bug Fixes:
+						
+					</h3>
+					
+					
+						<ul>
+							
+								<li>
+									<p>Fixed a potential inconsistent state bug for group synchronization (not relevant for supported scenarios).</p>
+
+									
+								</li>
+							
+						</ul>
+					
+					</div> <!-- change_type -->
+				
+			
+			</div>
+		
+			
+			
+			
+			
+			
+			
+			
+
+			<div class="component-azure_devops_connector component change_type-version change_type-improvements">
+			<h2>Azure DevOps Connector 0.2.0</h2>
+			
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+				  <div class="change_type-improvements">
+					<h3>
+						 Improvements:
+							
+					</h3>
+					
+					
+						<ul>
+							
+								<li>
+									<p>Processing now aborts immediately when client aborts HTTP connection.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+					</div> <!-- change_type -->
+				
+			
+			</div>
+		
+			
+			
+			
+			
+			
+			
+			
+
+			<div class="component-github_connector component change_type-version change_type-improvements change_type-bug_fixes">
+			<h2>GitHub Connector 1.4.0</h2>
+			
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+				  <div class="change_type-improvements">
+					<h3>
+						 Improvements:
+							
+					</h3>
+					
+					
+						<ul>
+							
+								<li>
+									<p>Processing now aborts immediately when client aborts HTTP connection.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+					</div> <!-- change_type -->
+				
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+				  <div class="change_type-bug_fixes">
+					<h3>
+						 Bug Fixes:
+						
+					</h3>
+					
+					
+						<ul>
+							
+								<li>
+									<p>Fixed incorrect group name evaluation for GitHub runners due to unannounced GitHub API change.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+					</div> <!-- change_type -->
+				
+			
+			</div>
+		
+			
+			
+			
+			
+			
+			
+			
+
+			<div class="component-teamcity_connector component change_type-version change_type-improvements">
+			<h2>TeamCity Connector 0.2.0</h2>
+			
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+				  <div class="change_type-improvements">
+					<h3>
+						 Improvements:
+							
+					</h3>
+					
+					
+						<ul>
+							
+								<li>
+									<p>Processing now aborts immediately when client aborts HTTP connection.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+					</div> <!-- change_type -->
+				
+			
+			</div>
+		
+			
+			
+			
+			
+			
+			
+			
+
+			<div class="component-teamcity_plugin component change_type-version change_type-bug_fixes">
+			<h2>TeamCity Plugin 0.1.1</h2>
+			
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+			
+				
+				 
+			  
+			  
+			  
+			  
+				
+				  <div class="change_type-bug_fixes">
+					<h3>
+						 Bug Fixes:
+						
+					</h3>
+					
+					
+						<ul>
+							
+								<li>
+									<p>Fixed a bug where the root cause of certain error cases was not properly displayed.</p>
+
+									
+								</li>
+							
+						</ul>
+					
+					</div> <!-- change_type -->
+				
+			
+			</div>
+		
+	
+</article>
 
 
 

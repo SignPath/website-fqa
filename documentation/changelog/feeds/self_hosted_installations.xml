@@ -3,7 +3,7 @@
 <link href="https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
 <updated>2025-05-08</updated>
-<id>https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml</id><title type="html">SignPath - Self-hosted Installations Changelog</title>
+<id>https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml</id><title type="html">SignPath - Application (self-hosted only) Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
