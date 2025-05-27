@@ -2,12 +2,26 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/all.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-05-22</updated>
+<updated>2025-05-27</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/all.xml</id><title type="html">SignPath -  Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-05-27:jenkins_plugin:3.1.0</id>
+        <title>SignPath Jenkins Plugin 3.1.0</title>
+        <updated>2025-05-27</updated>
+        <published>2025-05-27</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-05-27" />
+        <category term="release/jenkins_plugin" label="Jenkins Plugin" />
+        <summary type="html">New Release:  3.1.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  3.1.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Added support for subscriptions without the origin verification feature.’&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-05-22:scim_connector:1.5.0</id>
         <title>SignPath SCIM Connector 1.5.0</title>
         <updated>2025-05-22</updated>
