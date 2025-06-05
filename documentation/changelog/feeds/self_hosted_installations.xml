@@ -2,12 +2,27 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-05-20</updated>
+<updated>2025-06-05</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml</id><title type="html">SignPath - Application (self-hosted only) Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-06-05:self_hosted_installations:1.189.0</id>
+        <title>SignPath Application (self-hosted only) 1.189.0</title>
+        <updated>2025-06-05</updated>
+        <published>2025-06-05</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-06-05" />
+        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
+        <summary type="html">New Release:  1.189.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.189.0&lt;/h2&gt;&lt;h3&gt;Upgrade Information:&lt;/h3&gt;&lt;p&gt;Additional migration steps happen in final application migration phase. &lt;strong&gt;Expect longer downtime than usual&lt;/strong&gt; (exact downtime depends on number of total signing requests and database performance; contact support for details).&lt;/p&gt;
+&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-application&lt;/code&gt; chart: renamed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appSecrets.setupDb.connectionStrings.reportModelDatabaseDdl&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signingRequestDatabaseDdl&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appSecrets.shared.connectionStrings.reportModelDatabase&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signingRequestDatabase&lt;/code&gt;. Note: only the values’ &lt;em&gt;paths&lt;/em&gt; have changed; keep the values as they are.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-05-20:self_hosted_installations:1.188.0</id>
         <title>SignPath Application (self-hosted only) 1.188.0</title>
         <updated>2025-05-20</updated>
@@ -34,6 +49,20 @@
             &lt;h2&gt;New Release:  1.187.0&lt;/h2&gt;&lt;h3&gt;Upgrade Information:&lt;/h3&gt;&lt;p&gt;Minimum required version to upgrade from is 1.140. In case you have an older version, you first need to upgrade to a previous version (e.g. 1.186, contact support). &lt;strong&gt;[Updated 2025-05-19]&lt;/strong&gt;&lt;/p&gt;
 &lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
                         &lt;p&gt;All configuration settings of each container instance are now dumped into a file at startup for easier troubleshooting (except secrets).&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
+        <id>tag:about.signpath.io,2025-04-08:self_hosted_installations:1.185.0</id>
+        <title>SignPath Application (self-hosted only) 1.185.0</title>
+        <updated>2025-04-08</updated>
+        <published>2025-04-08</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-04-08" />
+        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
+        <summary type="html">New Release:  1.185.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.185.0&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Custom notification email styling: changed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_MailLayout.cshtml&lt;/code&gt;. In case you have overridden the template, compare your customized file with the Helm chart’s version. &lt;strong&gt;[Updated 2025-06-03]&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
