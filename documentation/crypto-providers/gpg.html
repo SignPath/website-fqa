@@ -128,6 +128,8 @@
 
 <p><img src="/assets/img/resources/documentation/crypto-providers/gpg-signing-flow.svg" alt="Figure: GPG signing flow" /></p>
 
+<p>Configuration options for the <a href="/documentation/crypto-providers/cryptoki">SignPath PKCS #11/Cryptoki provider</a> apply.</p>
+
 <h2 id="prepare-signing">Setup</h2>
 
 <h3 id="signpath-configuration">SignPath configuration</h3>
@@ -151,14 +153,6 @@
   </li>
   <li>Import a specific key into the GPG key chain via the <code class="language-plaintext highlighter-rouge">ImportSignPathGpgPublicKey</code> function (returns the GPG key ID for subsequent use in signing commands)</li>
 </ol>
-
-<blockquote class="panel warning">
-  <p><strong>Use a dedicated CI user for each signing policy</strong></p>
-
-  <p>We strongly recommend to use dedicated CI users for GPG signing, each <strong>assigned to exactly one signing policy as submitter</strong>. Otherwise the SignPath project and signing policy may not be determined unambiguously and GPG signing commands may fail with “signing failed: No secret key” errors.</p>
-
-  <p>Background: When performing a GPG signing operation (e.g. <code class="language-plaintext highlighter-rouge">gpg --sign -u my-gpg-key@example.com</code>), a GPG <em>public key</em> is selected. Internally (via <code class="language-plaintext highlighter-rouge">gnupg-pkcs11</code>), the corresponding SignPath project and signing policy are selected via the GPG key’s <em>public key hash</em> (a “keygrip” in <a href="https://www.gnupg.org/documentation/manuals/gnupg/Glossary.html">GnuPG lingo</a>). This means that when two or more signing policies are referencing <em>the same GPG key</em>, the signing policy cannot not be determined unambiguously and <code class="language-plaintext highlighter-rouge">gnupg-pkcs11</code> would just filter out these signing policies, resulting in “missing key” errors.</p>
-</blockquote>
 
 <h2 id="signing-code-with-gpg">Signing code with GPG</h2>
 

@@ -2,12 +2,30 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/crypto_providers.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-01-31</updated>
+<updated>2025-06-06</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/crypto_providers.xml</id><title type="html">SignPath - Crypto Providers Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-06-06:crypto_providers:5.3.0</id>
+        <title>SignPath Crypto Providers 5.3.0</title>
+        <updated>2025-06-06</updated>
+        <published>2025-06-06</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-06-06" />
+        <category term="release/crypto_providers" label="Crypto Providers" />
+        <summary type="html">New Release:  5.3.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  5.3.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Cryptoki/PKCS#11: project and signing policy can now be specified via environment variables or config file.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;GPG: This removes the need to provide a dedicated CI user for each signing policy. GPG signing samples now use these parameters.&lt;/li&gt;
+  &lt;li&gt;Configuration: see &lt;a href=&quot;/documentation/crypto-providers#crypto-provider-configuration&quot;&gt;Crypto Provider configuration&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-01-31:crypto_providers:5.2.0</id>
         <title>SignPath Crypto Providers 5.2.0</title>
         <updated>2025-01-31</updated>

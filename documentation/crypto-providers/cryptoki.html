@@ -233,9 +233,9 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 <p>Name and synopsis for these parameters depend on the tool. For tools that support Cryptoki only <a href="#about-cryptoki">indirectly</a>, parameters may also be passed indirectly or using a specific syntax for an existing tool parameter (see below).</p>
 
 <blockquote class="panel info">
-  <p><strong>Keys are not specified directly</strong></p>
+  <p><strong>Use <em>Project</em> and <em>Signing Policy</em> slugs to speficy a key</strong></p>
 
-  <p>The Cryptoki API expects you to identify a <em>key</em>, but SignPath requires you to specify a <em>Project</em> and a <em>Signing Policy</em>. SignPath will select the key or certificate of the specified <em>Signing Policy</em>.</p>
+  <p>Identify a specific <em>Signing Policy</em> by specifying <em>Project</em> and <em>Signing Policy</em> slugs. SignPath will select the key or certificate of that Signing Policy and pass it to the Cryptoki API.</p>
 </blockquote>
 
 <h3 id="error-handling">Error handling</h3>
@@ -517,7 +517,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">--pkcs11module</code></td>
-      <td><code class="language-plaintext highlighter-rouge">/path/to/libSignPath.Cryptoki.so</code></td>
+      <td><code class="language-plaintext highlighter-rouge">path/to/libSignPath.Cryptoki.so</code></td>
       <td>Path to the SignPath Cryptoki library</td>
     </tr>
     <tr>
@@ -725,7 +725,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
     <tr>
       <td><em>keystore-alias</em></td>
       <td><code class="language-plaintext highlighter-rouge">$ProjectSlug/$SigningPolicySlug</code></td>
-      <td><em>Project</em> and <em>Signing Policy</em> slug, separated by a forward slash</td>
+      <td>SignPath <em>Project</em> and <em>Signing Policy</em> slugs, separated by a forward slash</td>
     </tr>
   </tbody>
 </table>

@@ -236,82 +236,101 @@ Again, for Authenticode this is actually performed by the SIP.</li>
 
 <p>This section describes how to specify configuration values for all Crypto Providers.</p>
 
-<p>Configuration options:</p>
-
-<ul>
-  <li>Provide individual environment variables per setting</li>
-  <li>Specify the path to a JSON configuration file via the <code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code> environment variable</li>
-  <li>Combine both approaches (individual environment variables take precedence over the corresponding JSON file values)</li>
-</ul>
-
-<p>In case you used the <a href="/documentation/crypto-providers/windows#installation">MSI installer</a>, a <code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code> system env variable is created and set to <code class="language-plaintext highlighter-rouge">%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json</code> which points to a skeleton JSON file you can use to provide your own (default) values.</p>
+<p>You can specify values via individual environment variables or a JSON config file specified in <code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code>. If you specify both, environment variables take precedence.</p>
 
 <table class="break-code">
   <thead>
     <tr>
       <th>JSON setting</th>
       <th>Environment variable</th>
+      <th>Supported for</th>
       <th>Default Value</th>
       <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td> </td>
+      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code></td>
+      <td> </td>
+      <td> </td>
+      <td>Path to the JSON configuration file</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">OrganizationId</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_ORGANIZATION_ID</code></td>
-      <td>(mandatory)</td>
-      <td>ID of your organization</td>
+      <td> </td>
+      <td> </td>
+      <td>ID of SignPath Organization</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ApiToken</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_API_TOKEN</code></td>
-      <td>(mandatory)</td>
-      <td>API token for a CI or Interactive User (see below for options)</td>
+      <td> </td>
+      <td> </td>
+      <td>API token for a SignPath User (CI or Interactive User; see <a href="#api-token-options">below</a> for options)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProjectSlug</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_PROJECT_SLUG</code></td>
-      <td>(optional)</td>
-      <td>The project slug. Used for filtering available certificates/keys. (MacOS only)</td>
+      <td> </td>
+      <td> </td>
+      <td>Slug of the SignPath <em>Project</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SigningPolicySlug</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_SIGNING_POLICY_SLUG</code></td>
-      <td>(optional)</td>
-      <td>The signing policy slug. Used for filtering available certificates/keys. (MacOS only)</td>
+      <td> </td>
+      <td> </td>
+      <td>Slug of the SignPath <em>Signing Policy</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">TlsClientCertificate</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_TLS_CLIENT_CERTIFICATE</code></td>
-      <td>(optional)</td>
-      <td>Reference to a TLS/SSL client authentication certificate in the format <code class="language-plaintext highlighter-rouge">thumbprint:$HexThumbprint</code> (Windows only)</td>
+      <td>Windows</td>
+      <td> </td>
+      <td>Reference to a TLS/SSL client authentication certificate in the format <code class="language-plaintext highlighter-rouge">thumbprint:$HexThumbprint</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ApiUrl</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_API_URL</code></td>
+      <td> </td>
       <td><code class="language-plaintext highlighter-rouge">https://app.signpath.io/Api</code></td>
       <td>SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">HttpProxy</code></td>
       <td><code class="language-plaintext highlighter-rouge">http_proxy</code></td>
-      <td>(optional)</td>
-      <td>Address of an <a href="#http-proxy-config">HTTP (web) proxy</a> (not available on macOS)</td>
+      <td> </td>
+      <td> </td>
+      <td>Address of an <a href="#http-proxy-config">HTTP (web) proxy</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cryptoki.DoNotFailOnReadWriteSessions</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS</code></td>
+      <td>Windows, Linux</td>
       <td><code class="language-plaintext highlighter-rouge">false</code></td>
       <td>Enables compatibility with Cryptoki/PKCS #11 clients that open sessions with read/write option</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">IncludeDummyX509CertificateForGpgKeys</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_INCLUDE_DUMMY_X509CERTIFICATE_FOR_GPG_KEYS</code></td>
+      <td> </td>
       <td><code class="language-plaintext highlighter-rouge">false</code></td>
       <td>Enables compatibility with clients that require X.509 objects (required for <a href="/documentation/crypto-providers/gpg">GPG hash signing</a> due to <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd</code> X.509-based key discovery)</td>
     </tr>
   </tbody>
 </table>
+
+<p>The <a href="/documentation/crypto-providers/windows#installation">MSI installer</a> for Windows creates a skeleton JSON file <code class="language-plaintext highlighter-rouge">%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json</code> you can use to provide your own (default) values and sets <code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code> accordingly.</p>
+
+<blockquote class="panel info">
+  <p><strong>Project and signing policy slugs</strong></p>
+
+  <p>Use these parameters for signing tools that don’t provide a key parameter (e.g. GPG) or to provide defaults where a key parameter is optional (e.g. macOS CryptoTokenKit).</p>
+
+  <p>If only one or neither are specified, signing policy (and therefore certificate and key) will be resolved at runtime. Signing operations will fail if your account is a submitter for more than one matching signing policy.</p>
+</blockquote>
 
 <p><strong>Logging settings:</strong></p>
 

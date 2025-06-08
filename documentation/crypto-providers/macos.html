@@ -138,51 +138,56 @@
     <tr>
       <th>Parameter</th>
       <th>Value</th>
+      <th>Default</th>
       <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">--config</code></td>
-      <td><code class="language-plaintext highlighter-rouge">/path/to/config/file.json</code></td>
-      <td>Path to config file</td>
+      <td><code class="language-plaintext highlighter-rouge">path/to/configfile.json</code></td>
+      <td> </td>
+      <td>Path to SignPath <a href="index#crypto-provider-configuration">configuration file</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">--api-url</code></td>
       <td><code class="language-plaintext highlighter-rouge">$ApiUrl</code></td>
-      <td>The base URL of the SignPath API, e.g. <code class="language-plaintext highlighter-rouge">https://app.signpath.io/Api</code></td>
+      <td><code class="language-plaintext highlighter-rouge">https://app.signpath.io/Api</code></td>
+      <td>Base URL of the SignPath API</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">--project-slug</code></td>
       <td><code class="language-plaintext highlighter-rouge">$ProjectSlug</code></td>
-      <td>If not specified, the certificates from all available projects will be loaded</td>
+      <td> </td>
+      <td>Slug of the SignPath <em>Project</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">--signing-policy-slug</code></td>
       <td><code class="language-plaintext highlighter-rouge">$SigningPolicySlug</code></td>
-      <td>If not specified, the certificates from all available signing policies will be loaded</td>
+      <td> </td>
+      <td>Slug of the SignPath <em>Signing Policy</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">--organization-id</code></td>
       <td><code class="language-plaintext highlighter-rouge">$OrganizationId</code></td>
-      <td>The id of the organization to use</td>
+      <td> </td>
+      <td>ID of the SignPath <em>Organization</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">--api-token</code></td>
       <td><code class="language-plaintext highlighter-rouge">$ApiToken</code></td>
-      <td>The API token for a CI or Interactive User (can be created in the “Users and Groups” UI)</td>
+      <td> </td>
+      <td>API token for a SignPath <em>User</em></td>
     </tr>
   </tbody>
 </table>
 
 <blockquote class="panel info">
-  <p><strong>Keys are not specified directly</strong></p>
+  <p><strong>Use <em>Project</em> and <em>Signing Policy</em> slugs to speficy a key</strong></p>
 
-  <p>When using a file-based <a href="/documentation/crypto-providers#crypto-provider-configuration">configuration</a>, the macOS CryptoTokenKit Crypto Provider requires the config file to be</p>
-  <ul>
-    <li>named <code class="language-plaintext highlighter-rouge">config.json</code> and placed in the same directory as the <code class="language-plaintext highlighter-rouge">SignPathCryptoTokenKit.app</code> application or</li>
-    <li>its path to be specified via the <code class="language-plaintext highlighter-rouge">--config</code> parameter</li>
-  </ul>
+  <p>Identify a specific <em>Signing Policy</em> by specifying <em>Project</em> and <em>Signing Policy</em> slugs. SignPath will select the certificate of that Signing Policy and pass it to the CryptoTokenKit.</p>
+
+  <p>When you specify neither, SignPath will load all certificates available for the <em>API Token</em>’s user. When you specify only one, SignPath will load the certificates of all available <em>Signing Policies</em> for the specified project, or all Signing Policies with that slug for any project, respectively. This may result in ambiguities when referencing a certificate that is available through more than on available <em>Signing Policy</em>.</p>
 </blockquote>
 
 <p>Example call starting the application:</p>

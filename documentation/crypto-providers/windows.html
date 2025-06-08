@@ -214,7 +214,7 @@ and the system-wide <code class="language-plaintext highlighter-rouge">SIGNPATH_
     <tr>
       <td>Key container name</td>
       <td><code class="language-plaintext highlighter-rouge">$ProjectSlug/$SigningPolicySlug</code></td>
-      <td><em>Project</em> and <em>Signing Policy</em> slugs, separated by a forward slash</td>
+      <td>SignPath <em>Project</em> and <em>Signing Policy</em> slugs, separated by a forward slash</td>
     </tr>
     <tr>
       <td>Certificate file</td>
@@ -225,9 +225,9 @@ and the system-wide <code class="language-plaintext highlighter-rouge">SIGNPATH_
 </table>
 
 <blockquote class="panel info">
-  <p><strong>Keys are not specified directly</strong></p>
+  <p><strong>Use <em>Project</em> and <em>Signing Policy</em> slugs to speficy a key</strong></p>
 
-  <p>The KSP and CSP interfaces expect you to identify a key, but SignPath requires you to specify <em>Project</em> and <em>Signing Policy</em>. SignPath will select the correct key or certificate based on the <em>Project</em> and <em>Signing Policy</em> you specify.</p>
+  <p>Identify a specific <em>Signing Policy</em> by specifying <em>Project</em> and <em>Signing Policy</em> slugs. SignPath will select the key or certificate of that Signing Policy and pass it to the KSP and CSP interfaces.</p>
 </blockquote>
 
 <h2 id="error-handling">Error handling</h2>
