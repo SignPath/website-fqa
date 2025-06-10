@@ -128,8 +128,6 @@
 
 <p><img src="/assets/img/resources/documentation/crypto-providers/gpg-signing-flow.svg" alt="Figure: GPG signing flow" /></p>
 
-<p>Configuration options for the <a href="/documentation/crypto-providers/cryptoki">SignPath PKCS #11/Cryptoki provider</a> apply.</p>
-
 <h2 id="prepare-signing">Setup</h2>
 
 <h3 id="signpath-configuration">SignPath configuration</h3>
@@ -153,6 +151,8 @@
   </li>
   <li>Import a specific key into the GPG key chain via the <code class="language-plaintext highlighter-rouge">ImportSignPathGpgPublicKey</code> function (returns the GPG key ID for subsequent use in signing commands)</li>
 </ol>
+
+<p>See <a href="/documentation/crypto-providers/#crypto-provider-configuration">SignPath Crypto Providers</a> for additional configuration options.</p>
 
 <h2 id="signing-code-with-gpg">Signing code with GPG</h2>
 
