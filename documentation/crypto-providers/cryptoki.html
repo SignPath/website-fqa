@@ -238,9 +238,9 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 <p>Name and synopsis for these parameters depend on the tool. For tools that support Cryptoki only <a href="#about-cryptoki">indirectly</a>, parameters may also be passed indirectly or using a specific syntax for an existing tool parameter (see below).</p>
 
 <blockquote class="panel info">
-  <p><strong>Use <em>Project</em> and <em>Signing Policy</em> slugs to speficy a key</strong></p>
+  <p><strong>Use <em>Project</em> and <em>Signing Policy</em> slugs to specify a key</strong></p>
 
-  <p>Identify a specific <em>Signing Policy</em> by specifying <em>Project</em> and <em>Signing Policy</em> slugs. SignPath will select the key or certificate of that Signing Policy and pass it to the Cryptoki API.</p>
+  <p>Identify a specific <em>Signing Policy</em> by specifying <em>Project</em> and <em>Signing Policy</em> slugs. The SignPath Cryptoki CryptoProvider will select that policy’s key or certificate.</p>
 </blockquote>
 
 <h3 id="error-handling">Error handling</h3>

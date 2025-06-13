@@ -238,6 +238,8 @@ Again, for Authenticode this is actually performed by the SIP.</li>
 
 <p>You can specify values via individual environment variables or a JSON config file specified in <code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code>. If you specify both, environment variables take precedence.</p>
 
+<h4 id="crypto-provider-config-values-general">General configuration settings</h4>
+
 <table class="break-code">
   <thead>
     <tr>
@@ -271,24 +273,10 @@ Again, for Authenticode this is actually performed by the SIP.</li>
       <td>API token for a SignPath User (CI or Interactive User; see <a href="#api-token-options">below</a> for options)</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProjectSlug</code></td>
-      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_PROJECT_SLUG</code></td>
-      <td> </td>
-      <td> </td>
-      <td>Slug of the SignPath <em>Project</em></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SigningPolicySlug</code></td>
-      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_SIGNING_POLICY_SLUG</code></td>
-      <td> </td>
-      <td> </td>
-      <td>Slug of the SignPath <em>Signing Policy</em></td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">TlsClientCertificate</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_TLS_CLIENT_CERTIFICATE</code></td>
       <td>Windows</td>
-      <td> </td>
+      <td>(optional)</td>
       <td>Reference to a TLS/SSL client authentication certificate in the format <code class="language-plaintext highlighter-rouge">thumbprint:$HexThumbprint</code></td>
     </tr>
     <tr>
@@ -301,14 +289,14 @@ Again, for Authenticode this is actually performed by the SIP.</li>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">HttpProxy</code></td>
       <td><code class="language-plaintext highlighter-rouge">http_proxy</code></td>
-      <td> </td>
-      <td> </td>
+      <td>Windows, Linux</td>
+      <td>(optional)</td>
       <td>Address of an <a href="#http-proxy-config">HTTP (web) proxy</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cryptoki.DoNotFailOnReadWriteSessions</code></td>
       <td><code class="language-plaintext highlighter-rouge">SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS</code></td>
-      <td>Windows, Linux</td>
+      <td> </td>
       <td><code class="language-plaintext highlighter-rouge">false</code></td>
       <td>Enables compatibility with Cryptoki/PKCS #11 clients that open sessions with read/write option</td>
     </tr>
@@ -324,15 +312,39 @@ Again, for Authenticode this is actually performed by the SIP.</li>
 
 <p>The <a href="/documentation/crypto-providers/windows#installation">MSI installer</a> for Windows creates a skeleton JSON file <code class="language-plaintext highlighter-rouge">%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json</code> you can use to provide your own (default) values and sets <code class="language-plaintext highlighter-rouge">SIGNPATH_CONFIG_FILE</code> accordingly.</p>
 
-<blockquote class="panel info">
-  <p><strong>Project and signing policy slugs</strong></p>
+<h4 id="crypto-provider-config-values-project-signingpolicy">Project and signing policy settings</h4>
 
-  <p>Use these parameters for signing tools that don’t provide a key parameter (e.g. GPG) or to provide defaults where a key parameter is optional (e.g. macOS CryptoTokenKit).</p>
+<p>You will usually specifiy the Project and Signing Policy and let SignPath select the matching certificate.</p>
 
-  <p>If only one or neither are specified, signing policy (and therefore certificate and key) will be resolved at runtime. Signing operations will fail if your account is a submitter for more than one matching signing policy.</p>
-</blockquote>
+<p>The following values</p>
+<ul>
+  <li>should be provided for macOS CryptoTokenKit to avoid ambuguities (see <a href="macos#usage-project-siging-policy">macOS</a>)</li>
+  <li>are internally used for GPG signing via PKCS #11 (see <a href="gpg#configure-gnupg">GPG</a>)</li>
+</ul>
 
-<p><strong>Logging settings:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>JSON setting</th>
+      <th>Environment variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProjectSlug</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_PROJECT_SLUG</code></td>
+      <td>Slug of the SignPath <em>Project</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SigningPolicySlug</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SIGNPATH_SIGNING_POLICY_SLUG</code></td>
+      <td>Slug of the SignPath <em>Signing Policy</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="crypto-provider-config-values-logging">Logging settings</h4>
 
 <table>
   <thead>
@@ -373,7 +385,7 @@ Again, for Authenticode this is actually performed by the SIP.</li>
 
 <p>Supported log levels: <code class="language-plaintext highlighter-rouge">none</code>, <code class="language-plaintext highlighter-rouge">fatal</code>, <code class="language-plaintext highlighter-rouge">error</code>, <code class="language-plaintext highlighter-rouge">warning</code>, <code class="language-plaintext highlighter-rouge">info</code>, <code class="language-plaintext highlighter-rouge">debug</code>, <code class="language-plaintext highlighter-rouge">verbose</code>.</p>
 
-<p><strong>Timeout settings:</strong></p>
+<h4 id="timeout-settings">Timeout settings</h4>
 
 <table class="break-column-2">
   <thead>
@@ -406,9 +418,9 @@ Again, for Authenticode this is actually performed by the SIP.</li>
   </tbody>
 </table>
 
-<p>HTTP timeouts and 5xx server erros (e.g. 503 Service Unavailable errors) are treated as failed requests.</p>
+<p>HTTP timeouts and 5xx server errors (e.g. 503 Service Unavailable errors) are treated as failed requests.</p>
 
-<p>The delay between retries increases exponentially. For the default values this sums up to a total delay time of 10 minuntes.</p>
+<p>The delay between retries increases exponentially. For the default values this sums up to a total delay time of 10 minutes.</p>
 
 <p id="sample-configuration-file"><strong>Sample configuration file:</strong></p>
 

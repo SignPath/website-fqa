@@ -176,9 +176,16 @@
 								<li>
 									<p>Cryptoki/PKCS#11: project and signing policy can now be specified via environment variables or config file.</p>
 <ul>
-  <li>GPG: This removes the need to provide a dedicated CI user for each signing policy. GPG signing samples now use these parameters.</li>
+  <li>GPG: this removes the need to provide a dedicated CI user for each signing policy. GPG signing samples now use these parameters.</li>
+  <li>GPG: the <a href="/documentation/crypto-providers/gpg#configure-gnupg"><code class="language-plaintext highlighter-rouge">InitializeSignPathCryptoProviderGpgSigning</code> helper function</a> now fully configures GPG; no more need to run <code class="language-plaintext highlighter-rouge">ImportSignPathGpgPublicKey</code>.</li>
   <li>Configuration: see <a href="/documentation/crypto-providers#crypto-provider-configuration">Crypto Provider configuration</a>.</li>
 </ul>
+
+									
+								</li>
+							
+								<li>
+									<p>Improved the default logging locations for GPG signing, see <a href="/documentation/crypto-providers/gpg#gpg-error-logs">GPG docs</a>.</p>
 
 									
 								</li>

@@ -187,14 +187,6 @@
   </tbody>
 </table>
 
-<blockquote class="panel info">
-  <p><strong>Use <em>Project</em> and <em>Signing Policy</em> slugs to speficy a key</strong></p>
-
-  <p>Identify a specific <em>Signing Policy</em> by specifying <em>Project</em> and <em>Signing Policy</em> slugs. SignPath will select the certificate of that Signing Policy and pass it to the CryptoTokenKit.</p>
-
-  <p>When you specify neither, SignPath will load all certificates available for the <em>API Token</em>’s user. When you specify only one, SignPath will load the certificates of all available <em>Signing Policies</em> for the specified project, or all Signing Policies with that slug for any project, respectively. This may result in ambiguities when referencing a certificate that is available through more than on available <em>Signing Policy</em>.</p>
-</blockquote>
-
 <p>Example call starting the application:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">SIGNPATH_API_TOKEN</span><span class="o">=</span>...
@@ -203,6 +195,26 @@ open SignPathCryptoTokenKit.app <span class="nt">--args</span> <span class="se">
   <span class="nt">--signing-policy-slug</span> release-signing <span class="se">\</span>
   <span class="nt">--organization-id</span> 0241f767-69c8-448d-ad5e-8bd453916068
 </code></pre></div></div>
+
+<h4 id="usage-project-siging-policy">Project and signing policy</h4>
+
+<p>Identify a specific <em>Signing Policy</em> by specifying <em>Project</em> and <em>Signing Policy</em> slugs. The SignPath CryptoTokenKit provider will select that policy’s certificate.</p>
+
+<p>In addition to the <code class="language-plaintext highlighter-rouge">SignPathCryptoTokenKit.app</code> parameters, we recommend that you also specify Project and Signing Policy slug to the signing tool. This avoids situations where a certificate does not unambiguously identify a signing policy, resulting in an error. See <a href="index#crypto-provider-config-values-project-signingpolicy">project and signing policy slug settings</a>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">SIGNPATH_PROJECT_SLUG</span><span class="o">=</span><span class="s2">"MyProject"</span>
+<span class="nb">export </span><span class="nv">SIGNPATH_SIGNING_POLICY_SLUG</span><span class="o">=</span><span class="s2">"release-signging"</span>
+
+codesign MyApp.app
+</code></pre></div></div>
+
+<blockquote class="panel tip">
+  <p><strong>Always specify <em>Project</em> and <em>Signing Policy</em> slugs</strong></p>
+
+  <p>When you specify neither, SignPath will load all certificates available for the <em>API Token</em>’s user. When you specify only the <em>Project</em>, SignPath will load the certificates of all available <em>Signing Policies</em> for the specified project.</p>
+
+  <p>This works fine if a certificate clearly identifies a single Signing Policy. However, if a certificate is referenced by more than one available <em>Signing Policy</em>, using it will result in an ambiguous reference error.</p>
+</blockquote>
 
 <h3 id="troubleshooting">Troubleshooting</h3>
 
@@ -267,8 +279,8 @@ open SignPathCryptoTokenKit.app <span class="nt">--args</span> <span class="se">
 
 <p>Sample: sign <code class="language-plaintext highlighter-rouge">MyApp.app</code></p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">codesign</span><span class="w"> </span><span class="nt">-s</span><span class="w"> </span><span class="nx">MyCertificateSubjectName</span><span class="w"> </span><span class="nx">MyApp.app</span><span class="w">
-</span></code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>codesign <span class="nt">-s</span> MyCertificateSubjectName MyApp.app
+</code></pre></div></div>
 
 <blockquote class="panel info">
   <p><strong>Info: Using the right certificate</strong></p>
@@ -301,8 +313,8 @@ open SignPathCryptoTokenKit.app <span class="nt">--args</span> <span class="se">
 
 <p>Sample: sign <code class="language-plaintext highlighter-rouge">MyInstaller.pkg</code></p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">productsign</span><span class="w"> </span><span class="nt">--timestamp</span><span class="w"> </span><span class="nt">--sign</span><span class="w"> </span><span class="s2">"XX6NBJ3UUF"</span><span class="w"> </span><span class="nx">MyInstaller.pkg</span><span class="w"> </span><span class="nx">MyInstaller-signed.pkg</span><span class="w">
-</span></code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>productsign <span class="nt">--timestamp</span> <span class="nt">--sign</span> <span class="s2">"XX6NBJ3UUF"</span> MyInstaller.pkg MyInstaller-signed.pkg
+</code></pre></div></div>
 
 <blockquote class="panel info">
   <p><strong>Info: Using the right certificate</strong></p>

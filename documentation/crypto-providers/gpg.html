@@ -100,7 +100,8 @@
 									</li></ul></li><li class='separator' /><li class=' '>
 							<a href='/documentation/changelog#'>Product updates</a></li></ul>
 			</nav><div class='content'><ul class="article-toc">
-  <li><a href="#overview">Overview</a>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#terminology">Terminology</a>
     <ul>
       <li><a href="#using-gnupg-with-pkcs-11">Using GnuPG with PKCS #11</a></li>
     </ul>
@@ -122,6 +123,10 @@
 
 <p><a href="https://gnupg.org/">GNU Privacy Guard</a>, also known as GPG or GnuPG, is an Open Source implementation of the OpenPGP standard. This section provides information about using GPG with SignPath, as well as some code signing tools that build on GPG.</p>
 
+<h2 id="terminology">Terminology</h2>
+
+<p>GPG uses various terms for certificates. We use the term <strong><em>GPG key</em></strong> in our GPG documentation, but keep in mind that other parts of the SignPath documentation will use the general term <em>certificate</em>. See <a href="/documentation/managing-certificates#certificate-types">Managing Certificates</a> for more information.</p>
+
 <h3 id="using-gnupg-with-pkcs-11">Using GnuPG with PKCS #11</h3>
 
 <p>GnuPG does not directly support the PKCS #11/Cryptoki interface. The <a href="https://github.com/alonbl/gnupg-pkcs11-scd/">gnupg-pkcs11-scd</a> project adds this capability as a daemon for the GnuPG <a href="https://wiki.gnupg.org/SmartCard">“Smartcard”</a> interface.</p>
@@ -139,20 +144,27 @@
 
 <h3 id="configure-gnupg">Configure GPG for signing</h3>
 
-<p>Initialize GPG hash signing using the helper functions of <code class="language-plaintext highlighter-rouge">Samples/Scenarios/SignPathCryptoProviderHelpers.sh</code> of the <a href="/documentation/crypto-providers#linux-docker-samples">Linux samples</a>:</p>
+<p>Initialize GPG hash signing using the helper function <code class="language-plaintext highlighter-rouge">InitializeSignPathCryptoProviderGpgSigning</code> of <code class="language-plaintext highlighter-rouge">Samples/Scenarios/SignPathCryptoProviderHelpers.sh</code> of the <a href="/documentation/crypto-providers#linux-docker-samples">Linux samples</a>.</p>
 
-<ol>
-  <li>Call the <code class="language-plaintext highlighter-rouge">InitializeSignPathCryptoProviderGpgSigning</code> function to configure GPG and fetch the private key references
-    <ul>
-      <li>Configures the <a href="/documentation/crypto-providers#crypto-provider-configuration">SignPath Crypto Provider</a></li>
-      <li>Configures <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd</code> via <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd.conf</code></li>
-      <li>Configures GnuPG (<code class="language-plaintext highlighter-rouge">gpg-agent</code>) to use <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd</code></li>
-    </ul>
-  </li>
-  <li>Import a specific key into the GPG key chain via the <code class="language-plaintext highlighter-rouge">ImportSignPathGpgPublicKey</code> function (returns the GPG key ID for subsequent use in signing commands)</li>
-</ol>
+<p>This function sets up GPG using the specified parameters:</p>
+<ul>
+  <li>Configures the SignPath Crypto Provider</li>
+  <li>Sets GnuPG’s home dir (<code class="language-plaintext highlighter-rouge">GNUPGHOME</code> environment variable) to a temporary directory to isolate GnuPG configuration and key store changes</li>
+  <li>Configures GPG and <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd</code> and fetches the private key reference</li>
+  <li>Downloads the transferable GPG public key</li>
+  <li>Sets the <code class="language-plaintext highlighter-rouge">SIGNPATH_PROJECT_SLUG</code> and <code class="language-plaintext highlighter-rouge">SIGNPATH_SIGNING_POLICY_SLUG</code> environment variables to avoid ambiguities in the PKCS #11/Cryptoki provider (see <a href="index/#crypto-provider-config-values-signingpolicy">Configuration</a>)</li>
+  <li>Imports the GPG key and exposes its key ID via the <code class="language-plaintext highlighter-rouge">GPG_KEY_ID</code> environment variable</li>
+  <li>Installs a Bash EXIT trap which cleans up the isolated GPG configuration</li>
+</ul>
 
-<p>See <a href="/documentation/crypto-providers/#crypto-provider-configuration">SignPath Crypto Providers</a> for additional configuration options.</p>
+<p>{.panel.tip}</p>
+<blockquote>
+  <p><strong>Use $GPG_KEY_ID to reference the public key</strong></p>
+
+  <p>While you can use any key attribute supported by GPG, we recommend using the <code class="language-plaintext highlighter-rouge">GPG_KEY_ID</code> environment variable provided by SignPath. This will make your scripts robust in case you select another Signing Policy or the policy is assigned another GPG key. Example: <code class="language-plaintext highlighter-rouge">gpg --sign -u "$GPG_KEY_ID" ...</code></p>
+</blockquote>
+
+<p>See <a href="/documentation/crypto-providers/#crypto-provider-configuration">SignPath Crypto Providers</a> for additional configuration options including logging.</p>
 
 <h2 id="signing-code-with-gpg">Signing code with GPG</h2>
 
@@ -201,13 +213,15 @@
 
 <p>For <code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd</code>, <code class="language-plaintext highlighter-rouge">stdout</code> console output must be disabled. Use the log files for troubleshooting.</p>
 
-<p>For the <a href="/documentation/crypto-providers#linux-docker-samples">Linux samples</a>, the following log file locations are configured:</p>
+<p>The <a href="/documentation/crypto-providers/gpg#configure-gnupg"><code class="language-plaintext highlighter-rouge">InitializeSignPathCryptoProviderGpgSigning</code> helper function</a> uses the following logging directories:</p>
 
 <ul>
-  <li>SignPath Cryptoki logs: <code class="language-plaintext highlighter-rouge">Samples/Scenarios/Work/Logs/SignPathLogs/*.log</code></li>
-  <li><code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd</code> logs: <code class="language-plaintext highlighter-rouge">Samples/Scenarios/Work/Logs/gnupg-pkcs11-scd.log</code></li>
-  <li>GPG logs: <code class="language-plaintext highlighter-rouge">Samples/Scenarios/Work/Logs/gpg-agent.log</code></li>
+  <li>SignPath Cryptoki logs: <code class="language-plaintext highlighter-rouge">/tmp/SignPathLogs/&lt;timestamp&gt;.log</code></li>
+  <li><code class="language-plaintext highlighter-rouge">gnupg-pkcs11-scd</code> logs: <code class="language-plaintext highlighter-rouge">/tmp/SignPathLogs/gnupg-pkcs11-scd.log</code></li>
+  <li>GPG logs: <code class="language-plaintext highlighter-rouge">/tmp/SignPathLogs/gpg-agent.log</code></li>
 </ul>
+
+<p>When using the <a href="/documentation/crypto-providers#linux-docker-samples">Linux samples</a>, the <code class="language-plaintext highlighter-rouge">/tmp/SignPathLogs</code> is container volume mounted to <code class="language-plaintext highlighter-rouge">Samples/SignPathLogs</code>.</p>
 
 
 				</article>
