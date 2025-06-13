@@ -157,8 +157,7 @@
   <li>Installs a Bash EXIT trap which cleans up the isolated GPG configuration</li>
 </ul>
 
-<p>{.panel.tip}</p>
-<blockquote>
+<blockquote class="panel tip">
   <p><strong>Use $GPG_KEY_ID to reference the public key</strong></p>
 
   <p>While you can use any key attribute supported by GPG, we recommend using the <code class="language-plaintext highlighter-rouge">GPG_KEY_ID</code> environment variable provided by SignPath. This will make your scripts robust in case you select another Signing Policy or the policy is assigned another GPG key. Example: <code class="language-plaintext highlighter-rouge">gpg --sign -u "$GPG_KEY_ID" ...</code></p>
