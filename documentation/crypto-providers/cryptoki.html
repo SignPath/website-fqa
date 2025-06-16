@@ -104,7 +104,6 @@
     <ul>
       <li><a href="#supported-linux-distributions">Supported Linux distributions</a></li>
       <li><a href="#installation">Installation</a></li>
-      <li><a href="#configuration">Configuration</a></li>
       <li><a href="#cryptoki-parameters">Parameters</a></li>
       <li><a href="#error-handling">Error handling</a></li>
       <li><a href="#integration-with-signing-tools">Integration with signing tools</a></li>
@@ -205,10 +204,6 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 
 <p>Check the output of <code class="language-plaintext highlighter-rouge">openssl version</code> on your target system to select the correct OpenSSL version.</p>
 
-<h3 id="configuration">Configuration</h3>
-
-<p>See <a href="/documentation/crypto-providers/#crypto-provider-configuration">SignPath Crypto Providers</a> for general configuration options.</p>
-
 <h3 id="cryptoki-parameters">Parameters</h3>
 
 <p>Signing tools with Cryptoki support usually provide <em>PIN</em> and <em>key ID</em> parameters. These are passed to the respective Cryptoki provider. For SignPath, provide the following values:</p>
@@ -238,9 +233,9 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
 <p>Name and synopsis for these parameters depend on the tool. For tools that support Cryptoki only <a href="#about-cryptoki">indirectly</a>, parameters may also be passed indirectly or using a specific syntax for an existing tool parameter (see below).</p>
 
 <blockquote class="panel info">
-  <p><strong>Use <em>Project</em> and <em>Signing Policy</em> slugs to specify a key</strong></p>
+  <p><strong>Keys are not specified directly</strong></p>
 
-  <p>Identify a specific <em>Signing Policy</em> by specifying <em>Project</em> and <em>Signing Policy</em> slugs. The SignPath Cryptoki CryptoProvider will select that policy’s key or certificate.</p>
+  <p>The Cryptoki API expects you to identify a <em>key</em>, but SignPath requires you to specify a <em>Project</em> and a <em>Signing Policy</em>. SignPath will select the key or certificate of the specified <em>Signing Policy</em>.</p>
 </blockquote>
 
 <h3 id="error-handling">Error handling</h3>
@@ -522,7 +517,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">--pkcs11module</code></td>
-      <td><code class="language-plaintext highlighter-rouge">path/to/libSignPath.Cryptoki.so</code></td>
+      <td><code class="language-plaintext highlighter-rouge">/path/to/libSignPath.Cryptoki.so</code></td>
       <td>Path to the SignPath Cryptoki library</td>
     </tr>
     <tr>
@@ -730,7 +725,7 @@ The issue results in <em>“http_exception occurred (error code= generic:1682964
     <tr>
       <td><em>keystore-alias</em></td>
       <td><code class="language-plaintext highlighter-rouge">$ProjectSlug/$SigningPolicySlug</code></td>
-      <td>SignPath <em>Project</em> and <em>Signing Policy</em> slugs, separated by a forward slash</td>
+      <td><em>Project</em> and <em>Signing Policy</em> slug, separated by a forward slash</td>
     </tr>
   </tbody>
 </table>
