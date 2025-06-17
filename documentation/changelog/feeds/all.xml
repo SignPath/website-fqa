@@ -2,12 +2,44 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/all.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-06-05</updated>
+<updated>2025-06-17</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/all.xml</id><title type="html">SignPath -  Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-06-17:application:1.190.1</id>
+        <title>SignPath Application 1.190.1</title>
+        <updated>2025-06-17</updated>
+        <published>2025-06-17</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-06-17" />
+        <category term="release/application" label="Application" />
+        <summary type="html">New Release:  1.190.1</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.190.1&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Added a dedicated &lt;em&gt;Verificatons&lt;/em&gt; panel on the signing request page to provide a comprehensive overview of all the checks that were performed by SignPath.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
+        <id>tag:about.signpath.io,2025-06-17:self_hosted_installations:1.190.1</id>
+        <title>SignPath Application (self-hosted only) 1.190.1</title>
+        <updated>2025-06-17</updated>
+        <published>2025-06-17</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-06-17" />
+        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
+        <summary type="html">New Release:  1.190.1</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.190.1&lt;/h2&gt;&lt;h3&gt;Breaking Changes / Manual migration steps:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signpath-application&lt;/code&gt; chart: moved &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smtpServerOptions&lt;/code&gt; section from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appSecrets/appSettings.notificationsProcessorService&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appSecrets/appSettings.shared&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Improved general database query performance when using multiple organizations with uneven signing request data distribution.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed Fortanix HSM SignService connections to Fortanix DSM clusters with in-house PKI TLS certificates.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-06-05:application:1.189.0</id>
         <title>SignPath Application 1.189.0</title>
         <updated>2025-06-05</updated>

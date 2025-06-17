@@ -2,12 +2,26 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/application.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-06-05</updated>
+<updated>2025-06-17</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/application.xml</id><title type="html">SignPath - Application Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-06-17:application:1.190.1</id>
+        <title>SignPath Application 1.190.1</title>
+        <updated>2025-06-17</updated>
+        <published>2025-06-17</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-06-17" />
+        <category term="release/application" label="Application" />
+        <summary type="html">New Release:  1.190.1</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.190.1&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Added a dedicated &lt;em&gt;Verificatons&lt;/em&gt; panel on the signing request page to provide a comprehensive overview of all the checks that were performed by SignPath.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-06-05:application:1.189.0</id>
         <title>SignPath Application 1.189.0</title>
         <updated>2025-06-05</updated>
