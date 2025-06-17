@@ -18,7 +18,7 @@
         <content type="html">
           &lt;div&gt;
             &lt;h2&gt;New Release:  1.6.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Fixed a bug where skipped GitHub jobs were considered to violate the allowed runner groups policy.&lt;/p&gt;
+                        &lt;p&gt;Fixed a bug that considered skipped GitHub jobs as violations of the allowed runner groups policy.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
