@@ -104,6 +104,7 @@
     <ul>
       <li><a href="#supported-versions">Supported versions</a></li>
       <li><a href="#installation">Installation</a></li>
+      <li><a href="#configuration">Configuration</a></li>
       <li><a href="#background">Background</a></li>
       <li><a href="#usage">Usage</a></li>
       <li><a href="#troubleshooting">Troubleshooting</a></li>
@@ -125,6 +126,10 @@
 
 <p>Simply copy-deploy the <code class="language-plaintext highlighter-rouge">SignPathCryptoTokenKit.app</code> application to the target system.</p>
 
+<h3 id="configuration">Configuration</h3>
+
+<p>See <a href="/documentation/crypto-providers/#crypto-provider-configuration">SignPath Crypto Providers</a> for general configuration options.</p>
+
 <h3 id="background">Background</h3>
 
 <p>macOS allows CryptoTokenKit extensions to be registered in the system. Through these extensions, key material and certificates can be provided. An extension is only available while the application that provides the extension is running. Therefore, before calling signing tools like <code class="language-plaintext highlighter-rouge">codesign</code>, the <code class="language-plaintext highlighter-rouge">SignPathCryptoTokenKit.app</code> needs to be started.</p>
@@ -138,52 +143,49 @@
     <tr>
       <th>Parameter</th>
       <th>Value</th>
+      <th>Default</th>
       <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">--config</code></td>
-      <td><code class="language-plaintext highlighter-rouge">/path/to/config/file.json</code></td>
-      <td>Path to config file</td>
+      <td><code class="language-plaintext highlighter-rouge">path/to/configfile.json</code></td>
+      <td> </td>
+      <td>Path to SignPath <a href="index#crypto-provider-configuration">configuration file</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">--api-url</code></td>
       <td><code class="language-plaintext highlighter-rouge">$ApiUrl</code></td>
-      <td>The base URL of the SignPath API, e.g. <code class="language-plaintext highlighter-rouge">https://app.signpath.io/Api</code></td>
+      <td><code class="language-plaintext highlighter-rouge">https://app.signpath.io/Api</code></td>
+      <td>Base URL of the SignPath API</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">--project-slug</code></td>
       <td><code class="language-plaintext highlighter-rouge">$ProjectSlug</code></td>
-      <td>If not specified, the certificates from all available projects will be loaded</td>
+      <td> </td>
+      <td>Slug of the SignPath <em>Project</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">--signing-policy-slug</code></td>
       <td><code class="language-plaintext highlighter-rouge">$SigningPolicySlug</code></td>
-      <td>If not specified, the certificates from all available signing policies will be loaded</td>
+      <td> </td>
+      <td>Slug of the SignPath <em>Signing Policy</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">--organization-id</code></td>
       <td><code class="language-plaintext highlighter-rouge">$OrganizationId</code></td>
-      <td>The id of the organization to use</td>
+      <td> </td>
+      <td>ID of the SignPath <em>Organization</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">--api-token</code></td>
       <td><code class="language-plaintext highlighter-rouge">$ApiToken</code></td>
-      <td>The API token for a CI or Interactive User (can be created in the “Users and Groups” UI)</td>
+      <td> </td>
+      <td>API token for a SignPath <em>User</em></td>
     </tr>
   </tbody>
 </table>
-
-<blockquote class="panel info">
-  <p><strong>Keys are not specified directly</strong></p>
-
-  <p>When using a file-based <a href="/documentation/crypto-providers#crypto-provider-configuration">configuration</a>, the macOS CryptoTokenKit Crypto Provider requires the config file to be</p>
-  <ul>
-    <li>named <code class="language-plaintext highlighter-rouge">config.json</code> and placed in the same directory as the <code class="language-plaintext highlighter-rouge">SignPathCryptoTokenKit.app</code> application or</li>
-    <li>its path to be specified via the <code class="language-plaintext highlighter-rouge">--config</code> parameter</li>
-  </ul>
-</blockquote>
 
 <p>Example call starting the application:</p>
 
@@ -193,6 +195,20 @@ open SignPathCryptoTokenKit.app <span class="nt">--args</span> <span class="se">
   <span class="nt">--signing-policy-slug</span> release-signing <span class="se">\</span>
   <span class="nt">--organization-id</span> 0241f767-69c8-448d-ad5e-8bd453916068
 </code></pre></div></div>
+
+<h4 id="usage-project-siging-policy">Project and signing policy</h4>
+
+<p>Identify a specific <em>Signing Policy</em> by specifying <em>Project</em> and <em>Signing Policy</em> slugs. The SignPath CryptoTokenKit provider will select that policy’s certificate.</p>
+
+<p>Default values can be provided as <a href="index#crypto-provider-config-values-project-signingpolicy">configuration values</a>.</p>
+
+<blockquote class="panel tip">
+  <p><strong>Always specify <em>Project</em> and <em>Signing Policy</em> slugs</strong></p>
+
+  <p>When you specify neither, SignPath will load all certificates available for the <em>API Token</em>’s user. When you specify only the <em>Project</em>, SignPath will load the certificates of all available <em>Signing Policies</em> for the specified project.</p>
+
+  <p>This works fine if a certificate clearly identifies a single Signing Policy. However, if a certificate is referenced by more than one available <em>Signing Policy</em>, using it will result in an ambiguous reference error.</p>
+</blockquote>
 
 <h3 id="troubleshooting">Troubleshooting</h3>
 
@@ -257,8 +273,8 @@ open SignPathCryptoTokenKit.app <span class="nt">--args</span> <span class="se">
 
 <p>Sample: sign <code class="language-plaintext highlighter-rouge">MyApp.app</code></p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">codesign</span><span class="w"> </span><span class="nt">-s</span><span class="w"> </span><span class="nx">MyCertificateSubjectName</span><span class="w"> </span><span class="nx">MyApp.app</span><span class="w">
-</span></code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>codesign <span class="nt">-s</span> MyCertificateSubjectName MyApp.app
+</code></pre></div></div>
 
 <blockquote class="panel info">
   <p><strong>Info: Using the right certificate</strong></p>
@@ -291,8 +307,8 @@ open SignPathCryptoTokenKit.app <span class="nt">--args</span> <span class="se">
 
 <p>Sample: sign <code class="language-plaintext highlighter-rouge">MyInstaller.pkg</code></p>
 
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">productsign</span><span class="w"> </span><span class="nt">--timestamp</span><span class="w"> </span><span class="nt">--sign</span><span class="w"> </span><span class="s2">"XX6NBJ3UUF"</span><span class="w"> </span><span class="nx">MyInstaller.pkg</span><span class="w"> </span><span class="nx">MyInstaller-signed.pkg</span><span class="w">
-</span></code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>productsign <span class="nt">--timestamp</span> <span class="nt">--sign</span> <span class="s2">"XX6NBJ3UUF"</span> MyInstaller.pkg MyInstaller-signed.pkg
+</code></pre></div></div>
 
 <blockquote class="panel info">
   <p><strong>Info: Using the right certificate</strong></p>
