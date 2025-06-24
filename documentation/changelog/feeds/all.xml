@@ -53,7 +53,7 @@
         <content type="html">
           &lt;div&gt;
             &lt;h2&gt;New Release:  1.190.1&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Added a dedicated &lt;em&gt;Verificatons&lt;/em&gt; panel on the signing request page to provide a comprehensive overview of all the checks that were performed by SignPath.&lt;/p&gt;
+                        &lt;p&gt;Added a dedicated &lt;em&gt;Verifications&lt;/em&gt; panel on the signing request page to provide a comprehensive overview of all the checks that were performed by SignPath.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>
