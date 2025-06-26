@@ -359,7 +359,7 @@ Description
 
       </td><td>
 
-        <p>Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files.</p>
+        <p>Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files and VSTO add-ins.</p>
       </td></tr><tr><td>
 
         <p><code class="language-plaintext highlighter-rouge">&lt;file&gt;</code></p>
@@ -596,7 +596,7 @@ Description
   <li>Use <a href="#metadata-restrictions">metadata restrictions</a> for <code class="language-plaintext highlighter-rouge">&lt;pe-file&gt;</code> to restrict product name and version.</li>
 </ul>
 
-<h3 id="clickonce-sign"><code class="language-plaintext highlighter-rouge">&lt;clickonce-sign&gt;</code>: Microsoft ClickOnce</h3>
+<h3 id="clickonce-sign"><code class="language-plaintext highlighter-rouge">&lt;clickonce-sign&gt;</code>: Microsoft ClickOnce and VSTO Office add-ins</h3>
 
 <p><strong>Supported elements:</strong></p>
 
@@ -617,10 +617,10 @@ Description
 
       </td><td>
 
-        <p>Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files.</p>
+        <p>Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files and VSTO add-ins.</p>
       </td></tr></tbody>
 </table>
-<p>ClickOnce signing, also called ‘manifest signing’, is a method used for ClickOnce applications and Microsoft Office Add-ins. Using <code class="language-plaintext highlighter-rouge">&lt;clickonce-sign&gt;</code> is equivalent to using Microsoft’s <code class="language-plaintext highlighter-rouge">mage.exe</code>.</p>
+<p>ClickOnce signing, also called ‘manifest signing’, is a method used for ClickOnce applications and Microsoft Office Add-ins created using Visual Studio Tools for Office (VSTO). Using <code class="language-plaintext highlighter-rouge">&lt;clickonce-sign&gt;</code> is equivalent to using Microsoft’s <code class="language-plaintext highlighter-rouge">mage.exe</code>.</p>
 
 <p>ClickOnce signing applies to directories, not to individual files. Therefore, you need to specify a <code class="language-plaintext highlighter-rouge">&lt;directory&gt;</code> element for this method. If you want to sign files in the root directory of a container, specify <code class="language-plaintext highlighter-rouge">path="."</code>.</p>
 
