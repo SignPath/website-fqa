@@ -2,12 +2,33 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/application.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-06-17</updated>
+<updated>2025-07-01</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/application.xml</id><title type="html">SignPath - Application Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-07-01:application:1.191.0</id>
+        <title>SignPath Application 1.191.0</title>
+        <updated>2025-07-01</updated>
+        <published>2025-07-01</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-07-01" />
+        <category term="release/application" label="Application" />
+        <summary type="html">New Release:  1.191.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.191.0&lt;/h2&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;REST API: New signing request submission APIs, which allow to separate metadata submission from artifact upload:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POST /v1/{organizationId}/SigningRequests/SubmitWithoutArtifact&lt;/code&gt; creates a signing request in a “waiting for artifact upload” status.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;POST /v1/{organizationId}/SigningRequests/{id}/UploadUnsignedArtifact&lt;/code&gt; (afterwards) uploads the artifact.&lt;/li&gt;
+  &lt;li&gt;For details see &lt;a href=&quot;https://app.signpath.io/Api/swagger&quot;&gt;API definition&lt;/a&gt; of the new routes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;&lt;li&gt;
+                        &lt;p&gt;Added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;subject&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;author&lt;/code&gt; &lt;a href=&quot;/documentation/artifact-configuration/reference#metadata-restrictions&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;msi-file&amp;gt;&lt;/code&gt; metadata restrictions&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-06-17:application:1.190.1</id>
         <title>SignPath Application 1.190.1</title>
         <updated>2025-06-17</updated>
@@ -683,7 +704,7 @@ Use to ensure that third-party components are properly signed in deep signing co
         <content type="html">
           &lt;div&gt;
             &lt;h2&gt;New Release:  1.157.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;For failed singing requests, the “Retry with current settings” feature was replaced with “&lt;em&gt;Resubmit&lt;/em&gt; with current settings”. This feature creates a new signing request (linking back to the “original singing request”) instead of retrying the same signing request.&lt;/p&gt;
+                        &lt;p&gt;For failed signing requests, the “Retry with current settings” feature was replaced with “&lt;em&gt;Resubmit&lt;/em&gt; with current settings”. This feature creates a new signing request (linking back to the “original signing request”) instead of retrying the same signing request.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;Stricter validation of email address input.&lt;/p&gt;
 &lt;/li&gt;&lt;li&gt;

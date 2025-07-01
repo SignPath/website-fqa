@@ -2,12 +2,26 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-06-17</updated>
+<updated>2025-07-01</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/self_hosted_installations.xml</id><title type="html">SignPath - Application (self-hosted only) Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-07-01:self_hosted_installations:1.191.0</id>
+        <title>SignPath Application (self-hosted only) 1.191.0</title>
+        <updated>2025-07-01</updated>
+        <published>2025-07-01</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-07-01" />
+        <category term="release/self_hosted_installations" label="Application (self-hosted only)" />
+        <summary type="html">New Release:  1.191.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.191.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Improved performance for the signing policy-filtered signing request list as well as the “waiting for your approval” list on the dashboard UI.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-06-17:self_hosted_installations:1.190.1</id>
         <title>SignPath Application (self-hosted only) 1.190.1</title>
         <updated>2025-06-17</updated>

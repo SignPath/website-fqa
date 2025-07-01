@@ -354,7 +354,7 @@
 &lt;/li&gt;&lt;li&gt;
                         &lt;p&gt;The console logging was disabled by default (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SIGNPATH_LOG_CONSOLE_LEVEL=none&lt;/code&gt;).&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;New Features:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
-                        &lt;p&gt;Cryptoki: Added compatibility with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gnupg-pkcs11-scd&lt;/code&gt; to support GnuPG PGP singing.&lt;/p&gt;
+                        &lt;p&gt;Cryptoki: Added compatibility with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gnupg-pkcs11-scd&lt;/code&gt; to support GnuPG PGP signing.&lt;/p&gt;
 &lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         </content>
       </entry><entry>

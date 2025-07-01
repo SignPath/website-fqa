@@ -111,7 +111,7 @@
   </li>
   <li><a href="#metadata-restrictions">Metadata restrictions</a>
     <ul>
-      <li><a href="#pe-restriction">PE file metadata restriction</a></li>
+      <li><a href="#msi-and-pe-restriction">MSI and PE file metadata restriction</a></li>
       <li><a href="#sbom-restriction">XML file schema restriction for CycloneDX SBOM</a></li>
     </ul>
   </li>
@@ -256,13 +256,13 @@
 
 <h2 id="metadata-restrictions">Metadata restrictions</h2>
 
-<h3 id="pe-restriction">PE file metadata restriction</h3>
+<h3 id="msi-and-pe-restriction">MSI and PE file metadata restriction</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;parameters&gt;</span>
     <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">"version"</span> <span class="na">required=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
   <span class="nt">&lt;/parameters&gt;</span>
-  <span class="nt">&lt;msi-file&gt;</span>
+  <span class="nt">&lt;msi-file</span> <span class="na">subject=</span><span class="s">"MyProduct"</span> <span class="na">author=</span><span class="s">"ACME Inc."</span><span class="nt">&gt;</span>
     <span class="c">&lt;!-- requires all pe-files to have the respective attributes set --&gt;</span>
     <span class="nt">&lt;pe-file-set</span> <span class="na">product-name=</span><span class="s">"MyProduct"</span> <span class="na">product-version=</span><span class="s">"${version}"</span> <span class="na">file-version=</span><span class="s">"${version}"</span>
                  <span class="na">company-name=</span><span class="s">"ACME Inc."</span> <span class="na">copyright=</span><span class="s">"Copyright ACME Inc."</span> <span class="na">original-filename=</span><span class="s">"${file.name}"</span><span class="nt">&gt;</span>
