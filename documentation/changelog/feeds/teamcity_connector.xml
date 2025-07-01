@@ -2,12 +2,26 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/teamcity_connector.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-05-22</updated>
+<updated>2025-07-07</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/teamcity_connector.xml</id><title type="html">SignPath - TeamCity Connector Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-07-07:teamcity_connector:0.4.0</id>
+        <title>SignPath TeamCity Connector 0.4.0</title>
+        <updated>2025-07-07</updated>
+        <published>2025-07-07</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-07-07" />
+        <category term="release/teamcity_connector" label="TeamCity Connector" />
+        <summary type="html">New Release:  0.4.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  0.4.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed a bug that prevented the use of API tokens of interactive users.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-05-22:teamcity_connector:0.2.0</id>
         <title>SignPath TeamCity Connector 0.2.0</title>
         <updated>2025-05-22</updated>
