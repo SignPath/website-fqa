@@ -8,6 +8,20 @@
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-07-08:jenkins_plugin:3.2.0</id>
+        <title>SignPath Jenkins Plugin 3.2.0</title>
+        <updated>2025-07-08</updated>
+        <published>2025-07-08</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-07-08" />
+        <category term="release/jenkins_plugin" label="Jenkins Plugin" />
+        <summary type="html">New Release:  3.2.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  3.2.0&lt;/h2&gt;&lt;h3&gt;Improvements:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Improved the performance and logging.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-07-08:azure_devops_connector:0.4.0</id>
         <title>SignPath Azure DevOps Connector 0.4.0</title>
         <updated>2025-07-08</updated>
