@@ -2,12 +2,26 @@
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feeds/github_connector.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>2025-06-19</updated>
+<updated>2025-07-08</updated>
 <id>https://about.signpath.io/documentation/changelog/feeds/github_connector.xml</id><title type="html">SignPath - GitHub Connector Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
 </author><entry>
+        <id>tag:about.signpath.io,2025-07-08:github_connector:1.7.0</id>
+        <title>SignPath GitHub Connector 1.7.0</title>
+        <updated>2025-07-08</updated>
+        <published>2025-07-08</published>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#2025-07-08" />
+        <category term="release/github_connector" label="GitHub Connector" />
+        <summary type="html">New Release:  1.7.0</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release:  1.7.0&lt;/h2&gt;&lt;h3&gt;Bug Fixes:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;
+                        &lt;p&gt;Fixed a bug that prevented the use of API tokens of interactive users.&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        </content>
+      </entry><entry>
         <id>tag:about.signpath.io,2025-06-19:github_connector:1.6.0</id>
         <title>SignPath GitHub Connector 1.6.0</title>
         <updated>2025-06-19</updated>
