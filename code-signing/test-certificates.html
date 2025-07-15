@@ -92,9 +92,9 @@
       <li><a href="#manual-installation">Manual installation</a></li>
       <li><a href="#scripts">Using scripts and batch files</a></li>
       <li><a href="#gpo">GPO auto-enrollment</a></li>
-      <li><a href="#trusted-publishers">Trusted publishers</a></li>
     </ul>
   </li>
+  <li><a href="#trusted-publishers">Trusted publishers</a></li>
 </ul>
 <article>
 					<h2 id="overview">Overview</h2>
@@ -172,7 +172,7 @@
   <li>In order to explicitly un-trust a certificate, create a GPO for <code class="language-plaintext highlighter-rouge">Untrusted Certificates</code></li>
 </ul>
 
-<h3 id="trusted-publishers">Trusted publishers</h3>
+<h2 id="trusted-publishers">Trusted publishers</h2>
 
 <p>For some use cases, the certificate must also be registered as a <em>Trusted Publisher</em> in addition to basic PKI trust:</p>
 
@@ -184,6 +184,15 @@
   <li>legacy ActiveX controls</li>
   <li>some device drivers</li>
 </ul>
+
+<p>{.panel.warning}</p>
+<blockquote>
+  <p>** Never rely on <em>Trusted Publishers</em> alone for restricting certificate scope</p>
+
+  <p>You can use <em>Trusted Publishers</em> to fine-tune permissions for the use cases listed above. However, be aware that other signing schemes including Windows executables do <em>not</em> require the certificate to be in <em>Trusted Publishers</em>.</p>
+
+  <p>SignPath allows you to control file access to certificates based on file types. E.g. if you allow a SignPath user to use a SignPath <em>Project</em> with a PowerShell <em>Artifact Configuration</em>, they will not be able to use that certificate to sign Windows executables.</p>
+</blockquote>
 
 <p>The certificate is often presented in a user prompt (depending on user permissions):</p>
 
