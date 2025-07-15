@@ -90,8 +90,9 @@
   <li><a href="#installing-certificates">Installing certificates</a>
     <ul>
       <li><a href="#manual-installation">Manual installation</a></li>
-      <li><a href="#using-scripts-and-batch-files">Using scripts and batch files</a></li>
-      <li><a href="#auto-enrollment">Auto-enrollment</a></li>
+      <li><a href="#scripts">Using scripts and batch files</a></li>
+      <li><a href="#gpo">GPO auto-enrollment</a></li>
+      <li><a href="#trusted-publishers">Trusted publishers</a></li>
     </ul>
   </li>
 </ul>
@@ -147,7 +148,7 @@
   <li>Select the <em>Trusted Root Certification Authorities</em> store</li>
 </ol>
 
-<h3 id="using-scripts-and-batch-files">Using scripts and batch files</h3>
+<h3 id="scripts">Using scripts and batch files</h3>
 
 <ul>
   <li>In PowerShell scripts, use
@@ -162,25 +163,41 @@
 
 <p>These commands require administrative permissions.</p>
 
-<h3 id="auto-enrollment">Auto-enrollment</h3>
+<h3 id="gpo">GPO auto-enrollment</h3>
 
-<p>Use Group Policy Objects (GPOs) to add certificates to computers.</p>
+<p>Use Group Policy Objects (GPOs) to add certificates to computers. The following GPOs are available in <code class="language-plaintext highlighter-rouge">Windows Settings</code> › <code class="language-plaintext highlighter-rouge">Security Settings</code> › <code class="language-plaintext highlighter-rouge">Public Key Policies</code></p>
 
 <ul>
-  <li>In order to trust a certificate, create a GPO for
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">Windows Settings</code></li>
-      <li><code class="language-plaintext highlighter-rouge">Security Settings</code></li>
-      <li><code class="language-plaintext highlighter-rouge">Public Key Policies/Trusted Root Certification Authorities</code></li>
-    </ul>
-  </li>
-  <li>In order to explicitly un-trust a certificate, create a GPO for
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">Windows Settings</code></li>
-      <li><code class="language-plaintext highlighter-rouge">Security Settings</code></li>
-      <li><code class="language-plaintext highlighter-rouge">Public Key Policies/Untrusted Certificates</code></li>
-    </ul>
-  </li>
+  <li>To trust a certificate, create a GPO for <code class="language-plaintext highlighter-rouge">Trusted Root Certification Authorities</code></li>
+  <li>In order to explicitly un-trust a certificate, create a GPO for <code class="language-plaintext highlighter-rouge">Untrusted Certificates</code></li>
+</ul>
+
+<h3 id="trusted-publishers">Trusted publishers</h3>
+
+<p>For some use cases, the certificate must also be registered as a <em>Trusted Publisher</em> in addition to basic PKI trust:</p>
+
+<ul>
+  <li>PowerShell scripts</li>
+  <li>Microsoft Office macros</li>
+  <li>ClickOnce applications</li>
+  <li>some GPO-driven MSI installation scenarios</li>
+  <li>legacy ActiveX controls</li>
+  <li>some device drivers</li>
+</ul>
+
+<p>The certificate is often presented in a user prompt (depending on user permissions):</p>
+
+<ul>
+  <li><em>Trust once</em> will enable execution once</li>
+  <li><em>Always trust</em> will add the certificate to <em>Trusted Publishers</em></li>
+</ul>
+
+<p>You can also pre-load the certificate to <em>Trusted Publishers</em> using the methods described above:</p>
+
+<ul>
+  <li>PowerShell <a href="#scripts">scripts</a>: <code class="language-plaintext highlighter-rouge">-CertStoreLocation Cert:\LocalMachine\TrustedPublisher</code></li>
+  <li>Batch files: <code class="language-plaintext highlighter-rouge">-addstore TrustedPublisher</code></li>
+  <li><a href="#gpo">GPOs</a>: <code class="language-plaintext highlighter-rouge">Windows Settings</code> › <code class="language-plaintext highlighter-rouge">Security Settings</code> › <code class="language-plaintext highlighter-rouge">Public Key Policies</code> › <code class="language-plaintext highlighter-rouge">Trusted Publishers</code></li>
 </ul>
 
 				</article>
