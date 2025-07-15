@@ -186,11 +186,11 @@
 </ul>
 
 <blockquote class="panel warning">
-  <p>** Never rely on <em>Trusted Publishers</em> alone for restricting certificate scope</p>
+  <p><strong>Don’t rely solely on <em>Trusted Publishers</em> for restricting certificate scope</strong></p>
 
   <p>You can use <em>Trusted Publishers</em> to fine-tune permissions for the use cases listed above. However, be aware that other signing schemes including Windows executables do <em>not</em> require the certificate to be in <em>Trusted Publishers</em>.</p>
 
-  <p>SignPath allows you to control file access to certificates based on file types. E.g. if you allow a SignPath user to use a SignPath <em>Project</em> with a PowerShell <em>Artifact Configuration</em>, they will not be able to use that certificate to sign Windows executables.</p>
+  <p>SignPath allows you to control file access to certificates based on file types. For instance, if you a SignPath user is <em>Submitter</em> for a SignPath <em>Project</em> with a PowerShell <em>Artifact Configuration</em>, they will not be able to use that certificate to sign Windows executables too.</p>
 </blockquote>
 
 <p>The certificate is often presented in a user prompt (depending on user permissions):</p>
