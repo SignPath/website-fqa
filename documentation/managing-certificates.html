@@ -119,7 +119,7 @@
   <li><strong>Self-signed X.509 certificates</strong> are not signed by any certificate authority and therefore not trusted. You can use them for testing your release process.</li>
   <li><strong>X.509 certificate signing requests (CSRs)</strong> can be created using SignPath. You can use the CSR to purchase a certificate from a trusted certificate authority (CA). By creating a CSR, you ensure that the private key is created directly on our hardware security module (HSM) and cannot be compromised. This is the recommended way for securing your code signing process. Once issued, you can <a href="#ca-issued-x509-certificates">upload the certificate</a> to SignPath.</li>
   <li><strong>PFX-imported X.509 certificates</strong>: If you already own a certificate, you can simply upload it. However, as your private key may have already been exposed, we recommend to use PFX imports only as a temporary solution. (Only available for RSA keys.)</li>
-  <li><strong>GPG keys</strong> are certificates based on the OpenPGP standard, also known as GPG or GnuPG. They can be used to sign arbitrary files using GPG detached signature file. It is also the foundation of many Linux and Open Source signing formats including RPM and Debian package signing.</li>
+  <li><strong>GPG keys</strong> are certificates based on the OpenPGP standard, usually referred to as GPG or GnuPG. They can be used to sign arbitrary files using <a href="/documentation/artifact-configuration/reference#create-gpg-signature">GPG detached signatures</a> or using our <a href="/documentation/crypto-providers/gpg">crypto providers</a>. GPG is also the foundation of many Linux and Open Source signing formats including RPM and Debian package signing.</li>
 </ul>
 
 <blockquote class="panel info">

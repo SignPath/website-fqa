@@ -377,7 +377,7 @@ Description
         <p>*</p>
       </td><td>
 
-        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS</a>, <a href="#create-gpg-signature">GPG</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
+        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS/PKCS #7</a>, <a href="#create-gpg-signature">GPG/OpenPGP</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
       </td></tr></tbody>
 </table>
 
@@ -940,10 +940,10 @@ Description
         <p>*</p>
       </td><td>
 
-        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS</a>, <a href="#create-gpg-signature">GPG</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
+        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS/PKCS #7</a>, <a href="#create-gpg-signature">GPG/OpenPGP</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
       </td></tr></tbody>
 </table>
-<p>Create Cryptographic Message Syntax (CMS) signatures to sign any file with a X.509 certificates. Tools like <code class="language-plaintext highlighter-rouge">openssl cms</code> can be used to verify these signatures.</p>
+<p>Create <a href="https://datatracker.ietf.org/doc/html/rfc5652"><em>Cryptographic Message Syntax</em> (CMS)</a> signatures to sign any file with a X.509 certificates. Tools like <code class="language-plaintext highlighter-rouge">openssl cms</code> can be used to verify these signatures. (Note that CMS is often referred to as PKCS #7, which is technically the name of the standard preceding CMS.)</p>
 
 <blockquote class="panel note">
   <p><strong>This directive creates a detached signature file</strong></p>
@@ -1044,10 +1044,18 @@ Description
         <p>*</p>
       </td><td>
 
-        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS</a>, <a href="#create-gpg-signature">GPG</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
+        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS/PKCS #7</a>, <a href="#create-gpg-signature">GPG/OpenPGP</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
       </td></tr></tbody>
 </table>
-<p>Create detached GPG signatures to sign any file with a GPG key.</p>
+<p>Create detached GPG signatures to sign any file with a GPG key</p>
+
+<blockquote class="panel info">
+  <p><strong>Naming: GPG and OpenPGP, keys and certificates</strong></p>
+
+  <p>While OpenPGP would be technically correct term for these key and signature types, the standard is usually referred to via its de-facto standard implementation, <em>GNU Privacy Guard</em> (GPG or GnuPG). The first implementation was <em>Pretty Good Privacy</em> (PGP), and the format was ultimately standardized as OpenPGP, but the term GPG is commonly used to refer to the key and signature formats too.</p>
+
+  <p>GPG uses various terms for certificates, including <em>public key</em>, or more correctly, <em>transferable public key</em>. To avoid confusion with the public key of a asymmetric key pair, and for consistency within our documentation, we use the term certificate. See <a href="/documentation/managing-certificates#certificate-types">Managing Certificates</a> for more information.</p>
+</blockquote>
 
 <blockquote class="panel note">
   <p><strong>Detached signature files and GPG key reference</strong></p>
@@ -1145,7 +1153,7 @@ Description
         <p>*</p>
       </td><td>
 
-        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS</a>, <a href="#create-gpg-signature">GPG</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
+        <p>Arbitrary files. Create detached <a href="#create-cms-signature">CMS/PKCS #7</a>, <a href="#create-gpg-signature">GPG/OpenPGP</a> or <a href="#create-raw-signature">raw</a> signatures (available for Advanced Code Signing).</p>
       </td></tr></tbody>
 </table>
 <p>Create raw signatures for any binary or text file. A raw signature is the output of the key algorithm, or cipher (e.g. RSA, ECDSA), without any additional data.</p>
