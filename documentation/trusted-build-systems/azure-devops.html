@@ -18,7 +18,7 @@
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
   <link rel="stylesheet" href="/assets/css/index.css?cache=2025-05-15">
-  <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
+  <link rel="alternate" type="application/atom+xml" title="SignPath Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2024-12-18'></script>
   <script src='/assets/js/main-bundle.js?cache=2025-03-06'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
   <link rel="icon" href="/assets/favicon.png" sizes="192x192">
@@ -85,15 +85,15 @@
 							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=' '>
 							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=' current-group'>
 							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a><ul><li class=''>
-										<a href='/documentation/trusted-build-systems/appveyor'>AppVeyor</a>
-									</li><li class='active'>
-										<a href='/documentation/trusted-build-systems/azure-devops'>Azure DevOps</a>
-									</li><li class=''>
 										<a href='/documentation/trusted-build-systems/jenkins'>Jenkins</a>
 									</li><li class=''>
 										<a href='/documentation/trusted-build-systems/github'>GitHub</a>
+									</li><li class='active'>
+										<a href='/documentation/trusted-build-systems/azure-devops'>Azure DevOps</a>
 									</li><li class=''>
 										<a href='/documentation/trusted-build-systems/teamcity'>TeamCity</a>
+									</li><li class=''>
+										<a href='/documentation/trusted-build-systems/appveyor'>AppVeyor</a>
 									</li><li class=''>
 										<a href='/documentation/trusted-build-systems/double-authentication-proxy'>Double Authentication Proxy</a>
 									</li></ul></li><li class=' '>
@@ -115,7 +115,7 @@
 					<h2 id="prerequisites">Prerequisites</h2>
 
 <ul>
-  <li>On SignPath.io: <a href="/documentation/trusted-build-systems#configuration">Use the predefined Trusted Build System</a> <em>Azure DevOps (dev.azure.com)</em>.</li>
+  <li>In SignPath: <a href="/documentation/trusted-build-systems#configuration">Use the predefined Trusted Build System</a> <em>Azure DevOps (dev.azure.com)</em>.</li>
   <li>Create an artifact configuration with the following format:
     <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
   <span class="nt">&lt;artifact-configuration</span> <span class="na">xmlns=</span><span class="s">"http://signpath.io/artifact-configuration/v1"</span><span class="nt">&gt;</span>

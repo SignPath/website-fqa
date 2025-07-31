@@ -18,7 +18,7 @@
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
   <link rel="stylesheet" href="/assets/css/index.css?cache=2025-05-15">
-  <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
+  <link rel="alternate" type="application/atom+xml" title="SignPath Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2024-12-18'></script>
   <script src='/assets/js/main-bundle.js?cache=2025-03-06'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
   <link rel="icon" href="/assets/favicon.png" sizes="192x192">
@@ -84,16 +84,16 @@
 							<a href='/documentation/signing-containers#'>Signing Container Images</a></li><li class='separator' /><li class=' '>
 							<a href='/documentation/artifact-configuration#'>Artifact Configuration</a></li><li class=' '>
 							<a href='/documentation/build-system-integration#'>Build System Integration</a></li><li class=' current-group'>
-							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a><ul><li class='active'>
-										<a href='/documentation/trusted-build-systems/appveyor'>AppVeyor</a>
-									</li><li class=''>
-										<a href='/documentation/trusted-build-systems/azure-devops'>Azure DevOps</a>
-									</li><li class=''>
+							<a href='/documentation/trusted-build-systems#'>Trusted Build Systems</a><ul><li class=''>
 										<a href='/documentation/trusted-build-systems/jenkins'>Jenkins</a>
 									</li><li class=''>
 										<a href='/documentation/trusted-build-systems/github'>GitHub</a>
 									</li><li class=''>
+										<a href='/documentation/trusted-build-systems/azure-devops'>Azure DevOps</a>
+									</li><li class=''>
 										<a href='/documentation/trusted-build-systems/teamcity'>TeamCity</a>
+									</li><li class='active'>
+										<a href='/documentation/trusted-build-systems/appveyor'>AppVeyor</a>
 									</li><li class=''>
 										<a href='/documentation/trusted-build-systems/double-authentication-proxy'>Double Authentication Proxy</a>
 									</li></ul></li><li class=' '>
@@ -127,7 +127,7 @@
 
 <ul>
   <li>No additional scripts may be executed during the build step and no cache entries may be used (so that the build remains fully traceable and is only built from the repository). The scripts must be all set to off at the bottom of the project settings page on AppVeyor.</li>
-  <li>The build settings may not be modified between starting the AppVeyor build and calling SignPath.io</li>
+  <li>The build settings may not be modified between starting the AppVeyor build and calling SignPath</li>
   <li>The build configuration must be stored in the root directory under the name <code class="language-plaintext highlighter-rouge">appveyor.yml</code> or <code class="language-plaintext highlighter-rouge">.appveyor.yml</code> (no custom name is allowed to be set under <em>Project settings</em> and <em>Custom configuration .yml file name</em>)</li>
   <li>For Open Source subscriptions, the AppVeyor project and the Git repository must be public.</li>
 </ul>
@@ -143,7 +143,7 @@
 </blockquote>
 
 <h2 id="setup">Setup</h2>
-<p>This figure shows the secrets that must be shared between AppVeyor.com and SignPath.io:
+<p>This figure shows the secrets that must be shared between AppVeyor.com and SignPath:
 <img src="/assets/img/resources/documentation/build-integration_appveyor.png" alt="AppVeyor Setup flow" /></p>
 
 <table>
@@ -184,7 +184,7 @@ Remarks
 
       </td><td>
 
-        <p>SignPath.io must authenticate against Appveyor to retrieve the build artifacts</p>
+        <p>SignPath must authenticate against Appveyor to retrieve the build artifacts</p>
       </td></tr><tr><td>
 
         <p>Encrypt the SignPath API token in AppVeyor</p>

@@ -18,7 +18,7 @@
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
   <link rel="stylesheet" href="/assets/css/index.css?cache=2025-05-15">
-  <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
+  <link rel="alternate" type="application/atom+xml" title="SignPath Blog" href="/feed.xml">
   <script src='/assets/index.js?cache=2024-12-18'></script>
   <script src='/assets/js/main-bundle.js?cache=2025-03-06'></script><link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
   <link rel="icon" href="/assets/favicon.png" sizes="192x192">
@@ -89,7 +89,7 @@
 <article>
 					<p>The <a href="https://pkic.org/">PKI Consortium</a> (PKIC, formerly known as CA Security Council) is a consortium of several <a href="https://en.wikipedia.org/wiki/Public_key_infrastructure">PKI</a>-related organizations. One of its goals is to advance code signing practices in the industry. The PKI Consortium has released a <a href="https://pkic.org/uploads/2016/12/CASC-Code-Signing.pdf">white paper</a> that contains several best practices for code signing.</p>
 
-<p>This is good and valuable advice, and SignPath.io supports these recommendations. However, it can be quite difficult and expensive to set up and repeatedly execute a code signing process that meets these criteria. If you use SignPath, it will take care of these recommendations for you. (SignPath organization administrators will be able to opt out of some security practices.)</p>
+<p>This is good and valuable advice, and SignPath supports these recommendations. However, it can be quite difficult and expensive to set up and repeatedly execute a code signing process that meets these criteria. If you use SignPath, it will take care of these recommendations for you. (SignPath organization administrators will be able to opt out of some security practices.)</p>
 
 <p>This page outlines how SignPath ensures that these recommendations are fulfilled.</p>
 
@@ -156,17 +156,17 @@
     <tr>
       <td>Allow minimal connections to computers with keys</td>
       <td><strong>Automatic</strong></td>
-      <td>No computers (including SignPath.io servers) can read HSM-based keys. Authorized build agents are authenticated before submitting signing requests.</td>
+      <td>No computers (including SignPath servers) can read HSM-based keys. Authorized build agents are authenticated before submitting signing requests.</td>
     </tr>
     <tr>
       <td>Minimize the number of users who have key access</td>
       <td><strong>Automatic</strong></td>
-      <td>No users (including SignPath.io administrators) can read HSM-based keys. Authorized users are authenticated before submitting signing requests.</td>
+      <td>No users (including SignPath administrators) can read HSM-based keys. Authorized users are authenticated before submitting signing requests.</td>
     </tr>
     <tr>
       <td>Use physical security controls to reduce access to keys</td>
       <td><strong>Automatic</strong></td>
-      <td>Access to HSMs is restricted to dedicated SignPath.io servers that execute fully authorized signing requests.</td>
+      <td>Access to HSMs is restricted to dedicated SignPath servers that execute fully authorized signing requests.</td>
     </tr>
   </tbody>
 </table>
@@ -196,7 +196,7 @@
     <tr>
       <td>Use a FIPS 140 Level 2-certified product (or better)</td>
       <td><strong>Automatic</strong></td>
-      <td>SignPath.io uses SafeNet Luna Network HSMs [validated][luna fips] for FIPS 140-1 and FIPS 140-2 Level 3, and certified for Common Criteria (ISO/IEC15408).</td>
+      <td>SignPath uses SafeNet Luna Network HSMs [validated][luna fips] for FIPS 140-1 and FIPS 140-2 Level 3, and certified for Common Criteria (ISO/IEC15408).</td>
     </tr>
     <tr>
       <td>Use an EV code signing certificate which requires the private key to be generated and stored in hardware</td>
@@ -263,7 +263,7 @@
     <tr>
       <td>Establish a separate test code signing infrastructure to test-sign pre-release builds of software</td>
       <td><strong>Guidance</strong></td>
-      <td>SignPath.io allows you to use dedicated credentials and build agents for each signing policy. We recommend to share the essential build configuration in order to avoid confusion and configuration errors.</td>
+      <td>SignPath allows you to use dedicated credentials and build agents for each signing policy. We recommend to share the essential build configuration in order to avoid confusion and configuration errors.</td>
     </tr>
   </tbody>
 </table>

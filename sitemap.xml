@@ -2,7 +2,7 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://about.fqa.test.signpath.io/status</loc>
-    <lastmod>2025-05-26T13:07:49+00:00</lastmod>
+    <lastmod>2025-07-23T10:30:13+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/newsletter</loc>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/build-system-integration</loc>
-    <lastmod>2025-06-16T13:09:57+00:00</lastmod>
+    <lastmod>2025-07-23T10:30:13+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/users</loc>
@@ -82,11 +82,11 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems</loc>
-    <lastmod>2025-05-08T10:35:24+00:00</lastmod>
+    <lastmod>2025-07-31T17:26:30+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems/appveyor</loc>
-    <lastmod>2024-12-19T14:13:53+00:00</lastmod>
+    <lastmod>2025-07-23T10:30:13+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems/jenkins</loc>
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/trusted-build-systems/azure-devops</loc>
-    <lastmod>2025-03-31T17:10:54+00:00</lastmod>
+    <lastmod>2025-07-23T10:30:13+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/changelog</loc>
@@ -158,11 +158,11 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/powershell/Get-SignedArtifact</loc>
-    <lastmod>2025-07-23T10:16:14+00:00</lastmod>
+    <lastmod>2025-07-23T10:30:13+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/powershell/Submit-SigningRequest</loc>
-    <lastmod>2025-06-27T11:58:43+00:00</lastmod>
+    <lastmod>2025-07-23T10:30:13+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/documentation/powershell/Get-CertificateByMicrosoftTemplateId</loc>
@@ -190,7 +190,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/product/pkic-best-practices</loc>
-    <lastmod>2024-12-19T14:13:53+00:00</lastmod>
+    <lastmod>2025-07-23T10:30:13+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/product/editions-explained</loc>
@@ -206,7 +206,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/code-signing/windows-platform</loc>
-    <lastmod>2025-07-23T10:16:14+00:00</lastmod>
+    <lastmod>2025-07-23T10:30:13+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/code-signing/theory</loc>
@@ -230,7 +230,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/product/devops</loc>
-    <lastmod>2025-07-23T10:16:14+00:00</lastmod>
+    <lastmod>2025-07-31T17:26:30+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/product/pricing</loc>
@@ -250,7 +250,7 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/product/open-source</loc>
-    <lastmod>2025-05-15T08:35:03+00:00</lastmod>
+    <lastmod>2025-07-23T10:30:13+00:00</lastmod>
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog</loc>
@@ -298,6 +298,6 @@
   </url>
   <url>
     <loc>https://about.fqa.test.signpath.io/blog/2024/11/29/building-trusted-software-for-macos</loc>
-    <lastmod>2025-01-20T11:00:51+00:00</lastmod>
+    <lastmod>2025-07-23T10:30:13+00:00</lastmod>
   </url>
 </urlset>
